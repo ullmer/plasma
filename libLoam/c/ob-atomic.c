@@ -26,6 +26,10 @@
 #include "libLoam/c/ob-atomic.h"
 #include "libLoam/c/ob-pthread.h"
 
+#if defined(__powerpc__) && !defined(__powerpc64__)
+#include <atomic_ops.h>
+#endif
+
 #if defined(__APPLE__)
 #include "libkern/OSAtomic.h"
 #endif
@@ -169,6 +173,11 @@ int64 ob_atomic_int64_ref (const int64 *loc)
     /* : no clobber */);
   // clang-format on
   return result;
+
+#elif defined(__powerpc__) && !defined(__powerpc64__)
+  // Use libatomic_ops for 64-bit atomic read
+  return AO_load_acquire_read((volatile AO_t *)loc);
+
 #else
   int64 *castaway = (int64 *) loc;
   return val64_compare_and_swap (castaway, 0, 0);
