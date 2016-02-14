@@ -175,8 +175,8 @@ int64 ob_atomic_int64_ref (const int64 *loc)
   return result;
 
 #elif defined(__powerpc__) && !defined(__powerpc64__)
-  // Use libatomic_ops for 64-bit atomic read
-  return AO_load_acquire_read((volatile AO_t *)loc);
+  // Use libatomic_ops for 64-bit atomic read
+  return AO_load_acquire_read((volatile AO_t *)loc);
 
 #else
   int64 *castaway = (int64 *) loc;
@@ -211,6 +211,11 @@ void ob_atomic_int64_set (int64 *loc, int64 shall_be)
       // clang-format on
     }
   while (status);
+
+#elif defined(__powerpc__) && !defined(__powerpc64__)
+  // Use libatomic_ops to store 64-bit value atomically
+  AO_store_release_write((volatile AO_t *)loc, (AO_t)shall_be);
+
 #else
   /* So, here's the thing.  The only way we have to atomically write a
    * 64-bit integer is with the __sync_val_compare_and_swap instrinsic
@@ -283,6 +288,12 @@ bool ob_atomic_int64_compare_and_swap (int64 *loc, int64 was, int64 shall_be)
     }
   while (result);
   return !result; /* if succeded, return 1 else 0 */
+
+
+elif defined(__powerpc__) && !defined(__powerpc64__)
+  // Use libatomic_ops for 64-bit CAS
+  return AO_compare_and_swap_full((volatile AO_t *)loc, (AO_t)was, (AO_t)shall_be);
+
 #else
   return __sync_bool_compare_and_swap (loc, was, shall_be);
 #endif
