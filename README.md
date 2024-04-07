@@ -1,7 +1,9 @@
 # Plasma
 
-Plasma is an open-source system for platform- and language-independent data
-encapsulation and transmission.
+Plasma is a system for platform- and language-independent data
+encapsulation and distributed, multipoint transmission. Its principal
+implementations are in C and C++, though 'bindings' exist for (at
+least) Java, Python, Javascript, Clojure (sort of), and Guile (mm!).
 
 Arbitrarily complex -- in the senses of aggregation and nesting -- data
 structures are represented by objects called 'Slawx' (the plural of 'Slaw')
@@ -25,13 +27,13 @@ context.
 
 The Plasma framework embodies a philosophy of system design that appeals to an
 endocrinology (rather than telegraphy) metaphor. The name 'Plasma' accordingly
-refers not to the superheated, ionized stellar substance but rather to the
-liquid medium by which biological organisms' messaging molecules are
+refers not to the superheated & ionized intrastellar substance but rather to
+the liquid medium by which biological organisms' messaging molecules are
 transported and diffused.
 
 # building the thing
 
-Building Plasma requires:
+Building Plasma requires
 
 - ninja
 - cmake
@@ -42,7 +44,8 @@ Building Plasma requires:
 
 Use your package manager (brew, apt, yum, zypper, etc) to install them.
 
-To build on linux/intel mac, assuming you're in the same directory as this README:
+To build on linux/intel mac, assuming you're in the same directory as
+this README:
 
 - `mkdir build`
 - `cd build`
@@ -60,3 +63,18 @@ Building on arm macs is a bit more complicated:
 - `cmake -GNinja ..`
 - `ninja`
 
+... aaaaaand it gets even worse, with versions of OSX (yeah, that's
+what this sentence calls it) at 13.6 or later, or with the M2 chip, or
+both, or something. Anyway, somewhere along the way homebrew starts
+putting `yaml` in a different place, requiring the further
+enbloatening of the compile (but not link) environment variables with
+`-I/opt/homebrew/opt/libyaml/include` -- that is, replace the first
+two in the sequence above with the following:
+
+- `export CXXFLAGS="-I/opt/homebrew/opt/openssl@3/include -I/opt/homebrew/opt/libyaml/include -I/opt/homebrew/opt/icu4c/include"`
+- `export CFLAGS="-I/opt/homebrew/opt/openssl@3/include -I/opt/homebrew/opt/libyaml/include -I/opt/homebrew/opt/icu4c/include"`
+
+
+*N.B.*: it's not a problem to use the two overspecified compilation
+flags-exports foregoing with an Apple Silicon machine for which the
+simpler one would suffice.
