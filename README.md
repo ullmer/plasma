@@ -41,6 +41,7 @@ Building Plasma requires
 - boost
 - icu4c
 - openssl
+- libavahi-client-dev (on linux)
 
 Use your package manager (brew, apt, yum, zypper, etc) to install them.
 
