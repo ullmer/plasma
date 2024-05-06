@@ -134,7 +134,7 @@ static char selftest_contents[] =
   "sabayon:x:86:86:Sabayon user:/home/sabayon:/sbin/nologin\n"
   "demo:x:500:500:Demo:/home/demo:/bin/bash\n"
   "bdenckla:x:501:501:bdenckla:/home/bdenckla:/bin/bash\n"
-  "ppelletier:x:502:502:ppelletier:/home/ppelletier:/bin/bash\n"
+  "mignon:x:502:502:mignon:/home/mignon:/bin/bash\n"
   "jao:x:503:503:jao:/home/jao:/bin/bash\n"
   "navjot:x:504:504:navjot:/home/navjot:/bin/bash\n"
   "oprofile:x:16:16:Special user account to be used by "
@@ -224,7 +224,7 @@ static int64 selftest_userid (const char *s)
     return OB_CONST_I64 (500);
   if (0 == strcmp (s, "bdenckla"))
     return OB_CONST_I64 (501);
-  if (0 == strcmp (s, "ppelletier"))
+  if (0 == strcmp (s, "mignon"))
     return OB_CONST_I64 (502);
   if (0 == strcmp (s, "jao"))
     return OB_CONST_I64 (503);

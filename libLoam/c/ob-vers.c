@@ -303,23 +303,23 @@ static char *machine_version (void)
 #if defined(__gnu_linux__)
   /* The outer loop is because usually the system vendor and product name
    * are the most informative:
-   *   ppelletier@patrick64:/sys/class/dmi/id$ cat sys_vendor
+   *   mignon@mignon64:/sys/class/dmi/id$ cat sys_vendor
    *   Acer
-   *   ppelletier@patrick64:/sys/class/dmi/id$ cat product_name
+   *   mignon@mignon64:/sys/class/dmi/id$ cat product_name
    *   Aspire X1300
-   *   ppelletier@patrick64:/sys/class/dmi/id$ cat board_vendor
+   *   mignon@mignon64:/sys/class/dmi/id$ cat board_vendor
    *   Acer
-   *   ppelletier@patrick64:/sys/class/dmi/id$ cat board_name
+   *   mignon@mignon64:/sys/class/dmi/id$ cat board_name
    *   WMCP78M
    * But on coconut, they are distinctly uninformative, so we want to use
    * the board vendor and name instead:
-   *   ppelletier@coconut:/sys/class/dmi/id$ cat sys_vendor
+   *   mignon@coconut:/sys/class/dmi/id$ cat sys_vendor
    *   System manufacturer
-   *   ppelletier@coconut:/sys/class/dmi/id$ cat product_name
+   *   mignon@coconut:/sys/class/dmi/id$ cat product_name
    *   System Product Name
-   *   ppelletier@coconut:/sys/class/dmi/id$ cat board_vendor
+   *   mignon@coconut:/sys/class/dmi/id$ cat board_vendor
    *   ASUSTeK Computer INC.
-   *   ppelletier@coconut:/sys/class/dmi/id$ cat board_name
+   *   mignon@coconut:/sys/class/dmi/id$ cat board_name
    *   P5N32-E SLI
    * So we try to make a heuristic decision about which to use.
    */

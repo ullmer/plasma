@@ -82,4 +82,4 @@ Specifies the directory where local pools are found.
 
 =head1 AUTHOR
 
-Patrick Pelletier E<lt>ppelletier at oblong dot comE<gt>
+Mignon Pelletier E<lt>code at funwithsoftware dot orgE<gt>

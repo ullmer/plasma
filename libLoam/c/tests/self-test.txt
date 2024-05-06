@@ -38,7 +38,7 @@ gdm:x:42:42::/var/gdm:/sbin/nologin
 sabayon:x:86:86:Sabayon user:/home/sabayon:/sbin/nologin
 demo:x:500:500:Demo:/home/demo:/bin/bash
 bdenckla:x:501:501:bdenckla:/home/bdenckla:/bin/bash
-ppelletier:x:502:502:ppelletier:/home/ppelletier:/bin/bash
+mignon:x:502:502:mignon:/home/mignon:/bin/bash
 jao:x:503:503:jao:/home/jao:/bin/bash
 navjot:x:504:504:navjot:/home/navjot:/bin/bash
 oprofile:x:16:16:Special user account to be used by OProfile:/home/oprofile:/sbin/nologin

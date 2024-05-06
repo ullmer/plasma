@@ -33,7 +33,7 @@ ingests: !!omap []
 ...
 END
 
-PATRICK_EXAMPLE = <<END
+MIGNON_EXAMPLE = <<END
 %YAML 1.1
 %TAG ! tag:oblong.com,2009:slaw/
 --- !protein
@@ -77,7 +77,7 @@ ingests:
 ...
 END
 
-PATRICK_ROUNDTRIP = <<END
+MIGNON_ROUNDTRIP = <<END
 %YAML 1.1
 %TAG ! tag:oblong.com,2009:slaw/
 --- !protein
@@ -134,15 +134,15 @@ class SlawTest < Test::Unit::TestCase
   end
 
   def test_vect
-    j = Slaw.from_yaml(PATRICK_EXAMPLE).to_json
+    j = Slaw.from_yaml(MIGNON_EXAMPLE).to_json
     y = JSON.parse(j, {:create_additions => true}).to_s
-    # PATRICK_EXAMPLE contains maps with more than one key, so
+    # MIGNON_EXAMPLE contains maps with more than one key, so
     # it's possible they could be permuted (based on whatever
     # hash function Ruby is using for its hashes, which might
     # be different between releases; I don't know, but it could),
     # so I sort the lines in the YAML, which will remove
     # any key-ordering effects.
-    assert_equal(PATRICK_ROUNDTRIP.split("\n").sort, y.split("\n").sort)
+    assert_equal(MIGNON_ROUNDTRIP.split("\n").sort, y.split("\n").sort)
   end
 
   def test_rude

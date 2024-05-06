@@ -326,7 +326,7 @@ static void *forever_await_main (void *arg)
                     "in this file) to commemorate the fact that we have a\n"
                     "bug which is still open, and-- if you are seeing this\n"
                     "message-- still occurring occasionally, but we (meaning\n"
-                    "mostly just me, Patrick) have no idea how to fix it,\n"
+                    "mostly just me, Mignon) have no idea how to fix it,\n"
                     "because it is completely bizarre and should never\n"
                     "happen, despite the unfortunate fact that it actually\n"
                     "happens not infrequently.  (Hence the need to not count\n"

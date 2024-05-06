@@ -1,6 +1,6 @@
 
 /* Simple argument-parsing class
- * Copyright (C) 2001 Patrick E. Pelletier <ppelleti@users.sourceforge.net>
+ * Copyright (C) 2001 Mignon Pelletier <code at funwithsoftware dot org>
  * Copyright (C) 2009-2010 Oblong Industries */
 
 #include <libLoam/c++/ArgParse.h>

@@ -796,7 +796,7 @@ static void setup_ugly_callback (void)
 
 #else
 
-static volatile int *patrick_hack;
+static volatile int *mignon_hack;
 
 static void my_ugly_callback (pool_ugly_callback_what what,
                               pool_ugly_callback_when when, const char *file,
@@ -815,21 +815,21 @@ static void my_ugly_callback (pool_ugly_callback_what what,
       case POOL_UGLY_CALLBACK_POST_ACQUIRE:
         if (what == POOL_UGLY_CALLBACK_CONFIG_LOCK)
           {
-            if ((*patrick_hack) != 0)
+            if ((*mignon_hack) != 0)
               ob_log_loc_fatal (file, line, OBLV_BUG, 0, -1,
                                 "POOL PARANOIA: expected 0 but got %d\n",
-                                (*patrick_hack));
-            (*patrick_hack)++;
+                                (*mignon_hack));
+            (*mignon_hack)++;
           }
         break;
       case POOL_UGLY_CALLBACK_PRE_RELEASE:
         if (what == POOL_UGLY_CALLBACK_CONFIG_LOCK)
           {
-            if ((*patrick_hack) != 1)
+            if ((*mignon_hack) != 1)
               ob_log_loc_fatal (file, line, OBLV_BUG, 0, -1,
                                 "POOL PARANOIA: expected 1 but got %d\n",
-                                (*patrick_hack));
-            (*patrick_hack)--;
+                                (*mignon_hack));
+            (*mignon_hack)--;
           }
         break;
       case POOL_UGLY_CALLBACK_POST_RELEASE:
@@ -841,10 +841,10 @@ static void my_ugly_callback (pool_ugly_callback_what what,
       case POOL_UGLY_CALLBACK_ASSERT_OWNED:
         if (what == POOL_UGLY_CALLBACK_CONFIG_LOCK)
           {
-            if ((*patrick_hack) != 1)
+            if ((*mignon_hack) != 1)
               ob_log_loc_fatal (file, line, OBLV_BUG, 0, -1,
                                 "POOL PARANOIA: expected 1 but got %d\n",
-                                (*patrick_hack));
+                                (*mignon_hack));
           }
         break;
     }
@@ -852,9 +852,9 @@ static void my_ugly_callback (pool_ugly_callback_what what,
 
 static void setup_ugly_callback (void)
 {
-  patrick_hack = (volatile int *) mmap (NULL, 4096, PROT_READ | PROT_WRITE,
-                                        MAP_SHARED | MAP_ANON, -1, 0);
-  if (patrick_hack == MAP_FAILED)
+  mignon_hack = (volatile int *) mmap (NULL, 4096, PROT_READ | PROT_WRITE,
+                                       MAP_SHARED | MAP_ANON, -1, 0);
+  if (mignon_hack == MAP_FAILED)
     OB_PERROR_CODE (0x20201028, "mmap");
   else
     pool_ugly_callback = my_ugly_callback;
