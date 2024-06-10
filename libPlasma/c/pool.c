@@ -511,7 +511,7 @@ static ob_retort pool_remove_pool_dir (pool_hose ph)
   // on a non-existant pool, or can also happen if pool creation fails
   // and we try to clean up from it.  But since these are "normal"
   // failures, we don't want to perror() in these cases and clutter
-  // up the output.  --Patrick
+  // up the output.  --Mignon
   pret = pool_rmdir_p (dir_path);
   if (ob_retort_to_errno (pret) == ENOENT)
     return OB_OK; /* It's okay if the directory doesn't exist */

@@ -1,5 +1,5 @@
 
-/* Copyright (C) 2001 Patrick E. Pelletier
+/* Copyright (C) 2001 Mignon Pelletier
  * Copyright (C) 2009 Oblong Industries */
 
 #include <gtest/gtest.h>

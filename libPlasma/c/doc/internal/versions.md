@@ -39,8 +39,8 @@ instructions require aligned operands.)
 Slaw version 2 is 8-byte aligned, and therefore solved this problem.
 Slaw version 2 also supports NUL bytes in the middle of strings, which
 slaw version 1 did not support.  The slaw version 2 encoding is also
-simpler and easier to parse.  (In this author's opinion, although he
-is biased since he is also the author of the slawv2 encoding.)
+simpler and easier to parse.  (In this author's opinion, although she
+is biased since she is also the author of the slawv2 encoding.)
 
 
 TCP protocol version

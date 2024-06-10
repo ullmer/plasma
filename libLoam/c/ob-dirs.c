@@ -281,8 +281,8 @@ static void measure_or_populate_path (va_list ap, char *dst, size_t *pos)
   consume ("", 1, dst, pos);
 }
 
-/* Bad Patrick.  You should have documented this function.
- * So Good Patrick (who is merely a later incarnation of Bad Patrick)
+/* Bad Mignon.  You should have documented this function.
+ * So Good Mignon (who is merely a later incarnation of Bad Mignon)
  * will provide some minimal documentation now.
  * Takes a variable argument list of the form:
  *  "format string", arg ...,

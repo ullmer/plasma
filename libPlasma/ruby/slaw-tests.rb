@@ -21,7 +21,7 @@ ingests: !!omap
   - protagonist: !!omap []
 END
 
-PATRICK_EXAMPLE = <<'END'
+MIGNON_EXAMPLE = <<'END'
 %YAML 1.1
 %TAG ! tag:oblong.com,2009:slaw/
 --- !protein
@@ -36,7 +36,7 @@ ingests: !!omap
   - protagonist: []
 END
 
-PATRICK_INDIGESTION_EXAMPLE = <<'END'
+MIGNON_INDIGESTION_EXAMPLE = <<'END'
 %YAML 1.1
 %TAG ! tag:oblong.com,2009:slaw/
 --- !protein
@@ -439,7 +439,7 @@ class SlawTest < Test::Unit::TestCase
   end
 
   def test_empty_list_too
-    s = Slaw.from_yaml(PATRICK_EXAMPLE)
+    s = Slaw.from_yaml(MIGNON_EXAMPLE)
     badness = s.ingests.to_hash
     assert_equal( 0, badness["anatomy"]["protagonist"].length )
   end
@@ -449,7 +449,7 @@ class SlawTest < Test::Unit::TestCase
   end
 
   def test_indigestion
-    s = Slaw.from_yaml(PATRICK_INDIGESTION_EXAMPLE)
+    s = Slaw.from_yaml(MIGNON_INDIGESTION_EXAMPLE)
     a = Array.new
     a.push(s.descrips.descrips.nth_slaw(0))
     a.push(s.descrips.ingests.nth_slaw(0).car)
@@ -483,7 +483,7 @@ class SlawTest < Test::Unit::TestCase
   end
 
   def test_encoding
-    str = PATRICK_INDIGESTION_EXAMPLE
+    str = MIGNON_INDIGESTION_EXAMPLE
     if str.respond_to?(:encode)
       str = str.encode("UTF-16BE")
     end

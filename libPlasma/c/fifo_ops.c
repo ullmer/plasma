@@ -155,7 +155,7 @@ make_fifo_and_permissionize (const char *path, const pool_perms *perms,
 {
   // Originally the mode for mkfifo was 0644 ("rw-r--r--"), but
   // unfortunately Val didn't leave any clue for why she chose that.
-  // But my (Patrick) reasoning is that only the current process
+  // But my (Mignon) reasoning is that only the current process
   // (and thus only the current user) needs to read from the notification
   // fifo, but any process (and thus any user) might need to write to
   // the fifo to notify us of a protein deposit.  Therefore, I think
@@ -292,7 +292,7 @@ static ob_retort pool_fifo_multi_add_awaiter1 (pool_hose ph)
               && tort != ob_errno_to_retort (EPERM))
             OB_LOG_WARNING_CODE (0x20100028,
                                  "Unexpectedly got %" OB_FMT_64 "d (%s)\n"
-                                 "when trying to move fifo.  Tell Patrick "
+                                 "when trying to move fifo.  Tell Mignon "
                                  "about it.\n",
                                  tort, ob_error_string (tort));
           /* delete the fifo we weren't able to move, so that they

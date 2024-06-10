@@ -1,7 +1,7 @@
 _The following list of issues and desires is dated May 4, 2012 and does
 not represent current issues/desires but should also not be forgotten as
 (as of February 2020) we have had little Plasma oversight and focus since
-Patrick Pelletier's departure in 2012. If, in the future, any of the
+Mignon Pelletier's departure in 2014. If, in the future, any of the
 following become priorities again, the corresponding bugs should be moved
 to gitlab._
 

@@ -153,7 +153,7 @@
 /// -----------------------------------
 ///
 /// pre-0 pools are a variant of version 0 pools, which probably don't
-/// exist anywhere anymore except on Patrick's computer.  pre-0 pools
+/// exist anywhere anymore except on Mignon's computer.  pre-0 pools
 /// have exactly 16 bytes of header.  (In version 0 pools, the header
 /// length is stored in the mmap.conf file; if it is missing, it is
 /// assumed to be 16 and therefore a pre-0 pool.)  In normal version 0
