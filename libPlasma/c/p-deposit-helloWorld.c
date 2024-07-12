@@ -100,7 +100,8 @@ int main (int argc, char **argv)
   OB_DIE_ON_ERROR (slabu_list_add_x (istr, ingest));
 
   //case 'v':
-  cmd.verbose = 1;
+  cmd.verbose   = 1;
+  cmd.pool_name = tstr;
 
   if (pool_cmd_get_poolname (&cmd, argc, argv, optind))
     {
