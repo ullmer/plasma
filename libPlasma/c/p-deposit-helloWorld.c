@@ -1,5 +1,6 @@
-
 /* (c)  oblong industries */
+
+// Brygg Ullmer: reduction to approximation of JShrake helloWorld example from Animist discord #plasma 
 
 ///
 /// Deposit a protein into a pool.
@@ -71,27 +72,24 @@ int main (int argc, char **argv)
   slaw ingest;
   int c;
 
+  char dstr = "hello";
+  char istr = "name:world";
+  char tstr = "tcp://localhost/hello"
+
   memset(&cmd, 0, sizeof(cmd));
   // Get our descrips and ingests.  It's okay if we have zero descrips
   // or ingests, null proteins are useful too.
   slabu *descrips = slabu_new ();
   slabu *ingests = slabu_new ();
-  while ((c = getopt (argc, argv, "d:i:v")) != -1)
-    {
-      switch (c)
-        {
-          case 'd':
-            OB_DIE_ON_ERROR (slabu_list_add_c (descrips, optarg));
-            break;
-          case 'i':
-            ingest = extract_slaw (optarg);
-            OB_DIE_ON_ERROR (slabu_list_add_x (ingests, ingest));
-            break;
-          case 'v':
-            cmd.verbose = 1;
-            break;
-        }
-    }
+  //case 'd':
+  //OB_DIE_ON_ERROR (slabu_list_add_c (descrips, optarg));
+  OB_DIE_ON_ERROR (slabu_list_add_c (dstr, optarg));
+  //case 'i':
+  ingest = extract_slaw (optarg);
+  //OB_DIE_ON_ERROR (slabu_list_add_x (ingests, ingest));
+  OB_DIE_ON_ERROR (slabu_list_add_x (istr, ingest));
+  //case 'v':
+  cmd.verbose = 1;
 
   if (pool_cmd_get_poolname (&cmd, argc, argv, optind))
     {
