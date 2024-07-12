@@ -28,8 +28,12 @@ int main (int argc, char **argv)
   pool_cmd_info cmd;
 
   memset(&cmd, 0, sizeof(cmd));
-  if (pool_cmd_get_poolname (&cmd, argc, argv, optind))
-    usage ();
+
+  const char *pnstr = "tcp://localhost/hello";
+  cmd.pool_name     = pnstr;
+
+  //if (pool_cmd_get_poolname (&cmd, argc, argv, optind))
+  //  usage ();
 
   pool_cmd_open_pool (&cmd);
 

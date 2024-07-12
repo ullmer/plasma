@@ -75,9 +75,9 @@ int main (int argc, char **argv)
   //jshrake hello-world example
   //https://media.discordapp.net/attachments/1235355937586413578/1252001896156102736/image.png?ex=669196a1&is=66904521&hm=fb7b16cd19a85a6723e48956e91f3a262007e2b5db71b99be5a96a191585787c
 
-  const char *dstr = "hello";
-  const char *istr = "name:world";
-  const char *tstr = "tcp://localhost/hello";
+  const char *dstr  = "hello";
+  const char *istr  = "name:world";
+  const char *pnstr = "tcp://localhost/hello";
 
   memset(&cmd, 0, sizeof(cmd));
   // Get our descrips and ingests.  It's okay if we have zero descrips
@@ -98,7 +98,7 @@ int main (int argc, char **argv)
 
   //case 'v':
   cmd.verbose   = 1;
-  cmd.pool_name = tstr;
+  cmd.pool_name = pnstr;
 
   // if (pool_cmd_get_poolname (&cmd, argc, argv, optind))
   //  {
