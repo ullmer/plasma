@@ -142,7 +142,9 @@ set(
 
   pool_tcp_server
   p-await
+  p-await-helloWorld
   p-deposit
+  p-deposit-helloWorld
   p-nth
   p-create
   p-newest-idx
