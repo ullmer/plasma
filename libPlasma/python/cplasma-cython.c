@@ -1,6 +1,7 @@
-/* (c)  oblong industries */
+/* Original (c) oblong industries */
 
-// Brygg Ullmer: reduction to approximation of JShrake helloWorld example from Animist discord #plasma 
+// Adaptation by Brygg Ullmer, Clemson University
+// reduction to cython wrapper, initially re JShrake helloWorld example from Animist discord #plasma 
 
 ///
 /// Deposit a protein into a pool.
