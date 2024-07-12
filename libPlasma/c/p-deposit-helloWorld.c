@@ -84,33 +84,28 @@ int main (int argc, char **argv)
   // or ingests, null proteins are useful too.
 
   slabu *descrips = slabu_new ();
-  slabu *ingests = slabu_new ();
+  slabu *ingests  = slabu_new ();
 
   //case 'd':
-  //OB_DIE_ON_ERROR (slabu_list_add_c (descrips, optarg));
-
-  OB_DIE_ON_ERROR (slabu_list_add_c (descrips, dstr));
-
+  //  OB_DIE_ON_ERROR (slabu_list_add_c (descrips, optarg));
   //case 'i':
+  //  ingest = extract_slaw (optarg);
+  //  OB_DIE_ON_ERROR (slabu_list_add_x (ingests, ingest));
 
-  //ingest = extract_slaw (optarg);
   ingest = extract_slaw (istr);
-
-  //OB_DIE_ON_ERROR (slabu_list_add_x (ingests, ingest));
+  OB_DIE_ON_ERROR (slabu_list_add_c (descrips, dstr));
   OB_DIE_ON_ERROR (slabu_list_add_x (ingests, ingest));
 
   //case 'v':
   cmd.verbose   = 1;
   cmd.pool_name = tstr;
 
-  /*
-   if (pool_cmd_get_poolname (&cmd, argc, argv, optind))
-    {
-      slabu_free (descrips);
-      slabu_free (ingests);
-      usage ();
-    }
-  */
+  // if (pool_cmd_get_poolname (&cmd, argc, argv, optind))
+  //  {
+  //    slabu_free (descrips);
+  //    slabu_free (ingests);
+  //    usage ();
+  //  }
 
   pool_cmd_open_pool (&cmd);
 
