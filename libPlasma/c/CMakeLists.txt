@@ -144,7 +144,8 @@ set(
   p-await
   p-await-helloWorld
   p-deposit
-  p-deposit-helloWorld
+  p-deposit-helloWorld1
+  p-deposit-helloWorld2
   p-nth
   p-create
   p-newest-idx
