@@ -77,20 +77,28 @@ int main (int argc, char **argv)
 
   char dstr = "hello";
   char istr = "name:world";
-  char tstr = "tcp://localhost/hello"
+  char tstr = "tcp://localhost/hello";
 
   memset(&cmd, 0, sizeof(cmd));
   // Get our descrips and ingests.  It's okay if we have zero descrips
   // or ingests, null proteins are useful too.
+
   slabu *descrips = slabu_new ();
   slabu *ingests = slabu_new ();
+
   //case 'd':
   //OB_DIE_ON_ERROR (slabu_list_add_c (descrips, optarg));
+
   OB_DIE_ON_ERROR (slabu_list_add_c (dstr, optarg));
+
   //case 'i':
+
   ingest = extract_slaw (optarg);
+
   //OB_DIE_ON_ERROR (slabu_list_add_x (ingests, ingest));
+
   OB_DIE_ON_ERROR (slabu_list_add_x (istr, ingest));
+
   //case 'v':
   cmd.verbose = 1;
 
