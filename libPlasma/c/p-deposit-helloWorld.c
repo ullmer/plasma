@@ -89,15 +89,15 @@ int main (int argc, char **argv)
   //case 'd':
   //OB_DIE_ON_ERROR (slabu_list_add_c (descrips, optarg));
 
-  OB_DIE_ON_ERROR (slabu_list_add_c (dstr, optarg));
+  OB_DIE_ON_ERROR (slabu_list_add_c (descrips, dstr));
 
   //case 'i':
 
-  ingest = extract_slaw (optarg);
+  //ingest = extract_slaw (optarg);
+  ingest = extract_slaw (istr);
 
   //OB_DIE_ON_ERROR (slabu_list_add_x (ingests, ingest));
-
-  OB_DIE_ON_ERROR (slabu_list_add_x (istr, ingest));
+  OB_DIE_ON_ERROR (slabu_list_add_x (ingests, ingest));
 
   //case 'v':
   cmd.verbose   = 1;
