@@ -66,11 +66,11 @@ int main (int argc, char **argv)
 {
   OB_CHECK_ABI ();
 
-  ob_retort pret;
+  ob_retort     pret;
   pool_cmd_info cmd;
-  protein prot;
-  slaw ingest;
-  int c;
+  protein       prot;
+  slaw          ingest;
+  int           c;
 
   //jshrake hello-world example
   //https://media.discordapp.net/attachments/1235355937586413578/1252001896156102736/image.png?ex=669196a1&is=66904521&hm=fb7b16cd19a85a6723e48956e91f3a262007e2b5db71b99be5a96a191585787c
