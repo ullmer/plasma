@@ -1,7 +1,5 @@
 #!python
 
-import optparse
-from   loam import *
 from   plasma.protein import Protein
 import plasma.hose
 import sys
