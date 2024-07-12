@@ -103,12 +103,15 @@ int main (int argc, char **argv)
   cmd.verbose   = 1;
   cmd.pool_name = tstr;
 
-  if (pool_cmd_get_poolname (&cmd, argc, argv, optind))
+  /*
+   if (pool_cmd_get_poolname (&cmd, argc, argv, optind))
     {
       slabu_free (descrips);
       slabu_free (ingests);
       usage ();
     }
+  */
+
   pool_cmd_open_pool (&cmd);
 
   prot = protein_from_ff (slaw_list_f (descrips), slaw_map_f (ingests));
