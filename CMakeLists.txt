@@ -17,15 +17,15 @@ INCLUDE("ObGenerateProject")
 # Short name
 SET(TOP_TEMPLATE ${CMAKE_SOURCE_DIR}/samples/obi-template)
 
-set(top_srcdir "${g-speak_SOURCE_DIR}")
-set(abs_top_srcdir "${g-speak_SOURCE_DIR}")
-set(top_builddir "${g-speak_BINARY_DIR}")
+set(top_srcdir       "${g-speak_SOURCE_DIR}")
+set(abs_top_srcdir   "${g-speak_SOURCE_DIR}")
+set(top_builddir     "${g-speak_BINARY_DIR}")
 set(abs_top_builddir "${g-speak_BINARY_DIR}")
 
 # Tell tests where top of source tree is.
 # Consumed by libStaging/include/private/testHelpers.h
 # and libLoam/c/tests/test-paths.c
-set (CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -DABS_TOP_SRCDIR=\\\"${abs_top_srcdir}\\\"")
+set (CMAKE_C_FLAGS   "${CMAKE_C_FLAGS}   -DABS_TOP_SRCDIR=\\\"${abs_top_srcdir}\\\"")
 set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DABS_TOP_SRCDIR=\\\"${abs_top_srcdir}\\\"")
 
 
@@ -447,6 +447,7 @@ add_subdirectory(gtest)
 add_subdirectory(doc)
 add_subdirectory(libLoam/c)
 add_subdirectory(libPlasma/c)
+add_subdirectory(libPlasma/python)
 add_subdirectory(libLoam/c++)
 add_subdirectory(libPlasma/c++)
 if (NOT WIN32)
