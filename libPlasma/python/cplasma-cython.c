@@ -51,7 +51,7 @@ static slaw extract_slaw (char *arg)
 
 ////////////////// plasma Initialize ////////////////// 
 
-cmdDescripsIngests plasmaInit(char *pnstr = "tcp://localhost/hello") {
+pool_cmd_info plasmaInit(char *pnstr = "tcp://localhost/hello") {
 
   OB_CHECK_ABI ();
 
@@ -91,10 +91,10 @@ cmdDescripsIngests plasmaDeposit(pool_cmd_info cmd, char *dstr  = "hello", char 
   pret = pool_deposit (cmd.ph, prot, NULL);
   protein_free (prot);
 
-  if (OB_OK != pret)
-    { fprintf (stderr, "no luck on the deposit: %s\n", ob_error_string (pret));
-      exit (pool_cmd_retort_to_exit_code (pret));
-    }
+  if (OB_OK != pret) { 
+    fprintf (stderr, "no luck on the deposit: %s\n", ob_error_string (pret));
+    exit (pool_cmd_retort_to_exit_code (pret));
+  }
 
   OB_DIE_ON_ERROR (pool_withdraw (cmd.ph));
   return EXIT_SUCCESS;
