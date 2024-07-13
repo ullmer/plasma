@@ -49,7 +49,7 @@ static slaw extract_slaw (char *arg)
   return pair;
 }
 
-////////////////// Plasma Initialize ////////////////// 
+////////////////// plasma Initialize ////////////////// 
 
 cmdDescripsIngests plasmaInit(char *pnstr = "tcp://localhost/hello") {
 
@@ -70,6 +70,8 @@ cmdDescripsIngests plasmaInit(char *pnstr = "tcp://localhost/hello") {
 
   return cmd;
 }
+
+////////////////// plasma deposit ////////////////// 
 
 cmdDescripsIngests plasmaDeposit(pool_cmd_info cmd, char *dstr  = "hello", char *istr  = "name:world") {
 
