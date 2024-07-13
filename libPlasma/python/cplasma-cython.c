@@ -73,13 +73,13 @@ pool_cmd_info plasmaInit(char *pnstr = "tcp://localhost/hello") {
 
 ////////////////// plasma deposit ////////////////// 
 
-int plasmaDeposit(pool_cmd_info cmd, char *dstr  = "hello", char *istr  = "name:world") {
+int plasmaDeposit(pool_cmd_info cmd, char *descripStr  = "hello", char *ingestStr  = "name:world") {
 
   slabu *descrips = slabu_new ();
   slabu *ingests  = slabu_new ();
 
-  ingest = extract_slaw (istr);
-  OB_DIE_ON_ERROR (slabu_list_add_c (descrips, dstr));
+  ingest = extract_slaw (ingestStr);
+  OB_DIE_ON_ERROR (slabu_list_add_c (descrips, descripStr));
   OB_DIE_ON_ERROR (slabu_list_add_x (ingests, ingest));
 
   prot = protein_from_ff (slaw_list_f (descrips), slaw_map_f (ingests));
