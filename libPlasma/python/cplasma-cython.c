@@ -73,7 +73,7 @@ pool_cmd_info plasmaInit(char *pnstr = "tcp://localhost/hello") {
 
 ////////////////// plasma deposit ////////////////// 
 
-cmdDescripsIngests plasmaDeposit(pool_cmd_info cmd, char *dstr  = "hello", char *istr  = "name:world") {
+int plasmaDeposit(pool_cmd_info cmd, char *dstr  = "hello", char *istr  = "name:world") {
 
   slabu *descrips = slabu_new ();
   slabu *ingests  = slabu_new ();
