@@ -19,10 +19,10 @@ static slaw extract_slaw (char *arg)
   char *colon = strchr (arg, ':');
   slaw key, value, pair;
 
-  if (colon == NULL)
-    { fprintf (stderr, "error: ingest '%s' needs a colon to separate key and value\n", arg);
-      exit (EXIT_FAILURE);
-    }
+  if (colon == NULL) { 
+     fprintf (stderr, "error: ingest '%s' needs a colon to separate key and value\n", arg);
+     exit (EXIT_FAILURE);
+  }
 
   char *keystr = (char *) malloc (colon - arg + 1);
   strncpy (keystr, arg, colon - arg);
@@ -30,37 +30,28 @@ static slaw extract_slaw (char *arg)
   key = slaw_string (keystr);
   free (keystr);
 
-  do
-    { char *endptr;
-      int64 int_val = strtol (colon + 1, &endptr, 10);
-      if (*endptr == '\0')
-        { value = slaw_int64 (int_val);
-          break;
-        }
-      float64 float_val = strtod (colon + 1, &endptr);
-      if (*endptr == '\0')
-        { value = slaw_float64 (float_val);
-          break;
-        }
-      value = slaw_string (colon + 1);
+  do { 
+    char *endptr;
+    int64 int_val = strtol (colon + 1, &endptr, 10);
+    if (*endptr == '\0')
+      { value = slaw_int64 (int_val);
+        break;
+      }
+    float64 float_val = strtod (colon + 1, &endptr);
+    if (*endptr == '\0') { 
+      value = slaw_float64 (float_val);
+      break;
     }
-  while (0);
+    value = slaw_string (colon + 1);
+  } while (0);
 
   pair = slaw_cons_ff (key, value);
   return pair;
 }
 
-////////////////// cmd descrips ingests ////////////////// 
-
-struct cmdDescripsIngests {
-  pool_cmd_info cmd;
-  slabus *descrips;
-  slabu  *ingests;
-}
-
 ////////////////// Plasma Initialize ////////////////// 
 
-cmdDescripsIngests plasmaInit(char *dstr  = "hello", char *istr  = "name:world", char *pnstr = "tcp://localhost/hello") {
+cmdDescripsIngests plasmaInit(char *pnstr = "tcp://localhost/hello") {
 
   OB_CHECK_ABI ();
 
@@ -72,6 +63,16 @@ cmdDescripsIngests plasmaInit(char *dstr  = "hello", char *istr  = "name:world",
 
   memset(&cmd, 0, sizeof(cmd));
 
+  cmd.verbose   = 1;
+  cmd.pool_name = pnstr;
+
+  pool_cmd_open_pool (&cmd);
+
+  return cmd;
+}
+
+cmdDescripsIngests plasmaDeposit(pool_cmd_info cmd, char *dstr  = "hello", char *istr  = "name:world") {
+
   slabu *descrips = slabu_new ();
   slabu *ingests  = slabu_new ();
 
@@ -79,23 +80,11 @@ cmdDescripsIngests plasmaInit(char *dstr  = "hello", char *istr  = "name:world",
   OB_DIE_ON_ERROR (slabu_list_add_c (descrips, dstr));
   OB_DIE_ON_ERROR (slabu_list_add_x (ingests, ingest));
 
-  cmd.verbose   = 1;
-  cmd.pool_name = pnstr;
-
-  pool_cmd_open_pool (&cmd);
-
-  struct cmdDescripsIngests cdi;
-  cdi.cmd      = cmd;
-  cdi.descrips = descrips;
-  cdi.ingests  = ingests;
-  return cdi
-}
-
   prot = protein_from_ff (slaw_list_f (descrips), slaw_map_f (ingests));
-  if (cmd.verbose)
-    { fprintf (stderr, "depositing in %s\n", cmd.pool_name);
-      slaw_spew_overview (prot, stderr, NULL);
-    }
+  if (cmd.verbose) { 
+     fprintf (stderr, "depositing in %s\n", cmd.pool_name);
+     slaw_spew_overview (prot, stderr, NULL);
+  }
 
   pret = pool_deposit (cmd.ph, prot, NULL);
   protein_free (prot);
@@ -106,7 +95,6 @@ cmdDescripsIngests plasmaInit(char *dstr  = "hello", char *istr  = "name:world",
     }
 
   OB_DIE_ON_ERROR (pool_withdraw (cmd.ph));
-
   return EXIT_SUCCESS;
 }
 
