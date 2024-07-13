@@ -3,15 +3,16 @@
 // Adaptation by Brygg Ullmer, Clemson University
 // reduction to cython wrapper, initially re JShrake helloWorld example from Animist discord #plasma 
 
-///
 /// Deposit a protein into a pool.
-///
+
 #include "pool_cmd.h"
 #include "libLoam/c/ob-log.h"
 #include "libLoam/c/ob-sys.h"
 #include "libLoam/c/ob-vers.h"
 #include "libPlasma/c/protein.h"
 #include "libPlasma/c/slaw.h"
+
+////////////////// extract slaw ////////////////// 
 
 static slaw extract_slaw (char *arg)
 {
@@ -49,21 +50,17 @@ static slaw extract_slaw (char *arg)
   return pair;
 }
 
-int main (int argc, char **argv)
-{ OB_CHECK_ABI ();
+////////////////// Plasma Initialize ////////////////// 
+
+pool_cmd_info plasmaInit(char *dstr  = "hello", char *istr  = "name:world", char *pnstr = "tcp://localhost/hello") {
+
+  OB_CHECK_ABI ();
 
   ob_retort     pret;
   pool_cmd_info cmd;
   protein       prot;
   slaw          ingest;
   int           c;
-
-  //jshrake hello-world example
-  //https://media.discordapp.net/attachments/1235355937586413578/1252001896156102736/image.png?ex=669196a1&is=66904521&hm=fb7b16cd19a85a6723e48956e91f3a262007e2b5db71b99be5a96a191585787c
-
-  const char *dstr  = "hello";
-  const char *istr  = "name:world";
-  const char *pnstr = "tcp://localhost/hello";
 
   memset(&cmd, 0, sizeof(cmd));
 
@@ -78,6 +75,7 @@ int main (int argc, char **argv)
   cmd.pool_name = pnstr;
 
   pool_cmd_open_pool (&cmd);
+}
 
   prot = protein_from_ff (slaw_list_f (descrips), slaw_map_f (ingests));
   if (cmd.verbose)
