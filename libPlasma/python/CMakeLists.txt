@@ -118,7 +118,7 @@ set_target_properties(Plasma PROPERTIES
 #  bin2yaml
 #  yaml2bin
 #)
-endif()
+#endif()
 
 if (WIN32)
   LIST(APPEND
