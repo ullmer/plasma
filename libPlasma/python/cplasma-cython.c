@@ -83,6 +83,12 @@ cmdDescripsIngests plasmaInit(char *dstr  = "hello", char *istr  = "name:world",
   cmd.pool_name = pnstr;
 
   pool_cmd_open_pool (&cmd);
+
+  struct cmdDescripsIngests cdi;
+  cdi.cmd      = cmd;
+  cdi.descrips = descrips;
+  cdi.ingests  = ingests;
+  return cdi
 }
 
   prot = protein_from_ff (slaw_list_f (descrips), slaw_map_f (ingests));
