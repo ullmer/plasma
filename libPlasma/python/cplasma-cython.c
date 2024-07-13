@@ -51,7 +51,7 @@ static slaw extract_slaw (char *arg)
 
 ////////////////// plasma Initialize ////////////////// 
 
-pool_cmd_info plasmaInit(char *pnstr = "tcp://localhost/hello") {
+pool_cmd_info plasmaInit(char *pnstr) {
 
   OB_CHECK_ABI ();
 
@@ -73,7 +73,7 @@ pool_cmd_info plasmaInit(char *pnstr = "tcp://localhost/hello") {
 
 ////////////////// plasma deposit ////////////////// 
 
-int plasmaDeposit(pool_cmd_info cmd, char *descripStr  = "hello", char *ingestStr  = "name:world") {
+int plasmaDeposit(pool_cmd_info cmd, char *descripStr, char *ingestStr) {
 
   slabu *descrips = slabu_new ();
   slabu *ingests  = slabu_new ();
