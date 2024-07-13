@@ -50,9 +50,17 @@ static slaw extract_slaw (char *arg)
   return pair;
 }
 
+////////////////// cmd descrips ingests ////////////////// 
+
+struct cmdDescripsIngests {
+  pool_cmd_info cmd;
+  slabus *descrips;
+  slabu  *ingests;
+}
+
 ////////////////// Plasma Initialize ////////////////// 
 
-pool_cmd_info plasmaInit(char *dstr  = "hello", char *istr  = "name:world", char *pnstr = "tcp://localhost/hello") {
+cmdDescripsIngests plasmaInit(char *dstr  = "hello", char *istr  = "name:world", char *pnstr = "tcp://localhost/hello") {
 
   OB_CHECK_ABI ();
 
