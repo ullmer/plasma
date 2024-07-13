@@ -55,10 +55,7 @@ pool_cmd_info plasmaInit(char *pnstr) {
 
   OB_CHECK_ABI ();
 
-  ob_retort     pret;
   pool_cmd_info cmd;
-  protein       prot;
-  slaw          ingest;
   int           c;
 
   memset(&cmd, 0, sizeof(cmd));
@@ -75,8 +72,11 @@ pool_cmd_info plasmaInit(char *pnstr) {
 
 int plasmaDeposit(pool_cmd_info cmd, char *descripStr, char *ingestStr) {
 
-  slabu *descrips = slabu_new ();
-  slabu *ingests  = slabu_new ();
+  ob_retort pret;
+  slaw      ingest;
+  protein   prot;
+  slabu    *descrips = slabu_new ();
+  slabu    *ingests  = slabu_new ();
 
   ingest = extract_slaw (ingestStr);
   OB_DIE_ON_ERROR (slabu_list_add_c (descrips, descripStr));
