@@ -339,7 +339,7 @@ set(
   libPlasma/c++ libPlasma/c++/tests
   libPlasma/c libPlasma/c/tests libPlasma/c/t libPlasma/c/tests-mmap-only
   libPlasma/ruby
-  libPlasma/python
+  libPlasma/python libPlasma/python/tests
   libProtist libProtist/tests
 )
 if (WIN32 AND NOT CMAKE_GENERATOR MATCHES Ninja)
