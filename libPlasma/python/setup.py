@@ -1,12 +1,22 @@
 from setuptools   import Extension, setup
 from Cython.Build import cythonize
+
+PLASMA_HOME = "/home/bullmer/git/plasma"
+WSL2_LIBD   = "/usr/lib/x86_64-linux-gnu"
+RPI_LIBD    = "/usr/lib/aarch64-linux-gnu"
+
+#OTHER_LIB  = RPI_LIB
+OTHER_LIB   = WSL2_LIB
+
+SSL_LIBD    = "/usr/local/lib"
  
 sourcefiles = ["cplasma.pyx", "cplasmaWrap.c"]
 extensions  = [Extension("cplasma", sourcefiles,
-  libraries    = ["Plasma", "Loam", "ssl"],
-  library_dirs = ["/home/ullmer/git/plasma/build/libPlasma/c",
-                  "/home/ullmer/git/plasma/build/libLoam/c",
-                  "/usr/local/lib"
+  libraries    = ["Plasma", "Loam", "ssl", "crypto", "yaml", \
+                  "boost_filesystem", "boost_regex", "boost_system"]
+  library_dirs = [PLASMA_HOME + "build/libPlasma/c", \
+                  PLASMA_HOME + "build/libLoam/c", \
+                  SSL_LIBD, OTHER_LIB \
                  ])]
 
 setup(
