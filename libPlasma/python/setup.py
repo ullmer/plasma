@@ -5,7 +5,7 @@ sourcefiles = ["cplasma.pyx", "cplasma.c"]
 extensions  = [Extension("cplasma", sourcefiles)]
 
 setup(
-  ext_modules = cythonize(extensions)
+  ext_modules = cythonize(extensions, build_dir="build")
 )
 
 ### end ###
