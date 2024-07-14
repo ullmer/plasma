@@ -1,14 +1,18 @@
-from cplasma cimport plasmaInit
+print("cython cplasma import underway")
 
-print("hello foo")
+from cplasma cimport plasmaInit, plasmaDeposit
+
+cdef extern pool_cmd_info  plasmaInit   (char *pnstr)
+cdef extern int            plasmaDeposit(pool_cmd_info cmd, char *descripStr, char ingestStr)
+
+print("cython cplasma import complete ")
 
 #cimport cplasma
 
 #cdef slaw           extract_slaw (char *arg)
-#cdef pool_cmd_info  plasmaInit   (char *pnstr)
-#cdef int            plasmaDeposit(pool_cmd_info cmd, char *descripStr, char ingestStr)
 
 #def __cinit__(self):
 #  self._c_queue = cqueue.queue_new()
 
+from cplasma cimport plasmaDeposit
 ### end ###
