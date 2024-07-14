@@ -1,4 +1,4 @@
-#include "cplasma_cython.h"
+#include "cplasma.h"
 
 int main (int argc, char **argv)
 {
