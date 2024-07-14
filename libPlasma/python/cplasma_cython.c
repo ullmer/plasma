@@ -14,7 +14,7 @@
 
 ////////////////// extract slaw ////////////////// 
 
-static slaw extract_slaw (char *arg)
+slaw extract_slaw (char *arg)
 {
   char *colon = strchr (arg, ':');
   slaw key, value, pair;
