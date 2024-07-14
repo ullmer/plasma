@@ -1,18 +1,19 @@
-print("cython cplasma import underway")
+# distutils: include_dirs = /home/ullmer/git/plasma/ /home/ullmer/git/plasma/libPlasma/c
+import cython 
 
-from cplasma cimport plasmaInit, plasmaDeposit
+cdef extern from "slaw.h":
+  ctypedef slaw
 
-cdef extern pool_cmd_info  plasmaInit   (char *pnstr)
-cdef extern int            plasmaDeposit(pool_cmd_info cmd, char *descripStr, char ingestStr)
+cdef extern from "pool_cmd.h":
+  ctypedef pool_cmd_info
 
-print("cython cplasma import complete ")
+cdef extern from "cplasmaWrap.h":
+  slaw plasmaInit(char *poolnameStr)
 
-#cimport cplasma
+def plasmaInit2(str poolnameStr):
+  cdef bytes poolnameBytes   = poolnameStr.encode("utf-8")
+  cdef char* poolnameCharstr = poolnameBytes #apparently auto-conversion
+  cdef pool_cmd_info  result = plasmaInit(poolnameCharstr)
+  return result
 
-#cdef slaw           extract_slaw (char *arg)
-
-#def __cinit__(self):
-#  self._c_queue = cqueue.queue_new()
-
-from cplasma cimport plasmaDeposit
 ### end ###
