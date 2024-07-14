@@ -1,6 +1,3 @@
-# Adaptation by Brygg Ullmer, Clemson University
-# reduction to cython wrapper, initially re JShrake helloWorld example from Animist discord #plasma 
-
 cimport cplasma
 
 print("hello foo")
