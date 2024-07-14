@@ -1,7 +1,7 @@
-// Adaptation by Brygg Ullmer, Clemson University
-// reduction to cython wrapper, initially re JShrake helloWorld example from Animist discord #plasma 
+# Adaptation by Brygg Ullmer, Clemson University
+# reduction to cython wrapper, initially re JShrake helloWorld example from Animist discord #plasma 
 
-cimport cplasma-cython
+cimport cplasma_cython:
 
   static slaw    extract_slaw (char *arg)
   pool_cmd_info  plasmaInit(char *pnstr)
