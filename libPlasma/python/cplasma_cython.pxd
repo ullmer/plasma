@@ -3,8 +3,11 @@
 
 cdef extern from "cplasma_cython.h":
 
-  ctypedef slaw           extract_slaw (char *arg)
-  ctypedef pool_cmd_info  plasmaInit(char *pnstr)
-  int                     plasmaDeposit(ctypedef pool_cmd_info cmd, char *descripStr, char ingestStr)
+  ctypedef void* slaw           
+  ctypedef void* pool_cmd_info  
+
+  slaw          extract_slaw (char *arg)
+  pool_cmd_info plasmaInit   (char *pnstr)
+  int           plasmaDeposit(pool_cmd_info cmd, char *descripStr, char ingestStr)
 
 ### end ###
