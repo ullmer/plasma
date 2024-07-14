@@ -3,9 +3,10 @@ from Cython.Build import cythonize
  
 sourcefiles = ["cplasma.pyx", "cplasmaWrap.c"]
 extensions  = [Extension("cplasma", sourcefiles,
-  libraries    = ["Plasma", "Loam"],
-  library_dirs = ["/home/bullmer/git/plasma/build/libPlasma/c",
-                  "/home/bullmer/git/plasma/build/libLoam/c",
+  libraries    = ["Plasma", "Loam", "ssl"],
+  library_dirs = ["/home/ullmer/git/plasma/build/libPlasma/c",
+                  "/home/ullmer/git/plasma/build/libLoam/c",
+                  "/usr/local/lib"
                  ])]
 
 setup(
