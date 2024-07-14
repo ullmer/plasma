@@ -1,7 +1,7 @@
 from setuptools   import Extension, setup
 from Cython.Build import cythonize
  
-sourcefiles = ["cplasma.pyx", "cplasma.c", "cplasma.h", "slaw.h", "pool_cmd.h"]
+sourcefiles = ["cplasma.pyx", "cplasmaWrap.c", "cplasmaWrap.h", "slaw.h", "pool_cmd.h"]
 extensions  = [Extension("cplasma", sourcefiles)]
 
 #module  = Extension("temp", "temp.pyx")
