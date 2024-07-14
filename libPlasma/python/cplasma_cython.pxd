@@ -7,4 +7,4 @@ cdef extern from "cplasma_cython.h":
   pool_cmd_info  plasmaInit(char *pnstr)
   int            plasmaDeposit(pool_cmd_info cmd, char *descripStr, char ingestStr)
 
-/// end ///
+### end ###
