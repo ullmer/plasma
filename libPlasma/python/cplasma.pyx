@@ -1,6 +1,8 @@
-cimport cplasma
+from cplasma cimport plasmaInit
 
 print("hello foo")
+
+#cimport cplasma
 
 #cdef slaw           extract_slaw (char *arg)
 #cdef pool_cmd_info  plasmaInit   (char *pnstr)
