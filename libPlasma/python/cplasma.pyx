@@ -1,4 +1,9 @@
+# Cython .pyx wrapper around wrapped cplasma functions
+# Brygg Ullmer, Clemson University
+# Begun 2024-07-14
+
 import cython 
+from libc.string cimport strcpy, strlen
 
 #cdef extern from "slaw.h":
 #  ctypedef slaw
@@ -7,18 +12,15 @@ import cython
 #  ctypedef pool_cmd_info
 
 cdef extern from "cplasmaWrap.h":
-  void plasmaInit()
+  void plasmaInit(char *poolnameStr)
+
   #cdef extern char *poolnameDefault
   #slaw plasmaInit(char *poolnameStr)
 
-#def plasmaInit2(str poolnameStr):
+def init(str poolnameStr):
 
-def init():
-  #cdef bytes poolnameBytes   = poolnameStr.encode("utf-8")
-  #cdef char* poolnameCharstr = poolnameBytes #apparently auto-conversion
-  #cdef pool_cmd_info  result = plasmaInit(poolnameCharstr)
-  #cdef int result = plasmaInit(poolnameDefault)
-  plasmaInit()
+  cdef bytes poolnameBytes   = poolnameStr.encode("utf-8")
+  cdef char* poolnameCharstr = poolnameBytes #apparently auto-conversion
+  plasmaInit(poolnameCharstr)
 
 ### end ###
-# distutils: include_dirs = /home/ullmer/git/plasma/ /home/ullmer/git/plasma/libPlasma/c /home/ullmer/git/plasma/libLoam/c

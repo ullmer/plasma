@@ -2,14 +2,14 @@ from setuptools   import Extension, setup
 from Cython.Build import cythonize
 
 #PLASMA_HOME = "/home/bullmer/git/plasma/"
-#PLASMA_HOME = "/home/ullmer/git/plasma/"
-PLASMA_HOME = "/home/brygg/git/plasma/"
+PLASMA_HOME = "/home/ullmer/git/plasma/"
+#PLASMA_HOME = "/home/brygg/git/plasma/"
 WSL2_LIBD   = "/usr/lib/x86_64-linux-gnu"
 RPI_LIBD    = "/usr/lib/aarch64-linux-gnu"
 UB_LIBD     = "/usr/local/anaconda3/lib"
 
-OTHER_LIB  = UB_LIBD
-#OTHER_LIB = RPI_LIBD
+OTHER_LIB  = RPI_LIBD
+#OTHER_LIB = UB_LIBD
 #OTHER_LIB = WSL2_LIBD
 
 SSL_LIBD    = "/usr/local/lib"

@@ -15,6 +15,7 @@
 #include "cplasmaWrap.h"
 
 char *poolnameDefault="tcp://localhost/hello";
+pool_cmd_info cmd;
 
 ////////////////// extract slaw ////////////////// 
 
@@ -59,20 +60,19 @@ void extract_slaw (char *arg, slaw pair)
 ////////////////// plasma Initialize ////////////////// 
 
 //pool_cmd_info plasmaInit(char *pnstr) {
-//int plasmaInit(char *pnstr) {
-//int plasmaInit() {
-void plasmaInit() {
+//void plasmaInit() {
 
+void plasmaInit(char *pnstr) {
   OB_CHECK_ABI ();
 
-  pool_cmd_info cmd;
+  //pool_cmd_info cmd;
   int           c;
 
   memset(&cmd, 0, sizeof(cmd));
 
   cmd.verbose   = 1;
-  //cmd.pool_name = pnstr;
-  cmd.pool_name = poolnameDefault;
+  cmd.pool_name = pnstr;
+  //cmd.pool_name = poolnameDefault;
 
   pool_cmd_open_pool (&cmd);
 
