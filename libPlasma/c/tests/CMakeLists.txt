@@ -5,7 +5,8 @@ project(PlasmaTests C CXX)
 set(
   PlasmaTests_TESTS
 
-  p-await-helloWorld
+  p-await-helloWorld01
+  p-await-helloWorld02
   p-deposit-helloWorld1
   p-deposit-helloWorld2
 

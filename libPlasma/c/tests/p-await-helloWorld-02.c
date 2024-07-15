@@ -47,6 +47,9 @@ int main (int argc, char **argv)
                    ob_error_string (pret));
           return pool_cmd_retort_to_exit_code (pret);
         }
+      bslaw d = protein_descrips(p);
+      bslaw i = protein_ingests(i);
+
       slaw_spew_overview (p, stdout, NULL);
       fputc ('\n', stdout);
       protein_free (p);
