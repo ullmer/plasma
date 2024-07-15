@@ -95,6 +95,7 @@ char *slaw_str_overview (bslaw s, const char *prolo)
   for (int i=1; i <= DEFAULT_VSNPRINTF_BUFFER_MAX_MULTIPLIER; i++) {
     free(targBuffer);
     targBuffer = malloc(DEFAULT_VSNPRINTF_BUFFER_LEN * i);
+    slaw_str_overview2(s, targBuffer, prolo);
     if (slaw_format_to_stringResult >= 0) {return targBuffer;}
   } 
 
