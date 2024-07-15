@@ -1,4 +1,3 @@
-# distutils: include_dirs = /home/ullmer/git/plasma/ /home/ullmer/git/plasma/libPlasma/c /home/ullmer/git/plasma/libLoam/c
 import cython 
 
 #cdef extern from "slaw.h":
