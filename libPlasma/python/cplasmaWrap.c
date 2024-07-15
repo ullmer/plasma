@@ -76,7 +76,6 @@ void slaw_str_overview (bslaw s, char *targBuffer, const char *prolo)
   slaw_spew_internal (s, slaw_format_to_string, (void *) targBuffer, prolo);
 }
 
-
 char *slaw_str_overview (bslaw s, const char *prolo)
 {
   char *targBuffer = malloc(DEFAULT_VSNPRINTF_BUFFER_LEN);
@@ -188,7 +187,9 @@ char *plasmaAwaitNext() {
     }
   //slaw_spew_overview (p, stdout, NULL);
   //fputc ('\n', stdout);
+  char *result = slaw_str_overview (p, NULL);
   protein_free (p);
+  return result;
 }
 
 /// end ///
