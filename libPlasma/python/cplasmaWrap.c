@@ -21,7 +21,8 @@ pool_cmd_info cmd;
 
 //slaw extract_slaw (char *arg)
 //int extract_slaw (char *arg)
-void extract_slaw (char *arg, slaw pair)
+
+void extract_slaw (char *arg, slaw *pair)
 {
   char *colon = strchr (arg, ':');
   slaw key, value; //, pair;
@@ -52,7 +53,7 @@ void extract_slaw (char *arg, slaw pair)
     value = slaw_string (colon + 1);
   } while (0);
 
-  pair = slaw_cons_ff (key, value);
+  *pair = slaw_cons_ff (key, value);
   //return (int) pair;
   //return (void *) &pair;
 }
@@ -75,14 +76,12 @@ void plasmaInit(char *pnstr) {
   //cmd.pool_name = poolnameDefault;
 
   pool_cmd_open_pool (&cmd);
-
-  //return (int)cmd;
 }
 
 ////////////////// plasma deposit ////////////////// 
 
 //int plasmaDeposit(pool_cmd_info cmd, char *descripStr, char *ingestStr) {
-void plasmaDeposit(char *descripStr, char *ingestStr) {
+int plasmaDeposit(char *descripStr, char *ingestStr) {
   //pool_cmd_info cmd  = (pool_cmd_info) cmd2;
 
   ob_retort pret;
@@ -91,7 +90,7 @@ void plasmaDeposit(char *descripStr, char *ingestStr) {
   slabu   *descrips = slabu_new ();
   slabu   *ingests  = slabu_new ();
 
-  extract_slaw (ingestStr, ingest);
+  extract_slaw (ingestStr, &ingest);
   OB_DIE_ON_ERROR (slabu_list_add_c (descrips, descripStr));
   OB_DIE_ON_ERROR (slabu_list_add_x (ingests, ingest));
 

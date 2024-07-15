@@ -7,7 +7,7 @@ from libc.string cimport strcpy, strlen
 
 cdef extern from "cplasmaWrap.h":
   void plasmaInit(char *poolnameStr)
-  void plasmaDeposit(char *descripStr, char *ingestStr)
+  int  plasmaDeposit(char *descripStr, char *ingestStr)
 
 ############### plasma init wrapper ###############
 
