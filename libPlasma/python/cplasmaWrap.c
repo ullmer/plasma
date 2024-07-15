@@ -53,6 +53,46 @@ void extract_slaw (char *arg, slaw *pair)
   *pair = slaw_cons_ff (key, value);
 }
 
+////////////////// slaw format to string ////////////////// 
+
+#define DEFAULT_VSNPRINTF_BUFFER_LEN 500
+#define DEFAULT_VSNPRINTF_BUFFER_MAX_MULTIPLIER 4
+char *VSNPRINTF_UNKNOWN_ERROR = "ERROR: vsnprintf unknown error (likely encountered in slaw_format_to_string)";
+
+int slaw_format_to_stringResult;
+
+static void slaw_format_to_string (void *v, const char *fmt, ...)
+{
+  char *targBuffer = (char *)v;
+
+  va_list vargs;
+  va_start  (vargs, fmt);
+  slaw_format_to_stringResult = vsnprintf (targBuffer, DEFAULT_VSNPRINTF_BUFFER_LEN, fmt, vargs);
+  va_end    (vargs);
+}
+
+void slaw_str_overview (bslaw s, char *targBuffer, const char *prolo)
+{
+  slaw_spew_internal (s, slaw_format_to_string, (void *) targBuffer, prolo);
+}
+
+
+char *slaw_str_overview (bslaw s, const char *prolo)
+{
+  char *targBuffer = malloc(DEFAULT_VSNPRINTF_BUFFER_LEN);
+  slaw_str_overview(s, targBuffer, prolo);
+
+  if (slaw_format_to_stringResult >= 0) {return targBuffer;}
+
+  for (int i=1; i <= DEFAULT_VSNPRINTF_BUFFER_MAX_MULTIPLIER; i++) {
+    free(targBuffer)
+    targBuffer = malloc(DEFAULT_VSN_PRINTF_BUFFER_LEN * i)
+    if (slaw_format_to_stringResult >= 0) {return targBuffer}
+  } 
+
+  return VSNPRINTF_UNKNOWN_ERROR;
+}
+
 ////////////////// plasma initialize ////////////////// 
 
 void plasmaInit(char *pnstr) {
