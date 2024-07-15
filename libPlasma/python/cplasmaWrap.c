@@ -131,4 +131,24 @@ int plasmaAwait() {
   return EXIT_SUCCESS;
 }
 
+////////////////// plasma await next ////////////////// 
+
+char *plasmaAwaitNext() {
+  ob_retort pret;
+  protein p;
+  pool_timestamp ts;
+
+  pret = pool_await_next (cmd.ph, POOL_WAIT_FOREVER, &p, &ts, NULL);
+  if (OB_OK != pret)
+    {
+      pool_withdraw (cmd.ph);
+      fprintf (stderr, "problem with pool_await_next(): %s\n",
+                        ob_error_string (pret));
+      return pool_cmd_retort_to_exit_code (pret);
+    }
+  //slaw_spew_overview (p, stdout, NULL);
+  //fputc ('\n', stdout);
+  protein_free (p);
+}
+
 /// end ///
