@@ -19,7 +19,7 @@ def init(str poolnameStr):
 
 ############### plasma deposit wrapper ###############
 
-def deposit(str descripStr, str ingestStr):
+def pDeposit(str descripStr, str ingestStr):
   cdef bytes descripStrBytes = descripStr.encode("utf-8")
   cdef bytes ingestStrBytes  = ingestStr.encode("utf-8")
 
@@ -30,7 +30,7 @@ def deposit(str descripStr, str ingestStr):
 
 ############### plasma await wrapper ###############
 
-def await():
+def pAwait():
   plasmaAwait()
 
 ### end ###
