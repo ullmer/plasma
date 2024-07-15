@@ -19,13 +19,10 @@ pool_cmd_info cmd;
 
 ////////////////// extract slaw ////////////////// 
 
-//slaw extract_slaw (char *arg)
-//int extract_slaw (char *arg)
-
 void extract_slaw (char *arg, slaw *pair)
 {
   char *colon = strchr (arg, ':');
-  slaw key, value; //, pair;
+  slaw key, value; 
 
   if (colon == NULL) { 
      fprintf (stderr, "error: ingest '%s' needs a colon to separate key and value\n", arg);
@@ -54,14 +51,9 @@ void extract_slaw (char *arg, slaw *pair)
   } while (0);
 
   *pair = slaw_cons_ff (key, value);
-  //return (int) pair;
-  //return (void *) &pair;
 }
 
-////////////////// plasma Initialize ////////////////// 
-
-//pool_cmd_info plasmaInit(char *pnstr) {
-//void plasmaInit() {
+////////////////// plasma initialize ////////////////// 
 
 void plasmaInit(char *pnstr) {
   OB_CHECK_ABI ();
@@ -71,7 +63,6 @@ void plasmaInit(char *pnstr) {
 
   cmd.verbose   = 1;
   cmd.pool_name = pnstr;
-  //cmd.pool_name = poolnameDefault;
 
   pool_cmd_open_pool (&cmd);
 }
@@ -110,5 +101,30 @@ int plasmaDeposit(char *descripStr, char *ingestStr) {
   OB_DIE_ON_ERROR (pool_withdraw (cmd.ph));
   return EXIT_SUCCESS;
 }
+
+////////////////// plasma await ////////////////// 
+
+int plasmaAwait(char *descripStr, char *ingestStr) {
+
+  while (1)
+    {
+      pret = pool_await_next (cmd.ph, POOL_WAIT_FOREVER, &p, &ts, NULL);
+      if (OB_OK != pret)
+        {
+          pool_withdraw (cmd.ph);
+          fprintf (stderr, "problem with pool_await_next(): %s\n",
+                   ob_error_string (pret));
+          return pool_cmd_retort_to_exit_code (pret);
+        }
+      slaw_spew_overview (p, stdout, NULL);
+      fputc ('\n', stdout);
+      protein_free (p);
+    }
+
+  // Not reached at present.
+  OB_DIE_ON_ERROR (pool_withdraw (cmd.ph));
+  pool_cmd_free_options (&cmd);
+
+  return EXIT_SUCCESS;
 
 /// end ///
