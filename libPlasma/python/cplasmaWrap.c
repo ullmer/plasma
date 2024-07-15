@@ -12,6 +12,8 @@
 #include "libPlasma/c/protein.h"
 #include "libPlasma/c/slaw.h"
 
+#include "cplasmaWrap.h"
+
 ////////////////// extract slaw ////////////////// 
 
 //slaw extract_slaw (char *arg)
@@ -56,7 +58,8 @@ void extract_slaw (char *arg, slaw pair)
 
 //pool_cmd_info plasmaInit(char *pnstr) {
 //int plasmaInit(char *pnstr) {
-int plasmaInit() {
+//int plasmaInit() {
+void plasmaInit() {
 
   OB_CHECK_ABI ();
 
@@ -66,16 +69,18 @@ int plasmaInit() {
   memset(&cmd, 0, sizeof(cmd));
 
   cmd.verbose   = 1;
-  cmd.pool_name = pnstr;
+  //cmd.pool_name = pnstr;
+  cmd.pool_name = poolnameDefault;
 
   pool_cmd_open_pool (&cmd);
 
-  return (int)cmd;
+  //return (int)cmd;
 }
 
 ////////////////// plasma deposit ////////////////// 
 
 //int plasmaDeposit(pool_cmd_info cmd, char *descripStr, char *ingestStr) {
+/*
 int plasmaDeposit(int cmd2, char *descripStr, char *ingestStr) {
 
   pool_cmd_info cmd  = (pool_cmd_info) cmd2;
@@ -107,5 +112,6 @@ int plasmaDeposit(int cmd2, char *descripStr, char *ingestStr) {
   OB_DIE_ON_ERROR (pool_withdraw (cmd.ph));
   return EXIT_SUCCESS;
 }
+*/
 
 /// end ///
