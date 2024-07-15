@@ -65,8 +65,6 @@ void extract_slaw (char *arg, slaw *pair)
 
 void plasmaInit(char *pnstr) {
   OB_CHECK_ABI ();
-
-  //pool_cmd_info cmd;
   int           c;
 
   memset(&cmd, 0, sizeof(cmd));
@@ -82,11 +80,12 @@ void plasmaInit(char *pnstr) {
 
 //int plasmaDeposit(pool_cmd_info cmd, char *descripStr, char *ingestStr) {
 int plasmaDeposit(char *descripStr, char *ingestStr) {
-  //pool_cmd_info cmd  = (pool_cmd_info) cmd2;
-
   ob_retort pret;
   slaw     ingest;
   protein  prot;
+
+  printf("plasma deposit begins\n");
+
   slabu   *descrips = slabu_new ();
   slabu   *ingests  = slabu_new ();
 
