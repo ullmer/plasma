@@ -1,4 +1,4 @@
-# distutils: include_dirs = /home/bullmer/git/plasma/ /home/bullmer/git/plasma/libPlasma/c /home/bullmer/git/plasma/libLoam/c
+# distutils: include_dirs = /home/ullmer/git/plasma/ /home/ullmer/git/plasma/libPlasma/c /home/ullmer/git/plasma/libLoam/c
 import cython 
 
 #cdef extern from "slaw.h":
@@ -14,7 +14,7 @@ cdef extern from "cplasmaWrap.h":
 
 #def plasmaInit2(str poolnameStr):
 
-def plasmaInit2():
+def init():
   #cdef bytes poolnameBytes   = poolnameStr.encode("utf-8")
   #cdef char* poolnameCharstr = poolnameBytes #apparently auto-conversion
   #cdef pool_cmd_info  result = plasmaInit(poolnameCharstr)
