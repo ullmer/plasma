@@ -14,7 +14,7 @@
 
 #ifndef POOL_NAME_DEFAULT
 #define POOL_NAME_DEFAULT 1
-char *poolnameDefault="tcp://localhost/hello";
+extern char *poolnameDefault;
 #endif
 
 void extract_slaw (char *arg, slaw ingest); //helper function for plasmaDeposit, copied from p-deposit.c

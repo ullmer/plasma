@@ -14,6 +14,8 @@
 
 #include "cplasmaWrap.h"
 
+char *poolnameDefault="tcp://localhost/hello";
+
 ////////////////// extract slaw ////////////////// 
 
 //slaw extract_slaw (char *arg)
