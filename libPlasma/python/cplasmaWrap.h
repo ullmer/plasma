@@ -14,9 +14,9 @@
 
 char *poolnameDefault="tcp://localhost/hello";
 
-int extract_slaw (char *arg); //helper function for plasmaDeposit, copied from p-deposit.c
-int plasmaInit(char *pnstr);
-int plasmaDeposit(int cmd2, char *descripStr, char *ingestStr);
+void extract_slaw (char *arg, slaw ingest); //helper function for plasmaDeposit, copied from p-deposit.c
+void plasmaInit();
+void plasmaDeposit(int cmd2, char *descripStr, char *ingestStr);
 
 //int plasmaDeposit(pool_cmd_info cmd, char *descripStr, char *ingestStr);
 //slaw   extract_slaw (char *arg); //helper function for plasmaDeposit, copied from p-deposit.c

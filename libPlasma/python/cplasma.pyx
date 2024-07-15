@@ -8,14 +8,18 @@ cdef extern from "slaw.h":
 #  ctypedef pool_cmd_info
 
 cdef extern from "cplasmaWrap.h":
-  cdef extern char *poolnameDefault
-  slaw plasmaInit(char *poolnameStr)
+  slaw plasmaInit()
+  #cdef extern char *poolnameDefault
+  #slaw plasmaInit(char *poolnameStr)
 
-def plasmaInit2(str poolnameStr):
+#def plasmaInit2(str poolnameStr):
+
+def plasmaInit2():
   #cdef bytes poolnameBytes   = poolnameStr.encode("utf-8")
   #cdef char* poolnameCharstr = poolnameBytes #apparently auto-conversion
   #cdef pool_cmd_info  result = plasmaInit(poolnameCharstr)
-  cdef int result = plasmaInit(poolnameDefault)
+  #cdef int result = plasmaInit(poolnameDefault)
+  cdef int result = plasmaInit()
   return result
 
 ### end ###

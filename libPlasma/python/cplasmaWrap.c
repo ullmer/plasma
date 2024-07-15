@@ -15,10 +15,11 @@
 ////////////////// extract slaw ////////////////// 
 
 //slaw extract_slaw (char *arg)
-int extract_slaw (char *arg)
+//int extract_slaw (char *arg)
+void extract_slaw (char *arg, slaw pair)
 {
   char *colon = strchr (arg, ':');
-  slaw key, value, pair;
+  slaw key, value; //, pair;
 
   if (colon == NULL) { 
      fprintf (stderr, "error: ingest '%s' needs a colon to separate key and value\n", arg);
@@ -47,13 +48,15 @@ int extract_slaw (char *arg)
   } while (0);
 
   pair = slaw_cons_ff (key, value);
-  return (int) pair;
+  //return (int) pair;
+  //return (void *) &pair;
 }
 
 ////////////////// plasma Initialize ////////////////// 
 
 //pool_cmd_info plasmaInit(char *pnstr) {
-int plasmaInit(char *pnstr) {
+//int plasmaInit(char *pnstr) {
+int plasmaInit() {
 
   OB_CHECK_ABI ();
 
@@ -78,12 +81,12 @@ int plasmaDeposit(int cmd2, char *descripStr, char *ingestStr) {
   pool_cmd_info cmd  = (pool_cmd_info) cmd2;
 
   ob_retort pret;
-  slaw      ingest;
-  protein   prot;
-  slabu    *descrips = slabu_new ();
-  slabu    *ingests  = slabu_new ();
+  slaw     ingest;
+  protein  prot;
+  slabu   *descrips = slabu_new ();
+  slabu   *ingests  = slabu_new ();
 
-  ingest = (pool_cmd_info) extract_slaw (ingestStr);
+  extract_slaw (ingestStr, ingest);
   OB_DIE_ON_ERROR (slabu_list_add_c (descrips, descripStr));
   OB_DIE_ON_ERROR (slabu_list_add_x (ingests, ingest));
 
