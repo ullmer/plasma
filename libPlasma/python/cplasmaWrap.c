@@ -76,6 +76,15 @@ void slaw_str_overview (bslaw s, char *targBuffer, const char *prolo)
   slaw_spew_internal (s, slaw_format_to_string, (void *) targBuffer, prolo);
 }
 
+//BAU 2024-07-15: As an initial approach to returning slaw contents to Python code, 
+//     attempting to adapt FILE (e.g., stderr) targeted slaw_spew_overview into 
+//     returning a char * buffer/string.  Given an impression that slaw can contain near-arbitrarily large
+//     payloads, especially with embedded systems in mind, that creates some issues.
+//     As an initial workaround, arbitrarily adopting DEFAULT_VSNPRINTF_BUFFER_LEN of 500 bytes as a default
+//     buffer; and DEFAULT_VSNPRINTF_BUFFER_MAX_MULTIPLIER (initially, 4) to progressively reallocate larger
+//     buffers if that's insufficient (using vsnprintf to avoid buffer overflows).  These numbers -- and approach -- will
+//     likely highly benefit from evolution over time and usage context.
+
 char *slaw_str_overview (bslaw s, const char *prolo)
 {
   char *targBuffer = malloc(DEFAULT_VSNPRINTF_BUFFER_LEN);
