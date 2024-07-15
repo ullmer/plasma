@@ -93,9 +93,9 @@ char *slaw_str_overview (bslaw s, const char *prolo)
   if (slaw_format_to_stringResult >= 0) {return targBuffer;}
 
   for (int i=1; i <= DEFAULT_VSNPRINTF_BUFFER_MAX_MULTIPLIER; i++) {
-    free(targBuffer)
-    targBuffer = malloc(DEFAULT_VSN_PRINTF_BUFFER_LEN * i)
-    if (slaw_format_to_stringResult >= 0) {return targBuffer}
+    free(targBuffer);
+    targBuffer = malloc(DEFAULT_VSN_PRINTF_BUFFER_LEN * i);
+    if (slaw_format_to_stringResult >= 0) {return targBuffer;}
   } 
 
   return VSNPRINTF_UNKNOWN_ERROR;
@@ -181,7 +181,7 @@ int plasmaAwait() {
 
 ////////////////// plasma await next ////////////////// 
 
-char *plasmaAwaitNext() {
+char *plasmaAwaitNextChars() {
   ob_retort pret;
   protein p;
   pool_timestamp ts;

@@ -15,10 +15,13 @@
 extern char *poolnameDefault;
 extern pool_cmd_info cmd;
 
+char *slaw_str_overview (bslaw s, const char *prolo);
+
 void extract_slaw (char *arg, slaw *ingest); //helper function for plasmaDeposit, copied from p-deposit.c
 
 void plasmaInit(char *poolnameStr);
 int  plasmaDeposit(char *descripStr, char *ingestStr);
 int  plasmaAwait();
+char *plasmaAwaitNextChars();
 
 /// end ///
