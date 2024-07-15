@@ -16,7 +16,9 @@ extern char *poolnameDefault;
 extern pool_cmd_info cmd;
 
 void extract_slaw (char *arg, slaw *ingest); //helper function for plasmaDeposit, copied from p-deposit.c
+
 void plasmaInit(char *poolnameStr);
 int  plasmaDeposit(char *descripStr, char *ingestStr);
+int  plasmaAwait();
 
 /// end ///

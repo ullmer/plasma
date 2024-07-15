@@ -104,7 +104,10 @@ int plasmaDeposit(char *descripStr, char *ingestStr) {
 
 ////////////////// plasma await ////////////////// 
 
-int plasmaAwait(char *descripStr, char *ingestStr) {
+int plasmaAwait() {
+  ob_retort pret;
+  protein p;
+  pool_timestamp ts;
 
   while (1)
     {
@@ -126,5 +129,6 @@ int plasmaAwait(char *descripStr, char *ingestStr) {
   pool_cmd_free_options (&cmd);
 
   return EXIT_SUCCESS;
+}
 
 /// end ///
