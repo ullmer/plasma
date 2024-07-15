@@ -21,9 +21,7 @@ extensions  = [Extension("cplasma", sourcefiles,
   library_dirs = [PLASMA_HOME + "build/libPlasma/c", PLASMA_HOME + "build/libLoam/c", SSL_LIBD, OTHER_LIB],
   include_dirs = [PLASMA_HOME, PLASMA_HOME+"/libPlasma/c", PLASMA_HOME+"libLoam/c"],
   extra_compile_args = ["-fPIC"],
-  extra_link_args    = ["-fPIC"],
-  compile_args       = ["-fPIC"], #this is likely ignored
-  link_args          = ["-fPIC"]  #this is likely ignored
+  extra_link_args    = ["-fPIC"]
                  )]
 
 setup(
