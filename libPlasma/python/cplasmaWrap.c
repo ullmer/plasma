@@ -71,7 +71,7 @@ static void slaw_format_to_string (void *v, const char *fmt, ...)
   va_end    (vargs);
 }
 
-void slaw_str_overview (bslaw s, char *targBuffer, const char *prolo)
+void slaw_str_overview2 (bslaw s, char *targBuffer, const char *prolo)
 {
   slaw_spew_internal (s, slaw_format_to_string, (void *) targBuffer, prolo);
 }
@@ -88,13 +88,13 @@ void slaw_str_overview (bslaw s, char *targBuffer, const char *prolo)
 char *slaw_str_overview (bslaw s, const char *prolo)
 {
   char *targBuffer = malloc(DEFAULT_VSNPRINTF_BUFFER_LEN);
-  slaw_str_overview(s, targBuffer, prolo);
+  slaw_str_overview2(s, targBuffer, prolo);
 
   if (slaw_format_to_stringResult >= 0) {return targBuffer;}
 
   for (int i=1; i <= DEFAULT_VSNPRINTF_BUFFER_MAX_MULTIPLIER; i++) {
     free(targBuffer);
-    targBuffer = malloc(DEFAULT_VSN_PRINTF_BUFFER_LEN * i);
+    targBuffer = malloc(DEFAULT_VSNPRINTF_BUFFER_LEN * i);
     if (slaw_format_to_stringResult >= 0) {return targBuffer;}
   } 
 
@@ -192,7 +192,8 @@ char *plasmaAwaitNextChars() {
       pool_withdraw (cmd.ph);
       fprintf (stderr, "problem with pool_await_next(): %s\n",
                         ob_error_string (pret));
-      return pool_cmd_retort_to_exit_code (pret);
+      //return pool_cmd_retort_to_exit_code (pret);
+      return VSNPRINTF_UNKNOWN_ERROR;
     }
   //slaw_spew_overview (p, stdout, NULL);
   //fputc ('\n', stdout);
