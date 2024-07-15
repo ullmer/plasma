@@ -2071,7 +2071,7 @@ OB_FLATTEN unt64 slaw_hash (bslaw s)
 //
 //
 
-typedef void (*fwfunc) (void *v, const char *fmt, ...) OB_FORMAT (printf, 2, 3);
+//typedef void (*fwfunc) (void *v, const char *fmt, ...) OB_FORMAT (printf, 2, 3);
 
 static void format_to_file (void *v, const char *fmt, ...)
 {
@@ -2275,7 +2275,6 @@ static void slaw_spew_numeric_ovewview (bslaw s, fwfunc func, FILE *whither)
 }
 
 
-
 static void slaw_spew_internal (bslaw s, fwfunc func, void *whither,
                                 const char *prolo)
 {
@@ -2374,7 +2373,6 @@ static void slaw_spew_internal (bslaw s, fwfunc func, void *whither,
     }
 }
 
-
 void slaw_spew_overview (bslaw s, FILE *whither, const char *prolo)
 {
   slaw_spew_internal (s, format_to_file, (void *) whither, prolo);
@@ -2393,7 +2391,6 @@ slaw slaw_spew_overview_to_string (bslaw s)
   slaw_spew_internal (s, format_to_slabu, (void *) sb, NULL);
   return slaw_strings_join_slabu_f (sb, NULL);
 }
-
 
 #undef _FW
 

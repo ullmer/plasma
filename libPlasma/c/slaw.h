@@ -1006,6 +1006,9 @@ OB_PLASMA_API int slaw_numeric_unit_bsize (bslaw s);
 OB_PLASMA_API void slaw_spew_overview (bslaw s, FILE *whither,
                                        const char *prolo);
 
+typedef void (*fwfunc) (void *v, const char *fmt, ...) OB_FORMAT (printf, 2, 3);
+void slaw_spew_internal (bslaw s, fwfunc func, void *whither, const char *prolo);
+
 /**
  * Print a human-readable representation of the specified slaw to stderr.
  */
