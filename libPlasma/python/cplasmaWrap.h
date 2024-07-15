@@ -12,7 +12,10 @@
 #include "libPlasma/c/protein.h"
 #include "libPlasma/c/slaw.h"
 
+#ifndef POOL_NAME_DEFAULT
+#define POOL_NAME_DEFAULT 1
 char *poolnameDefault="tcp://localhost/hello";
+#endif
 
 void extract_slaw (char *arg, slaw ingest); //helper function for plasmaDeposit, copied from p-deposit.c
 void plasmaInit();
