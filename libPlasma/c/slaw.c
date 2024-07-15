@@ -2274,8 +2274,7 @@ static void slaw_spew_numeric_ovewview (bslaw s, fwfunc func, FILE *whither)
   slaw_walk (&vw, &ovew_handler, s);
 }
 
-
-static void slaw_spew_internal (bslaw s, fwfunc func, void *whither,
+void slaw_spew_internal (bslaw s, fwfunc func, void *whither,
                                 const char *prolo)
 {
   if (!prolo)
