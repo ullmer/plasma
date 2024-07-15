@@ -9,6 +9,7 @@
 #include "libLoam/c/ob-vers.h"
 #include "libLoam/c/ob-log.h"
 #include "libPlasma/c/slaw.h"
+#include "libPlasma/c/slaw-io.h"
 #include "libPlasma/c/protein.h"
 
 static void usage (void)
@@ -48,9 +49,10 @@ int main (int argc, char **argv)
           return pool_cmd_retort_to_exit_code (pret);
         }
       bslaw d = protein_descrips(p);
-      bslaw i = protein_ingests(i);
+      bslaw i = protein_ingests(p);
+      slaw slaw_to_string(p)
 
-      slaw_spew_overview (p, stdout, NULL);
+      //slaw_spew_overview (p, stdout, NULL);
       fputc ('\n', stdout);
       protein_free (p);
     }
