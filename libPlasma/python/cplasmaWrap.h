@@ -17,13 +17,6 @@ extern pool_cmd_info cmd;
 
 void extract_slaw (char *arg, slaw ingest); //helper function for plasmaDeposit, copied from p-deposit.c
 void plasmaInit(char *poolnameStr);
-
-//void plasmaInit();
-
-//void plasmaDeposit(int cmd2, char *descripStr, char *ingestStr);
-
-//int plasmaDeposit(pool_cmd_info cmd, char *descripStr, char *ingestStr);
-//slaw   extract_slaw (char *arg); //helper function for plasmaDeposit, copied from p-deposit.c
-//pool_cmd_info plasmaInit(char *pnstr);
+void plasmaDeposit(char *descripStr, char *ingestStr);
 
 /// end ///

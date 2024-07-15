@@ -82,10 +82,8 @@ void plasmaInit(char *pnstr) {
 ////////////////// plasma deposit ////////////////// 
 
 //int plasmaDeposit(pool_cmd_info cmd, char *descripStr, char *ingestStr) {
-/*
-int plasmaDeposit(int cmd2, char *descripStr, char *ingestStr) {
-
-  pool_cmd_info cmd  = (pool_cmd_info) cmd2;
+void plasmaDeposit(char *descripStr, char *ingestStr) {
+  //pool_cmd_info cmd  = (pool_cmd_info) cmd2;
 
   ob_retort pret;
   slaw     ingest;
@@ -114,6 +112,5 @@ int plasmaDeposit(int cmd2, char *descripStr, char *ingestStr) {
   OB_DIE_ON_ERROR (pool_withdraw (cmd.ph));
   return EXIT_SUCCESS;
 }
-*/
 
 /// end ///

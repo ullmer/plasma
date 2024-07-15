@@ -5,22 +5,26 @@
 import cython 
 from libc.string cimport strcpy, strlen
 
-#cdef extern from "slaw.h":
-#  ctypedef slaw
-
-#cdef extern from "pool_cmd.h":
-#  ctypedef pool_cmd_info
-
 cdef extern from "cplasmaWrap.h":
   void plasmaInit(char *poolnameStr)
+  void plasmaDeposit(char *descripStr, char *ingestStr)
 
-  #cdef extern char *poolnameDefault
-  #slaw plasmaInit(char *poolnameStr)
+############### plasma init wrapper ###############
 
 def init(str poolnameStr):
-
   cdef bytes poolnameBytes   = poolnameStr.encode("utf-8")
   cdef char* poolnameCharstr = poolnameBytes #apparently auto-conversion
   plasmaInit(poolnameCharstr)
+
+############### plasma deposit wrapper ###############
+
+def deposit(str descripStr, str ingestStr):
+  cdef bytes descripStrBytes = descripStr.encode("utf-8")
+  cdef bytes ingestStrBytes  = ingestStr.encode("utf-8")
+
+  cdef char* descripCharstr = descripStrBytes #apparently auto-conversion
+  cdef char* ingestCharstr  = ingestStrBytes  #apparently auto-conversion
+
+  plasmaDeposit(descripCharstr, ingestCharstr)
 
 ### end ###
