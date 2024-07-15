@@ -14,7 +14,8 @@
 
 ////////////////// extract slaw ////////////////// 
 
-slaw extract_slaw (char *arg)
+//slaw extract_slaw (char *arg)
+int extract_slaw (char *arg)
 {
   char *colon = strchr (arg, ':');
   slaw key, value, pair;
@@ -46,12 +47,13 @@ slaw extract_slaw (char *arg)
   } while (0);
 
   pair = slaw_cons_ff (key, value);
-  return pair;
+  return (int) pair;
 }
 
 ////////////////// plasma Initialize ////////////////// 
 
-pool_cmd_info plasmaInit(char *pnstr) {
+//pool_cmd_info plasmaInit(char *pnstr) {
+int plasmaInit(char *pnstr) {
 
   OB_CHECK_ABI ();
 
@@ -65,12 +67,15 @@ pool_cmd_info plasmaInit(char *pnstr) {
 
   pool_cmd_open_pool (&cmd);
 
-  return cmd;
+  return (int)cmd;
 }
 
 ////////////////// plasma deposit ////////////////// 
 
-int plasmaDeposit(pool_cmd_info cmd, char *descripStr, char *ingestStr) {
+//int plasmaDeposit(pool_cmd_info cmd, char *descripStr, char *ingestStr) {
+int plasmaDeposit(int cmd2, char *descripStr, char *ingestStr) {
+
+  pool_cmd_info cmd  = (pool_cmd_info) cmd2;
 
   ob_retort pret;
   slaw      ingest;
@@ -78,7 +83,7 @@ int plasmaDeposit(pool_cmd_info cmd, char *descripStr, char *ingestStr) {
   slabu    *descrips = slabu_new ();
   slabu    *ingests  = slabu_new ();
 
-  ingest = extract_slaw (ingestStr);
+  ingest = (pool_cmd_info) extract_slaw (ingestStr);
   OB_DIE_ON_ERROR (slabu_list_add_c (descrips, descripStr));
   OB_DIE_ON_ERROR (slabu_list_add_x (ingests, ingest));
 

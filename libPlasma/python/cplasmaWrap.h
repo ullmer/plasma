@@ -12,8 +12,14 @@
 #include "libPlasma/c/protein.h"
 #include "libPlasma/c/slaw.h"
 
-slaw          extract_slaw (char *arg); //helper function for plasmaDeposit, copied from p-deposit.c
-pool_cmd_info plasmaInit(char *pnstr);
-int           plasmaDeposit(pool_cmd_info cmd, char *descripStr, char *ingestStr);
+char *poolnameDefault="tcp://localhost/hello";
+
+int extract_slaw (char *arg); //helper function for plasmaDeposit, copied from p-deposit.c
+int plasmaInit(char *pnstr);
+int plasmaDeposit(int cmd2, char *descripStr, char *ingestStr);
+
+//int plasmaDeposit(pool_cmd_info cmd, char *descripStr, char *ingestStr);
+//slaw   extract_slaw (char *arg); //helper function for plasmaDeposit, copied from p-deposit.c
+//pool_cmd_info plasmaInit(char *pnstr);
 
 /// end ///
