@@ -9,6 +9,7 @@ cdef extern from "cplasmaWrap.h":
   void plasmaInit(char *poolnameStr)
   int  plasmaDeposit(char *descripStr, char *ingestStr)
   int  plasmaAwait()
+  char *plasmaAwaitNextChars()
 
 ############### plasma init wrapper ###############
 
@@ -32,5 +33,12 @@ def pDeposit(str descripStr, str ingestStr):
 
 def pAwait():
   plasmaAwait()
+
+############### plasma await wrapper ###############
+
+def pAwaitNextStr():
+  cdef char* nch = plasmaAwaitNextChars()
+  result = nch.decode("UTF-8")
+  return result
 
 ### end ###
