@@ -6,11 +6,12 @@ import cython
 from libc.string cimport strcpy, strlen
 
 cdef extern from "cplasmaWrap.h":
-  void plasmaInit(char *poolnameStr)
-  int  plasmaDeposit(char *descripStr, char *ingestStr)
-  int  plasmaAwait()
+  void   plasmaInit(char *poolnameStr)
+  int    plasmaDeposit(char *descripStr, char *ingestStr)
+  int    plasmaAwait()
   char **plasmaAwaitNextTrio()
-  int  plasmaPoolNext()
+  char **plasmaPoolNext(char *formatStr)
+  char  *plasmaGetProtFmtStr(char *formatName)
 
 ############### plasma init wrapper ###############
 
@@ -47,8 +48,20 @@ def pAwaitNextTrio():
 
 ############### plasma pool_next wrapper ###############
 
-def pNext():
-  cdef int result = plasmaPoolNext()
+def pNext(str formatStr):
+  cdef bytes formatStrBytes = formatStr.encode("utf-8")
+  cdef char* formatCharstr  = formatStrBytes #apparently auto-conversion
+
+  char **result = plasmaPoolNext(formatCharstr)
   return result
+
+############### plasma pool_next wrapper ###############
+
+def getProtFmtStr(str formatName):
+  cdef bytes formatNameBytes = formatName.encode("utf-8")
+  cdef char* formatNameChars = formatNameBytes #apparently auto-conversion
+
+  char *resultC = plasmaGetProtFmtStr(formatNameChars)
+  str   result  = resultC.decode("UTF-8")
 
 ### end ###
