@@ -8,6 +8,9 @@ import asyncio, sys, time
 
 class CPlasmaWatcher:
   poolSpecifier = "tcp://localhost/hello" #default, will benefit from evolution
+  msgFormatName = "prot:simpleKeyVal"
+  msgFormatStr  = None
+  sleepDuration = .01
 
   ############# error reporting #############
 
@@ -25,11 +28,24 @@ class CPlasmaWatcher:
      
     self.initPlasma(self.poolSpecifier)
   
+  ############# plasma watcher #############
+
+  async def plasmaWatcher(self):
+
+    while True:
+      try:    strs = cplasma.pNext(self.msgFormatStr)
+      except: print("plasmaWatcher: pNext error!"); return
+
+      if strs is None: await asyncio.sleep(self.sleepDuration)
+      else: print("<<%s>>" % strs)
+
   ############# initiate C Plasma #############
 
   def initPlasma(self, poolSpecifier=None): 
     self.msgUpdate("plasma initiating, pool specifier:", poolSpecifier)
     cplasma.init("tcp://localhost/hello")
+    self.msgFormatStr = cplasma.getProtFormatStr(self.msgFormatName)
+    asyncio.run(self.plasmaWatcher())
     
   ############# plasma deposit #############
 
@@ -44,27 +60,8 @@ class CPlasmaWatcher:
 ################################
 ############# main #############
 
-if __name__ == "__main__":
-  p = CPlasma("tcp://localhost/hello")
 
-### end ###
 
-fmtStr        = cplasma.getProtFormatStr('prot:simpleKeyVal')
-sleepDuration = .01
-
-async def plasmaWatcher():
-  global sleepDuration, fmtStr
-
-  while True:
-    try:    strs = cplasma.pNext(fmtStr)
-    except: print("plasmaWatcher: pNext error!"); return
-
-    if strs is None: await asyncio.sleep(sleepDuration)
-    else: print("<<%s>>" % strs)
-
-asyncio.run(plasmaWatcher())
-
-cplasma.close()
 
 ### end ###
 
