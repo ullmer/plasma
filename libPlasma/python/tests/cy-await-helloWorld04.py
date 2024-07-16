@@ -3,16 +3,18 @@ import cplasma
 import asyncio
 
 cplasma.init("tcp://localhost/hello")
+fmtStr        = cplasma.getProtFormatStr('prot:simpleKeyVal')
+print("watching cplasma for updates of form", fmtStr)
+sleepDuration = .01
 
-def awaitPlasmaTrio()
-  strs = cplasma.pAwaitNextTrio()
-  return strs
+async def plasmaWatcher():
+  global sleepDuration
+  strs = cplasma.pNext(fmtStr)
 
-async def plasma_client():
-  strs = await cplasma.pAwaitNextTrio()
-  print("<<%s>>" % strs)
+  if strs is None: await asyncio.sleep(sleepDuration)
+  else: print("<<%s>>" % strs)
 
-asyncio.run(plasma_client())
+asyncio.run(plasmaWatcher())
 
 ### end ###
 
