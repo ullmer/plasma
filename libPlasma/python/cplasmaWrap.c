@@ -156,12 +156,12 @@ int plasmaAwait() {
 
 ////////////////// plasma await next ////////////////// 
 
-char *plasmaAwaitNextChars() {
+char **plasmaAwaitNextTrio() {
   ob_retort pret;
   protein p;
   pool_timestamp ts;
 
-  printf("plasmaAwaitNextChars begins\n");
+  //printf("plasmaAwaitNextChars begins\n");
 
   pret = pool_await_next (cmd.ph, POOL_WAIT_FOREVER, &p, &ts, NULL);
   if (OB_OK != pret)
@@ -172,19 +172,19 @@ char *plasmaAwaitNextChars() {
       //return pool_cmd_retort_to_exit_code (pret);
       return NULL;
     }
-  //printf("A\n");
+
   //slaw_spew_overview (p, stdout, NULL);
   //fputc ('\n', stdout);
+
   char **payloadExtraction = extractProteinStrPayload(p);
-  printf("B\n");
-  printf("S1: %s\n", payloadExtraction[0]);
-  printf("S2: %s\n", payloadExtraction[1]);
-  printf("S3: %s\n", payloadExtraction[2]);
+
+  //printf("S1: %s\n", payloadExtraction[0]);
+  //printf("S2: %s\n", payloadExtraction[1]);
+  //printf("S3: %s\n", payloadExtraction[2]);
 
   //char *result = slaw_str_overview (p, NULL);
-  //protein_free (p);
-  //return result;
-  return payloadExtraction[0];
+  //protein_free (p); // this was segfaulting; commenting it probably introduces a memory leak
+  return payloadExtraction;
 }
 
 /// end ///
