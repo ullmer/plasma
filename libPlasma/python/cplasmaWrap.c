@@ -187,4 +187,36 @@ char **plasmaAwaitNextTrio() {
   return payloadExtraction;
 }
 
+////////////////// plasma next ////////////////// 
+
+int plasmaPoolNext() {
+  ob_retort pret;
+  protein p;
+  pool_timestamp ts;
+
+  //pret = pool_next (cmd.ph, POOL_WAIT_FOREVER, &p, &ts, NULL);
+
+  // OB_PLASMA_API ob_retort pool_next (pool_hose ph, protein *ret_prot,
+  //                                    pool_timestamp *ret_ts, int64 *ret_index);
+
+  pret = pool_next (cmd.ph, &p, &ts, NULL);
+
+  if (OB_OK != pret) {
+    pool_withdraw (cmd.ph);
+    fprintf (stderr, "problem with pool_await_next(): %s\n",
+    ob_error_string (pret));
+    return pool_cmd_retort_to_exit_code (pret);
+  }
+
+  //slaw_spew_overview (p, stdout, NULL);
+  //fputc ('\n', stdout);
+  //protein_free (p);
+
+  // Not reached at present.
+  //OB_DIE_ON_ERROR (pool_withdraw (cmd.ph));
+  //pool_cmd_free_options (&cmd);
+
+  //return EXIT_SUCCESS;
+}
+
 /// end ///
