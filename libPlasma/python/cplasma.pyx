@@ -53,6 +53,10 @@ def pNext(str formatStr):
   cdef char* formatCharstr  = formatStrBytes #apparently auto-conversion
 
   cdef char **nch = plasmaPoolNext(formatCharstr)
+
+  if nch is NULL: 
+    return None
+
   str1 = nch[0].decode("UTF-8")
   str2 = nch[1].decode("UTF-8")
   str3 = nch[2].decode("UTF-8")
@@ -67,5 +71,6 @@ def getProtFmtStr(str formatName):
 
   cdef char *resultC = plasmaGetProtFmtStr(formatNameChars)
   result   = resultC.decode("UTF-8")
+  return result
 
 ### end ###

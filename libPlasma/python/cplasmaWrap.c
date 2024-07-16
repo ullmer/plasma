@@ -220,7 +220,7 @@ char **plasmaPoolNext(char *formatStr) {
     return NULL;
   }
 
-  if (formatStr==NULL) {
+  if (formatStr==NULL || strcmp(formatStr, "")==0) {
     formatStr = plasmaGetProtFmtStr(NULL);
   }
 
