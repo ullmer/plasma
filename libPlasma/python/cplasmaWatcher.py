@@ -4,7 +4,7 @@
 
 import sys; sys.path.append("/home/ullmer/git/plasma/libPlasma/python/")
 import cplasma
-import asyncio, sys, time
+import asyncio, sys, time, traceback
 from   functools import partial # for callback support
 
 #############################################################
@@ -30,6 +30,8 @@ class CPlasmaWatcher:
   ############# constructor #############
 
   def __init__(self, **kwargs):
+    self.msgCallbackDict  = {}
+
     #https://stackoverflow.com/questions/739625/setattr-with-kwargs-pythonic-or-not
     self.__dict__.update(kwargs) #allow class fields to be passed in constructor
 
@@ -46,7 +48,9 @@ class CPlasmaWatcher:
       except: print("plasmaWatcher: pNext error!"); return
 
       if strs is None: await asyncio.sleep(self.sleepDuration)
-      else: print("<<%s>>" % strs)
+      else: 
+        try:    self.evalMsgCallbacks(strs)
+        except: self.err("plasmaWatcher message callback error:"); traceback.print_exc();           
 
   ############# initiate C Plasma #############
 
@@ -76,9 +80,17 @@ class CPlasmaWatcher:
     # cb = partial(callback, controlName)
     self.msgCallbackDict[callbackName] = callbackFunc
 
+  ############# default message callback #############
+
+  def defaultMsgCallback(self, msg):
+    self.msgUpdate("default msg cb:" + str(msg))
+
   ############# register callback #############
 
   def evalMsgCallbacks(self, msg):
+    if len(self.msgCallbackDict) == 0:
+      self.defaultMsgCallback(msg)
+
     for callbackName in self.msgCallbackDict:
       callbackFunc = self.msgCallbackDict[callbackName]
       callbackFunc(msg)
