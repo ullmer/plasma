@@ -7,6 +7,7 @@ from libc.string cimport strcpy, strlen
 
 cdef extern from "cplasmaWrap.h":
   void   plasmaInit(char *poolnameStr)
+  void   plasmaClose() 
   int    plasmaDeposit(char *descripStr, char *ingestStr)
   int    plasmaAwait()
   char **plasmaAwaitNextTrio()
@@ -20,6 +21,11 @@ def init(str poolnameStr):
   cdef bytes poolnameBytes   = poolnameStr.encode("utf-8")
   cdef char* poolnameCharstr = poolnameBytes #apparently auto-conversion
   plasmaInit(poolnameCharstr)
+
+############### plasma close wrapper ###############
+
+def close(str poolnameStr):
+  plasmaClose() 
 
 ############### plasma deposit wrapper ###############
 

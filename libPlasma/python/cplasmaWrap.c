@@ -90,6 +90,12 @@ void plasmaInit(char *pnstr) {
   pool_cmd_open_pool (&cmd);
 }
 
+////////////////// plasma close ////////////////// 
+
+void plasmaClose() {
+ OB_DIE_ON_ERROR (pool_withdraw (cmd.ph));
+}
+
 ////////////////// plasma deposit ////////////////// 
 
 //int plasmaDeposit(pool_cmd_info cmd, char *descripStr, char *ingestStr) {

@@ -19,9 +19,10 @@ char *slaw_str_overview (bslaw s, const char *prolo);
 
 void  extract_slaw (char *arg, slaw *ingest); //helper function for plasmaDeposit, copied from p-deposit.c
 
-void  plasmaInit(char *poolnameStr);
-int   plasmaDeposit(char *descripStr, char *ingestStr);
-int   plasmaAwait();
+void   plasmaInit(char *poolnameStr);
+void   plasmaClose(); 
+int    plasmaDeposit(char *descripStr, char *ingestStr);
+int    plasmaAwait();
 char **plasmaAwaitNextChars();
 char **plasmaAwaitNextTrio();
 char **plasmaPoolNext(char *formatStr);
