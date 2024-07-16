@@ -202,9 +202,9 @@ int plasmaPoolNext() {
   pret = pool_next (cmd.ph, &p, &ts, NULL);
 
   if (OB_OK != pret) {
-    pool_withdraw (cmd.ph);
-    fprintf (stderr, "problem with pool_await_next(): %s\n",
-    ob_error_string (pret));
+    //pool_withdraw (cmd.ph);
+    //fprintf (stderr, "problem with pool_await_next(): %s\n",
+    //ob_error_string (pret));
     return pool_cmd_retort_to_exit_code (pret);
   }
 
@@ -217,6 +217,7 @@ int plasmaPoolNext() {
   //pool_cmd_free_options (&cmd);
 
   //return EXIT_SUCCESS;
+  return 1;
 }
 
 /// end ///
