@@ -18,7 +18,7 @@ class CPlasmaWatcher:
   poolSpecifier = "tcp://localhost/hello" #default, will benefit from evolution
   msgFormatName = "prot:simpleKeyVal"
   msgFormatStr  = None
-  callbackList  = None
+  msgCallbackDict  = None
   sleepDuration = .01
 
   ############# error reporting #############
@@ -30,8 +30,6 @@ class CPlasmaWatcher:
   ############# constructor #############
 
   def __init__(self, **kwargs):
-    self.callbackList = []
-
     #https://stackoverflow.com/questions/739625/setattr-with-kwargs-pythonic-or-not
     self.__dict__.update(kwargs) #allow class fields to be passed in constructor
 
@@ -63,9 +61,33 @@ class CPlasmaWatcher:
   def deposit(self, descrips="hello", ingests="world"): 
     cplasma.pDeposit(descrips, ingests)
 
-  ############# plasma deposit #############
+  ############# plasma close #############
 
   def close(): cplasma.close()
+
+  ############# register callback #############
+
+  #perhaps should key these on protein signature
+
+  def registerMsgCallback(self, callbackName, callbackFunc): 
+    if self.msgCallbackDict == None: self.msgCallbackDict = {}
+
+    # https://www.geeksforgeeks.org/partial-functions-python/
+    # cb = partial(callback, controlName)
+    self.msgCallbackDict[callbackName] = callbackFunc
+
+  ############# register callback #############
+
+  def evalMsgCallbacks(self, msg):
+    for callbackName in self.msgCallbackDict:
+      callbackFunc = self.msgCallbackDict[callbackName]
+      callbackFunc(msg)
+
+  ############# debug callback #############
+
+  #def debugCallback(self, control, arg):
+  #  print("enoMidiController debugCallback: ", str(control), str(arg))
+  #  self.msgUpdate(self, msg): print("debugCallback CPlasma message update:", msg) 
  
 ################################
 ############# main #############
