@@ -64,8 +64,10 @@ char **extractProteinStrPayload(protein p) {
 
   char *str1 = slaw_list_emit_first(d);
   void *map  = slaw_list_emit_first(i); //appears to work with "map" as well as "list"
-  char *str2 = slaw_cons_emit_car(i);   //~key   (Lisp-style naming)
-  char *str3 = slaw_cons_emit_cdr(i);   //~value (Lisp-style naming)
+  char *str2 = slaw_cons_emit_car(map); //~key   (Lisp-style naming)
+  char *str3 = slaw_cons_emit_cdr(map); //~value (Lisp-style naming)
+
+  printf("ePSP: %s|%s|%s\n", str1, str2, str3);
 
   char **result = malloc(sizeof(char *) * 3);
   result[0] = str1;
