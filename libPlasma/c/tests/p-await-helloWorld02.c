@@ -50,7 +50,10 @@ int main (int argc, char **argv)
         }
       bslaw d = protein_descrips(p);
       bslaw i = protein_ingests(p);
-      //slaw slaw_to_string(p)
+      char *s = malloc(1000);
+      slaw_to_string(p, s);
+      printf("SLAW: %s\n", (char *)s);
+      fflush(stdout);
       slaw_spew_overview (p, stdout, NULL);
       fputc ('\n', stdout);
       protein_free (p);
