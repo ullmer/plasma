@@ -196,7 +196,7 @@ char **plasmaAwaitNextTrio() {
 
 char *plasmaGetProtFormatNames() {
   //hardwired initially :-)
-  return PROTF_NAME_SIMPLE_KEYVAL;
+  return PROTF_NAME_SIMPLEKEYVAL;
 }
 
 char *plasmaGetProtFormatStr(char *formatName) {
