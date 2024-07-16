@@ -23,6 +23,7 @@ void  plasmaInit(char *poolnameStr);
 int   plasmaDeposit(char *descripStr, char *ingestStr);
 int   plasmaAwait();
 char *plasmaAwaitNextChars();
-int   plasmaPoolNext();
+char **plasmaPoolNext(char *formatStr);
+char *plasmaGetProtFmtStr(char *formatName);
 
 /// end ///

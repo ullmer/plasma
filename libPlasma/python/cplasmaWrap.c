@@ -187,37 +187,51 @@ char **plasmaAwaitNextTrio() {
   return payloadExtraction;
 }
 
+////////////////// plasmaGetProtFmtStr ////////////////// 
+
+//migrate soon to .h file
+
+#def PROTF_FRMT_SIMPLEKEYVAL "{D:[S],I:{S: S}}" #YAML descriptor of jshrake hello-world
+#def PROTF_NAME_SIMPLEKEYVAL "prot:simpleKeyVal"
+
+char *plasmaGetProtFmtStr(char *formatName) {
+
+  if (formatName == NULL || 
+      strcmp(formatName, "")==0 || 
+      strcmp(formatName, PROTF_NAME_SIMPLEKEYVAL)==0) {
+    return PROT_FMT_SIMPLEKEYVAL_FRMT;
+  } 
+
+  fprintf(stderr, "plasmaGetProtFmtStr: presently unsupported format requested: %s\n", formatName);
+  return NULL;
+}
+
 ////////////////// plasma next ////////////////// 
 
-int plasmaPoolNext() {
+char **plasmaPoolNext(char *formatStr) {
   ob_retort pret;
   protein p;
   pool_timestamp ts;
 
-  //pret = pool_next (cmd.ph, POOL_WAIT_FOREVER, &p, &ts, NULL);
-
-  // OB_PLASMA_API ob_retort pool_next (pool_hose ph, protein *ret_prot,
-  //                                    pool_timestamp *ret_ts, int64 *ret_index);
-
   pret = pool_next (cmd.ph, &p, &ts, NULL);
 
   if (OB_OK != pret) {
-    //pool_withdraw (cmd.ph);
-    //fprintf (stderr, "problem with pool_await_next(): %s\n",
-    //ob_error_string (pret));
-    return pool_cmd_retort_to_exit_code (pret);
+    //return pool_cmd_retort_to_exit_code (pret);
+    return NULL;
   }
 
-  //slaw_spew_overview (p, stdout, NULL);
-  //fputc ('\n', stdout);
-  //protein_free (p);
+  if (formatStr==NULL) {
+    formatStr = plasmaGetProtFmtStr(NULL);
+  }
 
-  // Not reached at present.
-  //OB_DIE_ON_ERROR (pool_withdraw (cmd.ph));
-  //pool_cmd_free_options (&cmd);
+  if (strcmp(formatstr, PROT_FMT_SIMPLEKEYVAL) == 0) { // perhaps a bit redundant, but safer
+    char **payloadExtraction = extractProteinStrPayload(p);
+    return payloadExtraction;
+  } else {
+    fprintf(stderr, "plasmaPoolNext: presently unsupported formatStr received: %s\n", formatStr);
+  }
 
-  //return EXIT_SUCCESS;
-  return 1;
+  return NULL;
 }
 
 /// end ///
