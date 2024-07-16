@@ -51,15 +51,29 @@ int main (int argc, char **argv)
       bslaw d = protein_descrips(p);
       bslaw i = protein_ingests(p);
 
-      slaw *sl = malloc(1000);
-      slaw_to_string(d, sl);
-      char *st = slaw_string_emit(d);
+      //slaw *sl = malloc(1000);
+      //slaw_to_string(d, sl);
+      //char *st = slaw_string_emit(d);
 
-      char *str2 = slaw_list_emit_first(d);
-      printf("SLAW: %s\n", str2); fflush(stdout);
+      char *str1 = slaw_list_emit_first(d);
+      printf("STR1: %s\n", str1); 
+
+      void *map = slaw_list_emit_first(i);
+
+
+      //char *str2 = slaw_cons_emit_cdr(i);
+      //char *str3 = slaw_cons_emit_car(i);
+
+      char *str2 = slaw_cons_emit_car(map);
+      char *str3 = slaw_cons_emit_cdr(map);
+
+      printf("STR2: %s\n", str2); 
+      printf("STR3: %s\n", str3); 
+      
+      fflush(stdout);
       //slaw_spew_overview (p, stdout, NULL);
-      printf("D3\n");
-      slaw_spew_overview (d, stdout, NULL);
+      printf("I3\n");
+      slaw_spew_overview (i, stdout, NULL);
       fputc ('\n', stdout);
       protein_free (p);
     }
