@@ -3,13 +3,17 @@
 import asyncio
 import concurrent.futures
 
+import sys; sys.path.append("/home/ullmer/git/plasma/libPlasma/python/")
+import cplasma
+
 def blocking_io():
   # File operations (such as logging) can block the
   # event loop: run them in a thread pool.
-  with open('/dev/urandom', 'rb') as f:
-    return f.read(100)
+  strs = cplasma.pAwaitNextTrio()
+  print("<<" + str(strs) + ">>")
 
 async def main():
+  cplasma.init("tcp://localhost/hello")
   loop = asyncio.get_running_loop()
 
   ## Options:
