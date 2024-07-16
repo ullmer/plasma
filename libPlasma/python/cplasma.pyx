@@ -24,7 +24,7 @@ def init(str poolnameStr):
 
 ############### plasma close wrapper ###############
 
-def close(str poolnameStr):
+def close():
   plasmaClose() 
 
 ############### plasma deposit wrapper ###############
