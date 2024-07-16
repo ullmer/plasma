@@ -67,7 +67,7 @@ char **extractProteinStrPayload(protein p) {
   char *str2 = slaw_cons_emit_car(map); //~key   (Lisp-style naming)
   char *str3 = slaw_cons_emit_cdr(map); //~value (Lisp-style naming)
 
-  printf("ePSP: %s|%s|%s\n", str1, str2, str3);
+  //printf("ePSP: %s|%s|%s\n", str1, str2, str3);
 
   char **result = malloc(sizeof(char *) * 3);
   result[0] = str1;
@@ -172,8 +172,8 @@ char *plasmaAwaitNextChars() {
       //return pool_cmd_retort_to_exit_code (pret);
       return NULL;
     }
-  printf("A\n");
-  slaw_spew_overview (p, stdout, NULL);
+  //printf("A\n");
+  //slaw_spew_overview (p, stdout, NULL);
   //fputc ('\n', stdout);
   char **payloadExtraction = extractProteinStrPayload(p);
   printf("B\n");
@@ -182,9 +182,9 @@ char *plasmaAwaitNextChars() {
   printf("S3: %s\n", payloadExtraction[2]);
 
   //char *result = slaw_str_overview (p, NULL);
-  protein_free (p);
+  //protein_free (p);
   //return result;
-  return NULL;
+  return payloadExtraction[0];
 }
 
 /// end ///
