@@ -207,7 +207,7 @@ char *plasmaGetProtFormatStr(char *formatName) {
     return PROTF_FRMT_SIMPLEKEYVAL;
   } 
 
-  fprintf(stderr, "plasmaGetProtFmtStr: presently unsupported format requested: %s\n", formatName);
+  fprintf(stderr, "plasmaGetProtFormatStr: presently unsupported format requested: %s\n", formatName);
   return NULL;
 }
 
@@ -226,7 +226,7 @@ char **plasmaPoolNext(char *formatStr) {
   }
 
   if (formatStr==NULL || strcmp(formatStr, "")==0) {
-    formatStr = plasmaGetProtFmtStr(NULL);
+    formatStr = plasmaGetProtFormatStr(NULL);
   }
 
   if (strcmp(formatStr, PROTF_FRMT_SIMPLEKEYVAL) == 0) { // perhaps a bit redundant, but safer
