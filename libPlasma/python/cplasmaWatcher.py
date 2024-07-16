@@ -10,6 +10,7 @@ class CPlasmaWatcher:
   poolSpecifier = "tcp://localhost/hello" #default, will benefit from evolution
   msgFormatName = "prot:simpleKeyVal"
   msgFormatStr  = None
+  callbackList  = None
   sleepDuration = .01
 
   ############# error reporting #############
@@ -21,6 +22,8 @@ class CPlasmaWatcher:
   ############# constructor #############
 
   def __init__(self, **kwargs):
+    self.callbackList = []
+
     #https://stackoverflow.com/questions/739625/setattr-with-kwargs-pythonic-or-not
     self.__dict__.update(kwargs) #allow class fields to be passed in constructor
 
@@ -42,7 +45,7 @@ class CPlasmaWatcher:
   ############# initiate C Plasma #############
 
   def initPlasma(self, poolSpecifier=None): 
-    self.msgUpdate("plasma initiating, pool specifier:", poolSpecifier)
+    self.msgUpdate("plasma initiating, pool specifier:" + poolSpecifier)
     cplasma.init("tcp://localhost/hello")
     self.msgFormatStr = cplasma.getProtFormatStr(self.msgFormatName)
     asyncio.run(self.plasmaWatcher())
@@ -56,12 +59,11 @@ class CPlasmaWatcher:
 
   def close(): cplasma.close()
  
-
 ################################
 ############# main #############
 
-
-
+if __name__ == '__main__':
+  cpw = CPlasmaWatcher()
 
 ### end ###
 
