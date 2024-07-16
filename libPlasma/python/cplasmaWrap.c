@@ -53,53 +53,25 @@ void extract_slaw (char *arg, slaw *pair)
   *pair = slaw_cons_ff (key, value);
 }
 
-////////////////// slaw format to string ////////////////// 
+////////////////// extract protein string payload ////////////////// 
 
-#define DEFAULT_VSNPRINTF_BUFFER_LEN 500
-#define DEFAULT_VSNPRINTF_BUFFER_MAX_MULTIPLIER 4
-char *VSNPRINTF_UNKNOWN_ERROR = "ERROR: vsnprintf unknown error (likely encountered in slaw_format_to_string)";
+char **extractProteinStrPayload(protein p) {
 
-int slaw_format_to_stringResult;
+  // initially, hardwire this to our hello-world style contents.  Evolution will be critical.
 
-static void slaw_format_to_string (void *v, const char *fmt, ...)
-{
-  char *targBuffer = (char *)v;
+  bslaw d = protein_descrips(p);
+  bslaw i = protein_ingests(p);
 
-  va_list vargs;
-  va_start  (vargs, fmt);
-  slaw_format_to_stringResult = vsnprintf (targBuffer, DEFAULT_VSNPRINTF_BUFFER_LEN, fmt, vargs);
-  va_end    (vargs);
-}
+  char *str1 = slaw_list_emit_first(d);
+  void *map  = slaw_list_emit_first(i); //appears to work with "map" as well as "list"
+  char *str2 = slaw_cons_emit_car(i);   //~key   (Lisp-style naming)
+  char *str3 = slaw_cons_emit_cdr(i);   //~value (Lisp-style naming)
 
-void slaw_str_overview2 (bslaw s, char *targBuffer, const char *prolo)
-{
-  slaw_spew_internal (s, slaw_format_to_string, (void *) targBuffer, prolo);
-}
-
-//BAU 2024-07-15: As an initial approach to returning slaw contents to Python code, 
-//     attempting to adapt FILE (e.g., stderr) targeted slaw_spew_overview into 
-//     returning a char * buffer/string.  Given an impression that slaw can contain near-arbitrarily large
-//     payloads, especially with embedded systems in mind, that creates some issues.
-//     As an initial workaround, arbitrarily adopting DEFAULT_VSNPRINTF_BUFFER_LEN of 500 bytes as a default
-//     buffer; and DEFAULT_VSNPRINTF_BUFFER_MAX_MULTIPLIER (initially, 4) to progressively reallocate larger
-//     buffers if that's insufficient (using vsnprintf to avoid buffer overflows).  These numbers -- and approach -- will
-//     likely highly benefit from evolution over time and usage context.
-
-char *slaw_str_overview (bslaw s, const char *prolo)
-{
-  char *targBuffer = malloc(DEFAULT_VSNPRINTF_BUFFER_LEN);
-  slaw_str_overview2(s, targBuffer, prolo);
-
-  if (slaw_format_to_stringResult >= 0) {return targBuffer;}
-
-  for (int i=1; i <= DEFAULT_VSNPRINTF_BUFFER_MAX_MULTIPLIER; i++) {
-    free(targBuffer);
-    targBuffer = malloc(DEFAULT_VSNPRINTF_BUFFER_LEN * i);
-    slaw_str_overview2(s, targBuffer, prolo);
-    if (slaw_format_to_stringResult >= 0) {return targBuffer;}
-  } 
-
-  return VSNPRINTF_UNKNOWN_ERROR;
+  char **result = malloc(sizeof(char *) * 3);
+  result[0] = str1;
+  result[1] = str2;
+  result[2] = str3;
+  return result;
 }
 
 ////////////////// plasma initialize ////////////////// 
@@ -194,13 +166,19 @@ char *plasmaAwaitNextChars() {
       fprintf (stderr, "problem with pool_await_next(): %s\n",
                         ob_error_string (pret));
       //return pool_cmd_retort_to_exit_code (pret);
-      return VSNPRINTF_UNKNOWN_ERROR;
+      return NULL;
     }
   //slaw_spew_overview (p, stdout, NULL);
   //fputc ('\n', stdout);
-  char *result = slaw_str_overview (p, NULL);
+  char **payloadExtraction = extractProteinStrPayload(p);
+  printf("S1: %s\n", payloadExtraction[0]);
+  printf("S2: %s\n", payloadExtraction[1]);
+  printf("S3: %s\n", payloadExtraction[2]);
+
+  //char *result = slaw_str_overview (p, NULL);
   protein_free (p);
-  return result;
+  //return result;
+  return NULL;
 }
 
 /// end ///
