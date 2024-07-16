@@ -191,15 +191,15 @@ char **plasmaAwaitNextTrio() {
 
 //migrate soon to .h file
 
-#def PROTF_FRMT_SIMPLEKEYVAL "{D:[S],I:{S: S}}" #YAML descriptor of jshrake hello-world
-#def PROTF_NAME_SIMPLEKEYVAL "prot:simpleKeyVal"
+#define PROTF_FRMT_SIMPLEKEYVAL "{D:[S],I:{S: S}}" //YAML descriptor of jshrake hello-world
+#define PROTF_NAME_SIMPLEKEYVAL "prot:simpleKeyVal"
 
 char *plasmaGetProtFmtStr(char *formatName) {
 
   if (formatName == NULL || 
       strcmp(formatName, "")==0 || 
       strcmp(formatName, PROTF_NAME_SIMPLEKEYVAL)==0) {
-    return PROT_FMT_SIMPLEKEYVAL_FRMT;
+    return PROTF_FRMT_SIMPLEKEYVAL;
   } 
 
   fprintf(stderr, "plasmaGetProtFmtStr: presently unsupported format requested: %s\n", formatName);
@@ -224,7 +224,7 @@ char **plasmaPoolNext(char *formatStr) {
     formatStr = plasmaGetProtFmtStr(NULL);
   }
 
-  if (strcmp(formatstr, PROT_FMT_SIMPLEKEYVAL) == 0) { // perhaps a bit redundant, but safer
+  if (strcmp(formatStr, PROTF_FRMT_SIMPLEKEYVAL) == 0) { // perhaps a bit redundant, but safer
     char **payloadExtraction = extractProteinStrPayload(p);
     return payloadExtraction;
   } else {
