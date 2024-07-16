@@ -26,7 +26,7 @@ async def main():
   # 3. Run in a custom process pool:
   #with concurrent.futures.ProcessPoolExecutor() as pool:
   #  result = await loop.run_in_executor(
-  #    pool, cpu_bound)
+  #    pool, blocking_io)
   #  print('custom process pool', result)
 
 if __name__ == '__main__':
