@@ -28,6 +28,22 @@ async def main():
   #    pool, blocking_io)
   #  print('custom process pool', result)
 
-asyncio.run(main())
+#asyncio.run(main())
+#asyncio.run_forever(main())
+
+#with asyncio.Runner() as runner:
+#  runner.run(main())
+
+loop = asyncio.get_event_loop()
+#loop = asyncio.get_running_loop()
+
+try:
+  asyncio.ensure_future(main())
+  loop.run_forever()
+except KeyboardInterrupt:
+  pass
+finally:
+  print("Closing Loop")
+  loop.close()
 
 ### end ###
