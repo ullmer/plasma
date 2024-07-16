@@ -5,6 +5,14 @@
 import sys; sys.path.append("/home/ullmer/git/plasma/libPlasma/python/")
 import cplasma
 import asyncio, sys, time
+from   functools import partial # for callback support
+
+#############################################################
+###################### cplasma watcher ######################
+
+#note that name is a bit of a misnomer, as deposits also equally supported
+# in celebration of that, contemplating a child class, CPlasmaDancer 
+#   (as a slight nod toward Plasma's apparent penchant for wordplay and mixed metaphor :-)
 
 class CPlasmaWatcher:
   poolSpecifier = "tcp://localhost/hello" #default, will benefit from evolution
