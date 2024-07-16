@@ -13,17 +13,21 @@ def plasmaAwait():
   strs = cplasma.pAwaitNextTrio()
   print("<<" + str(strs) + ">>")
 
-async def runPlasma(executor)
+async def runPlasma(executor):
   loop = asyncio.get_running_loop()
   await loop.run_in_executor(executor, plasmaAwait)
+  #await asyncio.Future()
 
 cplasma.init("tcp://localhost/hello")
 eloop = asyncio.get_event_loop()
 
 executor = ThreadPoolExecutor(max_workers=1)
 
+asyncio.ensure_future(runPlasma(executor))
+
 try:
-  eloop.run_until_complete(runPlasma(executor))
+  eloop.run_forever()
 finally:
   eloop.close()
+
 ### end ###
