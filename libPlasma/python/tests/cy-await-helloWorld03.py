@@ -8,7 +8,7 @@ async def plasma_client():
   strs = await cplasma.pAwaitNextTrio()
   print("<<%s>>" % strs)
 
-asyncio.run(plasma_client)
+asyncio.run(plasma_client())
 
 ### end ###
 
