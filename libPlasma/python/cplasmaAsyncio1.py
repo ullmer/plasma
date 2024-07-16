@@ -6,6 +6,9 @@ import concurrent.futures
 import sys; sys.path.append("/home/ullmer/git/plasma/libPlasma/python/")
 import cplasma
 
+def def_b(msg):
+  print("done_callback:", str(msg))
+
 def blocking_io():
   # File operations (such as logging) can block the
   # event loop: run them in a thread pool.
@@ -47,4 +50,16 @@ while True:
 #finally:
 #  print("Closing Loop")
 #  loop.close()
+
+#task = asyncio.ensure_future(main())
+#task.add_done_callback(def_b)
+
+#th_executor = concurrent.futures.ThreadPoolExecutor(max_workers=3)
+#event_loop = asyncio.get_event_loop()
+#try:
+#  w = asyncio.wait([blocking_io()])
+#  event_loop.run_until_complete(w)
+#finally:
+#  event_loop.close()
+
 ### end ###
