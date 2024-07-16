@@ -4,7 +4,7 @@ import asyncio
 
 cplasma.init("tcp://localhost/hello")
 
-async def plasma_client()
+async def plasma_client():
   strs = await cplasma.pAwaitNextTrio()
   print("<<%s>>" % strs)
 
