@@ -194,7 +194,12 @@ char **plasmaAwaitNextTrio() {
 #define PROTF_FRMT_SIMPLEKEYVAL "{D:[S],I:{S: S}}" //YAML descriptor of jshrake hello-world
 #define PROTF_NAME_SIMPLEKEYVAL "prot:simpleKeyVal"
 
-char *plasmaGetProtFmtStr(char *formatName) {
+char *plasmaGetProtFormatNames() {
+  //hardwired initially :-)
+  return PROTF_NAME_SIMPLE_KEYVAL;
+}
+
+char *plasmaGetProtFormatStr(char *formatName) {
 
   if (formatName == NULL || 
       strcmp(formatName, "")==0 || 

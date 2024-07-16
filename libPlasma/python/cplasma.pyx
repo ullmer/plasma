@@ -11,7 +11,8 @@ cdef extern from "cplasmaWrap.h":
   int    plasmaAwait()
   char **plasmaAwaitNextTrio()
   char **plasmaPoolNext(char *formatStr)
-  char  *plasmaGetProtFmtStr(char *formatName)
+  char  *plasmaGetProtFormatStr(char *formatName)
+  char  *plasmaGetProtFormatNames()
 
 ############### plasma init wrapper ###############
 
@@ -63,14 +64,21 @@ def pNext(str formatStr):
   result = [str1, str2, str3]
   return result
 
-############### plasma pool_next wrapper ###############
+############### get plasma protein format string ###############
 
-def getProtFmtStr(str formatName):
+def getProtFormatStr(str formatName):
   cdef bytes formatNameBytes = formatName.encode("utf-8")
   cdef char *formatNameChars = formatNameBytes #apparently auto-conversion
 
-  cdef char *resultC = plasmaGetProtFmtStr(formatNameChars)
+  cdef char *resultC = plasmaGetProtFormatStr(formatNameChars)
   result   = resultC.decode("UTF-8")
+  return result
+  
+############### get plasma protein format names ###############
+
+def getProtFormatNames():
+  cdef char *nameChr = plasmaGetProtFormatNames()
+  result = [nameChr.decode("UTF-8")] #hardwired :-)
   return result
 
 ### end ###

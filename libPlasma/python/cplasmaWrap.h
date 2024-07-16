@@ -25,6 +25,7 @@ int   plasmaAwait();
 char **plasmaAwaitNextChars();
 char **plasmaAwaitNextTrio();
 char **plasmaPoolNext(char *formatStr);
-char  *plasmaGetProtFmtStr(char *formatName);
+char  *plasmaGetProtFormatStr(char *formatName);
+char  *plasmaGetProtFormatNames();
 
 /// end ///
