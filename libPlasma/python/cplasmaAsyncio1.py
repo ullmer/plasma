@@ -6,9 +6,6 @@ import concurrent.futures
 import sys; sys.path.append("/home/ullmer/git/plasma/libPlasma/python/")
 import cplasma
 
-def def_b(msg):
-  print("done_callback:", str(msg))
-
 def plasma_io():
   strs = cplasma.pAwaitNextTrio()
   print("<<" + str(strs) + ">>")
