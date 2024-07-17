@@ -2,7 +2,9 @@
 # Brygg Ullmer, Clemson University
 # Begun 2022-06-16
 
-import sys; sys.path.append("/home/ullmer/git/plasma/libPlasma/python/")
+import os, sys, pathlib
+LIB_PATH = pathlib.Path(__file__).parents[1] #library in parent directory
+sys.path.append(os.path.join(LIB_PATH, ''))
 
 from enoPgz import *
 
