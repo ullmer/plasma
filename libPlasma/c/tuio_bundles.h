@@ -2,11 +2,6 @@
 // Initiated by Brygg Ullmer, Clemson University
 // Begun 2024-07-19
 
-#include <stdio.h>
-
-//printf("GCC version number: %i\n", __GNUC__);
-
-
 #if __GNUC__>=14
   typedef _BitInt(12) int12;
 
