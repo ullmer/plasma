@@ -15,27 +15,9 @@ vehicle/gps:            {descr: GPS Location from Vehicle IoT Device,    payload
 office/air-quality:     {descr: Air Quality Data from an Environmental Sensor, payload: {pm2.5: 15, co2_ppm: 400}}
 wearable/accelerometer: {descr: Accelerometer Data from a Wearable Device,     payload: {x: 0.5, y: -0.2, z: 0.9}}
 living-room/co2:        {descr: CO2 Concentration from an Indoor Air Quality Sensor, payload: {co2_ppm: 800}}
-
-Multitouch Gesture Information:
-Topic: tablet/touchscreen
-Payload: {"gesture": "swipe", "direction": "left"}
-
-Light Dimming Command to a Smart Bulb:
-Topic: bedroom/light-bulb
-Payload: {"brightness": 50}
-
-Temperature Setpoint Update for HVAC Control:
-Topic: hvac/temperature-setpoint
-Payload: {"target_temperature": 22.0}
-
-Security Alarm Trigger Event:
-Topic: security-system/alarm
-Payload: {"triggered": true}
-
-Heart Rate Data from a Fitness Tracker:
-Topic: wearable/heart-rate
-Payload: {"bpm": 75}
-
-Gas Leak Alert from a Gas Sensor:
-Topic: kitchen/gas-sensor
-Payload: {"status": "leak"}
+tablet/touchscreen:     {descr: Multitouch Gesture Information,        payload: {gesture: swipe, direction: left}}
+bedroom/light-bulb:     {descr: Light Dimming Command to a Smart Bulb,           payload: {brightness: 50}}
+hvac/temperature-setpoint: {descr: Temperature Setpoint Update for HVAC Control, payload: {target_temp: 22.0}}
+security-system/alarm:     {descr: Security Alarm Trigger Event,                 payload: {triggered: true}}
+wearable/heart-rate:       {descr: Heart Rate Data from a Fitness Tracker,       payload: {bpm: 75}}
+kitchen/gas-sensor:        {descr: Gas Leak Alert from a Gas Sensor,             payload: {status: leak}}
