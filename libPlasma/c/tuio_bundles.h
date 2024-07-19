@@ -6,10 +6,11 @@
 
 //printf("GCC version number: %i\n", __GNUC__);
 
+
 #if __GNUC__>=14
   typedef _BitInt(12) int12;
 
-  typedef union { char data[8];
+  typedef union { char data[9];
                   struct {int12 s_id, tu_id, c_id, 
                                 x_pos,  y_pos,
                                 angle,  shear, 
@@ -23,7 +24,10 @@
                 } tuio2_ptr_12bit;
 #endif
 
-//https://en.cppreference.com/w/c/language/union ; incl. anonymous union
+void plasmaTuio2Ptr_setXY(int X, int Y, tuio2_ptr_12bit *tpb);
+int  plasmaTuio2Ptr_getX(tuio2_ptr_12bit *tpb);
+int  plasmaTuio2Ptr_getY(tuio2_ptr_12bit *tpb);
 
+//https://en.cppreference.com/w/c/language/union ; incl. anonymous union
 
 /// end ///
