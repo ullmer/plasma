@@ -1,26 +1,22 @@
 #from copilot: 20 specific mqtt message examples involving sensors, multitouch, and/or iot
 
-- {topic: home/living-room/temperature, payload: {temperature: 23.5}, 
-                                        descr: Temperature Reading from a Home Sensor}
+- {topic: conference-room/button,       payload: {"button_id": 3, "pressed": true},
+                                        descr: Button Press Event from a Multitouch Button:
 
 - {topic: greenhouse/humidity,          payload: {"humidity": 65},
                                         descr: Humidity Data from a Greenhouse Sensor}
 
+- {topic: home/living-room/temperature, payload: {temperature: 23.5}, 
+                                        descr: Temperature Reading from a Home Sensor}
+
+- {topic: lab/light-intensity,          payload: {"lux": 1200}, 
+                                        descr:Light Intensity Measurement from a Light Sensor}
+
 - {topic: office/motion,                payload: {"motion_detected": true},
                                         descr: Motion Detection Event from an Office Sensor}
 
-
-Light Intensity Measurement from a Light Sensor:
-Topic: lab/light-intensity
-Payload: {"lux": 1200}
-
-Button Press Event from a Multitouch Button:
-Topic: conference-room/button
-Payload: {"button_id": 3, "pressed": true}
-
-GPS Location Update from a Vehicle IoT Device:
-Topic: vehicle/gps
-Payload: {"latitude": 37.7749, "longitude": -122.4194}
+- {topic: vehicle/gps,                  payload: {"latitude": 37.7749, "longitude": -122.4194},
+                                        descr: GPS Location Update from a Vehicle IoT Device}
 
 Battery Voltage Reading from a Mobile Device:
 Topic: device/battery
