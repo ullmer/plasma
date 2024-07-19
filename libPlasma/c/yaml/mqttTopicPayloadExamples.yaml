@@ -1,0 +1,84 @@
+from copilot: 20 specific mqtt message examples involving sensors, multitouch, and/or iot
+Copilot
+
+Temperature Reading from a Home Sensor:
+Topic: home/living-room/temperature
+Payload: {"temperature": 23.5}
+
+Humidity Data from a Greenhouse Sensor:
+Topic: greenhouse/humidity
+Payload: {"humidity": 65}
+
+
+Motion Detection Event from an Office Sensor:
+Topic: office/motion
+Payload: {"motion_detected": true}
+
+
+Light Intensity Measurement from a Light Sensor:
+Topic: lab/light-intensity
+Payload: {"lux": 1200}
+
+Button Press Event from a Multitouch Button:
+Topic: conference-room/button
+Payload: {"button_id": 3, "pressed": true}
+
+GPS Location Update from a Vehicle IoT Device:
+Topic: vehicle/gps
+Payload: {"latitude": 37.7749, "longitude": -122.4194}
+
+Battery Voltage Reading from a Mobile Device:
+Topic: device/battery
+Payload: {"voltage": 3.7}
+
+Water Level Alert from a Tank Sensor:
+Topic: tank/water-level
+Payload: {"status": "low"}
+
+Door Open/Close Event from a Magnetic Contact Sensor:
+Topic: home/door
+Payload: {"door_status": "open"}
+
+Air Quality Data from an Environmental Sensor:
+Topic: office/air-quality
+Payload: {"pm2.5": 15, "co2_ppm": 400}
+
+Soil Moisture Reading from an Agricultural Sensor:
+Topic: farm/soil-moisture
+Payload: {"moisture": 35}
+
+Proximity Detection from a Touch Sensor:
+Topic: bedroom/proximity
+Payload: {"proximity": "near"}
+
+Accelerometer Data from a Wearable Device:
+Topic: wearable/accelerometer
+Payload: {"x": 0.5, "y": -0.2, "z": 0.9}
+
+CO2 Concentration from an Indoor Air Quality Sensor:
+Topic: living-room/co2
+Payload: {"co2_ppm": 800}
+
+Multitouch Gesture Information:
+Topic: tablet/touchscreen
+Payload: {"gesture": "swipe", "direction": "left"}
+
+Light Dimming Command to a Smart Bulb:
+Topic: bedroom/light-bulb
+Payload: {"brightness": 50}
+
+Temperature Setpoint Update for HVAC Control:
+Topic: hvac/temperature-setpoint
+Payload: {"target_temperature": 22.0}
+
+Security Alarm Trigger Event:
+Topic: security-system/alarm
+Payload: {"triggered": true}
+
+Heart Rate Data from a Fitness Tracker:
+Topic: wearable/heart-rate
+Payload: {"bpm": 75}
+
+Gas Leak Alert from a Gas Sensor:
+Topic: kitchen/gas-sensor
+Payload: {"status": "leak"}
