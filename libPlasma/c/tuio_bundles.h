@@ -2,7 +2,7 @@
 // Initiated by Brygg Ullmer, Clemson University
 // Begun 2024-07-19
 
-#define int12 _BitInt(12)
+typedef _BitInt(12) int12;
 
 typedef struct { //https://en.cppreference.com/w/c/language/union ; incl. anonymous union
   union { char data[8];
