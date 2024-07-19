@@ -6,18 +6,12 @@ device/battery:         {descr: Battery Voltage Reading from a Mobile Device,  p
 greenhouse/humidity:    {descr: Humidity Data from a Greenhouse Sensor,        payload: {humidity: 65}}
 home/door:              {descr: Door Open/Close Event from a Magnetic Contact Sensor, payload: {door_status: open}}
 home/living-room/temperature: {descr: Temperature Reading from a Home Sensor,         payload: {temperature: 23.5}}
-lab/light-intensity:          {descr:Light Intensity Measurement from a Light Sensor, payload: {lux: 1200}}
-office/motion:                {descr: Motion Detection Event from Office Sensor, payload: {motion_detected: true}}
-
-- {topic: tank/water-level,             descr: Water Level Alert from a Tank Sensor,
-                                        payload: {"status": "low"}}
-
-- {topic: vehicle/gps,                  descr: GPS Location Update from a Vehicle IoT Device,
-                                        payload: {"latitude": 37.7749, "longitude": -122.4194}}
-
-- {topic: office/air-quality
-Air Quality Data from an Environmental Sensor:
-Payload: {"pm2.5": 15, "co2_ppm": 400}
+lab/light-intensity:    {descr:Light Intensity Measurement from a Light Sensor, payload: {lux: 1200}}
+office/motion:          {descr: Motion Detection Event from Office Sensor, payload: {motion_detected: true}}
+tank/water-level:       {descr: Water Level Alert from a Tank Sensor,      payload: {status:          low}}
+vehicle/gps:            {descr: GPS Location Update from a Vehicle IoT Device,
+                                                          payload: {"latitude": 37.7749, "longitude": -122.4194}}
+office/air-quality:     {descr: Air Quality Data from an Environmental Sensor, payload: {pm2.5: 15, co2_ppm: 400}}
 
 Soil Moisture Reading from an Agricultural Sensor:
 Topic: farm/soil-moisture
