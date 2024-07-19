@@ -14,6 +14,8 @@ void plasmaTuio2Ptr_setXY(int X, int Y, tuio2_ptr_12bit *tpb) {
 
 #define MAX_12BIT 4095
 
+///////////////////// plasmaTuio2Ptr_setXY /////////////////////
+
 void plasmaTuio2Ptr_setXY(int X, int Y, tuio2_ptr_12bit *tpb) {
 
  if (X > #MAX_12BIT || X < 0) {
@@ -42,7 +44,10 @@ void plasmaTuio2Ptr_setXY(int X, int Y, tuio2_ptr_12bit *tpb) {
 int  plasmaTuio2Ptr_getX(tuio2_ptr_12bit *tpb);
 int  plasmaTuio2Ptr_getY(tuio2_ptr_12bit *tpb);
 
-//printf("%x%x%x%x\n", tpb.data[0], tpb.data[1], tpb.data[2], tpb.data[3]);
+char *plasmaTuio2Ptr_hex() {
+
+//sprintf("%x%x%x%x\n", tpb.data[0], tpb.data[1], tpb.data[2], tpb.data[3]);
+}
 
 //https://en.cppreference.com/w/c/language/union ; incl. anonymous union
 
