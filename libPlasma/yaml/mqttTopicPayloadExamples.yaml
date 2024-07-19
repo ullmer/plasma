@@ -2,20 +2,12 @@
 # using "topic" as key
 
 conference-room/button: {descr: Button Press Event from Multitouch Button, payload: {button_id: 3, pressed: true}}
-device/battery:         {descr: Battery Voltage Reading from a Mobile Device, payload: {voltage: 3.7}}
-greenhouse/humidity:    {descr: Humidity Data from a Greenhouse Sensor,       payload: {humidity: 65}}
-
-- {topic: home/door,                    descr: Door Open/Close Event from a Magnetic Contact Sensor,
-                                        payload: {"door_status": "open"}}
-
-- {topic: home/living-room/temperature, descr: Temperature Reading from a Home Sensor,
-                                        payload: {temperature: 23.5}}
-
-- {topic: lab/light-intensity,          descr:Light Intensity Measurement from a Light Sensor,
-                                        payload: {"lux": 1200}}
-
-- {topic: office/motion,                descr: Motion Detection Event from an Office Sensor,
-                                        payload: {"motion_detected": true}}
+device/battery:         {descr: Battery Voltage Reading from a Mobile Device,  payload: {voltage: 3.7}}
+greenhouse/humidity:    {descr: Humidity Data from a Greenhouse Sensor,        payload: {humidity: 65}}
+home/door:              {descr: Door Open/Close Event from a Magnetic Contact Sensor, payload: {door_status: open}}
+home/living-room/temperature: {descr: Temperature Reading from a Home Sensor,         payload: {temperature: 23.5}}
+lab/light-intensity:          {descr:Light Intensity Measurement from a Light Sensor, payload: {lux: 1200}}
+office/motion:                {descr: Motion Detection Event from Office Sensor, payload: {motion_detected: true}}
 
 - {topic: tank/water-level,             descr: Water Level Alert from a Tank Sensor,
                                         payload: {"status": "low"}}
