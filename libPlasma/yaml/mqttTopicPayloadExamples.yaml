@@ -8,16 +8,16 @@ farm/soil-moisture:     {descr: Soil Moisture Reading from an Agricultural Senso
 greenhouse/humidity:    {descr: Humidity Data from a Greenhouse Sensor,        payload: {humidity: 65}}
 home/door:              {descr: Door Open/Close Event from a Magnetic Contact Sensor, payload: {door_status: open}}
 home/living-room/temperature: {descr: Temperature Reading from a Home Sensor,         payload: {temperature: 23.5}}
+hvac/temperature-setpoint: {descr: Temperature Setpoint Update for HVAC Control, payload: {target_temp: 22.0}}
+kitchen/gas-sensor:        {descr: Gas Leak Alert from a Gas Sensor,             payload: {status: leak}}
 lab/light-intensity:    {descr:Light Intensity Measurement from a Light Sensor, payload: {lux: 1200}}
 office/motion:          {descr: Motion Detection Event from Office Sensor, payload: {motion_detected: true}}
+security-system/alarm:  {descr: Security Alarm Trigger Event,                 payload: {triggered: true}}
 tank/water-level:       {descr: Water Level Alert from a Tank Sensor,      payload: {status:          low}}
 vehicle/gps:            {descr: GPS Location from Vehicle IoT Device,    payload: {lat: 37.7749, long: -122.4194}}
 office/air-quality:     {descr: Air Quality Data from an Environmental Sensor, payload: {pm2.5: 15, co2_ppm: 400}}
 wearable/accelerometer: {descr: Accelerometer Data from a Wearable Device,     payload: {x: 0.5, y: -0.2, z: 0.9}}
 living-room/co2:        {descr: CO2 Concentration from an Indoor Air Quality Sensor, payload: {co2_ppm: 800}}
-tablet/touchscreen:     {descr: Multitouch Gesture Information,        payload: {gesture: swipe, direction: left}}
-bedroom/light-bulb:     {descr: Light Dimming Command to a Smart Bulb,           payload: {brightness: 50}}
-hvac/temperature-setpoint: {descr: Temperature Setpoint Update for HVAC Control, payload: {target_temp: 22.0}}
-security-system/alarm:     {descr: Security Alarm Trigger Event,                 payload: {triggered: true}}
-wearable/heart-rate:       {descr: Heart Rate Data from a Fitness Tracker,       payload: {bpm: 75}}
-kitchen/gas-sensor:        {descr: Gas Leak Alert from a Gas Sensor,             payload: {status: leak}}
+tablet/touchscreen:     {descr: Multitouch Gesture Information,         payload: {gesture: swipe, direction: left}}
+bedroom/light-bulb:     {descr: Light Dimming Command to a Smart Bulb,  payload: {brightness: 50}}
+wearable/heart-rate:    {descr: Heart Rate Data from a Fitness Tracker, payload: {bpm: 75}}
