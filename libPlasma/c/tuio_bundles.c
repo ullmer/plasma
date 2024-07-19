@@ -14,6 +14,13 @@ void plasmaTuio2Ptr_setXY(int X, int Y, tuio2_ptr_12bit *tpb) {
 
 void plasmaTuio2Ptr_setXY(int X, int Y, tuio2_ptr_12bit *tpb) {
  // warming up to careful bitshifting and bitsetting
+ // struct {int12 s_id, tu_id, c_id,
+ //         x_pos,  y_pos, angle,  ...  tuio2_ptr_12bit;
+  
+ // typedef union { char data[9];
+ //                 struct {char id[3];
+ //                         char posAng[3];
+
 }
 #endif
 
