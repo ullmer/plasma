@@ -1,13 +1,9 @@
 #from copilot: 20 specific mqtt message examples involving sensors, multitouch, and/or iot
+# using "topic" as key
 
-- {topic: conference-room/button,       descr: Button Press Event from a Multitouch Button,
-                                        payload: {"button_id": 3, "pressed": true}}
-
-- {topic: device/battery,               descr:Battery Voltage Reading from a Mobile Device,
-                                        payload: {"voltage": 3.7}}
-
-- {topic: greenhouse/humidity,          descr: Humidity Data from a Greenhouse Sensor,
-                                        payload: {"humidity": 65}}
+conference-room/button: {descr: Button Press Event from Multitouch Button, payload: {button_id: 3, pressed: true}}
+device/battery:         {descr: Battery Voltage Reading from a Mobile Device, payload: {voltage: 3.7}}
+greenhouse/humidity:    {descr: Humidity Data from a Greenhouse Sensor,       payload: {humidity: 65}}
 
 - {topic: home/door,                    descr: Door Open/Close Event from a Magnetic Contact Sensor,
                                         payload: {"door_status": "open"}}
@@ -27,8 +23,8 @@
 - {topic: vehicle/gps,                  descr: GPS Location Update from a Vehicle IoT Device,
                                         payload: {"latitude": 37.7749, "longitude": -122.4194}}
 
+- {topic: office/air-quality
 Air Quality Data from an Environmental Sensor:
-Topic: office/air-quality
 Payload: {"pm2.5": 15, "co2_ppm": 400}
 
 Soil Moisture Reading from an Agricultural Sensor:
