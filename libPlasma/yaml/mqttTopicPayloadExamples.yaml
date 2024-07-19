@@ -13,14 +13,8 @@ office/motion:          {descr: Motion Detection Event from Office Sensor, paylo
 tank/water-level:       {descr: Water Level Alert from a Tank Sensor,      payload: {status:          low}}
 vehicle/gps:            {descr: GPS Location from Vehicle IoT Device,    payload: {lat: 37.7749, long: -122.4194}}
 office/air-quality:     {descr: Air Quality Data from an Environmental Sensor, payload: {pm2.5: 15, co2_ppm: 400}}
-
-Accelerometer Data from a Wearable Device:
-Topic: wearable/accelerometer
-Payload: {"x": 0.5, "y": -0.2, "z": 0.9}
-
-CO2 Concentration from an Indoor Air Quality Sensor:
-Topic: living-room/co2
-Payload: {"co2_ppm": 800}
+wearable/accelerometer: {descr: Accelerometer Data from a Wearable Device,     payload: {x: 0.5, y: -0.2, z: 0.9}}
+living-room/co2:        {descr: CO2 Concentration from an Indoor Air Quality Sensor, payload: {co2_ppm: 800}}
 
 Multitouch Gesture Information:
 Topic: tablet/touchscreen
