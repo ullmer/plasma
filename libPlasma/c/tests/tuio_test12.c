@@ -10,9 +10,16 @@ int main() {
 
   printf("GCC version number: %i\n", __GNUC__);
 
-  //tpb.xpos = 100;
-  //tpb.ypos = 3000;
-  //printf("%x%x%x%x\n", tpb.data[0], tpb.data[1], tpb.data[2], tpb.data[3]);
+  int xpos = 100;
+  int ypos = 3000;
+
+  plasmaTuio2Ptr_setXY(xpos, ypos, &tpb);
+
+  int x2 = plasmaTuio2Ptr_getX(&tpb);
+  int y2 = plasmaTuio2Ptr_getY(&tpb);
+
+  printf("tpb hex representation: %s\n", plasmaTuio2Ptr_hex())
+  printf("xy: %i, %i\n", x2, y2);
 }
 
 /// end ///
