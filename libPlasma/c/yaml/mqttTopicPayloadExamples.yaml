@@ -1,18 +1,13 @@
-from copilot: 20 specific mqtt message examples involving sensors, multitouch, and/or iot
-Copilot
+#from copilot: 20 specific mqtt message examples involving sensors, multitouch, and/or iot
 
-Temperature Reading from a Home Sensor:
-Topic: home/living-room/temperature
-Payload: {"temperature": 23.5}
+- {topic: home/living-room/temperature, payload: {temperature: 23.5}, 
+                                        descr: Temperature Reading from a Home Sensor}
 
-Humidity Data from a Greenhouse Sensor:
-Topic: greenhouse/humidity
-Payload: {"humidity": 65}
+- {topic: greenhouse/humidity,          payload: {"humidity": 65},
+                                        descr: Humidity Data from a Greenhouse Sensor}
 
-
-Motion Detection Event from an Office Sensor:
-Topic: office/motion
-Payload: {"motion_detected": true}
+- {topic: office/motion,                payload: {"motion_detected": true},
+                                        descr: Motion Detection Event from an Office Sensor}
 
 
 Light Intensity Measurement from a Light Sensor:
