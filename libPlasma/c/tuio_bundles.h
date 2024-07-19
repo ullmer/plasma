@@ -10,7 +10,7 @@ typedef struct { //https://en.cppreference.com/w/c/language/union ; incl. anonym
                         x_pos,  y_pos,
                         angle,  shear, 
                         radius, press;};
-        } tuio2_ptr_12bit ;
-};
+        } 
+} tuio2_ptr_12bitk;
 
 /// end ///
