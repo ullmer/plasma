@@ -27,9 +27,10 @@ void plasmaTuio2Ptr_setXY(int X, int Y, tuio2_ptr_12bit *tpb) {
  }
 
  // since angle may be assigned, we need to respect it.
+
  int posXY    = (X << 24) + (Y << 12); 
- *tpb.posAng &= MAX_12BIT; // clear out any existing X & Y components
- *tpb.posAng |= posXY;
+ (int) (*tpb.posAng) &= MAX_12BIT; // clear out any existing X & Y components
+ (int) (*tpb.posAng) |= posXY;
 
  // struct {int12 s_id, tu_id, c_id,
  //         x_pos,  y_pos, angle,  ...  tuio2_ptr_12bit;
@@ -40,9 +41,14 @@ void plasmaTuio2Ptr_setXY(int X, int Y, tuio2_ptr_12bit *tpb) {
 }
 #endif
 
+///////////////////// plasmaTuio2Ptr_setXY /////////////////////
 
-int  plasmaTuio2Ptr_getX(tuio2_ptr_12bit *tpb);
-int  plasmaTuio2Ptr_getY(tuio2_ptr_12bit *tpb);
+int  plasmaTuio2Ptr_getX(tuio2_ptr_12bit *tpb) {
+  return (int) *tpb.posAng >> 24;
+}
+
+int  plasmaTuio2Ptr_getY(tuio2_ptr_12bit *tpb) {
+  int xy = *tpg.posAng >> 12;
 
 char *plasmaTuio2Ptr_hex() {
 
