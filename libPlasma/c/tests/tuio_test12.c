@@ -2,17 +2,13 @@
 // Initiated by Brygg Ullmer, Clemson University
 // Begun 2024-07-19
 
-#include "tuio_bundles."
+#include "tuio_bundles.h"
 
-#define int12 _BitInt(12)
-
-struct tuio2_ptr_12bit { //https://en.cppreference.com/w/c/language/union ; incl. anonymous union
-  union { char data[8];
-          struct {int12 s_id, tu_id, c_id, 
-                        x_pos,  y_pos,
-                        angle,  shear, 
-                        radius, press;}
-        }
+int main() {
+  tuio2_ptr_12bit tpb;
+  tpb.xpos = 100;
+  tpb.ypos = 3000;
+  print("%x%x%x%x\n", data[0], data[1], data[2], data[3]);
 }
 
 /// end ///
