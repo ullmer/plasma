@@ -2,8 +2,6 @@
 // Initiated by Brygg Ullmer, Clemson University
 // Begun 2024-07-19
 
-#include "tuio_bundles."
-
 #define int12 _BitInt(12)
 
 struct tuio2_ptr_12bit { //https://en.cppreference.com/w/c/language/union ; incl. anonymous union
