@@ -42,14 +42,17 @@ plasma:
         Lid1d: {bs: 1001 1010, bv: 154, nm: LiDAR 1d}
         Lid2d: {bs: 1001 1011, bv: 155, nm: LiDAR 2d}
 
+        #tentatively building in carrier frequency to ID namespace: 125 kHz, 13 MHz
         NFC:   {bs: 1001 1100, bv: 156, nm: NFC} 
-        NFC_HiTag2:        {bv: 0x9A01, nm: HiTag2,  fmt: unt16x3, layout: AA AA AA,    fields: [serial]}
-        NFC_NTAG213:       {bv: 0x9A11, nm: NTAG213, fmt: unt16x4, layout: AA AA AA A0, fields: [serial]}
+        NFC_125k01: {bv: 0x9A01, nm: HiTag2,  fmt: unt16x3, layout: AA AA AA,    fields: [serial]}
+        NFC_13m01:  {bv: 0x9A11, nm: NTAG213, fmt: unt16x4, layout: AA AA AA A0, fields: [serial]}
 
         Us:    {bs: 1001 1101, bv: 157, nm: ultrasonic}
         Gy:    {bs: 1001 1110, bv: 158, nm: gyroscope}
+
+        #tentatively evolving namespace, probably not yet stable
         IMU:   {bs: 1001 1111, bv: 159, nm: inertial measurement}
-        IMU_LSM6DS3TR_C:   {bv: 0x9F01, nm: ST IMU Ac Gy, fmt: unt16x2, layout: AA BB, fields: [Ac, Gy]}
+        IMU_ST01:  {bv: 0x9F01, nm: ST LSM6DS3TR_C IMU Ac Gy, fmt: unt16x2, layout: AA BB, fields: [Ac, Gy]}
 
         Oc:    {bs: 1010 0000, bv: 160, nm: optical communications} #could be moved to comm...
         Cc:    {bs: 1010 0001, bv: 161, nm: capacitive communications}
