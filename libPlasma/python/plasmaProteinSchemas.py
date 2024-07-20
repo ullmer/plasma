@@ -78,5 +78,11 @@ class plasmaProteinSchemas:
       self.err("loadIndices: error on opening and/or loading " + fullHwPath);
       traceback.print_exc(); return
 
+###################### main ######################
+
+if __name__ == '__main__':
+  pps = plasmaProteinSchemas('/home/bullmer/git/plasma/libPlasma/yaml')
+  print(pps.hardwareYamlD)
+
 ### end ###
 
