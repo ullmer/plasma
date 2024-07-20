@@ -110,7 +110,7 @@ class plasmaProteinSchemas:
 
     if 'noncontact' in self.sensorYamlD:
       snc = self.sensorYamlD['noncontact']
-      if hwName in nsc: return nsc[hwName]
+      if hwName in snc: return snc[hwName]
 
     self.err("getHwSensorDescr: sensor type " + hwName + " not found in registered contact or non-contact sensor types!")
     return None
