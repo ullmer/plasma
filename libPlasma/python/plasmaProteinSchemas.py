@@ -17,6 +17,8 @@ from   functools import partial # for callback support
 
 class plasmaProteinSchemas:
   schemaIndexPath = None
+  indexFn         = 'index.yaml'
+  indexYamlD      = None 
 
   ############# error reporting #############
 
@@ -31,6 +33,22 @@ class plasmaProteinSchemas:
 
     #https://stackoverflow.com/questions/739625/setattr-with-kwargs-pythonic-or-not
     self.__dict__.update(kwargs) #allow class fields to be passed in constructor
+ 
+    self.loadIndices()
+    #self.loadMetaindices()
+
+  ############# load indices #############
+
+  def loadIndices(self):
+    if self.schemaIndexPath is None or self.indexFn is None:
+      self.err("loadIndices: schemaIndexPath or indexFn is empty! Returning"); return
+
+    fullPath = self.schemaIndexPath + "/" + self.indexFn
+    if os.path.exists(fullPath) is False:
+      self.err("loadIndices: indices path doesn't exist! : ", fullPath)
+
+    yf = open(fullPath)
+    self.indexYamlD = yaml.safe_load(yf) #index.yaml, primarily containing names of other YAML indices
 
 ### end ###
 
