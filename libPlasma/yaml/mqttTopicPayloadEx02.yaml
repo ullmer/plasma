@@ -1,23 +1,23 @@
 #from copilot: 20 specific mqtt message examples involving sensors, multitouch, and/or iot
 # using "topic" as key
 
-L/proximity:      {descr: Proximity Detection from a Touch Sensor,       payload: {proximity: near}
-Lroom/button: {descr: Button Press Event from Multitouch Button, payload: {button_id: 3, pressed: true}}
-device/battery:         {descr: Battery Voltage Reading from a Mobile Device,  payload: {voltage: 3.7}}
-L/soil-moisture:     {descr: Soil Moisture Reading from an Agricultural Sensor, payload: {"moisture": 35}}
-L/humidity:    {descr: Humidity Data from a Greenhouse Sensor,        payload: {humidity: 65}}
+L/air-quality:     {descr: Air Quality Data from an Environmental Sensor, payload: {pm2.5: 15, co2_ppm: 400}}
+L/battery:         {descr: Battery Voltage Reading from a Mobile Device,  payload: {voltage: 3.7}}
+L/button: {descr: Button Press Event from Multitouch Button, payload: {button_id: 3, pressed: true}}
+L/co2:        {descr: CO2 Concentration from an Indoor Air Quality Sensor, payload: {co2_ppm: 800}}
 L/door:              {descr: Door Open/Close Event from a Magnetic Contact Sensor, payload: {door_status: open}}
-L/living-room/temperature: {descr: Temperature Reading from a Home Sensor,         payload: {temperature: 23.5}}
-hvac/temperature-setpoint: {descr: Temperature Setpoint Update for HVAC Control, payload: {target_temp: 22.0}}
 L/gas-sensor:        {descr: Gas Leak Alert from a Gas Sensor,             payload: {status: leak}}
+L/humidity:    {descr: Humidity Data from a Greenhouse Sensor,        payload: {humidity: 65}}
+L/hvac/temperature-setpoint: {descr: Temperature Setpoint Update for HVAC Control, payload: {target_temp: 22.0}}
+L/light-bulb:     {descr: Light Dimming Command to a Smart Bulb,  payload: {brightness: 50}}
+L/living-room/temperature: {descr: Temperature Reading from a Home Sensor,         payload: {temperature: 23.5}}
 L/light-intensity:    {descr:Light Intensity Measurement from a Light Sensor, payload: {lux: 1200}}
 L/motion:          {descr: Motion Detection Event from Office Sensor, payload: {motion_detected: true}}
-security-system/alarm:  {descr: Security Alarm Trigger Event,                 payload: {triggered: true}}
-tank/water-level:       {descr: Water Level Alert from a Tank Sensor,      payload: {status:          low}}
+L/proximity:      {descr: Proximity Detection from a Touch Sensor,       payload: {proximity: near}
+L/security-system/alarm:  {descr: Security Alarm Trigger Event,                 payload: {triggered: true}}
+L/soil-moisture:     {descr: Soil Moisture Reading from an Agricultural Sensor, payload: {"moisture": 35}}
+L/tablet/touchscreen:     {descr: Multitouch Gesture Information,         payload: {gesture: swipe, direction: left}}
+L/tank/water-level:       {descr: Water Level Alert from a Tank Sensor,      payload: {status:          low}}
 vehicle/gps:            {descr: GPS Location from Vehicle IoT Device,    payload: {lat: 37.7749, long: -122.4194}}
-L/air-quality:     {descr: Air Quality Data from an Environmental Sensor, payload: {pm2.5: 15, co2_ppm: 400}}
 wearable/accelerometer: {descr: Accelerometer Data from a Wearable Device,     payload: {x: 0.5, y: -0.2, z: 0.9}}
-L/co2:        {descr: CO2 Concentration from an Indoor Air Quality Sensor, payload: {co2_ppm: 800}}
-tablet/touchscreen:     {descr: Multitouch Gesture Information,         payload: {gesture: swipe, direction: left}}
-L/light-bulb:     {descr: Light Dimming Command to a Smart Bulb,  payload: {brightness: 50}}
 wearable/heart-rate:    {descr: Heart Rate Data from a Fitness Tracker, payload: {bpm: 75}}
