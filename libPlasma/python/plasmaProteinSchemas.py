@@ -9,7 +9,7 @@
 #sys.path.append(os.path.join(LIB_PATH, ''))
 #import sys; sys.path.append("/home/ullmer/git/plasma/libPlasma/python/")
 
-import asyncio, sys, time, traceback, yaml
+import os, asyncio, sys, time, traceback, yaml
 from   functools import partial # for callback support
 
 #############################################################
@@ -60,15 +60,15 @@ class plasmaProteinSchemas:
     if 'configs' not in self.indexYamlD:
       self.err("loadIndices: configs (configurations) not found in " + fullPath); return
 
-    configs = self.indexYamlD['configs']
-    if 'addressSpace' not in configs:
+    pconfigs = self.indexYamlD['configs']
+    if 'addressSpace' not in pconfigs:
       self.err("loadIndices: addressSpace not in " + fullPath); return 
 
-    as = configs['addressSpace']
-    if 'hardware' not in as:
+    pcas = pconfigs['addressSpace']
+    if 'hardware' not in pcas:
       self.err("loadIndices: hardware YAML specification not in " + fullPath); return
 
-    self.hardwareYamlFn = as['hardware']
+    self.hardwareYamlFn = pcas['hardware']
     try:
       fullHwPath = self.schemaIndexPath + "/" + self.hardwareYamlFn 
       yf = open(fullHwPath)
@@ -81,7 +81,7 @@ class plasmaProteinSchemas:
 ###################### main ######################
 
 if __name__ == '__main__':
-  pps = plasmaProteinSchemas('/home/bullmer/git/plasma/libPlasma/yaml')
+  pps = plasmaProteinSchemas(schemaIndexPath='/home/bullmer/git/plasma/libPlasma/yaml')
   print(pps.hardwareYamlD)
 
 ### end ###
