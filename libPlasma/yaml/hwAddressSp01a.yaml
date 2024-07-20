@@ -7,18 +7,20 @@ plasma:
     address:   {bs: AAABBBCC DDDDEEEE} #b: bitstring
     sensors: ############# SENSORS ############ 
       address: {bs: 100BBBBB, bv: 127}
+
       contact:        #### contact ####
         addr:  {bs: 1001BBBB, bv: 144, nm: contact sensors}
         BS:    {bs: 10010001, bv: 145, nm: buttons switches}
         AhS:   {bs: 10010010, bv: 146, nm: ad-hoc switches}
         PoR:   {bs: 10010011, bv: 147, nm: potentiom radial}
         PoL:   {bs: 10010100, bv: 148, nm: potetiom linear}
-        SE:
-        Fo:
-        Fl:
-        SG:
-        RT:
-        DSN:
+        SE:    {bs: 10010101, bv: 149, nm: shaft encoder}
+        Fo:    {bs: 10010110, bv: 150, nm: force sensor}
+        Fl:    {bs: 10010111, bv: 151, nm: flex sensor}
+        SG:    {bs: 10011000, bv: 152, nm: strain gauge} #load cell
+        RT:    {bs: 10011001, bv: 153, nm: resistive tag}
+        DSN:   {bs: 10011010, bv: 154, nm: digital serial number}
+
       noncontact:    #### non-contact ####
         RS:
         HE:
