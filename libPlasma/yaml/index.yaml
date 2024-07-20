@@ -1,0 +1,7 @@
+configs:
+  addressSpace:
+    hardware: hwAddressSp01a.yaml
+    #sensors
+    #software:
+
+### end ###
