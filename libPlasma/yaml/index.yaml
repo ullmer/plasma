@@ -1,3 +1,15 @@
+# Coordinative index file
+# Begun by Brygg Ullmer, Clemson University
+# Begun on 2024-07-20
+
+# Intent: as Plasma's particular communication schemas progress
+# through semi-organic re-evolution, there's a tension between
+# ad-hoc make-something-interesting-work-as-swiftly-as-possible and
+# do-so-in-a-principled-way-that-could-lead-toward-promising-spaces
+
+# This file hopefully may provide a bridge toward exploring and progressively quickly
+# evolving between different generations/candidates/etc. of said process
+
 configs:
   addressSpace:
     hardware: hwAddressSp01a.yaml
