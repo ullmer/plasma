@@ -4,11 +4,13 @@
 
 plasma:
   hw:
-    address:   { AA BBBB CC | DDDD EEEE }
+    address:   {b: AAABBBCC DDDDEEEE} #b: bits
     sensors: ############# SENSORS ############ 
+      address: {b: 100BBBBB DDDDEEEE}
       contact:        #### contact ####
-        BS:    {
-        AhS:   {
+        addr:  {b: 1001BBBB DDDDEEEE}
+        BS:    {b: 10010001 DDDDEEEE}
+        AhS:   {b: 10010010 DDDDEEEE}
         PoR:
         PoL:
         SE:
