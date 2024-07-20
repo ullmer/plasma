@@ -99,7 +99,7 @@ void plasmaClose() {
 ////////////////// plasma deposit ////////////////// 
 
 //int plasmaDeposit(pool_cmd_info cmd, char *descripStr, char *ingestStr) {
-int plasmaDeposit(char *descripStr, char *ingestStr) {
+int plasmaDeposit_StrStr(char *descripStr, char *ingestStr) {
   ob_retort pret;
   slaw     ingest;
   protein  prot;

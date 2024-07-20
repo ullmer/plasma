@@ -21,7 +21,7 @@ void  extract_slaw (char *arg, slaw *ingest); //helper function for plasmaDeposi
 
 void   plasmaInit(char *poolnameStr);
 void   plasmaClose(); 
-int    plasmaDeposit(char *descripStr, char *ingestStr);
+int    plasmaDeposit_StrStr(char *descripStr, char *ingestStr);
 int    plasmaAwait();
 char **plasmaAwaitNextChars();
 char **plasmaAwaitNextTrio();
