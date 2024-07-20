@@ -115,6 +115,14 @@ class plasmaProteinSchemas:
     self.err("getHwSensorDescr: sensor type " + hwName + " not found in registered contact or non-contact sensor types!")
     return None
 
+  ############# get hw sensor transport descr #############
+  def getHwSensorTransportDescr(self, hwEl):
+    hwDescr = self.getHwSensorDescr(hwEl)
+    if hwDescr is none:      self.err("getHwSensorTransportDescr: no information received for sensor type " + hwEl); return
+
+    if 'fmt' not in hwDescr: self.err("getHwSensorTransportDescr: no format (fmt) information found for sensor " + hwEl); return
+
+
 ###################### main ######################
 
 if __name__ == '__main__':
