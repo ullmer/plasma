@@ -79,11 +79,8 @@ class plasmaProteinSchemas:
       self.err("loadIndices: error on opening and/or loading " + fullHwPath);
       traceback.print_exc(); return
 
-    self.loadHwYamlDescr():
-  
-  ############# get hw yaml descr #############
+    ########### Load hardware yaml info ########### 
 
-  def loadHwYamlDescr(self):
     if self.hardwareYamlD is None:
       self.err("loadHwYamlDescr: hardwareYaml data is not yet populated"); return None
 
