@@ -135,7 +135,37 @@ int plasmaDeposit_StrStr(char *descripStr, char *ingestStr) {
 
 int    plasmaDeposit_Int16_Int16Arr(int16 descripInt, int16 *ingestIntArr, int arraySize);
 
-int    plasmaDeposit_Unt16_Unt16Arr(unt16 descripInt, unt16 *ingestIntArr, int arraySize);
+int    plasmaDeposit_Unt16_Unt16Arr(unt16 descripInt, unt16 *ingestIntArr, int arraySize) 
+  ob_retort pret;
+  slaw     ingest;
+  protein  prot;
+
+  printf("plasma deposit begins\n");
+
+  slabu   *descrips = slabu_new ();
+  slabu   *ingests  = slabu_new ();
+
+  extract_slaw (ingestStr, &ingest);
+  OB_DIE_ON_ERROR (slabu_list_add_c (descrips, descripStr));
+  OB_DIE_ON_ERROR (slabu_list_add_x (ingests, ingest));
+
+  prot = protein_from_ff (slaw_list_f (descrips), slaw_map_f (ingests));
+  if (cmd.verbose) { 
+     fprintf (stderr, "depositing in %s\n", cmd.pool_name);
+     slaw_spew_overview (prot, stderr, NULL);
+  }
+
+  pret = pool_deposit (cmd.ph, prot, NULL);
+  protein_free (prot);
+
+  if (OB_OK != pret) { 
+    fprintf (stderr, "no luck on the deposit: %s\n", ob_error_string (pret));
+    exit (pool_cmd_retort_to_exit_code (pret));
+  }
+
+  OB_DIE_ON_ERROR (pool_withdraw (cmd.ph));
+  return EXIT_SUCCESS;
+}
 
 ////////////////// plasma await ////////////////// 
 
