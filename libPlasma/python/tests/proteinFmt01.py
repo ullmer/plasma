@@ -4,10 +4,9 @@
 # Lead by Brygg Ullmer, Clemson University
 # Begun 2024-07-20
 
-import sys; sys.path.append("/home/ullmer/git/plasma/libPlasma/python/")
-import plasmaProteinSchemas
+import sys; sys.path.append("/home/bullmer/git/plasma/libPlasma/python/")
+from plasmaProteinSchemas import *
 
-pps = plasmaProteinSchemas(schemaIndexPath='/home/bullmer/git/plasma/libPlasma/yaml')
 #print(pps.hardwareYamlD)
 
 #examples:
@@ -16,9 +15,11 @@ pps = plasmaProteinSchemas(schemaIndexPath='/home/bullmer/git/plasma/libPlasma/y
 # NFC_13m01:  {bv: 0x9A11, nm: NTAG213, fmt: unt16x4, layout: AA AA AA A0, fields: [serial]}
 # IMU_ST01:  {bv: 0x9F01, nm: ST LSM6DS3TR_C IMU Ac Gy, fmt: unt16x2, layout: AA BB, fields: [Ac, Gy]}
 
+pps = plasmaProteinSchemas(schemaIndexPath='/home/bullmer/git/plasma/libPlasma/yaml')
 exampleHWdevs = ['C2d_generic', 'NFC_125k01', 'NFC_13m01', 'IMU_ST01']
 for hwEl in exampleHWdevs:
-  print(hwEl)
+  hwDescr = pps.getHwYamlDescr(hwEl)
+  print(hwEl + " : " + str(hwDescr))
 
 ### end ###
 
