@@ -23,8 +23,8 @@ void   plasmaInit(char *poolnameStr);
 void   plasmaClose(); 
 
 int    plasmaDeposit_StrStr        (char *descripStr, char *ingestStr);
-int    plasmaDeposit_Int16_Int16Arr(int16 descripInt, int16 *ingestIntArr);
-int    plasmaDeposit_Unt16_Unt16Arr(unt16 descripInt, unt16 *ingestIntArr);
+int    plasmaDeposit_Int16_Int16Arr(int16 descripInt, int16 *ingestIntArr, int arraySize);
+int    plasmaDeposit_Unt16_Unt16Arr(unt16 descripInt, unt16 *ingestIntArr, int arraySize);
 int    plasmaAwait();
 char **plasmaAwaitNextChars();
 char **plasmaAwaitNextTrio();
