@@ -19,6 +19,8 @@ class plasmaProteinSchemas:
   schemaIndexPath = None
   indexFn         = 'index.yaml'
   indexYamlD      = None 
+  hardwareYamlFn  = None
+  hardwareYamlD   = None
 
   ############# error reporting #############
 
@@ -45,10 +47,33 @@ class plasmaProteinSchemas:
 
     fullPath = self.schemaIndexPath + "/" + self.indexFn
     if os.path.exists(fullPath) is False:
-      self.err("loadIndices: indices path doesn't exist! : ", fullPath)
+      self.err("loadIndices: indices path doesn't exist! : " + fullPath)
 
-    yf = open(fullPath)
-    self.indexYamlD = yaml.safe_load(yf) #index.yaml, primarily containing names of other YAML indices
+    try:
+      yf = open(fullPath)
+      self.indexYamlD = yaml.safe_load(yf) #index.yaml, primarily containing names of other YAML indices
+      yf.close()
+    except:
+      self.err("loadIndices: error on opening and/or loading " + fullPath); return
+
+    if 'configs' not in self.indexYamlD:
+      self.err("loadIndices: configs (configurations) not found in " + fullPath); return
+
+    configs = self.indexYamlD['configs']
+    if 'addressSpace' not in configs:
+      self.err("loadIndices: addressSpace not in " + fullPath); return 
+
+    as = configs['addressSpace']
+    if 'hardware' not in as:
+      self.err("loadIndices: hardware YAML specification not in " + fullPath); return
+
+    self.hardwareYamlFn = as['hardware']
+    try:
+      fullHwPath = self.schemaIndexPath + "/" + self.hardwareYamlFn 
+      yf = open(fullHwPath)
+      self.hardwareYamlD  = yaml.safe_load(yf)
+      yf.close()
+    except:
 
 ### end ###
 
