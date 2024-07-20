@@ -1,6 +1,6 @@
-import sys; sys.path.append("/home/ullmer/git/plasma/libPlasma/python/")
+import sys; sys.path.append("/home/bullmer/git/plasma/libPlasma/python/")
 import cplasma
 
 cplasma.init("tcp://localhost/hello")
-cplasma.pDeposit("hello", "name:world")
+cplasma.pDeposit_StrStr("hello", "name:world")
 
