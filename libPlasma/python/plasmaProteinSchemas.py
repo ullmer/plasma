@@ -21,6 +21,7 @@ class plasmaProteinSchemas:
   indexYamlD      = None 
   hardwareYamlFn  = None
   hardwareYamlD   = None
+  sensorYamlD     = None
 
   ############# error reporting #############
 
@@ -77,30 +78,41 @@ class plasmaProteinSchemas:
     except:
       self.err("loadIndices: error on opening and/or loading " + fullHwPath);
       traceback.print_exc(); return
+
+    self.loadHwYamlDescr():
   
   ############# get hw yaml descr #############
 
-  def getHwYamlDescr(self, hwName):
+  def loadHwYamlDescr(self):
     if self.hardwareYamlD is None:
-      self.err("getHwYamlDescr: hardwareYaml data is not yet populated"); return None
+      self.err("loadHwYamlDescr: hardwareYaml data is not yet populated"); return None
 
-    if hwName not in self.hardwareYamlD:
-      self.err("getHwYamlDescr: specified hardware " + hwName + " not found!"); return None
+    if 'plasma' not in self.hardwareYamlD:
+      self.err("loadHwYamlDescr: 'plasma' not in yaml descr!"); return None
 
-    return self.hardwareYamlD[hwName]
+    p = self.hardwareYamlD['plasma']
+
+    if 'hw' not in p:
+     self.err("loadHwYamlDescr: 'hw' not in yaml descr!"); return None
+
+    phw = p['hw']
+
+    if 'sensors' not in phw:
+      self.err("loadHwYamlDescr: 'sensors' not in yaml descr!"); return None
+
+    self.sensorYamlD = phw['sensors'] 
 
   ############# get hw sensor descr #############
 
   def getHwSensorDescr(self, hwName):
-    s = self.getHwYamlDescr('sensors')
-    if s is None: self.err("getHwSensorDescr: no sensor data detected"); return
+    if self.sensorYamlD is None: self.err("getHwSensorDescr: no sensor data detected"); return
 
-    if 'contact' in s: #search contact-based sensors
-      sc = s['contact']
+    if 'contact' in self.sensorYamlD: #search contact-based sensors
+      sc = self.sensorYamlD['contact']
       if hwName in sc: return sc[hwName]
 
-    if 'noncontact' in s:
-      snc = s['noncontact']
+    if 'noncontact' in self.sensorYamlD:
+      snc = self.sensorYamlD['noncontact']
       if hwName in nsc: return nsc[hwName]
 
     self.err("getHwSensorDescr: sensor type " + hwName + " not found in registered contact or non-contact sensor types!")
