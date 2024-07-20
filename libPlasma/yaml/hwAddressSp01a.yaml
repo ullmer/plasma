@@ -4,6 +4,7 @@
 
 plasma:
   hw:
+    address:   { AA BBBB CC | DDDD EEEE }
     sensors: ############# SENSORS ############ 
       contact:        #### contact ####
         BS:    {
