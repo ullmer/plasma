@@ -34,7 +34,7 @@ plasma:
         C1d:   {bs: 1001 0101, bv: 149, nm: capacitive 1d}
 
         C2d:   {bs: 1001 0110, bv: 150, nm: capacitive 2d}
-        C2d_generic: {bv: 0x9601, nm: multitouch, fmt: unt16x3, layout: AB CC DD, fields: [device, touch, x, y]}
+        C2d_generic: {bv: 0x9601, nm: multitouch, fmt: unt16*3, layout: AB CC DD, fields: [device, touch, x, y]}
 
         IRG:   {bs: 1001 0111, bv: 151, nm: infrared grid}
         IRP:   {bs: 1001 1000, bv: 152, nm: infrared proximity}
@@ -44,15 +44,15 @@ plasma:
 
         #tentatively building in carrier frequency to ID namespace: 125 kHz, 13 MHz
         NFC:   {bs: 1001 1100, bv: 156, nm: NFC} 
-        NFC_125k01: {bv: 0x9A01, nm: HiTag2,  fmt: unt16x3, layout: AA AA AA,    fields: [serial]}
-        NFC_13m01:  {bv: 0x9A11, nm: NTAG213, fmt: unt16x4, layout: AA AA AA A0, fields: [serial]}
+        NFC_125k01: {bv: 0x9A01, nm: HiTag2,  fmt: unt16*3, layout: AA AA AA,    fields: [serial]}
+        NFC_13m01:  {bv: 0x9A11, nm: NTAG213, fmt: unt16*4, layout: AA AA AA A0, fields: [serial]}
 
         Us:    {bs: 1001 1101, bv: 157, nm: ultrasonic}
         Gy:    {bs: 1001 1110, bv: 158, nm: gyroscope}
 
         #tentatively evolving namespace, probably not yet stable
         IMU:   {bs: 1001 1111, bv: 159, nm: inertial measurement}
-        IMU_ST01:  {bv: 0x9F01, nm: ST LSM6DS3TR_C IMU Ac Gy, fmt: unt16x2, layout: AA BB, fields: [Ac, Gy]}
+        IMU_ST01:  {bv: 0x9F01, nm: ST LSM6DS3TR_C IMU Ac Gy, fmt: unt16*2, layout: AA BB, fields: [Ac, Gy]}
 
         Oc:    {bs: 1010 0000, bv: 160, nm: optical communications} #could be moved to comm...
         Cc:    {bs: 1010 0001, bv: 161, nm: capacitive communications}
