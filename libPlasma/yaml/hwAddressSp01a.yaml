@@ -3,10 +3,14 @@
 # Begun 2024-07-19
 
 plasma:
-  hw:
-    address:   {bs: AAABBBCC DDDDEEEE} #b: bitstring
-    sensors: ############# SENSORS ############ 
-      address: {bs: 100B BBBB, bv: 127}
+  address:     {bs: ABBB CCCC DDDD EEEE} #bs: bitstring
+
+  sw:        ############# SOFTWARE ############ classes of services
+      address: {bs: 0BBB CCCC, bv: 0,  nm: software, prefix: SW}
+
+  hw:        ############# HARDWARE ############
+    sensors: ############# SENSORS  ############ 
+      address: {bs: 10BB CCCC, bv: 127, nm: sensors, prefix: HS}
 
       contact:        #### contact ####
         addr:  {bs: 1000 BBBB, bv: 127, nm: contact sensors}
@@ -35,15 +39,17 @@ plasma:
         Lid1d: {bs: 1001 1010, bv: 154, nm: LiDAR 1d}
         Lid2d: {bs: 1001 1011, bv: 155, nm: LiDAR 2d}
         NFC:   {bs: 1001 1100, bv: 156, nm: NFC} 
-        Us:    {bs: 1001 1101, bv: 157, nm: 
-        Gy:
-        IMU:
-        Oc:
-        Cc:
-        MF2d:
-        MF3d:
-        Rad:
-        CV:
+        Us:    {bs: 1001 1101, bv: 157, nm: ultrasonic}
+        Gy:    {bs: 1001 1110, bv: 158, nm: gyroscope}
+        IMU:   {bs: 1001 1111, bv: 159, nm: inertial measurement}
+
+        Oc:    {bs: 1010 0000, bv: 160, nm: optical communications} #could be moved to comm...
+        Cc:    {bs: 1010 0001, bv: 161, nm: capacitive communications}
+        Ic:    {bs: 1010 0010, bv: 162, nm: infrared communications}
+        MF2d:  {bs: 1010 0011, bv: 163, nm: magnetic field 2D}
+        MF3d:  {bs: 1010 0100, bv: 164, nm: magnetic field 3D}
+        Rad:   {bs: 1010 0101, bv: 165, nm: RADAR}
+        CV:    {bs: 1010 0110, bv: 166, nm: computer vision}
         DIR:
         FTIR:
     displays: ############# DISPLAYS ############ 
