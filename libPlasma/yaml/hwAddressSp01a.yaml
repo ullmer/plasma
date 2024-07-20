@@ -24,15 +24,17 @@ plasma:
       noncontact:    #### non-contact ####
         addr:  {bs: 1010BBBB, bv: 160, nm: non-contact sensors}
         RS:    {bs: 10100001, bv: 161, nm: reed switch}
-        HE:
-        Ac:
-        C:
-        C1d:
-        C2d:
-        IRG:
-        IRP:
-        Lid:
-        NFC:
+        HE:    {bs: 10100010, bv: 162, nm: Hall effect}
+        Ac:    {bs: 10100011, bv: 163, nm: accelerometer
+        C0d:   {bs: 10100100, bv: 164, nm: capacitive 0d}
+        C1d:   {bs: 10100101, bv: 165, nm: capacitive 1d}
+        C2d:   {bs: 10100110, bv: 166, nm: capacitive 2d}
+        IRG:   {bs: 10100111, bv: 167, nm: infrared grid}
+        IRP:   {bs: 10101000, bv: 168, nm: infrared proximity}
+        Lid0d: {bs: 10101001, bv: 169, nm: LiDAR 0d}
+        Lid1d: {bs: 10101010, bv: 170, nm: LiDAR 1d}
+        Lid2d: {bs: 10101011, bv: 171, nm: LiDAR 2d}
+        NFC:   {bs: 10101100, bv: 172, nm: NFC} 
         Us:
         Gy:
         IMU:
