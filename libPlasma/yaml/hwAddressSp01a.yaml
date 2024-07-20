@@ -17,6 +17,27 @@ plasma:
         RT:
         DSN:
       noncontact:    #### non-contact ####
+        RS:
+        HE:
+        Ac:
+        C:
+        C1d:
+        C2d:
+        IRG:
+        IRP:
+        Lid:
+        NFC:
+        Us:
+        Gy:
+        IMU:
+        Oc:
+        Cc:
+        MF2d:
+        MF3d:
+        Rad:
+        CV:
+        DIR:
+        FTIR:
     displays: ############# DISPLAYS ############ 
     actuators:
     computation:
