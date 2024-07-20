@@ -22,7 +22,8 @@ plasma:
         DSN:   {bs: 10011010, bv: 154, nm: digital serial number}
 
       noncontact:    #### non-contact ####
-        RS:
+        addr:  {bs: 1010BBBB, bv: 160, nm: non-contact sensors}
+        RS:    {bs: 10100001, bv: 161, nm: reed switch}
         HE:
         Ac:
         C:
