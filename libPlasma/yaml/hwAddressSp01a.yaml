@@ -5,15 +5,18 @@
 plasma:
   hw:
     sensors: ############# SENSORS ############ 
-      contact:
-        bs:
-        AhS:
+      contact:        #### contact ####
+        BS:    {
+        AhS:   {
         PoR:
         PoL:
         SE:
         Fo:
-        Fl
-      noncontact:
+        Fl:
+        SG:
+        RT:
+        DSN:
+      noncontact:    #### non-contact ####
     displays: ############# DISPLAYS ############ 
     actuators:
     computation:
