@@ -1,0 +1,15 @@
+#### Initial mapping of hardware address space, toward contemplating relevant Proteins ####
+# Initially by Brygg Ullmer, Clemson University
+# Begun 2024-07-19
+
+plasma:
+  hw:
+    sensors:
+    displays:
+    actuators:
+    computation:
+    communication:
+    devices:
+    ecologies:
+
+### end ###
