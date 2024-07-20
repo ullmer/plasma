@@ -54,7 +54,8 @@ class plasmaProteinSchemas:
       self.indexYamlD = yaml.safe_load(yf) #index.yaml, primarily containing names of other YAML indices
       yf.close()
     except:
-      self.err("loadIndices: error on opening and/or loading " + fullPath); return
+      self.err("loadIndices: error on opening and/or loading " + fullPath); 
+      traceback.print_exc(); return
 
     if 'configs' not in self.indexYamlD:
       self.err("loadIndices: configs (configurations) not found in " + fullPath); return
@@ -74,6 +75,8 @@ class plasmaProteinSchemas:
       self.hardwareYamlD  = yaml.safe_load(yf)
       yf.close()
     except:
+      self.err("loadIndices: error on opening and/or loading " + fullHwPath);
+      traceback.print_exc(); return
 
 ### end ###
 
