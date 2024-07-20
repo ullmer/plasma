@@ -29,7 +29,7 @@ plasma:
         addr:  {bs: 1001 BBBB, bv: 144, nm: non-contact sensors}
         RS:    {bs: 1001 0001, bv: 145, nm: reed switch}
         HE:    {bs: 1001 0010, bv: 146, nm: Hall effect}
-        Ac:    {bs: 1001 0011, bv: 147, nm: accelerometer
+        Ac:    {bs: 1001 0011, bv: 147, nm: accelerometer}
         C0d:   {bs: 1001 0100, bv: 148, nm: capacitive 0d}
         C1d:   {bs: 1001 0101, bv: 149, nm: capacitive 1d}
 
@@ -49,7 +49,7 @@ plasma:
         Us:    {bs: 1001 1101, bv: 157, nm: ultrasonic}
         Gy:    {bs: 1001 1110, bv: 158, nm: gyroscope}
         IMU:   {bs: 1001 1111, bv: 159, nm: inertial measurement}
-        IMU_LSM6DS3TR_C:  bv: 0x9F01, nm: ST IMU Ac Gy, fmt: int16x2, layout: AA BB, fields: [Ac, Gy]}
+        IMU_LSM6DS3TR_C:   {bv: 0x9F01, nm: ST IMU Ac Gy, fmt: int16x2, layout: AA BB, fields: [Ac, Gy]}
 
         Oc:    {bs: 1010 0000, bv: 160, nm: optical communications} #could be moved to comm...
         Cc:    {bs: 1010 0001, bv: 161, nm: capacitive communications}
