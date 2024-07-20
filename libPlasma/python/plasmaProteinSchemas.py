@@ -118,10 +118,17 @@ class plasmaProteinSchemas:
   ############# get hw sensor transport descr #############
   def getHwSensorTransportDescr(self, hwEl):
     hwDescr = self.getHwSensorDescr(hwEl)
-    if hwDescr is none:      self.err("getHwSensorTransportDescr: no information received for sensor type " + hwEl); return
+    if hwDescr is None:      self.err("getHwSensorTransportDescr: no information received for sensor type " + hwEl); return
 
     if 'fmt' not in hwDescr: self.err("getHwSensorTransportDescr: no format (fmt) information found for sensor " + hwEl); return
 
+    fmt = hwDescr['fmt']
+
+    if '*' in fmt: #array
+     protType, arrCnt = fmt.split('*')
+     return [protType, arrCnt]
+
+    return fmt
 
 ###################### main ######################
 
