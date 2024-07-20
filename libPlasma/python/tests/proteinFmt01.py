@@ -16,9 +16,10 @@ from plasmaProteinSchemas import *
 # IMU_ST01:  {bv: 0x9F01, nm: ST LSM6DS3TR_C IMU Ac Gy, fmt: unt16x2, layout: AA BB, fields: [Ac, Gy]}
 
 pps = plasmaProteinSchemas(schemaIndexPath='/home/bullmer/git/plasma/libPlasma/yaml')
-exampleHWdevs = ['C2d_generic', 'NFC_125k01', 'NFC_13m01', 'IMU_ST01']
-for hwEl in exampleHWdevs:
-  hwDescr = pps.getHwYamlDescr(hwEl)
+exHwSensorEls = ['C2d_generic', 'NFC_125k01', 'NFC_13m01', 'IMU_ST01']
+
+for hwEl in exHwSensorEls:
+  hwDescr = pps.getHwSensorDescr(hwEl)
   print(hwEl + " : " + str(hwDescr))
 
 ### end ###
