@@ -87,8 +87,24 @@ class plasmaProteinSchemas:
     if hwName not in self.hardwareYamlD:
       self.err("getHwYamlDescr: specified hardware " + hwName + " not found!"); return None
 
-    result = self.hardwareYamlD[hwName]
-    return result
+    return self.hardwareYamlD[hwName]
+
+  ############# get hw sensor descr #############
+
+  def getHwSensorDescr(self, hwName):
+    s = self.getHwYamlDescr('sensors')
+    if s is None: self.err("getHwSensorDescr: no sensor data detected"); return
+
+    if 'contact' in s: #search contact-based sensors
+      sc = s['contact']
+      if hwName in sc: return sc[hwName]
+
+    if 'noncontact' in s:
+      snc = s['noncontact']
+      if hwName in nsc: return nsc[hwName]
+
+    self.err("getHwSensorDescr: sensor type " + hwName + " not found in registered contact or non-contact sensor types!")
+    return None
 
 ###################### main ######################
 
