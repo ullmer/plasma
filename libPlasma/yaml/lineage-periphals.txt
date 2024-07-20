@@ -1,0 +1,58 @@
+    527 Accelerometer
+    490 Compass
+    472 Gyroscope
+    471 Proximity sensor
+    436 GPS
+    340 Fingerprint reader
+    334 Light sensor
+    272 NFC
+    248 USB OTG
+    231 Dual SIM
+    228 GLONASS
+    178 A-GPS
+    160 Galileo
+    133 BeiDou
+    131 Barometer
+    129 FM radio
+    126 Hall effect sensor
+    112 IR blaster
+     70 Dual-frequency GNSS
+     67 QZSS
+     56 SBAS
+     54 Sensor hub
+     52 Pedometer
+     36 Qi wireless charging
+     34 RGB ambient light
+     30 Dual speakers
+     29 Gesture sensor
+     28 Color spectrum sensor
+     27 Dual front speakers
+     26 Ultrasound proximity sensor
+     22 Qi reverse wireless charging
+     22 Mobility DisplayPort (MyDP)
+     21 Heart rate sensor
+     19 Motion Coprocessor
+     19 HDMI
+     14 Thermometer
+     14 MHL
+     13 Hygrometer
+     12 NAVIC
+      9 DP over USB-C
+      8 MHL HDMI
+      8 Depth Sensor
+      7 MHL 2.0
+      7 Google Assist Button
+      6 Joycons
+      6 Dock
+      5 Moto Mods
+      5 IR camera
+      3 SNS integration
+      3 Hardware keyboard
+      3 Audio Coprocessor
+      2 Radar
+      2 RJ45 Ethernet port
+      2 Dot Projector
+      1 Iceview Cases
+      1 IR receiver
+      1 Essential Accessories
+      1 Dual side NFC
