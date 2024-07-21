@@ -190,12 +190,15 @@ class plasmaProteinSchemas:
     if hwDescr is None:  self.err("synthHwSensorDepositor: no information received for sensor type " + hwEl); return
     hwTransportDescr =   self.getHwSensorTransportDescr(hwEl)
 
-    numFields    = len(hwDescr.fields)
+    if 'fields' not in hwDescr:
+      self.err("registerHwSensorDepositor: 'fields' not in: "+ str(hwDescr)); return
+
+    numFields    = len(hwDescr['fields'])
     if len(hwTransportDescr) == 1: lenTransport = 1 #heuristic, may not be correct
     else:                          lenTransport = hwTransportDescr[1] #also a heuristic, toward bootstrapping :-)
 
     if numFields != lenTransport:
-      self.err("synthHwSensorDepositor: number of sensor fields different from inferred transport length. punting"); return
+      self.err("synthHwSensorDepositor: number of sensor fields different from inferred transport length. punting;" + str(hwDescr)); return
 
     if 'bv' not in hwDescr: self.err("synthHwSensorDepositor: sensor ID class not found in hw descr"); return
     sensorTypeId = hwDescr['bv'] #binary value; probably should be renamed
