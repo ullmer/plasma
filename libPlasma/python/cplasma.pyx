@@ -72,20 +72,20 @@ def pDeposit_Unt16Unt16_3(int descripInt1, int ingestInt1, int ingestInt2, int i
   stdint.uint16_t descripInt2 = descripInt1
   stdint.uint16_t ingestInts[3];
 
-  ingestInts[0] = (uint16_t) ingestInt1
-  ingestInts[1] = (uint16_t) ingestInt2
-  ingestInts[2] = (uint16_t) ingestInt3
+  ingestInts[0] = (stdint.uint16_t) ingestInt1
+  ingestInts[1] = (stdint.uint16_t) ingestInt2
+  ingestInts[2] = (stdint.uint16_t) ingestInt3
 
   plasmaDeposit_Unt16_Unt16Arr(descripInt2, &ingestInts, 3)
 
 def pDeposit_Unt16Unt16_4(int descripInt1, int ingestInt1, int ingestInt2, int ingestInt3, int ingestInt4):
-  uint16_t descripInt2 = descripInt1
-  uint16_t ingestInts[4];
+  stdint.uint16_t descripInt2 = descripInt1
+  stdint.uint16_t ingestInts[4];
 
-  ingestInts[0] = (uint16_t) ingestInt1
-  ingestInts[1] = (uint16_t) ingestInt2
-  ingestInts[2] = (uint16_t) ingestInt3
-  ingestInts[3] = (uint16_t) ingestInt4
+  ingestInts[0] = (stdint.uint16_t) ingestInt1
+  ingestInts[1] = (stdint.uint16_t) ingestInt2
+  ingestInts[2] = (stdint.uint16_t) ingestInt3
+  ingestInts[3] = (stdint.uint16_t) ingestInt4
 
   plasmaDeposit_Unt16_Unt16Arr(descripInt2, &ingestInts, 3)
 
