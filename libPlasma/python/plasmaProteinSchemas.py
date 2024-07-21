@@ -142,7 +142,7 @@ class plasmaProteinSchemas:
     return fmt
 
   ############# print active sensor fields #############
-  def self.printActiveSensorFields(self):
+  def printActiveSensorFields(self):
     if len(self.sensorTypesEngaged) == 0: self.err("printActiveSensorFields: no sensor types engaged"); return
 
     print("active sensor fields:")
@@ -152,7 +152,7 @@ class plasmaProteinSchemas:
 
   ############# sensor depostor #############
 
-  printSensorArgs(self, sensorTypeId): #accepts either integer ID or string ID
+  def printSensorArgs(self, sensorTypeId): #accepts either integer ID or string ID
     if sensorTypeId == None: self.err("printSensorArgs: sensorTypeId is None"); return
 
     if isinstance(sensorTypeId, int) and sensorTypeId in self.sensorTypeId2Name: hwEl = self.sensorTypeId2Name[sensorTypeId]
