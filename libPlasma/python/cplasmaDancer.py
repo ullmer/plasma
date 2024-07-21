@@ -28,7 +28,6 @@ class CPlasmaDancer(CPlasmaWatcher):
   def msgUpdate(self, msg): print("CPlasmaDancer message update:", msg) 
 
   ############# constructor #############
-
   def __init__(self, **kwargs):
     self.msgCallbackDict  = {}
 
@@ -37,6 +36,29 @@ class CPlasmaDancer(CPlasmaWatcher):
 
     if self.poolSpecifier is None: self.err("constructor: poolSpecifier not provided"); return -1
     self.initPlasma(self.poolSpecifier)
+  
+  ############# deposit d:str i:str #############
+  def pDepositStr_Str(self, str1, str2): cplasma.pDeposit_StrStr(str1, str2) #nothing interesting yet, but will evolve
+
+  ############# deposit d:unt i:unt array #############
+  def pDepositUnt16_Unt16A(self, descrInt, ingestsArray):
+
+    #for starters, replicate array as integers, catching exceptions, in case floats, etc. slipped in
+    iiArray = []
+    try:
+      for el in ingestsArray: iiArray.append((int) el)
+    except:
+      self.err("pDepositUnt16_Unt16: a payload element couldn't be converted to integer:" + str(ingestsArray)
+      return None
+
+    descrIntSafe = (int) descrInt
+    ilen = len(iiArray)
+
+    # alas, "case" not present until fairly recent Python versions
+    if ilen==1: cplasma.pDeposit_Unt16_Unt16A1(descrIntSafe, iiArray[0])
+    if ilen==2: cplasma.pDeposit_Unt16_Unt16A2(descrIntSafe, iiArray[0], iiArray[1])
+    if ilen==3: cplasma.pDeposit_Unt16_Unt16A3(descrIntSafe, iiArray[0], iiArray[1], iiArray[2])
+    if ilen==4: cplasma.pDeposit_Unt16_Unt16A3(descrIntSafe, iiArray[0], iiArray[1], iiArray[2], iiArray[3])
 
 ### end ###
 
