@@ -16,7 +16,7 @@ import cplasma
 #############################################################
 ###################### plasma protein schemas ###############
 
-class plasmaProteinSchemas:
+class proteinSchemas:
   schemaIndexPath = None
   indexFn         = 'index.yaml'
   indexYamlD      = None 
@@ -224,8 +224,8 @@ class plasmaProteinSchemas:
 ###################### main ######################
 
 if __name__ == '__main__':
-  pps = plasmaProteinSchemas(schemaIndexPath='/home/bullmer/git/plasma/libPlasma/yaml')
-  print(pps.hardwareYamlD)
+  ps = proteinSchemas(schemaIndexPath='/home/bullmer/git/plasma/libPlasma/yaml')
+  print(ps.hardwareYamlD)
 
 ### end ###
 
