@@ -60,11 +60,7 @@ void build_slaw_unt16(unt16 slawKey, unt16 *ingestIntArr, int arraySize, slaw *i
 {
   slaw key, value; 
 
-  char *keystr = (char *) malloc (colon - arg + 1);
-  strncpy (keystr, arg, colon - arg);
-  keystr[colon - arg] = '\0';
-  key = slaw_string (keystr);
-  free (keystr);
+  key = slaw_int16(slawKey);
 
   value = slaw_int16_array_empty(arraySize);
 
