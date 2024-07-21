@@ -11,6 +11,7 @@
 #include "libLoam/c/ob-vers.h"
 #include "libPlasma/c/protein.h"
 #include "libPlasma/c/slaw.h"
+#include <stdint.h>
 
 extern char *poolnameDefault;
 extern pool_cmd_info cmd;
@@ -23,8 +24,8 @@ void   plasmaInit(char *poolnameStr);
 void   plasmaClose(); 
 
 int    plasmaDeposit_StrStr        (char *descripStr, char *ingestStr);
-int    plasmaDeposit_Int16_Int16Arr(int16 descripInt, int16 *ingestIntArr, int arraySize);
-int    plasmaDeposit_Unt16_Unt16Arr(unt16 descripInt, unt16 *ingestIntArr, int arraySize);
+int    plasmaDeposit_Int16_Int16Arr(int16_t  descripInt,  int16_t *ingestIntArr, int arraySize);
+int    plasmaDeposit_Unt16_Unt16Arr(uint16_t descripInt, uint16_t *ingestIntArr, int arraySize);
 int    plasmaAwait();
 char **plasmaAwaitNextChars();
 char **plasmaAwaitNextTrio();

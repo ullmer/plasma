@@ -3,12 +3,15 @@
 # Begun 2024-07-14
 
 import cython 
+import numpy as np
 from libc.string cimport strcpy, strlen
+#cimport numpy as np
 
 cdef extern from "cplasmaWrap.h":
   void   plasmaInit(char *poolnameStr)
   void   plasmaClose() 
   int    plasmaDeposit_StrStr(char *descripStr, char *ingestStr)
+  int    plasmaDeposit_Unt16_Unt16Arr(unt descripInt, unt *ingestIntArr, int arraySize)
   int    plasmaAwait()
   char **plasmaAwaitNextTrio()
   char **plasmaPoolNext(char *formatStr)
@@ -37,6 +40,18 @@ def pDeposit_StrStr(str descripStr, str ingestStr):
   cdef char* ingestCharstr  = ingestStrBytes  #apparently auto-conversion
 
   plasmaDeposit_StrStr(descripCharstr, ingestCharstr)
+  
+############### plasma deposit wrapper ###############
+
+#https://docs.cython.org/en/latest/src/userguide/memoryviews.html
+def pDeposit_UntUntA(int descripInt, arr): #`arr` is a one-dimensional numpy array
+
+  if not arr.flags['C_CONTIGUOUS']: #per memoryviews docs.cython example
+    arr = np.ascontiguousarray(arr)
+
+  cdef int[::1] arr_memview = arr
+
+  int    plasmaDeposit_Unt16_Unt16Arr(unt16 descripInt, unt16 *ingestIntArr, int arraySize)
 
 ############### plasma await wrapper ###############
 

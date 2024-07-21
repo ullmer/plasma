@@ -13,6 +13,7 @@
 #include "libPlasma/c/slaw.h"
 
 #include "cplasmaWrap.h"
+#include <stdint.h>
 
 char *poolnameDefault="tcp://localhost/hello";
 pool_cmd_info cmd;
@@ -56,20 +57,20 @@ void extract_slaw (char *arg, slaw *pair)
 ////////////////// extract slaw ////////////////// 
 
 //void extract_slaw (char *arg, slaw *pair)
-void build_slaw_unt16(unt16 slawKey, unt16 *ingestIntArray, int arraySize, slaw *pair)
+void build_slaw_unt16(uint16_t slawKey, uint16_t *ingestIntArray, int arraySize, slaw *pair)
 {
   if (arraySize <= 0) {
     fprintf(stderr, "build_slaw_unt16: problem array size %i passed!\n", arraySize);
     return;
   }
 
-  slaw key   = slaw_unt16(slawKey);
+  slaw key   = slaw_unt16((unt16) slawKey);
   slaw value = slaw_unt16_array_empty(arraySize);
   unt16 *arrayValue; 
 
   for (int i=0; i<arraySize; i++) {
     arrayValue  = slaw_unt16_array_emit_nth(value, i); 
-    *arrayValue = ingestIntArray[i];
+    *arrayValue = slaw_unt16((unt16) ingestIntArray[i];
     //value[i] = ingestIntArray[i];
   }
 
@@ -161,7 +162,7 @@ int plasmaDeposit_StrStr(char *descripStr, char *ingestStr) {
 
 ////////////////// plasma deposit (unt16, unt16 array ) ////////////////////////
 
-int    plasmaDeposit_Unt16_Unt16Arr(unt16 descripInt, unt16 *ingestIntArr, int arraySize) {
+int    plasmaDeposit_Unt16_Unt16Arr(uint16_t descripInt, uint16_t *ingestIntArr, int arraySize) {
   ob_retort pret;
   slaw     ingest;
   protein  prot;
