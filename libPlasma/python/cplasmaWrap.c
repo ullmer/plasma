@@ -58,15 +58,13 @@ void extract_slaw (char *arg, slaw *pair)
 //void extract_slaw (char *arg, slaw *pair)
 void build_slaw_unt16(unt16 slawKey, unt16 *ingestIntArr, int arraySize, slaw *pair)
 {
-  slaw key, value; 
-
   if (arraySize <= 0) {
     fprintf(stderr, "build_slaw_unt16: problem array size %i passed!\n", arraySize);
     return;
   }
 
-  key   = slaw_unt16(slawKey);
-  value = slaw_unt16_array_empty(arraySize);
+  slaw key   = slaw_unt16(slawKey);
+  slaw value = slaw_unt16_array_empty(arraySize);
 
   for (int i=0; i<arraySize; i++) {
     value[i] = ingestIntArray[i];
@@ -165,13 +163,13 @@ int    plasmaDeposit_Unt16_Unt16Arr(unt16 descripInt, unt16 *ingestIntArr, int a
   slaw     ingest;
   protein  prot;
 
-  printf("plasma deposit begins\n");
+  printf("plasma unt16* deposit begins\n");
 
   slabu   *descrips = slabu_new ();
   slabu   *ingests  = slabu_new ();
 
   //extract_slaw (ingestStr, &ingest);
-  build_slaw_unt64(ingestIntArr, arraySize, &ingest)
+  build_slaw_unt64(descripInt, ingestIntArr, arraySize, &ingest)
 
   OB_DIE_ON_ERROR (slabu_list_add_c (descrips, descripStr));
   OB_DIE_ON_ERROR (slabu_list_add_x (ingests, ingest));
