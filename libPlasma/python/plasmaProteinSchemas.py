@@ -24,6 +24,7 @@ class plasmaProteinSchemas:
   hardwareYamlD   = None
   sensorYamlD     = None
   synthHwSensorDepositorCache = None
+  pDancer         = None
 
   ############# error reporting #############
 
@@ -134,6 +135,10 @@ class plasmaProteinSchemas:
 
     return fmt
 
+  ############# sensor depostor #############
+
+  def sensorDepositor(self, sensorTypeId, numFields, fieldArgs):
+
   ############# synth hw sensor depositor #############
 
   def synthHwSensorDepositor(self, hwEl):
@@ -143,6 +148,24 @@ class plasmaProteinSchemas:
     if hwDescr is None:  self.err("synthHwSensorDepositor: no information received for sensor type " + hwEl); return
     hwTransportDescr =   self.getHwSensorTransportDescr(hwEl)
 
+    numFields    = len(hwDescr.fields)
+    if len(hwTransportDescr) == 1: lenTransport = 1 #heuristic, may not be correct
+    else:                          lenTransport = hwTransportDescr[1] #also a heuristic, toward bootstrapping :-)
+
+    if numFields != lenTransport:
+      self.err("synthHwSensorDepositor: number of sensor fields different from inferred transport length. punting"); return
+
+    if 'bv' not in hwDescr: self.err("synthHwSensorDepositor: sensor ID class not found in hw descr"); return
+    sensorTypeId = hwDescr['bv'] #binary value; probably should be renamed
+
+    depositorFunc = partial(self.sensorDepositor, sensorTypeId, numFields)
+    self.synthHwSensorDepositorCache[hwEl] = depositorFunc
+    return depositorFunc
+
+  pDancer         = None
+  pDepositUnt16_Unt16A(self, descrInt, ingestsArray):
+
+              callback, controlName)
 
 C2d_generic : ['unt16', '3']
 NFC_125k01 : ['unt16', '3']
