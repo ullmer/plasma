@@ -56,7 +56,7 @@ void extract_slaw (char *arg, slaw *pair)
 ////////////////// extract slaw ////////////////// 
 
 //void extract_slaw (char *arg, slaw *pair)
-void build_slaw_unt64(unt64 ingestIntArr, int arraySize, slaw *ingest)
+void build_slaw_unt16(unt16 slawKey, unt16 *ingestIntArr, int arraySize, slaw *ingest)
 {
   slaw key, value; 
 
@@ -66,20 +66,7 @@ void build_slaw_unt64(unt64 ingestIntArr, int arraySize, slaw *ingest)
   key = slaw_string (keystr);
   free (keystr);
 
-  do { 
-    char *endptr;
-    int64 int_val = strtol (colon + 1, &endptr, 10);
-    if (*endptr == '\0')
-      { value = slaw_int64 (int_val);
-        break;
-      }
-    float64 float_val = strtod (colon + 1, &endptr);
-    if (*endptr == '\0') { 
-      value = slaw_float64 (float_val);
-      break;
-    }
-    value = slaw_string (colon + 1);
-  } while (0);
+  value = slaw_int16_array_empty(arraySize);
 
   *pair = slaw_cons_ff (key, value);
 }
