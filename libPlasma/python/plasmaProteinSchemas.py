@@ -163,18 +163,9 @@ class plasmaProteinSchemas:
     hwDescr = self.getHwSensorDescr(hwEl)
     try:
       fields  = hwDescr['fields']
-      resultStr = "Sensor %s : fields %s\n" % (hwEl, str(fields))
+      resultStr = "Sensor %s : fields %s (%s)\n" % (hwEl, str(fields), str(hwDescr))
       print(resultStr)
-    else:
-
-
-    .sensorTypeName2Id: stId = self.sensorTypeName2Id[sensorTypeId]
-    else: self.err("printSensorArgs: sensor type not found: ", str(sensorTypeId)); return
-
-    hwDescr            = self.getHwSensorDescr(hwEl)
-
-    or sensorTypeId not in self.sensorTypeId2Name:
-    #self.sensorTypesEngaged.append(hwEl)
+    except: self.err("printSensorArgs: unknown error"); traceback.print_exc(); return
 
   ############# sensor depostor #############
   def self.printSensorArgs(self, sensorTypeId):
