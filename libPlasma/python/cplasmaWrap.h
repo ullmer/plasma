@@ -19,6 +19,8 @@ extern pool_cmd_info cmd;
 char  *slaw_str_overview (bslaw s, const char *prolo);
 
 void   extract_slaw (char *arg, slaw *ingest); //helper function for plasmaDeposit, copied from p-deposit.c
+slabu *slabu_from_slaw (bslaw list);
+
 void   plasmaInit(char *poolnameStr);
 void   plasmaClose(); 
 

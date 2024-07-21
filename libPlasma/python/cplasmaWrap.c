@@ -58,15 +58,13 @@ void extract_slaw (char *arg, slaw *pair)
 
 //void extract_slaw (char *arg, slaw *pair)
 //void build_slaw_unt16(uint16_t slawKey, uint16_t *ingestIntArray, int arraySize, slaw *pair)
-void build_slaw_unt16(int slawKey, int *ingestIntArray, int arraySize, slaw *pair)
-{
+slaw *build_slaw_unt16_array(int *ingestIntArray, int arraySize) {
   if (arraySize <= 0) {
     fprintf(stderr, "build_slaw_unt16: problem array size %i passed!\n", arraySize);
-    return;
+    return NULL;
   }
 
-  slaw key   = slaw_unt16((unt16) slawKey);
-  slaw value = slaw_unt16_array_empty(arraySize);
+  slaw  *result = slaw_unt16_array_empty(arraySize);
   unt16 *arrayValue; 
 
   for (int i=0; i<arraySize; i++) {
@@ -75,8 +73,7 @@ void build_slaw_unt16(int slawKey, int *ingestIntArray, int arraySize, slaw *pai
     //value[i] = ingestIntArray[i];
   }
 
-  *pair = slaw_cons_ff (key, value);
-  return;
+  return result;
 }
 
 ////////////////// extract protein string payload ////////////////// 
@@ -170,16 +167,11 @@ int    plasmaDeposit_Unt16_Unt16Arr(int descripInt, int *ingestIntArr, int array
 
   printf("plasma unt16* deposit begins\n");
 
-  slabu   *descrips = slabu_new ();
-  slabu   *ingests  = slabu_new ();
+  //slabu   *descrips = slabu_new ();
+  slabu *descrips = slabu_from_slaw(descripInt);
+  slabu *ingests  = build_slaw_unt16_array(ingestIntArray, arraySize);
 
-  //extract_slaw (ingestStr, &ingest);
-  build_slaw_unt16(descripInt, ingestIntArr, arraySize, &ingest);
-
-  //OB_DIE_ON_ERROR (slabu_list_add_c (descrips, descripStr));
-  OB_DIE_ON_ERROR (slabu_list_add_x (ingests, ingest));
-
-  prot = protein_from_ff (slaw_list_f (descrips), slaw_map_f (ingests));
+  prot = protein_from_ff (slaw_list_f (descrips), slaw_map_f (ingests)); //// FIX THIS ////
   if (cmd.verbose) { 
      fprintf (stderr, "depositing in %s\n", cmd.pool_name);
      slaw_spew_overview (prot, stderr, NULL);
