@@ -71,20 +71,20 @@ def pDeposit_Unt16Unt16_2(int descripInt, int ingestInt1, int ingestInt2):
   ingestInts[0] = ingestInt1
   ingestInts[1] = ingestInt2
 
-  plasmaDeposit_Unt16_Unt16Arr(descripInt, &ingestInts, 2)
+  plasmaDeposit_Unt16_Unt16Arr(descripInt, ingestInts, 2)
 #  cdef .uint16_t descripInt2 = descripInt1
 #  cdef uint16_t ingestInts[2];
 
-def pDeposit_Unt16Unt16_3(int descripInt1, int ingestInt1, int ingestInt2, int ingestInt3):
+def pDeposit_Unt16Unt16_3(int descripInt, int ingestInt1, int ingestInt2, int ingestInt3):
   cdef int ingestInts[3];
 
   ingestInts[0] = ingestInt1
   ingestInts[1] = ingestInt2
   ingestInts[2] = ingestInt3
 
-  plasmaDeposit_Unt16_Unt16Arr(descripInt, &ingestInts, 3)
+  plasmaDeposit_Unt16_Unt16Arr(descripInt, ingestInts, 3)
 
-def pDeposit_Unt16Unt16_4(int descripInt1, int ingestInt1, int ingestInt2, int ingestInt3, int ingestInt4):
+def pDeposit_Unt16Unt16_4(int descripInt, int ingestInt1, int ingestInt2, int ingestInt3, int ingestInt4):
   cdef int ingestInts[4];
 
   ingestInts[0] = ingestInt1
@@ -92,7 +92,7 @@ def pDeposit_Unt16Unt16_4(int descripInt1, int ingestInt1, int ingestInt2, int i
   ingestInts[2] = ingestInt3
   ingestInts[3] = ingestInt4
 
-  plasmaDeposit_Unt16_Unt16Arr(descripInt, &ingestInts, 4)
+  plasmaDeposit_Unt16_Unt16Arr(descripInt, ingestInts, 4)
 
 ############### plasma await wrapper ###############
 
