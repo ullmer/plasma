@@ -3,7 +3,7 @@
 # Begun 2024-07-14
 
 import  cython 
-from libc.stdin  cimport uint16_t
+from libc.stdint cimport uint16_t
 from libc.string cimport strcpy, strlen
 #cimport numpy as np
 #import numpy as np
@@ -60,8 +60,8 @@ def pDeposit_StrStr(str descripStr, str ingestStr):
 #cdef int[::1] arr_memview = arr
 
 def pDeposit_Unt16Unt16_1(int descripInt1, int ingestInt):
-  cdef uint16_t descripInt2 = (uint16_t) descripInt1
-  cdef uint16_t ingestInt   = (uint16_t) ingestInt;
+  cdef uint16_t descripInt2 = descripInt1
+  cdef uint16_t ingestInt   = ingestInt;
   plasmaDeposit_Unt16_Unt16Arr(descripInt2, &ingestInt, 1)
 
 def pDeposit_Unt16Unt16_2(int descripInt1, int ingestInt1, int ingestInt2):
