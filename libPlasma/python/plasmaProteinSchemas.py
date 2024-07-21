@@ -45,6 +45,7 @@ class plasmaProteinSchemas:
 
     self.synthHwSensorDepositorCache = {}
     self.sensorTypeId2Name           = {}
+    self.sensorTypeName2Id           = {}
     self.sensorTypesEngaged          = []
  
     self.loadIndices()
@@ -137,7 +138,7 @@ class plasmaProteinSchemas:
 
     if '*' in fmt: #array
      protType, arrCnt = fmt.split('*')
-     return [protType, arrCnt]
+     return [protType, int(arrCnt)]
 
     return fmt
 
@@ -198,7 +199,8 @@ class plasmaProteinSchemas:
     else:                          lenTransport = hwTransportDescr[1] #also a heuristic, toward bootstrapping :-)
 
     if numFields != lenTransport:
-      self.err("synthHwSensorDepositor: number of sensor fields different from inferred transport length. punting;" + str(hwDescr)); return
+      self.err("synthHwSensorDepositor: number of sensor fields different from inferred transport length. punting;")
+      self.err("%i : %i; %s" % (numFields, lenTransport, str(hwDescr))); return
 
     if 'bv' not in hwDescr: self.err("synthHwSensorDepositor: sensor ID class not found in hw descr"); return
     sensorTypeId = hwDescr['bv'] #binary value; probably should be renamed
