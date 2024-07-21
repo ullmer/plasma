@@ -12,7 +12,7 @@ cdef extern from "cplasmaWrap.h":
   void   plasmaInit(char *poolnameStr)
   void   plasmaClose() 
   int    plasmaDeposit_StrStr(char *descripStr, char *ingestStr)
-  int    plasmaDeposit_Unt16_Unt16Arr(unt descripInt, unt *ingestIntArr, int arraySize)
+  int    plasmaDeposit_Unt16_Unt16Arr(stdint.unt16_t descripInt, stdint.unt16_t *ingestIntArr, int arraySize)
   int    plasmaAwait()
   char **plasmaAwaitNextTrio()
   char **plasmaPoolNext(char *formatStr)
@@ -55,22 +55,22 @@ def pDeposit_StrStr(str descripStr, str ingestStr):
 #cdef int[::1] arr_memview = arr
 
 def pDeposit_Unt16Unt16_1(int descripInt1, int ingestInt):
-  uint16_t descripInt2 = (uint16_t) descripInt1
-  uint16_t ingestInt   = (uint16_t) ingestInt;
+  stdint.uint16_t descripInt2 = (stdint.uint16_t) descripInt1
+  stdint.uint16_t ingestInt   = (stdint.uint16_t) ingestInt;
   plasmaDeposit_Unt16_Unt16Arr(descripInt2, &ingestInt, 1)
 
 def pDeposit_Unt16Unt16_2(int descripInt1, int ingestInt1, int ingestInt2):
-  uint16_t descripInt2 = descripInt1
-  uint16_t ingestInts[2];
+  stdint.uint16_t descripInt2 = descripInt1
+  stdint.uint16_t ingestInts[2];
 
-  ingestInts[0] = (uint16_t) ingestInt1
-  ingestInts[1] = (uint16_t) ingestInt2
+  ingestInts[0] = (stdint.uint16_t) ingestInt1
+  ingestInts[1] = (stdint.uint16_t) ingestInt2
 
   plasmaDeposit_Unt16_Unt16Arr(descripInt2, &ingestInts, 2)
 
 def pDeposit_Unt16Unt16_3(int descripInt1, int ingestInt1, int ingestInt2, int ingestInt3):
-  uint16_t descripInt2 = descripInt1
-  uint16_t ingestInts[3];
+  stdint.uint16_t descripInt2 = descripInt1
+  stdint.uint16_t ingestInts[3];
 
   ingestInts[0] = (uint16_t) ingestInt1
   ingestInts[1] = (uint16_t) ingestInt2
