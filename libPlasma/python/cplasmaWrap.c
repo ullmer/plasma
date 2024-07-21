@@ -56,15 +56,24 @@ void extract_slaw (char *arg, slaw *pair)
 ////////////////// extract slaw ////////////////// 
 
 //void extract_slaw (char *arg, slaw *pair)
-void build_slaw_unt16(unt16 slawKey, unt16 *ingestIntArr, int arraySize, slaw *ingest)
+void build_slaw_unt16(unt16 slawKey, unt16 *ingestIntArr, int arraySize, slaw *pair)
 {
   slaw key, value; 
 
-  key = slaw_int16(slawKey);
+  if (arraySize <= 0) {
+    fprintf(stderr, "build_slaw_unt16: problem array size %i passed!\n", arraySize);
+    return;
+  }
 
-  value = slaw_int16_array_empty(arraySize);
+  key   = slaw_unt16(slawKey);
+  value = slaw_unt16_array_empty(arraySize);
+
+  for (int i=0; i<arraySize; i++) {
+    value[i] = ingestIntArray[i];
+  }
 
   *pair = slaw_cons_ff (key, value);
+  return;
 }
 
 ////////////////// extract protein string payload ////////////////// 
