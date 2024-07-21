@@ -168,10 +168,10 @@ int    plasmaDeposit_Unt16_Unt16Arr(int descripInt, int *ingestIntArr, int array
   printf("plasma unt16* deposit begins\n");
 
   //slabu   *descrips = slabu_new ();
-  slabu *descrips = slabu_from_slaw(descripInt);
-  slabu *ingests  = build_slaw_unt16_array(ingestIntArray, arraySize);
+  slaw *descrips = slaw_unt16(descripInt);
+  slaw *ingests  = build_slaw_unt16_array(ingestIntArray, arraySize);
 
-  prot = protein_from_ff (slaw_list_f (descrips), slaw_map_f (ingests)); //// FIX THIS ////
+  prot = protein_from_ff (descrips, ingests); 
   if (cmd.verbose) { 
      fprintf (stderr, "depositing in %s\n", cmd.pool_name);
      slaw_spew_overview (prot, stderr, NULL);
