@@ -69,7 +69,8 @@ slaw *build_slaw_unt16_array(int *ingestIntArray, int arraySize) {
 
   for (int i=0; i<arraySize; i++) {
     arrayValue  = slaw_unt16_array_emit_nth(arrayValue, i); 
-    *arrayValue = slaw_unt16((unt16) ingestIntArray[i]);
+    *arrayValue = (unt16) ingestIntArray[i];
+    //*arrayValue = slaw_unt16((unt16) ingestIntArray[i]);
     //value[i] = ingestIntArray[i];
   }
 
