@@ -24,7 +24,8 @@ class plasmaProteinSchemas:
   hardwareYamlD   = None
   sensorYamlD     = None
   synthHwSensorDepositorCache = None
-  pDancer         = None
+  sensorTypeId2Name = None
+  pDancer           = None
 
   ############# error reporting #############
 
@@ -39,7 +40,9 @@ class plasmaProteinSchemas:
 
     #https://stackoverflow.com/questions/739625/setattr-with-kwargs-pythonic-or-not
     self.__dict__.update(kwargs) #allow class fields to be passed in constructor
+
     self.synthHwSensorDepositorCache = {}
+    self.sensorTypeId2Name           = {}
  
     self.loadIndices()
     #self.loadMetaindices()
@@ -136,8 +139,19 @@ class plasmaProteinSchemas:
     return fmt
 
   ############# sensor depostor #############
+      self.printSensorArgs(sensorTypeId); return
+  ############# sensor depostor #############
 
   def sensorDepositor(self, sensorTypeId, numFields, fieldArgs):
+    if len(fieldArgs) != numFields:
+      self.err("sensorDepositor: number of arguments in list does not match expectations")
+      self.printSensorArgs(sensorTypeId); return
+
+    # alas, "case" not present until fairly recent Python versions
+    if numFields==1: cplasma.pDeposit_Unt16_Unt16A1(descrIntSafe, fieldArgs[0])
+    if numFields==2: cplasma.pDeposit_Unt16_Unt16A2(descrIntSafe, fieldArgs[0], fieldArgs[1])
+    if numFields==3: cplasma.pDeposit_Unt16_Unt16A3(descrIntSafe, fieldArgs[0], fieldArgs[1], fieldArgs[2])
+    if numFields==4: cplasma.pDeposit_Unt16_Unt16A3(descrIntSafe, fieldArgs[0], fieldArgs[1], fieldArgs[2], fieldArgs[3])
 
   ############# synth hw sensor depositor #############
 
@@ -157,6 +171,7 @@ class plasmaProteinSchemas:
 
     if 'bv' not in hwDescr: self.err("synthHwSensorDepositor: sensor ID class not found in hw descr"); return
     sensorTypeId = hwDescr['bv'] #binary value; probably should be renamed
+    self.sensorTypeId2Name[sensorTypeId] = hwEl
 
     depositorFunc = partial(self.sensorDepositor, sensorTypeId, numFields)
     self.synthHwSensorDepositorCache[hwEl] = depositorFunc
@@ -165,17 +180,14 @@ class plasmaProteinSchemas:
   pDancer         = None
   pDepositUnt16_Unt16A(self, descrInt, ingestsArray):
 
-              callback, controlName)
-
-C2d_generic : ['unt16', '3']
-NFC_125k01 : ['unt16', '3']
-NFC_13m01 : ['unt16', '4']
-IMU_ST01 : ['unt16', '2']
-C2d_generic : {'bv': 38401, 'nm': 'multitouch', 'fmt': 'unt16*3', 'layout': 'AB CC DD', 'fields': ['device', 'touch', 'x', 'y']}
-NFC_125k01 : {'bv': 39425, 'nm': 'HiTag2', 'fmt': 'unt16*3', 'layout': 'AA AA AA', 'fields': ['serial']}
-NFC_13m01 : {'bv': 39441, 'nm': 'NTAG213', 'fmt': 'unt16*4', 'layout': 'AA AA AA A0', 'fields': ['serial']}
-IMU_ST01 : {'bv': 40705, 'nm': 'ST LSM6DS3TR_C IMU Ac Gy', 'fmt': 'unt16*2', 'layout': 'AA BB', 'fields': ['Ac', 'Gy']}
-b
+#C2d_generic : ['unt16', '3']
+#NFC_125k01 : ['unt16', '3']
+#NFC_13m01 : ['unt16', '4']
+#IMU_ST01 : ['unt16', '2']
+#C2d_generic : {'bv': 38401, 'nm': 'multitouch', 'fmt': 'unt16*3', 'layout': 'AB CC DD', 'fields': ['device', 'touch', 'x', 'y']}
+#NFC_125k01 : {'bv': 39425, 'nm': 'HiTag2', 'fmt': 'unt16*3', 'layout': 'AA AA AA', 'fields': ['serial']}
+#NFC_13m01 : {'bv': 39441, 'nm': 'NTAG213', 'fmt': 'unt16*4', 'layout': 'AA AA AA A0', 'fields': ['serial']}
+#IMU_ST01 : {'bv': 40705, 'nm': 'ST LSM6DS3TR_C IMU Ac Gy', 'fmt': 'unt16*2', 'layout': 'AA BB', 'fields': ['Ac', 'Gy']}
 
 ###################### main ######################
 
