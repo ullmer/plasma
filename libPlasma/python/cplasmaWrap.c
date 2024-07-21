@@ -53,6 +53,37 @@ void extract_slaw (char *arg, slaw *pair)
   *pair = slaw_cons_ff (key, value);
 }
 
+////////////////// extract slaw ////////////////// 
+
+//void extract_slaw (char *arg, slaw *pair)
+void build_slaw_unt64(unt64 ingestIntArr, int arraySize, slaw *ingest)
+{
+  slaw key, value; 
+
+  char *keystr = (char *) malloc (colon - arg + 1);
+  strncpy (keystr, arg, colon - arg);
+  keystr[colon - arg] = '\0';
+  key = slaw_string (keystr);
+  free (keystr);
+
+  do { 
+    char *endptr;
+    int64 int_val = strtol (colon + 1, &endptr, 10);
+    if (*endptr == '\0')
+      { value = slaw_int64 (int_val);
+        break;
+      }
+    float64 float_val = strtod (colon + 1, &endptr);
+    if (*endptr == '\0') { 
+      value = slaw_float64 (float_val);
+      break;
+    }
+    value = slaw_string (colon + 1);
+  } while (0);
+
+  *pair = slaw_cons_ff (key, value);
+}
+
 ////////////////// extract protein string payload ////////////////// 
 
 char **extractProteinStrPayload(protein p) {
@@ -135,6 +166,8 @@ int plasmaDeposit_StrStr(char *descripStr, char *ingestStr) {
 
 int    plasmaDeposit_Int16_Int16Arr(int16 descripInt, int16 *ingestIntArr, int arraySize);
 
+////////////////// plasma deposit (unt16, unt16 array ) ////////////////////////
+
 int    plasmaDeposit_Unt16_Unt16Arr(unt16 descripInt, unt16 *ingestIntArr, int arraySize) 
   ob_retort pret;
   slaw     ingest;
@@ -145,7 +178,9 @@ int    plasmaDeposit_Unt16_Unt16Arr(unt16 descripInt, unt16 *ingestIntArr, int a
   slabu   *descrips = slabu_new ();
   slabu   *ingests  = slabu_new ();
 
-  extract_slaw (ingestStr, &ingest);
+  //extract_slaw (ingestStr, &ingest);
+  build_slaw_unt64(ingestIntArr, arraySize, &ingest)
+
   OB_DIE_ON_ERROR (slabu_list_add_c (descrips, descripStr));
   OB_DIE_ON_ERROR (slabu_list_add_x (ingests, ingest));
 
