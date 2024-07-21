@@ -183,7 +183,7 @@ int    plasmaDeposit_Unt16_Unt16Arr(int descripInt, int *ingestIntArray, int arr
     exit (pool_cmd_retort_to_exit_code (pret));
   }
 
-  OB_DIE_ON_ERROR (pool_withdraw (cmd.ph));
+  //OB_DIE_ON_ERROR (pool_withdraw (cmd.ph));
   return EXIT_SUCCESS;
 }
 
