@@ -24,8 +24,8 @@ class CPlasmaWatcher:
   ############# error reporting #############
 
   #to allow for later non-stdout error redirection
-  def err(self, msg):       print("CPlasma error:", msg)          
-  def msgUpdate(self, msg): print("CPlasma message update:", msg) 
+  def err(self, msg):       print("CPlasmaWatcher error:", msg)          
+  def msgUpdate(self, msg): print("CPlasmaWatcher message update:", msg) 
 
   ############# constructor #############
 
