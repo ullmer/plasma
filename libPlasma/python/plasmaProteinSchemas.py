@@ -24,8 +24,9 @@ class plasmaProteinSchemas:
   hardwareYamlD   = None
   sensorYamlD     = None
   synthHwSensorDepositorCache = None
-  sensorTypeId2Name = None
-  pDancer           = None
+  sensorTypeId2Name  = None
+  sensorTypesEngaged = None
+  pDancer            = None
 
   ############# error reporting #############
 
@@ -43,6 +44,7 @@ class plasmaProteinSchemas:
 
     self.synthHwSensorDepositorCache = {}
     self.sensorTypeId2Name           = {}
+    self.sensorTypesEngaged          = []
  
     self.loadIndices()
     #self.loadMetaindices()
@@ -138,8 +140,29 @@ class plasmaProteinSchemas:
 
     return fmt
 
+  ############# print active sensor fields #############
+  def self.printActiveSensorFields(self):
+    if len(self.sensorTypesEngaged) == 0: self.err("printActiveSensorFields: no sensor types engaged"); return
+
+    print("active sensor fields:")
+
+    for sensorTypeId in self.sensorTypesEngaged:
+      self.printSensorArgs(sensorTypeId)
+
   ############# sensor depostor #############
-      self.printSensorArgs(sensorTypeId); return
+
+  printSensorArgs(self, sensorTypeId):
+    if sensorTypeId == None or sensorTypeId not in self.sensorTypeId2Name:
+    #self.sensorTypesEngaged.append(hwEl)
+
+  ############# sensor depostor #############
+  def self.printSensorArgs(self, sensorTypeId):
+    if sensorTypeId == None or sensorTypeId not in self.sensorTypeId2Name:
+      self.err("printSensorArgs: unknown sensorTypeId: " + str(sensorTypeId)); return
+
+    sensorTypeStr = self.sensorTypeId2Name[sensorTypeId] 
+    hwDescr       = self.getHwSensorDescr(sensorTypeStr)
+
   ############# sensor depostor #############
 
   def sensorDepositor(self, sensorTypeId, numFields, fieldArgs):
@@ -172,13 +195,11 @@ class plasmaProteinSchemas:
     if 'bv' not in hwDescr: self.err("synthHwSensorDepositor: sensor ID class not found in hw descr"); return
     sensorTypeId = hwDescr['bv'] #binary value; probably should be renamed
     self.sensorTypeId2Name[sensorTypeId] = hwEl
+    self.sensorTypesEngaged.append(hwEl)
 
     depositorFunc = partial(self.sensorDepositor, sensorTypeId, numFields)
     self.synthHwSensorDepositorCache[hwEl] = depositorFunc
     return depositorFunc
-
-  pDancer         = None
-  pDepositUnt16_Unt16A(self, descrInt, ingestsArray):
 
 #C2d_generic : ['unt16', '3']
 #NFC_125k01 : ['unt16', '3']
