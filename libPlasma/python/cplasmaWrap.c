@@ -68,8 +68,8 @@ void build_slaw_unt16(unt16 slawKey, unt16 *ingestIntArray, int arraySize, slaw 
   unt16 *arrayValue; 
 
   for (int i=0; i<arraySize; i++) {
-    arrayValue  = slaw_unt16_array_emit_nth(i); 
-    *arrayValue = ingestIntArray;
+    arrayValue  = slaw_unt16_array_emit_nth(value, i); 
+    *arrayValue = ingestIntArray[i];
     //value[i] = ingestIntArray[i];
   }
 
