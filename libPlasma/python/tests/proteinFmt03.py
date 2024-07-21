@@ -5,14 +5,14 @@
 # Begun 2024-07-20
 
 import sys; sys.path.append("/home/bullmer/git/plasma/libPlasma/python/")
-from plasmaProteinSchemas import *
+from proteinSchemas import *
 
-pps = plasmaProteinSchemas(schemaIndexPath='/home/bullmer/git/plasma/libPlasma/yaml')
+ps = proteinSchemas(schemaIndexPath='/home/bullmer/git/plasma/libPlasma/yaml')
 exHwSensorEls = ['C2d_generic', 'NFC_125k01', 'NFC_13m01', 'IMU_ST01']
 
-for hwEl in exHwSensorEls: pps.registerHwSensorDepositor(hwEl)
+for hwEl in exHwSensorEls: ps.registerHwSensorDepositor(hwEl)
 
-pps.printActiveSensorFields()
+ps.printActiveSensorFields()
 
 ### end ###
 
