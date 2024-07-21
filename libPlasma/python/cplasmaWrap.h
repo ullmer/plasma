@@ -25,12 +25,14 @@ void   plasmaClose();
 
 int    plasmaDeposit_StrStr        (char *descripStr, char *ingestStr);
 int    plasmaDeposit_Int16_Int16Arr(int16_t  descripInt,  int16_t *ingestIntArr, int arraySize);
-int    plasmaDeposit_Unt16_Unt16Arr(uint16_t descripInt, uint16_t *ingestIntArr, int arraySize);
+int    plasmaDeposit_Unt16_Unt16Arr(int descripInt, int *ingestIntArr, int arraySize);
 int    plasmaAwait();
 char **plasmaAwaitNextChars();
 char **plasmaAwaitNextTrio();
 char **plasmaPoolNext(char *formatStr);
 char  *plasmaGetProtFormatStr(char *formatName);
 char  *plasmaGetProtFormatNames();
+
+//int    plasmaDeposit_Unt16_Unt16Arr(uint16_t descripInt, uint16_t *ingestIntArr, int arraySize);
 
 /// end ///

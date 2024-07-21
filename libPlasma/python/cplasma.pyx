@@ -3,8 +3,8 @@
 # Begun 2024-07-14
 
 import  cython 
-from libc.stdint cimport uint16_t
 from libc.string cimport strcpy, strlen
+#from libc.stdint cimport uint16_t
 #cimport numpy as np
 #import numpy as np
 
@@ -12,12 +12,13 @@ cdef extern from "cplasmaWrap.h":
   void   plasmaInit(char *poolnameStr)
   void   plasmaClose() 
   int    plasmaDeposit_StrStr(char *descripStr, char *ingestStr)
-  int    plasmaDeposit_Unt16_Unt16Arr(stdint.unt16_t descripInt, stdint.unt16_t *ingestIntArr, int arraySize)
+  int    plasmaDeposit_Unt16_Unt16Arr(int descripInt, int *ingestIntArr, int arraySize)
   int    plasmaAwait()
   char **plasmaAwaitNextTrio()
   char **plasmaPoolNext(char *formatStr)
   char  *plasmaGetProtFormatStr(char *formatName)
   char  *plasmaGetProtFormatNames()
+  #int    plasmaDeposit_Unt16_Unt16Arr(stdint.unt16_t descripInt, stdint.unt16_t *ingestIntArr, int arraySize)
 
 ############### plasma init wrapper ###############
 
@@ -59,10 +60,11 @@ def pDeposit_StrStr(str descripStr, str ingestStr):
 #  arr = np.ascontiguousarray(arr)
 #cdef int[::1] arr_memview = arr
 
-def pDeposit_Unt16Unt16_1(int descripInt1, int ingestInt):
-  cdef uint16_t descripInt2 = descripInt1
-  cdef uint16_t ingestInt   = ingestInt;
-  plasmaDeposit_Unt16_Unt16Arr(descripInt2, &ingestInt, 1)
+def pDeposit_Unt16Unt16_1(int descripInt, int ingestInt):
+  plasmaDeposit_Unt16_Unt16Arr(descripInt, &ingestInt, 1)
+
+  #cdef uint16_t descripInt2 = descripInt1
+  #cdef uint16_t ingestInt   = ingestInt;
 
 def pDeposit_Unt16Unt16_2(int descripInt1, int ingestInt1, int ingestInt2):
   cdef .uint16_t descripInt2 = descripInt1
