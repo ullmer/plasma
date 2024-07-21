@@ -2,10 +2,11 @@
 # Brygg Ullmer, Clemson University
 # Begun 2024-07-14
 
-import cython 
-#import numpy as np
+import  cython 
+from libc        cimport stdint
 from libc.string cimport strcpy, strlen
 #cimport numpy as np
+#import numpy as np
 
 cdef extern from "cplasmaWrap.h":
   void   plasmaInit(char *poolnameStr)
