@@ -71,7 +71,6 @@ slaw *build_slaw_unt16_array(int *intArray, int arraySize) {
   }
 
   slaw  *result = slaw_unt16_array(sourceArray, arraySize);
-
   return result;
 }
 
