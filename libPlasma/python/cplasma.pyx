@@ -3,7 +3,7 @@
 # Begun 2024-07-14
 
 import  cython 
-from libc        cimport stdint
+from libc.stdin  cimport uint16_t
 from libc.string cimport strcpy, strlen
 #cimport numpy as np
 #import numpy as np
@@ -51,7 +51,7 @@ def pDeposit_StrStr(str descripStr, str ingestStr):
 # I view this as inelegant, and a temporary bootstrapping approach.
 # That said, it appears plausible to address a large fraction of the early use examples
 # I'm personally targeting, and I cannot easily further defer these until realizing
-# some early working progress
+# some early working progress --BAU
 
 #https://docs.cython.org/en/latest/src/userguide/memoryviews.html
 #`arr` is a one-dimensional numpy array
@@ -60,37 +60,37 @@ def pDeposit_StrStr(str descripStr, str ingestStr):
 #cdef int[::1] arr_memview = arr
 
 def pDeposit_Unt16Unt16_1(int descripInt1, int ingestInt):
-  stdint.uint16_t descripInt2 = (stdint.uint16_t) descripInt1
-  stdint.uint16_t ingestInt   = (stdint.uint16_t) ingestInt;
+  cdef uint16_t descripInt2 = (uint16_t) descripInt1
+  cdef uint16_t ingestInt   = (uint16_t) ingestInt;
   plasmaDeposit_Unt16_Unt16Arr(descripInt2, &ingestInt, 1)
 
 def pDeposit_Unt16Unt16_2(int descripInt1, int ingestInt1, int ingestInt2):
-  stdint.uint16_t descripInt2 = descripInt1
-  stdint.uint16_t ingestInts[2];
+  cdef .uint16_t descripInt2 = descripInt1
+  cdef uint16_t ingestInts[2];
 
-  ingestInts[0] = (stdint.uint16_t) ingestInt1
-  ingestInts[1] = (stdint.uint16_t) ingestInt2
+  ingestInts[0] = (uint16_t) ingestInt1
+  ingestInts[1] = (uint16_t) ingestInt2
 
   plasmaDeposit_Unt16_Unt16Arr(descripInt2, &ingestInts, 2)
 
 def pDeposit_Unt16Unt16_3(int descripInt1, int ingestInt1, int ingestInt2, int ingestInt3):
-  stdint.uint16_t descripInt2 = descripInt1
-  stdint.uint16_t ingestInts[3];
+  cdef uint16_t descripInt2 = descripInt1
+  cdef uint16_t ingestInts[3];
 
-  ingestInts[0] = (stdint.uint16_t) ingestInt1
-  ingestInts[1] = (stdint.uint16_t) ingestInt2
-  ingestInts[2] = (stdint.uint16_t) ingestInt3
+  ingestInts[0] = (uint16_t) ingestInt1
+  ingestInts[1] = (uint16_t) ingestInt2
+  ingestInts[2] = (uint16_t) ingestInt3
 
   plasmaDeposit_Unt16_Unt16Arr(descripInt2, &ingestInts, 3)
 
 def pDeposit_Unt16Unt16_4(int descripInt1, int ingestInt1, int ingestInt2, int ingestInt3, int ingestInt4):
-  stdint.uint16_t descripInt2 = descripInt1
-  stdint.uint16_t ingestInts[4];
+  cdef uint16_t descripInt2 = descripInt1
+  cdef uint16_t ingestInts[4];
 
-  ingestInts[0] = (stdint.uint16_t) ingestInt1
-  ingestInts[1] = (stdint.uint16_t) ingestInt2
-  ingestInts[2] = (stdint.uint16_t) ingestInt3
-  ingestInts[3] = (stdint.uint16_t) ingestInt4
+  ingestInts[0] = (uint16_t) ingestInt1
+  ingestInts[1] = (uint16_t) ingestInt2
+  ingestInts[2] = (uint16_t) ingestInt3
+  ingestInts[3] = (uint16_t) ingestInt4
 
   plasmaDeposit_Unt16_Unt16Arr(descripInt2, &ingestInts, 3)
 
