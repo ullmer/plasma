@@ -56,7 +56,7 @@ void extract_slaw (char *arg, slaw *pair)
 ////////////////// extract slaw ////////////////// 
 
 //void extract_slaw (char *arg, slaw *pair)
-void build_slaw_unt16(unt16 slawKey, unt16 *ingestIntArr, int arraySize, slaw *pair)
+void build_slaw_unt16(unt16 slawKey, unt16 *ingestIntArray, int arraySize, slaw *pair)
 {
   if (arraySize <= 0) {
     fprintf(stderr, "build_slaw_unt16: problem array size %i passed!\n", arraySize);
