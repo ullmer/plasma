@@ -65,9 +65,12 @@ void build_slaw_unt16(unt16 slawKey, unt16 *ingestIntArray, int arraySize, slaw 
 
   slaw key   = slaw_unt16(slawKey);
   slaw value = slaw_unt16_array_empty(arraySize);
+  unt16 *arrayValue; 
 
   for (int i=0; i<arraySize; i++) {
-    value[i] = ingestIntArray[i];
+    arrayValue  = slaw_unt16_array_emit_nth(i); 
+    *arrayValue = ingestIntArray;
+    //value[i] = ingestIntArray[i];
   }
 
   *pair = slaw_cons_ff (key, value);
