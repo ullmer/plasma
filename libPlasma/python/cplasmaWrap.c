@@ -172,9 +172,9 @@ int    plasmaDeposit_Unt16_Unt16Arr(unt16 descripInt, unt16 *ingestIntArr, int a
   slabu   *ingests  = slabu_new ();
 
   //extract_slaw (ingestStr, &ingest);
-  build_slaw_unt64(descripInt, ingestIntArr, arraySize, &ingest)
+  build_slaw_unt16(descripInt, ingestIntArr, arraySize, &ingest);
 
-  OB_DIE_ON_ERROR (slabu_list_add_c (descrips, descripStr));
+  //OB_DIE_ON_ERROR (slabu_list_add_c (descrips, descripStr));
   OB_DIE_ON_ERROR (slabu_list_add_x (ingests, ingest));
 
   prot = protein_from_ff (slaw_list_f (descrips), slaw_map_f (ingests));
