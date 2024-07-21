@@ -58,21 +58,19 @@ void extract_slaw (char *arg, slaw *pair)
 
 //void extract_slaw (char *arg, slaw *pair)
 //void build_slaw_unt16(uint16_t slawKey, uint16_t *ingestIntArray, int arraySize, slaw *pair)
-slaw *build_slaw_unt16_array(int *ingestIntArray, int arraySize) {
+slaw *build_slaw_unt16_array(int *intArray, int arraySize) {
   if (arraySize <= 0) {
     fprintf(stderr, "build_slaw_unt16: problem array size %i passed!\n", arraySize);
     return NULL;
   }
 
-  slaw  *result = slaw_unt16_array_empty(arraySize);
-  unt16 *arrayValue; 
+  unt16 sourceArray[arraySize];
 
   for (int i=0; i<arraySize; i++) {
-    arrayValue  = slaw_unt16_array_emit_nth(arrayValue, i); 
-    *arrayValue = (unt16) ingestIntArray[i];
-    //*arrayValue = slaw_unt16((unt16) ingestIntArray[i]);
-    //value[i] = ingestIntArray[i];
+    sourceArray[i] = (unt16) intArray[i];
   }
+
+  slaw  *result = slaw_unt16_array(sourceArray, arraySize);
 
   return result;
 }
