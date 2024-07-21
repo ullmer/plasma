@@ -168,14 +168,6 @@ class plasmaProteinSchemas:
     except: self.err("printSensorArgs: unknown error"); traceback.print_exc(); return
 
   ############# sensor depostor #############
-  def self.printSensorArgs(self, sensorTypeId):
-    if sensorTypeId == None or sensorTypeId not in self.sensorTypeId2Name:
-      self.err("printSensorArgs: unknown sensorTypeId: " + str(sensorTypeId)); return
-
-    sensorTypeStr = self.sensorTypeId2Name[sensorTypeId] 
-    hwDescr       = self.getHwSensorDescr(sensorTypeStr)
-
-  ############# sensor depostor #############
 
   def sensorDepositor(self, sensorTypeId, numFields, fieldArgs):
     if len(fieldArgs) != numFields:
@@ -188,9 +180,10 @@ class plasmaProteinSchemas:
     if numFields==3: cplasma.pDeposit_Unt16_Unt16A3(descrIntSafe, fieldArgs[0], fieldArgs[1], fieldArgs[2])
     if numFields==4: cplasma.pDeposit_Unt16_Unt16A3(descrIntSafe, fieldArgs[0], fieldArgs[1], fieldArgs[2], fieldArgs[3])
 
-  ############# synth hw sensor depositor #############
+  ############# register hw sensor depositor #############
 
-  def synthHwSensorDepositor(self, hwEl):
+  #def synthHwSensorDepositor(self, hwEl):
+  def registerHwSensorDepositor(self, hwEl):
     if hwEl in self.synthHwSensorDepositorCache: return self.synthHwSensorDepositorCache[hwEl]
 
     hwDescr            = self.getHwSensorDescr(hwEl)
