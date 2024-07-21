@@ -48,6 +48,11 @@ def pDeposit_StrStr(str descripStr, str ingestStr):
 # tentatively exploring an approach involving a series of different Cython bindings specific
 # to the number of integers being passed
 
+# I view this as inelegant, and a temporary bootstrapping approach.
+# That said, it appears plausible to address a large fraction of the early use examples
+# I'm personally targeting, and I cannot easily further defer these until realizing
+# some early working progress
+
 #https://docs.cython.org/en/latest/src/userguide/memoryviews.html
 #`arr` is a one-dimensional numpy array
 #if not arr.flags['C_CONTIGUOUS']: #per memoryviews docs.cython example
