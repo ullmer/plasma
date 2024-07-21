@@ -60,13 +60,17 @@ def pDeposit_StrStr(str descripStr, str ingestStr):
 #  arr = np.ascontiguousarray(arr)
 #cdef int[::1] arr_memview = arr
 
-def pDeposit_Unt16Unt16_1(int descripInt, int ingestInt):
+############### Plasma Deposit: d: Unt16; i: unt16 array (length 1) ############### 
+
+def pDeposit_Unt16_Unt16A1(int descripInt, int ingestInt):
   plasmaDeposit_Unt16_Unt16Arr(descripInt, &ingestInt, 1)
 
   #cdef uint16_t descripInt2 = descripInt1
   #cdef uint16_t ingestInt   = ingestInt;
 
-def pDeposit_Unt16Unt16_2(int descripInt, int ingestInt1, int ingestInt2):
+############### Plasma Deposit: d: Unt16; i: unt16 array (length 2) ############### 
+
+def pDeposit_Unt16_Unt16A2(int descripInt, int ingestInt1, int ingestInt2):
   cdef int ingestInts[2]
   ingestInts[0] = ingestInt1
   ingestInts[1] = ingestInt2
@@ -75,7 +79,9 @@ def pDeposit_Unt16Unt16_2(int descripInt, int ingestInt1, int ingestInt2):
 #  cdef .uint16_t descripInt2 = descripInt1
 #  cdef uint16_t ingestInts[2];
 
-def pDeposit_Unt16Unt16_3(int descripInt, int ingestInt1, int ingestInt2, int ingestInt3):
+############### Plasma Deposit: d: Unt16; i: unt16 array (length 3) ############### 
+
+def pDeposit_Unt16_Unt16A3(int descripInt, int ingestInt1, int ingestInt2, int ingestInt3):
   cdef int ingestInts[3];
 
   ingestInts[0] = ingestInt1
@@ -84,7 +90,9 @@ def pDeposit_Unt16Unt16_3(int descripInt, int ingestInt1, int ingestInt2, int in
 
   plasmaDeposit_Unt16_Unt16Arr(descripInt, ingestInts, 3)
 
-def pDeposit_Unt16Unt16_4(int descripInt, int ingestInt1, int ingestInt2, int ingestInt3, int ingestInt4):
+############### Plasma Deposit: d: Unt16; i: unt16 array (length 4) ############### 
+
+def pDeposit_Unt16_Unt16A4(int descripInt, int ingestInt1, int ingestInt2, int ingestInt3, int ingestInt4):
   cdef int ingestInts[4];
 
   ingestInts[0] = ingestInt1
