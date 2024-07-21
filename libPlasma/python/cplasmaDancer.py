@@ -15,11 +15,12 @@ from   cplasmaWatcher import *
 # builds on the monitoring functionalities of CPlasmaWatcher to add emissive capabilities
 
 class CPlasmaDancer(CPlasmaWatcher):
-  poolSpecifier = "tcp://localhost/hello" #default, will benefit from evolution
-  msgFormatName = "prot:simpleKeyVal"
-  msgFormatStr  = None
-  msgCallbackDict  = None
-  sleepDuration = .01
+  poolSpecifier   = "tcp://localhost/hello" #default, will benefit from evolution
+  msgFormatName   = "prot:simpleKeyVal"
+  msgFormatStr    = None
+  msgCallbackDict = None
+  sleepDuration   = .01
+  safeInvocation  = True # slows things slightly, but checks + converts type
 
   ############# error reporting #############
 
@@ -43,13 +44,15 @@ class CPlasmaDancer(CPlasmaWatcher):
   ############# deposit d:unt i:unt array #############
   def pDepositUnt16_Unt16A(self, descrInt, ingestsArray):
 
-    #for starters, replicate array as integers, catching exceptions, in case floats, etc. slipped in
-    iiArray = []
-    try:
-      for el in ingestsArray: iiArray.append((int) el)
-    except:
-      self.err("pDepositUnt16_Unt16: a payload element couldn't be converted to integer:" + str(ingestsArray)
-      return None
+    #first, replicate array as integers, catching exceptions, in case floats, etc. slipped in
+    if self.safeInvocation:
+      iiArray = []
+      try:
+        for el in ingestsArray: iiArray.append((int) el)
+      except:
+        self.err("pDepositUnt16_Unt16: a payload element couldn't be converted to integer:" + str(ingestsArray)
+        return None
+    else: iiArray = ingestsArray #no type checking or conversion; faster, but riskier
 
     descrIntSafe = (int) descrInt
     ilen = len(iiArray)
