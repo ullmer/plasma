@@ -3,7 +3,7 @@
 # Begun 2024-07-14
 
 import cython 
-import numpy as np
+#import numpy as np
 from libc.string cimport strcpy, strlen
 #cimport numpy as np
 
@@ -43,15 +43,29 @@ def pDeposit_StrStr(str descripStr, str ingestStr):
   
 ############### plasma deposit wrapper ###############
 
+# to avoid both numpy dependencies and complexities, and cython array + type introspection,
+# tentatively exploring an approach involving a series of different Cython bindings specific
+# to the number of integers being passed
+
 #https://docs.cython.org/en/latest/src/userguide/memoryviews.html
-def pDeposit_UntUntA(int descripInt, arr): #`arr` is a one-dimensional numpy array
+#`arr` is a one-dimensional numpy array
+#if not arr.flags['C_CONTIGUOUS']: #per memoryviews docs.cython example
+#  arr = np.ascontiguousarray(arr)
+#cdef int[::1] arr_memview = arr
 
-  if not arr.flags['C_CONTIGUOUS']: #per memoryviews docs.cython example
-    arr = np.ascontiguousarray(arr)
+def pDeposit_Unt16Unt16_1(int descripInt1, int ingestInt):
+  uint16_t descripInt2 = descripInt1
+  uint16_t ingestInt   = ingestInt;
+  plasmaDeposit_Unt16_Unt16Arr(descripInt2, &ingestInt, 1)
 
-  cdef int[::1] arr_memview = arr
+def pDeposit_Unt16Unt16_2(int descripInt1, int ingestInt1, int ingestInt2):
+  uint16_t descripInt2 = descripInt1
+  uint16_t ingestInts[2];
 
-  int    plasmaDeposit_Unt16_Unt16Arr(unt16 descripInt, unt16 *ingestIntArr, int arraySize)
+  ingestInts[0] = (uint16_t) ingestInt1
+  ingestInts[1] = (uint16_t) ingestInt2
+
+  plasmaDeposit_Unt16_Unt16Arr(descripInt2, &ingestInts, 2)
 
 ############### plasma await wrapper ###############
 
