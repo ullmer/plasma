@@ -25,6 +25,7 @@ class plasmaProteinSchemas:
   sensorYamlD     = None
   synthHwSensorDepositorCache = None
   sensorTypeId2Name  = None
+  sensorTypeName2Id  = None
   sensorTypesEngaged = None
   pDancer            = None
 
@@ -151,8 +152,28 @@ class plasmaProteinSchemas:
 
   ############# sensor depostor #############
 
-  printSensorArgs(self, sensorTypeId):
-    if sensorTypeId == None or sensorTypeId not in self.sensorTypeId2Name:
+  printSensorArgs(self, sensorTypeId): #accepts either integer ID or string ID
+    if sensorTypeId == None: self.err("printSensorArgs: sensorTypeId is None"); return
+
+    if isinstance(sensorTypeId, int) and sensorTypeId in self.sensorTypeId2Name: hwEl = self.sensorTypeId2Name[sensorTypeId]
+    else: hwEl = sensorTypeId
+
+    if hwEl not in self.sensorTypesEngaged: self.err("printSensorArgs: sensor type not found engaged: ", str(hwEl)); return
+
+    hwDescr = self.getHwSensorDescr(hwEl)
+    try:
+      fields  = hwDescr['fields']
+      resultStr = "Sensor %s : fields %s\n" % (hwEl, str(fields))
+      print(resultStr)
+    else:
+
+
+    .sensorTypeName2Id: stId = self.sensorTypeName2Id[sensorTypeId]
+    else: self.err("printSensorArgs: sensor type not found: ", str(sensorTypeId)); return
+
+    hwDescr            = self.getHwSensorDescr(hwEl)
+
+    or sensorTypeId not in self.sensorTypeId2Name:
     #self.sensorTypesEngaged.append(hwEl)
 
   ############# sensor depostor #############
@@ -195,6 +216,7 @@ class plasmaProteinSchemas:
     if 'bv' not in hwDescr: self.err("synthHwSensorDepositor: sensor ID class not found in hw descr"); return
     sensorTypeId = hwDescr['bv'] #binary value; probably should be renamed
     self.sensorTypeId2Name[sensorTypeId] = hwEl
+    self.sensorTypeName2Id[hwEl]         = sensorTypeId
     self.sensorTypesEngaged.append(hwEl)
 
     depositorFunc = partial(self.sensorDepositor, sensorTypeId, numFields)
