@@ -68,7 +68,7 @@ slaw *build_slaw_unt16_array(int *ingestIntArray, int arraySize) {
   unt16 *arrayValue; 
 
   for (int i=0; i<arraySize; i++) {
-    arrayValue  = slaw_unt16_array_emit_nth(value, i); 
+    arrayValue  = slaw_unt16_array_emit_nth(arrayValue, i); 
     *arrayValue = slaw_unt16((unt16) ingestIntArray[i]);
     //value[i] = ingestIntArray[i];
   }
@@ -160,7 +160,7 @@ int plasmaDeposit_StrStr(char *descripStr, char *ingestStr) {
 
 ////////////////// plasma deposit (unt16, unt16 array ) ////////////////////////
 
-int    plasmaDeposit_Unt16_Unt16Arr(int descripInt, int *ingestIntArr, int arraySize) {
+int    plasmaDeposit_Unt16_Unt16Arr(int descripInt, int *ingestIntArray, int arraySize) {
   ob_retort pret;
   slaw     ingest;
   protein  prot;
