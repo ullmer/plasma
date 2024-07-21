@@ -163,7 +163,7 @@ int plasmaDeposit_StrStr(char *descripStr, char *ingestStr) {
 
 ////////////////// plasma deposit (unt16, unt16 array ) ////////////////////////
 
-int    plasmaDeposit_Unt16_Unt16Arr(uint16_t descripInt, uint16_t *ingestIntArr, int arraySize) {
+int    plasmaDeposit_Unt16_Unt16Arr(int descripInt, int *ingestIntArr, int arraySize) {
   ob_retort pret;
   slaw     ingest;
   protein  prot;
