@@ -176,10 +176,10 @@ class proteinSchemas:
       self.printSensorArgs(sensorTypeId); return
 
     # alas, "case" not present until fairly recent Python versions
-    if numFields==1: cplasma.pDeposit_Unt16_Unt16A1(descrIntSafe, fieldArgs[0])
-    if numFields==2: cplasma.pDeposit_Unt16_Unt16A2(descrIntSafe, fieldArgs[0], fieldArgs[1])
-    if numFields==3: cplasma.pDeposit_Unt16_Unt16A3(descrIntSafe, fieldArgs[0], fieldArgs[1], fieldArgs[2])
-    if numFields==4: cplasma.pDeposit_Unt16_Unt16A3(descrIntSafe, fieldArgs[0], fieldArgs[1], fieldArgs[2], fieldArgs[3])
+    if numFields==1: cplasma.pDeposit_Unt16_Unt16A1(sensorTypeId, fieldArgs[0])
+    if numFields==2: cplasma.pDeposit_Unt16_Unt16A2(sensorTypeId, fieldArgs[0], fieldArgs[1])
+    if numFields==3: cplasma.pDeposit_Unt16_Unt16A3(sensorTypeId, fieldArgs[0], fieldArgs[1], fieldArgs[2])
+    if numFields==4: cplasma.pDeposit_Unt16_Unt16A3(sensorTypeId, fieldArgs[0], fieldArgs[1], fieldArgs[2], fieldArgs[3])
 
   ############# register hw sensor depositor #############
 
@@ -224,7 +224,8 @@ class proteinSchemas:
 ###################### main ######################
 
 if __name__ == '__main__':
-  ps = proteinSchemas(schemaIndexPath='/home/bullmer/git/plasma/libPlasma/yaml')
+  #ps = proteinSchemas(schemaIndexPath='/home/bullmer/git/plasma/libPlasma/yaml')
+  ps = proteinSchemas(schemaIndexPath='/home/ullmer/git/plasma/libPlasma/yaml')
   print(ps.hardwareYamlD)
 
 ### end ###
