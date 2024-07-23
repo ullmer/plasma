@@ -179,7 +179,7 @@ class proteinSchemas:
     if numFields==1: cplasma.pDeposit_Unt16_Unt16A1(sensorTypeId, fieldArgs[0])
     if numFields==2: cplasma.pDeposit_Unt16_Unt16A2(sensorTypeId, fieldArgs[0], fieldArgs[1])
     if numFields==3: cplasma.pDeposit_Unt16_Unt16A3(sensorTypeId, fieldArgs[0], fieldArgs[1], fieldArgs[2])
-    if numFields==4: cplasma.pDeposit_Unt16_Unt16A3(sensorTypeId, fieldArgs[0], fieldArgs[1], fieldArgs[2], fieldArgs[3])
+    if numFields==4: cplasma.pDeposit_Unt16_Unt16A4(sensorTypeId, fieldArgs[0], fieldArgs[1], fieldArgs[2], fieldArgs[3])
 
   ############# register hw sensor depositor #############
 
