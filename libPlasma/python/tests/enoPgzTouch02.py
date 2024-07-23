@@ -2,6 +2,10 @@
 # Lead by Brygg Ullmer, Clemson University
 # Begun 2024-07-20
 
+#WIDTH  = 1920
+#HEIGHT = 1080
+WIDTH, HEIGHT = 800, 800
+
 import os, sys, pathlib
 sys.path.append("/home/ullmer/git/plasma/libPlasma/python/")
 LIB_PATH = pathlib.Path(__file__).parents[1] #library in parent directory
@@ -11,22 +15,21 @@ from proteinSchemas import *
 
 from enoPgz import *
 
-WIDTH  = 1920
-HEIGHT = 1080
-
 touch_coords = {}
 def normalizePos(x,y): return (int(x*WIDTH), int(y*HEIGHT))
 
 ############ finger -- potentially multitouch -- events ##########
 
 def on_finger_down(finger_id, x, y):
+  ix,iy = WIDTH*x, HEIGHT*y
   print("finger DOWN", finger_id)
-  mtDeposit([finger_id, x, y])
+  mtDeposit([finger_id, ix, iy])
   touch_coords[finger_id] = normalizePos(x,y)
 
 def on_finger_move(finger_id, x, y):
-  print("finger MOVE")
-  mtDeposit([finger_id, x, y])
+  ix,iy = WIDTH*x, HEIGHT*y
+  print("finger MOVE", ix, iy)
+  mtDeposit([finger_id, ix, iy])
   touch_coords[finger_id] = normalizePos(x,y)
 
 def on_finger_up(finger_id, x, y):
