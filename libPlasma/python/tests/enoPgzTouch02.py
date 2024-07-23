@@ -21,10 +21,12 @@ def normalizePos(x,y): return (int(x*WIDTH), int(y*HEIGHT))
 
 def on_finger_down(finger_id, x, y):
   print("finger DOWN", finger_id)
+  mtDeposit([finger_id, x, y])
   touch_coords[finger_id] = normalizePos(x,y)
 
 def on_finger_move(finger_id, x, y):
   print("finger MOVE")
+  mtDeposit([finger_id, x, y])
   touch_coords[finger_id] = normalizePos(x,y)
 
 def on_finger_up(finger_id, x, y):
@@ -51,12 +53,9 @@ def draw():
 ps = proteinSchemas(schemaIndexPath='/home/ullmer/git/plasma/libPlasma/yaml')
 cplasma.init("tcp://localhost/hello")
 mtDeposit = ps.registerHwSensorDepositor('C2d_generic')
-mtDeposit([1,2,3])
 
 pgzx = enoPgz(["multitouch"])
 pgzx.go()
-
-#ps.printActiveSensorFields()
 
 ### end ###
 
