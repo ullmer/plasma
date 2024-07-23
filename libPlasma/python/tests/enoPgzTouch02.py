@@ -1,10 +1,13 @@
-# Enodia PyGame Zero example of simple multitouch
-# Brygg Ullmer, Clemson University
-# Begun 2022-06-16
+# Plasma Protein multitouch example
+# Lead by Brygg Ullmer, Clemson University
+# Begun 2024-07-20
 
 import os, sys, pathlib
+sys.path.append("/home/ullmer/git/plasma/libPlasma/python/")
 LIB_PATH = pathlib.Path(__file__).parents[1] #library in parent directory
 sys.path.append(os.path.join(LIB_PATH, ''))
+
+from proteinSchemas import *
 
 from enoPgz import *
 
@@ -45,7 +48,15 @@ def draw():
 
 ################### draw ###################
 
+ps = proteinSchemas(schemaIndexPath='/home/ullmer/git/plasma/libPlasma/yaml')
+cplasma.init("tcp://localhost/hello")
+mtDeposit = ps.registerHwSensorDepositor('C2d_generic')
+mtDeposit([1,2,3])
+
 pgzx = enoPgz(["multitouch"])
 pgzx.go()
 
+#ps.printActiveSensorFields()
+
 ### end ###
+
