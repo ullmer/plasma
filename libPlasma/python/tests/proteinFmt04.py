@@ -14,7 +14,9 @@ exHwSensorEls = ['C2d_generic', 'NFC_125k01', 'NFC_13m01', 'IMU_ST01']
 
 #for hwEl in exHwSensorEls: ps.registerHwSensorDepositor(hwEl)
 
+cplasma.init("tcp://localhost/hello")
 mtDeposit = ps.registerHwSensorDepositor('C2d_generic')
+mtDeposit([1,2,3])
 
 #ps.printActiveSensorFields()
 
