@@ -35,13 +35,13 @@ def on_mouse_up(pos):
 
 ################### draw ###################
 
-#def draw():
-#  screen.clear()
-#  screen.draw.circle((400, 300), 30, 'white')
-#
-#  for finger_id in touch_coords:
-#    pos = touch_coords[finger_id]
-#    screen.draw.circle(pos, 50, 'white')
+def draw():
+  screen.clear()
+  screen.draw.circle((400, 300), 30, 'white')
+
+  for finger_id in touch_coords:
+    pos = touch_coords[finger_id]
+    screen.draw.circle(pos, 50, 'white')
 
 ################### draw ###################
 
