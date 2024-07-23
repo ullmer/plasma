@@ -29,7 +29,8 @@ int    plasmaDeposit_Unt16_Unt16Arr(int descripInt, int *ingestIntArr, int array
 int    plasmaAwait();
 char **plasmaAwaitNextChars();
 char **plasmaAwaitNextTrio();
-char **plasmaPoolNext(char *formatStr);
+char **plasmaPoolNextStr(char *formatStr);
+void  *plasmaPoolNextFlex(char *formatStr);
 char  *plasmaGetProtFormatStr(char *formatName);
 char  *plasmaGetProtFormatNames();
 

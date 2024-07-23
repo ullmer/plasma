@@ -275,7 +275,33 @@ char *plasmaGetProtFormatStr(char *formatName) {
 
 ////////////////// plasma next ////////////////// 
 
-char **plasmaPoolNext(char *formatStr) {
+char **plasmaPoolNextStr(char *formatStr) {
+  ob_retort pret;
+  protein p;
+  pool_timestamp ts;
+
+  pret = pool_next (cmd.ph, &p, &ts, NULL);
+
+  if (OB_OK != pret) {
+    //return pool_cmd_retort_to_exit_code (pret);
+    return NULL;
+  }
+
+  if (formatStr==NULL || strcmp(formatStr, "")==0) {
+    formatStr = plasmaGetProtFormatStr(NULL);
+  }
+
+  if (strcmp(formatStr, PROTF_FRMT_SIMPLEKEYVAL) == 0) { // perhaps a bit redundant, but safer
+    char **payloadExtraction = extractProteinStrPayload(p);
+    return payloadExtraction;
+  } else {
+    fprintf(stderr, "plasmaPoolNext: presently unsupported formatStr received: %s\n", formatStr);
+  }
+
+  return NULL;
+}
+
+void *plasmaPoolNextFlex(char *formatStr) {
   ob_retort pret;
   protein p;
   pool_timestamp ts;
