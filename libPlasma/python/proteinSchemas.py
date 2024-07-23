@@ -32,8 +32,8 @@ class proteinSchemas:
   ############# error reporting #############
 
   #to allow for later non-stdout error redirection
-  def err(self, msg):       print("CPlasma error:", msg)          
-  def msgUpdate(self, msg): print("CPlasma message update:", msg) 
+  def err(self, msg):       print("proteinSchemas error:", msg)          
+  def msgUpdate(self, msg): print("proteinSchemas message update:", msg) 
 
   ############# constructor #############
 
