@@ -34,6 +34,18 @@ void  *plasmaPoolNextFlex(char *formatStr);
 char  *plasmaGetProtFormatStr(char *formatName);
 char  *plasmaGetProtFormatNames();
 
+#define PLASMA_CB_CODE_TYPE_C       1
+#define PLASMA_CB_CODE_TYPE_PYTHON  2
+#define PLASMA_CB_CODE_TYPE_HASKELL 3
+#define PLASMA_CB_CODE_TYPE_SWIFT   4 
+#define PLASMA_CB_TYPE_PROLOG       5 
+
+typedef struct {
+   int8  callbackCodeType;   //PLASMA_CB_CODE_TYPE_C, PLASMA_CB_CODE_TYPE_PYTHON, etc.
+   int16 callbackSourceType;
+   void* callbackFunc;
+}
+
 //int    plasmaDeposit_Int16_Int16Arr(int16_t  descripInt,  int16_t *ingestIntArr, int arraySize);
 //int    plasmaDeposit_Unt16_Unt16Arr(uint16_t descripInt, uint16_t *ingestIntArr, int arraySize);
 
