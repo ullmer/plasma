@@ -44,7 +44,7 @@ typedef struct {
    int8  callbackCodeType;   //PLASMA_CB_CODE_TYPE_C, PLASMA_CB_CODE_TYPE_PYTHON, etc.
    int16 callbackSourceType;
    void* callbackFunc;
-}
+} plasmaCb;
 
 //int    plasmaDeposit_Int16_Int16Arr(int16_t  descripInt,  int16_t *ingestIntArr, int arraySize);
 //int    plasmaDeposit_Unt16_Unt16Arr(uint16_t descripInt, uint16_t *ingestIntArr, int arraySize);
