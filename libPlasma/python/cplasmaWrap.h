@@ -40,11 +40,18 @@ char  *plasmaGetProtFormatNames();
 #define PLASMA_CB_CODE_TYPE_SWIFT   4 
 #define PLASMA_CB_TYPE_PROLOG       5 
 
+#define PLASMA_CB_BLOCKSIZE 10
+
 typedef struct {
    int8  callbackCodeType;   //PLASMA_CB_CODE_TYPE_C, PLASMA_CB_CODE_TYPE_PYTHON, etc.
    int16 callbackSourceType;
    void* callbackFunc;
 } plasmaCb;
+
+typedef struct {
+  plasmaCb pcbTable[PLASMA_CB_BLOCKSIZE];
+  plasmaCbBlock *nextBlock  
+} plasmaCbBlock;	 
 
 //int    plasmaDeposit_Int16_Int16Arr(int16_t  descripInt,  int16_t *ingestIntArr, int arraySize);
 //int    plasmaDeposit_Unt16_Unt16Arr(uint16_t descripInt, uint16_t *ingestIntArr, int arraySize);
