@@ -283,11 +283,23 @@ char *plasmaGetProtFormatStr(char *formatName) {
   return NULL;
 }
 
+////////////////// plasma code return types size ////////////////// 
+
+int plasmaMapCbCode2Str(int cbCode) {
+  switch (cbCode) {
+    case PLASMA_CB_CODE_TYPE_C_ID:       return PLASMA_CB_CODE_TYPE_C_STR;
+    case PLASMA_CB_CODE_TYPE_PYTHON_ID:  return PLASMA_CB_CODE_TYPE_PYTHON_STR;
+    case PLASMA_CB_CODE_TYPE_HASKELL_ID: return PLASMA_CB_CODE_TYPE_HASKELL_STR;
+    case PLASMA_CB_CODE_TYPE_SWIFT_ID:   return PLASMA_CB_CODE_TYPE_SWIFT_STR;
+    case PLASMA_CB_CODE_TYPE_PROLOG_ID:  return PLASMA_CB_CODE_TYPE_PROLOG_STR;
+  return -1;	
+}
+
 ////////////////// plasma code return type size ////////////////// 
 int plasmaCodeReturnTypeSize(int typeId) {
   if (typeId < 0) return 0;
 
-  int result = 2;
+  int result    = 2;
   char *typeStr = plasmaMapCbCode2Str(i);
   result += strlen(typeStr);
 
@@ -306,18 +318,6 @@ int plasmaCodeReturnTypesSize() {
 
   for (int i=1; i<=PLASMA_CB_CODE_NUM_TYPES; i++) result += plasmaCodeReturnTypeSize(i);
   return result;
-}
-
-////////////////// plasma code return types size ////////////////// 
-
-int plasmaMapCbCode2Str(int cbCode) {
-  switch (cbCode) {
-    case PLASMA_CB_CODE_TYPE_C_ID:       return PLASMA_CB_CODE_TYPE_C_STR;
-    case PLASMA_CB_CODE_TYPE_PYTHON_ID:  return PLASMA_CB_CODE_TYPE_PYTHON_STR;
-    case PLASMA_CB_CODE_TYPE_HASKELL_ID: return PLASMA_CB_CODE_TYPE_HASKELL_STR;
-    case PLASMA_CB_CODE_TYPE_SWIFT_ID:   return PLASMA_CB_CODE_TYPE_SWIFT_STR;
-    case PLASMA_CB_CODE_TYPE_PROLOG_ID:  return PLASMA_CB_CODE_TYPE_PROLOG_STR;
-  return -1;	
 }
 
 ////////////////// plasma get code return type map ////////////////// 
