@@ -284,6 +284,7 @@ int plasmaCodeReturnTypeSize(int typeId, char *typeStr) {
 
   int result = 2;
   result += strlen(typeStr);
+
   if      (typeId < 10)   result += 1;
   else if (typeId < 100)  result += 2;
   else if (typeID < 1000) result += 3;
@@ -302,7 +303,20 @@ int plasmaCodeReturnTypeSize() {
   result += plasmaCodeReturnTypeSize(PLASMA_CB_CODE_TYPE_PROLOG_ID,  PLASMA_CB_CODE_TYPE_PROLOG_STR);
 }
 
+////////////////// plasma get code return type map ////////////////// 
+
 char  *plasmaGetCodeReturnTypeMap() {
+  int   typeMapSize = plasmaCodeReturnTypeSize();
+  char *result      = malloc(typeMapSize + 1);
+  char *idx         = result;
+  int  len;
+
+  sprintf(idx, "%s:%i;", PLASMA_CB_CODE_TYPE_C_STR,       PLASMA_CB_CODE_TYPE_C_ID);      len = strlen(idx); idx += len;
+  sprintf(idx, "%s:%i;", PLASMA_CB_CODE_TYPE_PYTHON_STR,  PLASMA_CB_CODE_TYPE_PYTHON_ID); len = strlen(idx); idx += len;
+  sprintf(idx, "%s:%i;", PLASMA_CB_CODE_TYPE_HASKELL_STR, PLASMA_CB_CODE_TYPE_HASKELL_ID); len = strlen(idx); idx += len;
+  sprintf(idx, "%s:%i;", PLASMA_CB_CODE_TYPE_SWIFT_STR,   PLASMA_CB_CODE_TYPE_SWIFT_ID); len = strlen(idx); idx += len;
+  sprintf(idx, "%s:%i;", PLASMA_CB_CODE_TYPE_PROLOG_STR,  PLASMA_CB_CODE_TYPE_PROLOG_ID); len = strlen(idx); idx += len;
+  return result;
 }
 
 ////////////////// plasma next ////////////////// 
