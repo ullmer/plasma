@@ -285,7 +285,7 @@ char *plasmaGetProtFormatStr(char *formatName) {
 
 ////////////////// plasma code return types size ////////////////// 
 
-int plasmaMapCbCode2Str(int cbCode) {
+char *plasmaMapCbCode2Str(int cbCode) {
   switch (cbCode) {
     case PLASMA_CB_CODE_TYPE_C_ID:       return PLASMA_CB_CODE_TYPE_C_STR;
     case PLASMA_CB_CODE_TYPE_PYTHON_ID:  return PLASMA_CB_CODE_TYPE_PYTHON_STR;
@@ -300,7 +300,7 @@ int plasmaCodeReturnTypeSize(int typeId) {
   if (typeId < 0) return 0;
 
   int result    = 2;
-  char *typeStr = plasmaMapCbCode2Str(i);
+  char *typeStr = plasmaMapCbCode2Str(typeId);
   result += strlen(typeStr);
 
   if      (typeId < 10)   result += 1;
@@ -390,6 +390,5 @@ void *plasmaPoolNextFlex(char *formatStr) {
 
   return NULL;
 }
-
 
 /// end ///
