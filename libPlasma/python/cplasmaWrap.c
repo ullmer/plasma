@@ -278,6 +278,33 @@ char *plasmaGetProtFormatStr(char *formatName) {
   return NULL;
 }
 
+////////////////// plasma code return type size ////////////////// 
+int plasmaCodeReturnTypeSize(int typeId, char *typeStr) {
+  if typeId < 0: return 0;
+
+  int result = 2;
+  result += strlen(typeStr);
+  if      (typeId < 10)   result += 1;
+  else if (typeId < 100)  result += 2;
+  else if (typeID < 1000) result += 3;
+  else result = 0;
+
+  return result;
+}
+
+////////////////// plasma code return types size ////////////////// 
+int plasmaCodeReturnTypeSize() {
+  int result = 0;
+  result += plasmaCodeReturnTypeSize(PLASMA_CB_CODE_TYPE_C_ID,       PLASMA_CB_CODE_TYPE_C_STR);
+  result += plasmaCodeReturnTypeSize(PLASMA_CB_CODE_TYPE_PYTHON_ID,  PLASMA_CB_CODE_TYPE_PYTHON_STR);
+  result += plasmaCodeReturnTypeSize(PLASMA_CB_CODE_TYPE_HASKELL_ID, PLASMA_CB_CODE_TYPE_HASKELL_STR);
+  result += plasmaCodeReturnTypeSize(PLASMA_CB_CODE_TYPE_SWIFT_ID,   PLASMA_CB_CODE_TYPE_SWIFT_STR);
+  result += plasmaCodeReturnTypeSize(PLASMA_CB_CODE_TYPE_PROLOG_ID,  PLASMA_CB_CODE_TYPE_PROLOG_STR);
+}
+
+char  *plasmaGetCodeReturnTypeMap() {
+}
+
 ////////////////// plasma next ////////////////// 
 
 char **plasmaPoolNextStr(char *formatStr) {
@@ -331,5 +358,6 @@ void *plasmaPoolNextFlex(char *formatStr) {
 
   return NULL;
 }
+
 
 /// end ///

@@ -33,12 +33,21 @@ char **plasmaPoolNextStr(char *formatStr);
 void  *plasmaPoolNextFlex(char *formatStr);
 char  *plasmaGetProtFormatStr(char *formatName);
 char  *plasmaGetProtFormatNames();
+char  *plasmaGetCodeReturnTypeMap();
 
-#define PLASMA_CB_CODE_TYPE_C       1
-#define PLASMA_CB_CODE_TYPE_PYTHON  2
-#define PLASMA_CB_CODE_TYPE_HASKELL 3
-#define PLASMA_CB_CODE_TYPE_SWIFT   4 
-#define PLASMA_CB_CODE_TYPE_PROLOG  5 
+#define PLASMA_CB_CODE_TYPE_C_ID       1
+#define PLASMA_CB_CODE_TYPE_PYTHON_ID  2
+#define PLASMA_CB_CODE_TYPE_HASKELL_ID 3
+#define PLASMA_CB_CODE_TYPE_SWIFT_ID   4 
+#define PLASMA_CB_CODE_TYPE_PROLOG_ID  5 
+
+#define PLASMA_CB_CODE_TYPE_C_STR       "C"
+#define PLASMA_CB_CODE_TYPE_PYTHON_STR  "Python"
+#define PLASMA_CB_CODE_TYPE_HASKELL_STR "Haskell"
+#define PLASMA_CB_CODE_TYPE_SWIFT_STR   "Swift"
+#define PLASMA_CB_CODE_TYPE_PROLOG_STR  "Prolog"
+
+#define PLASMA_CB_BLOCKSIZE 10
 
 #define PLASMA_CB_BLOCKSIZE 10
 
