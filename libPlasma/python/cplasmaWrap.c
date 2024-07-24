@@ -18,7 +18,7 @@
 char *poolnameDefault="tcp://localhost/hello";
 pool_cmd_info cmd;
 
-plasmaCbBlock masterPlasmaCbBlockNumEntries=0;
+int           masterPlasmaCbBlockNumEntries;
 plasmaCbBlock masterPlasmaCbBlock;
 
 ////////////////// extract slaw ////////////////// 
@@ -112,8 +112,13 @@ void plasmaInit(char *pnstr) {
   cmd.pool_name = pnstr;
 
   pool_cmd_open_pool (&cmd);
+
+  masterPlasmaCbBlockNumEntries = 0;
   masterPlasmaCbBlock.nextBlock = NULL;
-  plasmaCbBlock masterPlasmaCbBlockNumEntries=0;
+
+  char  *tmStr = plasmaGetCodeReturnTypeMap();
+
+  printf("callback typemap string: %s\n", tmStr);
 }
 
 ////////////////// plasma close ////////////////// 
@@ -280,14 +285,14 @@ char *plasmaGetProtFormatStr(char *formatName) {
 
 ////////////////// plasma code return type size ////////////////// 
 int plasmaCodeReturnTypeSize(int typeId, char *typeStr) {
-  if typeId < 0: return 0;
+  if (typeId < 0) return 0;
 
   int result = 2;
   result += strlen(typeStr);
 
   if      (typeId < 10)   result += 1;
   else if (typeId < 100)  result += 2;
-  else if (typeID < 1000) result += 3;
+  else if (typeId < 1000) result += 3;
   else result = 0;
 
   return result;
@@ -305,7 +310,7 @@ int plasmaCodeReturnTypeSize() {
 
 ////////////////// plasma get code return type map ////////////////// 
 
-char  *plasmaGetCodeReturnTypeMap() {
+char  *plasmaGetCodeReturnTypeMap() { 
   int   typeMapSize = plasmaCodeReturnTypeSize();
   char *result      = malloc(typeMapSize + 1);
   char *idx         = result;
@@ -318,6 +323,10 @@ char  *plasmaGetCodeReturnTypeMap() {
   sprintf(idx, "%s:%i;", PLASMA_CB_CODE_TYPE_PROLOG_STR,  PLASMA_CB_CODE_TYPE_PROLOG_ID); len = strlen(idx); idx += len;
   return result;
 }
+
+////////////////// plasma get code return type map ////////////////// 
+
+char  *plasmaGetCodeReturnTypeMap() { 
 
 ////////////////// plasma next ////////////////// 
 
