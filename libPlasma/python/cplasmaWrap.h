@@ -38,7 +38,7 @@ char  *plasmaGetProtFormatNames();
 #define PLASMA_CB_CODE_TYPE_PYTHON  2
 #define PLASMA_CB_CODE_TYPE_HASKELL 3
 #define PLASMA_CB_CODE_TYPE_SWIFT   4 
-#define PLASMA_CB_TYPE_PROLOG       5 
+#define PLASMA_CB_CODE_TYPE_PROLOG  5 
 
 #define PLASMA_CB_BLOCKSIZE 10
 

@@ -18,6 +18,9 @@
 char *poolnameDefault="tcp://localhost/hello";
 pool_cmd_info cmd;
 
+plasmaCbBlock masterPlasmaCbBlockNumEntries=0;
+plasmaCbBlock masterPlasmaCbBlock;
+
 ////////////////// extract slaw ////////////////// 
 
 void extract_slaw (char *arg, slaw *pair)
@@ -109,6 +112,8 @@ void plasmaInit(char *pnstr) {
   cmd.pool_name = pnstr;
 
   pool_cmd_open_pool (&cmd);
+  masterPlasmaCbBlock.nextBlock = NULL;
+  plasmaCbBlock masterPlasmaCbBlockNumEntries=0;
 }
 
 ////////////////// plasma close ////////////////// 
