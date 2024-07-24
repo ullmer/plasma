@@ -49,8 +49,8 @@ typedef struct {
 } plasmaCb;
 
 typedef struct {
-  plasmaCb pcbTable[PLASMA_CB_BLOCKSIZE];
-  plasmaCbBlock *nextBlock  
+  plasmaCb              pcbTable[PLASMA_CB_BLOCKSIZE];
+  struct plasmaCbBlock *nextBlock  
 } plasmaCbBlock;	 
 
 //int    plasmaDeposit_Int16_Int16Arr(int16_t  descripInt,  int16_t *ingestIntArr, int arraySize);
