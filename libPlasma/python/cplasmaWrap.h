@@ -48,6 +48,7 @@ char  *plasmaGetCodeReturnTypeMap();
 #define PLASMA_CB_CODE_TYPE_HASKELL_STR "Haskell"
 #define PLASMA_CB_CODE_TYPE_SWIFT_STR   "Swift"
 #define PLASMA_CB_CODE_TYPE_PROLOG_STR  "Prolog"
+#define PLASMA_CB_CODE_TYPE_JAVA_STR    "Java"
 
 #define PLASMA_CB_BLOCKSIZE 10
 
