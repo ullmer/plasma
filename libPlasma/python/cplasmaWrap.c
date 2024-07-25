@@ -347,20 +347,23 @@ int plasmaCodeReturnTypesSize() {
 
 ////////////////// plasma get code return type map ////////////////// 
 
-void *plasmaDualIntCbDbg(protein *p) { 
-  bslaw i = protein_ingests(p);
-
-  unt16 a = slaw_unt16_array_emit_nth(i, 0);
-  unt16 b = slaw_unt16_array_emit_nth(i, 1);
+void *plasmaUnt16CbDbg(protein *p, int num) { 
+  bslaw ing = protein_ingests(p);
   
   if (plasmaDualIntCbDbgFirstPrint) {
-    printf("plasmaDualIntCbDbg: [%i %i]", a, b);
-    fflush(stdout);
+    printf("plasmaDualIntCbDbg: [");
     plasmaDualIntCbDbgFirstPrint = false;
-  } else {
-    printf("[%i %i]", a, b);
-    fflush(stdout);
+  } else printf("[");
+
+  for (int i=0; i<num; i++) {
+    unt16 val = slaw_unt16_array_emit_nth(ing, i);
+    printf("%i ", (int)val);
   }
+
+  printf("] ");
+  fflush(stdout);
+
+  return NULL;
 }
 
 ////////////////// plasma get code return type map ////////////////// 
