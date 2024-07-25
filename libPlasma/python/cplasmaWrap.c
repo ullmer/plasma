@@ -118,7 +118,25 @@ void plasmaInit(char *pnstr) {
 
   char  *tmStr = plasmaGetCodeReturnTypeMap();
 
-  printf("callback typemap string: %s\n", tmStr);
+  //printf("callback typemap string: %s\n", tmStr);
+}
+
+////////////////// plasma close ////////////////// 
+
+void plasmaRegisterCb(int callbackCodeType, int callbackSourceType, void *callbackFunc) {
+   if (masterPlasmaCbBlockNumEntries < 0) {
+     fprintf(stderr, "plasmaRegisterCb: masterPlasmaCbBlockNumEntries has a negative value!\n"); return;
+   }
+
+   if (masterPlasmaCbBlockNumEntries >= PLASMA_CB_BLOCKSIZE) {
+     fprintf(stderr, "plasmaRegisterCb: masterPlasmaCbBlockNumEntries presently has greater number than supported!\n"); return;
+     // super-easy to extend, but not there yet.
+   }
+
+   masterPlasmaCbBlock[masterPlasmaCbBlockNumEntries].callbackCodeType   = (int8)     callbackCodeType;
+   masterPlasmaCbBlock[masterPlasmaCbBlockNumEntries].callbackSourceType = (uint16_t) callbackSourceType;
+   masterPlasmaCbBlock[masterPlasmaCbBlockNumEntries].callbackFunc       = callbackFunc;
+   masterPlasmaCbBlockNumEntries += 1;
 }
 
 ////////////////// plasma close ////////////////// 

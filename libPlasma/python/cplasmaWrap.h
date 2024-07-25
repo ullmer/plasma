@@ -53,8 +53,8 @@ char  *plasmaGetCodeReturnTypeMap();
 #define PLASMA_CB_BLOCKSIZE 10
 
 typedef struct {
-   int8  callbackCodeType;   //PLASMA_CB_CODE_TYPE_C, PLASMA_CB_CODE_TYPE_PYTHON, etc.
-   int16 callbackSourceType;
+   int8     callbackCodeType;   //PLASMA_CB_CODE_TYPE_C, PLASMA_CB_CODE_TYPE_PYTHON, etc.
+   uint16_t callbackSourceType;
    void* callbackFunc;
 } plasmaCb;
 
