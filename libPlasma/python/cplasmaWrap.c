@@ -133,9 +133,9 @@ void plasmaRegisterCb(int callbackCodeType, int callbackSourceType, void *callba
      // super-easy to extend, but not there yet.
    }
 
-   masterPlasmaCbBlock[masterPlasmaCbBlockNumEntries].callbackCodeType   = (int8)     callbackCodeType;
-   masterPlasmaCbBlock[masterPlasmaCbBlockNumEntries].callbackSourceType = (uint16_t) callbackSourceType;
-   masterPlasmaCbBlock[masterPlasmaCbBlockNumEntries].callbackFunc       = callbackFunc;
+   masterPlasmaCbBlock.pcbTable[masterPlasmaCbBlockNumEntries].callbackCodeType   = (int8)     callbackCodeType;
+   masterPlasmaCbBlock.pcbTable[masterPlasmaCbBlockNumEntries].callbackSourceType = (uint16_t) callbackSourceType;
+   masterPlasmaCbBlock.pcbTable[masterPlasmaCbBlockNumEntries].callbackFunc       = callbackFunc;
    masterPlasmaCbBlockNumEntries += 1;
 }
 
