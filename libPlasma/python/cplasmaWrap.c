@@ -21,6 +21,9 @@ pool_cmd_info cmd;
 int           masterPlasmaCbBlockNumEntries;
 plasmaCbBlock masterPlasmaCbBlock;
 
+bool plasmaDualIntCbDbgFirstPrint;
+
+
 ////////////////// extract slaw ////////////////// 
 
 void extract_slaw (char *arg, slaw *pair)
@@ -115,6 +118,7 @@ void plasmaInit(char *pnstr) {
 
   masterPlasmaCbBlockNumEntries = 0;
   masterPlasmaCbBlock.nextBlock = NULL;
+  plasmaDualIntCbDbgFirstPrint  = false;
 
   char  *tmStr = plasmaGetCodeReturnTypeMap();
 
@@ -339,6 +343,24 @@ int plasmaCodeReturnTypesSize() {
 
   for (int i=1; i<=PLASMA_CB_CODE_NUM_TYPES; i++) result += plasmaCodeReturnTypeSize(i);
   return result;
+}
+
+////////////////// plasma get code return type map ////////////////// 
+
+void *plasmaDualIntCbDbg(protein *p) { 
+  bslaw i = protein_ingests(p);
+
+  unt16 a = slaw_unt16_array_emit_nth(i, 0);
+  unt16 b = slaw_unt16_array_emit_nth(i, 1);
+  
+  if (plasmaDualIntCbDbgFirstPrint) {
+    printf("plasmaDualIntCbDbg: [%i %i]", a, b);
+    fflush(stdout);
+    plasmaDualIntCbDbgFirstPrint = false;
+  } else {
+    printf("[%i %i]", a, b);
+    fflush(stdout);
+  }
 }
 
 ////////////////// plasma get code return type map ////////////////// 
