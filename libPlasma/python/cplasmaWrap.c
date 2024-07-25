@@ -292,7 +292,8 @@ char *plasmaMapCbCode2Str(int cbCode) {
     case PLASMA_CB_CODE_TYPE_HASKELL_ID: return PLASMA_CB_CODE_TYPE_HASKELL_STR;
     case PLASMA_CB_CODE_TYPE_SWIFT_ID:   return PLASMA_CB_CODE_TYPE_SWIFT_STR;
     case PLASMA_CB_CODE_TYPE_PROLOG_ID:  return PLASMA_CB_CODE_TYPE_PROLOG_STR;
-  return -1;	
+  }
+  return NULL;
 }
 
 ////////////////// plasma code return type size ////////////////// 
@@ -316,7 +317,7 @@ int plasmaCodeReturnTypeSize(int typeId) {
 int plasmaCodeReturnTypesSize() {
   int result = 0;
 
-  for (int i=1; i<=PLASMA_CB_CODE_NUM_TYPES; i++) result += plasmaCodeReturnTypeSize(i);
+  for (int i=1; i<=PLASMA_CB_CODE_NUM_TYPES; i++) {result += plasmaCodeReturnTypeSize(i);}
   return result;
 }
 
@@ -365,6 +366,7 @@ char **plasmaPoolNextStr(char *formatStr) {
   return NULL;
 }
 
+/*
 void *plasmaPoolNextFlex(char *formatStr) {
   ob_retort pret;
   protein p;
@@ -382,13 +384,13 @@ void *plasmaPoolNextFlex(char *formatStr) {
   }
 
   if (strcmp(formatStr, PROTF_FRMT_SIMPLEKEYVAL) == 0) { // perhaps a bit redundant, but safer
-    char **payloadExtraction = extractProteinStrPayload(p);
-    return payloadExtraction;
+    //char **payloadExtraction = extractProteinStrPayload(p);
+    //return payloadExtraction;
+    return NULL;
   } else {
     fprintf(stderr, "plasmaPoolNext: presently unsupported formatStr received: %s\n", formatStr);
   }
-
   return NULL;
 }
-
+*/
 /// end ///
