@@ -302,7 +302,8 @@ int plasmaCodeReturnTypeSize(int typeId) {
 
   int result    = 2;
   char *typeStr = plasmaMapCbCode2Str(typeId);
-  result += strlen(typeStr);
+
+  if (typeStr != NULL) result += strlen(typeStr);
 
   if      (typeId < 10)   result += 1;
   else if (typeId < 100)  result += 2;
@@ -317,7 +318,7 @@ int plasmaCodeReturnTypeSize(int typeId) {
 int plasmaCodeReturnTypesSize() {
   int result = 0;
 
-  for (int i=1; i<=PLASMA_CB_CODE_NUM_TYPES; i++) {result += plasmaCodeReturnTypeSize(i);}
+  for (int i=1; i<=PLASMA_CB_CODE_NUM_TYPES; i++) result += plasmaCodeReturnTypeSize(i);
   return result;
 }
 
