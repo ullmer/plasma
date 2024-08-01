@@ -32,17 +32,14 @@ plasma:
         Ac:    {bs: 1001 0011, bv: 147, nm: accelerometer}
         C0d:   {bs: 1001 0100, bv: 148, nm: capacitive 0d}
         C1d:   {bs: 1001 0101, bv: 149, nm: capacitive 1d}
-
         C2d:   {bs: 1001 0110, bv: 150, nm: capacitive 2d}
         C2d_generic: {bv: 0x9601, nm: multitouch, fmt: unt16*3, 
                       layout: AB CC DD, fields: [touch, x, y]}
-
         IRG:   {bs: 1001 0111, bv: 151, nm: infrared grid}
         IRP:   {bs: 1001 1000, bv: 152, nm: infrared proximity}
         Lid0d: {bs: 1001 1001, bv: 153, nm: LiDAR 0d}
         Lid1d: {bs: 1001 1010, bv: 154, nm: LiDAR 1d}
         Lid2d: {bs: 1001 1011, bv: 155, nm: LiDAR 2d}
-
         #tentatively building in carrier frequency to ID namespace: 125 kHz, 13 MHz
         NFC:   {bs: 1001 1100, bv: 156, nm: NFC} 
         NFC_125k01: {bv: 0x9A01, nm: HiTag2,  fmt: unt16*3,  
