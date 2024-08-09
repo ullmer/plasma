@@ -1,6 +1,7 @@
 // Plasma Protein Schemas (mapping of protocols, initially oriented
 //  toward software, sensors, and multitouch, but also with an eye toward
 //  other hardware and software services)
+//
 // Lead by Brygg Ullmer, Clemson University
 // Python variant begun 2024-07-20
 // Java port begun 2024-08-09
@@ -15,7 +16,7 @@ import java.util.Map;
 /////////////////////////////////////////////////////////////
 ////////////////////// plasma protein schemas ///////////////
 
-public class proteinSchemas {
+public class ProteinSchemas {
   String schemaIndexPath = null;
   String indexFn         = "index.yaml";
   String hardwareYamlFn  = null;
@@ -27,18 +28,18 @@ public class proteinSchemas {
   Map<String, Int>    sensorTypeName2Id  = null;
 
   synthHwSensorDepositorCache = None
-  sensorTypeName2Id  = None
   sensorTypesEngaged = None
   pDancer            = None
 
   ///////////// error reporting /////////////
 
   //to allow for later non-stdout error redirection
-  def err(self, msg):       print("proteinSchemas error:", msg)          
-  def msgUpdate(self, msg): print("proteinSchemas message update:", msg) 
+  public void err(msg)       {System.err.println("ProteinSchemas error: %s", msg); }
+  publiv void msgUpdate(msg) {System.out.println("ProteinSchemas message update: %s", msg);}
 
   ///////////// constructor /////////////
 
+  public ProteinSchemas:
   def __init__(self, **kwargs):
     self.msgCallbackDict  = {}
 
@@ -243,7 +244,7 @@ public class proteinSchemas {
       System.out.println(data);
      } catch (FileNotFoundException e) { e.printStackTrace(); }
 
-    ps = proteinSchemas(schemaIndexPath='/home/ullmer/git/plasma/libPlasma/yaml')
+    ps = ProteinSchemas(schemaIndexPath='/home/ullmer/git/plasma/libPlasma/yaml')
     print(ps.hardwareYamlD)
   }
 }
