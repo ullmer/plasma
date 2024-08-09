@@ -3,10 +3,16 @@
 # Begun 2024-08-08
 
 plasma:
-  address:     {bs: ABBB CCCC DDDD EEEE} #bs: bitstring
+  address:       {bs: ABBB CCCC DDDD EEEE} #bs: bitstring
 
   sw:        ############# SOFTWARE ############ classes of services
-      address: {bs: 0BBB CCCC, bv: 0,  nm: software, prefix: SW}
+      address:   {bs: 0BBB CCCC, bv: 0,  nm: software, prefix: SW}
+      std:
+        addr:    {bs: 0000 CCCC DDDD EEEE} 
+        file:    {bs: 0000 0001 0000}
+          open:  {bs: 0000 0001 0001}
+          close: {bs: 0000 0001 0010}
+          
 
   hw:        ############# HARDWARE ############
     sensors: ############# SENSORS  ############ 
@@ -34,7 +40,7 @@ plasma:
 
 ops:
   std:
-    file:  [open, close, new, save, import, export, print, revert, quit, properties]
+    file:  [open, close, new, save, import, export, print, revert, quit, properties]  #4 bit
     scope: [local, cloud, recent, as]
     edit:  [clipboard, undo, cut, copy, paste, pasteSpecial, 
             clear, selectAll, showClipboard, find, findReplace]
