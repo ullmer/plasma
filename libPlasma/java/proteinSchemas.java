@@ -22,6 +22,7 @@ public class ProteinSchemas {
   String schemaIndexPath = null;
   String indexFn         = "index.yaml";
   String hardwareYamlFn  = null;
+  String softwareYamlFn  = null;
 
   Boolean verbose        = true;
 
@@ -89,13 +90,14 @@ public class ProteinSchemas {
     }
 
     Map<String, String> pcas = pconfigs.get('addressSpace''); //protein configs address space
+							      //
     if (pcas == null || pcas.containsKey('hardware') == false) {
       err("loadIndices: hardware YAML specification not in %s", fullPath); return false;
     }
 
+    hardwareYamlFn = pcas.get('hardware');
 
-    self.hardwareYamlFn = pcas['hardware']
-    try:
+    try {
       fullHwPath = self.schemaIndexPath + "/" + self.hardwareYamlFn 
       yf = open(fullHwPath)
       self.hardwareYamlD  = yaml.safe_load(yf)
