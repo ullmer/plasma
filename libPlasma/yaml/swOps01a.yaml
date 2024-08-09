@@ -9,8 +9,9 @@ ops:
     edit:  [clipboard, undo, cut, copy, paste, pasteSpecial, 
             clear, selectAll, showClipboard, find, findReplace]
     nav:
-      local:  [up, down, left, right]
-      page:   [up, down, left, right]
+      dir:    [up, down, left, right]
+      scope:  [el, page, file]
+      nature: [cursor, pan, scroll, rotate]
       global: [home, end]
     meta:  [help, vrfy, list]
     param: [set,  get,  list]
