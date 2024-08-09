@@ -37,10 +37,13 @@ plasma:
 
         nav:             {bs: 0000 0010 0000, bv: 0x0300}
           orient:        {bs: 0000 0010 0001, bv: 0x0310}
-            up:          {bs: 0000 0010 0001, bv: 0x0320}
-            down:        {bs: 0000 0010 0001, bv: 0x03302}
-            left:        {bs: 0000 0010 0001, bv: 0x0313}
-            right:       {bs: 0000 0010 0001, bv: 0x0314}
+            up:          {bs: 0000 0010 0010, bv: 0x0320}
+            down:        {bs: 0000 0010 0011, bv: 0x0330}
+            left:        {bs: 0000 0010 0100, bv: 0x0340}
+            right:       {bs: 0000 0010 0101, bv: 0x0350}
+
+          scale:         
+
 
         scope:    {bs: 0000, bv: 0x0} #map this++ into last nibble of two-byte code to avoid state/mode issues
           local:  {bs: 0001, bv: 0x1}
@@ -54,15 +57,8 @@ plasma:
           scroll: {bs: 1011, bv: 0xB}
           rotate: {bs: 1100, bv: 0xC}
 
-ops:
-  std:
-    nav:
-      orient: [up, down, left, right]
-      scope:  [el, page, file]
-      nature: [cursor, pan, scroll, rotate]
-      global: [home, end]
-    meta:  [help, vrfy, list]
-    param: [set,  get,  list]
+            #meta:  [help, vrfy, list]
+            #param: [set,  get,  list]
 
   model: [animation, compositing, geometryNodes, layout, 
           modeling, rendering, scripting, sculpting, shading, 
