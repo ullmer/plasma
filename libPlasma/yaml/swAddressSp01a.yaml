@@ -3,15 +3,23 @@
 # Begun 2024-08-08
 
 plasma:
-  address:       {bs: ABBB CCCC DDDD EEEE} #bs: bitstring
+  address:        {bs: ABBB CCCC DDDD EEEE} #bs: bitstring
 
   sw:        ############# SOFTWARE ############ classes of services
-      address:   {bs: 0BBB CCCC, bv: 0,  nm: software, prefix: SW}
+      address:    {bs: 0BBB CCCC, bv: 0,  nm: software, prefix: SW}
       std:
-        addr:    {bs: 0000 CCCC DDDD EEEE} 
-        file:    {bs: 0000 0001 0000}
-          open:  {bs: 0000 0001 0001}
-          close: {bs: 0000 0001 0010}
+        addr:     {bs: 0000 CCCC DDDD EEEE} 
+        file:     {bs: 0000 0001 0000}
+          open:   {bs: 0000 0001 0001}
+          close:  {bs: 0000 0001 0010}
+          new:    {bs: 0000 0001 0011}
+          save:   {bs: 0000 0001 0100}
+          import: {bs: 0000 0001 0101}
+          export: {bs: 0000 0001 0110}
+          print:  {bs: 0000 0001 0111}
+          revert: {bs: 0000 0001 1000}
+          quit:   {bs: 0000 0001 1001}
+          props:  {bs: 0000 0001 1010}
           
 
   hw:        ############# HARDWARE ############
