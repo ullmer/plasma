@@ -75,10 +75,12 @@ public class ProteinSchemas {
     } catch (FileNotFoundException e) { 
       err("loadIndices: error on opening and/or loading %s", fullPath); 
       e.printStackTrace(); 
+      return false;
     }
 
-    if 'configs' not in self.indexYamlD:
-      self.err("loadIndices: configs (configurations) not found in " + fullPath); return
+    if (indexYamlD.containsKey('configs') == false) {
+      err("loadIndices: configs (configurations) not found in %s", fullPath); return false;
+    }
 
     pconfigs = self.indexYamlD['configs']
     if 'addressSpace' not in pconfigs:
