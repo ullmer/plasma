@@ -48,8 +48,11 @@ plasma:
           recent: {bs: 0011, bv: 0x3}
           as:     {bs: 0100, bv: 0x4}
 
-        nature:   {bs: 1000, bv: 0x9}
-          cursor: {bs: 1001, bv: 0xA}
+        nature:   {bs: 1000, bv: 0x8}
+          cursor: {bs: 1001, bv: 0x9}
+          pan:    {bs: 1010, bv: 0xA}
+          scroll: {bs: 1011, bv: 0xB}
+          rotate: {bs: 1100, bv: 0xC}
 
 ops:
   std:
