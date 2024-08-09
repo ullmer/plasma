@@ -22,13 +22,12 @@ plasma:
           quit:   {bs: 0000 0001 1001}
           props:  {bs: 0000 0001 1010}
 
-        scope:    {bs: 0000 0010 0000} #perhaps map this++ into last nibble of two-word code to avoid state/mode issues
-          local:  {bs: 0000 0010 0001}
-          cloud:  {bs: 0000 0010 0010}
-          recent: {bs: 0000 0010 0011}
-          as:     {bs: 0000 0010 0100}
+        #scope:    {bs: 0000 0010 0000} #perhaps map this++ into last nibble of two-word code to avoid state/mode issues
+        #  local:  {bs: 0000 0010 0001}
+        #  cloud:  {bs: 0000 0010 0010}
+        #  recent: {bs: 0000 0010 0011}
+        #  as:     {bs: 0000 0010 0100}
 
-          
     scope: [local, cloud, recent, as]
 
 
