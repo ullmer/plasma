@@ -35,15 +35,17 @@ plasma:
           find:          {bs: 0000 0010 1010, bv: 0x02A0}
           findReplace:   {bs: 0000 0010 1011, bv: 0x02B0}
 
-        nav:             {bs: 0000 0010 0000, bv: 0x0300}
-          orient:        {bs: 0000 0010 0001, bv: 0x0310}
-            up:          {bs: 0000 0010 0010, bv: 0x0320}
-            down:        {bs: 0000 0010 0011, bv: 0x0330}
-            left:        {bs: 0000 0010 0100, bv: 0x0340}
-            right:       {bs: 0000 0010 0101, bv: 0x0350}
-
+        nav:             
+          orient:        
+            up:          {bs: 0000 0011 0000, bv: 0x0300}
+            down:        {bs: 0000 0011 0001, bv: 0x0310}
+            left:        {bs: 0000 0011 0010, bv: 0x0320}
+            right:       {bs: 0000 0011 0011, bv: 0x0330}
           scale:         
-
+            sc1:         {bs: 0000 0000 0100, bv: 0x0040}         
+            sc2:         {bs: 0000 0000 1100, bv: 0x0050}
+            sc3:         {bs: 0000 0000 1000, bv: 0x0080}
+            sc4:         {bs: 0000 0000 1100, bv: 0x0090}
 
         scope:    {bs: 0000, bv: 0x0} #map this++ into last nibble of two-byte code to avoid state/mode issues
           local:  {bs: 0001, bv: 0x1}
