@@ -29,10 +29,10 @@ ops:
       ctrl:  [grant, revoke]
     transaction: [commit, rollback, savepoint]
     operators: 
-      arithmetic: [+, -, *, /]
-      comparison: [=, <>, <, >]
+      arithmetic: ['+', '-',  '*', '/']
+      comparison: ['=', '<>', '<', '>']
+      bitwise:    ['&', '|',  '^']
       logical:    [and, or, not]
-      bitwise:    [&, |, ^]
     functions:
       aggregate: [count, sum, avg]
       string:    [concat, length, upper, lower]
