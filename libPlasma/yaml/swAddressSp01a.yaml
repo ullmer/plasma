@@ -35,9 +35,12 @@ plasma:
           find:          {bs: 0000 0010 1010, bv: 0x02A0}
           findReplace:   {bs: 0000 0010 1011, bv: 0x02B0}
 
-        nav:             {bs: 0000 0010 0000, bv: 0x0200}
-          orient:        {bs: 0000 0010 0001, bv: 0x0210}
-            orient:      {bs: 0000 0010 0001, bv: 0x0210}
+        nav:             {bs: 0000 0010 0000, bv: 0x0300}
+          orient:        {bs: 0000 0010 0001, bv: 0x0310}
+            up:          {bs: 0000 0010 0001, bv: 0x0320}
+            down:        {bs: 0000 0010 0001, bv: 0x03302}
+            left:        {bs: 0000 0010 0001, bv: 0x0313}
+            right:       {bs: 0000 0010 0001, bv: 0x0314}
 
         scope:    {bs: 0000, bv: 0x0} #map this++ into last nibble of two-byte code to avoid state/mode issues
           local:  {bs: 0001, bv: 0x1}
@@ -45,6 +48,8 @@ plasma:
           recent: {bs: 0011, bv: 0x3}
           as:     {bs: 0100, bv: 0x4}
 
+        nature:   {bs: 1000, bv: 0x9}
+          cursor: {bs: 1001, bv: 0xA}
 
 ops:
   std:
