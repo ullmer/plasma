@@ -10,7 +10,7 @@ standardOps:
   edit: [clipboard, undo, cut, copy, paste, pasteSpecial, 
          clear, selectAll, showClipboard, find, findReplace]
 
-  3dModel: [animation, compomsiting, geometryNodes, layout, 
+  3dModel: [animation, compositing, geometryNodes, layout, 
             modeling, rendering, scripting, sculpting, shading, 
             texturePaint, uvEditing]
 
