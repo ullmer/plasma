@@ -7,18 +7,24 @@
 
 import org.yaml.snakeyaml.reader;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
+import java.util.Map;
+
 /////////////////////////////////////////////////////////////
 ////////////////////// plasma protein schemas ///////////////
 
 public class proteinSchemas {
   String schemaIndexPath = null;
   String indexFn         = "index.yaml";
-  indexYamlD      = None 
-  hardwareYamlFn  = None
-  hardwareYamlD   = None
-  sensorYamlD     = None
+  String hardwareYamlFn  = null;
+
+  Map<String, Object> indexYamlD, hardwareYamlD, sensorYamlD, swYamlD;
+  Map<Int, String>    sensorTypeId2Name  = null;
+  Map<String, Int>    sensorTypeName2Id  = null;
+
   synthHwSensorDepositorCache = None
-  sensorTypeId2Name  = None
   sensorTypeName2Id  = None
   sensorTypesEngaged = None
   pDancer            = None
