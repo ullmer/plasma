@@ -34,7 +34,7 @@ plasma:
 
 ops:
   std:
-    file:  [open, close, new, save, import, export, print, revert, quit, properties]  #4 bit
+    file:  [open, close, new, save, import, export, print, revert, quit, properties]  
     scope: [local, cloud, recent, as]
     edit:  [clipboard, undo, cut, copy, paste, pasteSpecial, 
             clear, selectAll, showClipboard, find, findReplace]
