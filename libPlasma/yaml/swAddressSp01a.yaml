@@ -26,14 +26,22 @@ plasma:
             clear, selectAll, showClipboard, find, findReplace]
         edit:            {bs: 0000 0010 0000, bv: 0x0200}
           clipboard:     {bs: 0000 0010 0001, bv: 0x0210}
-          showClipboard: {bs: 0000 0010 0001, bv: 0x0210}
-          pasteSpecial:  {bs: 0000 0010 0001, bv: 0x0210}
+          undo:          {bs: 0000 0010 0010, bv: 0x0220}
+          cut:           {bs: 0000 0010 0011, bv: 0x0230}
+          copy:          {bs: 0000 0010 0100, bv: 0x0240}
+          paste:         {bs: 0000 0010 0101, bv: 0x0250}
+          pasteSpecial:  {bs: 0000 0010 0110, bv: 0x0260}
+          clear:         {bs: 0000 0010 0111, bv: 0x0270}
+          selectAll:     {bs: 0000 0010 1000, bv: 0x0280}
+          showClipboard: {bs: 0000 0010 1001, bv: 0x0290}
+          find:          {bs: 0000 0010 1010, bv: 0x02A0}
+          findReplace:   {bs: 0000 0010 1011, bv: 0x02B0}
 
-        scope:    {bs: 0000} #map this++ into last nibble of two-byte code to avoid state/mode issues
-          local:  {bs: 0001}
-          cloud:  {bs: 0010}
-          recent: {bs: 0011}
-          as:     {bs: 0100}
+        scope:    {bs: 0000, bv: 0x0} #map this++ into last nibble of two-byte code to avoid state/mode issues
+          local:  {bs: 0001, bv: 0x1}
+          cloud:  {bs: 0010, bv: 0x2}
+          recent: {bs: 0011, bv: 0x3}
+          as:     {bs: 0100, bv: 0x4}
 
 ops:
   std:
