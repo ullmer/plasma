@@ -20,6 +20,8 @@ public class proteinSchemas {
   String indexFn         = "index.yaml";
   String hardwareYamlFn  = null;
 
+  Boolean verbose        = true;
+
   Map<String, Object> indexYamlD, hardwareYamlD, sensorYamlD, swYamlD;
   Map<Int, String>    sensorTypeId2Name  = null;
   Map<String, Int>    sensorTypeName2Id  = null;
@@ -65,6 +67,16 @@ public class proteinSchemas {
       yf = open(fullPath)
       self.indexYamlD = yaml.safe_load(yf) /index.yaml, primarily containing names of other YAML indices
       yf.close()
+
+    try {
+      InputStream inputStream = new FileInputStream(fullPath)
+      Yaml iy                 = new Yaml();
+      indexYamlD              = iy.load(inputStream);
+
+      if (verbose) System.out.println(data);
+
+     } catch (FileNotFoundException e) { e.printStackTrace(); }
+
     except:
       self.err("loadIndices: error on opening and/or loading " + fullPath); 
       traceback.print_exc(); return
