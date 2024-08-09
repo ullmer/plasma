@@ -50,9 +50,10 @@ public class ProteinSchemas {
 
   ///////////// load indices /////////////
 
-  def loadIndices(self):
-    if self.schemaIndexPath is None or self.indexFn is None:
-      self.err("loadIndices: schemaIndexPath or indexFn is empty! Returning"); return
+  public boolean loadIndices() {
+    if (schemaIndexPath == null or indexFn == null) {
+      err("loadIndices: schemaIndexPath or indexFn is empty! Returning"); return false;
+    }
 
     fullPath = self.schemaIndexPath + "/" + self.indexFn
     if os.path.exists(fullPath) is False:
