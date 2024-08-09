@@ -4,12 +4,16 @@
 
 ops:
   std:
-    file: [new, openLocal, openCloud, openRecent, 
-           saveLocal, saveCloud, saveAs, 
-           revert, import, export, properties, print, quit]
-
-    edit: [clipboard, undo, cut, copy, paste, pasteSpecial, 
-           clear, selectAll, showClipboard, find, findReplace]
+    file:  [open, close, new, save, import, export, print, revert, quit, properties]
+    scope: [local, cloud, recent, as]
+    edit:  [clipboard, undo, cut, copy, paste, pasteSpecial, 
+            clear, selectAll, showClipboard, find, findReplace]
+    nav:
+      local:  [up, down, left, right]
+      page:   [up, down, left, right]
+      global: [home, end]
+    meta:  [help, vrfy, list]
+    param: [set,  get,  list]
 
   model: [animation, compositing, geometryNodes, layout, 
           modeling, rendering, scripting, sculpting, shading, 
