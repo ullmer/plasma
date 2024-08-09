@@ -11,6 +11,8 @@ import org.yaml.snakeyaml.reader;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
+import java.io.File;
+
 import java.util.Map;
 
 /////////////////////////////////////////////////////////////
@@ -55,9 +57,10 @@ public class ProteinSchemas {
       err("loadIndices: schemaIndexPath or indexFn is empty! Returning"); return false;
     }
 
-    fullPath = self.schemaIndexPath + "/" + self.indexFn
-    if os.path.exists(fullPath) is False:
-      self.err("loadIndices: indices path doesn't exist! : " + fullPath)
+    File fullPath(schemaIndexPath + "/" + indexFn);
+    if (fullPath.exists() == false) {
+      err("loadIndices: indices path doesn't exist! : %s", fullPath);
+    }
 
     try:
       yf = open(fullPath)
