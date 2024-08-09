@@ -22,8 +22,6 @@ plasma:
           quit:   {bs: 0000 0001 1001, bv: 0x0190}
           props:  {bs: 0000 0001 1010, bv: 0x01A0}
 
-        edit:  [clipboard, undo, cut, copy, paste, pasteSpecial, 
-            clear, selectAll, showClipboard, find, findReplace]
         edit:            {bs: 0000 0010 0000, bv: 0x0200}
           clipboard:     {bs: 0000 0010 0001, bv: 0x0210}
           undo:          {bs: 0000 0010 0010, bv: 0x0220}
@@ -37,16 +35,21 @@ plasma:
           find:          {bs: 0000 0010 1010, bv: 0x02A0}
           findReplace:   {bs: 0000 0010 1011, bv: 0x02B0}
 
+        nav:             {bs: 0000 0010 0000, bv: 0x0200}
+          orient:        {bs: 0000 0010 0001, bv: 0x0210}
+            orient:      {bs: 0000 0010 0001, bv: 0x0210}
+
         scope:    {bs: 0000, bv: 0x0} #map this++ into last nibble of two-byte code to avoid state/mode issues
           local:  {bs: 0001, bv: 0x1}
           cloud:  {bs: 0010, bv: 0x2}
           recent: {bs: 0011, bv: 0x3}
           as:     {bs: 0100, bv: 0x4}
 
+
 ops:
   std:
     nav:
-      dir:    [up, down, left, right]
+      orient: [up, down, left, right]
       scope:  [el, page, file]
       nature: [cursor, pan, scroll, rotate]
       global: [home, end]
