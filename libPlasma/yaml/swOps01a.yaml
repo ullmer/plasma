@@ -2,5 +2,40 @@
 # Initiated by Brygg Ullmer, Clemson University
 # Begun 2024-08-08
 
+standardOps:
+  file: [new, openLocal, openCloud, openRecent, 
+         saveLocal, saveCloud, saveAs, 
+         revert, import, export, properties, print, quit]
+
+  edit: [clipboard, undo, cut, copy, paste, pasteSpecial, 
+         clear, selectAll, showClipboard, find, findReplace]
+
+  3dModel: [animation, compomsiting, geometryNodes, layout, 
+            modeling, rendering, scripting, sculpting, shading, 
+            texturePaint, uvEditing]
+
+  viz:     [plotting, labeling, coloring, filtering, aggregating, transforming, 
+            interactives, animations, geospatials, styling, annotations, dashboards]
+
+  tables: [dataEntry, formatting, sorting, filtering, aggregating, charts, graphs, 
+           macros, validation, sharing, permissions, comments]
+
+  db: 
+    meta: [archive, check, clone, dump, explain]
+    data:
+      manip: [select, insert, update, delete]
+      defin: [create, alter, drop, truncate]
+      ctrl:  [grant, revoke]
+    transaction: [commit, rollback, savepoint]
+    operators: 
+      arithmetic: [+, -, *, /]
+      comparison: [=, <>, <, >]
+      logical:    [and, or, not]
+      bitwise:    [&, |, ^]
+    functions:
+      aggregate: [count, sum, avg]
+      string:    [concat, length, upper, lower]
+      date:      [now, dateAdd, dateDiff]    
+    views: [databases, schemas, indexes, tables, parameters, stats]
 
 ### end ###
