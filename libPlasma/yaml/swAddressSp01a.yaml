@@ -9,10 +9,11 @@ plasma:
       address:    {bs: 0BBB CCCC, bv: 0,  nm: software, prefix: SW}
       std:
         addr:     {bs: 0000 CCCC DDDD EEEE} 
-        file:     {bs: 0000 0001 0000}
-          open:   {bs: 0000 0001 0001}
-          close:  {bs: 0000 0001 0010}
-          new:    {bs: 0000 0001 0011}
+
+        file:     {bs: 0000 0001 0000, bv: 0x0100}
+          open:   {bs: 0000 0001 0001, bv: 0x0110}
+          close:  {bs: 0000 0001 0010, bv: 0x0120}
+          new:    {bs: 0000 0001 0011, bv: 0x0130}
           save:   {bs: 0000 0001 0100}
           import: {bs: 0000 0001 0101}
           export: {bs: 0000 0001 0110}
@@ -20,7 +21,15 @@ plasma:
           revert: {bs: 0000 0001 1000}
           quit:   {bs: 0000 0001 1001}
           props:  {bs: 0000 0001 1010}
+
+        scope:    {bs: 0000 0010 0000}
+          local:  {bs: 0000 0010 0001}
+          cloud:  {bs: 0000 0010 0010}
+          recent: {bs: 0000 0010 0011}
+          as:     {bs: 0000 0010 0100}
+
           
+    scope: [local, cloud, recent, as]
 
   hw:        ############# HARDWARE ############
     sensors: ############# SENSORS  ############ 
