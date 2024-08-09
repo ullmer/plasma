@@ -27,9 +27,9 @@ public class ProteinSchemas {
   Map<Int, String>    sensorTypeId2Name  = null;
   Map<String, Int>    sensorTypeName2Id  = null;
 
-  synthHwSensorDepositorCache = None
-  sensorTypesEngaged = None
-  pDancer            = None
+  Map<String, Object> synthHwSensorDepositorCache = null;
+  Map<String, boolean> sensorTypesEngaged         = null;
+  ProteinDancer      pDancer = null;
 
   ///////////// error reporting /////////////
 
@@ -39,13 +39,7 @@ public class ProteinSchemas {
 
   ///////////// constructor /////////////
 
-  public ProteinSchemas:
-  def __init__(self, **kwargs):
-    self.msgCallbackDict  = {}
-
-    /https://stackoverflow.com/questions/739625/setattr-with-kwargs-pythonic-or-not
-    self.__dict__.update(kwargs) /allow class fields to be passed in constructor
-
+  public ProteinSchemas() {
     self.synthHwSensorDepositorCache = {}
     self.sensorTypeId2Name           = {}
     self.sensorTypeName2Id           = {}
