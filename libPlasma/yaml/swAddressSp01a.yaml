@@ -31,29 +31,6 @@ plasma:
           
     scope: [local, cloud, recent, as]
 
-  hw:        ############# HARDWARE ############
-    sensors: ############# SENSORS  ############ 
-      address: {bs: 10BB CCCC, bv: 127, nm: sensors, prefix: HS}
-
-      contact:        #### contact ####
-        addr:  {bs: 1000 BBBB, bv: 127, nm: contact sensors}
-        BS:    {bs: 1000 0001, bv: 128, nm: buttons switches}
-
-      noncontact:    #### non-contact ####
-        addr:  {bs: 1001 BBBB, bv: 144, nm: non-contact sensors}
-        C2d:   {bs: 1001 0110, bv: 150, nm: capacitive 2d}
-        C2d_generic: {bv: 0x9601, nm: multitouch, fmt: unt16*3, 
-                      layout: AB CC DD, fields: [touch, x, y]}
-        NFC:   {bs: 1001 1100, bv: 156, nm: NFC} 
-        NFC_125k01: {bv: 0x9A01, nm: HiTag2,  fmt: unt16*3,  
-                     layout: AA AA AA,    fields: [serial]}
-        NFC_13m01:  {bv: 0x9A11, nm: NTAG213, fmt: unt16*4, 
-                     layout: AA AA AA A0, fields: [serial]}
-        IMU:   {bs: 1001 1111, bv: 159, nm: inertial measurement}
-        IMU_ST01:  {bv: 0x9F01, nm: ST LSM6DS3TR_C IMU Ac Gy, 
-                    fmt: unt16*2, layout: AA BB, fields: [Ac, Gy]}
-
-        #C2d_generic: {bv: 0x9601, nm: multitouch, fmt: unt16*3, layout: AB CC DD, fields: [device, touch, x, y]}
 
 ops:
   std:
@@ -97,4 +74,28 @@ ops:
       date:      [now, dateAdd, dateDiff]    
     views: [databases, schemas, indexes, tables, parameters, stats]
 
+  
+  hw:        ############# HARDWARE ############
+    sensors: ############# SENSORS  ############ 
+      address: {bs: 10BB CCCC, bv: 127, nm: sensors, prefix: HS}
+
+      contact:        #### contact ####
+        addr:  {bs: 1000 BBBB, bv: 127, nm: contact sensors}
+        BS:    {bs: 1000 0001, bv: 128, nm: buttons switches}
+
+      noncontact:    #### non-contact ####
+        addr:  {bs: 1001 BBBB, bv: 144, nm: non-contact sensors}
+        C2d:   {bs: 1001 0110, bv: 150, nm: capacitive 2d}
+        C2d_generic: {bv: 0x9601, nm: multitouch, fmt: unt16*3, 
+                      layout: AB CC DD, fields: [touch, x, y]}
+        NFC:   {bs: 1001 1100, bv: 156, nm: NFC} 
+        NFC_125k01: {bv: 0x9A01, nm: HiTag2,  fmt: unt16*3,  
+                     layout: AA AA AA,    fields: [serial]}
+        NFC_13m01:  {bv: 0x9A11, nm: NTAG213, fmt: unt16*4, 
+                     layout: AA AA AA A0, fields: [serial]}
+        IMU:   {bs: 1001 1111, bv: 159, nm: inertial measurement}
+        IMU_ST01:  {bv: 0x9F01, nm: ST LSM6DS3TR_C IMU Ac Gy, 
+                    fmt: unt16*2, layout: AA BB, fields: [Ac, Gy]}
+
+        #C2d_generic: {bv: 0x9601, nm: multitouch, fmt: unt16*3, layout: AB CC DD, fields: [device, touch, x, y]}
 ### end ###
