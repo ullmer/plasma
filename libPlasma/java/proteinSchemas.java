@@ -225,14 +225,14 @@ public class ProteinSchemas {
     self.synthHwSensorDepositorCache[hwEl] = depositorFunc
     return depositorFunc
 
-//C2d_generic : ['unt16', '3']
-//NFC_125k01 : ['unt16', '3']
-//NFC_13m01 : ['unt16', '4']
-//IMU_ST01 : ['unt16', '2']
-//C2d_generic : {'bv': 38401, 'nm': 'multitouch', 'fmt': 'unt16*3', 'layout': 'AB CC DD', 'fields': ['device', 'touch', 'x', 'y']}
-//NFC_125k01 : {'bv': 39425, 'nm': 'HiTag2', 'fmt': 'unt16*3', 'layout': 'AA AA AA', 'fields': ['serial']}
-//NFC_13m01 : {'bv': 39441, 'nm': 'NTAG213', 'fmt': 'unt16*4', 'layout': 'AA AA AA A0', 'fields': ['serial']}
-//IMU_ST01 : {'bv': 40705, 'nm': 'ST LSM6DS3TR_C IMU Ac Gy', 'fmt': 'unt16*2', 'layout': 'AA BB', 'fields': ['Ac', 'Gy']}
+//C2d_generic: ['unt16', '3']
+//NFC_125k01:  ['unt16', '3']
+//NFC_13m01:   ['unt16', '4']
+//IMU_ST01:    ['unt16', '2']
+//C2d_generic: {'bv': 38401, 'nm': 'multitouch', 'fmt': 'unt16*3', 'layout': 'AB CC DD', 'fields': ['device', 'touch', 'x', 'y']}
+//NFC_125k01:  {'bv': 39425, 'nm': 'HiTag2', 'fmt': 'unt16*3', 'layout': 'AA AA AA', 'fields': ['serial']}
+//NFC_13m01:   {'bv': 39441, 'nm': 'NTAG213', 'fmt': 'unt16*4', 'layout': 'AA AA AA A0', 'fields': ['serial']}
+//IMU_ST01:    {'bv': 40705, 'nm': 'ST LSM6DS3TR_C IMU Ac Gy', 'fmt': 'unt16*2', 'layout': 'AA BB', 'fields': ['Ac', 'Gy']}
 
 ////////////////////// main //////////////////////
 
