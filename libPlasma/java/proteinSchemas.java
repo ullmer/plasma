@@ -82,7 +82,14 @@ public class ProteinSchemas {
       err("loadIndices: configs (configurations) not found in %s", fullPath); return false;
     }
 
-    pconfigs = self.indexYamlD['configs']
+    Map<String, Object> pconfigs = indexYamlD.get('configs');
+
+    if (pconfigs == null) {
+      err("loadIndices: configs (configurations) not found in %s", fullPath); return false;
+    }
+	   
+	    or pconfigs.
+
     if 'addressSpace' not in pconfigs:
       self.err("loadIndices: addressSpace not in " + fullPath); return 
 
