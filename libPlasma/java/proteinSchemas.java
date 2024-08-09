@@ -57,28 +57,25 @@ public class ProteinSchemas {
       err("loadIndices: schemaIndexPath or indexFn is empty! Returning"); return false;
     }
 
-    File fullPath(schemaIndexPath + "/" + indexFn);
-    if (fullPath.exists() == false) {
+    String fullPath(schemaIndexPath + "/" + indexFn);
+    File   fullPathF(fullPath);
+
+    if (fullPathF.exists() == false) {
       err("loadIndices: indices path doesn't exist! : %s", fullPath);
     }
 
-    try:
-      yf = open(fullPath)
-      self.indexYamlD = yaml.safe_load(yf) /index.yaml, primarily containing names of other YAML indices
-      yf.close()
-
     try {
-      InputStream inputStream = new FileInputStream(fullPath)
+      fullPath.open();
+      InputStream inputStream = new FileInputStream(fullPath);
       Yaml iy                 = new Yaml();
       indexYamlD              = iy.load(inputStream);
 
-      if (verbose) System.out.println(data);
+      if (verbose) System.out.println(indexYamlD);
 
-     } catch (FileNotFoundException e) { e.printStackTrace(); }
-
-    except:
-      self.err("loadIndices: error on opening and/or loading " + fullPath); 
-      traceback.print_exc(); return
+    } catch (FileNotFoundException e) { 
+      err("loadIndices: error on opening and/or loading %s", fullPath); 
+      e.printStackTrace(); 
+    }
 
     if 'configs' not in self.indexYamlD:
       self.err("loadIndices: configs (configurations) not found in " + fullPath); return
