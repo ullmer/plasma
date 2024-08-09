@@ -223,10 +223,18 @@ public class proteinSchemas {
 
 ////////////////////// main //////////////////////
 
-if __name__ == '__main__':
-  //ps = proteinSchemas(schemaIndexPath='/home/bullmer/git/plasma/libPlasma/yaml')
-  ps = proteinSchemas(schemaIndexPath='/home/ullmer/git/plasma/libPlasma/yaml')
-  print(ps.hardwareYamlD)
+  public static void main(String[] args) {
+    try {
+      InputStream inputStream = new FileInputStream("config.yaml");
+      Yaml yaml = new Yaml();
+      Map<String, Object> data = yaml.load(inputStream);
+      System.out.println(data);
+     } catch (FileNotFoundException e) { e.printStackTrace(); }
+
+    ps = proteinSchemas(schemaIndexPath='/home/ullmer/git/plasma/libPlasma/yaml')
+    print(ps.hardwareYamlD)
+  }
+}
 
 /// end ///
 
