@@ -1,0 +1,77 @@
+#### Initial mapping of software control address space, toward contemplating relevant Proteins ####
+# Initially by Brygg Ullmer, Clemson University
+# Begun 2024-08-08
+
+plasma:
+  address:     {bs: ABBB CCCC DDDD EEEE} #bs: bitstring
+
+  sw:        ############# SOFTWARE ############ classes of services
+      address: {bs: 0BBB CCCC, bv: 0,  nm: software, prefix: SW}
+
+  hw:        ############# HARDWARE ############
+    sensors: ############# SENSORS  ############ 
+      address: {bs: 10BB CCCC, bv: 127, nm: sensors, prefix: HS}
+
+      contact:        #### contact ####
+        addr:  {bs: 1000 BBBB, bv: 127, nm: contact sensors}
+        BS:    {bs: 1000 0001, bv: 128, nm: buttons switches}
+
+      noncontact:    #### non-contact ####
+        addr:  {bs: 1001 BBBB, bv: 144, nm: non-contact sensors}
+        C2d:   {bs: 1001 0110, bv: 150, nm: capacitive 2d}
+        C2d_generic: {bv: 0x9601, nm: multitouch, fmt: unt16*3, 
+                      layout: AB CC DD, fields: [touch, x, y]}
+        NFC:   {bs: 1001 1100, bv: 156, nm: NFC} 
+        NFC_125k01: {bv: 0x9A01, nm: HiTag2,  fmt: unt16*3,  
+                     layout: AA AA AA,    fields: [serial]}
+        NFC_13m01:  {bv: 0x9A11, nm: NTAG213, fmt: unt16*4, 
+                     layout: AA AA AA A0, fields: [serial]}
+        IMU:   {bs: 1001 1111, bv: 159, nm: inertial measurement}
+        IMU_ST01:  {bv: 0x9F01, nm: ST LSM6DS3TR_C IMU Ac Gy, 
+                    fmt: unt16*2, layout: AA BB, fields: [Ac, Gy]}
+
+        #C2d_generic: {bv: 0x9601, nm: multitouch, fmt: unt16*3, layout: AB CC DD, fields: [device, touch, x, y]}
+
+ops:
+  std:
+    file:  [open, close, new, save, import, export, print, revert, quit, properties]
+    scope: [local, cloud, recent, as]
+    edit:  [clipboard, undo, cut, copy, paste, pasteSpecial, 
+            clear, selectAll, showClipboard, find, findReplace]
+    nav:
+      dir:    [up, down, left, right]
+      scope:  [el, page, file]
+      nature: [cursor, pan, scroll, rotate]
+      global: [home, end]
+    meta:  [help, vrfy, list]
+    param: [set,  get,  list]
+
+  model: [animation, compositing, geometryNodes, layout, 
+          modeling, rendering, scripting, sculpting, shading, 
+          texturePaint, uvEditing]
+
+  viz:   [plotting, labeling, coloring, filtering, aggregating, transforming, 
+          interactives, animations, geospatials, styling, annotations, dashboards]
+
+  tables: [dataEntry, formatting, sorting, filtering, aggregating, charts, graphs, 
+           macros, validation, sharing, permissions, comments]
+
+  db: 
+    meta: [archive, check, clone, dump, explain]
+    data:
+      manip: [select, insert, update, delete]
+      defin: [create, alter, drop, truncate]
+      ctrl:  [grant, revoke]
+    transaction: [commit, rollback, savepoint]
+    operators: 
+      arithmetic: ['+', '-',  '*', '/']
+      comparison: ['=', '<>', '<', '>']
+      bitwise:    ['&', '|',  '^']
+      logical:    [and, or, not]
+    functions:
+      aggregate: [count, sum, avg]
+      string:    [concat, length, upper, lower]
+      date:      [now, dateAdd, dateDiff]    
+    views: [databases, schemas, indexes, tables, parameters, stats]
+
+### end ###
