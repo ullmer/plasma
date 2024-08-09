@@ -10,7 +10,8 @@ plasma:
       std:
         addr:     {bs: 0000 CCCC DDDD EEEE} 
 
-        file:     {bs: 0000 0001 0000, bv: 0x0100}
+        file:     
+          addr:   {bs: 0000 0001 0000, bv: 0x0100}
           open:   {bs: 0000 0001 0001, bv: 0x0110}
           close:  {bs: 0000 0001 0010, bv: 0x0120}
           new:    {bs: 0000 0001 0011, bv: 0x0130}
@@ -22,7 +23,8 @@ plasma:
           quit:   {bs: 0000 0001 1001, bv: 0x0190}
           props:  {bs: 0000 0001 1010, bv: 0x01A0}
 
-        edit:            {bs: 0000 0010 0000, bv: 0x0200}
+        edit:            
+          addr:          {bs: 0000 0010 0000, bv: 0x0200}
           clipboard:     {bs: 0000 0010 0001, bv: 0x0210}
           undo:          {bs: 0000 0010 0010, bv: 0x0220}
           cut:           {bs: 0000 0010 0011, bv: 0x0230}
@@ -47,13 +49,15 @@ plasma:
             sc3:         {bs: 0000 0000 1000, bv: 0x0080}
             sc4:         {bs: 0000 0000 1100, bv: 0x0090}
 
-        scope:    {bs: 0000, bv: 0x0} #map this++ into last nibble of two-byte code to avoid state/mode issues
+        scope:    
+          addr:   {bs: 0000, bv: 0x0} #map this++ into last nibble of two-byte code to avoid state/mode issues
           local:  {bs: 0001, bv: 0x1}
           cloud:  {bs: 0010, bv: 0x2}
           recent: {bs: 0011, bv: 0x3}
           as:     {bs: 0100, bv: 0x4}
 
-        nature:   {bs: 1000, bv: 0x8}
+        nature:   
+          addr:   {bs: 1000, bv: 0x8}
           cursor: {bs: 1001, bv: 0x9}
           pan:    {bs: 1010, bv: 0xA}
           scroll: {bs: 1011, bv: 0xB}
