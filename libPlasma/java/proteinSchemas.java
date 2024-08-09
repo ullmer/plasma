@@ -82,20 +82,17 @@ public class ProteinSchemas {
       err("loadIndices: configs (configurations) not found in %s", fullPath); return false;
     }
 
-    Map<String, Object> pconfigs = indexYamlD.get('configs');
+    Map<String, Object> pconfigs = indexYamlD.get('configs'); //protein configs
 
-    if (pconfigs == null) {
+    if (pconfigs == null || pconfigs.containsKey('addressSpace') == false) {
       err("loadIndices: configs (configurations) not found in %s", fullPath); return false;
     }
-	   
-	    or pconfigs.
 
-    if 'addressSpace' not in pconfigs:
-      self.err("loadIndices: addressSpace not in " + fullPath); return 
+    Map<String, String> pcas = pconfigs.get('addressSpace''); //protein configs address space
+    if (pcas == null || pcas.containsKey('hardware') == false) {
+      err("loadIndices: hardware YAML specification not in %s", fullPath); return false;
+    }
 
-    pcas = pconfigs['addressSpace']
-    if 'hardware' not in pcas:
-      self.err("loadIndices: hardware YAML specification not in " + fullPath); return
 
     self.hardwareYamlFn = pcas['hardware']
     try:
