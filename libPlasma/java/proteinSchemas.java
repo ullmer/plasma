@@ -5,13 +5,14 @@
 // Python variant begun 2024-07-20
 // Java port begun 2024-08-09
 
+import org.yaml.snakeyaml.reader;
 
 /////////////////////////////////////////////////////////////
 ////////////////////// plasma protein schemas ///////////////
 
-class proteinSchemas:
-  schemaIndexPath = None
-  indexFn         = 'index.yaml'
+public class proteinSchemas {
+  String schemaIndexPath = null;
+  String indexFn         = "index.yaml";
   indexYamlD      = None 
   hardwareYamlFn  = None
   hardwareYamlD   = None
