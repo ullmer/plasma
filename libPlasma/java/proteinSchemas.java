@@ -73,6 +73,28 @@ public class ProteinSchemas {
 							     
     hardwareYamlD = loadPCASYaml(pcas, 'hardware');
     softwareYamlD = loadPCASYaml(pcas, 'software');
+
+    sensorYamlD = retrieveYamlSubset(hardwareYamlD, ['plasma', 'hw', 'sensors']);
+
+
+
+
+    /////////// Load hardware yaml info /////////// 
+
+    if 'plasma' not in self.hardwareYamlD:
+      self.err("loadHwYamlDescr: 'plasma' not in yaml descr!"); return None
+
+    p = self.hardwareYamlD['plasma']
+
+    if 'hw' not in p:
+     self.err("loadHwYamlDescr: 'hw' not in yaml descr!"); return None
+
+    phw = p['hw']
+
+    if 'sensors' not in phw:
+      self.err("loadHwYamlDescr: 'sensors' not in yaml descr!"); return None
+
+    self.sensorYamlD = phw['sensors'] 
   }
 							      
   ///////////// load PCAS Yaml /////////////
@@ -110,22 +132,6 @@ public class ProteinSchemas {
     return result;
   }
 
-    /////////// Load hardware yaml info /////////// 
-
-    if 'plasma' not in self.hardwareYamlD:
-      self.err("loadHwYamlDescr: 'plasma' not in yaml descr!"); return None
-
-    p = self.hardwareYamlD['plasma']
-
-    if 'hw' not in p:
-     self.err("loadHwYamlDescr: 'hw' not in yaml descr!"); return None
-
-    phw = p['hw']
-
-    if 'sensors' not in phw:
-      self.err("loadHwYamlDescr: 'sensors' not in yaml descr!"); return None
-
-    self.sensorYamlD = phw['sensors'] 
 
   ///////////// get hw sensor descr /////////////
 
