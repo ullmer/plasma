@@ -38,7 +38,7 @@ public class ProteinSchemas {
 
   //to allow for later non-stdout error redirection
   public void err(msg)       {System.err.println("ProteinSchemas error: %s", msg); }
-  publiv void msgUpdate(msg) {System.out.println("ProteinSchemas message update: %s", msg);}
+  public void msgUpdate(msg) {System.out.println("ProteinSchemas message update: %s", msg);}
 
   ///////////// constructor /////////////
 
@@ -165,13 +165,21 @@ public class ProteinSchemas {
 
     if (verbose) {System.out.println("active sensor fields:");}
 
-      for sensorTypeId in self.sensorTypesEngaged:
-        self.printSensorArgs(sensorTypeId)
+    for (String sensorTypeId : sensorTypesEngaged) printSensorArgs(sensorTypeId);
+  }
 
-  ///////////// sensor depostor /////////////
+  ///////////// print sensor args /////////////
+  //
+  public void printSensorArgs(int sensorTypeId) { 
+    if (sensorTypeId2Name == null) {err("printSensorArgs: sensorTypeId2Name is null!"); return;}
+    if (sensorTypeId2Name.containsKey(sensorTypeId)) {
+      String sensorTypeName = sensorTypeId2Name(sensorTypeId);
+      printSensorArgs(sensorTypeName);
+    }
+  }
 
-  def printSensorArgs(self, sensorTypeId): /accepts either integer ID or string ID
-    if sensorTypeId == None: self.err("printSensorArgs: sensorTypeId is None"); return
+  public void printSensorArgs(String sensorTypeName) { 
+    if (sensorTypeName == null) {err("printSensorArgs: sensorTypeId is None"); return;}
 
     if isinstance(sensorTypeId, int) and sensorTypeId in self.sensorTypeId2Name: hwEl = self.sensorTypeId2Name[sensorTypeId]
     else: hwEl = sensorTypeId
@@ -184,6 +192,7 @@ public class ProteinSchemas {
       resultStr = "Sensor %s : fields %s (%s)\n" % (hwEl, str(fields), str(hwDescr))
       print(resultStr)
     except: self.err("printSensorArgs: unknown error"); traceback.print_exc(); return
+  public void msgUpdate(msg) {System.out.println("ProteinSchemas message update: %s", msg);}
 
   ///////////// sensor depostor /////////////
 
