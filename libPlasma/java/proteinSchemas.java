@@ -61,34 +61,11 @@ public class ProteinSchemas {
     String fullPath(schemaIndexPath + "/" + indexFn);
     File   fullPathF(fullPath);
 
-    if (fullPathF.exists() == false) {
-      err("loadIndices: indices path doesn't exist! : %s", fullPath);
-    }
+    if (fullPathF.exists() == false) err("loadIndices: indices path doesn't exist! : %s", fullPath);
 
-    try {
-      fullPath.open();
-      InputStream inputStream = new FileInputStream(fullPath);
-      Yaml iy                 = new Yaml();
-      indexYamlD              = iy.load(inputStream);
+    indexYamlD = loadYamlFn(fullPath, 'configs');
 
-      if (verbose) System.out.println(indexYamlD);
-
-    } catch (FileNotFoundException e) { 
-      err("loadIndices: error on opening and/or loading %s", fullPath); 
-      e.printStackTrace(); 
-      return false;
-    }
-
-    try { if (inputStream!= null) inputStream.close()
-    } catch (IOException e)       err("loadIndices: Failed to close index yaml filehandle");
-
-    if (indexYamlD.containsKey('configs') == false) {
-      err("loadIndices: configs (configurations) not found in %s", fullPath); return false;
-    }
-
-    Map<String, Object> pconfigs = indexYamlD.get('configs'); //protein configs
-
-    if (pconfigs == null || pconfigs.containsKey('addressSpace') == false) {
+    if (indexYamlD == null || indexYamlD.containsKey('addressSpace') == false) {
       err("loadIndices: configs (configurations) not found in %s", fullPath); return false;
     }
 
@@ -98,15 +75,19 @@ public class ProteinSchemas {
     softwareYamlD = loadPCASYaml(pcas, 'software');
 							      
   ///////////// load PCAS Yaml /////////////
-
   public Map<String, Object> loadPCASYaml(Map<String, String> pcas, String resourceHandle) {
     if (pcas == null || pcas.containsKey(resourceHandle) == false) {
       err("loadPCASYaml: YAML specification not in %s", resourceHandle); return false;
     }
 
-    Map<String, Object> result;
-
     yamlFn = pcas.get(resourceHandle);
+    Map<String, Object> result = loadYamlFn(yamlFn, resourceHandle);
+    return result;
+  
+  }
+  ///////////// load load yaml fn /////////////
+
+  public Map<String, Object> loadYamlFn(yamlFn, String resourceHandle) {
 
     try {
       String fullPath = schemaIndexPath + "/" + yamlFn;
