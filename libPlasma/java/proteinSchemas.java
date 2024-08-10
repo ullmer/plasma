@@ -31,8 +31,8 @@ public class ProteinSchemas {
   Map<String, Int>    sensorTypeName2Id  = null;
 
   Map<String, Object> synthHwSensorDepositorCache = null;
-  Map<String, boolean> sensorTypesEngaged         = null;
-  ProteinDancer      pDancer = null;
+  List<String>        sensorTypesEngaged          = null;
+  //ProteinDancer                           pDancer = null;
 
   ///////////// error reporting /////////////
 
@@ -43,12 +43,12 @@ public class ProteinSchemas {
   ///////////// constructor /////////////
 
   public ProteinSchemas() {
-    self.synthHwSensorDepositorCache = {}
-    self.sensorTypeId2Name           = {}
-    self.sensorTypeName2Id           = {}
-    self.sensorTypesEngaged          = []
+    synthHwSensorDepositorCache = new HashMap<>();
+    sensorTypeId2Name           = new HashMap<>();
+    sensorTypeName2Id           = new HashMap<>();
+    sensorTypesEngaged          = new ArrayList<>();
  
-    self.loadIndices()
+    loadIndices()
     //self.loadMetaindices()
 
   ///////////// load indices /////////////
@@ -163,10 +163,10 @@ public class ProteinSchemas {
   def printActiveSensorFields(self):
     if len(self.sensorTypesEngaged) == 0: self.err("printActiveSensorFields: no sensor types engaged"); return
 
-    print("active sensor fields:")
+    if (verbose) {System.out.println("active sensor fields:");}
 
-    for sensorTypeId in self.sensorTypesEngaged:
-      self.printSensorArgs(sensorTypeId)
+      for sensorTypeId in self.sensorTypesEngaged:
+        self.printSensorArgs(sensorTypeId)
 
   ///////////// sensor depostor /////////////
 
