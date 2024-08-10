@@ -169,7 +169,7 @@ public class ProteinSchemas {
   }
 
   ///////////// print sensor args /////////////
-  //
+
   public void printSensorArgs(int sensorTypeId) { 
     if (sensorTypeId2Name == null) {err("printSensorArgs: sensorTypeId2Name is null!"); return;}
     if (sensorTypeId2Name.containsKey(sensorTypeId)) {
@@ -179,20 +179,23 @@ public class ProteinSchemas {
   }
 
   public void printSensorArgs(String sensorTypeName) { 
-    if (sensorTypeName == null) {err("printSensorArgs: sensorTypeId is None"); return;}
+    if (sensorTypeName == null)     {err("printSensorArgs: sensorTypeId is empty!"); return;}
+    if (sensorTypesEngaged == null) {err("printSensorArgs: sensorTypesEngaged is empty!"); return;}
 
-    if isinstance(sensorTypeId, int) and sensorTypeId in self.sensorTypeId2Name: hwEl = self.sensorTypeId2Name[sensorTypeId]
-    else: hwEl = sensorTypeId
+    if (sensorTypesEngaged.containsKey(sensorTypeName) == false)} {
+	 err("printSensorArgs: " + sensorTypeName + " not currently engaged!"); return;}
 
-    if hwEl not in self.sensorTypesEngaged: self.err("printSensorArgs: sensor type not found engaged: ", str(hwEl)); return
+    Map<String, Object> hwDescr = getHwSensorDescr(sensorTypeName);
 
-    hwDescr = self.getHwSensorDescr(hwEl)
-    try:
-      fields  = hwDescr['fields']
-      resultStr = "Sensor %s : fields %s (%s)\n" % (hwEl, str(fields), str(hwDescr))
-      print(resultStr)
-    except: self.err("printSensorArgs: unknown error"); traceback.print_exc(); return
-  public void msgUpdate(msg) {System.out.println("ProteinSchemas message update: %s", msg);}
+    try {
+      if (hwDescr.containsKey('fields') == false) {
+	 err("printSensorArgs: " + sensorTypeName + " does not contain apropos fields!"); return;}
+         List<String> =  hwDescr.get('fields');
+
+         String resultStr = String.format("Sensor %s : fields %s (%s)\n", sensorTypeName, String(fields), String(hwDescr));
+         msgUpdate(resultStr);
+    } catch (Exception e) {err("printSensorArgs: unknown error"); e.printStackTrace(); return;}
+  }
 
   ///////////// sensor depostor /////////////
 
