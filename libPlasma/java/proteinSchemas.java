@@ -74,12 +74,24 @@ public class ProteinSchemas {
     hardwareYamlD = loadPCASYaml(pcas, 'hardware');
     softwareYamlD = loadPCASYaml(pcas, 'software');
 
-    sensorYamlD = retrieveYamlSubset(hardwareYamlD, ['plasma', 'hw', 'sensors']);
+    sensorYamlD = retrieveYamlSubset(hardwareYamlD, {"plasma", "hw", "sensors"});
+
+  /////////// retrieve yaml subset /////////// 
+  public Map<String,Object> retrieveYamlSubset(Map<String,Object> m, String[] keys) {
+    Map<String,Object> drillDownHandle = m;
+
+    for (int i=0; i<keylist.len; i++) {
+      String key = keys[i];
+      if (key != null and drillDownHandle.containsKey(key)) {
+        drillDownHandle = drillDownHandle.get(key);
+      } else { err("retrieveYamlSubset error" + keys + str(i)); return null; }
+    }
+
+    return drillDownHandle;
+  }
 
 
 
-
-    /////////// Load hardware yaml info /////////// 
 
     if 'plasma' not in self.hardwareYamlD:
       self.err("loadHwYamlDescr: 'plasma' not in yaml descr!"); return None
