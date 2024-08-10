@@ -79,6 +79,9 @@ public class ProteinSchemas {
       return false;
     }
 
+    try { if (inputStream!= null) inputStream.close()
+    } catch (IOException e)       err("loadIndices: Failed to close index yaml filehandle");
+
     if (indexYamlD.containsKey('configs') == false) {
       err("loadIndices: configs (configurations) not found in %s", fullPath); return false;
     }
@@ -90,21 +93,38 @@ public class ProteinSchemas {
     }
 
     Map<String, String> pcas = pconfigs.get('addressSpace''); //protein configs address space
-							      //
-    if (pcas == null || pcas.containsKey('hardware') == false) {
-      err("loadIndices: hardware YAML specification not in %s", fullPath); return false;
+							     
+    hardwareYamlD = loadPCASYaml(pcas, 'hardware');
+    softwareYamlD = loadPCASYaml(pcas, 'software');
+							      
+  ///////////// load PCAS Yaml /////////////
+
+  public Map<String, Object> loadPCASYaml(Map<String, String> pcas, String resourceHandle) {
+    if (pcas == null || pcas.containsKey(resourceHandle) == false) {
+      err("loadPCASYaml: YAML specification not in %s", resourceHandle); return false;
     }
 
-    hardwareYamlFn = pcas.get('hardware');
+    Map<String, Object> result;
+
+    yamlFn = pcas.get(resourceHandle);
 
     try {
-      fullHwPath = self.schemaIndexPath + "/" + self.hardwareYamlFn 
-      yf = open(fullHwPath)
-      self.hardwareYamlD  = yaml.safe_load(yf)
-      yf.close()
-    except:
-      self.err("loadIndices: error on opening and/or loading " + fullHwPath);
-      traceback.print_exc(); return
+      String fullPath = schemaIndexPath + "/" + yamlFn;
+      File   fullPathF(fullPath);
+      if (fullPathF.exists() == false) {
+        err("loadPCASYaml: full yaml path doesn't exist! : %s", fullPath);
+      }
+
+      InputStream inputStream = new FileInputStream(fullPath);
+      Yaml iy                 = new Yaml();
+      result                  = iy.load(inputStream);
+    } catch (IOException e) {err("loadPCASYaml: error opening and/or loading %s", fullPath); e.printStackTrace(); }
+
+    try { if (inputStream!= null) inputStream.close()
+    } catch (IOException e)      err("loadIndices: Failed to close index yaml filehandle");
+
+    return result;
+  }
 
     /////////// Load hardware yaml info /////////// 
 
