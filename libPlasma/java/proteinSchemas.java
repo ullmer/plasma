@@ -73,6 +73,7 @@ public class ProteinSchemas {
 							     
     hardwareYamlD = loadPCASYaml(pcas, 'hardware');
     softwareYamlD = loadPCASYaml(pcas, 'software');
+  }
 							      
   ///////////// load PCAS Yaml /////////////
   public Map<String, Object> loadPCASYaml(Map<String, String> pcas, String resourceHandle) {
@@ -87,30 +88,29 @@ public class ProteinSchemas {
   }
   ///////////// load load yaml fn /////////////
 
-  public Map<String, Object> loadYamlFn(yamlFn, String resourceHandle) {
+  public Map<String, Object> loadYamlFn(String yamlFn, String resourceHandle) {
 
     try {
       String fullPath = schemaIndexPath + "/" + yamlFn;
       File   fullPathF(fullPath);
       if (fullPathF.exists() == false) {
-        err("loadPCASYaml: full yaml path doesn't exist! : %s", fullPath);
+        err("loadYamlFn: full yaml path doesn't exist! : %s", fullPath);
       }
 
       InputStream inputStream = new FileInputStream(fullPath);
       Yaml iy                 = new Yaml();
       result                  = iy.load(inputStream);
-    } catch (IOException e) {err("loadPCASYaml: error opening and/or loading %s", fullPath); e.printStackTrace(); }
+    } catch (IOException e) {err("loadYamlFn: error opening and/or loading %s", fullPath); e.printStackTrace(); }
 
     try { if (inputStream!= null) inputStream.close()
-    } catch (IOException e)      err("loadIndices: Failed to close index yaml filehandle");
+    } catch (IOException e)       err("loadYamlFn: Failed to close yaml filehandle");
+
+    if (result == null) {err("loadYamlFn " + yamlFn + resourceHandle + "returns null!");}
 
     return result;
   }
 
     /////////// Load hardware yaml info /////////// 
-
-    if self.hardwareYamlD is None:
-      self.err("loadHwYamlDescr: hardwareYaml data is not yet populated"); return None
 
     if 'plasma' not in self.hardwareYamlD:
       self.err("loadHwYamlDescr: 'plasma' not in yaml descr!"); return None
