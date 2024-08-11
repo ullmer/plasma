@@ -18,9 +18,9 @@ class enoButton:
   buttonRect = None
   buttonText = ""
   actor      = None
-  imageFn     = "" #image filename, relative to PGZ's "images/" directory expectations; lower-case only
-  selectImgFn = "" #   selected image filename
-  deactImgFn  = "" #deactivated image filename
+  imageFn     = None #image filename, relative to PGZ's "images/" directory expectations; lower-case only
+  selectImgFn = None #   selected image filename
+  deactImgFn  = None #deactivated image filename
   bgcolor1   = (0, 0, 130)
   bgcolor2   = (50, 50, 250)
   fgcolor    = "#bbbbbb"
@@ -63,7 +63,7 @@ class enoButton:
                        fontsize=self.fontSize, color=self.fgcolor, 
                        alpha=self.alpha, angle=self.angle)
 
-    if (self.drawImg or self.drawAdapt) and len(self.imgFn)>0:
+    if (self.drawImg or self.drawAdapt) and self.imageFn is not None and len(self.imageFn)>0:
       if self.actor is not None:
         self.actor.draw()
       else:
