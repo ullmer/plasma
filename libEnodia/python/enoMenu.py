@@ -15,7 +15,7 @@ from   enoButton import *
 class enoMenu:
   basePos    = (50,50)
 
-  targetsSet = False
+  animTargetsSet = False
   activeAnim = None
 
   buttonDim  = (100, 100)
@@ -101,7 +101,7 @@ class enoMenu:
   ############# animate to target #############
 
   def animateToTarget(self): {
-    if self.targetsSet == False:  self.err("animateToTarget: targets not set!"); return
+    if self.animTargetsSet == False:  self.err("animateToTarget: targets not set!"); return
     if self.enoButtonArr is None: self.err("animateToTarget: enoButtonArray is empty!"); return
 
     self.activeAnim = self.enoButtonArr.animateToTargets()
