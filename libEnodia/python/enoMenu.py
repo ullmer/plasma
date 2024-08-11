@@ -21,13 +21,13 @@ class enoMenu:
   alpha      = .8
   fontSize   = 36
   angle      = 0
-  dx, dy     = 0, 110
+  dx, dy     = 0, 105
 
   yamlFn     = None
   yamlD      = None
   yamlMenuD  = None
 
-  drawText   = True
+  drawText   = False
   drawImg    = False
   drawAdapt  = True   # if True, will render text and/or image only when specified
 
