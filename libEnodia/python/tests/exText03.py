@@ -16,13 +16,13 @@ print(panel1Y)
 
 global panel
 panel = []
-dx = 50; idx = 0
+dx = 50; idx = 1
 
 for row in panel1Y: #rows
-  ba = enoButtonArray(row, buttonDim=(30, 150), dx=0, dy=160, basePos=(dx*idx, 0), angle=90)
+  ba = enoButtonArray(row, buttonDim=(30, 150), dx=0, dy=160, basePos=(dx*idx, 65), angle=90)
   panel.append(ba); idx += 1
 
-rect1   = Rect((130, 5), (200, 200))
+rect1   = Rect((170, 5), (200, 200))
 bgcolor = "#aa0000"
 
 def draw(): 
