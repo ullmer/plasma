@@ -6,8 +6,7 @@ import sys; sys.path.append("..")
 from enoButton import *
 import yaml
 
-WIDTH=900
-HEIGHT=600
+WIDTH, HEIGHT = 900, 900
 
 panel1Fn = 'yaml/panel1.yaml'
 panel1F  = open(panel1Fn, 'r+t')
@@ -23,17 +22,14 @@ for row in panel1Y: #rows
   ba = enoButtonArray(row, buttonDim=(150, 30), dx=160, basePos=(0, dy*idx))
   panel.append(ba); idx += 1
 
-global rect1, bgcolor
 rect1   = Rect((100, 150), (200, 200))
 bgcolor = "#aa0000"
 
 def draw(): 
-  global panel, rect1, bgcolor
   for ba in panel: ba.draw(screen)
   screen.draw.filled_rect(rect1, bgcolor)
 
 def on_mouse_down(pos):
-  global panel
   for ba in panel: ba.on_mouse_down(pos)
 
 ### end ###
