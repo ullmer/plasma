@@ -7,12 +7,12 @@ from enoButton import *
 
 WIDTH, HEIGHT = 900, 900
 
-b1 = enoButton("animist", imgFn="glyphs/animist01a_100", basePos=(50,  50))
-b2 = enoButton("BOS",     imgFn="glyphs/map_bos01a_100", basepos=(50, 125))
+b1 = enoButton("animist", imgFn="glyphs/animist01a_100", basePos=(50,  50), drawText=False)
+b2 = enoButton("BOS",     imgFn="glyphs/map_bos01a_100", basepos=(50, 125), drawText=False)
 buttons = [b1,b2]
 
 def draw():             
-  for b in buttons: b.draw()
+  for b in buttons: b.draw(screen)
 
 def on_mouse_down(pos): 
   for b in buttons: b.on_mouse_down(pos)
