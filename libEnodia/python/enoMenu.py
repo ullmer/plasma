@@ -15,8 +15,9 @@ from   enoButton import *
 class enoMenu:
   basePos    = (50,50)
 
-  animTargetsSet = False
-  activeAnim = None
+  animTargetsSet  = False #animation target positions set
+  activeAnim      = None  #is an animation active?
+  requestAnimPrep = None  #request child elements to start at ~home position, rather than to immediately deploy to place
 
   buttonDim  = (100, 100)
   bgcolor1   = (0, 0, 130)
