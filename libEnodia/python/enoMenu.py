@@ -13,7 +13,7 @@ from   enoButton import *
 ##################### enodia menu #####################
 
 class enoMenu:
-  basePos    = (0,0)
+  basePos    = (50,50)
   buttonDim  = (100, 100)
   bgcolor1   = (0, 0, 130)
   bgcolor2   = (50, 50, 250)
@@ -21,7 +21,7 @@ class enoMenu:
   alpha      = .8
   fontSize   = 36
   angle      = 0
-  dx, dy     = 0, 0
+  dx, dy     = 0, 110
 
   yamlFn     = None
   yamlD      = None
@@ -53,6 +53,7 @@ class enoMenu:
   ############# error message #############
 
   def err(self, msg): print("enoMenu error:" + msg)
+  def msg(self, msg): print("enoMenu msg:  " + msg)
 
   ############# load yaml #############
 
@@ -83,6 +84,8 @@ class enoMenu:
       try:    name = menuEntry['name']; imageFn = menuEntry['imageFn']
       except: err("buildMenu: menuEntry parsing issue"); traceback.print_exc(); return
       textHandles.append(name); imageFns.append(imageFn)
+
+    self.msg("buildMenu: %s || %s" % (str(textHandles), str(imageFns)))
 
     self.enoButtonArr = enoButtonArray(textHandles, imagesFns=imageFns, buttonDim = self.buttonDim,
                           dx = self.dx, dy = self.dy, basePos = self.basePos, 
