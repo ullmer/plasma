@@ -87,7 +87,7 @@ class enoMenu:
 
     self.msg("buildMenu: %s || %s" % (str(textHandles), str(imageFns)))
 
-    self.enoButtonArr = enoButtonArray(textHandles, imagesFns=imageFns, buttonDim = self.buttonDim,
+    self.enoButtonArr = enoButtonArray(textHandles,  imageFns = imageFns, buttonDim = self.buttonDim,
                           dx = self.dx, dy = self.dy, basePos = self.basePos, 
                           drawText = self.drawText,  drawImg = self.drawImg, drawAdapt = self.drawAdapt,
                           bgcolor1 = self.bgcolor1, bgcolor2 = self.bgcolor2,  fgcolor = self.fgcolor, 
