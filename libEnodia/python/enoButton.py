@@ -44,8 +44,8 @@ class enoButton:
 
     self.buttonText = buttonText
     self.buttonRect = Rect(self.basePos, self.buttonDim)
-    if imageFn is not None:
-      self.actor = Actor(imgFn)
+    if self.imageFn is not None:
+      self.actor     = Actor(self.imageFn)
       self.actor.pos = self.basePos
 
   ############# pgzero draw #############
@@ -63,12 +63,12 @@ class enoButton:
                        fontsize=self.fontSize, color=self.fgcolor, 
                        alpha=self.alpha, angle=self.angle)
 
-    if ((self.drawImg or self.drawAdapt) and (len(self.imgFn)>0):
+    if (self.drawImg or self.drawAdapt) and len(self.imgFn)>0:
       if self.actor is not None:
         self.actor.draw()
       else:
-        if imgFn is not None and len(imgFn) > 0:
-          self.actor     = Actor(imgFn)
+        if self.imageFn is not None and len(self.imageFn) > 0:
+          self.actor     = Actor(self.imageFn)
           self.actor.pos = self.basePos
           self.actor.draw()
 
