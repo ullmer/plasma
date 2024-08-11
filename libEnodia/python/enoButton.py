@@ -34,6 +34,7 @@ class enoButton:
 
   toggleMode  = True
   toggleState = False
+  verbose     = False
 
   ############# constructor #############
 
@@ -47,7 +48,7 @@ class enoButton:
     if self.imageFn is not None:
       self.actor     = Actor(self.imageFn)
       self.actor.pos = self.basePos
-      print("button" + self.buttonText + ": pos" + str(self.actor.pos))
+      if self.verbose: print("button" + self.buttonText + ": pos" + str(self.actor.pos))
 
   ############# pgzero draw #############
 
@@ -93,7 +94,8 @@ class enoButton:
   ######################### on_mouse_down #########################
 
   def on_mouse_down(self, pos):
-    if self.buttonRect.collidepoint(pos): 
+    if self.buttonRect.collidepoint(pos) or \
+       (self.actor is not None and self.actor.collidepoint(pos)):
       print(self.buttonText, "pressed")
       self.toggle()
       return True
