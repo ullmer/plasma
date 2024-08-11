@@ -35,11 +35,11 @@ class enoButton:
   drawImg    = False
   drawAdapt  = True   # if True, will render text and/or image only when specified
 
-  toggleMode      = True
-  toggleState     = False
-  verbose         = False
-  rectCenter      = None
-  requestAnimPrep = False
+  toggleMode  = True
+  toggleState = False
+  verbose     = False
+  rectCenter  = None
+  requestAnim = False
 
   ############# constructor #############
 
@@ -127,7 +127,7 @@ class enoButtonArray:
   imageFns     = None
   lastSelected = None
   angle        = 0
-  requestAnimPrep = False
+  requestAnim  = False
 
   ############# constructor #############
 
@@ -147,7 +147,7 @@ class enoButtonArray:
 
       p1 = (bpx+idx*self.dx, bpy+idx*self.dy),
 
-      if self.requestAnimPrep: # make distinction between (shared) base position and post-animation pos
+      if self.requestAnim: # make distinction between (shared) base position and post-animation pos
         baseP     = (bpx, bpy)
         postAnimP = p1
       else: baseP = p1         # no distinction
@@ -157,7 +157,7 @@ class enoButtonArray:
                       drawText = self.drawText,  drawImg = self.drawImg, drawAdapt = self.drawAdapt,
                       bgcolor1 = self.bgcolor1, bgcolor2 = self.bgcolor2,  fgcolor = self.fgcolor,
                       alpha    = self.alpha,    fontSize = self.fontSize,  
-                      requestAnimPrep = self.requestAnimPrep)
+                      requestAnim = self.requestAnim)
 
       self.buttonArray.append(but); idx += 1
 
