@@ -6,10 +6,11 @@ import sys; sys.path.append("..")
 from enoButton import *
 
 WIDTH, HEIGHT = 900, 900
+bd = (100, 100)
 
-b1 = enoButton("animist", imageFn="glyphs/animist01a_100", basePos=(50,  50), drawText=False)
-b2 = enoButton("BOS",     imageFn="glyphs/map_bos01a_100", basePos=(50, 155), drawText=False)
-b3 = enoButton("MIT",     imageFn="glyphs/map_mit01a_100", basePos=(50, 260), drawText=False)
+b1 = enoButton("animist", imageFn="glyphs/animist01a_100", basePos=(50,  50), drawText=False, buttonDim=bd)
+b2 = enoButton("BOS",     imageFn="glyphs/map_bos01a_100", basePos=(50, 155), drawText=False, buttonDim=bd)
+b3 = enoButton("MIT",     imageFn="glyphs/map_mit01a_100", basePos=(50, 260), drawText=False, buttonDim=bd)
 buttons = [b1,b2,b3]
 
 def draw():             

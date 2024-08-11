@@ -35,6 +35,7 @@ class enoButton:
   toggleMode  = True
   toggleState = False
   verbose     = False
+  rectCenter  = None
 
   ############# constructor #############
 
@@ -44,7 +45,14 @@ class enoButton:
     #https://stackoverflow.com/questions/739625/setattr-with-kwargs-pythonic-or-not
 
     self.buttonText = buttonText
-    self.buttonRect = Rect(self.basePos, self.buttonDim)
+
+    bpx,  bpy  = self.basePos
+    bdx,  bdy  = self.buttonDim
+    bdx2, bdy2 = bdx/2, bdy/2
+
+    self.rectCenter = (bpx-bdx2, bpy-bdy2)
+
+    self.buttonRect = Rect(self.rectCenter, self.buttonDim)
     if self.imageFn is not None:
       self.actor     = Actor(self.imageFn)
       self.actor.pos = self.basePos
