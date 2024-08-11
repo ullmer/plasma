@@ -67,7 +67,7 @@ class enoButton:
     screen.draw.filled_rect(self.buttonRect, bgcolor)
     x0, y0 = self.basePos; dx, dy = self.buttonDim; cx=x0+dx/2; cy = y0+dy/2
 
-    if (self.drawText or self.drawAdapt) and len(self.buttonText)>0:
+    if (self.drawText or (self.drawAdapt and self.imageFn is None)) and len(self.buttonText)>0:
       screen.draw.text(self.buttonText, centerx=cx, centery=cy, align="center",
                        fontsize=self.fontSize, color=self.fgcolor, 
                        alpha=self.alpha, angle=self.angle)
