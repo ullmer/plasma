@@ -22,7 +22,7 @@ for row in panel1Y: #rows
   ba = enoButtonArray(row, buttonDim=(150, 30), dx=160, basePos=(0, dy*idx))
   panel.append(ba); idx += 1
 
-rect1   = Rect((100, 150), (200, 200))
+rect1   = Rect((10, 150), (200, 200))
 bgcolor = "#aa0000"
 
 def draw(): 
