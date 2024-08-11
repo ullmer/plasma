@@ -23,6 +23,7 @@ class enoMenu:
 
   yamlFn     = None
   yamlD      = None
+  yamlMenuD  = None
 
   drawText   = True
   drawImg    = False
@@ -30,7 +31,8 @@ class enoMenu:
 
   self.whichMenuName = "homeMenu"
 
-  verbose     = False
+  autoBuildMenu = True
+  verbose       = False
 
   ############# constructor #############
 
@@ -41,6 +43,8 @@ class enoMenu:
 
     if whichMenuName is not None: self.whichMenuName = whichMenuName
     self.loadYaml()
+
+    if self.autoBuildMenu: self.buildMenu()
 
   ############# error message #############
 
@@ -61,6 +65,7 @@ class enoMenu:
     ad = self.yamlD['animist']
 
     if self.whichMenuName not in ad: err("loadYaml: %s menu not found in yaml %s" % (self.whichMenuName, self.yamlFn)); return
-    
+
+    self.yamlMenuD = ad[self.whichMenuName]
 
 ### end ###
