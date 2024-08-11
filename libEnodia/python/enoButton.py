@@ -32,10 +32,11 @@ class enoButton:
   drawImg    = False
   drawAdapt  = True   # if True, will render text and/or image only when specified
 
-  toggleMode  = True
-  toggleState = False
-  verbose     = False
-  rectCenter  = None
+  toggleMode      = True
+  toggleState     = False
+  verbose         = False
+  rectCenter      = None
+  requestAnimPrep = False
 
   ############# constructor #############
 
@@ -122,7 +123,8 @@ class enoButtonArray:
   buttonArray  = None
   imageFns     = None
   lastSelected = None
-  angle      = 0
+  angle        = 0
+  requestAnimPrep = False
 
   ############# constructor #############
 
@@ -143,7 +145,8 @@ class enoButtonArray:
                       buttonDim = self.buttonDim, angle=self.angle, imageFn=ifn,
                       drawText = self.drawText,  drawImg = self.drawImg, drawAdapt = self.drawAdapt,
                       bgcolor1 = self.bgcolor1, bgcolor2 = self.bgcolor2,  fgcolor = self.fgcolor,
-                      alpha    = self.alpha,    fontSize = self.fontSize)
+                      alpha    = self.alpha,    fontSize = self.fontSize,  
+                      requestAnimPrep = self.requestAnimPrep)
 
       self.buttonArray.append(but); idx += 1
 
