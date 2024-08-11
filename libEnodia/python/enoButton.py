@@ -20,6 +20,7 @@ class enoButton:
   fgcolor    = "#bbbbbb"
   alpha      = .8
   fontSize   = 36
+  angle      = 0
 
   toggleMode  = True
   toggleState = False
@@ -44,8 +45,8 @@ class enoButton:
     #screen.draw.text(self.buttonText, self.basePos, align="center",
     x0, y0 = self.basePos; dx, dy = self.buttonDim; cx=x0+dx/2; cy = y0+dy/2
     screen.draw.text(self.buttonText, centerx=cx, centery=cy, align="center",
-                     fontsize=self.fontSize, 
-                     color=self.fgcolor, alpha=self.alpha)
+                     fontsize=self.fontSize, color=self.fgcolor, 
+                     alpha=self.alpha, angle=self.angle)
 
   ############# nudge #############
 
@@ -85,6 +86,7 @@ class enoButtonArray:
   textArray    = None
   buttonArray  = []
   lastSelected = None
+  angle      = 0
 
   ############# constructor #############
 
@@ -98,7 +100,7 @@ class enoButtonArray:
     bpx, bpy = self.basePos
     for text in self.textArray:
       but = enoButton(text, basePos = (bpx+idx*self.dx, bpy+idx*self.dy),
-                      buttonDim = self.buttonDim)
+                      buttonDim = self.buttonDim, angle=self.angle)
       self.buttonArray.append(but); idx += 1
 
   ############# pgzero draw #############
