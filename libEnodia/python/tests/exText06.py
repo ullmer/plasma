@@ -1,6 +1,8 @@
 # https://pygame-zero.readthedocs.io/en/stable/ptext.html
 # https://pythonprogramming.altervista.org/pygame-4-fonts/
 
+import sys; sys.path.append("/home/bullmer/git/plasma/libEnodia/python")
+
 from enoButton import *
 import yaml
 
