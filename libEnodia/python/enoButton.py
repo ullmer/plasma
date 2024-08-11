@@ -55,7 +55,6 @@ class enoButton:
     else:                                    bgcolor = self.bgcolor1
 
     screen.draw.filled_rect(self.buttonRect, bgcolor)
-    #screen.draw.text(self.buttonText, self.basePos, align="center",
     x0, y0 = self.basePos; dx, dy = self.buttonDim; cx=x0+dx/2; cy = y0+dy/2
 
     if (self.drawText or self.drawAdapt) and len(self.buttonText)>0:
@@ -66,11 +65,11 @@ class enoButton:
     if (self.drawImg or self.drawAdapt) and self.imageFn is not None and len(self.imageFn)>0:
       if self.actor is not None:
         self.actor.draw()
-      else:
-        if self.imageFn is not None and len(self.imageFn) > 0:
-          self.actor     = Actor(self.imageFn)
-          self.actor.pos = self.basePos
-          self.actor.draw()
+      #else:
+      #  if self.imageFn is not None and len(self.imageFn) > 0:
+      #    self.actor     = Actor(self.imageFn)
+      #    self.actor.pos = self.basePos
+      #    self.actor.draw()
 
   ############# nudge #############
 
