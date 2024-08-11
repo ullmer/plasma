@@ -4,7 +4,10 @@
 # Brygg Ullmer, Clemson University
 # Begun 2024-08-11
 
-from enoButton import *
+import yaml
+import os
+
+from   enoButton import *
 
 ##################### enodia menu #####################
 
@@ -34,5 +37,17 @@ class enoMenu:
     self.__dict__.update(kwargs) #allow class fields to be passed in constructor
     #https://stackoverflow.com/questions/739625/setattr-with-kwargs-pythonic-or-not
 
+    self.loadYaml()
+
+  ############# error message #############
+
+  def err(self, msg): print("enoMenu error:" + msg)
+
+  ############# load yaml #############
+
+  def loadYaml(self):
+    if self.yamlFn is None:             err("loadYaml: yaml filename undefined"); return
+    if os.path.exists(yamlFn) == False: err("loadYaml: yaml file not found:" + self.yamlFn); return
+    
 
 ### end ###
