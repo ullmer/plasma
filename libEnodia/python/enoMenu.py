@@ -6,6 +6,7 @@
 
 import yaml
 import os
+import traceback
 
 from   enoButton import *
 
@@ -67,5 +68,16 @@ class enoMenu:
     if self.whichMenuName not in ad: err("loadYaml: %s menu not found in yaml %s" % (self.whichMenuName, self.yamlFn)); return
 
     self.yamlMenuD = ad[self.whichMenuName]
+
+  ############# build menu #############
+
+  def buildMenu(self):
+    if self.yamlMenuD is None: err("buildMenu: yaml menu datastructure not found"); return
+    for menuEntry in self.yamlMenuD:
+      try:    name = menuEntry['name']; imageFn = menuEntry['imageFn']
+      except: 
+
+      
+
 
 ### end ###
