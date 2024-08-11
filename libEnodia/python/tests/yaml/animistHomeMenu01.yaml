@@ -1,0 +1,22 @@
+animist:
+  homeMenu:
+    - {name: home_animist, imageFn: glyphs/animist01a_100}
+    - {name: home_apps,    imageFn: glyphs/app01a_100}
+    - {name: home_ops,     imageFn: glyphs/op01a_100}
+    - {name: home_, imageFn: glyphs/}
+props01a_100
+    - {name: home_, imageFn: glyphs/}
+team01a_100
+    - {name: home_, imageFn: glyphs/}
+data01a_100
+    - {name: home_, imageFn: glyphs/}
+help01a_100
+
+map45_ber01a_100.png
+map_ber01a_100.png
+map_bos01a_100.png
+map_ceu01a_100.png
+map_dca01a_100.png
+map_lax01a_100.png
+map_mit01a_100.png
+map_tyo01a_100.png
