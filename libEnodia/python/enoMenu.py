@@ -90,4 +90,9 @@ class enoMenu:
                           bgcolor1 = self.bgcolor1, bgcolor2 = self.bgcolor2,  fgcolor = self.fgcolor, 
                           alpha    = self.alpha,    fontSize = self.fontSize,    angle = self.angle)
 
+  ############# draw #############
+
+  def draw(self,          screen): self.enoButtonArr.draw(screen)
+  def on_mouse_down(self, pos):    self.enoButtonArr.on_mouse_down(pos)
+
 ### end ###
