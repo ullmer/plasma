@@ -15,7 +15,9 @@ class enoButton:
   buttonDim  = (100, 30)
   buttonRect = None
   buttonText = ""
-  imageFn    = ""
+  imageFn     = "" #image filename, relative to PGZ's "images/" directory expectations; lower-case only
+  selectImgFn = "" #   selected image filename
+  deactImgFn  = "" #deactivated image filename
   bgcolor1   = (0, 0, 130)
   bgcolor2   = (50, 50, 250)
   fgcolor    = "#bbbbbb"
