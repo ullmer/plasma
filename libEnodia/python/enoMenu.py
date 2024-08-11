@@ -56,9 +56,11 @@ class enoMenu:
     self.yamlD = yaml.safe_load(f)
     f.close()
 
-    if 'animist' not in self.yamlD: err("loadYaml: animist not found in yaml" + self.yamlFn); return
+    if 'animist' not in self.yamlD:  err("loadYaml: animist not found in yaml" + self.yamlFn); return
 
     ad = self.yamlD['animist']
+
+    if self.whichMenuName not in ad: err("loadYaml: %s menu not found in yaml %s" % (self.whichMenuName, self.yamlFn)); return
     
 
 ### end ###
