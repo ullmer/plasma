@@ -15,12 +15,17 @@ class enoButton:
   buttonDim  = (100, 30)
   buttonRect = None
   buttonText = ""
+  imageFn    = ""
   bgcolor1   = (0, 0, 130)
   bgcolor2   = (50, 50, 250)
   fgcolor    = "#bbbbbb"
   alpha      = .8
   fontSize   = 36
   angle      = 0
+
+  drawText   = True
+  drawImg    = False
+  drawAdapt  = True   # if True, will render text and/or image only when specified
 
   toggleMode  = True
   toggleState = False
