@@ -35,6 +35,8 @@ class enoMenu:
   autoBuildMenu = True
   verbose       = False
 
+  enoButtonArr  = None
+
   ############# constructor #############
 
   def __init__(self, whichMenuName=None, **kwargs): 
@@ -73,11 +75,15 @@ class enoMenu:
 
   def buildMenu(self):
     if self.yamlMenuD is None: err("buildMenu: yaml menu datastructure not found"); return
+
+    textHandles = []; imageFns = []
+
     for menuEntry in self.yamlMenuD:
       try:    name = menuEntry['name']; imageFn = menuEntry['imageFn']
-      except: 
+      except: err("buildMenu: menuEntry parsing issue"); traceback.print_exc(); return
+      textHandles.append(name); imageFns.append(imageFn)
 
-      
-
+    self.enoButtonArr = enoButtonArray(
+    
 
 ### end ###
