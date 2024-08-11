@@ -47,6 +47,7 @@ class enoButton:
     if self.imageFn is not None:
       self.actor     = Actor(self.imageFn)
       self.actor.pos = self.basePos
+      print("button" + self.buttonText + ": pos" + str(self.actor.pos))
 
   ############# pgzero draw #############
 
