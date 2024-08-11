@@ -13,7 +13,10 @@ from pygame import Rect
 ##################### pygamezero button #####################
 
 class enoButton:
-  basePos    = (0,0)
+  basePos     = (0,0)
+  postAnimPos = None
+  activAnim   = None
+
   buttonDim  = (100, 30)
   buttonRect = None
   buttonText = ""
@@ -135,20 +138,30 @@ class enoButtonArray:
 
     idx = 0
 
-    bpx, bpy = self.basePos
-    ifn      = None         #image filename
+    bpx, bpy  = self.basePos
+    ifn       = None         #image filename
+    postAnimP = None
 
     for text in self.textArray:
       if self.imageFns is not None: ifn = self.imageFns[idx]
 
-      but = enoButton(text, basePos = (bpx+idx*self.dx, bpy+idx*self.dy),
-                      buttonDim = self.buttonDim, angle=self.angle, imageFn=ifn,
+      p1 = (bpx+idx*self.dx, bpy+idx*self.dy),
+
+      if self.requestAnimPrep: # make distinction between (shared) base position and post-animation pos
+        baseP     = (bpx, bpy)
+        postAnimP = p1
+      else: baseP = p1         # no distinction
+
+      but = enoButton(text, basePos = baseP, postAnimPos = postAnimP, 
+                      buttonDim = self.buttonDim,  angle = self.angle,     imageFn = ifn,
                       drawText = self.drawText,  drawImg = self.drawImg, drawAdapt = self.drawAdapt,
                       bgcolor1 = self.bgcolor1, bgcolor2 = self.bgcolor2,  fgcolor = self.fgcolor,
                       alpha    = self.alpha,    fontSize = self.fontSize,  
                       requestAnimPrep = self.requestAnimPrep)
 
       self.buttonArray.append(but); idx += 1
+
+  activAnim   = None
 
   ############# pgzero draw #############
 
