@@ -7,8 +7,8 @@ from enoButton import *
 
 WIDTH, HEIGHT = 900, 900
 
-b1 = enoButton("animist", imgFn="glyphs/animist01a_100", basePos=(50,  50), drawText=False)
-b2 = enoButton("BOS",     imgFn="glyphs/map_bos01a_100", basepos=(50, 125), drawText=False)
+b1 = enoButton("animist", imageFn="glyphs/animist01a_100", basePos=(50,  50), drawText=False)
+b2 = enoButton("BOS",     imageFn="glyphs/map_bos01a_100", basepos=(50, 125), drawText=False)
 buttons = [b1,b2]
 
 def draw():             
