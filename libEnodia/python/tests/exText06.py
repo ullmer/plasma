@@ -1,7 +1,7 @@
 # https://pygame-zero.readthedocs.io/en/stable/ptext.html
 # https://pythonprogramming.altervista.org/pygame-4-fonts/
 
-import sys; sys.path.append("/home/bullmer/git/plasma/libEnodia/python")
+import sys; sys.path.append("..")
 
 from enoButton import *
 import yaml
@@ -9,7 +9,7 @@ import yaml
 WIDTH=900
 HEIGHT=600
 
-panel1Fn = 'panel1.yaml'
+panel1Fn = 'yaml/panel1.yaml'
 panel1F  = open(panel1Fn, 'r+t')
 panel1Y  = yaml.safe_load(panel1F)
 
