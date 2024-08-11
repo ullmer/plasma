@@ -119,7 +119,8 @@ class enoButtonArray:
   dx, dy     = 190, 0
 
   textArray    = None
-  buttonArray  = []
+  buttonArray  = None
+  imageFns     = None
   lastSelected = None
   angle      = 0
 
@@ -133,9 +134,13 @@ class enoButtonArray:
     idx = 0
 
     bpx, bpy = self.basePos
+    ifn      = None         #image filename
+
     for text in self.textArray:
+      if self.imageFns is not None: ifn = self.imageFns[idx]
+
       but = enoButton(text, basePos = (bpx+idx*self.dx, bpy+idx*self.dy),
-                      buttonDim = self.buttonDim, angle=self.angle)
+                      buttonDim = self.buttonDim, angle=self.angle, imageFn=ifn)
       self.buttonArray.append(but); idx += 1
 
   ############# pgzero draw #############

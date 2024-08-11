@@ -21,6 +21,7 @@ class enoMenu:
   alpha      = .8
   fontSize   = 36
   angle      = 0
+  dx, dy     = 0, 0
 
   yamlFn     = None
   yamlD      = None
@@ -30,7 +31,7 @@ class enoMenu:
   drawImg    = False
   drawAdapt  = True   # if True, will render text and/or image only when specified
 
-  self.whichMenuName = "homeMenu"
+  whichMenuName = "homeMenu"
 
   autoBuildMenu = True
   verbose       = False
@@ -56,8 +57,8 @@ class enoMenu:
   ############# load yaml #############
 
   def loadYaml(self):
-    if self.yamlFn is None:             err("loadYaml: yaml filename undefined"); return
-    if os.path.exists(yamlFn) == False: err("loadYaml: yaml file not found:" + self.yamlFn); return
+    if self.yamlFn is None:                  err("loadYaml: yaml filename undefined"); return
+    if os.path.exists(self.yamlFn) == False: err("loadYaml: yaml file not found:" + self.yamlFn); return
 
     f = open(self.yamlFn, 'rt')
     self.yamlD = yaml.safe_load(f)
