@@ -11,7 +11,10 @@ b1 = enoButton("animist", imgFn="glyphs/animist01a_100", basePos=(50,  50))
 b2 = enoButton("BOS",     imgFn="glyphs/map_bos01a_100", basepos=(50, 125))
 buttons = [b1,b2]
 
-def draw():             for button in buttons: button.draw()
-def on_mouse_down(pos): for button in buttons: button.on_mouse_down(pos)
+def draw():             
+  for b in buttons: b.draw()
+
+def on_mouse_down(pos): 
+  for b in buttons: b.on_mouse_down(pos)
 
 ### end ###
