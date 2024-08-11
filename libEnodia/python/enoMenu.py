@@ -14,6 +14,10 @@ from   enoButton import *
 
 class enoMenu:
   basePos    = (50,50)
+
+  targetsSet = False
+  activeAnim = None
+
   buttonDim  = (100, 100)
   bgcolor1   = (0, 0, 130)
   bgcolor2   = (50, 50, 250)
@@ -22,6 +26,7 @@ class enoMenu:
   fontSize   = 36
   angle      = 0
   dx, dy     = 0, 105
+  buttonsActive = True
 
   yamlFn     = None
   yamlD      = None
@@ -93,9 +98,19 @@ class enoMenu:
                           bgcolor1 = self.bgcolor1, bgcolor2 = self.bgcolor2,  fgcolor = self.fgcolor, 
                           alpha    = self.alpha,    fontSize = self.fontSize,    angle = self.angle)
 
+  ############# animate to target #############
+
+  def animateToTarget(self): {
+    if self.targetsSet == False:  self.err("animateToTarget: targets not set!"); return
+    if self.enoButtonArr is None: self.err("animateToTarget: enoButtonArray is empty!"); return
+
+    self.activeAnim = self.enoButtonArr.animateToTargets()
+
   ############# draw #############
 
   def draw(self,          screen): self.enoButtonArr.draw(screen)
-  def on_mouse_down(self, pos):    self.enoButtonArr.on_mouse_down(pos)
+
+  def on_mouse_down(self, pos):    
+    if self.buttonsActive: self.enoButtonArr.on_mouse_down(pos)
 
 ### end ###
