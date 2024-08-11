@@ -8,7 +8,7 @@ from enoMenu import *
 WIDTH, HEIGHT = 900, 900
 bd = (100, 100)
 
-em = enoMenu()
+em = enoMenu(yamlFn = "yaml/animistHomeMenu01.yaml")
 
 def draw(): screen.clear(); em.draw(screen)
 def on_mouse_down(pos):     em.on_mouse_down(pos)
