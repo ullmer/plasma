@@ -140,7 +140,11 @@ class enoButtonArray:
       if self.imageFns is not None: ifn = self.imageFns[idx]
 
       but = enoButton(text, basePos = (bpx+idx*self.dx, bpy+idx*self.dy),
-                      buttonDim = self.buttonDim, angle=self.angle, imageFn=ifn)
+                      buttonDim = self.buttonDim, angle=self.angle, imageFn=ifn,
+                      drawText = self.drawText,  drawImg = self.drawImg, drawAdapt = self.drawAdapt,
+                      bgcolor1 = self.bgcolor1, bgcolor2 = self.bgcolor2,  fgcolor = self.fgcolor,
+                      alpha    = self.alpha,    fontSize = self.fontSize)
+
       self.buttonArray.append(but); idx += 1
 
   ############# pgzero draw #############
