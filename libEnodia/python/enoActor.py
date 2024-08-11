@@ -50,14 +50,14 @@ class enoActor:
   def draw(self, screen):
     return self.actor.draw()
 
-    if self.toggleMode and self.toggleState: bgcolor = self.bgcolor2
-    else:                                    bgcolor = self.bgcolor1
-
-    screen.draw.filled_rect(self.buttonRect, bgcolor)
-    x0, y0 = self.pos; dx, dy = self.actorDim; cx=x0+dx/2; cy = y0+dy/2
-    screen.draw.text(self.buttonText, centerx=cx, centery=cy, align="center",
-                     fontsize=self.fontSize, 
-                     color=self.fgcolor, alpha=self.alpha)
+    #if self.toggleMode and self.toggleState: bgcolor = self.bgcolor2
+    #else:                                    bgcolor = self.bgcolor1
+    #
+    #screen.draw.filled_rect(self.buttonRect, bgcolor)
+    #x0, y0 = self.pos; dx, dy = self.actorDim; cx=x0+dx/2; cy = y0+dy/2
+    #screen.draw.text(self.buttonText, centerx=cx, centery=cy, align="center",
+    #                 fontsize=self.fontSize, 
+    #                 color=self.fgcolor, alpha=self.alpha)
 
   ############# nudge #############
 
