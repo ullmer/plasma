@@ -83,6 +83,10 @@ class enoMenu:
       except: err("buildMenu: menuEntry parsing issue"); traceback.print_exc(); return
       textHandles.append(name); imageFns.append(imageFn)
 
-    self.enoButtonArr = enoButtonArray(textHandles, imagesFns=imageFns)
+    self.enoButtonArr = enoButtonArray(textHandles, imagesFns=imageFns, buttonDim = self.buttonDim,
+                          dx = self.dx, dy = self.dy, basePos = self.basePos, 
+                          drawText = self.drawText,  drawImg = self.drawImg, drawAdapt = self.drawAdapt,
+                          bgcolor1 = self.bgcolor1, bgcolor2 = self.bgcolor2,  fgcolor = self.fgcolor, 
+                          alpha    = self.alpha,    fontSize = self.fontSize,    angle = self.angle)
 
 ### end ###
