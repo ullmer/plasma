@@ -1,7 +1,9 @@
 # Enodia Button-like elements -- sometimes backed by Pygame Zero, 
 #  sometimes by physical buttons, sometimes by other variants.
+# First approximation, albeit too specific to Pygame Zero
 # Brygg Ullmer, Clemson University
-# Begun 2022-02-22
+# Begun    2022-02-22
+# Revamped 2024-08
 
 # https://pygame-zero.readthedocs.io/en/stable/ptext.html
 # https://pythonprogramming.altervista.org/pygame-4-fonts/
@@ -15,6 +17,7 @@ class enoButton:
   buttonDim  = (100, 30)
   buttonRect = None
   buttonText = ""
+  actor      = None
   imageFn     = "" #image filename, relative to PGZ's "images/" directory expectations; lower-case only
   selectImgFn = "" #   selected image filename
   deactImgFn  = "" #deactivated image filename
@@ -41,6 +44,9 @@ class enoButton:
 
     self.buttonText = buttonText
     self.buttonRect = Rect(self.basePos, self.buttonDim)
+    if imageFn is not None:
+      self.actor = Actor(imgFn)
+      self.actor.pos = self.basePos
 
   ############# pgzero draw #############
 
@@ -58,7 +64,13 @@ class enoButton:
                        alpha=self.alpha, angle=self.angle)
 
     if ((self.drawImg or self.drawAdapt) and (len(self.imgFn)>0):
-      pass #replace with draw image
+      if self.actor is not None:
+        self.actor.draw()
+      else:
+        if imgFn is not None and len(imgFn) > 0:
+          self.actor     = Actor(imgFn)
+          self.actor.pos = self.basePos
+          self.actor.draw()
 
   ############# nudge #############
 
