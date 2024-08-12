@@ -9,6 +9,7 @@
 # https://pythonprogramming.altervista.org/pygame-4-fonts/
 
 from enoButton import *
+import traceback
 
 ##################### enodia button array #####################
 
@@ -85,7 +86,7 @@ class enoButtonArray:
 
     for cb in self.callbackList: 
       try:     cb(buttonName)
-      except:  err("invokeCallbacks: error received"); traceback.print_exc(); return None
+      except:  self.err("invokeCallbacks: error received"); traceback.print_exc(); return None
 
   ############# pgzero draw #############
 
