@@ -29,7 +29,8 @@ class enoButton:
   fgcolor     = "#bbbbbb"
   alpha       = .8
   fontSize    = 36
-  angle       = 0
+  angle        = 0
+  animDuration = 1.
 
   drawText    = True
   drawImg     = False
@@ -70,7 +71,12 @@ class enoButton:
   def launchAnim(self):
     if self.motionAnimTween is None: err("launchAnim called, but motion animation tween is not selected"); return
 
-    #self.activAnim = animate(self.imgActor, pos=self.imgPos, duration=self.animDuration, tween=self.motionAnimTween)
+    #if self.buttonRect is not None: 
+    #  self.activAnim = animate(self.buttonRect, pos=self.postAnimPos, duration=self.animDuration, tween=self.motionAnimTween)
+
+    if self.actor is not None: 
+      self.activAnim = animate(self.actor, pos=self.postAnimPos, duration=self.animDuration, tween=self.motionAnimTween)
+
                              #on_finished=self.animationFinishedCB)
 
   ############# draw #############
@@ -140,6 +146,7 @@ class enoButtonArray:
   angle           = 0
   requestAnim     = False
   motionAnimTween = None
+  animDuration    = 1.
 
   ############# constructor #############
 
@@ -168,7 +175,7 @@ class enoButtonArray:
                       buttonDim = self.buttonDim,  angle = self.angle,     imageFn = ifn,
                       drawText = self.drawText,  drawImg = self.drawImg, drawAdapt = self.drawAdapt,
                       bgcolor1 = self.bgcolor1, bgcolor2 = self.bgcolor2,  fgcolor = self.fgcolor,
-                      alpha    = self.alpha,    fontSize = self.fontSize,  
+                      alpha    = self.alpha,    fontSize = self.fontSize, animDuration = self.animDuration,
                       requestAnim = self.requestAnim,              motionAnimTween = self.motionAnimTween)
 
       self.buttonArray.append(but); idx += 1
