@@ -28,6 +28,9 @@ class enoButtonArray:
   animDuration    = 1.
   callbackList    = None
 
+  buttonRetractedPos = None # buttons in contracted position, optionally (esp. if animated)
+  buttonUnfurledPos  = None # buttons in unfurled position, optionally (esp. if animated)
+
   ############# error message #############
 
   def err(self, msg): print("enoButtonArray error:" + msg)
@@ -40,6 +43,9 @@ class enoButtonArray:
     self.textArray  = buttonTextList
     self.buttonArray  = []
     self.callbackList = []
+
+    self.buttonRetractedPos = {}
+    self.buttonUnfurledPos  = {}
 
     idx = 0
 
@@ -55,6 +61,10 @@ class enoButtonArray:
       if self.requestAnim: # make distinction between (shared) base position and post-animation pos
         baseP     = (bpx, bpy)
         postAnimP = p1
+
+	self.buttonRetrcatedPos[text] = baseP
+	self.buttonUnfurledPos[text]  = postAnimP
+
       else: baseP = p1         # no distinction
 
       but = enoButton(text, basePos = baseP, postAnimPos = postAnimP, 
