@@ -43,6 +43,8 @@ class enoButton:
   requestAnim = False
   motionAnimTween = None
 
+  callbackList    = None
+
   ############# constructor #############
 
   def __init__(self, buttonText, **kwargs): 
@@ -52,19 +54,24 @@ class enoButton:
 
     self.buttonText = buttonText
 
+    self.callbackList = []
+
     bpx,  bpy  = self.basePos
     bdx,  bdy  = self.buttonDim
     bdx2, bdy2 = bdx/2, bdy/2
 
     self.rectCenter = (bpx-bdx2, bpy-bdy2)
-
     self.buttonRect = Rect(self.rectCenter, self.buttonDim)
+
+
     if self.imageFn is not None:
       self.actor     = Actor(self.imageFn)
       self.actor.pos = self.basePos
       if self.verbose: print("button" + self.buttonText + ": pos" + str(self.actor.pos))
 
     if self.requestAnim: self.launchAnim()
+
+    
 
   ############# postAnimCb #############
 
@@ -79,6 +86,22 @@ class enoButton:
     self.rectCenter = (bpx-bdx2, bpy-bdy2)
     self.buttonRect = Rect(self.rectCenter, self.buttonDim)
 
+
+  ############# addCallback #############
+
+  def addCallback(self, callback):
+    if self.callbackList is None: err("addCallback: callback list not yet created!"); return
+
+    self.callbackList.append(callback)
+
+  ############# invokeCallbacks #############
+
+  def invokeCallbacks(self):
+    if self.callbackList is None: err("invokeCallback: callback list not yet created!"); return
+
+    for cb in self.callbackList: 
+      try:     cb()
+      except:  err("invokeCallbacks: error received"); traceback.print_exc(); return None
 
   ############# launchAnim #############
 
