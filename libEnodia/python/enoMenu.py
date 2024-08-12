@@ -18,10 +18,13 @@ class enoMenu:
   animTargetsSet = False #animation target positions set
   requestAnim    = None  #request child elements to start at ~home position, rather than to immediately deploy to place
 
+  motionAnimTween = 'accel-deccel'
+
   buttonDim  = (100, 100)
   bgcolor1   = (0, 0, 130)
   bgcolor2   = (50, 50, 250)
   fgcolor    = "#bbbbbb"
+
   alpha      = .8
   fontSize   = 36
   angle      = 0
@@ -97,7 +100,7 @@ class enoMenu:
                           drawText = self.drawText,  drawImg = self.drawImg, drawAdapt = self.drawAdapt,
                           bgcolor1 = self.bgcolor1, bgcolor2 = self.bgcolor2,  fgcolor = self.fgcolor, 
                           alpha    = self.alpha,    fontSize = self.fontSize,    angle = self.angle,
-                          requestAnim = self.requestAnim)
+                          requestAnim = self.requestAnim, motionAnimTween = self.motionAnimTween);
 
   ############# animate to target #############
 

@@ -40,6 +40,7 @@ class enoButton:
   verbose     = False
   rectCenter  = None
   requestAnim = False
+  motionAnimTween = None
 
   ############# constructor #############
 
@@ -122,12 +123,13 @@ class enoButtonArray:
   buttonDim  = (100, 30)
   dx, dy     = 190, 0
 
-  textArray    = None
-  buttonArray  = None
-  imageFns     = None
-  lastSelected = None
-  angle        = 0
-  requestAnim  = False
+  textArray       = None
+  buttonArray     = None
+  imageFns        = None
+  lastSelected    = None
+  angle           = 0
+  requestAnim     = False
+  motionAnimTween = None
 
   ############# constructor #############
 
@@ -157,7 +159,7 @@ class enoButtonArray:
                       drawText = self.drawText,  drawImg = self.drawImg, drawAdapt = self.drawAdapt,
                       bgcolor1 = self.bgcolor1, bgcolor2 = self.bgcolor2,  fgcolor = self.fgcolor,
                       alpha    = self.alpha,    fontSize = self.fontSize,  
-                      requestAnim = self.requestAnim)
+                      requestAnim = self.requestAnim, self.motionAnimTween = motionAnimTween)
 
       self.buttonArray.append(but); idx += 1
 

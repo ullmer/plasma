@@ -2,7 +2,6 @@
 # https://pythonprogramming.altervista.org/pygame-4-fonts/
 
 import sys; sys.path.append("..")
-
 from enoMenu import *
 
 WIDTH, HEIGHT = 900, 900
