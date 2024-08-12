@@ -18,22 +18,22 @@ class enoButton:
   activAnim   = None
 
   buttonDim  = (100, 30)
-  buttonRect = None
-  buttonText = ""
-  actor      = None
+  buttonRect  = None
+  buttonText  = ""
+  actor       = None
   imageFn     = None #image filename, relative to PGZ's "images/" directory expectations; lower-case only
   selectImgFn = None #   selected image filename
   deactImgFn  = None #deactivated image filename
-  bgcolor1   = (0, 0, 130)
-  bgcolor2   = (50, 50, 250)
-  fgcolor    = "#bbbbbb"
-  alpha      = .8
-  fontSize   = 36
-  angle      = 0
+  bgcolor1    = (0, 0, 130)
+  bgcolor2    = (50, 50, 250)
+  fgcolor     = "#bbbbbb"
+  alpha       = .8
+  fontSize    = 36
+  angle       = 0
 
-  drawText   = True
-  drawImg    = False
-  drawAdapt  = True   # if True, will render text and/or image only when specified
+  drawText    = True
+  drawImg     = False
+  drawAdapt   = True   # if True, will render text and/or image only when specified
 
   toggleMode  = True
   toggleState = False
@@ -63,7 +63,17 @@ class enoButton:
       self.actor.pos = self.basePos
       if self.verbose: print("button" + self.buttonText + ": pos" + str(self.actor.pos))
 
-  ############# pgzero draw #############
+    if self.requestAnim: launchAnim()
+
+  ############# launchAnim #############
+
+  def launchAnim(self):
+    if self.motionAnimTween is None: err("launchAnim called, but motion animation tween is not selected"); return
+
+    #self.activAnim = animate(self.imgActor, pos=self.imgPos, duration=self.animDuration, tween=self.motionAnimTween)
+                             #on_finished=self.animationFinishedCB)
+
+  ############# draw #############
 
   def draw(self, screen):
     if self.toggleMode and self.toggleState: bgcolor = self.bgcolor2
