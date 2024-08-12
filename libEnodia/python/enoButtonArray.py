@@ -74,6 +74,10 @@ class enoButtonArray:
 
     self.callbackList.append(callback)
 
+  ############# clear/reset callback #############
+
+  def clearCallbacks(self): self.callbackList = []
+
   ############# invokeCallbacks #############
 
   def invokeCallbacks(self, buttonName):

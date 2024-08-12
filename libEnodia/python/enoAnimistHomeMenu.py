@@ -26,6 +26,17 @@ class enoAnimistHomeMenu(enoMenu):
 
     if self.autoBuildMenu: self.buildMenu()
 
+  ############# constructor #############
+
+  def buildMenu(self): 
+    super().buildMenu()
+    #self.enoButtonArr.addCallback(self.buttonCb)
+
+  ############# home animist callback #############
+
+  def homeAnimistCb(self): 
+    self.msg("home/animist callback invoked") 
+
   ############# button callback #############
 
   def buttonCb(self, whichButtonPressed): 

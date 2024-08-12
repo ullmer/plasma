@@ -83,6 +83,10 @@ class enoButton:
     self.rectCenter = (bpx-bdx2, bpy-bdy2)
     self.buttonRect = Rect(self.rectCenter, self.buttonDim)
 
+  ############# clear/remove callbacks #############
+
+  def clearCallbacks(self): self.callbackList = []
+
   ############# addCallback #############
 
   def addCallback(self, callback):
