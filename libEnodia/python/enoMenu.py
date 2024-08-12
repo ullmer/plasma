@@ -106,6 +106,12 @@ class enoMenu:
 
     self.enoButtonArr.addCallback(self.buttonCb)
 
+  ############# expand/contract #############
+
+  def expandContract(self): 
+    if self.enoButtonArr is None: self.err("expandContract called, but enoButtonArr not populated.  ignoring"); return
+    self.enoButtotnArr.expandContract()
+
   ############# button callback #############
 
   def buttonCb(self, whichButtonPressed):

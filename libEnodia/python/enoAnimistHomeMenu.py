@@ -41,6 +41,7 @@ class enoAnimistHomeMenu(enoMenu):
 
   def homeAnimistCb(self): 
     self.msg("home/animist callback invoked") 
+    self.expandContract()
 
   ############# home animist callback #############
 
