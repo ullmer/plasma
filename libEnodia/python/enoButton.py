@@ -66,19 +66,30 @@ class enoButton:
 
     if self.requestAnim: self.launchAnim()
 
+  ############# postAnimCb #############
+
+  def postAnimCb(self):
+
+    self.basePos = self.postAnimPos
+
+    bpx,  bpy  = self.basePos
+    bdx,  bdy  = self.buttonDim
+    bdx2, bdy2 = bdx/2, bdy/2
+
+    self.rectCenter = (bpx-bdx2, bpy-bdy2)
+    self.buttonRect = Rect(self.rectCenter, self.buttonDim)
+
+
   ############# launchAnim #############
 
   def launchAnim(self):
     if self.motionAnimTween is None: err("launchAnim called, but motion animation tween is not selected"); return
 
-    #if self.buttonRect is not None: 
-    #  self.activAnim = animate(self.buttonRect, pos=self.postAnimPos, duration=self.animDuration, tween=self.motionAnimTween)
-    #print("launchAnim:" + str (self.postAnimPos))
+    if self.verbose: print("launchAnim:" + str (self.postAnimPos))
 
     if self.actor is not None: 
-      self.activAnim = animate(self.actor, pos=self.postAnimPos, duration=self.animDuration, tween=self.motionAnimTween)
-
-                             #on_finished=self.animationFinishedCB)
+      self.activAnim = animate(self.actor, pos=self.postAnimPos, duration=self.animDuration, tween=self.motionAnimTween,
+                               on_finished=self.postAnimCb)
 
   ############# draw #############
 
