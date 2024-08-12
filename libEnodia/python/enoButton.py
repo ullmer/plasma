@@ -63,7 +63,7 @@ class enoButton:
       self.actor.pos = self.basePos
       if self.verbose: print("button" + self.buttonText + ": pos" + str(self.actor.pos))
 
-    if self.requestAnim: launchAnim()
+    if self.requestAnim: self.launchAnim()
 
   ############# launchAnim #############
 
@@ -169,7 +169,7 @@ class enoButtonArray:
                       drawText = self.drawText,  drawImg = self.drawImg, drawAdapt = self.drawAdapt,
                       bgcolor1 = self.bgcolor1, bgcolor2 = self.bgcolor2,  fgcolor = self.fgcolor,
                       alpha    = self.alpha,    fontSize = self.fontSize,  
-                      requestAnim = self.requestAnim, self.motionAnimTween = motionAnimTween)
+                      requestAnim = self.requestAnim,              motionAnimTween = self.motionAnimTween)
 
       self.buttonArray.append(but); idx += 1
 

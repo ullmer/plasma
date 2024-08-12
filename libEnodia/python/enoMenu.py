@@ -104,7 +104,7 @@ class enoMenu:
 
   ############# animate to target #############
 
-  def animateToTarget(self): {
+  def animateToTarget(self): 
     if self.animTargetsSet == False:  self.err("animateToTarget: targets not set!"); return
     if self.enoButtonArr is None: self.err("animateToTarget: enoButtonArray is empty!"); return
 
