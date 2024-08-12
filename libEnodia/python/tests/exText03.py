@@ -3,7 +3,7 @@
 
 import sys; sys.path.append("..")
 
-from enoButton import *
+from enoButtonArray import *
 import yaml
 
 WIDTH, HEIGHT = 900, 900

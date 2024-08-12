@@ -8,7 +8,8 @@ import yaml
 import os
 import traceback
 
-from   enoButton import *
+from   enoButton      import *
+from   enoButtonArray import *
 
 ##################### enodia menu #####################
 
