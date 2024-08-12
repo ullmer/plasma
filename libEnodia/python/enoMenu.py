@@ -94,7 +94,7 @@ class enoMenu:
       textHandles.append(name); imageFns.append(imageFn)
 
     self.msg("buildMenu: %s || %s" % (str(textHandles), str(imageFns)))
-  
+
     self.enoButtonArr = enoButtonArray(textHandles,  imageFns = imageFns, buttonDim = self.buttonDim,
                           dx = self.dx, dy = self.dy, basePos = self.basePos, 
                           drawText = self.drawText,  drawImg = self.drawImg, drawAdapt = self.drawAdapt,
@@ -102,6 +102,8 @@ class enoMenu:
                           alpha    = self.alpha,    fontSize = self.fontSize,    angle = self.angle,
                           requestAnim  = self.requestAnim, motionAnimTween = self.motionAnimTween,
                           animDuration = self.animDuration);
+
+    self.enoButtonArr.addCallback(self.buttonCb)
 
   ############# button callback #############
 

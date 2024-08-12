@@ -52,8 +52,7 @@ class enoButton:
     self.__dict__.update(kwargs) #allow class fields to be passed in constructor
     #https://stackoverflow.com/questions/739625/setattr-with-kwargs-pythonic-or-not
 
-    self.buttonText = buttonText
-
+    self.buttonText   = buttonText
     self.callbackList = []
 
     bpx,  bpy  = self.basePos
@@ -70,8 +69,6 @@ class enoButton:
       if self.verbose: print("button" + self.buttonText + ": pos" + str(self.actor.pos))
 
     if self.requestAnim: self.launchAnim()
-
-    
 
   ############# postAnimCb #############
 
@@ -182,13 +179,15 @@ class enoButtonArray:
   requestAnim     = False
   motionAnimTween = None
   animDuration    = 1.
+  callbackList    = None
 
   ############# constructor #############
 
   def __init__(self, buttonTextList, **kwargs): 
     self.__dict__.update(kwargs) #allow class fields to be passed in constructor
     self.textArray  = buttonTextList
-    self.buttonArray = []
+    self.buttonArray  = []
+    self.callbackList = []
 
     idx = 0
 
@@ -216,6 +215,22 @@ class enoButtonArray:
       self.buttonArray.append(but); idx += 1
 
   activAnim   = None
+
+  ############# addCallback #############
+
+  def addCallback(self, callback):
+    if self.callbackList is None: err("addCallback: callback list not yet created!"); return
+
+    self.callbackList.append(callback)
+
+  ############# invokeCallbacks #############
+
+  def invokeCallbacks(self, buttonName):
+    if self.callbackList is None: err("invokeCallback: callback list not yet created!"); return
+
+    for cb in self.callbackList: 
+      try:     cb(buttonName)
+      except:  err("invokeCallbacks: error received"); traceback.print_exc(); return None
 
   ############# pgzero draw #############
 
