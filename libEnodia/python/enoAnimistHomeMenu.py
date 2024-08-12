@@ -45,7 +45,7 @@ class enoAnimistHomeMenu(enoMenu):
   ############# home animist callback #############
 
   def expandContract(self, whichButtonPressed): 
-    msg("expandContract called")
+    self.msg("expandContract called")
 
   ############# button callback #############
 
