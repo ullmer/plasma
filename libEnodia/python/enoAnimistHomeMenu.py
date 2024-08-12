@@ -26,6 +26,11 @@ class enoAnimistHomeMenu(enoMenu):
 
     if self.autoBuildMenu: self.buildMenu()
 
+  ############# error message #############
+
+  def err(self, msg): print("enoAnimistHomeMenu error:" + msg)
+  def msg(self, msg): print("enoAnimistHomeMenu msg:  " + msg)
+
   ############# constructor #############
 
   def buildMenu(self): 
@@ -36,6 +41,11 @@ class enoAnimistHomeMenu(enoMenu):
 
   def homeAnimistCb(self): 
     self.msg("home/animist callback invoked") 
+
+  ############# home animist callback #############
+
+  def expandContract(self, whichButtonPressed): 
+    msg("expandContract called")
 
   ############# button callback #############
 
