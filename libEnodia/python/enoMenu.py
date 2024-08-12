@@ -103,6 +103,11 @@ class enoMenu:
                           requestAnim  = self.requestAnim, motionAnimTween = self.motionAnimTween,
                           animDuration = self.animDuration);
 
+  ############# button callback #############
+
+  def buttonCb(self, whichButtonPressed):
+    self.msg("buttonCB:" + whichButtonPressed)
+
   ############# animate to target #############
 
   def animateToTarget(self): 

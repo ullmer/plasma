@@ -12,6 +12,7 @@ from   enoMenu import *
 ##################### enodia animist home menu #####################
 
 class enoAnimistHomeMenu(enoMenu):
+  menuExpanded = True
 
   ############# constructor #############
 
@@ -24,6 +25,12 @@ class enoAnimistHomeMenu(enoMenu):
     self.loadYaml()
 
     if self.autoBuildMenu: self.buildMenu()
+
+  ############# button callback #############
+
+  def buttonCb(self, whichButtonPressed): 
+    if whichButtonPressed == 'home_animist': self.homeAnimistCb(); return
+    self.expandContract(whichButtonPressed)
 
   ############# error message #############
 
