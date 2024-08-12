@@ -28,8 +28,11 @@ class enoButtonArray:
   animDuration    = 1.
   callbackList    = None
 
+  expandContractState = 1   # 1 if expanded or animating in that direction; 0 if contracted
+
   buttonRetractedPos = None # buttons in contracted position, optionally (esp. if animated)
   buttonUnfurledPos  = None # buttons in unfurled position, optionally (esp. if animated)
+  text2Button        = None
 
   ############# error message #############
 
@@ -46,6 +49,7 @@ class enoButtonArray:
 
     self.buttonRetractedPos = {}
     self.buttonUnfurledPos  = {}
+    self.text2Button        = {}
 
     idx = 0
 
@@ -62,8 +66,8 @@ class enoButtonArray:
         baseP     = (bpx, bpy)
         postAnimP = p1
 
-	self.buttonRetrcatedPos[text] = baseP
-	self.buttonUnfurledPos[text]  = postAnimP
+        self.buttonRetractedPos[text] = baseP
+        self.buttonUnfurledPos[text]  = postAnimP
 
       else: baseP = p1         # no distinction
 
@@ -74,6 +78,7 @@ class enoButtonArray:
                       alpha    = self.alpha,    fontSize = self.fontSize, animDuration = self.animDuration,
                       requestAnim = self.requestAnim,              motionAnimTween = self.motionAnimTween)
 
+      self.text2Button[text] = but
       self.buttonArray.append(but); idx += 1
 
   activAnim   = None
@@ -97,6 +102,22 @@ class enoButtonArray:
     for cb in self.callbackList: 
       try:     cb(buttonName)
       except:  self.err("invokeCallbacks: error received"); traceback.print_exc(); return None
+
+  ############# expand/contract #############
+
+  def expandContract(self):
+    for text in self.textArray:
+      but = self.text2Button[text] 
+
+      if self.expandContractState == 1:   # 1 if expanded or animating in that direction; 0 if contracted
+        targetPos = self.buttonRetractedPos[text] 
+      else:
+        targetPos = self.buttonUnfurledPos[text] 
+
+      but.animate(targetPos)
+
+    if self.expandContractState == 1: self.expandContractState = 0
+    else:                             self.expandContractState = 1
 
   ############# pgzero draw #############
 

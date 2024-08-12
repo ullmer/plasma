@@ -110,9 +110,13 @@ class enoButton:
 
     if self.verbose: print("launchAnim:" + str (self.postAnimPos))
 
-    if self.actor is not None: 
-      self.activAnim = animate(self.actor, pos=self.postAnimPos, duration=self.animDuration, tween=self.motionAnimTween,
-                               on_finished=self.postAnimCb)
+    if self.actor is not None: self.animate(self.postAnimPos)
+
+  ############# animate #############
+
+  def animate(self, postAnimPos):
+    self.activAnim = animate(self.actor, pos=postAnimPos, duration=self.animDuration, tween=self.motionAnimTween,
+                             on_finished=self.postAnimCb)
 
   ############# draw #############
 
