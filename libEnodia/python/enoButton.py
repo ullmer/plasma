@@ -73,6 +73,7 @@ class enoButton:
 
     #if self.buttonRect is not None: 
     #  self.activAnim = animate(self.buttonRect, pos=self.postAnimPos, duration=self.animDuration, tween=self.motionAnimTween)
+    #print("launchAnim:" + str (self.postAnimPos))
 
     if self.actor is not None: 
       self.activAnim = animate(self.actor, pos=self.postAnimPos, duration=self.animDuration, tween=self.motionAnimTween)
@@ -164,7 +165,7 @@ class enoButtonArray:
     for text in self.textArray:
       if self.imageFns is not None: ifn = self.imageFns[idx]
 
-      p1 = (bpx+idx*self.dx, bpy+idx*self.dy),
+      p1 = (bpx+idx*self.dx, bpy+idx*self.dy)
 
       if self.requestAnim: # make distinction between (shared) base position and post-animation pos
         baseP     = (bpx, bpy)
