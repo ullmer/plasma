@@ -163,6 +163,4 @@ class enoButton:
 
     return False
 
-        except: self.err("on_mouse_down error:"); traceback.print_exc(); return None
-
 ### end ###

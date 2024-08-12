@@ -8,7 +8,7 @@
 # https://pygame-zero.readthedocs.io/en/stable/ptext.html
 # https://pythonprogramming.altervista.org/pygame-4-fonts/
 
-import enoButton
+from enoButton import *
 
 ##################### enodia button array #####################
 
