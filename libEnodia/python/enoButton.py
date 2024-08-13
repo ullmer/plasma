@@ -115,8 +115,10 @@ class enoButton:
   ############# animate #############
 
   def animate(self, postAnimPos):
-    self.activAnim = animate(self.actor, pos=postAnimPos, duration=self.animDuration, tween=self.motionAnimTween,
-                             on_finished=self.postAnimCb)
+    self.activAnim   = animate(self.actor, pos=postAnimPos, duration=self.animDuration, tween=self.motionAnimTween,
+                               on_finished=self.postAnimCb)
+    self.postAnimPos = postAnimPos
+    self.postAnimCb()
 
   ############# draw #############
 
