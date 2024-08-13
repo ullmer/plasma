@@ -110,7 +110,7 @@ class enoMenu:
 
   def expandContract(self): 
     if self.enoButtonArr is None: self.err("expandContract called, but enoButtonArr not populated.  ignoring"); return
-    self.enoButtotnArr.expandContract()
+    self.enoButtonArr.expandContract()
 
   ############# button callback #############
 
