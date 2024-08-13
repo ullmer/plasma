@@ -24,8 +24,10 @@ class enoButton:
   imageFn     = None #image filename, relative to PGZ's "images/" directory expectations; lower-case only
   selectImgFn = None #   selected image filename
   deactImgFn  = None #deactivated image filename
-  bgcolor1    = (0, 0, 130)
-  bgcolor2    = (50, 50, 250)
+  #bgcolor1    = (0, 0, 130)
+  #bgcolor2    = (50, 50, 250)
+  bgcolor1    = (30, 30, 30)
+  bgcolor2    = (50, 200, 200)
   fgcolor     = "#bbbbbb"
   alpha       = .8
   fontSize    = 36

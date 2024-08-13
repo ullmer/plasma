@@ -22,8 +22,10 @@ class enoMenu:
   animDuration    = .5
 
   buttonDim  = (100, 100)
-  bgcolor1   = (0, 0, 130)
-  bgcolor2   = (50, 50, 250)
+  #bgcolor1   = (0, 0, 130)
+  #bgcolor2   = (50, 50, 250)
+  bgcolor1   = (20, 20, 20)
+  bgcolor2   = (100, 100, 100)
   fgcolor    = "#bbbbbb"
 
   alpha      = .8
