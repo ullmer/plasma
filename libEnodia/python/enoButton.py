@@ -14,8 +14,11 @@ from pygame import Rect
 
 class enoButton:
   basePos     = (0,0)
+
   postAnimPos = None
   activAnim   = None
+  animDuration = 1.
+  isAnimActive = False
 
   buttonDim  = (100, 30)
   buttonRect  = None
@@ -32,7 +35,7 @@ class enoButton:
   alpha       = .8
   fontSize    = 36
   angle        = 0
-  animDuration = 1.
+
 
   drawText    = True
   drawImg     = False
@@ -76,7 +79,8 @@ class enoButton:
 
   def postAnimCb(self):
 
-    self.basePos = self.postAnimPos
+    self.isAnimActive = False
+    self.basePos      = self.postAnimPos
 
     bpx,  bpy  = self.basePos
     bdx,  bdy  = self.buttonDim
@@ -117,10 +121,11 @@ class enoButton:
   ############# animate #############
 
   def animate(self, postAnimPos):
+    self.isAnimActive = True
     self.activAnim   = animate(self.actor, pos=postAnimPos, duration=self.animDuration, tween=self.motionAnimTween,
                                on_finished=self.postAnimCb)
     self.postAnimPos = postAnimPos
-    self.postAnimCb()
+    #self.postAnimCb()
 
   ############# draw #############
 
