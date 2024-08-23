@@ -36,7 +36,6 @@ class enoButton:
   fontSize    = 36
   angle        = 0
 
-
   drawText    = True
   drawImg     = False
   drawAdapt   = True   # if True, will render text and/or image only when specified
@@ -66,7 +65,6 @@ class enoButton:
 
     self.rectCenter = (bpx-bdx2, bpy-bdy2)
     self.buttonRect = Rect(self.rectCenter, self.buttonDim)
-
 
     if self.imageFn is not None:
       self.actor     = Actor(self.imageFn)
@@ -133,7 +131,9 @@ class enoButton:
     if self.toggleMode and self.toggleState: bgcolor = self.bgcolor2
     else:                                    bgcolor = self.bgcolor1
 
-    screen.draw.filled_rect(self.buttonRect, bgcolor)
+    if self.isAnimActive is False: 
+      screen.draw.filled_rect(self.buttonRect, bgcolor)
+
     #x0, y0 = self.basePos; dx, dy = self.buttonDim; cx=x0+dx/2; cy = y0+dy/2
     x0, y0 = self.basePos; dx, dy = self.buttonDim; cx, cy = x0, y0
 
