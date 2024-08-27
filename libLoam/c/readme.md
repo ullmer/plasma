@@ -1,12 +1,10 @@
 *Descriptives provided by Mignon*
 
-|resource  | description                                  |
-|----------|----------------------------------------------|
-|[ob-api](ob-api.h)       | Macros for Windows DLL stuff. |
-
-|[ob-atomic](ob-atomic.h) | Atomic operations on integers and pointers. |
-
-[ob-attrs](ob-attrs.h) : Macros to allow using GCC's `__attribute__` syntax in a portable way.
+|resource  | description                                                                          |
+|----------|--------------------------------------------------------------------------------------|
+|[ob-api](ob-api.h)       | Macros for Windows DLL stuff.                                         |
+|[ob-atomic](ob-atomic.h) | Atomic operations on integers and pointers.                           |
+|[ob-attrs](ob-attrs.h)   | Macros to allow using GCC's `__attribute__` syntax in a portable way. |
 
 [ob-dirs](ob-dirs.h) : Functions for operating on directories (such as recursive `mkdir` and `rmdir`, and path manipulation functions) and also functions for getting standard directory locations (such as pools directory, temporary directory, etc.).
 
