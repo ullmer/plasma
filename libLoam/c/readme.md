@@ -1,6 +1,6 @@
 *Descriptives provided by Mignon*
 
-|resource  | description                                                      |
+|resource  |description                                                       |
 |----------|------------------------------------------------------------------|
 |[ob-api](ob-api.h)       | Macros for Windows DLL stuff.                                         |
 |[ob-atomic](ob-atomic.h) | Atomic operations on integers and pointers.                           |
@@ -15,9 +15,9 @@
 
 [ob-math](ob-math.h) : Cross-platform math functions.
 
-**ob-pthread.h** - On POSIX systems, this just includes `<pthread.h>`.  On Windows systems, includes a (partial) emulation of pthreads.
+[ob-pthread](ob-pthread.h) : On POSIX systems, this just includes `<pthread.h>`.  On Windows systems, includes a (partial) emulation of pthreads.
 
-**ob-rand.h** - Functions to generate pseudo-random numbers using Mersenne Twister.  Also contains `ob_truly_random()`, which uses platform-specific functions to produce cryptographic-grade random numbers.
+[ob-rand](ob-rand.h) : Functions to generate pseudo-random numbers using Mersenne Twister.  Also contains `ob_truly_random()`, which uses platform-specific functions to produce cryptographic-grade random numbers.
 
 **ob-retorts.h** - A facility for managing error codes (which libLoam refers to as "retorts").
 
