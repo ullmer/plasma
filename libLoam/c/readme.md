@@ -1,3 +1,5 @@
+*Descriptives provided by Mignon*
+
 [ob-api](ob-api.h) : Macros for Windows DLL stuff.
 
 [ob-atomic](ob-atomic.h) : Atomic operations on integers and pointers.
