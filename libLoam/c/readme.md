@@ -8,15 +8,15 @@
 
 [ob-dirs](ob-dirs.h) : Functions for operating on directories (such as recursive `mkdir` and `rmdir`, and path manipulation functions) and also functions for getting standard directory locations (such as pools directory, temporary directory, etc.).
 
-[ob-endian](ob-endian.h) - Byte-swapping functions.  When possible, these are just wrappers around GCC's `__builtin_bswap` functions.
+[ob-endian](ob-endian.h) : Byte-swapping functions.  When possible, these are just wrappers around GCC's `__builtin_bswap` functions.
 
-**ob-file.h** - File-related functions, such as reading an entire file at once, creating temporary files, etc.
+[ob-file](ob-file.h) : File-related functions, such as reading an entire file at once, creating temporary files, etc.
 
-**ob-hash.h** - Various hash functions.
+[ob-hash](ob-hash.h) : Various hash functions.
 
-**ob-log.h** - Flexible logging facility.
+[ob-log](ob-log.h) : Flexible logging facility.
 
-**ob-math.h** - Cross-platform math functions.
+[ob-math](ob-math.h) : Cross-platform math functions.
 
 **ob-pthread.h** - On POSIX systems, this just includes `<pthread.h>`.  On Windows systems, includes a (partial) emulation of pthreads.
 
