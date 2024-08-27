@@ -1,7 +1,7 @@
 *Descriptives provided by Mignon*
 
-|resource  | description                                                                          |
-|----------|--------------------------------------------------------------------------------------|
+|resource  | description                                                      |
+|----------|------------------------------------------------------------------|
 |[ob-api](ob-api.h)       | Macros for Windows DLL stuff.                                         |
 |[ob-atomic](ob-atomic.h) | Atomic operations on integers and pointers.                           |
 |[ob-attrs](ob-attrs.h)   | Macros to allow using GCC's `__attribute__` syntax in a portable way. |
