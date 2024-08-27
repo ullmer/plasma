@@ -1,8 +1,10 @@
 *Descriptives provided by Mignon*
 
-[ob-api](ob-api.h) : Macros for Windows DLL stuff.
+|resource  | description                                  |
+|----------|----------------------------------------------|
+|[ob-api](ob-api.h)       | Macros for Windows DLL stuff. |
 
-[ob-atomic](ob-atomic.h) : Atomic operations on integers and pointers.
+|[ob-atomic](ob-atomic.h) | Atomic operations on integers and pointers. |
 
 [ob-attrs](ob-attrs.h) : Macros to allow using GCC's `__attribute__` syntax in a portable way.
 
