@@ -5,12 +5,9 @@
 |[ob-api](ob-api.h)       | Macros for Windows DLL stuff.                                         |
 |[ob-atomic](ob-atomic.h) | Atomic operations on integers and pointers.                           |
 |[ob-attrs](ob-attrs.h)   | Macros to allow using GCC's `__attribute__` syntax in a portable way. |
-
-[ob-dirs](ob-dirs.h) : Functions for operating on directories (such as recursive `mkdir` and `rmdir`, and path manipulation functions) and also functions for getting standard directory locations (such as pools directory, temporary directory, etc.).
-
-[ob-endian](ob-endian.h) : Byte-swapping functions.  When possible, these are just wrappers around GCC's `__builtin_bswap` functions.
-
-[ob-file](ob-file.h) : File-related functions, such as reading an entire file at once, creating temporary files, etc.
+|[ob-dirs](ob-dirs.h)     | Functions for operating on directories (such as recursive `mkdir` and `rmdir`, and path manipulation functions) and also functions for getting standard directory locations (such as pools directory, temporary directory, etc.). |
+|[ob-endian](ob-endian.h) | Byte-swapping functions.  When possible, these are just wrappers around GCC's `__builtin_bswap` functions. |
+|[ob-file](ob-file.h)     | File-related functions, such as reading an entire file at once, creating temporary files, etc. |
 
 [ob-hash](ob-hash.h) : Various hash functions.
 
