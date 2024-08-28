@@ -3,6 +3,7 @@
 # Begun 2024-08-26
 
 from enoTranspSetup import *
+WIDTH, HEIGHT = 500, 500
 
 a1      = Actor("animist01a_100")
 dur     = 1.5 #duration
@@ -15,7 +16,7 @@ pos1, pos2    = (0, 0), (500, 500)
 ##################### first frame invocations #####################
 
 def firstFrame():
-  transpWinSetup(screen, fuchsia) #set up transparent window ~chromakey
+  transpWinSetup(screen, fuchsia, WIDTH, HEIGHT) #set up transparent window ~chromakey
   animate(a1, pos=pos2, tween='accel_decel', duration=dur, on_finished=animTransition)
 
 ##################### animation transition #####################

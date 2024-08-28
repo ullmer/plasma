@@ -2,14 +2,17 @@
 #https://stackoverflow.com/questions/1997710/pygame-error-display-surface-quit-why
 
 import pygame
+import os
 import win32api
 import win32con
 import win32gui
 
-def transpWinSetup(screen, keyColor):
-  imgIcon = pygame.image.load("images/animist01c.png")
+def transpWinSetup(screen, keyColor, winWidth, winHeight):
+  imgIcon = pygame.image.load("images/animist01e.png")
   pygame.display.set_icon(imgIcon)
   pygame.display.set_caption("animist alpha")
+  os.environ['SDL_VIDEO_WINDOW_POS'] = "0,0"
+  pygame.display.set_mode((winWidth,winHeight))
 
   # Create layered window
   hwnd = pygame.display.get_wm_info()["window"]
