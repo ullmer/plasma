@@ -7,7 +7,9 @@ import win32con
 import win32gui
 
 def transpWinSetup(screen, keyColor):
-  #screen = pygame.display.set_mode((800, 600)) # For borderless, use pygame.NOFRAME
+  imgIcon = pygame.image.load("images/animist01c.png")
+  pygame.display.set_icon(imgIcon)
+  pygame.display.set_caption("animist alpha")
 
   # Create layered window
   hwnd = pygame.display.get_wm_info()["window"]
