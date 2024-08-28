@@ -1,18 +1,35 @@
 #https://stackoverflow.com/questions/550001/fully-transparent-windows-in-pygame
 #https://stackoverflow.com/questions/1997710/pygame-error-display-surface-quit-why
+#https://stackoverflow.com/questions/44520491/can-i-move-the-pygame-game-window-around-the-screen
 
 import pygame
 import os
 import win32api
 import win32con
 import win32gui
+from pygame._sdl2 import Window
+
+name2window = {} 
+ 
+def newWindow(name, w,h):
+  global name2window 
+  window = Window(name, size=(w,h)
+  name2window[name] = window
+  return window
+
+def getWindow(name):
+  global name2window 
+  if name=='firstWin': return Window.from_display_module()
+  if name in name2window: result = name2window[name]; return result
+
+def moveWindow(window, x,y):
+  window.position = (x,y) #titlebar slightly off-screen
 
 def transpWinSetup(screen, keyColor, winWidth, winHeight):
   imgIcon = pygame.image.load("images/animist01e.png")
   pygame.display.set_icon(imgIcon)
   pygame.display.set_caption("animist alpha")
-  os.environ['SDL_VIDEO_WINDOW_POS'] = "0,0"
-  pygame.display.set_mode((winWidth,winHeight))
+  moveWindow(0, 0)
 
   # Create layered window
   hwnd = pygame.display.get_wm_info()["window"]
