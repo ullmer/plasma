@@ -3,6 +3,7 @@
 # Begun 2024-08-26
 
 import pgzrun
+import pygame
 from pgzero.builtins import screen
 
 from enoTranspSetup import *
@@ -45,10 +46,12 @@ def draw():
   a1.draw()
 
   x, y = w1.pos
-  moveWindow(x, y)
+  moveWindow(None, x, y)
 
 print("foo")
-PGZeroGame.show_default_icon()
+#PGZeroGame.show_default_icon()
+
+DISPLAY_FLAGS = pygame.SHOWN
 pygame.display.set_mode((100, 100), DISPLAY_FLAGS)
 print("bar")
 
