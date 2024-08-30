@@ -3,9 +3,9 @@
 # Begun 2024-08-26
 
 import pgzrun
+from pgzero.builtins import screen
 
 from enoTranspSetup import *
-from pygame._sdl2 import Window, Renderer
 WIDTH, HEIGHT = 500, 500
 
 a1      = Actor("animist01a_100")
@@ -20,23 +20,8 @@ pos1, pos2    = (0, 0), (500, 500)
 
 ##################### first frame invocations #####################
 
-pRenderers, pWindows = None, None
-
 def firstFrame():
-  global pRenderers, pWindows
-
-  window1   = getWindow()
-  window2   = newWindow("second Window", 600, 600)
-
-  renderer1 = Renderer(window1)
-  renderer2 = Renderer(window2)
-   
-  pWindows = [window1, window2]; pRenderers = [renderer1, renderer2]
-  
-  moveWindow(window2, 300, 300)
-
   transpWinSetup(screen, fuchsia, WIDTH, HEIGHT) #set up transparent window ~chromakey
-
   animate(a1, pos=pos2, tween='accel_decel', duration=dur, on_finished=animTransition)
   animate(w1, pos=(800,800), tween='accel_decel', duration=10)
 
@@ -53,23 +38,20 @@ def animTransition():
 ##################### draw #####################
 
 def draw():
-  global pRenderers, pWindows
   global justBeginning
-
   if justBeginning: firstFrame(); justBeginning=False
-
-  window1 = pWindows[0]
 
   screen.fill(fuchsia)  # Transparent background ~chromakey
   a1.draw()
 
   x, y = w1.pos
-  moveWindow(window1, x, y)
+  moveWindow(x, y)
 
-  #renderer2.clear()
-  #renderer2.present()
+print("foo")
+PGZeroGame.show_default_icon()
+pygame.display.set_mode((100, 100), DISPLAY_FLAGS)
+print("bar")
 
 pgzrun.go()
 
 ### end ###
-

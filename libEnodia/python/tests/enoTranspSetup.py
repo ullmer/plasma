@@ -15,9 +15,9 @@ def newWindow(name, w,h):
   global name2window 
   print("nw:", str(name2window))
 
-  windw = Window(name, size=(w,h))
-  name2window[name] = windw
-  return windw
+  pWindow = Window(name, size=(w,h))
+  name2window[name] = pWindow
+  return pWindow
 
 def getWindow(name=None):
   global name2window 
