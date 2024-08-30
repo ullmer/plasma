@@ -25,6 +25,7 @@ def getWindow(name=None):
   if name in name2window:              result = name2window[name]; return result
 
 def moveWindow(window, x,y):
+  if window is None: window=getWindow()
   window.position = (x,y) #titlebar slightly off-screen
 
 def transpWinSetup(screen, keyColor, winWidth, winHeight, window=None):

@@ -42,7 +42,7 @@ def draw():
   a1.draw()
 
   x, y = w1.pos
-  moveWindow(x, y)
+  moveWindow(None, x, y) #hacky, evolving
   
 
 ### end ###
