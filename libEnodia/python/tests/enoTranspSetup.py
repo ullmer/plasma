@@ -17,19 +17,21 @@ def newWindow(name, w,h):
   name2window[name] = window
   return window
 
-def getWindow(name):
+def getWindow(name=None):
   global name2window 
-  if name=='firstWin': return Window.from_display_module()
-  if name in name2window: result = name2window[name]; return result
+  if name=='firstWin' or name is None: return Window.from_display_module()
+  if name in name2window:              result = name2window[name]; return result
 
 def moveWindow(window, x,y):
   window.position = (x,y) #titlebar slightly off-screen
 
-def transpWinSetup(screen, keyColor, winWidth, winHeight):
+def transpWinSetup(screen, keyColor, winWidth, winHeight, window=None):
   imgIcon = pygame.image.load("images/animist01e.png")
   pygame.display.set_icon(imgIcon)
   pygame.display.set_caption("animist alpha")
-  moveWindow(0, 0)
+
+  if window is None: window = self.getWindow()
+  moveWindow(window, 0, 0)
 
   # Create layered window
   hwnd = pygame.display.get_wm_info()["window"]
