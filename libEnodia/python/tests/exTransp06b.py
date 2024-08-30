@@ -4,7 +4,6 @@
 
 import pgzrun
 import pygame
-#from pgzero.builtins import screen
 
 DISPLAY_FLAGS = pygame.SHOWN
 screen = pygame.display.set_mode((100, 100), DISPLAY_FLAGS)
@@ -50,11 +49,6 @@ def draw():
 
   x, y = w1.pos
   moveWindow(None, x, y)
-
-print("foo")
-#PGZeroGame.show_default_icon()
-
-print("bar")
 
 pgzrun.go()
 
