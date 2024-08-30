@@ -2,10 +2,11 @@
 # Brygg Ullmer, Clemson University
 # Begun 2024-08-26
 
-#import pgzrun
-
-from enoTranspSetup import *
+import pgzrun
+import pygame
 from pygame._sdl2 import Window, Renderer
+from enoTranspSetup import *
+
 WIDTH, HEIGHT = 500, 500
 
 a1      = Actor("animist01a_100")
@@ -67,7 +68,9 @@ def draw():
   #renderer2.clear()
   #renderer2.present()
 
-#pgzrun.go()
+DISPLAY_FLAGS = pygame.SHOWN
+pygame.display.set_mode((100, 100), DISPLAY_FLAGS)
+pgzrun.go()
 
 ### end ###
 
