@@ -13,9 +13,11 @@ name2window = {}
  
 def newWindow(name, w,h):
   global name2window 
-  window = Window(name, size=(w,h)
-  name2window[name] = window
-  return window
+  print("nw:", str(name2window))
+
+  windw = Window(name, size=(w,h))
+  name2window[name] = windw
+  return windw
 
 def getWindow(name=None):
   global name2window 
@@ -30,7 +32,7 @@ def transpWinSetup(screen, keyColor, winWidth, winHeight, window=None):
   pygame.display.set_icon(imgIcon)
   pygame.display.set_caption("animist alpha")
 
-  if window is None: window = self.getWindow()
+  if window is None: window = getWindow()
   moveWindow(window, 0, 0)
 
   # Create layered window
