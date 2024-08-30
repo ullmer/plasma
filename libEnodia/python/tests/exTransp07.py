@@ -18,10 +18,10 @@ pos1, pos2    = (0, 0), (500, 500)
 
 ##################### first frame invocations #####################
 
-renders, windows = None, None
+pRenderers, pWindows = None, None
 
 def firstFrame():
-  global renders, windows
+  global pRenderers, pWindows
 
   window1   = getWindow()
   window2   = newWindow("second Window", 600, 600)
@@ -29,7 +29,7 @@ def firstFrame():
   renderer1 = Renderer(window1)
   renderer2 = Renderer(window2)
    
-  windows = [window1, window2]; renderers = [renderer1, renderer2]
+  pWindows = [window1, window2]; pRenderers = [renderer1, renderer2]
   
   moveWindow(window2, 300, 300)
 
@@ -51,16 +51,18 @@ def animTransition():
 ##################### draw #####################
 
 def draw():
-  global renders, windows
+  global pRenderers, pWindows
   global justBeginning
 
   if justBeginning: firstFrame(); justBeginning=False
+
+  window1 = pWindows[0]
 
   screen.fill(fuchsia)  # Transparent background ~chromakey
   a1.draw()
 
   x, y = w1.pos
-  moveWindow(x, y)
+  moveWindow(window1, x, y)
 
   #renderer2.clear()
   #renderer2.present()
