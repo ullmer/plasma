@@ -5,8 +5,8 @@
 import pgzrun
 import pygame
 
-DISPLAY_FLAGS = pygame.SHOWN
-screen = pygame.display.set_mode((100, 100), DISPLAY_FLAGS)
+#DISPLAY_FLAGS = pygame.SHOWN
+#screen = pygame.display.set_mode((100, 100), DISPLAY_FLAGS)
 
 from enoTranspSetup import *
 WIDTH, HEIGHT = 500, 500

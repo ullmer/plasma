@@ -10,8 +10,8 @@ import pygame
 from pygame._sdl2 import Window, Renderer
 from enoTranspSetup import *
 
-DISPLAY_FLAGS = pygame.SHOWN
-pygame.display.set_mode((100, 100), DISPLAY_FLAGS)
+#DISPLAY_FLAGS = pygame.SHOWN
+#pygame.display.set_mode((100, 100), DISPLAY_FLAGS)
 
 WIDTH, HEIGHT = 500, 500
 
