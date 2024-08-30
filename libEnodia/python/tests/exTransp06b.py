@@ -4,7 +4,10 @@
 
 import pgzrun
 import pygame
-from pgzero.builtins import screen
+#from pgzero.builtins import screen
+
+DISPLAY_FLAGS = pygame.SHOWN
+screen = pygame.display.set_mode((100, 100), DISPLAY_FLAGS)
 
 from enoTranspSetup import *
 WIDTH, HEIGHT = 500, 500
@@ -51,8 +54,6 @@ def draw():
 print("foo")
 #PGZeroGame.show_default_icon()
 
-DISPLAY_FLAGS = pygame.SHOWN
-pygame.display.set_mode((100, 100), DISPLAY_FLAGS)
 print("bar")
 
 pgzrun.go()
