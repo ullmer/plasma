@@ -39,7 +39,8 @@ def firstFrame():
    
   moveWindow(pWindows[1], 300, 300)
 
-  transpWinSetup(screen, fuchsia, WIDTH, HEIGHT) #set up transparent window ~chromakey
+  transpWinSetup(screen, fuchsia, WIDTH, HEIGHT)                     #set up transparent window ~chromakey
+  transpWinSetup(pRenderers[1], fuchsia, WIDTH, HEIGHT, pWindows[1]) #set up transparent window ~chromakey
 
   animate(a1, pos=pos2, tween='accel_decel', duration=dur, on_finished=animTransition)
   animate(w1, pos=(800,800), tween='accel_decel', duration=10)

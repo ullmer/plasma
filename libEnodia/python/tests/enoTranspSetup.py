@@ -37,6 +37,7 @@ def transpWinSetup(screen, keyColor, winWidth, winHeight, window=None):
   moveWindow(window, 0, 0)
 
   # Create layered window
+  print("transpWinSetup hwnd:" + str(pygame.display.get_wm_info()))
   hwnd = pygame.display.get_wm_info()["window"]
   win32gui.SetWindowLong(hwnd, win32con.GWL_EXSTYLE,
                          win32gui.GetWindowLong(hwnd, win32con.GWL_EXSTYLE) | win32con.WS_EX_LAYERED)
