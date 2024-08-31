@@ -51,14 +51,14 @@ def moveWindow(pWindow, x,y):
 
 ##################### move window by id ##################### 
 
-def moveWindowById(windowId, x,y):
-  global moveWindowIdLastCoords, pWindows
+def moveWindowById(windowId, x,y, pWindows):
+  global moveWindowIdLastCoords
 
   if windowId in moveWindowIdLastCoords:
-    lastX, lastY = moveWindowLastCoords[window]
+    lastX, lastY = moveWindowIdLastCoords[windowId]
     if x == lastX and y == lastY: return #no movement
 
-  else: moveWindowIdLastCoords[window] = (x,y)
+  else: moveWindowIdLastCoords[windowId] = (x,y)
 
   if windowId not in pWindows:
     print("moveWindowById error: id index not found:", windowId); return

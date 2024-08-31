@@ -55,6 +55,8 @@ def firstFrame():
   #transpWinSetup(pRenderers[1], fuchsia, WIDTH, HEIGHT, pWindows[1]) #set up transparent window ~chromakey
 
   animate(a1, pos=pos2, tween='accel_decel', duration=dur, on_finished=animTransition)
+
+  w1 = winCoordProxies[0]
   animate(w1, pos=(800,800), tween='accel_decel', duration=4.)
 
 ##################### animation transition #####################
@@ -81,7 +83,7 @@ def draw():
   for i in range(3):
    wp = winCoordProxies[i]
    x, y = wp.pos
-   moveWindowById(i, x, y)
+   moveWindowById(i, x, y, pWindows)
 
   for i in [1,2]:
     pRenderers[i].clear()
