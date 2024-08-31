@@ -30,16 +30,16 @@ pos1, pos2    = (0, 0), (500, 500)
 pRenderers, pWindows = None, None
 
 def firstFrame():
-  global pRenderers, pWindows
-
-  window1   = getWindow()
-  window2   = newWindow("second Window", 600, 600)
+  #window1   = getWindow()
+  #window2   = newWindow("second Window", 600, 600)
 
   #renderer1 = Renderer(window1)
-  renderer2 = Renderer(window2)
+  #renderer2 = Renderer(window2)
    
-  pWindows = [window1, window2]; pRenderers = [None, renderer2]
-  moveWindow(window2, 300, 300)
+  #pWindows = [window1] #this "deepcopy" is sufficient to cause a segfault; long, long sigh
+  #pWindows = [None]
+  #pWindows = [window1, window2]; pRenderers = [None, renderer2]
+  #moveWindow(window2, 300, 300)
 
   transpWinSetup(screen, fuchsia, WIDTH, HEIGHT) #set up transparent window ~chromakey
 
@@ -68,12 +68,12 @@ def draw():
   a1.draw()
 
   x, y = w1.pos
-  window1 = pWindows[0]
+  window1 = getWindow()
   moveWindow(window1, x, y)
 
-  renderer2 = pRenderers[1]
-  renderer2.clear()
-  renderer2.present()
+  #renderer2 = pRenderers[1]
+  #renderer2.clear()
+  #renderer2.present()
 
 pgzrun.go()
 
