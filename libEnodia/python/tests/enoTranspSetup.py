@@ -14,14 +14,18 @@ import win32gui
 from pygame._sdl2 import Window
 
 name2window = {} 
+
+##################### new window ##################### 
  
 def newWindow(name, w,h):
   global name2window 
-  print("nw:", str(name2window))
+  #print("nw:", str(name2window))
 
-  pWindow = Window(name, size=(w,h))
+  pWindow           = Window(name, size=(w,h))
   name2window[name] = pWindow
   return pWindow
+
+##################### get window ##################### 
 
 def getWindow(name=None):
   global name2window 
@@ -29,6 +33,8 @@ def getWindow(name=None):
   if name in name2window:              result = name2window[name]; return result
 
 moveWindowLastCoords = {}
+
+##################### move window ##################### 
 
 def moveWindow(window, x,y):
   global moveWindowLastCoords
@@ -41,6 +47,8 @@ def moveWindow(window, x,y):
 
   if window is None: window=getWindow()
   window.position = (x,y) #titlebar slightly off-screen
+
+##################### transparent window setup ##################### 
 
 def transpWinSetup(screen, keyColor, winWidth, winHeight, window=None):
   imgIcon = pygame.image.load("images/animist01e.png")
