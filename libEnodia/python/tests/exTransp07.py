@@ -32,7 +32,7 @@ pRenderers, pWindows = {}, {}
 def firstFrame():
   global pRenderers, pWindows 
   pWindows[0] = getWindow()
-  pWindows[1] = newWindow("second Window", 600, 600) # this works, but a list does not, because of its "deep copy" mechanism
+  pWindows[1] = newWindow("second Window", 300, 300) # this works, but a list does not, because of its "deep copy" mechanism
   #pWindows = [window1] #this "deepcopy" is sufficient to cause a segfault; long, long sigh
 
   pRenderers[1] = Renderer(pWindows[1])
@@ -69,9 +69,8 @@ def draw():
   window1 = getWindow()
   moveWindow(window1, x, y)
 
-  #renderer2 = pRenderers[1]
-  #renderer2.clear()
-  #renderer2.present()
+  pRenderers[1].clear()
+  pRenderers[1].present()
 
 pgzrun.go()
 
