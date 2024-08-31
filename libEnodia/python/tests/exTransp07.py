@@ -27,19 +27,17 @@ pos1, pos2    = (0, 0), (500, 500)
 
 ##################### first frame invocations #####################
 
-pRenderers, pWindows = None, None
+pRenderers, pWindows = {}, {}
 
 def firstFrame():
-  #window1   = getWindow()
-  #window2   = newWindow("second Window", 600, 600)
-
-  #renderer1 = Renderer(window1)
-  #renderer2 = Renderer(window2)
-   
+  global pRenderers, pWindows 
+  pWindows[0] = getWindow()
+  pWindows[1] = newWindow("second Window", 600, 600) # this works, but a list does not, because of its "deep copy" mechanism
   #pWindows = [window1] #this "deepcopy" is sufficient to cause a segfault; long, long sigh
-  #pWindows = [None]
-  #pWindows = [window1, window2]; pRenderers = [None, renderer2]
-  #moveWindow(window2, 300, 300)
+
+  pRenderers[1] = Renderer(pWindows[1])
+   
+  moveWindow(pWindows[1], 300, 300)
 
   transpWinSetup(screen, fuchsia, WIDTH, HEIGHT) #set up transparent window ~chromakey
 
