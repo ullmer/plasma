@@ -1,3 +1,7 @@
+# Transparent and migratory window code evolved from below links, ++; to be refactored
+# Brygg Ullmer, Clemson University
+# Begun 2024-08
+
 #https://stackoverflow.com/questions/550001/fully-transparent-windows-in-pygame
 #https://stackoverflow.com/questions/1997710/pygame-error-display-surface-quit-why
 #https://stackoverflow.com/questions/44520491/can-i-move-the-pygame-game-window-around-the-screen
@@ -24,7 +28,17 @@ def getWindow(name=None):
   if name=='firstWin' or name is None: return Window.from_display_module()
   if name in name2window:              result = name2window[name]; return result
 
+moveWindowLastCoords = {}
+
 def moveWindow(window, x,y):
+  global moveWindowLastCoords
+
+  if window in moveWindowLastCoords:
+    lastX, lastY = moveWindowLastCoords[window]
+    if x == lastX and y == lastY: return #no movement
+
+  else: moveWindowLastCoords[window] = (x,y)
+
   if window is None: window=getWindow()
   window.position = (x,y) #titlebar slightly off-screen
 
@@ -37,7 +51,7 @@ def transpWinSetup(screen, keyColor, winWidth, winHeight, window=None):
   moveWindow(window, 0, 0)
 
   # Create layered window
-  print("transpWinSetup hwnd:" + str(pygame.display.get_wm_info()))
+  #print("transpWinSetup hwnd:" + str(pygame.display.get_wm_info()))
   hwnd = pygame.display.get_wm_info()["window"]
   win32gui.SetWindowLong(hwnd, win32con.GWL_EXSTYLE,
                          win32gui.GetWindowLong(hwnd, win32con.GWL_EXSTYLE) | win32con.WS_EX_LAYERED)

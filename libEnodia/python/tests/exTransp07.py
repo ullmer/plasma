@@ -16,7 +16,9 @@ from enoTranspSetup import *
 WIDTH, HEIGHT = 300, 300
 
 a1      = Actor("animist01a_100")
-w1      = Actor("animist01a_100") #... though we don't plan to draw w1; just animate
+
+winCoordProxies = {}
+for i in range(3): winCoordProxies[i] = Actor("one_red_pix")
 
 dur     = 1.5 #duration
 fuchsia = (255, 0, 128)  # Transparency key color
@@ -33,26 +35,27 @@ winCoords    = [(0, 0), (0, 300), (0, 600)]
 pRenderers, pWindows = {}, {}
 
 def firstFrame():
-  global pRenderers, pWindows, winDimension, winCoords
+  global pRenderers, pWindows, winDimension, winCoords, winCoordProxies 
 
   wh, ww = winDimension
   
   pWindows[0] = getWindow()
   for i in [1,2]:
-    pWindows[i] = newWindow("win" + str(i), ww, wh) # this works, but a list does not, because of its "deep copy" mechanism
+    pWindows[i]   = newWindow("win" + str(i), ww, wh) # this works, but a list does not, because of its "deep copy" mechanism
     pRenderers[i] = Renderer(pWindows[i])
 
   #pWindows = [window1] #this "deepcopy" is sufficient to cause a segfault; long, long sigh
 
   for i in range(3):
-    x, y = winCoords[i]
+    x, y                   = winCoords[i]
+    winCoordProxies[i].pos = winCoords[i]
     moveWindow(pWindows[i], x, y)
 
   transpWinSetup(screen, fuchsia, WIDTH, HEIGHT)                     #set up transparent window ~chromakey
   #transpWinSetup(pRenderers[1], fuchsia, WIDTH, HEIGHT, pWindows[1]) #set up transparent window ~chromakey
 
   animate(a1, pos=pos2, tween='accel_decel', duration=dur, on_finished=animTransition)
-  animate(w1, pos=(800,800), tween='accel_decel', duration=10)
+  animate(w1, pos=(800,800), tween='accel_decel', duration=4.)
 
 ##################### animation transition #####################
 
@@ -67,7 +70,7 @@ def animTransition():
 ##################### draw #####################
 
 def draw():
-  global pRenderers, pWindows
+  global pRenderers, pWindows, winCoordProxies
   global justBeginning
 
   if justBeginning: firstFrame(); justBeginning=False
@@ -75,12 +78,16 @@ def draw():
   screen.fill(fuchsia)  # Transparent background ~chromakey
   a1.draw()
 
-  x, y = w1.pos
+  for i in range(3):
+   wp = winCoordProxies[i]
+   x, y = wp.pos
+
   window1 = getWindow()
   moveWindow(window1, x, y)
 
-  pRenderers[1].clear()
-  pRenderers[1].present()
+  for i in [1,2]:
+    pRenderers[i].clear()
+    pRenderers[i].present()
 
 pgzrun.go()
 
