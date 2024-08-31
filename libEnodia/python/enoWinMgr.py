@@ -1,6 +1,8 @@
-# Transparent and migratory window code evolved from below links, ++; to be refactored
+# Enodia window ~manager
+#  Slight generalization and abstraction from earlier transparent + migratory window code 
+#  evolved from below links, ++
 # Brygg Ullmer, Clemson University
-# Begun 2024-08
+# Begun 2024-08-31
 
 #https://stackoverflow.com/questions/550001/fully-transparent-windows-in-pygame
 #https://stackoverflow.com/questions/1997710/pygame-error-display-surface-quit-why
@@ -13,7 +15,16 @@ import win32con
 import win32gui
 from pygame._sdl2 import Window
 
-name2window = {} 
+class enoWinMgr:
+
+  ############# constructor #############
+
+  def __init__(self, **kwargs):
+
+    self.__dict__.update(kwargs) #allow class fields to be passed in constructor
+    #https://stackoverflow.com/questions/739625/setattr-with-kwargs-pythonic-or-not
+
+    self.name2window = {}
 
 ##################### new window ##################### 
  
