@@ -81,9 +81,7 @@ def draw():
   for i in range(3):
    wp = winCoordProxies[i]
    x, y = wp.pos
-
-  window1 = getWindow()
-  moveWindow(window1, x, y)
+   moveWindowById(i, x, y)
 
   for i in [1,2]:
     pRenderers[i].clear()

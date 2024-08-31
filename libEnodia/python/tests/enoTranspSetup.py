@@ -32,21 +32,39 @@ def getWindow(name=None):
   if name=='firstWin' or name is None: return Window.from_display_module()
   if name in name2window:              result = name2window[name]; return result
 
-moveWindowLastCoords = {}
+moveWindowLastCoords   = {} #unsure because of pygame_sdl2 deepcopy issue about aspects here
+moveWindowIdLastCoords = {}
 
 ##################### move window ##################### 
 
-def moveWindow(window, x,y):
+def moveWindow(pWindow, x,y):
   global moveWindowLastCoords
 
-  if window in moveWindowLastCoords:
+  if pWindow in moveWindowLastCoords:
+    lastX, lastY = moveWindowLastCoords[pWindow]
+    if x == lastX and y == lastY: return #no movement
+
+  else: moveWindowLastCoords[pWindow] = (x,y)
+
+  if pWindow is None: pWindow=getWindow()
+  pWindow.position = (x,y) #titlebar slightly off-screen
+
+##################### move window by id ##################### 
+
+def moveWindowById(windowId, x,y):
+  global moveWindowIdLastCoords, pWindows
+
+  if windowId in moveWindowIdLastCoords:
     lastX, lastY = moveWindowLastCoords[window]
     if x == lastX and y == lastY: return #no movement
 
-  else: moveWindowLastCoords[window] = (x,y)
+  else: moveWindowIdLastCoords[window] = (x,y)
 
-  if window is None: window=getWindow()
-  window.position = (x,y) #titlebar slightly off-screen
+  if windowId not in pWindows:
+    print("moveWindowById error: id index not found:", windowId); return
+
+  pWindow = pWindows[windowId]
+  pWindow.position = (x,y)
 
 ##################### transparent window setup ##################### 
 
