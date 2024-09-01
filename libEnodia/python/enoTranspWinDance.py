@@ -34,6 +34,9 @@ class enoTranspWinDance:
   ewm             = None #enoWinMgr
   tween           = 'accel_decel'
 
+  runDefaultGlyphAnimations = True
+  runDefaultWinAnimations   = True
+
   ############# constructor #############
 
   def __init__(self, **kwargs):
@@ -74,10 +77,12 @@ class enoTranspWinDance:
     self.ewm.transpWinSetup(screen, self.fuchsia, WIDTH, HEIGHT)        #set up transparent window ~chromakey
     #transpWinSetup(pRenderers[1], fuchsia, WIDTH, HEIGHT, pWindows[1]) #set up transparent window ~chromakey
   
-    animate(self.a1, pos=self.pos2, tween=self.tween, duration=self.dur1, on_finished=self.animTransition1)
-  
-    w1 = self.winCoordProxies[0]
-    animate(w1, pos=(800,800), tween=self.tween, duration=self.dur2)
+    if self.runDefaultGlyphAnimations:
+      animate(self.a1, pos=self.pos2, tween=self.tween, duration=self.dur1, on_finished=self.animTransition1)
+
+    if self.runDefaultWinAnimations:
+      w1 = self.winCoordProxies[0]
+      animate(w1, pos=(800,800), tween=self.tween, duration=self.dur2)
   
   ##################### animation transition #####################
   
@@ -92,9 +97,6 @@ class enoTranspWinDance:
   def draw(self):
     if self.justBeginning: self.firstFrame(); self.justBeginning=False
   
-    screen.fill(self.fuchsia)  # Transparent background ~chromakey
-    self.a1.draw()
-  
     for i in range(self.numSubwins):
      wp = self.winCoordProxies[i]
      x, y = wp.pos
@@ -104,6 +106,9 @@ class enoTranspWinDance:
     for i in [1,n]:
       self.pRenderers[i].clear()
       self.pRenderers[i].present()
+
+    screen.fill(self.fuchsia)  # Transparent background ~chromakey
+    self.a1.draw()
   
 ##################### main #####################
 
