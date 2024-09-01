@@ -2,16 +2,15 @@
 # Brygg Ullmer, Clemson University
 # Begun 2024-08-26
 
-import sys
+import sys; sys.path.append("..")
+
 sys.settrace #to debug persistent segfault 
 
 import pgzrun
 import pygame
+from functools    import partial
 from pygame._sdl2 import Window, Renderer
-from enoTranspSetup import *
-
-#DISPLAY_FLAGS = pygame.SHOWN
-#pygame.display.set_mode((100, 100), DISPLAY_FLAGS)
+from enoWinMgr    import *
 
 WIDTH, HEIGHT = 300, 300
 
@@ -71,7 +70,7 @@ def animTransition1():
 
 ##################### draw #####################
 
-def draw():
+def draw(ewm):
   global pRenderers, pWindows, winCoordProxies
   global justBeginning
 
@@ -88,6 +87,12 @@ def draw():
   for i in [1,2]:
     pRenderers[i].clear()
     pRenderers[i].present()
+
+ewm = enoWinMgr()
+
+def drawEwm(ewm): ewm.draw()
+
+draw = partial(drawEwm, ewm)
 
 pgzrun.go()
 
