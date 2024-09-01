@@ -25,6 +25,9 @@ class exTransp08:
   winCoordProxies = None
   numSubwins      = 3
 
+  pRenderers      = None
+  pWindows        = None
+
   dur             = 1.5 #duration
   fuchsia         = (255, 0, 128)  # Transparency key color
 
@@ -34,6 +37,7 @@ class exTransp08:
 
   winDimension    = (250, 250)
   winCoords       = [(0, 0), (0, 300), (0, 600)]
+  ewm             = None #enoWinMgr
 
   ############# constructor #############
 
@@ -43,22 +47,27 @@ class exTransp08:
 
     self.a1 = Actor(self.a1Fn)
     self.winCoordProxies = {}
+    self.pRenderers      = {}
+    self.pWindows        = {}
 
     for i in range(self.numSubwins): self.winCoordProxies[i] = Actor("one_red_pix")
 
   ##################### first frame invocations #####################
   
-  pRenderers, pWindows = {}, {}
-  
-  def firstFrame():
-    global pRenderers, pWindows, winDimension, winCoords, winCoordProxies 
-  
-    wh, ww = winDimension
+  def firstFrame(self):
+
+    if self.ewm is None: print("exTransp08 firstFrame: ewm is not initialized!"); return
+
+    wh, ww = self.winDimension
     
-    pWindows[0] = getWindow()
-    for i in [1,2]:
-      pWindows[i]   = newWindow("win" + str(i), ww, wh) # this works, but a list does not, because of its "deep copy" mechanism
-      pRenderers[i] = Renderer(pWindows[i])
+    pWindows[0] = self.ewm.getWindow()
+    n = self.numSubwins - 1
+
+    for i in [1, n]: 
+      # dictionaries work for storing window handle, but lists do not, because of pygame_sdl2's "deep copy" limitations
+      self.pWindows[i]   = self.ewm.newWindow("win" + str(i), ww, wh) 
+
+      self.pRenderers[i] = Renderer(self.pWindows[i])
   
     #pWindows = [window1] #this "deepcopy" is sufficient to cause a segfault; long, long sigh
   
