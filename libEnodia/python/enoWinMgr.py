@@ -49,7 +49,7 @@ class enoWinMgr:
   
   ##################### move window ##################### 
   
-  def moveWindow(self, pWindow, x,y):
+  def moveWindow(self, pWindow, x, y):
     if pWindow in self.moveWindowLastCoords:
       lastX, lastY = self.moveWindowLastCoords[pWindow]
       if x == lastX and y == lastY: return #no movement
@@ -61,17 +61,17 @@ class enoWinMgr:
   
   ##################### move window by id ##################### 
   
-  def moveWindowById(self, windowId, x,y):
+  def moveWindowById(self, windowId, x, y, pWindows):
     if windowId in self.moveWindowIdLastCoords:
       lastX, lastY = self.moveWindowIdLastCoords[windowId]
       if x == lastX and y == lastY: return #no movement
   
     else: self.moveWindowIdLastCoords[windowId] = (x,y)
   
-    if windowId not in self.pWindows:
+    if windowId not in pWindows:
       print("moveWindowById error: id index not found:", windowId); return
   
-    pWindow = self.pWindows[windowId]
+    pWindow = pWindows[windowId]
     pWindow.position = (x,y)
   
   ##################### transparent window setup ##################### 
