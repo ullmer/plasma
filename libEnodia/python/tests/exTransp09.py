@@ -8,11 +8,13 @@ WIDTH, HEIGHT = 300, 300
 
 from enoTranspWinDance import *
 from enoWinMgr         import *
-  
-ewm  = enoWinMgr()
-etwd = enoTranspWinDance(ewm=ewm)
 
-def draw(): etwd.draw()
+class exTransp09(enoTranspWinDance): pass
+  
+ewm = enoWinMgr()
+et9 = exTransp09(ewm=ewm)
+
+def draw(): et9.draw()
   
 ### end ###
 
