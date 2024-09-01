@@ -88,9 +88,9 @@ class exTransp08:
   
   def animTransition1(self):
     if self.animPhase1:
-      self.animPhase1 = False; animate(a1, pos=self.pos1, tween=self.tween, duration=dur1, on_finished=self.animTransition)
+      self.animPhase1 = False; animate(self.a1, pos=self.pos1, tween=self.tween, duration=self.dur1, on_finished=self.animTransition1)
     else:
-      self.animPhase1 = True;  animate(a1, pos=self.pos2, tween=self.tween, duration=dur1, on_finished=self.animTransition)
+      self.animPhase1 = True;  animate(self.a1, pos=self.pos2, tween=self.tween, duration=self.dur1, on_finished=self.animTransition1)
   
   ##################### draw #####################
   
