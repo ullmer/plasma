@@ -111,13 +111,15 @@ class exTransp08:
       self.pRenderers[i].present()
   
 ##################### main #####################
-  
-ewm = enoWinMgr()
-et8 = exTransp08(ewm=ewm)
 
-def draw(): et8.draw()
+if __name__ == "__main__":
   
-pgzrun.go()
+  ewm = enoWinMgr()
+  et8 = exTransp08(ewm=ewm)
+
+  def draw(): et8.draw()
+  
+  pgzrun.go()
 
 ### end ###
 
