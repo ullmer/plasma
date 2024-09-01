@@ -50,6 +50,15 @@ class enoTranspWinDance:
 
     for i in range(self.numSubwins): self.winCoordProxies[i] = Actor(self.subwinProxyFn)
 
+  ##################### get window coordinate (actor) proxies #####################
+ 
+  def getWinCoordProxies(self, whichWinId):
+    if self.winCoordProxies is None or whichWinId not in self.winCoordProxies:
+      print("enoTranspWinDance getWinCoordProxies: issues noted, ignoring"); return
+
+    result = self.winCoordProxies[whichWinId]
+    return result
+
   ##################### first frame invocations #####################
   
   def firstFrame(self):

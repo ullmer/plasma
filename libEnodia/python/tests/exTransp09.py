@@ -23,7 +23,7 @@ class exTransp09(enoTranspWinDance):
     super().firstFrame()
 
     for winId in [1, 2]:
-      w      = self.winCoordProxies[winId]
+      w      = self.getWinCoordProxies(winId)
       x1, y1 = w.pos
       x2, y2 = x1 + 1700, y1
 
