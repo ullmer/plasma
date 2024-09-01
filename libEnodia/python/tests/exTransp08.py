@@ -14,22 +14,37 @@ from enoWinMgr    import *
 
 WIDTH, HEIGHT = 300, 300
 
+##################### transparency 08 example #####################
+
 class exTransp08:
 
-  a1      = Actor("animist01a_100")
+  a1Fn          = "animist01a_100"
+  subwinProxyFn = "one_red_pix"
 
-  winCoordProxies = {}
-  for i in range(3): winCoordProxies[i] = Actor("one_red_pix")
+  a1              = None
+  winCoordProxies = None
+  numSubwins      = 3
 
-  dur     = 1.5 #duration
-  fuchsia = (255, 0, 128)  # Transparency key color
+  dur             = 1.5 #duration
+  fuchsia         = (255, 0, 128)  # Transparency key color
 
-  justBeginning = True
-  animPhase1    = True
-  pos1, pos2    = (0, 0), (500, 500)
+  justBeginning   = True
+  animPhase1      = True
+  pos1, pos2      = (0, 0), (500, 500)
 
-  winDimension = (250, 250)
-  winCoords    = [(0, 0), (0, 300), (0, 600)]
+  winDimension    = (250, 250)
+  winCoords       = [(0, 0), (0, 300), (0, 600)]
+
+  ############# constructor #############
+
+  def __init__(self, **kwargs):
+
+    self.__dict__.update(kwargs) #allow class fields to be passed in constructor
+
+    self.a1 = Actor(self.a1Fn)
+    self.winCoordProxies = {}
+
+    for i in range(self.numSubwins): self.winCoordProxies[i] = Actor("one_red_pix")
 
   ##################### first frame invocations #####################
   
