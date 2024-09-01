@@ -2,11 +2,6 @@
 # Brygg Ullmer, Clemson University
 # Begun 2024-08-26
 
-import sys; sys.path.append("..")
-
-sys.settrace #to debug persistent segfault 
-
-import pgzrun
 import pygame
 from pygame._sdl2 import Window, Renderer
 from enoWinMgr    import *
@@ -15,7 +10,7 @@ WIDTH, HEIGHT = 300, 300
 
 ##################### transparency 08 example #####################
 
-class exTransp08:
+class exTranspWinDance:
 
   a1Fn          = "animist01a_100"
   subwinProxyFn = "one_red_pix"
@@ -119,7 +114,5 @@ if __name__ == "__main__":
 
   def draw(): et8.draw()
   
-  pgzrun.go()
-
 ### end ###
 
