@@ -50,7 +50,7 @@ class exTransp08:
     self.pRenderers      = {}
     self.pWindows        = {}
 
-    for i in range(self.numSubwins): self.winCoordProxies[i] = Actor("one_red_pix")
+    for i in range(self.numSubwins): self.winCoordProxies[i] = Actor(self.subwinProxyFn)
 
   ##################### first frame invocations #####################
   
