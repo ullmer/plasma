@@ -34,7 +34,7 @@ class exTransp09(enoTranspWinDance):
 ewm = enoWinMgr()
 et9 = exTransp09(ewm=ewm)
 
-def draw(): et9.draw()
+def draw(): et9.draw() #requires invocation via pgzrun, per its ~simplification of scope
   
 ### end ###
 
