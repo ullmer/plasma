@@ -10,7 +10,7 @@ WIDTH, HEIGHT = 300, 300
 
 ##################### transparency 08 example #####################
 
-class exTranspWinDance:
+class enoTranspWinDance:
 
   a1Fn          = "animist01a_100"
   subwinProxyFn = "one_red_pix"
