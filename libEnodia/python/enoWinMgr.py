@@ -76,13 +76,13 @@ class enoWinMgr:
   
   ##################### transparent window setup ##################### 
   
-  def transpWinSetup(self, screen, keyColor, winWidth, winHeight, window=None):
+  def transpWinSetup(self, screen, keyColor, winWidth, winHeight, pWindow=None):
     imgIcon = pygame.image.load("images/animist01e.png")
     pygame.display.set_icon(imgIcon)
     pygame.display.set_caption("animist alpha")
   
-    if window is None: window = getWindow()
-    moveWindow(window, 0, 0)
+    if pWindow is None: pWindow = self.getWindow()
+    self.moveWindow(pWindow, 0, 0)
   
     # Create layered window
     #print("transpWinSetup hwnd:" + str(pygame.display.get_wm_info()))

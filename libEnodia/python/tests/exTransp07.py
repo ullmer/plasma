@@ -54,14 +54,14 @@ def firstFrame():
   transpWinSetup(screen, fuchsia, WIDTH, HEIGHT)                     #set up transparent window ~chromakey
   #transpWinSetup(pRenderers[1], fuchsia, WIDTH, HEIGHT, pWindows[1]) #set up transparent window ~chromakey
 
-  animate(a1, pos=pos2, tween='accel_decel', duration=dur, on_finished=animTransition)
+  animate(a1, pos=pos2, tween='accel_decel', duration=dur, on_finished=animTransition1)
 
   w1 = winCoordProxies[0]
   animate(w1, pos=(800,800), tween='accel_decel', duration=4.)
 
 ##################### animation transition #####################
 
-def animTransition():
+def animTransition1():
   global animPhase1
 
   if animPhase1:

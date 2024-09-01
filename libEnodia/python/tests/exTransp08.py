@@ -8,7 +8,6 @@ sys.settrace #to debug persistent segfault
 
 import pgzrun
 import pygame
-from functools    import partial
 from pygame._sdl2 import Window, Renderer
 from enoWinMgr    import *
 
@@ -61,8 +60,8 @@ class exTransp08:
 
     wh, ww = self.winDimension
     
-    pWindows[0] = self.ewm.getWindow()
-    n           = self.numSubwins - 1
+    self.pWindows[0] = self.ewm.getWindow()
+    n                = self.numSubwins - 1
 
     for i in [1, n]: 
       # dictionaries work for storing window handle, but lists do not, because of pygame_sdl2's "deep copy" limitations
@@ -77,7 +76,7 @@ class exTransp08:
       self.winCoordProxies[i].pos = self.winCoords[i]
       self.ewm.moveWindow(self.pWindows[i], x, y)
   
-    self.ewm.transpWinSetup(screen, fuchsia, WIDTH, HEIGHT)                     #set up transparent window ~chromakey
+    self.ewm.transpWinSetup(screen, self.fuchsia, WIDTH, HEIGHT)        #set up transparent window ~chromakey
     #transpWinSetup(pRenderers[1], fuchsia, WIDTH, HEIGHT, pWindows[1]) #set up transparent window ~chromakey
   
     animate(self.a1, pos=self.pos2, tween=self.tween, duration=self.dur1, on_finished=self.animTransition1)
@@ -114,9 +113,9 @@ class exTransp08:
 ##################### main #####################
   
 ewm = enoWinMgr()
-def drawEwm(ewm): ewm.draw()
-  
-draw = partial(drawEwm, ewm)
+et8 = exTransp08(ewm=ewm)
+
+def draw(): et8.draw()
   
 pgzrun.go()
 
