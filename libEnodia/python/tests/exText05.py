@@ -24,8 +24,11 @@ def create_text_surface(text):
   text_surface = font.render(text, True, (255, 255, 255))
   return text_surface
 
+dest = pygame.Rect(0, 0)
+
 def draw_renderer_surface(renderer, surface):
-  renderer.draw(surface, (0,0))
+  #renderer.draw(surface, (0,0))
+  renderer.blit(surface, dest)
 
 # Draw "hello" in each window
 #draw_text(window1, "hello")
