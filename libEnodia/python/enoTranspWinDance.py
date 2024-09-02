@@ -107,9 +107,9 @@ class enoTranspWinDance:
     if self.justBeginning: self.firstFrame(); self.justBeginning=False
   
     for i in range(self.numSubwins):
-     wp = self.winCoordProxies[i]
-     x, y = wp.pos
-     self.ewm.moveWindowById(i, x, y, self.pWindows)
+      wp = self.winCoordProxies[i]
+      x, y = wp.pos
+      self.ewm.moveWindowById(i, x, y, self.pWindows)
   
     n = self.numSubwins - 1
     for i in [1,n]:
