@@ -21,15 +21,16 @@ class exText04(enoTranspWinDance):
 
   mred   = "#773540"
   mwhite = "#ffffff"
-  tbox   =  Rect((0, 70), (100, 100))
+  tbox   =  Rect((0, 70), (100, 30))
   tpos1  = (100, -10)
   tpos2  = ( 2,  102)
   font1  = "oswald-medium"
 
   def draw(self):
-    screen.draw.filled_rect(tbox, mred)
-    screen.draw.text("A",       topright  =tpos1, fontsize=70, fontname=font1, color=mwhite, alpha=0.5)
-    screen.draw.text("SPATIAL", bottomleft=tpos2, fontsize=25, fontname=font1, color=mwhite, alpha=0.5)
+    super().draw()
+    screen.draw.filled_rect(self.tbox, self.mred)
+    screen.draw.text("A",       topright  =self.tpos1, fontsize=70, fontname=self.font1, color=self.mwhite, alpha=0.5)
+    screen.draw.text("SPATIAL", bottomleft=self.tpos2, fontsize=25, fontname=self.font1, color=self.mwhite, alpha=0.5)
 
   def subwinAnimBounce(self, whichSubwin, nextDest, subsequentDest):
     cb = partial(self.subwinAnimBounce, whichSubwin, subsequentDest, nextDest) #callback on completion
