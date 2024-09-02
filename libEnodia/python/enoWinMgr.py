@@ -22,6 +22,7 @@ class enoWinMgr:
   name2window            = None
   moveWindowLastCoords   = None
   moveWindowIdLastCoords = None
+  borderless             = True
 
   ############# constructor #############
 
@@ -38,6 +39,7 @@ class enoWinMgr:
    
   def newWindow(self, name, w,h):
     pWindow           = Window(name, size=(w,h))
+    if self.borderless: pWindow.borderless = True
     self.name2window[name] = pWindow
     return pWindow
   

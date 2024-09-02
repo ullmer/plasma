@@ -25,6 +25,13 @@ class exText04(enoTranspWinDance):
   tpos1  = (100, -10)
   tpos2  = ( 2,  102)
   font1  = "oswald-medium"
+  animPauseDur = 3.
+
+  numSubwins      = 3
+  winDimension    = (100, 100)
+  #winCoords       = [(0, 0), (0, 300), (0, 600)]
+
+  ################### draw ################### 
 
   def draw(self):
     super().draw()
@@ -32,9 +39,21 @@ class exText04(enoTranspWinDance):
     screen.draw.text("A",       topright  =self.tpos1, fontsize=70, fontname=self.font1, color=self.mwhite, alpha=0.5)
     screen.draw.text("SPATIAL", bottomleft=self.tpos2, fontsize=25, fontname=self.font1, color=self.mwhite, alpha=0.5)
 
+     
+  
+  ################### subwindow animation pause ################### 
+
+  def subwinAnimPause(self, whichSubwin, nextDest, subsequentDest):
+    cb = partial(self.subwinAnimBounce, whichSubwin, nextDest, subsequentDest)
+    clock.schedule(cb, self.animPauseDur) # after a pause of animPauseDur seconds, call the bounce
+  
+  ################### subwindow animation bounce ################### 
+
   def subwinAnimBounce(self, whichSubwin, nextDest, subsequentDest):
-    cb = partial(self.subwinAnimBounce, whichSubwin, subsequentDest, nextDest) #callback on completion
+    cb = partial(self.subwinAnimPause, whichSubwin, subsequentDest, nextDest) #callback on completion
     animate(whichSubwin, pos=nextDest, tween=self.tween, duration=self.dur1, on_finished=cb)
+
+  ################### first frame ################### 
 
   def firstFrame(self): # invoked on rendering of first frame
     super().firstFrame()
