@@ -1,5 +1,12 @@
+# Text trials
+# Brygg Ullmer, Clemson University
+# Begun 2024-09-02
+
+import pygame
+import pgzero.game
 
 WIDTH, HEIGHT = 100, 100
+pgzero.game.DISPLAY_FLAGS = pygame.NOFRAME #"use wisely"
 
 mred   = "#773540"
 mwhite = "#ffffff"
