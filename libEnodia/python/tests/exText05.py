@@ -8,33 +8,35 @@ from pygame._sdl2 import Window
 pygame.init()
 
 # Create three windows
-window1 = Window("Window 1", size=(400, 300))
-window2 = Window("Window 2", size=(400, 300))
-window3 = Window("Window 3", size=(400, 300))
+winDict = {}
+winDict[0] = Window("Window 1", size=(400, 300))
+winDict[1] = Window("Window 2", size=(400, 300))
+winDict[2] = Window("Window 3", size=(400, 300))
 
 # Set up fonts
 font = pygame.font.Font(None, 74)
 
 # Function to draw text in a window
-def draw_text(window, text):
-    surface = window.get_surface()
-    surface.fill((0, 0, 0))  # Fill the window with black
-    text_surface = font.render(text, True, (255, 255, 255))
-    surface.blit(text_surface, (50, 100))  # Draw the text
-    window.refresh()
+def create_text_surface(text):
+  surface = pygame.Surface(size=(400, 300))
+  surface.fill((0, 0, 0))  # Fill the window with black
+  text_surface = font.render(text, True, (255, 255, 255))
+  return text_surface
+
+def draw_win_surface(window, surface):
+  window.draw(surface)
 
 # Draw "hello" in each window
-draw_text(window1, "hello")
-draw_text(window2, "hello")
-draw_text(window3, "hello")
+#draw_text(window1, "hello")
+#draw_text(window2, "hello")
+#draw_text(window3, "hello")
 
-# Pygame Zero draw function (not used in this example)
+ts = create_text_surface("hello")
+
 def draw():
-    pass
-
-# Pygame Zero update function (not used in this example)
-def update():
-    pass
+  for i in range(3):
+    w = winDict[i]
+    draw_win_surface(w, ts)
 
 # Run Pygame Zero
 pgzrun.go()
