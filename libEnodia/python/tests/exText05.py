@@ -2,45 +2,53 @@
 
 import pgzrun
 import pygame
-from pygame._sdl2 import Window, Renderer
+
+#from pygame._sdl2 import Window, Renderer
+
+from pygame._sdl2.video import Window, Renderer, Texture
 
 # Initialize Pygame
 pygame.init()
-
-# Create three windows
-winDict, renDict = {}, {}
-
-for i in range(3): 
-  winDict[i] = Window("Window " + str(i), size=(300, 300))
-  renDict[i] = Renderer(winDict[i])
 
 # Set up fonts
 font = pygame.font.Font(None, 74)
 
 # Function to draw text in a window
 def create_text_surface(text):
-  surface = pygame.Surface(size=(400, 300))
+  surface = pygame.Surface((300, 300))
   surface.fill((0, 0, 0))  # Fill the window with black
   text_surface = font.render(text, True, (255, 255, 255))
   return text_surface
 
-dest = pygame.Rect(0, 0)
+dest = pygame.Rect((0, 0), (300, 300))
 
-def draw_renderer_surface(renderer, surface):
+def drawRendererS(r, s):
   #renderer.draw(surface, (0,0))
-  renderer.blit(surface, dest)
+  #renderer.blit(surface, (0,0))
+  #r.draw(s, dest)
 
-# Draw "hello" in each window
-#draw_text(window1, "hello")
-#draw_text(window2, "hello")
-#draw_text(window3, "hello")
-
-ts = create_text_surface("hello")
+  r.blit(s, dest)
 
 def draw():
   for i in range(3):
     r = renDict[i]
-    draw_renderer_surface(r, ts)
+    t = tDict[i]
+    r.clear()
+    #drawRendererS(r, t)
+    r.present()
+
+  screen.clear()
+
+# Create three windows
+winDict, renDict, tDict = {}, {}, {}
+
+ts = create_text_surface("hello")
+
+for i in range(3): 
+  winName = "win" + str(i)
+  winDict[i] = Window(winName, size=(300, 300))
+  renDict[i] = Renderer(winDict[i])
+  tDict[i]   = Texture.from_surface(renDict[i], ts)
 
 # Run Pygame Zero
 pgzrun.go()
