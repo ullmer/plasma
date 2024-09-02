@@ -2,16 +2,17 @@
 
 import pgzrun
 import pygame
-from pygame._sdl2 import Window
+from pygame._sdl2 import Window, Renderer
 
 # Initialize Pygame
 pygame.init()
 
 # Create three windows
-winDict = {}
-winDict[0] = Window("Window 1", size=(400, 300))
-winDict[1] = Window("Window 2", size=(400, 300))
-winDict[2] = Window("Window 3", size=(400, 300))
+winDict, renDict = {}, {}
+
+for i in range(3): 
+  winDict[i] = Window("Window " + str(i), size=(300, 300))
+  renDict[i] = Renderer(winDict[i])
 
 # Set up fonts
 font = pygame.font.Font(None, 74)
@@ -23,8 +24,8 @@ def create_text_surface(text):
   text_surface = font.render(text, True, (255, 255, 255))
   return text_surface
 
-def draw_win_surface(window, surface):
-  window.draw(surface)
+def draw_renderer_surface(renderer, surface):
+  renderer.draw(surface, (0,0))
 
 # Draw "hello" in each window
 #draw_text(window1, "hello")
@@ -35,8 +36,8 @@ ts = create_text_surface("hello")
 
 def draw():
   for i in range(3):
-    w = winDict[i]
-    draw_win_surface(w, ts)
+    r = renDict[i]
+    draw_renderer_surface(r, ts)
 
 # Run Pygame Zero
 pgzrun.go()
