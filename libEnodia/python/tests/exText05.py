@@ -20,21 +20,25 @@ def create_text_surface(text):
   text_surface = font.render(text, True, (255, 255, 255))
   return text_surface
 
-dest = pygame.Rect((0, 0), (300, 300))
+dest = None
 
-def drawRendererS(r, s):
-  #renderer.draw(surface, (0,0))
-  #renderer.blit(surface, (0,0))
-  #r.draw(s, dest)
+def drawRendererS(r, t):
+  global dest
+  if dest is None: w,h = t.width, t.height; dest = pygame.Rect((0,0), (w,h))
 
-  r.blit(s, dest)
+  r.blit(t, dest)
+
+firstFrame = True
 
 def draw():
+  global firstFrame
+  if firstFrame: firstFrameActions(); firstFrame = False
+
   for i in range(3):
     r = renDict[i]
     t = tDict[i]
     r.clear()
-    #drawRendererS(r, t)
+    drawRendererS(r, t)
     r.present()
 
   screen.clear()
@@ -44,11 +48,13 @@ winDict, renDict, tDict = {}, {}, {}
 
 ts = create_text_surface("hello")
 
-for i in range(3): 
-  winName = "win" + str(i)
-  winDict[i] = Window(winName, size=(300, 300))
-  renDict[i] = Renderer(winDict[i])
-  tDict[i]   = Texture.from_surface(renDict[i], ts)
+def firstFrameActions():
+
+  for i in range(3): 
+    winName = "win" + str(i)
+    winDict[i] = Window(winName, size=(300, 300))
+    renDict[i] = Renderer(winDict[i])
+    tDict[i]   = Texture.from_surface(renDict[i], ts)
 
 # Run Pygame Zero
 pgzrun.go()
