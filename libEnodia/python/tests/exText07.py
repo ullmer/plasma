@@ -41,6 +41,7 @@ class exText07(enoTranspWinDance):
   winTextureCache = None #index on integer win id
   winDict         = None
   renDict         = None
+  textureDict     = None
 
   textualsYaml = '''
     letters: [A,N,I,M,I,S,T]
@@ -58,6 +59,7 @@ class exText07(enoTranspWinDance):
     self.winTextureCache = {}
     self.winDict         = {}
     self.renDict         = {}
+    self.textureDict     = {}
     self.textualsD       = yaml.safe_load(self.textualsYaml)
 
   ############# constructor #############
@@ -69,6 +71,18 @@ class exText07(enoTranspWinDance):
     pgzero.ptext.draw("hallo", surf=tsurf, topleft=(0,0), fontsize=40, alpha=.5, color=(255,255,255))
 
     textureDict[i]   = Texture.from_surface(renDict[i], ts)
+
+  ################### gen win textures ################### 
+
+  def genWinTextures(self):
+    for i in range(self.numWindows):
+      t = seelf.textureDict
+
+    if self.destRect is None: 
+      w,h           = t.width, t.height
+      self.destRect = pygame.Rect((0,0), (w,h))
+
+    r.blit(t, dest) #r.draw(t, dest) # not in common pip-distributed distro as of 2024-09
 
   ################### draw ################### 
 
@@ -89,15 +103,6 @@ class exText07(enoTranspWinDance):
   def subwinAnimBounce(self, whichSubwin, nextDest, subsequentDest):
     cb = partial(self.subwinAnimPause, whichSubwin, subsequentDest, nextDest) #callback on completion
     animate(whichSubwin, pos=nextDest, tween=self.tween, duration=self.dur1, on_finished=cb)
-  
-  ################### gen win textures ################### 
-
-  def genWinTextures(self):
-    if self.destRect is None: 
-      w,h           = t.width, t.height
-      self.destRect = pygame.Rect((0,0), (w,h))
-
-    r.blit(t, dest) #r.draw(t, dest) # not in common pip-distributed distro as of 2024-09
 
   ################### first frame ################### 
 
