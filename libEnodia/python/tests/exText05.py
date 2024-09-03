@@ -25,8 +25,8 @@ dest = None
 def drawRendererS(r, t):
   global dest
   if dest is None: w,h = t.width, t.height; dest = pygame.Rect((0,0), (w,h))
-
   r.blit(t, dest)
+  #r.draw(t, dest) # not in common pip-distributed distro as of 2024-09
 
 firstFrame = True
 
