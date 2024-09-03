@@ -32,9 +32,10 @@ class exText07(enoTranspWinDance):
   font1  = "oswald-medium"
   animPauseDur = 3.
 
-  numSubwins      = 3
-  winDimension    = (100, 100)
-  #winCoords       = [(0, 0), (0, 300), (0, 600)]
+  numSubwins   = 3
+  winDimension = (100, 100)
+  destRect     = None
+  #winCoords   = [(0, 0), (0, 300), (0, 600)]
 
   winSurfaceCache = None #index on integer win id
   winTextureCache = None #index on integer win id
@@ -88,11 +89,21 @@ class exText07(enoTranspWinDance):
   def subwinAnimBounce(self, whichSubwin, nextDest, subsequentDest):
     cb = partial(self.subwinAnimPause, whichSubwin, subsequentDest, nextDest) #callback on completion
     animate(whichSubwin, pos=nextDest, tween=self.tween, duration=self.dur1, on_finished=cb)
+  
+  ################### gen win textures ################### 
+
+  def genWinTextures(self):
+    if self.destRect is None: 
+      w,h           = t.width, t.height
+      self.destRect = pygame.Rect((0,0), (w,h))
+
+    r.blit(t, dest) #r.draw(t, dest) # not in common pip-distributed distro as of 2024-09
 
   ################### first frame ################### 
 
   def firstFrame(self): # invoked on rendering of first frame
     super().firstFrame()
+    self.genWinTextures()
 
     for winId in [1, 2]:
       w      = self.getWinCoordProxies(winId)
@@ -111,14 +122,7 @@ def draw(): et4.draw() #requires invocation via pgzrun, per its ~simplification 
   
 ### end ###
 
-winDim=(100,100)
 
-# Function to draw text in a window
-
-  if dest is None: w,h = t.width, t.height; dest = pygame.Rect((0,0), (w,h))
-  r.blit(t, dest) #r.draw(t, dest) # not in common pip-distributed distro as of 2024-09
-
-dest = None
 
 firstFrame = True
 
