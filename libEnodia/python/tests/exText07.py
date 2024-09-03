@@ -68,7 +68,7 @@ class exText07(enoTranspWinDance):
     tsurf.fill(self.winBg)  
     pgzero.ptext.draw("hallo", surf=tsurf, topleft=(0,0), fontsize=40, alpha=.5, color=(255,255,255))
 
-    tDict[i]   = Texture.from_surface(renDict[i], ts)
+    textureDict[i]   = Texture.from_surface(renDict[i], ts)
 
   ################### draw ################### 
 
@@ -113,6 +113,15 @@ class exText07(enoTranspWinDance):
       cb = partial(self.subwinAnimBounce, w, (x1, y1), (x2, y2)) #callback on animation completion
       animate(w, pos=(x2, y2), tween=self.tween, duration=self.dur1, on_finished=cb)
 
+  ################### draw################### 
+
+  def draw(self): # 
+    for i in range(self.numWindows):
+      r,t = self.renDict[i], self.textureDict[i]
+      r.clear()
+      drawRendererS(r, t)
+      r.present()
+
 ################## main ##################
   
 ewm = enoWinMgr()
@@ -122,29 +131,3 @@ def draw(): et4.draw() #requires invocation via pgzrun, per its ~simplification 
   
 ### end ###
 
-
-
-firstFrame = True
-
-def draw():
-  global firstFrame
-  if firstFrame: firstFrameActions(); firstFrame = False
-
-  for i in range(3):
-    r,t = renDict[i], tDict[i]
-    r.clear()
-    drawRendererS(r, t)
-    r.present()
-
-# Create three windows
-
-ts = create_text_surface("hello")
-
-def firstFrameActions():
-
-  for i in range(3): 
-    winName = "win" + str(i)
-    winDict[i] = Window(winName, size=winDim)
-    renDict[i] = Renderer(winDict[i])
-
-### end ###
