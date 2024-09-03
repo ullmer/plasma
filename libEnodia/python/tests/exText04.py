@@ -38,8 +38,6 @@ class exText04(enoTranspWinDance):
     screen.draw.filled_rect(self.tbox, self.mred)
     screen.draw.text("A",       topright  =self.tpos1, fontsize=70, fontname=self.font1, color=self.mwhite, alpha=0.5)
     screen.draw.text("SPATIAL", bottomleft=self.tpos2, fontsize=25, fontname=self.font1, color=self.mwhite, alpha=0.5)
-
-     
   
   ################### subwindow animation pause ################### 
 
