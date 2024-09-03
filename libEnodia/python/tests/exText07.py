@@ -70,6 +70,10 @@ class exText07(enoTranspWinDance):
     tsurf.fill(self.winBg)  
     pgzero.ptext.draw("hallo", surf=tsurf, topleft=(0,0), fontsize=40, alpha=.5, color=(255,255,255))
 
+    screen.draw.filled_rect(self.tbox, self.mred)
+    pgzero.ptext.draw("A",       topright  =self.tpos1, fontsize=70, fontname=self.font1, color=self.mwhite, alpha=0.5)
+    pgzero.ptext.draw("SPATIAL", bottomleft=self.tpos2, fontsize=25, fontname=self.font1, color=self.mwhite, alpha=0.5)
+
     textureDict[i]   = Texture.from_surface(renDict[i], ts)
 
   ################### gen win textures ################### 
