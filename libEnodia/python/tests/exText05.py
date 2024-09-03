@@ -13,9 +13,11 @@ pygame.init()
 # Set up fonts
 font = pygame.font.Font(None, 74)
 
+winDim=(100,100)
+
 # Function to draw text in a window
 def create_text_surface(text):
-  surface = pygame.Surface((300, 300))
+  surface = pygame.Surface(winDim)
   surface.fill((0, 0, 0))  # Fill the window with black
   text_surface = font.render(text, True, (255, 255, 255))
   return text_surface
@@ -25,8 +27,7 @@ dest = None
 def drawRendererS(r, t):
   global dest
   if dest is None: w,h = t.width, t.height; dest = pygame.Rect((0,0), (w,h))
-  r.blit(t, dest)
-  #r.draw(t, dest) # not in common pip-distributed distro as of 2024-09
+  r.blit(t, dest) #r.draw(t, dest) # not in common pip-distributed distro as of 2024-09
 
 firstFrame = True
 
@@ -35,13 +36,10 @@ def draw():
   if firstFrame: firstFrameActions(); firstFrame = False
 
   for i in range(3):
-    r = renDict[i]
-    t = tDict[i]
+    r,t = renDict[i], tDict[i]
     r.clear()
     drawRendererS(r, t)
     r.present()
-
-  screen.clear()
 
 # Create three windows
 winDict, renDict, tDict = {}, {}, {}
@@ -52,7 +50,7 @@ def firstFrameActions():
 
   for i in range(3): 
     winName = "win" + str(i)
-    winDict[i] = Window(winName, size=(300, 300))
+    winDict[i] = Window(winName, size=winDim)
     renDict[i] = Renderer(winDict[i])
     tDict[i]   = Texture.from_surface(renDict[i], ts)
 
