@@ -21,7 +21,7 @@ pgzero.game.DISPLAY_FLAGS = pygame.NOFRAME #"use wisely"
 
 ################## example transparency 09 ##################
 
-class exText04(enoTranspWinDance): 
+class exText07(enoTranspWinDance): 
 
   mred   = "#773540"
   mwhite = "#ffffff"
@@ -105,7 +105,7 @@ class exText04(enoTranspWinDance):
 ################## main ##################
   
 ewm = enoWinMgr()
-et4 = exText04(ewm=ewm)
+et4 = exText07(ewm=ewm)
 
 def draw(): et4.draw() #requires invocation via pgzrun, per its ~simplification of scope
   
