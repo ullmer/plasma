@@ -57,7 +57,7 @@ class exText04(enoTranspWinDance):
     self.winTextureCache = {}
     self.winDict         = {}
     self.renDict         = {}
-    self.textualsD = yaml.safe_load(self.textualsYaml)
+    self.textualsD       = yaml.safe_load(self.textualsYaml)
 
   ############# constructor #############
 
@@ -111,15 +111,12 @@ def draw(): et4.draw() #requires invocation via pgzrun, per its ~simplification 
   
 ### end ###
 
-
 winDim=(100,100)
 
 # Function to draw text in a window
 
-
   if dest is None: w,h = t.width, t.height; dest = pygame.Rect((0,0), (w,h))
   r.blit(t, dest) #r.draw(t, dest) # not in common pip-distributed distro as of 2024-09
-
 
 dest = None
 
@@ -145,6 +142,5 @@ def firstFrameActions():
     winName = "win" + str(i)
     winDict[i] = Window(winName, size=winDim)
     renDict[i] = Renderer(winDict[i])
-
 
 ### end ###
