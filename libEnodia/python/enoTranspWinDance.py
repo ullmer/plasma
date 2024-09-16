@@ -3,8 +3,9 @@
 # Begun 2024-08-26
 
 import pygame
-from pygame._sdl2 import Window, Renderer
-from enoWinMgr    import *
+from pygame._sdl2    import Window, Renderer
+from enoWinMgr       import *
+from pgzero.builtins import Actor, animate
 
 WIDTH, HEIGHT = 300, 300
 
