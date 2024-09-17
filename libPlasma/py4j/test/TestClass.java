@@ -5,6 +5,8 @@
 
 // TestClass.java
 import py4j.GatewayServer;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 
 public class TestClass {
     private int A;
@@ -32,10 +34,19 @@ public class TestClass {
     }
 
     public static void main(String[] args) {
-        TestClass testClass = new TestClass(10, 20);
-        GatewayServer server = new GatewayServer(testClass);
-        server.start();
-        System.out.println("Gateway Server Started");
+        try {
+          TestClass testClass = new TestClass(10, 20);
+
+          InetAddress address = InetAddress.getByName("172.25.49.14");
+          GatewayServer server = new GatewayServer(testClass, 25333);
+          //GatewayServer server = new GatewayServer(testClass);
+	  //server.setAddress(address);
+          //GatewayServer server = new GatewayServer(testClass, 25333, address, 
+          // GatewayServer.DEFAULT_CONNECT_TIMEOUT, GatewayServer.DEFAULT_READ_TIMEOUT, null);
+
+          server.start();
+          System.out.println("Gateway Server Started");
+	} catch (UnknownHostException e) {e.printStackTrace();}
     }
 }
 
