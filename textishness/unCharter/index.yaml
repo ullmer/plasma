@@ -1,8 +1,11 @@
 
 coreText:
- ar: https://www.un.org/ar/about-us/un-charter/full-text
- en: https://www.un.org/en/about-us/un-charter/full-text
- es: https://www.un.org/es/about-us/un-charter/full-text
- fr: https://www.un.org/fr/about-us/un-charter/full-text
- ru: https://www.un.org/ru/about-us/un-charter/full-text
- zh: https://www.un.org/zh/about-us/un-charter/full-text
+ meta: [src, img]
+ ar:   [https://www.un.org/ar/about-us/un-charter/full-text, 1945a/ar01]
+ en:   [https://www.un.org/en/about-us/un-charter/full-text, 1945a/en01]
+ es:   [https://www.un.org/es/about-us/un-charter/full-text, 1945a/es01]
+ fr:   [https://www.un.org/fr/about-us/un-charter/full-text, 1945a/fr01]
+ ru:   [https://www.un.org/ru/about-us/un-charter/full-text, 1945a/ru01]
+ zh:   [https://www.un.org/zh/about-us/un-charter/full-text, 1945a/zh01]
+
+
