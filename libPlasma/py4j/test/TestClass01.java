@@ -46,9 +46,9 @@ public class TestClass01 {
           Logger logger = Logger.getLogger("py4j");
           logger.setLevel(Level.ALL);
 
-          //InetAddress address = InetAddress.getByName("172.25.49.14");
           //GatewayServer server = new GatewayServer(testClass, 25333);
-          InetAddress address = InetAddress.getByName("130.127.48.81");
+          //InetAddress address = InetAddress.getByName("130.127.48.81");
+          InetAddress address = InetAddress.getByName("172.25.49.14");
 
           //GatewayServer server = new GatewayServer(testClass);
 
