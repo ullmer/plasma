@@ -4,19 +4,37 @@
 #   that accesses these testClass variables."
 
 # test_class_wrapper.py
+import sys
 from py4j.java_gateway import JavaGateway, GatewayParameters 
 
-gwparam = GatewayParameters(address='172.25.49.14', port=25333)
+print("foo")
+#gwparam = GatewayParameters(address='172.25.49.14', port=25333)
+#gwparam = GatewayParameters(address='127.0.0.1', port=25333)
+gwparam = GatewayParameters(address='130.127.48.81', port=25333)
+print("bar")
 
 # Connect to the Java Gateway
-gateway = JavaGateway(gateway_parameters=gwparam)
+try:
+  gateway = JavaGateway(gateway_parameters=gwparam)
+except Py4JNetworkError as e:
+  print("Network error:", e); sys.exit(-1)
+except Py4JJavaError as e:
+  print("Java error:", e.java_exception); sys.exit(-1)
+
+print("bar2")
 
 # Access the TestClass instance
 test_class = gateway.entry_point
+print("bar3")
 
 # Get the values of A and B
-A = test_class.getA()
-B = test_class.getB()
+try:
+  A = test_class.getA()
+  B = test_class.getB()
+except Exception as e:
+  print("error:", e); sys.exit(-1)
+
+print("bar4")
 
 print(f"Value of A: {A}")
 print(f"Value of B: {B}")

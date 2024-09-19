@@ -37,7 +37,8 @@ public class TestClass01 {
         try {
           TestClass01 testClass = new TestClass01(10, 20);
 
-          InetAddress address = InetAddress.getByName("172.25.49.14");
+          ///InetAddress address = InetAddress.getByName("172.25.49.14");
+          InetAddress address = InetAddress.getByName("130.127.48.81");
           GatewayServer server = new GatewayServer(testClass, 25333);
           //GatewayServer server = new GatewayServer(testClass);
 	  //server.setAddress(address);
