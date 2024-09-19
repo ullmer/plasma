@@ -8,11 +8,11 @@ import py4j.GatewayServer;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 
-public class TestClass {
+public class TestClass01 {
     private int A;
     private int B;
 
-    public TestClass(int A, int B) {
+    public TestClass01(int A, int B) {
         this.A = A;
         this.B = B;
     }
@@ -35,7 +35,7 @@ public class TestClass {
 
     public static void main(String[] args) {
         try {
-          TestClass testClass = new TestClass(10, 20);
+          TestClass01 testClass = new TestClass01(10, 20);
 
           InetAddress address = InetAddress.getByName("172.25.49.14");
           GatewayServer server = new GatewayServer(testClass, 25333);
