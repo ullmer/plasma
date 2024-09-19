@@ -1,1 +1,1 @@
-java -cp ~/.local/share/py4j/py4j0.10.9.7.jar:. TestClass02
+java -cp ~/.local/share/py4j/py4j0.10.9.7.jar:. ExampleListener.class ListenerApplication.class
