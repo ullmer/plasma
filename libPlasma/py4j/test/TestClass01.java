@@ -7,6 +7,7 @@
 import py4j.GatewayServer;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
+import java.util.logging.*;
 
 public class TestClass01 {
     private int A;
@@ -37,9 +38,14 @@ public class TestClass01 {
         try {
           TestClass01 testClass = new TestClass01(10, 20);
 
+          Logger logger = Logger.getLogger("py4j");
+          logger.setLevel(Level.ALL);
+
           ///InetAddress address = InetAddress.getByName("172.25.49.14");
           InetAddress address = InetAddress.getByName("130.127.48.81");
           GatewayServer server = new GatewayServer(testClass, 25333);
+          server.turnLoggingOn();
+
           //GatewayServer server = new GatewayServer(testClass);
 	  //server.setAddress(address);
           //GatewayServer server = new GatewayServer(testClass, 25333, address, 
