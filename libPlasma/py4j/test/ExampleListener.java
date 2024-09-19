@@ -2,7 +2,7 @@
 
 // py4j/examples/ExampleListener.java
 
-package py4j.examples;
+// package py4j.examples;
 
 public interface ExampleListener {
   Object notify(Object source);

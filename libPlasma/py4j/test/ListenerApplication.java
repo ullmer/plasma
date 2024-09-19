@@ -1,7 +1,8 @@
 //https://www.py4j.org/advanced_topics.html#implementing-java-interfaces-from-python-callback
 // py4j/examples/ListenerApplication.java
 
-package py4j.examples;
+// package py4j.examples;
+
 import  py4j.GatewayServer;
 
 import  java.util.ArrayList;
