@@ -5,7 +5,12 @@
 
 # test_class_wrapper.py
 import sys
+import logging
 from py4j.java_gateway import JavaGateway, GatewayParameters 
+
+#logger = logging.getLogger("py4j")
+#logger.setLevel(logging.DEBUG)
+#logger.addHandler(logging.StreamHandler())
 
 print("foo")
 #gwparam = GatewayParameters(address='172.25.49.14', port=25333)
