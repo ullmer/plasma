@@ -46,14 +46,11 @@ public class TestClass01 {
           Logger logger = Logger.getLogger("py4j");
           logger.setLevel(Level.ALL);
 
-          ///InetAddress address = InetAddress.getByName("172.25.49.14");
+          //InetAddress address = InetAddress.getByName("172.25.49.14");
           //GatewayServer server = new GatewayServer(testClass, 25333);
           InetAddress address = InetAddress.getByName("130.127.48.81");
 
           //GatewayServer server = new GatewayServer(testClass);
-	  //server.setAddress(address);
-          //GatewayServer server = new GatewayServer(testClass, 25333, address, 
-          //  GatewayServer.DEFAULT_CONNECT_TIMEOUT, GatewayServer.DEFAULT_READ_TIMEOUT, null);
 
           CallbackClient cbClient = new CallbackClient(GatewayServer.DEFAULT_PYTHON_PORT,
              InetAddress.getByName(CallbackClient.DEFAULT_ADDRESS), 2, TimeUnit.SECONDS);
@@ -62,10 +59,7 @@ public class TestClass01 {
             GatewayServer.DEFAULT_CONNECT_TIMEOUT, GatewayServer.DEFAULT_READ_TIMEOUT, 
             null, cbClient);
 
-          server.turnLoggingOn();
-
-	  //public GatewayServer(Object entryPoint, int port, InetAddress address, int connectTimeout, int readTimeout,
-          //  List<Class<? extends Command>> customCommands, Py4JPythonClient cbClient)
+          //server.turnLoggingOn();
 
           server.start();
           System.out.println("Gateway Server Started");

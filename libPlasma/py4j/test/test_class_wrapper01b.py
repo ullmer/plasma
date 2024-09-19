@@ -12,11 +12,9 @@ from py4j.java_gateway import JavaGateway, GatewayParameters
 #logger.setLevel(logging.DEBUG)
 #logger.addHandler(logging.StreamHandler())
 
-print("foo")
 #gwparam = GatewayParameters(address='172.25.49.14', port=25333)
 #gwparam = GatewayParameters(address='127.0.0.1', port=25333)
 gwparam = GatewayParameters(address='130.127.48.81', port=25333)
-print("bar")
 
 # Connect to the Java Gateway
 try:
@@ -26,11 +24,8 @@ except Py4JNetworkError as e:
 except Py4JJavaError as e:
   print("Java error:", e.java_exception); sys.exit(-1)
 
-print("bar2")
-
 # Access the TestClass instance
 test_class = gateway.entry_point
-print("bar3")
 
 # Get the values of A and B
 try:
@@ -39,7 +34,6 @@ try:
 except Exception as e:
   print("error:", e); sys.exit(-1)
 
-print("bar4")
 
 print(f"Value of A: {A}")
 print(f"Value of B: {B}")
