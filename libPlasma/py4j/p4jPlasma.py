@@ -40,16 +40,34 @@ class p4jPlasma:
     try: # Connect to the Java Gateway
       self.gateway = JavaGateway(gateway_parameters=gwparam)
 
-    except Exception as e: print("error:", e); sys.exit(-1)
+    except Exception as e: self.err("init catch:", str(e)); return None
 
     self.classWrapper = self.gateway.entry_point
     self.classWrapper.init(poolStr)
 
+  ################# error, message handlers #################
+
+  def err(self, msg): print("p4jPlasma error:", str(msg)) 
+  def msg(self, msg): print("p4jPlasma msg:",   str(msg)) 
+
   ################# pdeposit str str #################
 
   def pDeposit_StrStr(self, str1, str2):
+    if self.classWrapper is Null:
+      self.err("pDeposit_StrStr called, but Java proxy not yet initiated"); return None
+
     try:
       self.classWrapper.pDeposit_StrStr(str1, str2)
-    except Exception as e: print("error:", e); sys.exit(-1)
+    except Exception as e: self.err("pDeposit_StrStr catch:" + str(e)); return None
 
-### end ###
+  ################# pnext fmtStr #################
+
+  def pNext(self, formatStr):
+    if self.classWrapper is Null:
+      self.err("pNext called, but Java proxy not yet initiated"); return None
+
+    try:
+      self.classWrapper.pNext(str1, str2)
+    except Exception as e: print("pNext:", e); sys.exit(-1)
+
+### end #
