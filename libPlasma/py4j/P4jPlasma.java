@@ -22,8 +22,6 @@ import com.oblong.jelly.Hose;
 import com.oblong.jelly.Pool;
 import com.oblong.jelly.PoolException;
 
-import PlasmaHose;
-
 //////////////////////////////////////////////////////////////
 //////////////////// Py4j Plasma ~wrapper ////////////////////
 
