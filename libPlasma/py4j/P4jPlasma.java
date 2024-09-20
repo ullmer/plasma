@@ -87,6 +87,7 @@ public class P4jPlasma {
   public boolean initPlasma() {
     try {
       this.pHose = Pool.participate(this.plasmaAddressStr);
+      this.pHose.disengageThreadChecker(); //without this, multi-threaded Py4j & Plasma will complain
     } catch (Exception e) {this.err("initPlasma exception: " + e.getMessage()); return false;}
 
     if (this.verbose) {this.msg("Plasma initiated");}
@@ -96,6 +97,8 @@ public class P4jPlasma {
   //////////////////// plasma deposit strstr ////////////////////
 
   public boolean pDeposit_StrStr(String descripStr, String ingestStr) {
+
+    this.msg("pDeposit_StrStr called; d: " + descripStr + "; i: " + ingestStr);
 
     try {
       Slaw descrips = Slaw.list(Slaw.string(descripStr));
@@ -110,6 +113,18 @@ public class P4jPlasma {
       return false;
     }
 
+    return true;
+  }
+
+  //////////////////// plasma close ////////////////////
+
+  public boolean pClose() {
+    try {
+      this.pHose.withdraw();
+    } catch (Exception e) {
+      this.err("plasma close error: " + e.getMessage());
+      return false;
+    }
     return true;
   }
 

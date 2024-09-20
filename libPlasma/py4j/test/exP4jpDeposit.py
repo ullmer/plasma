@@ -32,4 +32,9 @@ except Exception as e: print("error:", e); sys.exit(-1)
 
 print(f"Plasma address: {pa}")
 
+try:                       # Get the values the plasma address 
+  pj4p.pDeposit_StrStr("hello", "world")
+  pj4p.pClose()
+except Exception as e: print("error:", e); sys.exit(-1)
+
 ### end ###
