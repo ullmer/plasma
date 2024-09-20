@@ -22,6 +22,8 @@ import com.oblong.jelly.Hose;
 import com.oblong.jelly.Pool;
 import com.oblong.jelly.PoolException;
 
+import PlasmaHose;
+
 //////////////////////////////////////////////////////////////
 //////////////////// Py4j Plasma ~wrapper ////////////////////
 
@@ -59,6 +61,7 @@ public class P4jPlasma {
   public PlasmaHose getPlasmaHose(String hoseName) {
     if (!plasmaHoseMap.containsKey(hoseName)) {
       err("getPlasmaHose does not contain hose name " + hoseName); return null;
+    }
 
     PlasmaHose result = plasmaHoseMap[hoseName];
     return result;
@@ -89,121 +92,6 @@ public class P4jPlasma {
 
     } catch (Exception e) {err("initP4j exception: "); e.printStackTrace(System.out); System.exit(-1);}
     return false;  
-  }
-
-//////////////////// plasma hose ////////////////////
-
-public class PlasmaHose {
-  protected String  hoseName;
-  protected String  plasmaAddressStr;
-  protected Hose    pHose;
-
-  //////////////////// constructor ////////////////////
-
-  public PlasmaHose(String hoseName, String plasmaAddressStr) {
-    this.hoseName         = hoseName;
-    this.plasmaAddressStr = plasmaAddressStr;
-
-    initPlasma();
-  }
-
-  //////////////////// getters ////////////////////
-
-  public String getPlasmaAddress() {return plasmaAddressStr;}
-
-  //////////////////// initiate plasma ////////////////////
-  public boolean initPlasma() {
-    try {
-      pHose = Pool.participate(plasmaAddressStr);
-      pHose.disengageThreadChecker(); //without this, multi-threaded Py4j & Plasma will complain
-    } catch (Exception e) {err("initPlasma exception:"); e.printStackTrace(System.out); System.exit(-1);}
-
-    if (verbose) {msg("Plasma initiated");}
-    return true;
-  }
-
-  //////////////////// plasma deposit strstr ////////////////////
-
-  public boolean pDeposit_StrStr(String descripStr, String ingestStr) {
-
-    if (verbose) {msg("pDeposit_StrStr called; d: " + descripStr + "; i: " + ingestStr);}
-
-    try {
-      Slaw descrips = Slaw.list(Slaw.string(descripStr));
-      Slaw ingests  = Slaw.list(Slaw.string(ingestStr));
-
-      Protein p = Slaw.protein(descrips, ingests);
-      pHose.deposit(p);
-
-    } catch (PoolException e) {
-
-      err("plasmaDeposit_StrStr pool exception:" + e.getMessage());
-      e.printStackTrace(System.out);
-      return false;
-    }
-    if (verbose) {msg("pDeposit_StrStr deposit complete");}
-
-    return true;
-  }
-
-  //////////////////// plasma await next ////////////////////
-
-  public Protein pNext() {
-    if (verbose) {msg("pAwait called");}
-    try {
-      Gateway gateway             = p4jGwServer.getGateway();
-      //Hashmap<String, Object> map = gateway.jvm.java.util.HashMap()
-
-      Protein p = pHose.next();
-      return p;
-    } catch (Exception e) {err("pAwaitBlocking: " + e.getMessage());}
-
-    return null;
-  }
-
-  //////////////////// plasma await next ////////////////////
-
-  public Map<Slaw, Slaw> pAwaitNext() {
-    if (verbose) {msg("pAwait called");}
-    try {
-      Gateway gateway             = p4jGwServer.getGateway();
-      //Hashmap<String, Object> map = gateway.jvm.java.util.HashMap()
-
-      Protein p = pHose.awaitNext();
-      Map<Slaw, Slaw> result = p.emitContainedMap();
-
-      return result;
-    } catch (Exception e) {err("pAwaitBlocking: " + e.getMessage());}
-
-    return null;
-  }
-
-  //////////////////// plasma close ////////////////////
-
-  public boolean pClose() {
-    msg("pClose begins");
-    try {
-      pHose.withdraw();
-    } catch (Exception e) {
-      err("plasma close error: " + e.getMessage());
-      return false;
-    }
-    msg("pClose ends");
-    return true;
-  }
-
-  //////////////////// main ////////////////////
-
-  public static void main(String[] args) {
-
-    String p4jIpAddressStr = "172.25.49.14";
-    //String p4jIpAddressStr = "130.127.48.81";
-    String plasmaAddress   = "tcp://localhost/hello";
-
-    try {
-      P4jPlasma p4jp = new P4jPlasma(p4jIpAddressStr, plasmaAddress);
-      System.out.println("Gateway Server Started");
-    } catch (Exception e) {System.out.println("main exception:" + e.getMessage());}
   }
 }
 
