@@ -3,7 +3,7 @@
 # Begun 2024-09-20
 
 import sys; sys.path.append("..")
-import p4jPlasma
+from p4jPlasma import *
 
 addr = '172.25.49.14'
 #addr = '127.0.0.1'
@@ -11,10 +11,10 @@ addr = '172.25.49.14'
 
 p4jp = p4jPlasma(hostAddress=addr)
 
-pa = pj4p.getPlasmaAddress()
+pa = p4jp.getPlasmaAddress()
 print(f"Plasma address: {pa}")
 
-pj4p.pDeposit_StrStr("hello", "world")
+p4jp.pDeposit_StrStr("hello", "world")
 
 print("ends")
 
