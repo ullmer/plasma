@@ -7,25 +7,44 @@ import sys
 import logging
 
 from py4j.java_gateway import JavaGateway, GatewayParameters 
+  
+################# py4j plasma wrapper #################
 
 class p4jPlasma:
 
+  verbose = False
+  logger  = None
+
+  activateLogging = True
+  gwServerAddress = '172.25.49.14'
+  gwServerPort    = 25333
+  gwParam         = None
+  gateway         = None
+
+  ################# constructor #################
+
+  def __init__(self, **kwargs):
+    self.__dict__.update(kwargs) #allow class fields to be passed in constructor
+
+    if self.activateLogging:
+      self.logger = logging.getLogger("py4j")
+      self.logger.setLevel(logging.DEBUG)
+      self.logger.addHandler(logging.StreamHandler())
+
+  ################# init #################
+
   def init(self, poolStr):
+    self.gwParam = GatewayParameters(address=self.gwServerAddress, 
+                                        port=self.gwServerPort)
+    try: # Connect to the Java Gateway
+      self.gateway = JavaGateway(gateway_parameters=gwparam)
+    except Exception as e: print("error:", e); sys.exit(-1)
+
+  ################# pdeposit str str #################
 
   def pDeposit_StrStr(self, str1, str2):
 
-#logger = logging.getLogger("py4j")
-#logger.setLevel(logging.DEBUG)
-#logger.addHandler(logging.StreamHandler())
 
-gwparam = GatewayParameters(address='172.25.49.14', port=25333)
-#gwparam = GatewayParameters(address='127.0.0.1', port=25333)
-#gwparam = GatewayParameters(address='130.127.48.81', port=25333)
-
-# Connect to the Java Gateway
-try:
-  gateway = JavaGateway(gateway_parameters=gwparam)
-except Exception as e: print("error:", e); sys.exit(-1)
 
 # Access the TestClass instance
 test_class = gateway.entry_point
