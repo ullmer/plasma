@@ -1,73 +1,51 @@
-# Py4J Plasma wrapper
+# Py4J Plasma wrappers
 # Brygg Ullmer, Clemson University
-# Begun 2024-09-19
+# Begun 2024-09-20
 
-import sys; sys.path.append("/home/bullmer/git/plasma/libPlasma/python/")
+# Code evolution from test/test_class_wrapper01b.py
+
+# test_class_wrapper.py
 import sys
 import logging
 
 from py4j.java_gateway import JavaGateway, GatewayParameters 
-  
-################# py4j plasma wrapper #################
 
-class p4jPlasma:
-
+class P4jPlasma:
   verbose = False
   logger  = None
 
-  activateLogging = True
-  gwServerAddress = '172.25.49.14'
-  gwServerPort    = 25333
-  gwParam         = None
-  gateway         = None
-  classWrapper    = None
+  hostAddress = None
 
-  ################# constructor #################
+  gateway     = None
+  remoteClass = None
+     
 
-  def __init__(self, **kwargs):
-    self.__dict__.update(kwargs) #allow class fields to be passed in constructor
+#logger = logging.getLogger("py4j")
+#logger.setLevel(logging.DEBUG)
+#logger.addHandler(logging.StreamHandler())
 
-    if self.activateLogging:
-      self.logger = logging.getLogger("py4j")
-      self.logger.setLevel(logging.DEBUG)
-      self.logger.addHandler(logging.StreamHandler())
+gwparam = GatewayParameters(address='172.25.49.14', port=25333)
+#gwparam = GatewayParameters(address='127.0.0.1', port=25333)
+#gwparam = GatewayParameters(address='130.127.48.81', port=25333)
 
-  ################# init #################
+# Connect to the Java Gateway
+try:
+  gateway = JavaGateway(gateway_parameters=gwparam)
+except Exception as e: print("error:", e); sys.exit(-1)
 
-  def init(self, poolStr):
-    self.gwParam = GatewayParameters(address=self.gwServerAddress, 
-                                        port=self.gwServerPort)
-    try: # Connect to the Java Gateway
-      self.gateway = JavaGateway(gateway_parameters=gwparam)
+pj4p = gateway.entry_point # Access the TestClass instance
 
-    except Exception as e: self.err("init catch:", str(e)); return None
+try:                       # Get the values the plasma address 
+  pa = pj4p.getPlasmaAddress()
+except Exception as e: print("error:", e); sys.exit(-1)
 
-    self.classWrapper = self.gateway.entry_point
-    self.classWrapper.init(poolStr)
+print(f"Plasma address: {pa}")
 
-  ################# error, message handlers #################
+try:                       # Get the values the plasma address 
+  pj4p.pDeposit_StrStr("hello", "world")
+  #pj4p.pClose()
+except Exception as e: print("error:", e); sys.exit(-1)
 
-  def err(self, msg): print("p4jPlasma error:", str(msg)) 
-  def msg(self, msg): print("p4jPlasma msg:",   str(msg)) 
+print("ends")
 
-  ################# pdeposit str str #################
-
-  def pDeposit_StrStr(self, str1, str2):
-    if self.classWrapper is Null:
-      self.err("pDeposit_StrStr called, but Java proxy not yet initiated"); return None
-
-    try:
-      self.classWrapper.pDeposit_StrStr(str1, str2)
-    except Exception as e: self.err("pDeposit_StrStr catch:" + str(e)); return None
-
-  ################# pnext fmtStr #################
-
-  def pNext(self, formatStr):
-    if self.classWrapper is Null:
-      self.err("pNext called, but Java proxy not yet initiated"); return None
-
-    try:
-      self.classWrapper.pNext(str1, str2)
-    except Exception as e: print("pNext:", e); sys.exit(-1)
-
-### end #
+### end ###
