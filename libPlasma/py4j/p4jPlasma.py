@@ -20,6 +20,7 @@ class p4jPlasma:
   gwServerPort    = 25333
   gwParam         = None
   gateway         = None
+  classWrapper    = None
 
   ################# constructor #################
 
@@ -38,35 +39,17 @@ class p4jPlasma:
                                         port=self.gwServerPort)
     try: # Connect to the Java Gateway
       self.gateway = JavaGateway(gateway_parameters=gwparam)
+
     except Exception as e: print("error:", e); sys.exit(-1)
+
+    self.classWrapper = self.gateway.entry_point
+    self.classWrapper.init(poolStr)
 
   ################# pdeposit str str #################
 
   def pDeposit_StrStr(self, str1, str2):
-
-
-
-# Access the TestClass instance
-test_class = gateway.entry_point
-
-# Get the values of A and B
-try:
-  A = test_class.getA()
-  B = test_class.getB()
-except Exception as e: print("error:", e); sys.exit(-1)
-
-print(f"Value of A: {A}")
-print(f"Value of B: {B}")
-
-# Set new values for A and B
-test_class.setA(30)
-test_class.setB(40)
-
-# Get the updated values of A and B
-A = test_class.getA()
-B = test_class.getB()
-
-print(f"Updated value of A: {A}")
-print(f"Updated value of B: {B}")
+    try:
+      self.classWrapper.pDeposit_StrStr(str1, str2)
+    except Exception as e: print("error:", e); sys.exit(-1)
 
 ### end ###
