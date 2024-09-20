@@ -15,9 +15,9 @@ from py4j.java_gateway import JavaGateway, GatewayParameters
 #logger.setLevel(logging.DEBUG)
 #logger.addHandler(logging.StreamHandler())
 
-#gwparam = GatewayParameters(address='172.25.49.14', port=25333)
+gwparam = GatewayParameters(address='172.25.49.14', port=25333)
 #gwparam = GatewayParameters(address='127.0.0.1', port=25333)
-gwparam = GatewayParameters(address='130.127.48.81', port=25333)
+#gwparam = GatewayParameters(address='130.127.48.81', port=25333)
 
 # Connect to the Java Gateway
 try:
@@ -36,5 +36,7 @@ try:                       # Get the values the plasma address
   pj4p.pDeposit_StrStr("hello", "world")
   pj4p.pClose()
 except Exception as e: print("error:", e); sys.exit(-1)
+
+print("ends")
 
 ### end ###
