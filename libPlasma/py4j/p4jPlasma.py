@@ -47,21 +47,22 @@ class p4jPlasma:
       self.gwparam = GatewayParameters(address=self.hostAddress, port=25333)
 
       self.gateway = JavaGateway(gateway_parameters=self.gwparam)
+      self.remoteClass = self.gateway.entry_point
     except Exception as e: self.err("p4jPlasma:", e); return None
 
-pj4p = gateway.entry_point # Access the TestClass instance
+  ################# specific wrappers################# 
 
-try:                       # Get the values the plasma address 
-  pa = pj4p.getPlasmaAddress()
-except Exception as e: print("error:", e); sys.exit(-1)
+  def getPlasmaAddress(self):
 
-print(f"Plasma address: {pa}")
+    try: pa = self.remoteClass.getPlasmaAddress()
+    except Exception as e: err("getPlasmaAddress:", e); return None
+    return pa
 
-try:                       # Get the values the plasma address 
-  pj4p.pDeposit_StrStr("hello", "world")
-  #pj4p.pClose()
-except Exception as e: print("error:", e); sys.exit(-1)
+  ################# specific wrappers################# 
 
-print("ends")
+  def pDeposit_StrStr(self, a, b):
+    try: self.remoteClass.pDeposit_StrStr(a,b)
+    except Exception as e: err("pDeposit_StrStr:", e); return False
+    return True
 
 ### end ###
