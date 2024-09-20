@@ -15,7 +15,8 @@ class PythonListener(object):
         return "A Return Value"
 
     class Java:
-        implements = ["py4j.examples.ExampleListener"]
+        #implements = ["py4j.examples.ExampleListener"]
+        implements = ["ExampleListener"]
 
 if __name__ == "__main__":
     gateway = JavaGateway(
