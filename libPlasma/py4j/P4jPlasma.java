@@ -38,7 +38,7 @@ public class P4jPlasma {
 
   //////////////////// getters ////////////////////
 
-  public String getPlasmaAddress() {return this.plasmaAddressStr;}
+  public String getPlasmaAddress() {return plasmaAddressStr;}
 
   //////////////////// constructor ////////////////////
 
@@ -46,8 +46,8 @@ public class P4jPlasma {
     this.p4jServerIpAddressStr = p4jServerIpAddressStr;
     this.plasmaAddressStr      = plasmaAddressStr;
 
-    this.initP4j();
-    this.initPlasma();
+    initP4j();
+    initPlasma();
   }
 
   //////////////////// error, message wrappers ////////////////////
@@ -60,25 +60,25 @@ public class P4jPlasma {
   public boolean initP4j() {
 
     try {
-      if (this.verbose) {
-        this.logger = Logger.getLogger("py4j");
-        this.logger.setLevel(Level.ALL);
+      if (verbose) {
+        logger = Logger.getLogger("py4j");
+        logger.setLevel(Level.ALL);
       }
   
-      this.p4jServerIpAddress = InetAddress.getByName(this.p4jServerIpAddressStr);
-      this.p4jCbClient        = new CallbackClient(GatewayServer.DEFAULT_PYTHON_PORT,
+      p4jServerIpAddress = InetAddress.getByName(this.p4jServerIpAddressStr);
+      p4jCbClient        = new CallbackClient(GatewayServer.DEFAULT_PYTHON_PORT,
         InetAddress.getByName(CallbackClient.DEFAULT_ADDRESS), 2, TimeUnit.SECONDS);
   
-      this.p4jGwServer = new GatewayServer(this, 25333, this.p4jServerIpAddress, 
+      p4jGwServer = new GatewayServer(this, 25333, this.p4jServerIpAddress, 
          GatewayServer.DEFAULT_CONNECT_TIMEOUT, GatewayServer.DEFAULT_READ_TIMEOUT, 
-         null, this.p4jCbClient);
+         null, p4jCbClient);
   
-      if (this.verbose) { this.p4jGwServer.turnLoggingOn(); }
+      if (verbose) { p4jGwServer.turnLoggingOn(); }
   
-      this.p4jGwServer.start();
+      p4jGwServer.start();
       return true; // successfully started
 
-    } catch (Exception e) {this.err("initP4j exception: " + e.getMessage());}
+    } catch (Exception e) {err("initP4j exception: " + e.getMessage());}
     return false;  
   }
 
@@ -86,11 +86,11 @@ public class P4jPlasma {
 
   public boolean initPlasma() {
     try {
-      this.pHose = Pool.participate(this.plasmaAddressStr);
-      this.pHose.disengageThreadChecker(); //without this, multi-threaded Py4j & Plasma will complain
-    } catch (Exception e) {this.err("initPlasma exception: " + e.getMessage()); return false;}
+      pHose = Pool.participate(plasmaAddressStr);
+      pHose.disengageThreadChecker(); //without this, multi-threaded Py4j & Plasma will complain
+    } catch (Exception e) {err("initPlasma exception: " + e.getMessage()); return false;}
 
-    if (this.verbose) {this.msg("Plasma initiated");}
+    if (verbose) {msg("Plasma initiated");}
     return true;
   }
 
@@ -98,33 +98,47 @@ public class P4jPlasma {
 
   public boolean pDeposit_StrStr(String descripStr, String ingestStr) {
 
-    this.msg("pDeposit_StrStr called; d: " + descripStr + "; i: " + ingestStr);
+    if (verbose) {msg("pDeposit_StrStr called; d: " + descripStr + "; i: " + ingestStr);}
 
     try {
       Slaw descrips = Slaw.list(Slaw.string(descripStr));
       Slaw ingests  = Slaw.list(Slaw.string(ingestStr));
 
       Protein p = Slaw.protein(descrips, ingests);
-      this.pHose.deposit(p);
+      pHose.deposit(p);
 
     } catch (PoolException e) {
 
-      this.err("plasmaDeposit_StrStr pool exception:" + e.getMessage());
+      err("plasmaDeposit_StrStr pool exception:" + e.getMessage());
+      e.printStackTrace(System.out);
       return false;
     }
+    if (verbose) {msg("pDeposit_StrStr deposit complete");}
 
     return true;
   }
 
+  //////////////////// plasma deposit strstr ////////////////////
+
+  public Object pAwaitBlockingDict() {
+    if (verbose) {msg("pDeposit_StrStr called; d: " + descripStr + "; i: " + ingestStr);}
+    try {
+      Gateway gateway = p4jGwServer.getGateway();
+      Hashmap map     = gateway.jvm.java.util.HashMap()
+
+      java_map = 
+
   //////////////////// plasma close ////////////////////
 
   public boolean pClose() {
+    msg("pClose begins");
     try {
-      this.pHose.withdraw();
+      pHose.withdraw();
     } catch (Exception e) {
-      this.err("plasma close error: " + e.getMessage());
+      err("plasma close error: " + e.getMessage());
       return false;
     }
+    msg("pClose ends");
     return true;
   }
 
@@ -132,8 +146,8 @@ public class P4jPlasma {
 
   public static void main(String[] args) {
 
-    //String p4jIpAddressStr = "172.25.49.14";
-    String p4jIpAddressStr = "130.127.48.81";
+    String p4jIpAddressStr = "172.25.49.14";
+    //String p4jIpAddressStr = "130.127.48.81";
     String plasmaAddress   = "tcp://localhost/hello";
 
     try {
