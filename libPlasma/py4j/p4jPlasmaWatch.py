@@ -1,9 +1,11 @@
-# Cython bindings around libPlasma/c
+# Py4J bindings around libPlasma/java
+# Originally expressed as cplasma Cython bindings around libPlasma/c
 # Lead by Brygg Ullmer, Clemson University
-# Begun 2024-07-13
+# cplasma bindings begun 2024-07-13
+# py4jplasma bindings begun 2024-09-20
 
 import sys; sys.path.append("/home/ullmer/git/plasma/libPlasma/python/")
-import cplasma
+import p4jPlasma
 import asyncio, sys, time, traceback
 from   functools import partial # for callback support
 
@@ -14,18 +16,19 @@ from   functools import partial # for callback support
 # in celebration of that, contemplating a child class, CPlasmaDancer 
 #   (as a slight nod toward Plasma's apparent penchant for wordplay and mixed metaphor :-)
 
-class CPlasmaWatcher:
+class p4jPlasmaWatcher:
   poolSpecifier = "tcp://localhost/hello" #default, will benefit from evolution
   msgFormatName = "prot:simpleKeyVal"
   msgFormatStr  = None
   msgCallbackDict  = None
-  sleepDuration = .01
+  sleepDuration    = .01
+  p4jp          = None #handle for instances of p4jPlasma
 
   ############# error reporting #############
 
   #to allow for later non-stdout error redirection
-  def err(self, msg):       print("CPlasmaWatcher error:", msg)          
-  def msgUpdate(self, msg): print("CPlasmaWatcher message update:", msg) 
+  def err(self, msg):       print("p4jPlasmaWatcher error:", msg)          
+  def msgUpdate(self, msg): print("p4jPlasmaWatcher message update:", msg) 
 
   ############# constructor #############
 
@@ -44,7 +47,7 @@ class CPlasmaWatcher:
   async def plasmaWatcher(self):
 
     while True:
-      try:    strs = cplasma.pNext(self.msgFormatStr)
+      try:    strs = p4jplasma.pNext(self.msgFormatStr)
       except: print("plasmaWatcher: pNext error!"); return
 
       if strs is None: await asyncio.sleep(self.sleepDuration)
@@ -56,18 +59,22 @@ class CPlasmaWatcher:
 
   def initPlasma(self, poolSpecifier=None): 
     self.msgUpdate("plasma initiating, pool specifier:" + poolSpecifier)
-    cplasma.init("tcp://localhost/hello")
-    self.msgFormatStr = cplasma.getProtFormatStr(self.msgFormatName)
+
+    self.p4jp = p4jPlasma()
+
+    self.p4jp.init("tcp://localhost/hello")
+    self.msgFormatStr = self.p4jp.getProtFormatStr(self.msgFormatName)
     asyncio.run(self.plasmaWatcher())
     
   ############# plasma deposit #############
 
-  def deposit(self, descrips="hello", ingests="world"): 
-    cplasma.pDeposit(descrips, ingests)
+  #def deposit(self, descrips="hello", ingests="world"): 
+  def deposit(self, descrips, ingests): 
+    self.p4jp.pDeposit(descrips, ingests)
 
   ############# plasma close #############
 
-  def close(): cplasma.close()
+  def close(): self.p4jp.close()
 
   ############# register callback #############
 
