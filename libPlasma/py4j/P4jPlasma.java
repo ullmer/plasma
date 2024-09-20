@@ -99,12 +99,12 @@ public class P4jPlasma {
 
     try {
       Slaw descrips = Slaw.list(Slaw.string(descripStr));
-      Slaw.ingests  = Slaw.list(Slaw.string(ingestStr));
+      Slaw ingests  = Slaw.list(Slaw.string(ingestStr));
 
       Protein p = Slaw.protein(descrips, ingests);
       this.pHose.deposit(p);
 
-    } except {PoolException e) {
+    } catch (PoolException e) {
 
       this.err("plasmaDeposit_StrStr pool exception:" + e.getMessage());
       return false;
