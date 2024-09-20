@@ -38,7 +38,7 @@ public class P4jPlasma {
 
   //////////////////// getters ////////////////////
 
-  public String getPlasmaAddress() {return this.plasmaAddress;}
+  public String getPlasmaAddress() {return this.plasmaAddressStr;}
 
   //////////////////// constructor ////////////////////
 
@@ -87,8 +87,10 @@ public class P4jPlasma {
   public boolean initPlasma() {
     try {
       this.pHose = Pool.participate(this.plasmaAddressStr);
-    } catch (Exception e) {this.err("initPlasma exception: " + e.getMessage());}
+    } catch (Exception e) {this.err("initPlasma exception: " + e.getMessage()); return false;}
+
     if (this.verbose) {this.msg("Plasma initiated");}
+    return true;
   }
 
   //////////////////// main ////////////////////
