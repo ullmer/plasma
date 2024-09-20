@@ -19,61 +19,58 @@ import java.util.logging.*;
 //////////////////// Py4j Plasma ~wrapper ////////////////////
 
 public class P4jPlasma {
-    protected String         plasmaAddressStr;
-    protected String         p4jServerIpAddressStr;
+  protected String         plasmaAddressStr;
+  protected String         p4jServerIpAddressStr;
 
-    protected InetAddress    p4jServerIpAddress;
-    protected GatewayServer  p4jGwServer;
+  protected InetAddress    p4jServerIpAddress;
+  protected GatewayServer  p4jGwServer;
 
-    protected CallbackClient p4jCbClient;
+  protected CallbackClient p4jCbClient;
 
-    protected boolean verbose = true;
-    protected Logger  logger;
+  protected boolean verbose = true;
+  protected Logger  logger;
 
-    //////////////////// constructor ////////////////////
+  //////////////////// constructor ////////////////////
 
-    public P4jPlasma(String p4jServerIpAddressStr, String plasmaAddressStr) {
-      this.p4jServerIpAddressStr = p4jServerIpAddressStr;
-      this.plasmaAddressStr      = plasmaAddressStr;
+  public P4jPlasma(String p4jServerIpAddressStr, String plasmaAddressStr) {
+    this.p4jServerIpAddressStr = p4jServerIpAddressStr;
+    this.plasmaAddressStr      = plasmaAddressStr;
 
-      this.initP4j();
-      this.initPlasma();
+    this.initP4j();
+    this.initPlasma();
+  }
+
+  //////////////////// constructor ////////////////////
+
+  public initP4j() {
+
+    if (this.verbose) {
+      this.logger = Logger.getLogger("py4j");
+      this.logger.setLevel(Level.ALL);
     }
 
-    //////////////////// constructor ////////////////////
+    this.p4jServerIpAddress = InetAddress.getByName(this.p4jIpAddressStr);
+    this.p4jCbClient        = new CallbackClient(GatewayServer.DEFAULT_PYTHON_PORT,
+      InetAddress.getByName(CallbackClient.DEFAULT_ADDRESS), 2, TimeUnit.SECONDS);
 
-    public initP4j() {
+    this.p4jGwServer = new GatewayServer(testClass, 25333, this.p4jServerIpAddress, 
+       GatewayServer.DEFAULT_CONNECT_TIMEOUT, GatewayServer.DEFAULT_READ_TIMEOUT, 
+       null, this.p4jCbClient);
 
-      if (this.verbose) {
-        this.logger = Logger.getLogger("py4j");
-        this.logger.setLevel(Level.ALL);
-      }
+    if (this.verbose) { this.p4jServer.turnLoggingOn(); }
 
-      this.p4jServerIpAddress = InetAddress.getByName(this.p4jIpAddressStr);
-      this.p4jCbClient        = new CallbackClient(GatewayServer.DEFAULT_PYTHON_PORT,
-        InetAddress.getByName(CallbackClient.DEFAULT_ADDRESS), 2, TimeUnit.SECONDS);
+    this.p4jGwServer.start();
+  }
 
-      this.p4jGwServer = new GatewayServer(testClass, 25333, this.p4jServerIpAddress, 
-         GatewayServer.DEFAULT_CONNECT_TIMEOUT, GatewayServer.DEFAULT_READ_TIMEOUT, 
-         null, this.p4jCbClient);
+  //////////////////// main ////////////////////
 
-      if (this.verbose) { this.p4jServer.turnLoggingOn(); }
+  public static void main(String[] args) {
 
-    }
-
-    //////////////////// main ////////////////////
-
-    public static void main(String[] args) {
-
-        try {
-          P4jPlasma p4jp = new P4jPlasma();
-
-
-
-          server.start();
-          System.out.println("Gateway Server Started");
-	} catch (UnknownHostException e) {e.printStackTrace();}
-    }
+    try {
+      P4jPlasma p4jp = new P4jPlasma();
+      System.out.println("Gateway Server Started");
+    } catch (UnknownHostException e) {e.printStackTrace();}
+  }
 }
 
 /// end ///
