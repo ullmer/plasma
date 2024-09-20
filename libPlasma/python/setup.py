@@ -19,8 +19,10 @@ SSL_LIBD    = "/usr/local/lib"
 sourcefiles    = ["cplasma.pyx", "cplasmaWrap.c"]
 
 extensions  = [Extension("cplasma", sourcefiles,
-  libraries    = ["Plasma", "Loam", "ssl", "crypto", "yaml", "boost_filesystem", "boost_regex", "boost_system"],
-  library_dirs = [PLASMA_HOME + "build/libPlasma/c", PLASMA_HOME + "build/libLoam/c", SSL_LIBD, OTHER_LIB],
+  libraries    = ["Plasma", "Loam", "ssl", "crypto", "yaml", "boost_filesystem", 
+                  "boost_regex", "boost_system"], 
+  library_dirs = [PLASMA_HOME + "build/libPlasma/c", PLASMA_HOME + "build/libLoam/c", 
+                  SSL_LIBD, OTHER_LIB],
   include_dirs = [PLASMA_HOME, PLASMA_HOME+"/libPlasma/c", PLASMA_HOME+"libLoam/c"],
   extra_compile_args = ["-fPIC"],
   extra_link_args    = ["-fPIC"]
