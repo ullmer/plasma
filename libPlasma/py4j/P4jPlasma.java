@@ -29,6 +29,10 @@ public class P4jPlasma {
   protected boolean verbose = true;
   protected Logger  logger;
 
+  //////////////////// getters ////////////////////
+
+  public String getPlasmaAddress() {return this.plasmaAddress;}
+
   //////////////////// constructor ////////////////////
 
   public P4jPlasma(String p4jServerIpAddressStr, String plasmaAddressStr) {
@@ -75,7 +79,8 @@ public class P4jPlasma {
 
   public static void main(String[] args) {
 
-    String p4jIpAddressStr = "172.25.49.14";
+    //String p4jIpAddressStr = "172.25.49.14";
+    String p4jIpAddressStr = "130.127.48.81";
     String plasmaAddress   = "tcp://localhost/hello";
 
     try {
