@@ -95,7 +95,7 @@ public class P4jPlasma {
 
   //////////////////// plasma deposit strstr ////////////////////
 
-  public boolean plasmaDeposit_StrStr(String descripStr, String ingestStr) {
+  public boolean pDeposit_StrStr(String descripStr, String ingestStr) {
 
     try {
       Slaw descrips = Slaw.list(Slaw.string(descripStr));
