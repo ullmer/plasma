@@ -10,28 +10,44 @@ import logging
 
 from py4j.java_gateway import JavaGateway, GatewayParameters 
 
-class P4jPlasma:
+class p4jPlasma:
   verbose = False
   logger  = None
 
   hostAddress = None
-
+  gwparam     = None
   gateway     = None
   remoteClass = None
-     
 
-#logger = logging.getLogger("py4j")
-#logger.setLevel(logging.DEBUG)
-#logger.addHandler(logging.StreamHandler())
+  ################# constructor ################# 
 
-gwparam = GatewayParameters(address='172.25.49.14', port=25333)
-#gwparam = GatewayParameters(address='127.0.0.1', port=25333)
-#gwparam = GatewayParameters(address='130.127.48.81', port=25333)
+  def __init__(self, **kwargs):
+    self.msgCallbackDict  = {}
 
-# Connect to the Java Gateway
-try:
-  gateway = JavaGateway(gateway_parameters=gwparam)
-except Exception as e: print("error:", e); sys.exit(-1)
+    #https://stackoverflow.com/questions/739625/setattr-with-kwargs-pythonic-or-not
+    self.__dict__.update(kwargs) #allow class fields to be passed in constructor
+
+    if self.verbose: 
+      self.logger = logging.getLogger("py4j")
+      selflogger.setLevel(logging.DEBUG)
+      self.logger.addHandler(logging.StreamHandler())
+
+    if hostAddress is not None: self.startGateway()
+
+  ################# err, msg ################# 
+
+  def err(self, msg): print("p4jPlasma error:", msg)
+  def msg(self, msg): print("p4jPlasma message:", msg)
+
+  ################# start gateway ################# 
+
+  def startGateway(self):
+
+    try:
+      self.gwparam = GatewayParameters(address=self.hostAddress, port=25333)
+
+      self.gateway = JavaGateway(gateway_parameters=self.gwparam)
+    except Exception as e: self.err("p4jPlasma:", e); return None
 
 pj4p = gateway.entry_point # Access the TestClass instance
 
