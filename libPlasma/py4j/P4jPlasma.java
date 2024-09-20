@@ -11,8 +11,13 @@ import java.net.InetAddress;
 import java.net.UnknownHostException;
 
 import java.util.concurrent.TimeUnit;
-
 import java.util.logging.*;
+
+import com.oblong.jelly.Slaw;
+import com.oblong.jelly.Protein;
+import com.oblong.jelly.Hose;
+import com.oblong.jelly.Pool;
+import com.oblong.jelly.PoolException;
 
 //////////////////////////////////////////////////////////////
 //////////////////// Py4j Plasma ~wrapper ////////////////////
@@ -26,6 +31,8 @@ public class P4jPlasma {
 
   protected CallbackClient p4jCbClient;
 
+  protected Hose           pHose;
+
   protected boolean verbose = true;
   protected Logger  logger;
 
@@ -36,7 +43,7 @@ public class P4jPlasma {
     this.plasmaAddressStr      = plasmaAddressStr;
 
     this.initP4j();
-    //this.initPlasma();
+    this.initPlasma();
   }
 
   //////////////////// error, message wrappers ////////////////////
@@ -44,7 +51,7 @@ public class P4jPlasma {
   public void err(String msg) {System.out.println("P4jPlasma error: " + msg);}
   public void msg(String msg) {System.out.println("P4jPlasma msg: " + msg);}
 
-  //////////////////// constructor ////////////////////
+  //////////////////// initiate py4j gateway server ////////////////////
 
   public boolean initP4j() {
 
@@ -69,6 +76,15 @@ public class P4jPlasma {
 
     } catch (Exception e) {this.err("initP4j exception: " + e.getMessage());}
     return false;  
+  }
+
+  //////////////////// initiate plasma ////////////////////
+
+  public boolean initPlasma() {
+    try {
+      this.pHose = Pool.participate(this.plasmaAddressStr);
+    } catch (Exception e) {this.err("initPlasma exception: " + e.getMessage());}
+    if (this.verbose) {this.msg("Plasma initiated");}
   }
 
   //////////////////// main ////////////////////
