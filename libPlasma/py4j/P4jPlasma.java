@@ -15,6 +15,9 @@ import java.util.concurrent.TimeUnit;
 
 import java.util.logging.*;
 
+//////////////////////////////////////////////////////////////
+//////////////////// Py4j Plasma ~wrapper ////////////////////
+
 public class P4jPlasma {
     protected String         plasmaAddressStr;
     protected String         p4jServerIpAddressStr;
