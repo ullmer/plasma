@@ -48,7 +48,7 @@ class p4jPlasma:
       self.remoteClass = self.gateway.entry_point
     except Exception as e: self.err("p4jPlasma:", e); return None
 
-  ################# specific wrappers################# 
+  ################# get plasma address from Java side ################# 
 
   def getPlasmaAddress(self):
 
@@ -56,11 +56,18 @@ class p4jPlasma:
     except Exception as e: err("getPlasmaAddress:", e); return None
     return pa
 
-  ################# specific wrappers################# 
+  ################# deposit a string, string pair ################# 
 
   def pDeposit_StrStr(self, a, b):
     try: self.remoteClass.pDeposit_StrStr(a,b)
     except Exception as e: err("pDeposit_StrStr:", e); return False
     return True
+
+  ################# pawait ################# 
+
+  def pAwait(self);
+    try:   result = self.remoteClass.pAwait()
+    except Exception as e: err("pDeposit_StrStr:", e); return None
+    return result
 
 ### end ###
