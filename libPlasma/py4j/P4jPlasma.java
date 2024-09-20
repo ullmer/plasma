@@ -16,42 +16,56 @@ import java.util.concurrent.TimeUnit;
 import java.util.logging.*;
 
 public class P4jPlasma {
-    private String  defaultP4jServerIpAddress="172.25.49.14");
+    protected String         plasmaAddressStr;
+    protected String         p4jServerIpAddressStr;
 
-    private String  p4jServerIpAddress;
-    private String  plasmaAddress;
+    protected InetAddress    p4jServerIpAddress;
+    protected GatewayServer  p4jGwServer;
 
-    private boolean verbose =true;
+    protected CallbackClient p4jCbClient;
 
-    public P4jPlasma(String p4jServerIpAddress, String plasmaAddress) {
-        this.p4jServerIpAddress = p4jServerIpAddress;
-        this.plasmaAddress      = plasmaAddress;
+    protected boolean verbose = true;
+    protected Logger  logger;
+
+    //////////////////// constructor ////////////////////
+
+    public P4jPlasma(String p4jServerIpAddressStr, String plasmaAddressStr) {
+      this.p4jServerIpAddressStr = p4jServerIpAddressStr;
+      this.plasmaAddressStr      = plasmaAddressStr;
+
+      this.initP4j();
+      this.initPlasma();
     }
+
+    //////////////////// constructor ////////////////////
+
+    public initP4j() {
+
+      if (this.verbose) {
+        this.logger = Logger.getLogger("py4j");
+        this.logger.setLevel(Level.ALL);
+      }
+
+      this.p4jServerIpAddress = InetAddress.getByName(this.p4jIpAddressStr);
+      this.p4jCbClient        = new CallbackClient(GatewayServer.DEFAULT_PYTHON_PORT,
+        InetAddress.getByName(CallbackClient.DEFAULT_ADDRESS), 2, TimeUnit.SECONDS);
+
+      this.p4jGwServer = new GatewayServer(testClass, 25333, this.p4jServerIpAddress, 
+         GatewayServer.DEFAULT_CONNECT_TIMEOUT, GatewayServer.DEFAULT_READ_TIMEOUT, 
+         null, this.p4jCbClient);
+
+      if (this.verbose) { this.p4jServer.turnLoggingOn(); }
+
+    }
+
+    //////////////////// main ////////////////////
 
     public static void main(String[] args) {
 
         try {
           P4jPlasma p4jp = new P4jPlasma();
 
-          if (this.verbose) {
-            Logger logger = Logger.getLogger("py4j");
-            logger.setLevel(Level.ALL);
-          }
 
-          //GatewayServer server = new GatewayServer(testClass, 25333);
-          //InetAddress address = InetAddress.getByName("130.127.48.81");
-          InetAddress address = InetAddress.getByName("172.25.49.14");
-
-          //GatewayServer server = new GatewayServer(testClass);
-
-          CallbackClient cbClient = new CallbackClient(GatewayServer.DEFAULT_PYTHON_PORT,
-             InetAddress.getByName(CallbackClient.DEFAULT_ADDRESS), 2, TimeUnit.SECONDS);
-
-          GatewayServer server = new GatewayServer(testClass, 25333, address, 
-            GatewayServer.DEFAULT_CONNECT_TIMEOUT, GatewayServer.DEFAULT_READ_TIMEOUT, 
-            null, cbClient);
-
-          //server.turnLoggingOn();
 
           server.start();
           System.out.println("Gateway Server Started");
