@@ -81,7 +81,7 @@ public class P4jPlasma {
       p4jGwServer.start();
       return true; // successfully started
 
-    } catch (Exception e) {err("initP4j exception: " + e.getMessage());}
+    } catch (Exception e) {err("initP4j exception: "); e.printStackTrace(System.out); System.exit(-1);}
     return false;  
   }
 
@@ -91,7 +91,7 @@ public class P4jPlasma {
     try {
       pHose = Pool.participate(plasmaAddressStr);
       pHose.disengageThreadChecker(); //without this, multi-threaded Py4j & Plasma will complain
-    } catch (Exception e) {err("initPlasma exception: " + e.getMessage()); return false;}
+    } catch (Exception e) {err("initPlasma exception:"); e.printStackTrace(System.out); System.exit(-1);}
 
     if (verbose) {msg("Plasma initiated");}
     return true;

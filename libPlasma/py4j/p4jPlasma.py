@@ -11,7 +11,7 @@ import logging
 from py4j.java_gateway import JavaGateway, GatewayParameters 
 
 class p4jPlasma:
-  verbose = False
+  verbose = True
   logger  = None
 
   hostAddress = None
@@ -27,7 +27,7 @@ class p4jPlasma:
 
     if self.verbose: 
       self.logger = logging.getLogger("py4j")
-      selflogger.setLevel(logging.DEBUG)
+      self.logger.setLevel(logging.DEBUG)
       self.logger.addHandler(logging.StreamHandler())
 
     if self.hostAddress is not None: self.startGateway()
