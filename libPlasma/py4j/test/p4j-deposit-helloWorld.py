@@ -1,6 +1,8 @@
 import sys; sys.path.append("/home/bullmer/git/plasma/libPlasma/python/")
-import cplasma
+import p4jPlasma as pj4p
 
-cplasma.init("tcp://localhost/hello")
-cplasma.pDeposit_StrStr("hello", "name:world")
+p4jp.init("tcp://localhost/hello")
+p4jp.pDeposit_StrStr("hello", "name:world")
+
+### end ###
 
