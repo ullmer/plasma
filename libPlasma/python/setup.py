@@ -1,9 +1,11 @@
 from setuptools   import Extension, setup
 from Cython.Build import cythonize
+import os
 
-#PLASMA_HOME = "/home/bullmer/git/plasma/"
-PLASMA_HOME = "/home/ullmer/git/plasma/"
-#PLASMA_HOME = "/home/brygg/git/plasma/"
+homeDir= os.path.expanduser("~")
+
+PLASMA_HOME = homeDir + "/git/plasma/"
+
 WSL2_LIBD   = "/usr/lib/x86_64-linux-gnu"
 RPI_LIBD    = "/usr/lib/aarch64-linux-gnu"
 UB_LIBD     = "/usr/local/anaconda3/lib"
