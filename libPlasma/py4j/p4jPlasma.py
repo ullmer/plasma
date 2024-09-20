@@ -22,8 +22,6 @@ class p4jPlasma:
   ################# constructor ################# 
 
   def __init__(self, **kwargs):
-    self.msgCallbackDict  = {}
-
     #https://stackoverflow.com/questions/739625/setattr-with-kwargs-pythonic-or-not
     self.__dict__.update(kwargs) #allow class fields to be passed in constructor
 
@@ -32,7 +30,7 @@ class p4jPlasma:
       selflogger.setLevel(logging.DEBUG)
       self.logger.addHandler(logging.StreamHandler())
 
-    if hostAddress is not None: self.startGateway()
+    if self.hostAddress is not None: self.startGateway()
 
   ################# err, msg ################# 
 
