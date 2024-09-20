@@ -65,8 +65,15 @@ class p4jPlasma:
 
   ################# pawait ################# 
 
-  def pAwait(self);
-    try:   result = self.remoteClass.pAwait()
+  def pNext(self):
+    try:   result = self.remoteClass.pNext()
+    except Exception as e: err("pDeposit_StrStr:", e); return None
+    return result
+
+  ################# pawait ################# 
+
+  def pAwaitNext(self):
+    try:   result = self.remoteClass.pAwaitNext()
     except Exception as e: err("pDeposit_StrStr:", e); return None
     return result
 

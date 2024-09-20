@@ -119,15 +119,30 @@ public class P4jPlasma {
     return true;
   }
 
-  //////////////////// plasma deposit strstr ////////////////////
+  //////////////////// plasma await next ////////////////////
 
-  public Protein pAwait() {
+  public Protein pNext() {
     if (verbose) {msg("pAwait called");}
     try {
       Gateway gateway             = p4jGwServer.getGateway();
       //Hashmap<String, Object> map = gateway.jvm.java.util.HashMap()
 
       Protein p = pHose.next();
+      return p;
+    } catch (Exception e) {err("pAwaitBlocking: " + e.getMessage());}
+
+    return null;
+  }
+
+  //////////////////// plasma await next ////////////////////
+
+  public Protein pAwaitNext() {
+    if (verbose) {msg("pAwait called");}
+    try {
+      Gateway gateway             = p4jGwServer.getGateway();
+      //Hashmap<String, Object> map = gateway.jvm.java.util.HashMap()
+
+      Protein p = pHose.awaitNext();
       return p;
     } catch (Exception e) {err("pAwaitBlocking: " + e.getMessage());}
 
