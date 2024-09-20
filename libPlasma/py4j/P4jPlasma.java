@@ -11,6 +11,8 @@ import py4j.CallbackClient;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.*;
 
@@ -136,14 +138,16 @@ public class P4jPlasma {
 
   //////////////////// plasma await next ////////////////////
 
-  public Protein pAwaitNext() {
+  public Map<Slaw, Slaw> pAwaitNext() {
     if (verbose) {msg("pAwait called");}
     try {
       Gateway gateway             = p4jGwServer.getGateway();
       //Hashmap<String, Object> map = gateway.jvm.java.util.HashMap()
 
       Protein p = pHose.awaitNext();
-      return p;
+      Map<Slaw, Slaw> result = p.emitContainedMap();
+
+      return result;
     } catch (Exception e) {err("pAwaitBlocking: " + e.getMessage());}
 
     return null;
