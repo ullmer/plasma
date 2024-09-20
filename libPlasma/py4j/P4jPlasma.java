@@ -4,6 +4,7 @@
 
 // Generalizing from test/TestClass01.java
 
+import py4j.Gateway;
 import py4j.GatewayServer;
 import py4j.CallbackClient;
 
@@ -121,14 +122,14 @@ public class P4jPlasma {
   //////////////////// plasma deposit strstr ////////////////////
 
   public Protein pAwait() {
-    if (verbose) {msg("pDeposit_StrStr called; d: " + descripStr + "; i: " + ingestStr);}
+    if (verbose) {msg("pAwait called");}
     try {
       Gateway gateway             = p4jGwServer.getGateway();
       //Hashmap<String, Object> map = gateway.jvm.java.util.HashMap()
 
       Protein p = pHose.next();
       return p;
-    } catch (Exception e) {err("pAwaitBlocking:", e.getMessage());}
+    } catch (Exception e) {err("pAwaitBlocking: " + e.getMessage());}
 
     return null;
   }
