@@ -93,6 +93,26 @@ public class P4jPlasma {
     return true;
   }
 
+  //////////////////// plasma deposit strstr ////////////////////
+
+  public boolean plasmaDeposit_StrStr(String descripStr, String ingestStr) {
+
+    try {
+      Slaw descrips = Slaw.list(Slaw.string(descripStr));
+      Slaw.ingests  = Slaw.list(Slaw.string(ingestStr));
+
+      Protein p = Slaw.protein(descrips, ingests);
+      this.pHose.deposit(p);
+
+    } except {PoolException e) {
+
+      this.err("plasmaDeposit_StrStr pool exception:" + e.getMessage());
+      return false;
+    }
+
+    return true;
+  }
+
   //////////////////// main ////////////////////
 
   public static void main(String[] args) {
