@@ -26,37 +26,43 @@ import com.oblong.jelly.PoolException;
 //////////////////// Py4j Plasma ~wrapper ////////////////////
 
 public class P4jPlasma {
-  protected String         plasmaAddressStr;
   protected String         p4jServerIpAddressStr;
-
   protected InetAddress    p4jServerIpAddress;
   protected GatewayServer  p4jGwServer;
-
   protected CallbackClient p4jCbClient;
 
-  protected Hose           pHose;
-
+  protected Logger  logger; 
   protected boolean verbose = true;
-  protected Logger  logger;
-
-  //////////////////// getters ////////////////////
-
-  public String getPlasmaAddress() {return plasmaAddressStr;}
+  protected Map<String, PlasmaHose> plasmaHoseMap;
 
   //////////////////// constructor ////////////////////
 
-  public P4jPlasma(String p4jServerIpAddressStr, String plasmaAddressStr) {
+  public P4jPlasma(String p4jServerIpAddressStr) {
     this.p4jServerIpAddressStr = p4jServerIpAddressStr;
-    this.plasmaAddressStr      = plasmaAddressStr;
 
     initP4j();
-    initPlasma();
   }
-
   //////////////////// error, message wrappers ////////////////////
 
   public void err(String msg) {System.out.println("P4jPlasma error: " + msg);}
   public void msg(String msg) {System.out.println("P4jPlasma msg: " + msg);}
+
+  //////////////////// create plasma hose ////////////////////
+
+  public PlasmaHose createPlasmaHose(String hoseName, String plasmaAddress) {
+      ph = new PlasmaHose(hoseName, plasmaAddress);
+      plasmaHoseMap[hoseName] = ph;
+  }
+
+  //////////////////// get plasma hose ////////////////////
+  
+  public PlasmaHose getPlasmaHose(String hoseName) {
+    if (!plasmaHoseMap.containsKey(hoseName)) {
+      err("getPlasmaHose does not contain hose name " + hoseName); return null;
+
+    PlasmaHose result = plasmaHoseMap[hoseName];
+    return result;
+  }
 
   //////////////////// initiate py4j gateway server ////////////////////
 
@@ -85,8 +91,27 @@ public class P4jPlasma {
     return false;  
   }
 
-  //////////////////// initiate plasma ////////////////////
+//////////////////// plasma hose ////////////////////
 
+public class PlasmaHose {
+  protected String  hoseName;
+  protected String  plasmaAddressStr;
+  protected Hose    pHose;
+
+  //////////////////// constructor ////////////////////
+
+  public PlasmaHose(String hoseName, String plasmaAddressStr) {
+    this.hoseName         = hoseName;
+    this.plasmaAddressStr = plasmaAddressStr;
+
+    initPlasma();
+  }
+
+  //////////////////// getters ////////////////////
+
+  public String getPlasmaAddress() {return plasmaAddressStr;}
+
+  //////////////////// initiate plasma ////////////////////
   public boolean initPlasma() {
     try {
       pHose = Pool.participate(plasmaAddressStr);
