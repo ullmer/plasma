@@ -12,7 +12,7 @@ addr = '172.25.49.14'
 p4jp = p4jPlasma(hostAddress=addr)
 
 while True:
-  protein = p4jp.pAwait()
+  protein = p4jp.pAwaitNext()
   print(protein)
 
 print("ends")
