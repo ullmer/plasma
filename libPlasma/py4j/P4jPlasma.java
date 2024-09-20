@@ -4,6 +4,7 @@
 
 // Generalizing from test/TextClass01.java
 
+
 import py4j.GatewayServer;
 import py4j.CallbackClient;
 
@@ -14,27 +15,28 @@ import java.util.concurrent.TimeUnit;
 
 import java.util.logging.*;
 
-public class TestClass01 {
-    private int A;
-    private int B;
+public class P4jPlasma {
+    private String  defaultP4jServerIpAddress="172.25.49.14");
 
-    public TestClass01(int A, int B) {
-        this.A = A;
-        this.B = B;
+    private String  p4jServerIpAddress;
+    private String  plasmaAddress;
+
+    private boolean verbose =true;
+
+    public P4jPlasma(String p4jServerIpAddress, String plasmaAddress) {
+        this.p4jServerIpAddress = p4jServerIpAddress;
+        this.plasmaAddress      = plasmaAddress;
     }
 
-    public int  getA()      { return A; }
-    public int  getB()      { return B; }
-
-    public void setA(int A) { this.A = A; }
-    public void setB(int B) { this.B = B; }
-
     public static void main(String[] args) {
-        try {
-          TestClass01 testClass = new TestClass01(10, 20);
 
-          Logger logger = Logger.getLogger("py4j");
-          logger.setLevel(Level.ALL);
+        try {
+          P4jPlasma p4jp = new P4jPlasma();
+
+          if (this.verbose) {
+            Logger logger = Logger.getLogger("py4j");
+            logger.setLevel(Level.ALL);
+          }
 
           //GatewayServer server = new GatewayServer(testClass, 25333);
           //InetAddress address = InetAddress.getByName("130.127.48.81");
