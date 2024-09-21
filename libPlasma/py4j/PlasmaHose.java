@@ -114,9 +114,9 @@ public class PlasmaHose {
 
       if (verbose) {msg("pAwaitNext result:" + p.toString());}
 
-      Map<Slaw, Slaw> result = p.emitContainedMap();
+      Map<Slaw, Slaw> result = p.emitMap();
 
-      if (verbose) {msg("pAwaitNext emitcontainedMap: " + result.toString());}
+      if (verbose) {msg("pAwaitNext emitMap: " + result.toString());}
 
       return result;
 
