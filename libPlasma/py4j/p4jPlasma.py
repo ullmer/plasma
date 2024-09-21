@@ -54,7 +54,7 @@ class p4jPlasma:
   def pCreateHose(self, hoseName, plasmaAddress):
 
     try: ph = self.remoteClass.pCreateHose(hoseName, plasmaAddress);
-    except Exception as e: self.err("pCreateHose:" + e); return None
+    except Exception as e: self.err("pCreateHose:" + str(e)); return None
     return ph
 
   ################# get hose side ################# 
@@ -62,7 +62,7 @@ class p4jPlasma:
   def pGetHose(self, hoseName):
 
     try: ph = self.remoteClass.pGetHose(hoseName);
-    except Exception as e: self.err("pCreateHose:" + e); return None
+    except Exception as e: self.err("pCreateHose:" + str(e)); return None
     return ph
 
   ################# get plasma address from Java side ################# 
@@ -70,28 +70,28 @@ class p4jPlasma:
   def getPlasmaAddress(self):
 
     try: pa = self.remoteClass.getPlasmaAddress()
-    except Exception as e: self.err("getPlasmaAddress:" + e); return None
+    except Exception as e: self.err("getPlasmaAddress:" + str(e)); return None
     return pa
 
   ################# deposit a string, string pair ################# 
 
   def pDeposit_StrStr(self, a, b):
     try: self.remoteClass.pDeposit_StrStr(a,b)
-    except Exception as e: self.err("pDeposit_StrStr:" + e); return False
+    except Exception as e: self.err("pDeposit_StrStr:" + str(e)); return False
     return True
 
   ################# pawait ################# 
 
   def pNext(self):
     try:   result = self.remoteClass.pNext()
-    except Exception as e: self.err("pDeposit_StrStr:" + e); return None
+    except Exception as e: self.err("pDeposit_StrStr:" + str(e)); return None
     return result
 
   ################# pawait ################# 
 
   def pAwaitNext(self):
     try:   result = self.remoteClass.pAwaitNext()
-    except Exception as e: self.err("pDeposit_StrStr:" + e); return None
+    except Exception as e: self.err("pDeposit_StrStr:" + str(e)); return None
     return result
 
 ### end ###
