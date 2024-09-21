@@ -37,7 +37,7 @@ public class PlasmaHose {
     this.hoseName         = hoseName;
     this.plasmaAddressStr = plasmaAddressStr;
 
-    initPlasma();
+    pInit();
   }
 
   //////////////////// error, message wrappers ////////////////////
@@ -55,7 +55,7 @@ public class PlasmaHose {
   public String getPlasmaAddress() {return plasmaAddressStr;}
 
   //////////////////// initiate plasma ////////////////////
-  public boolean initPlasma() {
+  public boolean pInit() {
     try {
       pHose = Pool.participate(plasmaAddressStr);
       pHose.disengageThreadChecker(); //without this, multi-threaded Py4j & Plasma will complain
@@ -111,9 +111,15 @@ public class PlasmaHose {
       //Hashmap<String, Object> map = gateway.jvm.java.util.HashMap()
 
       Protein p = pHose.awaitNext();
+
+      if (verbose) {msg("pAwaitNext result:" + p.toString());}
+
       Map<Slaw, Slaw> result = p.emitContainedMap();
 
+      if (verbose) {msg("pAwaitNext emitcontainedMap: " + result.toString());}
+
       return result;
+
     } catch (Exception e) {err("pAwaitBlocking: " + e.getMessage());}
 
     return null;
