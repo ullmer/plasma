@@ -28,6 +28,8 @@ public class PlasmaHose {
   protected String  hoseName;
   protected String  plasmaAddressStr;
   protected Hose    pHose;
+  protected Gateway gateway;
+  protected boolean verbose = true;
 
   //////////////////// constructor ////////////////////
 
@@ -42,6 +44,11 @@ public class PlasmaHose {
 
   public void err(String msg) {System.out.println("PlasmaHose error: " + msg);}
   public void msg(String msg) {System.out.println("PlasmaHose msg: " + msg);}
+
+  //////////////////// setters ////////////////////
+
+  public void    setGateway(Gateway gw) {this.gateway = gw;}
+  public Gateway getGateway()           {return gateway;}
 
   //////////////////// getters ////////////////////
 
@@ -87,7 +94,6 @@ public class PlasmaHose {
   public Protein pNext() {
     if (verbose) {msg("pAwait called");}
     try {
-      Gateway gateway             = p4jGwServer.getGateway();
       //Hashmap<String, Object> map = gateway.jvm.java.util.HashMap()
 
       Protein p = pHose.next();
@@ -100,9 +106,8 @@ public class PlasmaHose {
   //////////////////// plasma await next ////////////////////
 
   public Map<Slaw, Slaw> pAwaitNext() {
-    if (verbose) {msg("pAwait called");}
+    if (verbose) {msg("pAwaitNext called");}
     try {
-      Gateway gateway             = p4jGwServer.getGateway();
       //Hashmap<String, Object> map = gateway.jvm.java.util.HashMap()
 
       Protein p = pHose.awaitNext();
@@ -117,14 +122,14 @@ public class PlasmaHose {
   //////////////////// plasma close ////////////////////
 
   public boolean pClose() {
-    msg("pClose begins");
+    if (verbose) {msg("pClose begins");}
     try {
       pHose.withdraw();
     } catch (Exception e) {
       err("plasma close error: " + e.getMessage());
       return false;
     }
-    msg("pClose ends");
+    if (verbose) {msg("pClose ends");}
     return true;
   }
 

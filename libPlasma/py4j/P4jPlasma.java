@@ -51,6 +51,7 @@ public class P4jPlasma {
 
   public PlasmaHose createPlasmaHose(String hoseName, String plasmaAddress) {
     PlasmaHose ph = new PlasmaHose(hoseName, plasmaAddress);
+    Gateway gw = p4jGwServer.getGateway(); ph.setGateway(gw);
     plasmaHoseMap.put(hoseName, ph);
     return ph;
   }
