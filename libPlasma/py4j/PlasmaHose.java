@@ -11,8 +11,10 @@ import py4j.CallbackClient;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 
-import java.util.HashMap;
 import java.util.Map;
+import java.util.HashMap;
+import java.util.List;
+import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.*;
 
@@ -105,7 +107,7 @@ public class PlasmaHose {
 
   //////////////////// plasma await next ////////////////////
 
-  public Map<Slaw, Slaw> pAwaitNext() {
+  public List<Slaw> pAwaitNext() {
     if (verbose) {msg("pAwaitNext called");}
     try {
       //Hashmap<String, Object> map = gateway.jvm.java.util.HashMap()
@@ -114,9 +116,11 @@ public class PlasmaHose {
 
       if (verbose) {msg("pAwaitNext result:" + p.toString());}
 
-      Map<Slaw, Slaw> result = p.emitMap();
+      List<Slaw> result = new ArrayList<Slaw>(2); // specify initial capacity
+      result.add(p.ingests());
+      result.add(p.descrips());
 
-      if (verbose) {msg("pAwaitNext emitMap: " + result.toString());}
+      if (verbose) {msg("pAwaitNext list: " + result.toString());}
 
       return result;
 

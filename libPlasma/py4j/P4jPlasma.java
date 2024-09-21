@@ -13,6 +13,8 @@ import java.net.UnknownHostException;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.*;
 
@@ -129,9 +131,9 @@ public class P4jPlasma {
     return result;
   }
 
-  public Map<Slaw, Slaw> pAwaitNext(String hoseName) {
-    PlasmaHose ph          = pGetHose(hoseName);
-    Map<Slaw, Slaw> result = ph.pAwaitNext();
+  public List<Slaw> pAwaitNext(String hoseName) {
+    PlasmaHose ph     = pGetHose(hoseName);
+    List<Slaw> result = ph.pAwaitNext();
     return result;
   }
 
