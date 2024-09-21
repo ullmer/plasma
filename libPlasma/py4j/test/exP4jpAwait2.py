@@ -10,6 +10,7 @@ addr = '172.25.49.14'
 #addr = '130.127.48.81'
 
 p4jp = p4jPlasma(hostAddress=addr)
+ph   = p4jp.pCreateHose("an", "tcp://localhost/hello")
 
 while True:
   p = p4jp.pAwaitNext()
