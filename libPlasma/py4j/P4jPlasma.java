@@ -116,6 +116,24 @@ public class P4jPlasma {
     boolean result = ph.pDeposit_StrStr(descripStr, ingestStr);
     return result;
   }
+
+  public Protein pNext(String hoseName) {
+    PlasmaHose ph  = pGetHose(hoseName);
+    Protein result = ph.pNext();
+    return result;
+  }
+
+  public Map<Slaw, Slaw> pAwaitNext() {
+    PlasmaHose ph          = pGetHose(hoseName);
+    Map<Slaw, Slaw> result = ph.pAwaitNext();
+    return result;
+  }
+
+  public boolean pClose() {
+    PlasmaHose ph  = pGetHose(hoseName);
+    boolean result = ph.pClose();
+    return result;
+  }
 }
 
 /// end ///
