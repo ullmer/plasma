@@ -50,8 +50,9 @@ public class P4jPlasma {
   //////////////////// create plasma hose ////////////////////
 
   public PlasmaHose createPlasmaHose(String hoseName, String plasmaAddress) {
-      ph = new PlasmaHose(hoseName, plasmaAddress);
-      plasmaHoseMap[hoseName] = ph;
+    PlasmaHose ph = new PlasmaHose(hoseName, plasmaAddress);
+    plasmaHoseMap.put(hoseName, ph);
+    return ph;
   }
 
   //////////////////// get plasma hose ////////////////////
@@ -61,7 +62,7 @@ public class P4jPlasma {
       err("getPlasmaHose does not contain hose name " + hoseName); return null;
     }
 
-    PlasmaHose result = plasmaHoseMap[hoseName];
+    PlasmaHose result = plasmaHoseMap.get(hoseName);
     return result;
   }
 

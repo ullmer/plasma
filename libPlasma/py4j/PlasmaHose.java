@@ -38,6 +38,11 @@ public class PlasmaHose {
     initPlasma();
   }
 
+  //////////////////// error, message wrappers ////////////////////
+
+  public void err(String msg) {System.out.println("PlasmaHose error: " + msg);}
+  public void msg(String msg) {System.out.println("PlasmaHose msg: " + msg);}
+
   //////////////////// getters ////////////////////
 
   public String getPlasmaAddress() {return plasmaAddressStr;}
