@@ -142,7 +142,7 @@ public class PlasmaHose {
     String plasmaAddress   = "tcp://localhost/hello";
 
     try {
-      P4jPlasma p4jp = new P4jPlasma(p4jIpAddressStr, plasmaAddress);
+      P4jPlasma p4jp = new P4jPlasma(p4jIpAddressStr);
       System.out.println("Gateway Server Started");
     } catch (Exception e) {System.out.println("main exception:" + e.getMessage());}
   }
