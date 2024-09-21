@@ -9,14 +9,11 @@ addr = '172.25.49.14'
 #addr = '127.0.0.1'
 #addr = '130.127.48.81'
 
-print("begins")
-
 p4jp = p4jPlasma(hostAddress=addr)
-print("a")
-ph   = p4jp.pCreateHose("hw", "tcp://localhost/hello")
-print("b")
 
-ph.pDeposit_StrStr("hello", "world")
+while True:
+  p = p4jp.pAwaitNext()
+  print(p)
 
 print("ends")
 
