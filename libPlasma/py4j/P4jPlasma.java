@@ -49,7 +49,7 @@ public class P4jPlasma {
 
   //////////////////// create plasma hose ////////////////////
 
-  public PlasmaHose createPlasmaHose(String hoseName, String plasmaAddress) {
+  public PlasmaHose pCreateHose(String hoseName, String plasmaAddress) {
     PlasmaHose ph = new PlasmaHose(hoseName, plasmaAddress);
     Gateway gw = p4jGwServer.getGateway(); ph.setGateway(gw);
     plasmaHoseMap.put(hoseName, ph);
@@ -58,7 +58,7 @@ public class P4jPlasma {
 
   //////////////////// get plasma hose ////////////////////
   
-  public PlasmaHose getPlasmaHose(String hoseName) {
+  public PlasmaHose pGetHose(String hoseName) {
     if (!plasmaHoseMap.containsKey(hoseName)) {
       err("getPlasmaHose does not contain hose name " + hoseName); return null;
     }

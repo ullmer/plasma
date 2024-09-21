@@ -53,7 +53,7 @@ class p4jPlasma:
 
   def pCreateHose(self, hoseName, plasmaAddress):
 
-    try: ph = self.remoteClass.createPlasmaHose(hoseName, plasmaAddress);
+    try: ph = self.remoteClass.pCreateHose(hoseName, plasmaAddress);
     except Exception as e: err("pCreateHose:", e.getMessage()); return None
     return ph
 
@@ -61,7 +61,7 @@ class p4jPlasma:
 
   def pGetHose(self, hoseName):
 
-    try: ph = self.remoteClass.getPlasmaHose(hoseName);
+    try: ph = self.remoteClass.pGetHose(hoseName);
     except Exception as e: err("pCreateHose:", e.getMessage()); return None
     return ph
 
