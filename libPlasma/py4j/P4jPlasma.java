@@ -94,6 +94,28 @@ public class P4jPlasma {
     } catch (Exception e) {err("initP4j exception: "); e.printStackTrace(System.out); System.exit(-1);}
     return false;  
   }
+
+  //////////////////// relay to the right hose wrapper ////////////////////
+  //
+  public PlasmaHose pGetHose(String hoseName) {
+
+  public String getPlasmaAddress(String hoseName) {
+    PlasmaHose ph = pGetHose(hoseName);
+    String result = ph.getPlasmaAddress();
+    return result;
+  }
+	  
+  public boolean pInit(String hoseName) {
+    PlasmaHose ph  = pGetHose(hoseName);
+    boolean result = ph.pInit();
+    return result;
+  }
+
+  public boolean pDeposit_StrStr(String hoseName, String descripStr, String ingestStr) {
+    PlasmaHose ph  = pGetHose(hoseName);
+    boolean result = ph.pDeposit_StrStr(descripStr, ingestStr);
+    return result;
+  }
 }
 
 /// end ///
