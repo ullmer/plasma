@@ -11,13 +11,14 @@ import logging
 from py4j.java_gateway import JavaGateway, GatewayParameters 
 
 class p4jPlasma:
-  verbose = True
+  verbose = False
   logger  = None
 
-  hostAddress = None
-  gwparam     = None
-  gateway     = None
-  remoteClass = None
+  hostAddress   = None
+  plasmaAddress = None
+  gwparam       = None
+  gateway       = None
+  remoteClass   = None
 
   ################# constructor ################# 
 
@@ -46,21 +47,37 @@ class p4jPlasma:
 
       self.gateway = JavaGateway(gateway_parameters=self.gwparam)
       self.remoteClass = self.gateway.entry_point
-    except Exception as e: self.err("p4jPlasma:", e); return None
+    except Exception as e: self.err("p4jPlasma:", e.getMessage()); return None
+
+  ################# create plasma hose ################# 
+
+  def pCreateHose(self, hoseName, plasmaAddress):
+
+    try: ph = self.remoteClass.createPlasmaHose(hoseName, plasmaAddress);
+    except Exception as e: err("pCreateHose:", e.getMessage()); return None
+    return ph
+
+  ################# get hose side ################# 
+
+  def pGetHose(self, hoseName):
+
+    try: ph = self.remoteClass.getPlasmaHose(hoseName);
+    except Exception as e: err("pCreateHose:", e.getMessage()); return None
+    return ph
 
   ################# get plasma address from Java side ################# 
 
   def getPlasmaAddress(self):
 
     try: pa = self.remoteClass.getPlasmaAddress()
-    except Exception as e: err("getPlasmaAddress:", e); return None
+    except Exception as e: err("getPlasmaAddress:", e.getMessage()); return None
     return pa
 
   ################# deposit a string, string pair ################# 
 
   def pDeposit_StrStr(self, a, b):
     try: self.remoteClass.pDeposit_StrStr(a,b)
-    except Exception as e: err("pDeposit_StrStr:", e); return False
+    except Exception as e: err("pDeposit_StrStr:", e.getMessage()); return False
     return True
 
   ################# pawait ################# 
