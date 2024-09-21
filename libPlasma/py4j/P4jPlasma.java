@@ -41,6 +41,7 @@ public class P4jPlasma {
     this.p4jServerIpAddressStr = p4jServerIpAddressStr;
 
     initP4j();
+    plasmaHoseMap = new HashMap<String, PlasmaHose>();
   }
   //////////////////// error, message wrappers ////////////////////
 
