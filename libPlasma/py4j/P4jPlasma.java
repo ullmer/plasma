@@ -51,20 +51,28 @@ public class P4jPlasma {
   //////////////////// create plasma hose ////////////////////
 
   public PlasmaHose pCreateHose(String hoseName, String plasmaAddress) {
+    if (verbose) {msg("pCreateHose beginning: " + hoseName);}	   
+
     PlasmaHose ph = new PlasmaHose(hoseName, plasmaAddress);
     Gateway gw = p4jGwServer.getGateway(); ph.setGateway(gw);
     plasmaHoseMap.put(hoseName, ph);
+
+    if (verbose) {msg("pCreateHose successful" + hoseName);}	   
     return ph;
   }
 
   //////////////////// get plasma hose ////////////////////
   
   public PlasmaHose pGetHose(String hoseName) {
+    if (verbose) {msg("pGetHose beginning: " + hoseName);}	   
+
     if (!plasmaHoseMap.containsKey(hoseName)) {
       err("getPlasmaHose does not contain hose name " + hoseName); return null;
     }
 
     PlasmaHose result = plasmaHoseMap.get(hoseName);
+
+    if (verbose) {msg("pGetHose successful");}
     return result;
   }
 
