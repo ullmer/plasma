@@ -95,10 +95,8 @@ public class P4jPlasma {
     return false;  
   }
 
-  //////////////////// relay to the right hose wrapper ////////////////////
-  //
-  public PlasmaHose pGetHose(String hoseName) {
-
+  //////////////////// relay call to the right plasma hose wrapper ////////////////////
+  
   public String getPlasmaAddress(String hoseName) {
     PlasmaHose ph = pGetHose(hoseName);
     String result = ph.getPlasmaAddress();
@@ -123,13 +121,13 @@ public class P4jPlasma {
     return result;
   }
 
-  public Map<Slaw, Slaw> pAwaitNext() {
+  public Map<Slaw, Slaw> pAwaitNext(String hoseName) {
     PlasmaHose ph          = pGetHose(hoseName);
     Map<Slaw, Slaw> result = ph.pAwaitNext();
     return result;
   }
 
-  public boolean pClose() {
+  public boolean pClose(String hoseName) {
     PlasmaHose ph  = pGetHose(hoseName);
     boolean result = ph.pClose();
     return result;
