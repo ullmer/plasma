@@ -9,7 +9,7 @@ addr = '172.25.49.14'
 #addr = '127.0.0.1'
 #addr = '130.127.48.81'
 
-print("begins and awaits)
+print("begins and awaits")
 p4jp = p4jPlasma(hostAddress=addr)
 ph   = p4jp.pCreateHose("h1", "tcp://localhost/hello")
 
