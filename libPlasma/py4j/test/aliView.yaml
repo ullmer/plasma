@@ -26,6 +26,7 @@ actions:
                   getFocusTraversalKeysEnabled, getFocusTraversalPolicy, getFocusableWindowState]
 
       input:     [getInputContext, getInputMethodListeners, getInputMethodRequests]
+
 getKeyListeners, 
  
     is: #-------------------------------------------------
@@ -89,7 +90,14 @@ getKeyListeners,
     move:   [move, moveCursorDown, moveCursorLeft, moveCursorRight, moveCursorUp, moveSelectedDown, moveSelectedTo, 
              moveSelectedToBottom, moveSelectedToTop, moveSelectedUp, moveSelectionLeft, moveSelectionRight]
 
+    notify: [notify, notifyAll]
+
+    open:   [openBugReportPage, openHelp, openPreferencesGeneral]
+
     print:  [print, printAlignment, printAll, printComponents]
+
+    realign: [reAlignEverythingAsTranslatedAA, reAlignEverythingWithAlignCommand, 
+              reAlignEverythingWithDefaultProgram, reAlignSelectedSequences, reAlignSelectionInSeparateThread]
 
     request: [requestEditMode,            requestFocus,       requestFocusInWindow, requestGB, 
               requestPaneAndRulerRepaint, requestPaneRepaint, requestReloadWindow,  requestRepaintAndRevalidateALL, 
@@ -104,25 +112,16 @@ getKeyListeners,
        countComponents, countStopCodons, createBufferStrategy, createImage, createOrUpdateDynamicLoadFileMenu, 
        createStats, createVolatileImage, decReadingFrame, disable, displayVersionHistory, dispose, doLayout, enable, 
        enableInputMethods, equals, err, firePropertyChange, flushAllLogs, goToPos, gotFocus, hasFocus, hashCode, 
-       hide, imageUpdate, incReadingFrame, insets, inside, intervalAdded, intervalRemoved, invalidate, 
+       hide, imageUpdate, incReadingFrame, insets, inside, intervalAdded, intervalRemoved, invalidate, launchPy4jServer, 
+       layout, list, loadNewAlignmentFile, locate, location, lostFocus, merge2SelectedSequences, minimumSize, 
+       missingToGAP, mntmToggleTranslationOnePos, msg, newSequences, nextFocus, 
 
-
-
-
-launchPy4jServer, layout, list, loadNewAlignmentFile, locate, location, 
-
-
-lostFocus, merge2SelectedSequences, minimumSize, missingToGAP, mntmToggleTranslationOnePos, 
-
-
-msg, newSequences, nextFocus, notify, notifyAll, openBugReportPage, openHelp, openPreferencesGeneral, 
 pack, paint, paintAll, paintComponents, pasteFasta, performFind, phenotype2genotype, 
 preferredSize, prepareImage, 
 
 
 pushUndoState, 
 
-reAlignEverythingAsTranslatedAA, reAlignEverythingWithAlignCommand, reAlignEverythingWithDefaultProgram, reAlignSelectedSequences, reAlignSelectionInSeparateThread, 
 
 redo, reloadCurrentFile, 
 
