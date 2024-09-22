@@ -90,10 +90,10 @@ actions:
                  removeHierarchyBoundsListener, removeHierarchyListener,   removeInputMethodListener, 
                  removeKeyListener, 
                  removeMouseListener,           removeMouseMotionListener, removeMouseWheelListener, 
-                 removeWindowFocusListener,     removeWindowListener,      removeWindowStateListener,
-                 removeNotify,                  removePropertyChangeListener]
+                 removeWindowFocusListener,     removeWindowListener,      removeWindowStateListener]
+                 removePropertyChangeListener]
 
-      general: [remove, removeAll, 
+      general: [remove, removeAll, removeNotify]
 
     clear: [clearSelectedBases, clearSelection]
 
