@@ -57,15 +57,15 @@ actions:
       highlight: [setHighlightConsensus,    setHighlightDiff,                setHighlightNonConsensus]
       icon:      [setIconImage,             setIconImages]
       location:  [setLocation,              setLocationByPlatform,           setLocationRelativeTo]
+      selection: [setSelectionAsCoding,     setSelectionAsNonCoding]
       size:      [setMaximizedBounds,       setMaximumSize, setMinimumSize,  setPreferredSize, setResizable, setSize]
 
       general:   [setAlwaysOnTop, setAutoRequestFocus, setBounds, setContentPane, setCursor, 
                   setDifferenceTraceSequence, setDropTarget, setEditMode, setEnabled, 
                   setExtendedState, setGeneticCode, setGlassPane, setIgnoreRepaint, setJMenuBar, 
                   setLayeredPane, setLayout, setLocale, setMenuBar, setMixingCutoutShape, setModalExclusionType, 
-                  setName, setOpacity, setReadingFrame, 
-setSelectionAsCoding, setSelectionAsNonCoding, setShape, setShowTranslation, 
-setState, setTitle, setTransferHandler, setType, setUndecorated, setVisible, 
+                  setName, setOpacity, setReadingFrame, setShape, setShowTranslation, 
+                  setState, setTitle, setTransferHandler, setType, setUndecorated, setVisible]
  
     is: #-------------------------------------------------
       focus:   [isFocusCycleRoot,          isFocusOwner, isFocusTraversable, isFocusTraversalPolicyProvider, 
