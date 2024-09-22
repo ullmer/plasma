@@ -66,22 +66,17 @@ actions:
                  getTitle,       getToolkit, getTransferHandler, getTreeLock, getType,  getUndoControler, 
                  getWarningString, getWidth, getWindows,         getX, getY]
 
-    delete: #-------------------------------------------------
-      general:  [deleteAllGaps,  deleteEmptySequences, deleteExludedBases, deleteGapMoveLeft, deleteGapMoveRight, 
-                 deleteSelected, deleteVerticalGaps]
+    delete: [deleteAllGaps,  deleteEmptySequences, deleteExludedBases, deleteGapMoveLeft, deleteGapMoveRight, 
+             deleteSelected, deleteVerticalGaps]
 
-    edit: #-------------------------------------------------
-      general:  [editAlignerADDSettings, editAlignerALLSettings, editCharsets, editExternalCommands]
+    edit:   [editAlignerADDSettings, editAlignerALLSettings, editCharsets, editExternalCommands]
 
-    event: #-------------------------------------------------
-      general:  [deliverEvent, dispatchEvent, handleEvent, postEvent]
+    event:  [deliverEvent, dispatchEvent, handleEvent, postEvent]
 
-    mouse: #-------------------------------------------------
-      general:  [mouseDown, mouseDrag, mouseEnter, mouseExit, mouseMove, mouseUp]
+    mouse:  [mouseDown, mouseDrag, mouseEnter, mouseExit, mouseMove, mouseUp]
       
-    move: #-------------------------------------------------
-      general:  [move, moveCursorDown, moveCursorLeft, moveCursorRight, moveCursorUp, moveSelectedDown, moveSelectedTo, 
-                 moveSelectedToBottom, moveSelectedToTop, moveSelectedUp, moveSelectionLeft, moveSelectionRight]
+    move:   [move, moveCursorDown, moveCursorLeft, moveCursorRight, moveCursorUp, moveSelectedDown, moveSelectedTo, 
+             moveSelectedToBottom, moveSelectedToTop, moveSelectedUp, moveSelectionLeft, moveSelectionRight]
 
     general: 
       [alignAndAddSequences, alignmentMetaChanged, applyComponentOrientation, applyResourceBundle, areFocusTraversalKeysSet, 
@@ -156,5 +151,11 @@ setAlwaysOnTop, setAutoRequestFocus, setBackground, setBounds, setColorSchemeAmi
 
 show, showAbout, showCharsetsRuler, showMessageLog, 
 
-size, sortSequencesByCharColumn, sortSequencesByName, startDebug, terminalGAPtoMissing, toBack, toFront, toString, toggleDrawAminoAcidCode, toggleDrawCodonpos, toggleIgnoreGapInTranslation, toggleTranslationShowBoth, transferFocus, transferFocusBackward, transferFocusDownCycle, transferFocusUpCycle, trimSequences, undo, update, updateWindowTitle, validate, wait, 
+size, 
+sortSequencesByCharColumn, sortSequencesByName, 
+startDebug, terminalGAPtoMissing, 
+toBack, toFront, toString, 
+toggleDrawAminoAcidCode, toggleDrawCodonpos, toggleIgnoreGapInTranslation, toggleTranslationShowBoth, 
+transferFocus, transferFocusBackward, transferFocusDownCycle, transferFocusUpCycle, 
+trimSequences, undo, update, updateWindowTitle, validate, wait, 
 zoomIn, zoomInAt, zoomOut, zoomOutAt]
