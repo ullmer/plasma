@@ -33,28 +33,36 @@ actions:
 
       input:     [getInputContext, getInputMethodListeners, getInputMethodRequests]
  
-      is:        [isActive,           isAlwaysOnTop, isAlwaysOnTopSupported,        isAncestorOf,     isAutoRequestFocus, 
-                  isBackgroundSet,    isCursorSet,   isDefaultLookAndFeelDecorated, isDisplayable,    isDoubleBuffered, 
-                  isEditMode,         isEmpty,       isEnabled,                     isFontSet,        isForegroundSet,  
-                  isLightweight,      isLocationByPlatform,       isMaximumSizeSet, isMinimumSizeSet, isOpaque, 
-                  isPreferredSizeSet, isRedoStackEmpty,           isResizable,      isReverseHorizontalRotation, 
-                  isReverseVerticalRotation,                      isShowing,        isUndecorated, 
-                  isUndoStackEmpty,   isValid,    isValidateRoot, isVisible]
+    is: #-------------------------------------------------
+      focus:   [isFocusCycleRoot,          isFocusOwner, isFocusTraversable, isFocusTraversalPolicyProvider, 
+                isFocusTraversalPolicySet, isFocusable,  isFocusableWindow,  isFocused]
 
-      general: 
+      general: [isActive,           isAlwaysOnTop, isAlwaysOnTopSupported,        isAncestorOf,     isAutoRequestFocus, 
+                isBackgroundSet,    isCursorSet,   isDefaultLookAndFeelDecorated, isDisplayable,    isDoubleBuffered, 
+                isEditMode,         isEmpty,       isEnabled,                     isFontSet,        isForegroundSet,  
+                isLightweight,      isLocationByPlatform,       isMaximumSizeSet, isMinimumSizeSet, isOpaque, 
+                isPreferredSizeSet, isRedoStackEmpty,           isResizable,      isReverseHorizontalRotation, 
+                isReverseVerticalRotation,                      isShowing,        isUndecorated, 
+                isUndoStackEmpty,   isValid,    isValidateRoot, isVisible]
 
-      isFocus:   [isFocusCycleRoot,          isFocusOwner, isFocusTraversable, isFocusTraversalPolicyProvider, 
-                  isFocusTraversalPolicySet, isFocusable,  isFocusableWindow,  isFocused]
 
-        [getAccessibleContext,      getAliMenuBar,  getAliViewWindowGlassPane, getBackground, getBaseline, 
-         getBaselineResizeBehavior, getBounds,      getBufferStrategy,         getClass,      getClipboard, getColorModel, 
-         getContainerListeners,     getContentPane, getCursor,                 getCursorType, 
-         getDefaultCloseOperation,  getDropTarget,  getExtendedState, 
+    get: #-------------------------------------------------
+      listener: [getContainerListeners,    getHierarchyBoundsListeners, getHierarchyListeners]
 
-getFont, getFontMetrics, getForeground, getFrames, getGlassPane, getGraphics, getGraphicsConfiguration, getHeight, getHierarchyBoundsListeners, getHierarchyListeners, getIconImage, getIconImages, getIgnoreRepaint, 
+      general: [getAccessibleContext,      getAliMenuBar,  getAliViewWindowGlassPane, getBackground, getBaseline, 
+                getBaselineResizeBehavior, getBounds,      getBufferStrategy,         getClass,      getClipboard, 
+                getColorModel,             getContentPane, getCursor,                 getCursorType, 
+                getDefaultCloseOperation,  getDropTarget,  getExtendedState]
+
+
+getFont, getFontMetrics, getForeground, getFrames, getGlassPane, getGraphics, getGraphicsConfiguration, getHeight, 
+
+getIconImage, getIconImages, getIgnoreRepaint, 
 
 getInsets, getJMenuBar, 
 getLastPaneEndTime, getLayeredPane, getLayout, getListeners, getLocale, getLocation, getLocationOnScreen, getMaximizedBounds, getMaximumSize, getMenuBar, getMinimumSize, getModalExclusionType, getMostRecentFocusOwner, getMouseListeners, getMouseMotionListeners, getMousePosition, getMouseWheelListeners, getName, getOpacity, getOwnedWindows, getOwner, getOwnerlessWindows, getParent, getPreferredSize, getPropertyChangeListeners, getRootPane, getShape, getSize, getState, getTitle, getToolkit, getTransferHandler, getTreeLock, getType, getUndoControler, getWarningString, getWidth, getWindowFocusListeners, getWindowListeners, getWindowStateListeners, getWindows, getX, getY, 
+      
+general: 
 
 alignAndAddSequences, alignmentMetaChanged, applyComponentOrientation, applyResourceBundle, areFocusTraversalKeysSet, bounds, changeAlignmentType, 
 
