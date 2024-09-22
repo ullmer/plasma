@@ -1,10 +1,10 @@
 action, 
 
 add:
-  general: 
-    [add,            addAndAlignMultipleSeqFromClipOneByOne, adjustReadingFrameMinimizeStop, 
-     addNewSequence, addNotify, addOrRemoveSelectionToExcludes, 
-  from:     [addAndAlignSeqFromClipboard, addAndAlignSeqFromFile, addSequencesFromFile]
+  general: [add,            addAndAlignMultipleSeqFromClipOneByOne, adjustReadingFrameMinimizeStop, 
+            addNewSequence, addNotify,                              addOrRemoveSelectionToExcludes]
+
+  from:    [addAndAlignSeqFromClipboard, addAndAlignSeqFromFile, addSequencesFromFile]
 
   listener:
     [addComponentListener,   addContainerListener,   addFocusListener,          addHierarchyBoundsListener,  
