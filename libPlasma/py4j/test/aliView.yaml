@@ -68,6 +68,7 @@ actions:
                  removeNotify,                  removePropertyChangeListener]
 
       general: [remove, removeAll, 
+
     clear: [clearSelectedBases, clearSelection]
 
     copy:  [copyNames, copySelectionAsFasta, copySelectionAsNucleotides]
@@ -111,6 +112,13 @@ actions:
               requestPaneAndRulerRepaint, requestPaneRepaint, requestReloadWindow,  requestRepaintAndRevalidateALL, 
               requestRepaintRect,         requestScrollToVisibleSelection,          requestWindowClose]
 
+    reverse: [reverseComplementAlignment, reverseComplementClipboard, reverseComplementSelectedSequences]
+
+    run:     [runExternalCommand, runExternalCommandImplementation]
+
+    save:    [saveAlignmentAsFile, saveAlignmentAsFileViaChooser,      saveAlignmentFile, 
+              saveFastaIndex,      saveSelectionAsFastaFileViaChooser, saveWindowGeometry]
+ 
     selection: [expandSelectionDown, expandSelectionLeft, expandSelectionRight, expandSelectionTop, 
                 invertSelection]
 
@@ -123,19 +131,9 @@ actions:
        hide, imageUpdate, incReadingFrame, insets, inside, intervalAdded, intervalRemoved, invalidate, launchPy4jServer, 
        layout, list, loadNewAlignmentFile, locate, location, lostFocus, merge2SelectedSequences, minimumSize, 
        missingToGAP, mntmToggleTranslationOnePos, msg, newSequences, nextFocus, pack, pasteFasta, performFind, 
-       phenotype2genotype, preferredSize, prepareImage, pushUndoState, redo, reloadCurrentFile]
+       phenotype2genotype, preferredSize, prepareImage, pushUndoState, redo, reloadCurrentFile, renameFirstSelected, 
+       repaint, replaceSelectedWithChar, reshape, resize, restoreWindowGeometry, revalidate, 
 
-
-renameFirstSelected, repaint, replaceSelectedWithChar, 
-
-
-reshape, resize, restoreWindowGeometry, revalidate, 
-
-reverseComplementAlignment, reverseComplementClipboard, reverseComplementSelectedSequences, 
-
-runExternalCommand, runExternalCommandImplementation, 
-
-saveAlignmentAsFile, saveAlignmentAsFileViaChooser, saveAlignmentFile, saveFastaIndex, saveSelectionAsFastaFileViaChooser, saveWindowGeometry, 
 
 scrollToCursor, scrollToPos, scrollToVisibleCursor, 
 
