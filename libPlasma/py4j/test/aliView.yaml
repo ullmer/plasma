@@ -191,6 +191,13 @@ actions:
                   getMaximumSequenceLength, getReadingFrame, getSize, getStats, getTempSelection, 
                   getTranslatedAminoAcidAtNucleotidePos]
     
+    set: #-------------------------------------------------
+      alignment: [setAlignentMeta, setAlignmentFile, setAlignmentFormat]
+      edit:      [setEditMode, setEditedAfterLastSave]
+      selection: [setSelectionAsCoding, setSelectionAsNonCoding, setSelectionAt, setSelectionWithin]
+      general:   [setAllHorizontalSelectionAt, setFirstSelectedSequenceName, setGeneticCode, setNewSequencesFromUndo, 
+                  setReadingFrame, setTempSelection, setTranslationOnePos]
+
     clear:  [clearColumnSelection, clearFindLastPos, clearSelectedBases, clearSelection, 
              clearSelectionOffset, clearTempSelection]
 
@@ -226,11 +233,6 @@ actions:
     select: [selectAll, selectColumn, selectDuplicateNamesSequences, selectDuplicates, selectEverythingWithinGaps, 
              selectIndices, selectSequencesWithIndex, selectionExtendDown, selectionExtendLeft, selectionExtendRight, 
              selectionExtendTop]
-
-    set:     [setAlignentMeta, setAlignmentFile, setAlignmentFormat, setAllHorizontalSelectionAt, setEditMode, 
-              setEditedAfterLastSave, setFirstSelectedSequenceName, setGeneticCode, setNewSequencesFromUndo, 
-              setReadingFrame, setSelectionAsCoding, setSelectionAsNonCoding, setSelectionAt, setSelectionWithin, 
-              setTempSelection, setTranslationOnePos]
 
     sort:    [sortSequencesByCharInSelectedColumn, sortSequencesByName, sortSequencesByThisModel]
 
