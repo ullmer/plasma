@@ -48,13 +48,19 @@ actions:
                  getWarningString, getWidth, getWindows,         getX, getY]
 
     set: #-------------------------------------------------
-      color:     [setColorSchemeAminoAcid,  setColorSchemeNucleotide]
+      color:     [setColorSchemeAminoAcid,  setColorSchemeNucleotide, setBackground, setForeground]
       component: [setComponentOrientation,  setComponentZOrder]
       default:   [setDefaultCloseOperation, setDefaultLookAndFeelDecorated]
+      focus:     [setFocusCycleRoot,        setFocusTraversalKeys,           setFocusTraversalKeysEnabled, 
+                  setFocusTraversalPolicy,  setFocusTraversalPolicyProvider, setFocusable, setFocusableWindowState]
+      font:      [setFont, setFontCaseUpper]
+      general:  [setAlwaysOnTop, setAutoRequestFocus, 
+setBounds, setContentPane, setCursor, 
+                 setDifferenceTraceSequence, setDropTarget, setEditMode, setEnabled, 
+                 setExtendedState, 
 
-      general:  [setAlwaysOnTop, setAutoRequestFocus, setBackground, setBounds, setContentPane, setCursor, 
 
-setDifferenceTraceSequence, setDropTarget, setEditMode, setEnabled, setExtendedState, setFocusCycleRoot, setFocusTraversalKeys, setFocusTraversalKeysEnabled, setFocusTraversalPolicy, setFocusTraversalPolicyProvider, setFocusable, setFocusableWindowState, setFont, setFontCaseUpper, setForeground, setGeneticCode, setGlassPane, setHighlightConsensus, setHighlightDiff, setHighlightNonConsensus, setIconImage, setIconImages, setIgnoreRepaint, setJMenuBar, setLayeredPane, setLayout, setLocale, setLocation, setLocationByPlatform, setLocationRelativeTo, setMaximizedBounds, setMaximumSize, setMenuBar, setMinimumSize, setMixingCutoutShape, setModalExclusionType, setName, setOpacity, setPreferredSize, setReadingFrame, setResizable, setSelectionAsCoding, setSelectionAsNonCoding, setShape, setShowTranslation, setSize, setState, setTitle, setTransferHandler, setType, setUndecorated, setVisible, 
+setGeneticCode, setGlassPane, setHighlightConsensus, setHighlightDiff, setHighlightNonConsensus, setIconImage, setIconImages, setIgnoreRepaint, setJMenuBar, setLayeredPane, setLayout, setLocale, setLocation, setLocationByPlatform, setLocationRelativeTo, setMaximizedBounds, setMaximumSize, setMenuBar, setMinimumSize, setMixingCutoutShape, setModalExclusionType, setName, setOpacity, setPreferredSize, setReadingFrame, setResizable, setSelectionAsCoding, setSelectionAsNonCoding, setShape, setShowTranslation, setSize, setState, setTitle, setTransferHandler, setType, setUndecorated, setVisible, 
  
     is: #-------------------------------------------------
       focus:   [isFocusCycleRoot,          isFocusOwner, isFocusTraversable, isFocusTraversalPolicyProvider, 
