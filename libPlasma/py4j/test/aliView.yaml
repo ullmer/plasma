@@ -32,8 +32,20 @@ actions:
                   getFocusTraversalKeysEnabled, getFocusTraversalPolicy, getFocusableWindowState]
 
       input:     [getInputContext, getInputMethodListeners, getInputMethodRequests]
+ 
+      is:        [isActive,           isAlwaysOnTop, isAlwaysOnTopSupported,        isAncestorOf,     isAutoRequestFocus, 
+                  isBackgroundSet,    isCursorSet,   isDefaultLookAndFeelDecorated, isDisplayable,    isDoubleBuffered, 
+                  isEditMode,         isEmpty,       isEnabled,                     isFontSet,        isForegroundSet,  
+                  isLightweight,      isLocationByPlatform,       isMaximumSizeSet, isMinimumSizeSet, isOpaque, 
+                  isPreferredSizeSet, isRedoStackEmpty,           isResizable,      isReverseHorizontalRotation, 
+                  isReverseVerticalRotation,                      isShowing,        isUndecorated, 
+                  isUndoStackEmpty,   isValid,    isValidateRoot, isVisible]
 
       general: 
+
+      isFocus:   [isFocusCycleRoot,          isFocusOwner, isFocusTraversable, isFocusTraversalPolicyProvider, 
+                  isFocusTraversalPolicySet, isFocusable,  isFocusableWindow,  isFocused]
+
         [getAccessibleContext,      getAliMenuBar,  getAliViewWindowGlassPane, getBackground, getBaseline, 
          getBaselineResizeBehavior, getBounds,      getBufferStrategy,         getClass,      getClipboard, getColorModel, 
          getContainerListeners,     getContentPane, getCursor,                 getCursorType, 
@@ -41,7 +53,8 @@ actions:
 
 getFont, getFontMetrics, getForeground, getFrames, getGlassPane, getGraphics, getGraphicsConfiguration, getHeight, getHierarchyBoundsListeners, getHierarchyListeners, getIconImage, getIconImages, getIgnoreRepaint, 
 
-getInsets, getJMenuBar, getKeyListeners, getLastPaneEndTime, getLayeredPane, getLayout, getListeners, getLocale, getLocation, getLocationOnScreen, getMaximizedBounds, getMaximumSize, getMenuBar, getMinimumSize, getModalExclusionType, getMostRecentFocusOwner, getMouseListeners, getMouseMotionListeners, getMousePosition, getMouseWheelListeners, getName, getOpacity, getOwnedWindows, getOwner, getOwnerlessWindows, getParent, getPreferredSize, getPropertyChangeListeners, getRootPane, getShape, getSize, getState, getTitle, getToolkit, getTransferHandler, getTreeLock, getType, getUndoControler, getWarningString, getWidth, getWindowFocusListeners, getWindowListeners, getWindowStateListeners, getWindows, getX, getY, 
+getInsets, getJMenuBar, 
+getLastPaneEndTime, getLayeredPane, getLayout, getListeners, getLocale, getLocation, getLocationOnScreen, getMaximizedBounds, getMaximumSize, getMenuBar, getMinimumSize, getModalExclusionType, getMostRecentFocusOwner, getMouseListeners, getMouseMotionListeners, getMousePosition, getMouseWheelListeners, getName, getOpacity, getOwnedWindows, getOwner, getOwnerlessWindows, getParent, getPreferredSize, getPropertyChangeListeners, getRootPane, getShape, getSize, getState, getTitle, getToolkit, getTransferHandler, getTreeLock, getType, getUndoControler, getWarningString, getWidth, getWindowFocusListeners, getWindowListeners, getWindowStateListeners, getWindows, getX, getY, 
 
 alignAndAddSequences, alignmentMetaChanged, applyComponentOrientation, applyResourceBundle, areFocusTraversalKeysSet, bounds, changeAlignmentType, 
 
@@ -58,9 +71,18 @@ deliverEvent, dispatchEvent, handleEvent, postEvent,
 disable, 
 displayVersionHistory, dispose, doLayout, editAlignerADDSettings, editAlignerALLSettings, editCharsets, editExternalCommands, enable, enableInputMethods, equals, err, expandSelectionDown, expandSelectionLeft, expandSelectionRight, expandSelectionTop, exportRaxMLFile, exportRaxMLFileViaChooser, fileDropped, filesDropped, find, findComponentAt, findNamesFromClipboard, findPrimerInCurrentSelection, findPrimerSettings, firePropertyChange, flushAllLogs, 
 
+getKeyListeners, 
 
 
 goToPos, gotFocus, 
 
-hasFocus, hashCode, hide, imageUpdate, incReadingFrame, insertGapMoveLeft, insertGapMoveRight, insets, inside, intervalAdded, intervalRemoved, invalidate, invertSelection, isActive, isAlwaysOnTop, isAlwaysOnTopSupported, isAncestorOf, isAutoRequestFocus, isBackgroundSet, isCursorSet, isDefaultLookAndFeelDecorated, isDisplayable, isDoubleBuffered, isEditMode, isEmpty, isEnabled, isFocusCycleRoot, isFocusOwner, isFocusTraversable, isFocusTraversalPolicyProvider, isFocusTraversalPolicySet, isFocusable, isFocusableWindow, isFocused, isFontSet, isForegroundSet, isLightweight, isLocationByPlatform, isMaximumSizeSet, isMinimumSizeSet, isOpaque, isPreferredSizeSet, isRedoStackEmpty, isResizable, isReverseHorizontalRotation, isReverseVerticalRotation, isShowing, isUndecorated, isUndoStackEmpty, isValid, isValidateRoot, isVisible, keyDown, keyUp, launchPy4jServer, layout, list, loadNewAlignmentFile, locate, location, logAllLogs, logScrollPane, lostFocus, merge2SelectedSequences, minimumSize, missingToGAP, mntmToggleTranslationOnePos, mouseDown, mouseDrag, mouseEnter, mouseExit, mouseMove, mouseUp, move, moveCursorDown, moveCursorLeft, moveCursorRight, moveCursorUp, moveSelectedDown, moveSelectedTo, moveSelectedToBottom, moveSelectedToTop, moveSelectedUp, moveSelectionLeft, moveSelectionRight, msg, newSequences, nextFocus, notify, notifyAll, openBugReportPage, openHelp, openPreferencesGeneral, pack, paint, paintAll, paintComponents, pasteFasta, performFind, phenotype2genotype, 
+hasFocus, hashCode, hide, imageUpdate, incReadingFrame, 
+
+insertGapMoveLeft, insertGapMoveRight, 
+
+insets, inside, intervalAdded, intervalRemoved, invalidate, invertSelection, 
+
+
+
+keyDown, keyUp, launchPy4jServer, layout, list, loadNewAlignmentFile, locate, location, logAllLogs, logScrollPane, lostFocus, merge2SelectedSequences, minimumSize, missingToGAP, mntmToggleTranslationOnePos, mouseDown, mouseDrag, mouseEnter, mouseExit, mouseMove, mouseUp, move, moveCursorDown, moveCursorLeft, moveCursorRight, moveCursorUp, moveSelectedDown, moveSelectedTo, moveSelectedToBottom, moveSelectedToTop, moveSelectedUp, moveSelectionLeft, moveSelectionRight, msg, newSequences, nextFocus, notify, notifyAll, openBugReportPage, openHelp, openPreferencesGeneral, pack, paint, paintAll, paintComponents, pasteFasta, performFind, phenotype2genotype, 
 preferredSize, prepareImage, print, printAlignment, printAll, printComponents, pushUndoState, reAlignEverythingAsTranslatedAA, reAlignEverythingWithAlignCommand, reAlignEverythingWithDefaultProgram, reAlignSelectedSequences, reAlignSelectionInSeparateThread, redo, reloadCurrentFile, remove, removeAll, removeComponentListener, removeContainerListener, removeFocusListener, removeHierarchyBoundsListener, removeHierarchyListener, removeInputMethodListener, removeKeyListener, removeMouseListener, removeMouseMotionListener, removeMouseWheelListener, removeNotify, removePropertyChangeListener, removeWindowFocusListener, removeWindowListener, removeWindowStateListener, renameFirstSelected, repaint, replaceSelectedWithChar, requestEditMode, requestFocus, requestFocusInWindow, requestGB, requestPaneAndRulerRepaint, requestPaneRepaint, requestReloadWindow, requestRepaintAndRevalidateALL, requestRepaintRect, requestScrollToVisibleSelection, requestWindowClose, reshape, resize, restoreWindowGeometry, revalidate, reverseComplementAlignment, reverseComplementClipboard, reverseComplementSelectedSequences, runExternalCommand, runExternalCommandImplementation, saveAlignmentAsFile, saveAlignmentAsFileViaChooser, saveAlignmentFile, saveFastaIndex, saveSelectionAsFastaFileViaChooser, saveWindowGeometry, scrollToCursor, scrollToPos, scrollToVisibleCursor, selectAll, selectDuplicates, selectEverythingWithinGaps, selectionChanged, setAlwaysOnTop, setAutoRequestFocus, setBackground, setBounds, setColorSchemeAminoAcid, setColorSchemeNucleotide, setComponentOrientation, setComponentZOrder, setContentPane, setCursor, setDefaultCloseOperation, setDefaultLookAndFeelDecorated, setDifferenceTraceSequence, setDropTarget, setEditMode, setEnabled, setExtendedState, setFocusCycleRoot, setFocusTraversalKeys, setFocusTraversalKeysEnabled, setFocusTraversalPolicy, setFocusTraversalPolicyProvider, setFocusable, setFocusableWindowState, setFont, setFontCaseUpper, setForeground, setGeneticCode, setGlassPane, setHighlightConsensus, setHighlightDiff, setHighlightNonConsensus, setIconImage, setIconImages, setIgnoreRepaint, setJMenuBar, setLayeredPane, setLayout, setLocale, setLocation, setLocationByPlatform, setLocationRelativeTo, setMaximizedBounds, setMaximumSize, setMenuBar, setMinimumSize, setMixingCutoutShape, setModalExclusionType, setName, setOpacity, setPreferredSize, setReadingFrame, setResizable, setSelectionAsCoding, setSelectionAsNonCoding, setShape, setShowTranslation, setSize, setState, setTitle, setTransferHandler, setType, setUndecorated, setVisible, show, showAbout, showCharsetsRuler, showMessageLog, size, sortSequencesByCharColumn, sortSequencesByName, startDebug, terminalGAPtoMissing, toBack, toFront, toString, toggleDrawAminoAcidCode, toggleDrawCodonpos, toggleIgnoreGapInTranslation, toggleTranslationShowBoth, transferFocus, transferFocusBackward, transferFocusDownCycle, transferFocusUpCycle, trimSequences, undo, update, updateWindowTitle, validate, wait, zoomIn, zoomInAt, zoomOut, zoomOutAt']
