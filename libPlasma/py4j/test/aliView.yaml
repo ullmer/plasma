@@ -245,6 +245,22 @@ actions:
 
   sequences:  ##################################################
 
+    get: #-------------------------------------------------
+      alignment: [getAlignmentMeta, getAlignmentSelectionModel]
+      copy:      [getCopy, getCopyShallow]
+      delegates: [getDelegateSequences, getDelegateSequencesCopy]
+      first:     [getFirstSelected, getFirstSelectedName, getFirstSelectedPos, getFirstSelectedSequenceIndex, 
+                  getFirstSelectedUngapedPos, getFirstSelectedWholeColumn]
+      indices:   [getIndicesOfSequencesWithAllSelected, getIndicesOfSequencesWithSelection]
+      last:      [getLastSelectedPos, getLastSelectedSequenceIndex, getLastSelectedWholeColumn]
+      length:    [getLengthAt, getLongestSequenceLength, getLongestSequenceName]
+      selection: [getSelectedColumnCount, getSelectedSequences, getSelectedSequencesCount, getSelectionAsNucleotides, 
+                  getSelectionBounds, getSelectionNames, getSelectionSize]
+      sequence:  [getSequenceByID, getSequenceByName, getSequenceType, getSequencesByName]
+
+      general:   [get, getBaseAt, getClass, getConsensus, getElementAt, getFileFormat, getFullySelectedSequences, 
+                  getHistogram, getShortestSequenceLength, getSize, getTempSelection, getTranslatedAminoAcidAtNucleotidePos]
+
     add:    [add, addAlignmentDataListener, addAlignmentSelectionListener, addAll, addListDataListener]
     clear:  [clearAllSelectionInSequenceWithIndex, clearColumnSelection, clearSequenceSelection, 
              clearTempSelection]
@@ -255,8 +271,10 @@ actions:
              findAndSelectInNucleotideSequences, findDuplicateNames, findDuplicates, findInNames]
 
 
-forEach, get, getAlignmentMeta, getAlignmentSelectionModel, getBaseAt, getClass, getConsensus, getCopy, getCopyShallow, getDelegateSequences, getDelegateSequencesCopy, getElementAt, getFileFormat, getFirstSelected, getFirstSelectedName, getFirstSelectedPos, getFirstSelectedSequenceIndex, getFirstSelectedUngapedPos, getFirstSelectedWholeColumn, getFullySelectedSequences, getHistogram, getIndicesOfSequencesWithAllSelected, getIndicesOfSequencesWithSelection, getLastSelectedPos, getLastSelectedSequenceIndex, getLastSelectedWholeColumn, getLengthAt, getLongestSequenceLength, getLongestSequenceName, getSelectedColumnCount, getSelectedSequences, getSelectedSequencesCount, getSelectionAsNucleotides, getSelectionBounds, getSelectionNames, getSelectionSize, getSequenceByID, getSequenceByName, getSequenceType, getSequencesByName, getShortestSequenceLength, getSize, getTempSelection, getTranslatedAminoAcidAtNucleotidePos, hasFullySelectedSequences, hasSelection, hashCode, indexOf, insertGapLeftOfSelectedBase, insertGapRightOfSelectedBase, invertSelection, isBaseSelected, isEditable, isEqualLength, isGapOrEndPresentRightOfSelection, isGapPresentLeftOfSelection, isGapPresentRightOfSelection, isPositionValid, isTranslated, iterator, leftPadWithGapUntilEqualLength, mergeTwoAminoAcidSequences, mergeTwoNucleotideSequences, mergeTwoSequences, missingToGAP, moveSelectedResiduesIfGapIsPresent, moveSelectedResiduesLeftIfGapIsPresent, moveSelectedResiduesRightIfGapIsPresent, moveSelectedSequencesDown, moveSelectedSequencesTo, moveSelectedSequencesToBottom, moveSelectedSequencesToTop, moveSelectedSequencesUp, moveSequencesDown, moveSequencesTo, moveSequencesToBottom, moveSequencesToTop, moveSequencesUp, notify, notifyAll, rangeCheck, realignNucleotidesUseTheseAASequenceAsTemplate, removeAlignmentDataListener, removeListDataListener, replaceSelectedBasesWithGap, replaceSelectedCharactersWithThis, replaceSelectedWithChar, reverseComplement, reverseComplementFullySelectedSequences, rightPadWithGapUntilEqualLength, rightTrimSequencesRemoveGapsUntilEqualLength, selectAll, selectColumn, selectDuplicateNamesSequences, selectEverythingWithinGaps, selectSequenceWithIndex, selectSequencesByName, selectSequencesWithIndex, selectionExtendDown, selectionExtendLeft, selectionExtendRight, selectionExtendTop, set, setAlignment, setFileFormat, setFirstSelectedName, setSelectionAt, setSelectionOffset, setSelectionWithin, setSequenceType, setSequences, setTempSelection, setTranslation, size, sortSequencesByCharInSelectedColumn, sortSequencesByName, sortSequencesByThisModel, spliterator, terminalGAPtoMissing, toString, wait, writeSelectedSequencesAsFasta, writeSelectionAsFasta, writeUnSelectedSequencesAsFasta
 
-    general: [complement, equals, 
+
+hasFullySelectedSequences, hasSelection, hashCode, indexOf, insertGapLeftOfSelectedBase, insertGapRightOfSelectedBase, invertSelection, isBaseSelected, isEditable, isEqualLength, isGapOrEndPresentRightOfSelection, isGapPresentLeftOfSelection, isGapPresentRightOfSelection, isPositionValid, isTranslated, iterator, leftPadWithGapUntilEqualLength, mergeTwoAminoAcidSequences, mergeTwoNucleotideSequences, mergeTwoSequences, missingToGAP, moveSelectedResiduesIfGapIsPresent, moveSelectedResiduesLeftIfGapIsPresent, moveSelectedResiduesRightIfGapIsPresent, moveSelectedSequencesDown, moveSelectedSequencesTo, moveSelectedSequencesToBottom, moveSelectedSequencesToTop, moveSelectedSequencesUp, moveSequencesDown, moveSequencesTo, moveSequencesToBottom, moveSequencesToTop, moveSequencesUp, notify, notifyAll, rangeCheck, realignNucleotidesUseTheseAASequenceAsTemplate, removeAlignmentDataListener, removeListDataListener, replaceSelectedBasesWithGap, replaceSelectedCharactersWithThis, replaceSelectedWithChar, reverseComplement, reverseComplementFullySelectedSequences, rightPadWithGapUntilEqualLength, rightTrimSequencesRemoveGapsUntilEqualLength, selectAll, selectColumn, selectDuplicateNamesSequences, selectEverythingWithinGaps, selectSequenceWithIndex, selectSequencesByName, selectSequencesWithIndex, selectionExtendDown, selectionExtendLeft, selectionExtendRight, selectionExtendTop, set, setAlignment, setFileFormat, setFirstSelectedName, setSelectionAt, setSelectionOffset, setSelectionWithin, setSequenceType, setSequences, setTempSelection, setTranslation, size, sortSequencesByCharInSelectedColumn, sortSequencesByName, sortSequencesByThisModel, spliterator, terminalGAPtoMissing, toString, wait, writeSelectedSequencesAsFasta, writeSelectionAsFasta, writeUnSelectedSequencesAsFasta
+
+    general: [complement, equals, forEach, 
 
 ### end ###
