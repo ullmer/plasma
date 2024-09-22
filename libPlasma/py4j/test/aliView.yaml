@@ -54,13 +54,18 @@ actions:
       focus:     [setFocusCycleRoot,        setFocusTraversalKeys,           setFocusTraversalKeysEnabled, 
                   setFocusTraversalPolicy,  setFocusTraversalPolicyProvider, setFocusable, setFocusableWindowState]
       font:      [setFont, setFontCaseUpper]
-      general:  [setAlwaysOnTop, setAutoRequestFocus, 
-setBounds, setContentPane, setCursor, 
-                 setDifferenceTraceSequence, setDropTarget, setEditMode, setEnabled, 
-                 setExtendedState, 
+      highlight: [setHighlightConsensus,    setHighlightDiff,                setHighlightNonConsensus]
+      icon:      [setIconImage,             setIconImages]
+      location:  [setLocation,              setLocationByPlatform,           setLocationRelativeTo]
+      size:      [setMaximizedBounds,       setMaximumSize, setMinimumSize,  setPreferredSize, setResizable, setSize]
 
-
-setGeneticCode, setGlassPane, setHighlightConsensus, setHighlightDiff, setHighlightNonConsensus, setIconImage, setIconImages, setIgnoreRepaint, setJMenuBar, setLayeredPane, setLayout, setLocale, setLocation, setLocationByPlatform, setLocationRelativeTo, setMaximizedBounds, setMaximumSize, setMenuBar, setMinimumSize, setMixingCutoutShape, setModalExclusionType, setName, setOpacity, setPreferredSize, setReadingFrame, setResizable, setSelectionAsCoding, setSelectionAsNonCoding, setShape, setShowTranslation, setSize, setState, setTitle, setTransferHandler, setType, setUndecorated, setVisible, 
+      general:   [setAlwaysOnTop, setAutoRequestFocus, setBounds, setContentPane, setCursor, 
+                  setDifferenceTraceSequence, setDropTarget, setEditMode, setEnabled, 
+                  setExtendedState, setGeneticCode, setGlassPane, setIgnoreRepaint, setJMenuBar, 
+                  setLayeredPane, setLayout, setLocale, setMenuBar, setMixingCutoutShape, setModalExclusionType, 
+                  setName, setOpacity, setReadingFrame, 
+setSelectionAsCoding, setSelectionAsNonCoding, setShape, setShowTranslation, 
+setState, setTitle, setTransferHandler, setType, setUndecorated, setVisible, 
  
     is: #-------------------------------------------------
       focus:   [isFocusCycleRoot,          isFocusOwner, isFocusTraversable, isFocusTraversalPolicyProvider, 
