@@ -27,26 +27,11 @@ actions:
 
       input:     [getInputContext, getInputMethodListeners, getInputMethodRequests]
 
-getKeyListeners, 
- 
-    is: #-------------------------------------------------
-      focus:   [isFocusCycleRoot,          isFocusOwner, isFocusTraversable, isFocusTraversalPolicyProvider, 
-                isFocusTraversalPolicySet, isFocusable,  isFocusableWindow,  isFocused]
-
-      general: [isActive,           isAlwaysOnTop, isAlwaysOnTopSupported,        isAncestorOf,     isAutoRequestFocus, 
-                isBackgroundSet,    isCursorSet,   isDefaultLookAndFeelDecorated, isDisplayable,    isDoubleBuffered, 
-                isEditMode,         isEmpty,       isEnabled,                     isFontSet,        isForegroundSet,  
-                isLightweight,      isLocationByPlatform,       isMaximumSizeSet, isMinimumSizeSet, isOpaque, 
-                isPreferredSizeSet, isRedoStackEmpty,           isResizable,      isReverseHorizontalRotation, 
-                isReverseVerticalRotation,                      isShowing,        isUndecorated, 
-                isUndoStackEmpty,   isValid,    isValidateRoot, isVisible]
-
-
-    get: #-------------------------------------------------
       listener: [getContainerListeners,           getHierarchyBoundsListeners, getHierarchyListeners,
-                 getListeners, getMouseListeners, getMouseMotionListeners,     getMouseWheelListeners, 
+                 getKeyListeners,            getListeners, 
+                 getMouseListeners,          getMouseMotionListeners, getMouseWheelListeners, 
                  getPropertyChangeListeners,      
-                 getWindowFocusListeners,         getWindowListeners,          getWindowStateListeners]
+                 getWindowFocusListeners,    getWindowListeners,          getWindowStateListeners]
 
       general:  [getAccessibleContext,      getAliMenuBar,  getAliViewWindowGlassPane,  getBackground,  getBaseline, 
                  getBaselineResizeBehavior, getBounds,      getBufferStrategy,          getClass,       getClipboard, 
@@ -61,7 +46,22 @@ getKeyListeners,
                  getParent,                 getPreferredSize, getRootPane,    getShape, getSize,  getState, 
                  getTitle,       getToolkit, getTransferHandler, getTreeLock, getType,  getUndoControler, 
                  getWarningString, getWidth, getWindows,         getX, getY]
+ 
+    is: #-------------------------------------------------
+      focus:   [isFocusCycleRoot,          isFocusOwner, isFocusTraversable, isFocusTraversalPolicyProvider, 
+                isFocusTraversalPolicySet, isFocusable,  isFocusableWindow,  isFocused]
 
+      general: [isActive,           isAlwaysOnTop, isAlwaysOnTopSupported,        isAncestorOf,     isAutoRequestFocus, 
+                isBackgroundSet,    isCursorSet,   isDefaultLookAndFeelDecorated, isDisplayable,    isDoubleBuffered, 
+                isEditMode,         isEmpty,       isEnabled,                     isFontSet,        isForegroundSet,  
+                isLightweight,      isLocationByPlatform,       isMaximumSizeSet, isMinimumSizeSet, isOpaque, 
+                isPreferredSizeSet, isRedoStackEmpty,           isResizable,      isReverseHorizontalRotation, 
+                isReverseVerticalRotation,                      isShowing,        isUndecorated, 
+                isUndoStackEmpty,   isValid,    isValidateRoot, isVisible]
+
+
+
+remove, removeAll, removeComponentListener, removeContainerListener, removeFocusListener, removeHierarchyBoundsListener, removeHierarchyListener, removeInputMethodListener, removeKeyListener, removeMouseListener, removeMouseMotionListener, removeMouseWheelListener, removeNotify, removePropertyChangeListener, removeWindowFocusListener, removeWindowListener, removeWindowStateListener, 
     clear: [clearSelectedBases, clearSelection]
 
     copy:  [copyNames, copySelectionAsFasta, copySelectionAsNucleotides]
@@ -94,6 +94,8 @@ getKeyListeners,
 
     open:   [openBugReportPage, openHelp, openPreferencesGeneral]
 
+    paint:  [paint, paintAll, paintComponents]
+
     print:  [print, printAlignment, printAll, printComponents]
 
     realign: [reAlignEverythingAsTranslatedAA, reAlignEverythingWithAlignCommand, 
@@ -114,18 +116,9 @@ getKeyListeners,
        enableInputMethods, equals, err, firePropertyChange, flushAllLogs, goToPos, gotFocus, hasFocus, hashCode, 
        hide, imageUpdate, incReadingFrame, insets, inside, intervalAdded, intervalRemoved, invalidate, launchPy4jServer, 
        layout, list, loadNewAlignmentFile, locate, location, lostFocus, merge2SelectedSequences, minimumSize, 
-       missingToGAP, mntmToggleTranslationOnePos, msg, newSequences, nextFocus, 
+       missingToGAP, mntmToggleTranslationOnePos, msg, newSequences, nextFocus, pack, pasteFasta, performFind, 
+       phenotype2genotype, preferredSize, prepareImage, pushUndoState, redo, reloadCurrentFile]
 
-pack, paint, paintAll, paintComponents, pasteFasta, performFind, phenotype2genotype, 
-preferredSize, prepareImage, 
-
-
-pushUndoState, 
-
-
-redo, reloadCurrentFile, 
-
-remove, removeAll, removeComponentListener, removeContainerListener, removeFocusListener, removeHierarchyBoundsListener, removeHierarchyListener, removeInputMethodListener, removeKeyListener, removeMouseListener, removeMouseMotionListener, removeMouseWheelListener, removeNotify, removePropertyChangeListener, removeWindowFocusListener, removeWindowListener, removeWindowStateListener, 
 
 renameFirstSelected, repaint, replaceSelectedWithChar, 
 
