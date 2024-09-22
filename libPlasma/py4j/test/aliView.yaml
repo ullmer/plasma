@@ -189,12 +189,26 @@ actions:
     delete: [deleteAllExsetBases, deleteAllGaps, deleteEmptySequences, deleteFullySelectedSequences, 
              deleteGapMoveLeft, deleteGapMoveRight, deleteSelectedBases, deleteSequence, deleteVerticalGaps]
 
-    find:  [findAndSelectInSequences, findDuplicateNames, findInNames, findPrimerInSelection]
+    find:   [findAndSelectInSequences, findDuplicateNames, findInNames, findPrimerInSelection]
+
+    has:    [hasFullySelectedSequences, hasSelection]
+
+    insert: [insertGapLeftOfSelectionMoveRight, insertGapRightOfSelectionMoveLeft]
+
+    is:     [isAAAlignment,    isBaseSelected, isEditMode,      isEditable,            isEditedAfterLastSave, 
+             isEmptyAlignment, isExcluded,     isFileSequences, isFullCodonStartingAt, isMoveSelectionLeftPossible, 
+             isMoveSelectionRightPossible,     isNucleotideAlignment, isPositionValid, isSelectable, 
+             isSequencesEqualLength,           isTranslatedOnePos,    isUndoable,      isUnknownAlignment]
+
+    move:   [moveSelectedSequencesDown,  moveSelectedSequencesTo, moveSelectedSequencesToBottom, 
+             moveSelectedSequencesToTop, moveSelectedSequencesUp, moveSelection, moveSelectionLeft, 
+             moveSelectionRight]
 
     general: [complementAlignment, countStopCodons, decReadingFrame, equals, exportPartitionsFileRaxMLFormat, 
-              fileSequenceContentsChanged, 
+              fileSequenceContentsChanged, hashCode, incReadingFrame, invertSelection, 
+              leftPadSequencesWithGapUntilEqualLength, mergeTwoSequences, missingToGAP, 
 
 
 
-hasFullySelectedSequences, hasSelection, hashCode, incReadingFrame, insertGapLeftOfSelectionMoveRight, insertGapRightOfSelectionMoveLeft, invertSelection, isAAAlignment, isBaseSelected, isEditMode, isEditable, isEditedAfterLastSave, isEmptyAlignment, isExcluded, isFileSequences, isFullCodonStartingAt, isMoveSelectionLeftPossible, isMoveSelectionRightPossible, isNucleotideAlignment, isPositionValid, isSelectable, isSequencesEqualLength, isTranslatedOnePos, isUndoable, isUnknownAlignment, leftPadSequencesWithGapUntilEqualLength, mergeTwoSequences, missingToGAP, moveSelectedSequencesDown, moveSelectedSequencesTo, moveSelectedSequencesToBottom, moveSelectedSequencesToTop, moveSelectedSequencesUp, moveSelection, moveSelectionLeft, moveSelectionRight, notify, notifyAll, padAndTrimSequences, realignNucleotidesUseThisAAAlignmentAsTemplate, removeSelectionFromExcludes, replaceSelectedCharactersWithThis, replaceSelectedWithChar, reverseComplementAlignment, reverseComplementFullySelectedSequences, rightPadSequencesWithGapUntilEqualLength, saveAlignmentAsFile, saveFastaIndex, saveSelectedSequencesAsFastaFile, saveSelectionAsFastaFile, saveUnSelectedSequencesAsFastaFile, selectAll, selectColumn, selectDuplicateNamesSequences, selectDuplicates, selectEverythingWithinGaps, selectIndices, selectSequencesWithIndex, selectionExtendDown, selectionExtendLeft, selectionExtendRight, selectionExtendTop, setAlignentMeta, setAlignmentFile, setAlignmentFormat, setAllHorizontalSelectionAt, setEditMode, setEditedAfterLastSave, setFirstSelectedSequenceName, setGeneticCode, setNewSequencesFromUndo, setReadingFrame, setSelectionAsCoding, setSelectionAsNonCoding, setSelectionAt, setSelectionWithin, setTempSelection, setTranslationOnePos, sortSequencesByCharInSelectedColumn, sortSequencesByName, sortSequencesByThisModel, storeAlignmetAsFasta, terminalGAPtoMissing, toString, trimSequences, wait']
+notify, notifyAll, padAndTrimSequences, realignNucleotidesUseThisAAAlignmentAsTemplate, removeSelectionFromExcludes, replaceSelectedCharactersWithThis, replaceSelectedWithChar, reverseComplementAlignment, reverseComplementFullySelectedSequences, rightPadSequencesWithGapUntilEqualLength, saveAlignmentAsFile, saveFastaIndex, saveSelectedSequencesAsFastaFile, saveSelectionAsFastaFile, saveUnSelectedSequencesAsFastaFile, selectAll, selectColumn, selectDuplicateNamesSequences, selectDuplicates, selectEverythingWithinGaps, selectIndices, selectSequencesWithIndex, selectionExtendDown, selectionExtendLeft, selectionExtendRight, selectionExtendTop, setAlignentMeta, setAlignmentFile, setAlignmentFormat, setAllHorizontalSelectionAt, setEditMode, setEditedAfterLastSave, setFirstSelectedSequenceName, setGeneticCode, setNewSequencesFromUndo, setReadingFrame, setSelectionAsCoding, setSelectionAsNonCoding, setSelectionAt, setSelectionWithin, setTempSelection, setTranslationOnePos, sortSequencesByCharInSelectedColumn, sortSequencesByName, sortSequencesByThisModel, storeAlignmetAsFasta, terminalGAPtoMissing, toString, trimSequences, wait']
 ### end ###
