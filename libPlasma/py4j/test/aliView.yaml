@@ -16,12 +16,6 @@ actions:
          addMouseMotionListener, addMouseWheelListener,  addPropertyChangeListener, 
          addWindowFocusListener, addWindowListener,      addWindowStateListener]
 
-    clear: #-------------------------------------------------
-      general: [clearSelectedBases, clearSelection]
-
-    copy: #-------------------------------------------------
-      general: [copyNames, copySelectionAsFasta, copySelectionAsNucleotides]
-
     get: #-------------------------------------------------
       alignment: [getAlignment, getAlignmentX, getAlignmentY]
 
@@ -65,6 +59,10 @@ actions:
                  getParent,                 getPreferredSize, getRootPane,    getShape, getSize,  getState, 
                  getTitle,       getToolkit, getTransferHandler, getTreeLock, getType,  getUndoControler, 
                  getWarningString, getWidth, getWindows,         getX, getY]
+
+    clear: [clearSelectedBases, clearSelection]
+
+    copy:  [copyNames, copySelectionAsFasta, copySelectionAsNucleotides]
 
     delete: [deleteAllGaps,  deleteEmptySequences, deleteExludedBases, deleteGapMoveLeft, deleteGapMoveRight, 
              deleteSelected, deleteVerticalGaps]
