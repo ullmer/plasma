@@ -1,4 +1,10 @@
 # Py4j-exposed AliView methods
+
+# Many method calls likely sourcing from more generic (e.g., Java AWT?) classes; 
+#   these perhaps should be separated and accessed via an inheritance mechanism
+
+# Many of these should perhaps not be externally callable.  Contemplating !/etc. prefix to expose/hide to external access
+
 # Grouped by Brygg Ullmer, Clemson University
 # Begun 2024-09-22
 
