@@ -234,11 +234,11 @@ actions:
 
     sort:    [sortSequencesByCharInSelectedColumn, sortSequencesByName, sortSequencesByThisModel]
 
-    general: [complementAlignment, countStopCodons, decReadingFrame, equals, exportPartitionsFileRaxMLFormat, 
-              fileSequenceContentsChanged, hashCode, incReadingFrame, invertSelection, 
-              leftPadSequencesWithGapUntilEqualLength, mergeTwoSequences, missingToGAP, padAndTrimSequences, 
-              realignNucleotidesUseThisAAAlignmentAsTemplate, removeSelectionFromExcludes, 
-              rightPadSequencesWithGapUntilEqualLength, storeAlignmetAsFasta, terminalGAPtoMissing, toString, 
-              trimSequences, wait]
+    general: [complementAlignment,         countStopCodons, decReadingFrame,   equals, exportPartitionsFileRaxMLFormat, 
+              fileSequenceContentsChanged, hashCode,        incReadingFrame,   invertSelection, 
+              leftPadSequencesWithGapUntilEqualLength,      mergeTwoSequences, missingToGAP, padAndTrimSequences, 
+              realignNucleotidesUseThisAAAlignmentAsTemplate,                  removeSelectionFromExcludes, 
+              rightPadSequencesWithGapUntilEqualLength,     storeAlignmetAsFasta, 
+              terminalGAPtoMissing,                         toString,          trimSequences, wait]
 
 ### end ###
