@@ -138,7 +138,7 @@ actions:
               requestPaneAndRulerRepaint, requestPaneRepaint, requestReloadWindow,  requestRepaintAndRevalidateALL, 
               requestRepaintRect,         requestScrollToVisibleSelection,          requestWindowClose]
 
-    reverse: [reverseComplementAlignment, reverseComplementClipboard, reverseComplementSelectedSequences]
+    rc:      [reverseComplementAlignment, reverseComplementClipboard, reverseComplementSelectedSequences]
 
     run:     [runExternalCommand, runExternalCommandImplementation]
 
@@ -215,10 +215,30 @@ actions:
              moveSelectedSequencesToTop, moveSelectedSequencesUp, moveSelection, moveSelectionLeft, 
              moveSelectionRight]
 
+    replace: [replaceSelectedCharactersWithThis, replaceSelectedWithChar]
+    rc:      [reverseComplementAlignment, reverseComplementFullySelectedSequences]
+
+    notify: [notify, notifyAll]
+
+    save:   [saveAlignmentAsFile, saveFastaIndex, saveSelectedSequencesAsFastaFile, saveSelectionAsFastaFile, 
+             saveUnSelectedSequencesAsFastaFile]
+
+    select: [selectAll, selectColumn, selectDuplicateNamesSequences, selectDuplicates, selectEverythingWithinGaps, 
+             selectIndices, selectSequencesWithIndex, selectionExtendDown, selectionExtendLeft, selectionExtendRight, 
+             selectionExtendTop]
+
+    set:     [setAlignentMeta, setAlignmentFile, setAlignmentFormat, setAllHorizontalSelectionAt, setEditMode, 
+              setEditedAfterLastSave, setFirstSelectedSequenceName, setGeneticCode, setNewSequencesFromUndo, 
+              setReadingFrame, setSelectionAsCoding, setSelectionAsNonCoding, setSelectionAt, setSelectionWithin, 
+              setTempSelection, setTranslationOnePos]
+
+    sort:    [sortSequencesByCharInSelectedColumn, sortSequencesByName, sortSequencesByThisModel]
+
     general: [complementAlignment, countStopCodons, decReadingFrame, equals, exportPartitionsFileRaxMLFormat, 
               fileSequenceContentsChanged, hashCode, incReadingFrame, invertSelection, 
-              leftPadSequencesWithGapUntilEqualLength, mergeTwoSequences, missingToGAP, 
+              leftPadSequencesWithGapUntilEqualLength, mergeTwoSequences, missingToGAP, padAndTrimSequences, 
+              realignNucleotidesUseThisAAAlignmentAsTemplate, removeSelectionFromExcludes, 
+              rightPadSequencesWithGapUntilEqualLength, storeAlignmetAsFasta, terminalGAPtoMissing, toString, 
+              trimSequences, wait]
 
-
-notify, notifyAll, padAndTrimSequences, realignNucleotidesUseThisAAAlignmentAsTemplate, removeSelectionFromExcludes, replaceSelectedCharactersWithThis, replaceSelectedWithChar, reverseComplementAlignment, reverseComplementFullySelectedSequences, rightPadSequencesWithGapUntilEqualLength, saveAlignmentAsFile, saveFastaIndex, saveSelectedSequencesAsFastaFile, saveSelectionAsFastaFile, saveUnSelectedSequencesAsFastaFile, selectAll, selectColumn, selectDuplicateNamesSequences, selectDuplicates, selectEverythingWithinGaps, selectIndices, selectSequencesWithIndex, selectionExtendDown, selectionExtendLeft, selectionExtendRight, selectionExtendTop, setAlignentMeta, setAlignmentFile, setAlignmentFormat, setAllHorizontalSelectionAt, setEditMode, setEditedAfterLastSave, setFirstSelectedSequenceName, setGeneticCode, setNewSequencesFromUndo, setReadingFrame, setSelectionAsCoding, setSelectionAsNonCoding, setSelectionAt, setSelectionWithin, setTempSelection, setTranslationOnePos, sortSequencesByCharInSelectedColumn, sortSequencesByName, sortSequencesByThisModel, storeAlignmetAsFasta, terminalGAPtoMissing, toString, trimSequences, wait']
 ### end ###
