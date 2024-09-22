@@ -119,8 +119,12 @@ actions:
     save:    [saveAlignmentAsFile, saveAlignmentAsFileViaChooser,      saveAlignmentFile, 
               saveFastaIndex,      saveSelectionAsFastaFileViaChooser, saveWindowGeometry]
  
+    scroll:  [scrollToCursor, scrollToPos, scrollToVisibleCursor]
+
     selection: [expandSelectionDown, expandSelectionLeft, expandSelectionRight, expandSelectionTop, 
                 invertSelection]
+
+    show:      [show, showAbout, showCharsetsRuler, showMessageLog]
 
     general: 
       [alignAndAddSequences, alignmentMetaChanged, applyComponentOrientation, applyResourceBundle, areFocusTraversalKeysSet, 
@@ -135,13 +139,11 @@ actions:
        repaint, replaceSelectedWithChar, reshape, resize, restoreWindowGeometry, revalidate, 
 
 
-scrollToCursor, scrollToPos, scrollToVisibleCursor, 
 
 selectAll, selectDuplicates, selectEverythingWithinGaps, selectionChanged, 
 
 setAlwaysOnTop, setAutoRequestFocus, setBackground, setBounds, setColorSchemeAminoAcid, setColorSchemeNucleotide, setComponentOrientation, setComponentZOrder, setContentPane, setCursor, setDefaultCloseOperation, setDefaultLookAndFeelDecorated, setDifferenceTraceSequence, setDropTarget, setEditMode, setEnabled, setExtendedState, setFocusCycleRoot, setFocusTraversalKeys, setFocusTraversalKeysEnabled, setFocusTraversalPolicy, setFocusTraversalPolicyProvider, setFocusable, setFocusableWindowState, setFont, setFontCaseUpper, setForeground, setGeneticCode, setGlassPane, setHighlightConsensus, setHighlightDiff, setHighlightNonConsensus, setIconImage, setIconImages, setIgnoreRepaint, setJMenuBar, setLayeredPane, setLayout, setLocale, setLocation, setLocationByPlatform, setLocationRelativeTo, setMaximizedBounds, setMaximumSize, setMenuBar, setMinimumSize, setMixingCutoutShape, setModalExclusionType, setName, setOpacity, setPreferredSize, setReadingFrame, setResizable, setSelectionAsCoding, setSelectionAsNonCoding, setShape, setShowTranslation, setSize, setState, setTitle, setTransferHandler, setType, setUndecorated, setVisible, 
 
-show, showAbout, showCharsetsRuler, showMessageLog, 
 
 size, 
 sortSequencesByCharColumn, sortSequencesByName, 
