@@ -47,32 +47,35 @@ actions:
 
 
     get: #-------------------------------------------------
-      listener: [getContainerListeners,    getHierarchyBoundsListeners, getHierarchyListeners]
+      listener: [getContainerListeners,           getHierarchyBoundsListeners, getHierarchyListeners,
+                 getListeners, getMouseListeners, getMouseMotionListeners,     getMouseWheelListeners, 
+                 getPropertyChangeListeners,      
+                 getWindowFocusListeners,         getWindowListeners,          getWindowStateListeners]
 
-      general: [getAccessibleContext,      getAliMenuBar,  getAliViewWindowGlassPane, getBackground, getBaseline, 
-                getBaselineResizeBehavior, getBounds,      getBufferStrategy,         getClass,      getClipboard, 
-                getColorModel,             getContentPane, getCursor,                 getCursorType, 
-                getDefaultCloseOperation,  getDropTarget,  getExtendedState]
+      general:  [getAccessibleContext,      getAliMenuBar,  getAliViewWindowGlassPane,  getBackground,  getBaseline, 
+                 getBaselineResizeBehavior, getBounds,      getBufferStrategy,          getClass,       getClipboard, 
+                 getColorModel,             getContentPane, getCursor,                  getCursorType, 
+                 getDefaultCloseOperation,  getDropTarget,  getExtendedState, getFont,  getFontMetrics, getForeground, 
+                 getFrames, getGlassPane,   getGraphics,    getGraphicsConfiguration,   getHeight,      getIconImage, 
+                 getIconImages,             getIgnoreRepaint, getInsets,  getJMenuBar,  getLastPaneEndTime, 
+                 getLayeredPane,            getLayout,        getLocale,  getLocation,  getLocationOnScreen, 
+                 getMaximizedBounds,        getMaximumSize,   getMenuBar, getMinimumSize, 
+                 getModalExclusionType,     getMostRecentFocusOwner,      getMousePosition, 
+                 getName,                   getOpacity,       getOwnedWindows,          getOwner, getOwnerlessWindows, 
+                 getParent,                 getPreferredSize, getRootPane,    getShape, getSize,  getState, 
+                 getTitle,       getToolkit, getTransferHandler, getTreeLock, getType,  getUndoControler, 
+                 getWarningString, getWidth, getWindows,         getX, getY]
 
-
-getFont, getFontMetrics, getForeground, getFrames, getGlassPane, getGraphics, getGraphicsConfiguration, getHeight, 
-
-getIconImage, getIconImages, getIgnoreRepaint, 
-
-getInsets, getJMenuBar, 
-getLastPaneEndTime, getLayeredPane, getLayout, getListeners, getLocale, getLocation, getLocationOnScreen, getMaximizedBounds, getMaximumSize, getMenuBar, getMinimumSize, getModalExclusionType, getMostRecentFocusOwner, getMouseListeners, getMouseMotionListeners, getMousePosition, getMouseWheelListeners, getName, getOpacity, getOwnedWindows, getOwner, getOwnerlessWindows, getParent, getPreferredSize, getPropertyChangeListeners, getRootPane, getShape, getSize, getState, getTitle, getToolkit, getTransferHandler, getTreeLock, getType, getUndoControler, getWarningString, getWidth, getWindowFocusListeners, getWindowListeners, getWindowStateListeners, getWindows, getX, getY, 
+    delete: #-------------------------------------------------
+      general:  [deleteAllGaps,  deleteEmptySequences, deleteExludedBases, deleteGapMoveLeft, deleteGapMoveRight, 
+                 deleteSelected, deleteVerticalGaps]
       
-general: 
-
-alignAndAddSequences, alignmentMetaChanged, applyComponentOrientation, applyResourceBundle, areFocusTraversalKeysSet, bounds, changeAlignmentType, 
-
-checkImage, checkNewVersion, 
-
-complementAlignment, contains, contentsChanged, 
-countComponents, countStopCodons, 
-createBufferStrategy, createImage, createOrUpdateDynamicLoadFileMenu, createStats, createVolatileImage, 
-decReadingFrame, 
-deleteAllGaps, deleteEmptySequences, deleteExludedBases, deleteGapMoveLeft, deleteGapMoveRight, deleteSelected, deleteVerticalGaps, 
+  general: 
+    [alignAndAddSequences, alignmentMetaChanged, applyComponentOrientation, applyResourceBundle, areFocusTraversalKeysSet, 
+     bounds, changeAlignmentType, checkImage, checkNewVersion, complementAlignment, contains, contentsChanged, 
+     countComponents, countStopCodons, createBufferStrategy, createImage, createOrUpdateDynamicLoadFileMenu, 
+     createStats, createVolatileImage, decReadingFrame,
+ 
 
 deliverEvent, dispatchEvent, handleEvent, postEvent, 
 
