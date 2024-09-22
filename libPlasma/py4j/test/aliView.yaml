@@ -46,6 +46,15 @@ actions:
                  getParent,                 getPreferredSize, getRootPane,    getShape, getSize,  getState, 
                  getTitle,       getToolkit, getTransferHandler, getTreeLock, getType,  getUndoControler, 
                  getWarningString, getWidth, getWindows,         getX, getY]
+
+    set: #-------------------------------------------------
+      color:     [setColorSchemeAminoAcid,  setColorSchemeNucleotide]
+      component: [setComponentOrientation,  setComponentZOrder]
+      default:   [setDefaultCloseOperation, setDefaultLookAndFeelDecorated]
+
+      general:  [setAlwaysOnTop, setAutoRequestFocus, setBackground, setBounds, setContentPane, setCursor, 
+
+setDifferenceTraceSequence, setDropTarget, setEditMode, setEnabled, setExtendedState, setFocusCycleRoot, setFocusTraversalKeys, setFocusTraversalKeysEnabled, setFocusTraversalPolicy, setFocusTraversalPolicyProvider, setFocusable, setFocusableWindowState, setFont, setFontCaseUpper, setForeground, setGeneticCode, setGlassPane, setHighlightConsensus, setHighlightDiff, setHighlightNonConsensus, setIconImage, setIconImages, setIgnoreRepaint, setJMenuBar, setLayeredPane, setLayout, setLocale, setLocation, setLocationByPlatform, setLocationRelativeTo, setMaximizedBounds, setMaximumSize, setMenuBar, setMinimumSize, setMixingCutoutShape, setModalExclusionType, setName, setOpacity, setPreferredSize, setReadingFrame, setResizable, setSelectionAsCoding, setSelectionAsNonCoding, setShape, setShowTranslation, setSize, setState, setTitle, setTransferHandler, setType, setUndecorated, setVisible, 
  
     is: #-------------------------------------------------
       focus:   [isFocusCycleRoot,          isFocusOwner, isFocusTraversable, isFocusTraversalPolicyProvider, 
@@ -122,7 +131,7 @@ actions:
     scroll:  [scrollToCursor, scrollToPos, scrollToVisibleCursor]
 
     selection: [expandSelectionDown, expandSelectionLeft, expandSelectionRight, expandSelectionTop, 
-                invertSelection]
+                invertSelection, selectAll, selectDuplicates, selectEverythingWithinGaps, selectionChanged]
 
     show:      [show, showAbout, showCharsetsRuler, showMessageLog]
 
@@ -139,10 +148,6 @@ actions:
        repaint, replaceSelectedWithChar, reshape, resize, restoreWindowGeometry, revalidate, 
 
 
-
-selectAll, selectDuplicates, selectEverythingWithinGaps, selectionChanged, 
-
-setAlwaysOnTop, setAutoRequestFocus, setBackground, setBounds, setColorSchemeAminoAcid, setColorSchemeNucleotide, setComponentOrientation, setComponentZOrder, setContentPane, setCursor, setDefaultCloseOperation, setDefaultLookAndFeelDecorated, setDifferenceTraceSequence, setDropTarget, setEditMode, setEnabled, setExtendedState, setFocusCycleRoot, setFocusTraversalKeys, setFocusTraversalKeysEnabled, setFocusTraversalPolicy, setFocusTraversalPolicyProvider, setFocusable, setFocusableWindowState, setFont, setFontCaseUpper, setForeground, setGeneticCode, setGlassPane, setHighlightConsensus, setHighlightDiff, setHighlightNonConsensus, setIconImage, setIconImages, setIgnoreRepaint, setJMenuBar, setLayeredPane, setLayout, setLocale, setLocation, setLocationByPlatform, setLocationRelativeTo, setMaximizedBounds, setMaximumSize, setMenuBar, setMinimumSize, setMixingCutoutShape, setModalExclusionType, setName, setOpacity, setPreferredSize, setReadingFrame, setResizable, setSelectionAsCoding, setSelectionAsNonCoding, setShape, setShowTranslation, setSize, setState, setTitle, setTransferHandler, setType, setUndecorated, setVisible, 
 
 
 size, 
