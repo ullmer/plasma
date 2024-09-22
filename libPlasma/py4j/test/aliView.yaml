@@ -26,6 +26,7 @@ actions:
                   getFocusTraversalKeysEnabled, getFocusTraversalPolicy, getFocusableWindowState]
 
       input:     [getInputContext, getInputMethodListeners, getInputMethodRequests]
+getKeyListeners, 
  
     is: #-------------------------------------------------
       focus:   [isFocusCycleRoot,          isFocusOwner, isFocusTraversable, isFocusTraversalPolicyProvider, 
@@ -71,46 +72,45 @@ actions:
 
     event:  [deliverEvent, dispatchEvent, handleEvent, postEvent]
 
+    export: [exportRaxMLFile, exportRaxMLFileViaChooser]
+
+    file:   [fileDropped, filesDropped]
+
+    find:   [find, findComponentAt, findNamesFromClipboard, findPrimerInCurrentSelection, findPrimerSettings]
+
+    insert: [insertGapMoveLeft, insertGapMoveRight]
+
+    key:    [keyDown, keyUp]
+
     mouse:  [mouseDown, mouseDrag, mouseEnter, mouseExit, mouseMove, mouseUp]
       
+    log:    [logAllLogs, logScrollPane]
+
     move:   [move, moveCursorDown, moveCursorLeft, moveCursorRight, moveCursorUp, moveSelectedDown, moveSelectedTo, 
              moveSelectedToBottom, moveSelectedToTop, moveSelectedUp, moveSelectionLeft, moveSelectionRight]
+
+    print:  [print, printAlignment, printAll, printComponents]
+
+    request: [requestEditMode,            requestFocus,       requestFocusInWindow, requestGB, 
+              requestPaneAndRulerRepaint, requestPaneRepaint, requestReloadWindow,  requestRepaintAndRevalidateALL, 
+              requestRepaintRect,         requestScrollToVisibleSelection,          requestWindowClose]
+
+    selection: [expandSelectionDown, expandSelectionLeft, expandSelectionRight, expandSelectionTop, 
+                invertSelection]
 
     general: 
       [alignAndAddSequences, alignmentMetaChanged, applyComponentOrientation, applyResourceBundle, areFocusTraversalKeysSet, 
        bounds, changeAlignmentType, checkImage, checkNewVersion, complementAlignment, contains, contentsChanged, 
        countComponents, countStopCodons, createBufferStrategy, createImage, createOrUpdateDynamicLoadFileMenu, 
        createStats, createVolatileImage, decReadingFrame, disable, displayVersionHistory, dispose, doLayout, enable, 
-       enableInputMethods, equals, err, 
-
-expandSelectionDown, expandSelectionLeft, expandSelectionRight, expandSelectionTop, 
-invertSelection, 
+       enableInputMethods, equals, err, firePropertyChange, flushAllLogs, goToPos, gotFocus, hasFocus, hashCode, 
+       hide, imageUpdate, incReadingFrame, insets, inside, intervalAdded, intervalRemoved, invalidate, 
 
 
-exportRaxMLFile, exportRaxMLFileViaChooser, 
 
-fileDropped, filesDropped, 
-
-find, findComponentAt, findNamesFromClipboard, findPrimerInCurrentSelection, findPrimerSettings, 
-
-firePropertyChange, flushAllLogs, 
-
-goToPos, gotFocus, 
-
-hasFocus, hashCode, hide, imageUpdate, incReadingFrame, 
-
-insertGapMoveLeft, insertGapMoveRight, 
-
-insets, inside, intervalAdded, intervalRemoved, invalidate, 
-
-getKeyListeners, 
-
-
-keyDown, keyUp, 
 
 launchPy4jServer, layout, list, loadNewAlignmentFile, locate, location, 
 
-logAllLogs, logScrollPane, 
 
 lostFocus, merge2SelectedSequences, minimumSize, missingToGAP, mntmToggleTranslationOnePos, 
 
@@ -119,7 +119,6 @@ msg, newSequences, nextFocus, notify, notifyAll, openBugReportPage, openHelp, op
 pack, paint, paintAll, paintComponents, pasteFasta, performFind, phenotype2genotype, 
 preferredSize, prepareImage, 
 
-print, printAlignment, printAll, printComponents, 
 
 pushUndoState, 
 
@@ -131,7 +130,6 @@ remove, removeAll, removeComponentListener, removeContainerListener, removeFocus
 
 renameFirstSelected, repaint, replaceSelectedWithChar, 
 
-requestEditMode, requestFocus, requestFocusInWindow, requestGB, requestPaneAndRulerRepaint, requestPaneRepaint, requestReloadWindow, requestRepaintAndRevalidateALL, requestRepaintRect, requestScrollToVisibleSelection, requestWindowClose, 
 
 reshape, resize, restoreWindowGeometry, revalidate, 
 
