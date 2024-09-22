@@ -145,6 +145,11 @@ actions:
                 invertSelection, selectAll, selectDuplicates, selectEverythingWithinGaps, selectionChanged]
 
     show:      [show, showAbout, showCharsetsRuler, showMessageLog]
+    sort:      [sortSequencesByCharColumn, sortSequencesByName]
+    to:        [toBack, toFront, toString]
+    toggle:    [toggleDrawAminoAcidCode, toggleDrawCodonpos, toggleIgnoreGapInTranslation, toggleTranslationShowBoth]
+    transfer:  [transferFocus, transferFocusBackward, transferFocusDownCycle, transferFocusUpCycle]
+    zoom:      [zoomIn, zoomInAt, zoomOut, zoomOutAt]
 
     general: 
       [alignAndAddSequences, alignmentMetaChanged, applyComponentOrientation, applyResourceBundle, areFocusTraversalKeysSet, 
@@ -156,16 +161,7 @@ actions:
        layout, list, loadNewAlignmentFile, locate, location, lostFocus, merge2SelectedSequences, minimumSize, 
        missingToGAP, mntmToggleTranslationOnePos, msg, newSequences, nextFocus, pack, pasteFasta, performFind, 
        phenotype2genotype, preferredSize, prepareImage, pushUndoState, redo, reloadCurrentFile, renameFirstSelected, 
-       repaint, replaceSelectedWithChar, reshape, resize, restoreWindowGeometry, revalidate, 
+       repaint, replaceSelectedWithChar, reshape, resize, restoreWindowGeometry, revalidate, size, startDebug, 
+       terminalGAPtoMissing, trimSequences, undo, update, updateWindowTitle, validate, wait, 
 
-
-
-
-size, 
-sortSequencesByCharColumn, sortSequencesByName, 
-startDebug, terminalGAPtoMissing, 
-toBack, toFront, toString, 
-toggleDrawAminoAcidCode, toggleDrawCodonpos, toggleIgnoreGapInTranslation, toggleTranslationShowBoth, 
-transferFocus, transferFocusBackward, transferFocusDownCycle, transferFocusUpCycle, 
-trimSequences, undo, update, updateWindowTitle, validate, wait, 
-zoomIn, zoomInAt, zoomOut, zoomOutAt]
+### end ###
