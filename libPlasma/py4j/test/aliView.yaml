@@ -59,9 +59,15 @@ actions:
                 isReverseVerticalRotation,                      isShowing,        isUndecorated, 
                 isUndoStackEmpty,   isValid,    isValidateRoot, isVisible]
 
+    remove: #-------------------------------------------------
+      listener: [removeComponentListener,       removeContainerListener,   removeFocusListener, 
+                 removeHierarchyBoundsListener, removeHierarchyListener,   removeInputMethodListener, 
+                 removeKeyListener, 
+                 removeMouseListener,           removeMouseMotionListener, removeMouseWheelListener, 
+                 removeWindowFocusListener,     removeWindowListener,      removeWindowStateListener,
+                 removeNotify,                  removePropertyChangeListener]
 
-
-remove, removeAll, removeComponentListener, removeContainerListener, removeFocusListener, removeHierarchyBoundsListener, removeHierarchyListener, removeInputMethodListener, removeKeyListener, removeMouseListener, removeMouseMotionListener, removeMouseWheelListener, removeNotify, removePropertyChangeListener, removeWindowFocusListener, removeWindowListener, removeWindowStateListener, 
+      general: [remove, removeAll, 
     clear: [clearSelectedBases, clearSelection]
 
     copy:  [copyNames, copySelectionAsFasta, copySelectionAsNucleotides]
