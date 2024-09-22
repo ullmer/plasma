@@ -94,7 +94,13 @@ expandSelectionDown, expandSelectionLeft, expandSelectionRight, expandSelectionT
 invertSelection, 
 
 
-exportRaxMLFile, exportRaxMLFileViaChooser, fileDropped, filesDropped, find, findComponentAt, findNamesFromClipboard, findPrimerInCurrentSelection, findPrimerSettings, firePropertyChange, flushAllLogs, 
+exportRaxMLFile, exportRaxMLFileViaChooser, 
+
+fileDropped, filesDropped, 
+
+find, findComponentAt, findNamesFromClipboard, findPrimerInCurrentSelection, findPrimerSettings, 
+
+firePropertyChange, flushAllLogs, 
 
 goToPos, gotFocus, 
 
@@ -107,9 +113,48 @@ insets, inside, intervalAdded, intervalRemoved, invalidate,
 getKeyListeners, 
 
 
-keyDown, keyUp, launchPy4jServer, layout, list, loadNewAlignmentFile, locate, location, logAllLogs, logScrollPane, 
+keyDown, keyUp, 
+
+launchPy4jServer, layout, list, loadNewAlignmentFile, locate, location, 
+
+logAllLogs, logScrollPane, 
+
 lostFocus, merge2SelectedSequences, minimumSize, missingToGAP, mntmToggleTranslationOnePos, 
 
 
-msg, newSequences, nextFocus, notify, notifyAll, openBugReportPage, openHelp, openPreferencesGeneral, pack, paint, paintAll, paintComponents, pasteFasta, performFind, phenotype2genotype, 
-preferredSize, prepareImage, print, printAlignment, printAll, printComponents, pushUndoState, reAlignEverythingAsTranslatedAA, reAlignEverythingWithAlignCommand, reAlignEverythingWithDefaultProgram, reAlignSelectedSequences, reAlignSelectionInSeparateThread, redo, reloadCurrentFile, remove, removeAll, removeComponentListener, removeContainerListener, removeFocusListener, removeHierarchyBoundsListener, removeHierarchyListener, removeInputMethodListener, removeKeyListener, removeMouseListener, removeMouseMotionListener, removeMouseWheelListener, removeNotify, removePropertyChangeListener, removeWindowFocusListener, removeWindowListener, removeWindowStateListener, renameFirstSelected, repaint, replaceSelectedWithChar, requestEditMode, requestFocus, requestFocusInWindow, requestGB, requestPaneAndRulerRepaint, requestPaneRepaint, requestReloadWindow, requestRepaintAndRevalidateALL, requestRepaintRect, requestScrollToVisibleSelection, requestWindowClose, reshape, resize, restoreWindowGeometry, revalidate, reverseComplementAlignment, reverseComplementClipboard, reverseComplementSelectedSequences, runExternalCommand, runExternalCommandImplementation, saveAlignmentAsFile, saveAlignmentAsFileViaChooser, saveAlignmentFile, saveFastaIndex, saveSelectionAsFastaFileViaChooser, saveWindowGeometry, scrollToCursor, scrollToPos, scrollToVisibleCursor, selectAll, selectDuplicates, selectEverythingWithinGaps, selectionChanged, setAlwaysOnTop, setAutoRequestFocus, setBackground, setBounds, setColorSchemeAminoAcid, setColorSchemeNucleotide, setComponentOrientation, setComponentZOrder, setContentPane, setCursor, setDefaultCloseOperation, setDefaultLookAndFeelDecorated, setDifferenceTraceSequence, setDropTarget, setEditMode, setEnabled, setExtendedState, setFocusCycleRoot, setFocusTraversalKeys, setFocusTraversalKeysEnabled, setFocusTraversalPolicy, setFocusTraversalPolicyProvider, setFocusable, setFocusableWindowState, setFont, setFontCaseUpper, setForeground, setGeneticCode, setGlassPane, setHighlightConsensus, setHighlightDiff, setHighlightNonConsensus, setIconImage, setIconImages, setIgnoreRepaint, setJMenuBar, setLayeredPane, setLayout, setLocale, setLocation, setLocationByPlatform, setLocationRelativeTo, setMaximizedBounds, setMaximumSize, setMenuBar, setMinimumSize, setMixingCutoutShape, setModalExclusionType, setName, setOpacity, setPreferredSize, setReadingFrame, setResizable, setSelectionAsCoding, setSelectionAsNonCoding, setShape, setShowTranslation, setSize, setState, setTitle, setTransferHandler, setType, setUndecorated, setVisible, show, showAbout, showCharsetsRuler, showMessageLog, size, sortSequencesByCharColumn, sortSequencesByName, startDebug, terminalGAPtoMissing, toBack, toFront, toString, toggleDrawAminoAcidCode, toggleDrawCodonpos, toggleIgnoreGapInTranslation, toggleTranslationShowBoth, transferFocus, transferFocusBackward, transferFocusDownCycle, transferFocusUpCycle, trimSequences, undo, update, updateWindowTitle, validate, wait, zoomIn, zoomInAt, zoomOut, zoomOutAt']
+msg, newSequences, nextFocus, notify, notifyAll, openBugReportPage, openHelp, openPreferencesGeneral, 
+pack, paint, paintAll, paintComponents, pasteFasta, performFind, phenotype2genotype, 
+preferredSize, prepareImage, 
+
+print, printAlignment, printAll, printComponents, 
+
+pushUndoState, 
+
+reAlignEverythingAsTranslatedAA, reAlignEverythingWithAlignCommand, reAlignEverythingWithDefaultProgram, reAlignSelectedSequences, reAlignSelectionInSeparateThread, 
+
+redo, reloadCurrentFile, 
+
+remove, removeAll, removeComponentListener, removeContainerListener, removeFocusListener, removeHierarchyBoundsListener, removeHierarchyListener, removeInputMethodListener, removeKeyListener, removeMouseListener, removeMouseMotionListener, removeMouseWheelListener, removeNotify, removePropertyChangeListener, removeWindowFocusListener, removeWindowListener, removeWindowStateListener, 
+
+renameFirstSelected, repaint, replaceSelectedWithChar, 
+
+requestEditMode, requestFocus, requestFocusInWindow, requestGB, requestPaneAndRulerRepaint, requestPaneRepaint, requestReloadWindow, requestRepaintAndRevalidateALL, requestRepaintRect, requestScrollToVisibleSelection, requestWindowClose, 
+
+reshape, resize, restoreWindowGeometry, revalidate, 
+
+reverseComplementAlignment, reverseComplementClipboard, reverseComplementSelectedSequences, 
+
+runExternalCommand, runExternalCommandImplementation, 
+
+saveAlignmentAsFile, saveAlignmentAsFileViaChooser, saveAlignmentFile, saveFastaIndex, saveSelectionAsFastaFileViaChooser, saveWindowGeometry, 
+
+scrollToCursor, scrollToPos, scrollToVisibleCursor, 
+
+selectAll, selectDuplicates, selectEverythingWithinGaps, selectionChanged, 
+
+setAlwaysOnTop, setAutoRequestFocus, setBackground, setBounds, setColorSchemeAminoAcid, setColorSchemeNucleotide, setComponentOrientation, setComponentZOrder, setContentPane, setCursor, setDefaultCloseOperation, setDefaultLookAndFeelDecorated, setDifferenceTraceSequence, setDropTarget, setEditMode, setEnabled, setExtendedState, setFocusCycleRoot, setFocusTraversalKeys, setFocusTraversalKeysEnabled, setFocusTraversalPolicy, setFocusTraversalPolicyProvider, setFocusable, setFocusableWindowState, setFont, setFontCaseUpper, setForeground, setGeneticCode, setGlassPane, setHighlightConsensus, setHighlightDiff, setHighlightNonConsensus, setIconImage, setIconImages, setIgnoreRepaint, setJMenuBar, setLayeredPane, setLayout, setLocale, setLocation, setLocationByPlatform, setLocationRelativeTo, setMaximizedBounds, setMaximumSize, setMenuBar, setMinimumSize, setMixingCutoutShape, setModalExclusionType, setName, setOpacity, setPreferredSize, setReadingFrame, setResizable, setSelectionAsCoding, setSelectionAsNonCoding, setShape, setShowTranslation, setSize, setState, setTitle, setTransferHandler, setType, setUndecorated, setVisible, 
+
+show, showAbout, showCharsetsRuler, showMessageLog, 
+
+size, sortSequencesByCharColumn, sortSequencesByName, startDebug, terminalGAPtoMissing, toBack, toFront, toString, toggleDrawAminoAcidCode, toggleDrawCodonpos, toggleIgnoreGapInTranslation, toggleTranslationShowBoth, transferFocus, transferFocusBackward, transferFocusDownCycle, transferFocusUpCycle, trimSequences, undo, update, updateWindowTitle, validate, wait, 
+zoomIn, zoomInAt, zoomOut, zoomOutAt]
