@@ -45,6 +45,19 @@ Building Plasma requires
 
 Use your package manager (brew, apt, yum, zypper, etc) to install them.
 
+On Ubuntu using apt, this translates to:
+
+ninja-build       #installed with -y flag, but probably unnecessary
+cmake
+libyaml-dev
+libssl-dev
+libboost-all-dev  #a narrower install would save space + time
+
+libavahi-common-dev #may be preinstalled
+libavahi-client-dev #may be preinstalled
+icu-devtools        #already installed
+openssl-dbgsym   
+
 To build on linux/intel mac, assuming you're in the same directory as
 this README:
 
