@@ -1,0 +1,16 @@
+From Discord by jshrake, 2024-05-03
+
+# Run pool_tcp_server, you may need to 'chown /var/ob/pools'
+./build/libPlasma/c/pool_tcp_server
+
+# Create a pool
+./build/libPlasma/c/p-create tcp://localhost/hello
+
+# Listen on that pool in one terminal
+./build/libPlasma/c/p-await tcp://localhost/hello
+
+# Open another terminal and deposit to the pool
+./build/libPlasma/c/p-deposit -d hello -i name:world tcp://localhost/hello
+
+# Build on another computer and try to deposit across the network!
+
