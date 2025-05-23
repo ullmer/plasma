@@ -606,8 +606,8 @@ Slaw Slaw::ListReplace (bslaw from, const Slaw &to) const
              [&from](const detail::SlawRef& ref) { // Predicate: condition for replacement
                return ref.Equals(from);
              },
-             detail::SlawRef(to.slaw())); // The new value to replace with.
-                                 // Assumes SlawRef can be constructed from bslaw.
+             to.SlawRef()); 
+
 #else // Pre-C++11 (C++03/98) fallback
   // For C++98, use bind2nd with replace_if.
   // Ensure SlawRef can be constructed from bslaw for the replacement value.

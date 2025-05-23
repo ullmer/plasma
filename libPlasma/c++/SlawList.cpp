@@ -183,15 +183,15 @@ int64 SlawList::IndexOf (bslaw s, unt64 start) const
   if (start >= elements_.size ())
     return -1;
 
-  detail::SlawIter it; // Declare 'it' here, outside any conditional blocks. // below changes are auto-synthesized by Gemini
+// below changes are partially auto-synthesized by Gemini
 
 #if __cplusplus >= 201103L // C++11 and later (covers C++17)
-  it = find_if(cmps.begin(), cmps.end(),
+  ConstSlawIter it = find_if(elements_.begin(), elements_.end(),
                [&s](const detail::SlawRef& ref) {
                  return ref.Equals(s);
                });
 #else // Pre-C++11 (C++03/98) fallback
-  it = find_if(cmps.begin(), cmps.end(),
+  ConstSlawIter it = find_if(elements_.begin(), elements_.end(),
                bind2nd(mem_fun_ref(&detail::SlawRef::Equals), s));
 #endif
 
