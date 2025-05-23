@@ -598,9 +598,29 @@ Slaw Slaw::ListReplace (bslaw from, const Slaw &to) const
   using namespace std;
   detail::SlawRefs cmps = Composite ()->Components ();
   if (from && !to.IsNull ())
-    replace_if (cmps.begin (), cmps.end (),
-                bind2nd (mem_fun_ref (&detail::SlawRef::Equals), from),
-                to.SlawRef ());
+
+#if __cplusplus >= 201103L // C++11 and later (covers C++17) // updates suggested by Gemini
+  // Use a lambda expression for C++11 and newer.
+  // std::replace_if takes: begin, end, predicate, new_value.
+  replace_if(cmps.begin(), cmps.end(),
+             [&from](const detail::SlawRef& ref) { // Predicate: condition for replacement
+               return ref.Equals(from);
+             },
+             detail::SlawRef(to)); // The new value to replace with.
+                                 // Assumes SlawRef can be constructed from bslaw.
+#else // Pre-C++11 (C++03/98) fallback
+  // For C++98, use bind2nd with replace_if.
+  // Ensure SlawRef can be constructed from bslaw for the replacement value.
+  replace_if(cmps.begin(), cmps.end(),
+             bind2nd(mem_fun_ref(&detail::SlawRef::Equals), from),
+             detail::SlawRef(to));
+#endif
+
+//    replace_if (cmps.begin (), cmps.end (),
+//                bind2nd (mem_fun_ref (&detail::SlawRef::Equals), from),
+//                to.SlawRef ());
+
+
   return Slaw (detail::CompositeSlaw::List (cmps));
 }
 
