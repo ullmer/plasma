@@ -9,6 +9,10 @@
 #include "libLoam/c++/FatherTime.h"
 #include "libLoam/c++/ObTrove.h"
 
+#if __cplusplus >= 201103L
+#include <random>
+#endif
+
 using namespace oblong::loam;
 
 class FatherTimeTest : public ::testing::Test
@@ -51,7 +55,20 @@ static void waste_time ()
   for (int i = 0; i < enuf; i++)
     vals[i] = i;
 
+  //std::random_shuffle (vals + 0, vals + enuf);
+
+#if __cplusplus >= 201103L
+  // C++11: std::shuffle is available
+  std::random_device rd4;
+  std::mt19937 g4(rd4());
+  std::shuffle(vals+0, vals+enuf, g4);
+#else
+  // C++98: use deprecated std::random_shuffle
   std::random_shuffle (vals + 0, vals + enuf);
+#endif
+
+
+
   ObTrove<int32> trov (vals, enuf);
   trov.Sort (cmp);
 
