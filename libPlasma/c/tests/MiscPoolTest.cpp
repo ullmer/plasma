@@ -29,7 +29,7 @@
 #include <vector>
 #include <algorithm>
 
-if __cplusplus >= 201103L
+#if __cplusplus >= 201103L
 #include <random>
 #endif
 
@@ -359,7 +359,18 @@ TEST (MiscPoolTest, GangManipulation)
       EXPECT_TORTEQ (OB_OK, pool_join_gang (gang, ph));
     }
   EXPECT_EQ (5, pool_gang_count (gang));
+  //std::random_shuffle (sharks_hoses.begin (), sharks_hoses.end ());
+
+#if __cplusplus >= 201103L
+  // C++11: std::shuffle is available
+  std::random_device rd2;
+  std::mt19937 g2(rd2());
+  std::shuffle(sharks_hoses.begin(), sharks_hoses.end(), g2);
+#else
+  // C++98: use deprecated std::random_shuffle
   std::random_shuffle (sharks_hoses.begin (), sharks_hoses.end ());
+#endif
+
   for (HoseVector::iterator it = sharks_hoses.begin ();
        it != sharks_hoses.end (); it++)
     {
