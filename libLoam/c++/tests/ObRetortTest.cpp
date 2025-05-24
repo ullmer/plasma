@@ -19,6 +19,9 @@
 #include <algorithm>
 #include <unordered_set>
 
+#if __cplusplus >= 201103L
+#include <random>
+#endif
 
 using namespace oblong::loam;
 
