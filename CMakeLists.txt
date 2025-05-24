@@ -3,7 +3,7 @@ cmake_minimum_required (VERSION 3.6.2)
 project(g-speak CXX C)
 
 # Select C++11 dialect
-set(CMAKE_CXX_STANDARD 11)
+#set(CMAKE_CXX_STANDARD 11)
 set(CXX_STANDARD_REQUIRED YES)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
@@ -136,7 +136,7 @@ if (UNIX)
   #  dyld: Library not loaded: @rpath/libboost_filesystem-mt.dylib
   # on some macs (not sure why it isn't everywhere).
   # So:
-  list(APPEND PLATFORM_LINK_LIBS -L${YOBUILD}/lib -Wl,-rpath,${YOBUILD}/lib)
+  list(APPEND PLATFORM_LINK_LIBS -L/opt/local/lib -Wl,-rpath,${YOBUILD}/lib)
 
 endif()
 
