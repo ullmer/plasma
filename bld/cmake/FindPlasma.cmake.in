@@ -1,32 +1,32 @@
 #.rst:
-# FindGSpeak
+# FindPlasma
 # ----------
 #
 # This is for backwards compatibility; new apps should just do
 #   FIND_PACKAGE(Oblong)
-# instead of including FindGSpeak.cmake.
-# See sample apps $G_SPEAK_HOME/src/*/CMakeLists.txt
+# instead of including FindPlasma.cmake.
+# See sample apps $PLASMA_HOME/src/*/CMakeLists.txt
 #
-# Provides the function FindGSpeak(pkg1 ...)
-# to get access to one or more of the packages that make up Oblong's g-speak
+# Provides the function FindPlasma(pkg1 ...)
+# to get access to one or more of the packages that make up Oblong's plasma
 # Input parameters:
-#   any package listed in $G_SPEAK_HOME/lib/pkgconfig sans .pc suffix (e.g. libLoam, libLoam++, libWebThing, etc)
+#   any package listed in $PLASMA_HOME/lib/pkgconfig sans .pc suffix (e.g. libLoam, libLoam++, libWebThing, etc)
 # Output variables:
-#   G_SPEAK_LDFLAGS: value to pass to TARGET_LINK_LIBRARIES when linking against the requested modules
-#   G_SPEAK_CFLAGS: value to pass to ADD_COMPILE_OPTIONS when compiling against the requested modules
-#   G_SPEAK_HOME - the directory g-speak was installed in (e.g. /opt/oblong/g-speak3.20)
-#   G_SPEAK_YOBUILD_HOME - the directory oblong's dependencies were installed in (e.g. /opt/oblong/deps-64-10)
-#   G_SPEAK_INCLUDE_DIRS - shouldn't need this if you obey G_SPEAK_CFLAGS, but just in case
+#   PLASMA_LDFLAGS: value to pass to TARGET_LINK_LIBRARIES when linking against the requested modules
+#   PLASMA_CFLAGS: value to pass to ADD_COMPILE_OPTIONS when compiling against the requested modules
+#   PLASMA_HOME - the directory plasma was installed in (e.g. /opt/oblong/plasma3.20)
+#   PLASMA_YOBUILD_HOME - the directory oblong's dependencies were installed in (e.g. /opt/oblong/deps-64-10)
+#   PLASMA_INCLUDE_DIRS - shouldn't need this if you obey PLASMA_CFLAGS, but just in case
 #   CEF_BRANCH - set only if WebThing was requested
 # Side effects:
-#   Prepends g-speak's pkgconfig directories to ENV{PKG_CONFIG_PATH}
+#   Prepends plasma's pkgconfig directories to ENV{PKG_CONFIG_PATH}
 # Note 1: users access this function by doing e.g.
-#  INCLUDE("/opt/oblong/g-speak3.20/lib/cmake/FindGSpeak.cmake")
+#  INCLUDE("/opt/oblong/plasma3.20/lib/cmake/FindPlasma.cmake")
 # Note 2: users of WebThing must also then do
-#  INCLUDE("${G_SPEAK_YOBUILD_HOME}/lib/cmake/FindCEF${CEF_BRANCH}.cmake")
+#  INCLUDE("${PLASMA_YOBUILD_HOME}/lib/cmake/FindCEF${CEF_BRANCH}.cmake")
 # We can't do it here because nested function declarations don't work in cmake
-# Note 3: the variables G_SPEAK_STATIC_(LDFLAGS,CFLAGS,INCLUDE_PATHS) are also set,
-# and should be used instead of the others when linking against static g-speak.
+# Note 3: the variables PLASMA_STATIC_(LDFLAGS,CFLAGS,INCLUDE_PATHS) are also set,
+# and should be used instead of the others when linking against static plasma.
 #
 #
 # Copyright (C) 2015 Oblong Industries
@@ -45,12 +45,12 @@ FUNCTION(GetCefBranch)
     SET(CEF_BRANCH ${CEF_BRANCH} PARENT_SCOPE)
 ENDFUNCTION()
 
-FUNCTION(FindGSpeak)
+FUNCTION(FindPlasma)
     # Export a few output variables at top, since we need them too
-    SET(G_SPEAK_HOME "@prefix@")
-    SET(G_SPEAK_HOME "${G_SPEAK_HOME}" PARENT_SCOPE)
-    SET(G_SPEAK_YOBUILD_HOME "@YOBUILD@")
-    SET(G_SPEAK_YOBUILD_HOME "${G_SPEAK_YOBUILD_HOME}" PARENT_SCOPE)
+    SET(PLASMA_HOME "@prefix@")
+    SET(PLASMA_HOME "${PLASMA_HOME}" PARENT_SCOPE)
+    SET(PLASMA_YOBUILD_HOME "@YOBUILD@")
+    SET(PLASMA_YOBUILD_HOME "${PLASMA_YOBUILD_HOME}" PARENT_SCOPE)
 
     IF (WIN32)
         SET(PATHSEP ";")
@@ -77,13 +77,13 @@ FUNCTION(FindGSpeak)
           OUTPUT_STRIP_TRAILING_WHITESPACE
           )
         SET(PKG_CONFIG_PATH "\
-${G_SPEAK_HOME}/lib/${OB_DEB_BUILD_GNU_TYPE}/pkgconfig${PATHSEP}\
-${G_SPEAK_HOME}/lib/pkgconfig${PATHSEP}\
-${G_SPEAK_YOBUILD_HOME}/lib/${OB_DEB_BUILD_GNU_TYPE}/pkgconfig${PATHSEP}\
-${G_SPEAK_YOBUILD_HOME}/lib/pkgconfig${PATHSEP}\
+${PLASMA_HOME}/lib/${OB_DEB_BUILD_GNU_TYPE}/pkgconfig${PATHSEP}\
+${PLASMA_HOME}/lib/pkgconfig${PATHSEP}\
+${PLASMA_YOBUILD_HOME}/lib/${OB_DEB_BUILD_GNU_TYPE}/pkgconfig${PATHSEP}\
+${PLASMA_YOBUILD_HOME}/lib/pkgconfig${PATHSEP}\
 ")
     else()
-        SET(PKG_CONFIG_PATH "${G_SPEAK_HOME}/lib/pkgconfig${PATHSEP}${G_SPEAK_YOBUILD_HOME}/lib/pkgconfig")
+        SET(PKG_CONFIG_PATH "${PLASMA_HOME}/lib/pkgconfig${PATHSEP}${PLASMA_YOBUILD_HOME}/lib/pkgconfig")
     endif()
 
     SET(PKG_CONFIG_PATH "${PKG_CONFIG_PATH}${OLDPATH}")
@@ -92,7 +92,7 @@ ${G_SPEAK_YOBUILD_HOME}/lib/pkgconfig${PATHSEP}\
 
     # Make sure yobuild is on the path, else we won't find pkg-config on mac
     # FIXME: only do this if it's not there already
-    set(ENV{PATH} "$ENV{PATH}${PATHSEP}${G_SPEAK_YOBUILD_HOME}/bin")
+    set(ENV{PATH} "$ENV{PATH}${PATHSEP}${PLASMA_YOBUILD_HOME}/bin")
     MESSAGE(STATUS "Setting environment variable PATH=$ENV{PATH}")
 
     find_package(PkgConfig REQUIRED)
@@ -115,13 +115,13 @@ ${G_SPEAK_YOBUILD_HOME}/lib/pkgconfig${PATHSEP}\
 
     # Then let pkg-config deduplicate options
     # (required, otherwise we get corrupt .dylibs on mac, see bug 15121)
-    PKG_CHECK_MODULES(G_SPEAK REQUIRED ${ARGN})
+    PKG_CHECK_MODULES(PLASMA REQUIRED ${ARGN})
 
     # Fun fact: static libraries have to come after their references, else symbols won't be found.
     # Easiest workaround is to list all libraries twice.
-    SET(G_SPEAK_STATIC_LDFLAGS " ${G_SPEAK_STATIC_LDFLAGS} ${G_SPEAK_STATIC_LDFLAGS}")
+    SET(PLASMA_STATIC_LDFLAGS " ${PLASMA_STATIC_LDFLAGS} ${PLASMA_STATIC_LDFLAGS}")
 
-    foreach(XPREFIX "G_SPEAK" "G_SPEAK_STATIC")
+    foreach(XPREFIX "PLASMA" "PLASMA_STATIC")
 
     if (APPLE)
         # Even the above isn't enough.  Somehow any -rpath from pkgconfig
