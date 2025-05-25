@@ -21,7 +21,7 @@ FIND_PACKAGE(PkgConfig REQUIRED)
 
 FUNCTION(ObRunObs OUTVAR)
     IF(WIN32)
-        # Have to look on path since it might have been installed into $G_SPEAK_HOME/bin
+        # Have to look on path since it might have been installed into $PLASMA_HOME/bin
         FIND_PROGRAM(OBS obs HINTS "C:/cygwin64/bin" "C:/cygwin/bin")
         EXECUTE_PROCESS(
             COMMAND C:/cygwin64/bin/sh.exe "${OBS}" ${ARGN}
@@ -58,9 +58,9 @@ ENDFUNCTION()
 
 FUNCTION(ObGetCefBranch OUTVAR)
     # Just ask obs (which just looks in source tree).
-    # Pass it G_SPEAK_HOME so it can fall back to the default cef for
+    # Pass it PLASMA_HOME so it can fall back to the default cef for
     # that g-speak if it feels like it, as get-yobuild-home does.
-    ObRunObs(${OUTVAR} get-cef-version "${G_SPEAK_HOME}")
+    ObRunObs(${OUTVAR} get-cef-version "${PLASMA_HOME}")
 
     # Strip leading 'cef' (a kludge that made sense a long time ago).
     STRING(REGEX REPLACE "^cef" "" ${OUTVAR} ${${OUTVAR}})
@@ -75,10 +75,10 @@ ENDFUNCTION()
 # ObGetGspeakVersion(<OUTVAR>)
 # Output variables:
 #   OUTVAR - Get X.Y version of the g-speak current project is to be built against
-# Before calling, add G_SPEAK_HOME to CMAKE_PREFIX_PATH.
+# Before calling, add PLASMA_HOME to CMAKE_PREFIX_PATH.
 
 FUNCTION(ObGetGspeakVersion OUTVAR)
-    ObRunObs(${OUTVAR} get-gspeak-version "${G_SPEAK_HOME}")
+    ObRunObs(${OUTVAR} get-gspeak-version "${PLASMA_HOME}")
     SET(${OUTVAR} ${${OUTVAR}} PARENT_SCOPE)
 ENDFUNCTION()
 
@@ -89,12 +89,12 @@ ENDFUNCTION()
 # ObGetYobuild(<OUTVAR>)
 # Output variables:
 #   OUTVAR - prefix of Oblong's dependencies directory
-# Before calling, add G_SPEAK_HOME to CMAKE_PREFIX_PATH.
+# Before calling, add PLASMA_HOME to CMAKE_PREFIX_PATH.
 
 FUNCTION(ObGetYobuild OUTVAR)
     # Just ask obs (which looks in source tree and asks ob-version,
     # and falls back to default for given g-speak if that fails)
-    ObRunObs(${OUTVAR} get-yobuild-home "${G_SPEAK_HOME}")
+    ObRunObs(${OUTVAR} get-yobuild-home "${PLASMA_HOME}")
     IF (WIN32)
       IF (${OUTVAR} MATCHES "^/cygdrive")
         MESSAGE("ObGetYobuild: converting /cygdrive/* to *:")
@@ -118,12 +118,12 @@ ENDFUNCTION()
 # ObGetYoversion(<OUTVAR>)
 # Output variables:
 #   OUTVAR - major version number of yobuild (usualy last number in ObGetYobuild output)
-# Before calling, add G_SPEAK_HOME to CMAKE_PREFIX_PATH.
+# Before calling, add PLASMA_HOME to CMAKE_PREFIX_PATH.
 
 FUNCTION(ObGetYoversion OUTVAR)
     # Just ask obs (which looks in source tree and asks ob-version,
     # and falls back to default for given g-speak if that fails)
-    ObRunObs(${OUTVAR} get-yoversion "${G_SPEAK_HOME}")
+    ObRunObs(${OUTVAR} get-yoversion "${PLASMA_HOME}")
     SET(${OUTVAR} ${${OUTVAR}} PARENT_SCOPE)
 ENDFUNCTION()
 
