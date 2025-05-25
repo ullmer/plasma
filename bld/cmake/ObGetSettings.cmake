@@ -1,7 +1,7 @@
 #.rst:
 # This file provides the functions:
 #  ObGetCefBranch     - retrieve CEF branch used by WebThing
-#  ObGetGspeakVersion - Get X.Y version of the g-speak current project is to be built against
+#  ObGetPlasmaVersion - Get X.Y version of the g-speak current project is to be built against
 #  ObGetVersionGit    - version number of current project from git describe
 #  ObGetYobuild       - retrieve path to Oblong dependencies directory
 #  ObGetYoversion     - get major version of yobuild
@@ -68,16 +68,16 @@ FUNCTION(ObGetCefBranch OUTVAR)
     SET(${OUTVAR} ${${OUTVAR}} PARENT_SCOPE)
 ENDFUNCTION()
 
-# ObGetGspeakVersion
+# ObGetPlasmaVersion
 # --------------
 #
 # Syntax:
-# ObGetGspeakVersion(<OUTVAR>)
+# ObGetPlasmaVersion(<OUTVAR>)
 # Output variables:
 #   OUTVAR - Get X.Y version of the g-speak current project is to be built against
 # Before calling, add PLASMA_HOME to CMAKE_PREFIX_PATH.
 
-FUNCTION(ObGetGspeakVersion OUTVAR)
+FUNCTION(ObGetPlasmaVersion OUTVAR)
     ObRunObs(${OUTVAR} get-gspeak-version "${PLASMA_HOME}")
     SET(${OUTVAR} ${${OUTVAR}} PARENT_SCOPE)
 ENDFUNCTION()

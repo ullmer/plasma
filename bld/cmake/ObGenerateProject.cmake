@@ -43,7 +43,7 @@ function(ObGenerateProject TEMPLATE_DIR1 TEMPLATE_DIR2 TEMPLATE_DIR3 OUT_DIR PRO
   if (ASAN)
     LIST(APPEND opts "--asan")
   endif()
-  if (USE_STATIC_G_SPEAK)
+  if (USE_STATIC_PLASMA)
     LIST(APPEND opts "--greenhouse")
   endif()
   if (TSAN)
@@ -70,7 +70,7 @@ endfunction()
 function(ObGenerateProjectFile IN_FILE OUT_FILE)
   # Adjust output path, make sure parent directory exists
   string(REPLACE "@PROJECT@" "${PROJ_NAME}" OUT_FILE "${OUT_FILE}")
-  string(REPLACE "@G_SPEAK_XY@" "${G_SPEAK_XY}" OUT_FILE "${OUT_FILE}")
+  string(REPLACE "@PLASMA_XY@" "${PLASMA_XY}" OUT_FILE "${OUT_FILE}")
   ObEnsureDirectory(${OUT_FILE})
 
   # FIXME: use @var@ instead of {{var}} so we can use configure_file,
@@ -81,17 +81,17 @@ function(ObGenerateProjectFile IN_FILE OUT_FILE)
   # Alas, one of our goals is to use the same template files as obi, so that's hard.
   file(READ ${IN_FILE} CONTENTS)
   string(REPLACE "{{project_name}}" "${PROJ_NAME}" CONTENTS "${CONTENTS}")
-  string(REPLACE "{{g_speak_version}}" "${G_SPEAK_XY}" CONTENTS "${CONTENTS}")
+  string(REPLACE "{{g_speak_version}}" "${PLASMA_XY}" CONTENTS "${CONTENTS}")
   string(REPLACE "{{cef_branch}}" "cef${CEF_BRANCH}" CONTENTS "${CONTENTS}")
   string(REPLACE "{{yobuild_major}}" "${YOVERSION}" CONTENTS "${CONTENTS}")
   string(REPLACE "{{yobuild}}" "${YOBUILD}" CONTENTS "${CONTENTS}")
-  string(REPLACE "{{G_SPEAK_HOME}}" "${G_SPEAK_HOME}" CONTENTS "${CONTENTS}")
+  string(REPLACE "{{PLASMA_HOME}}" "${PLASMA_HOME}" CONTENTS "${CONTENTS}")
   # Curse you, debian/install and snapcraft.yaml/fileset!
   # See https://forum.snapcraft.io/t/fileset-syntax-preserves-an-ancient-papercut/6930
   STRING(REGEX REPLACE "^/" "" NOSLASH_YOBUILD "${YOBUILD}")
-  STRING(REGEX REPLACE "^/" "" NOSLASH_G_SPEAK_HOME "${G_SPEAK_HOME}")
+  STRING(REGEX REPLACE "^/" "" NOSLASH_PLASMA_HOME "${PLASMA_HOME}")
   STRING(REPLACE "{{NOSLASH_YOBUILD}}" "${NOSLASH_YOBUILD}" CONTENTS "${CONTENTS}")
-  STRING(REPLACE "{{NOSLASH_G_SPEAK_HOME}}" "${NOSLASH_G_SPEAK_HOME}" CONTENTS "${CONTENTS}")
+  STRING(REPLACE "{{NOSLASH_PLASMA_HOME}}" "${NOSLASH_PLASMA_HOME}" CONTENTS "${CONTENTS}")
   if (WIN32)
     # CMake's FILE WRITE uses DOS line ending on DOS, which breaks
     # ob-set-defaults.conf, and there's no option to disable it...

@@ -1,6 +1,6 @@
 configure_file(
-  input: 'FindGSpeak.cmake.in',
-  output: 'FindGSpeak.cmake',
+  input: 'FindPlasma.cmake.in',
+  output: 'FindPlasma.cmake',
   configuration: cdata,
   install: true,
   install_dir : 'lib/cmake'
@@ -40,7 +40,7 @@ install_data(
 )
 
 if get_option('b_sanitize') == 'address' or build_machine.system() == 'linux'
-  # Needed for running e.g. ruby or python that loads a native g-speak plugin
+  # Needed for running e.g. ruby or python that loads a native Plasma plugin
   # Install unconditionally on Linux because conditional debian packaging is... hard.
   install_data(
     'asanpreload',

@@ -16,12 +16,12 @@
 #   CMAKE_VERBOSE_MAKEFILE - whether build should be verbose
 #   COVERAGE               - whether to use code coverage
 #   TSAN                   - whether to use thread sanitizer
-#   USE_STATIC_G_SPEAK     - tell ObFindLibs to favor static g-speak libraries
+#   USE_STATIC_PLASMA     - tell ObFindLibs to favor static g-speak libraries
 # and sets the additional variables
 #   OPTIMIZE_FLAGS      - compiler flags for CMAKE_BUILD_TYPE
 #   COVERAGE_FLAGS      - compiler flags for COVERAGE
 #   SANITIZER_FLAGS     - compiler flags for ASAN/TSAN
-#   OB_G_SPEAK_LIB_TYPE - STATIC if USE_STATIC_G_SPEAK, else SHARED
+#   OB_PLASMA_LIB_TYPE - STATIC if USE_STATIC_PLASMA, else SHARED
 #                        use when calling ObFindLibs to find g-speak.
 #                        (Used to be named OB_PREFER_LIB_TYPE.)
 
@@ -31,7 +31,7 @@ FUNCTION(ObCommonOpts)
     OPTION(CMAKE_VERBOSE_MAKEFILE "Verbose output from make"           OFF)
     OPTION(COVERAGE        "Generate coverage report after test run"   OFF)
     OPTION(TSAN            "Enable Thread Sanitizer (experimental)"    OFF)
-    OPTION(USE_STATIC_G_SPEAK "tell ObFindLibs to favor static g-speak libraries" OFF)
+    OPTION(USE_STATIC_PLASMA "tell ObFindLibs to favor static g-speak libraries" OFF)
 
     IF(DEFINED CMAKE_BUILD_TYPE AND (NOT ${CMAKE_BUILD_TYPE} STREQUAL "None"))
         # Somebody set it already, don't force it, just add the type.
@@ -89,12 +89,12 @@ FUNCTION(ObCommonOpts)
     SET(COVERAGE_FLAGS  ${COVERAGE_FLAGS} PARENT_SCOPE)
     SET(SANITIZER_FLAGS ${SANITIZER_FLAGS} PARENT_SCOPE)
     SET(OPTIMIZE_FLAGS  ${OPTIMIZE_FLAGS} PARENT_SCOPE)
-    IF(USE_STATIC_G_SPEAK)
-        SET(OB_G_SPEAK_LIB_TYPE "STATIC" PARENT_SCOPE)
-        SET(OB_PREFER_LIB_TYPE "STATIC" PARENT_SCOPE)   # remove once apps switch to OB_G_SPEAK_LIB_TYPE
+    IF(USE_STATIC_PLASMA)
+        SET(OB_PLASMA_LIB_TYPE "STATIC" PARENT_SCOPE)
+        SET(OB_PREFER_LIB_TYPE "STATIC" PARENT_SCOPE)   # remove once apps switch to OB_PLASMA_LIB_TYPE
     ELSE()
-        SET(OB_G_SPEAK_LIB_TYPE "SHARED" PARENT_SCOPE)
-        SET(OB_PREFER_LIB_TYPE "SHARED" PARENT_SCOPE)   # remove once apps switch to OB_G_SPEAK_LIB_TYPE
+        SET(OB_PLASMA_LIB_TYPE "SHARED" PARENT_SCOPE)
+        SET(OB_PREFER_LIB_TYPE "SHARED" PARENT_SCOPE)   # remove once apps switch to OB_PLASMA_LIB_TYPE
     ENDIF()
 
 ENDFUNCTION()
