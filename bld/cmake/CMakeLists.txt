@@ -3,10 +3,12 @@
 # adds come last.
 
 # FindGSpeak.cmake is a legacy file; new apps should use samples/FindOblong.cmake
-configure_file(FindGSpeak.cmake.in "${g-speak_BINARY_DIR}/FindGSpeak.cmake" @ONLY)
+#configure_file(FindGSpeak.cmake.in "${g-speak_BINARY_DIR}/FindGSpeak.cmake" @ONLY)
+configure_file(FindPlasma.cmake.in "${g-speak_BINARY_DIR}/FindPlasma.cmake" @ONLY)
 
+#  FILES ${g-speak_BINARY_DIR}/FindGSpeak.cmake
 install(
-  FILES ${g-speak_BINARY_DIR}/FindGSpeak.cmake
+  FILES ${g-speak_BINARY_DIR}/FindPlasma.cmake
         ObCheckCFlags.cmake
         ObCheckCxxFlags.cmake
         ObBoilerplate.cmake
