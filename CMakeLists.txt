@@ -1,6 +1,7 @@
 cmake_minimum_required (VERSION 3.6.2)
 
-project(g-speak CXX C)
+#project(g-speak CXX C)
+project(plasma CXX C)
 
 # Select C++11 dialect
 #set(CMAKE_CXX_STANDARD 11)
@@ -74,6 +75,11 @@ else()
 endif()
 # Replace semicolons with spaces to keep cmake from splitting the argument.
 STRING(REPLACE ";" " " ICU_LIBRARIES_SPACE_SEP "${ICU_LIBRARIES}" )
+
+#pybind11 syntax by Copilot; mileage may vary
+set(PYBIND11_FINDPYTHON ON)
+find_package(pybind11 REQUIRED)
+target_link_libraries(pyPlasma PRIVATE pybind11::module)
 
 # otherwise boost includes optimized and debug versions, which fouls up the build
 set(Boost_USE_DEBUG_RUNTIME FALSE)
