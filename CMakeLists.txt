@@ -1,6 +1,6 @@
 cmake_minimum_required (VERSION 3.6.2)
 
-#project(g-speak CXX C)
+#project(plasma CXX C)
 project(plasma CXX C)
 
 # Select C++11 dialect
@@ -8,7 +8,7 @@ project(plasma CXX C)
 set(CXX_STANDARD_REQUIRED YES)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
-# Get access to g-speak's standard cmake options, helper functions,
+# Get access to plasma's standard cmake options, helper functions,
 # and variables.
 # Clients use FIND_PACKAGE(Oblong), but we grab it here from source tree.
 list(INSERT CMAKE_MODULE_PATH 0 "${CMAKE_CURRENT_SOURCE_DIR}/bld/cmake")
@@ -18,10 +18,10 @@ INCLUDE("ObGenerateProject")
 # Short name
 SET(TOP_TEMPLATE ${CMAKE_SOURCE_DIR}/samples/obi-template)
 
-set(top_srcdir       "${g-speak_SOURCE_DIR}")
-set(abs_top_srcdir   "${g-speak_SOURCE_DIR}")
-set(top_builddir     "${g-speak_BINARY_DIR}")
-set(abs_top_builddir "${g-speak_BINARY_DIR}")
+set(top_srcdir       "${plasma_SOURCE_DIR}")
+set(abs_top_srcdir   "${plasma_SOURCE_DIR}")
+set(top_builddir     "${plasma_BINARY_DIR}")
+set(abs_top_builddir "${plasma_BINARY_DIR}")
 
 # Tell tests where top of source tree is.
 # Consumed by libStaging/include/private/testHelpers.h
@@ -79,7 +79,8 @@ STRING(REPLACE ";" " " ICU_LIBRARIES_SPACE_SEP "${ICU_LIBRARIES}" )
 #pybind11 syntax by Copilot; mileage may vary
 set(PYBIND11_FINDPYTHON ON)
 find_package(pybind11 REQUIRED)
-target_link_libraries(pyPlasma PRIVATE pybind11::module)
+#target_link_libraries(plasma PRIVATE pybind11::module)
+pybind11_add_module(plasma src/bindings.cpp)
 
 # otherwise boost includes optimized and debug versions, which fouls up the build
 set(Boost_USE_DEBUG_RUNTIME FALSE)
@@ -270,10 +271,10 @@ endif()
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -DQUOTED_PREFIX=\\\"${CMAKE_INSTALL_PREFIX}\\\"")
 
 # Let source files use top-relative include path
-include_directories(${g-speak_BINARY_DIR})
-include_directories(${g-speak_SOURCE_DIR})
-include_directories(${g-speak_SOURCE_DIR}/system)
-include_directories(SYSTEM ${g-speak_SOURCE_DIR}/gtest/include)
+include_directories(${plasma_BINARY_DIR})
+include_directories(${plasma_SOURCE_DIR})
+include_directories(${plasma_SOURCE_DIR}/system)
+include_directories(SYSTEM ${plasma_SOURCE_DIR}/gtest/include)
 
 #------------- generate documentation -----------
 
@@ -292,7 +293,7 @@ ENDMACRO()
 
 # Given a .pod file, create .1 and .html files in share/doc
 # and update share/doc/index.html
-set(doc_bindir "${g-speak_BINARY_DIR}/share/doc")
+set(doc_bindir "${plasma_BINARY_DIR}/share/doc")
 FILE(MAKE_DIRECTORY "${doc_bindir}/htmlman")
 native2unix(_doc_bindir "${doc_bindir}")
 
@@ -307,11 +308,11 @@ MACRO(pod2manhtml _sourcefile _manext)
       # by assuming cygwin perl + pod2man installed
       set(pod2mancmd "C:/cygwin64/bin/perl;/usr/bin/pod2man")
       set(pod2htmlcmd "C:/cygwin64/bin/perl;/usr/bin/pod2html")
-      set(indexcmd "C:/cygwin64/bin/perl;${g-speak_SOURCE_DIR}/bld/make-html-doc-index.pl")
+      set(indexcmd "C:/cygwin64/bin/perl;${plasma_SOURCE_DIR}/bld/make-html-doc-index.pl")
     else()
       set(pod2mancmd "pod2man")
       set(pod2htmlcmd "pod2html")
-      set(indexcmd "${g-speak_SOURCE_DIR}/bld/make-html-doc-index.pl")
+      set(indexcmd "${plasma_SOURCE_DIR}/bld/make-html-doc-index.pl")
     endif()
     add_custom_target(${_outman}-target ALL
         DEPENDS ${doc_bindir}/${_outman}
@@ -319,15 +320,15 @@ MACRO(pod2manhtml _sourcefile _manext)
     add_custom_command(
         OUTPUT ${doc_bindir}/${_outman}
         DEPENDS ${_sourcefile}
-        COMMAND ${pod2mancmd} "--section=${_manext}" "--center=Oblong Industries" "--release=g-speak ${VERSION}" "${_abssourcefile}" "${_doc_bindir}/${_outman}"
+        COMMAND ${pod2mancmd} "--section=${_manext}" "--center=Oblong Industries" "--release=plasma ${VERSION}" "${_abssourcefile}" "${_doc_bindir}/${_outman}"
         COMMAND ${pod2htmlcmd} "--infile=${_abssourcefile}" "--outfile=${_doc_bindir}/htmlman/${_outhtml}"
         COMMAND ${indexcmd} -o ${_doc_bindir}/index.html ${_doc_bindir}/htmlman/*-man.html
         VERBATIM
     )
-    INSTALL(FILES ${doc_bindir}/htmlman/${_outhtml} DESTINATION share/doc/g-speak/htmlman )
+    INSTALL(FILES ${doc_bindir}/htmlman/${_outhtml} DESTINATION share/doc/plasma/htmlman )
     INSTALL(FILES ${doc_bindir}/${_outman}          DESTINATION share/man/man${_manext} )
 ENDMACRO(pod2manhtml)
-INSTALL(FILES ${doc_bindir}/index.html DESTINATION share/doc/g-speak )
+INSTALL(FILES ${doc_bindir}/index.html DESTINATION share/doc/plasma )
 
 #------------- test support ---------------
 
@@ -350,13 +351,13 @@ set(
 )
 if (WIN32 AND NOT CMAKE_GENERATOR MATCHES Ninja)
   foreach(dir ${ALL_BIN_DIRS})
-    LIST(APPEND ALL_BIN_DIRS_ABS ${g-speak_BINARY_DIR}/${dir}/${CMAKE_BUILD_TYPE})
-    LIST(APPEND ALL_BIN_DIRS_ABS ${g-speak_SOURCE_DIR}/${dir})
+    LIST(APPEND ALL_BIN_DIRS_ABS ${plasma_BINARY_DIR}/${dir}/${CMAKE_BUILD_TYPE})
+    LIST(APPEND ALL_BIN_DIRS_ABS ${plasma_SOURCE_DIR}/${dir})
   endforeach()
 else()
   foreach(dir ${ALL_BIN_DIRS})
-    LIST(APPEND ALL_BIN_DIRS_ABS ${g-speak_BINARY_DIR}/${dir})
-    LIST(APPEND ALL_BIN_DIRS_ABS ${g-speak_SOURCE_DIR}/${dir})
+    LIST(APPEND ALL_BIN_DIRS_ABS ${plasma_BINARY_DIR}/${dir})
+    LIST(APPEND ALL_BIN_DIRS_ABS ${plasma_SOURCE_DIR}/${dir})
   endforeach()
 endif()
 native2unix(ALL_BIN_DIRS_ABS_COLONSEP "${ALL_BIN_DIRS_ABS}")
@@ -391,7 +392,7 @@ add_custom_target(check COMMAND ${CMAKE_CTEST_COMMAND} -V)
 function(add_wrapped_test _myTest _myTestRunner _myFixtures)
   add_test(
     NAME ${_myTest}
-    COMMAND "${SHELL}" ${g-speak_BINARY_DIR}/yotest run "${_myFixtures}" ${_myTestRunner}
+    COMMAND "${SHELL}" ${plasma_BINARY_DIR}/yotest run "${_myFixtures}" ${_myTestRunner}
   )
 endfunction()
 
@@ -498,8 +499,8 @@ foreach(f
     libLoam/c/ob-vers-gen.h
 )
     configure_file (
-      "${g-speak_SOURCE_DIR}/${f}.in"
-      "${g-speak_SOURCE_DIR}/${f}"
+      "${plasma_SOURCE_DIR}/${f}.in"
+      "${plasma_SOURCE_DIR}/${f}"
       @ONLY
     )
 endforeach()
@@ -517,7 +518,7 @@ endforeach()
 #------------- helpers ---------------
 
 if (ASAN OR (UNIX AND NOT APPLE))
-  # Needed for running e.g. ruby or python that loads a native g-speak plugin
+  # Needed for running e.g. ruby or python that loads a native plasma plugin
   # Install unconditionally on Linux because conditional debian packaging is... hard.
   install(
     FILES bld/cmake/asanpreload
@@ -530,7 +531,7 @@ endif()
 # Assumes $G_SPEAK_HOME/bin is on PATH *or* debian alternatives are used to find it.
 configure_file(bld/obenv.in obenv @ONLY)
 install(
-  FILES ${g-speak_BINARY_DIR}/obenv
+  FILES ${plasma_BINARY_DIR}/obenv
   DESTINATION bin
   PERMISSIONS OWNER_READ OWNER_EXECUTE GROUP_READ GROUP_EXECUTE WORLD_READ WORLD_EXECUTE
 )
