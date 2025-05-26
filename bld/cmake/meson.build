@@ -13,7 +13,7 @@ configure_file(
 # In Ubuntu, we register symlinks in /usr/bin for peek, poke, etc., and
 # a symlink in /usr/lib/cmake for OblongConfig.cmake.
 # See ../../debian/oblong-loam4.3.postinst
-# OblongConfig.cmake just includes $G_SPEAK_HOME/src/FindOblong.cmake.
+# OblongConfig.cmake just includes $PLASMA_HOME/src/FindOblong.cmake.
 configure_file(
   input: 'Oblong/OblongConfig.cmake.in',
   output: 'OblongConfig.cmake',
