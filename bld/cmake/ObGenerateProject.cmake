@@ -81,7 +81,7 @@ function(ObGenerateProjectFile IN_FILE OUT_FILE)
   # Alas, one of our goals is to use the same template files as obi, so that's hard.
   file(READ ${IN_FILE} CONTENTS)
   string(REPLACE "{{project_name}}" "${PROJ_NAME}" CONTENTS "${CONTENTS}")
-  string(REPLACE "{{g_speak_version}}" "${PLASMA_XY}" CONTENTS "${CONTENTS}")
+  string(REPLACE "{{plasma_version}}" "${PLASMA_XY}" CONTENTS "${CONTENTS}")
   string(REPLACE "{{cef_branch}}" "cef${CEF_BRANCH}" CONTENTS "${CONTENTS}")
   string(REPLACE "{{yobuild_major}}" "${YOVERSION}" CONTENTS "${CONTENTS}")
   string(REPLACE "{{yobuild}}" "${YOBUILD}" CONTENTS "${CONTENTS}")
