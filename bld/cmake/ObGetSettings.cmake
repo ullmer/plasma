@@ -1,7 +1,7 @@
 #.rst:
 # This file provides the functions:
 #  ObGetCefBranch     - retrieve CEF branch used by WebThing
-#  ObGetPlasmaVersion - Get X.Y version of the g-speak current project is to be built against
+#  ObGetPlasmaVersion - Get X.Y version of the plasma current project is to be built against
 #  ObGetVersionGit    - version number of current project from git describe
 #  ObGetYobuild       - retrieve path to Oblong dependencies directory
 #  ObGetYoversion     - get major version of yobuild
@@ -59,7 +59,7 @@ ENDFUNCTION()
 FUNCTION(ObGetCefBranch OUTVAR)
     # Just ask obs (which just looks in source tree).
     # Pass it PLASMA_HOME so it can fall back to the default cef for
-    # that g-speak if it feels like it, as get-yobuild-home does.
+    # that plasma if it feels like it, as get-yobuild-home does.
     ObRunObs(${OUTVAR} get-cef-version "${PLASMA_HOME}")
 
     # Strip leading 'cef' (a kludge that made sense a long time ago).
@@ -74,7 +74,7 @@ ENDFUNCTION()
 # Syntax:
 # ObGetPlasmaVersion(<OUTVAR>)
 # Output variables:
-#   OUTVAR - Get X.Y version of the g-speak current project is to be built against
+#   OUTVAR - Get X.Y version of the plasma current project is to be built against
 # Before calling, add PLASMA_HOME to CMAKE_PREFIX_PATH.
 
 FUNCTION(ObGetPlasmaVersion OUTVAR)
@@ -93,7 +93,7 @@ ENDFUNCTION()
 
 FUNCTION(ObGetYobuild OUTVAR)
     # Just ask obs (which looks in source tree and asks ob-version,
-    # and falls back to default for given g-speak if that fails)
+    # and falls back to default for given plasma if that fails)
     ObRunObs(${OUTVAR} get-yobuild-home "${PLASMA_HOME}")
     IF (WIN32)
       IF (${OUTVAR} MATCHES "^/cygdrive")
@@ -122,7 +122,7 @@ ENDFUNCTION()
 
 FUNCTION(ObGetYoversion OUTVAR)
     # Just ask obs (which looks in source tree and asks ob-version,
-    # and falls back to default for given g-speak if that fails)
+    # and falls back to default for given plasma if that fails)
     ObRunObs(${OUTVAR} get-yoversion "${PLASMA_HOME}")
     SET(${OUTVAR} ${${OUTVAR}} PARENT_SCOPE)
 ENDFUNCTION()
