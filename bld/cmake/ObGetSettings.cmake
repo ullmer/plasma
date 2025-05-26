@@ -78,7 +78,7 @@ ENDFUNCTION()
 # Before calling, add PLASMA_HOME to CMAKE_PREFIX_PATH.
 
 FUNCTION(ObGetPlasmaVersion OUTVAR)
-    ObRunObs(${OUTVAR} get-gspeak-version "${PLASMA_HOME}")
+    ObRunObs(${OUTVAR} get-plasma-version "${PLASMA_HOME}")
     SET(${OUTVAR} ${${OUTVAR}} PARENT_SCOPE)
 ENDFUNCTION()
 
