@@ -115,8 +115,8 @@ esac
 yt_fixtures_srctop="$abs_top_srcdir"/bld/cmake/fixtures
 yt_all_fixtures="$(ls "$yt_fixtures_srctop")"
 
-# Remove /opt/oblong/g-speak* from PATH to avoid running against old installs
-PATH="$(echo "$PATH" | tr : '\012' | grep -v /opt/oblong/g-speak | tr '\012' :)"
+# Remove /opt/oblong/plasma* from PATH to avoid running against old installs
+PATH="$(echo "$PATH" | tr : '\012' | grep -v /opt/oblong/plasma | tr '\012' :)"
 # Put all the directories containing just-built binaries on the PATH
 PATH="${ALL_BIN_DIRS_ABS_COLONSEP}:${PATH}"
 # Find the pool server binary
@@ -393,7 +393,7 @@ get_sanitizer_vars() {
         ASAN_OPTIONS="check_initialization_order=0 detect_odr_violation=2 detect_stack_use_after_return=1 strict_init_order=0"
         export ASAN_OPTIONS
 
-        # For tests that load a g-speak plugin into a prebuilt non-asan executable,
+        # For tests that load a plasma plugin into a prebuilt non-asan executable,
         # tell the test script where to find asan to preload it.
         # Currently only used by libPlasma/ruby/test-helpers.rb
         if test -f /etc/issue
