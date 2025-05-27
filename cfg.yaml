@@ -8,24 +8,10 @@ common_config:
   #include_guard: plasma_binding_guard
 
 io_configs:
-  - inputs:  [libPlasma/c++/AtomicComposite.h, 
-              libPlasma/c++/Hose.h,
-              libPlasma/c++/PlasmaStreams.h,   
-              libPlasma/c++/CompositeSlaw.h,   
-              libPlasma/c++/HoseGang.h,        
-              libPlasma/c++/ProteinComposite.h, 
-              libPlasma/c++/SlawCons.h,      
-              libPlasma/c++/SlawList.h,  
-              libPlasma/c++/PlasmaForward.h, 
-              libPlasma/c++/PlasmaRetorts.h, 
-              libPlasma/c++/Protein.h,          
-              libPlasma/c++/Slaw.h,          
-              libPlasma/c++/SlawMap.h,
-              libPlasma/c++/Plasma.h,        
-              libPlasma/c++/Pool.h,            
-              libPlasma/c++/RefCounted.h,       
-              libPlasma/c++/SlawIterator.h,  
-              libPlasma/c++/SlawRef.h]
+  - inputs:  [AtomicComposite.h,  Hose.h,     PlasmaStreams.h, CompositeSlaw.h, HoseGang.h,        
+              ProteinComposite.h, SlawCons.h, SlawList.h,      PlasmaForward.h, PlasmaRetorts.h, 
+              Protein.h,          Slaw.h,     SlawMap.h,       Plasma.h,        Pool.h,            
+              SlawIterator.h,     SlawRef.h]
 
     output: "/home/bullmer/git/plasma/libPlasma/pythonb/plasma_bindings.cc.ing"
 
