@@ -12,7 +12,7 @@
 # ObFindLibs is like PKG_CHECK_MODULES, but has better error handling,
 # as well as special handling for static libraries and for CEF.
 # It aborts on error.
-# Before calling, add G_SPEAK_HOME and YOBUILD to CMAKE_PREFIX_PATH.
+# Before calling, add PLASMA_HOME and YOBUILD to CMAKE_PREFIX_PATH.
 #
 # Syntax:
 # ObFindLibs(<PREFIX> [STATIC|SHARED] <MODULE> [<MODULE>]*)
@@ -40,7 +40,7 @@
 #   sudo apt install libxrandr-dev oblong-loam4.2
 # installs
 #   /usr/lib/x86_64-linux-gnu/pkgconfig/xrandr.pc
-#   /opt/oblong/g-speak4.2/lib/pkgconfig/libLoam.pc
+#   /opt/oblong/plasma4.2/lib/pkgconfig/libLoam.pc
 # To get a list of all available pkg-config packages, do e.g.
 #   pkg-config --list-all
 # after setting PKG_CONFIG_PATH properly, or do the quick-n-dirty

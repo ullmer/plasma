@@ -29,6 +29,10 @@
 #include <vector>
 #include <algorithm>
 
+#if __cplusplus >= 201103L
+#include <random>
+#endif
+
 // Although pool_participate can take "participate options", we've never
 // tried giving it anything other than NULL.  This is understandable, since
 // we currently don't support any participate options, but we should at
@@ -324,7 +328,19 @@ TEST (MiscPoolTest, GangManipulation)
                                          cmd.create_options));
       sharks_slaw.push_back (pool_name);
     }
-  std::random_shuffle (jets_hoses.begin (), jets_hoses.end ());
+
+  //std::random_shuffle (jets_hoses.begin (), jets_hoses.end ());
+
+#if __cplusplus >= 201103L
+  // C++11: std::shuffle is available
+  std::random_device rd;
+  std::mt19937 g(rd());
+  std::shuffle(jets_hoses.begin(), jets_hoses.end(), g);
+#else
+  // C++98: use deprecated std::random_shuffle
+  std::random_shuffle(jets_hoses.begin(), jets_hoses.end());
+#endif
+
   for (int i = 0; i < 3; i++)
     {
       pool_hose ph = jets_hoses.back ();
@@ -343,7 +359,18 @@ TEST (MiscPoolTest, GangManipulation)
       EXPECT_TORTEQ (OB_OK, pool_join_gang (gang, ph));
     }
   EXPECT_EQ (5, pool_gang_count (gang));
+  //std::random_shuffle (sharks_hoses.begin (), sharks_hoses.end ());
+
+#if __cplusplus >= 201103L
+  // C++11: std::shuffle is available
+  std::random_device rd2;
+  std::mt19937 g2(rd2());
+  std::shuffle(sharks_hoses.begin(), sharks_hoses.end(), g2);
+#else
+  // C++98: use deprecated std::random_shuffle
   std::random_shuffle (sharks_hoses.begin (), sharks_hoses.end ());
+#endif
+
   for (HoseVector::iterator it = sharks_hoses.begin ();
        it != sharks_hoses.end (); it++)
     {

@@ -1,5 +1,5 @@
 #.rst:
-# Find Oblong's g-speak API
+# Find Oblong's plasma API
 #
 # Prefers CMake 3.6.3+, requires CMake 3.5.1+.
 #
@@ -17,13 +17,13 @@
 #   CMAKE_VERBOSE_MAKEFILE - whether build should be verbose
 #   COVERAGE_FLAGS         - compiler flags for COVERAGE
 #   COVERAGE               - whether to use code coverage
-#   G_SPEAK_HOME           - top level directory for g-speak
+#   PLASMA_HOME           - top level directory for plasma
 #   OPTIMIZE_FLAGS         - compiler flags for CMAKE_BUILD_TYPE
-#   OB_G_SPEAK_LIB_TYPE    - from USE_STATIC_G_SPEAK; for use as 2nd arg of ObFindLibs when finding g-speak libs
+#   OB_PLASMA_LIB_TYPE    - from USE_STATIC_PLASMA; for use as 2nd arg of ObFindLibs when finding plasma libs
 #   SANITIZER_FLAGS        - compiler flags for ASAN/TSAN
 #   TSAN                   - whether to use thread sanitizer
-#   USE_STATIC_G_SPEAK     - tell ObFindLibs callers (via OB_G_SPEAK_LIB_TYPE) to favor static g-speak libraries
-#   YOBUILD                - top level directory for libraries used by g-speak
+#   USE_STATIC_PLASMA     - tell ObFindLibs callers (via OB_PLASMA_LIB_TYPE) to favor static plasma libraries
+#   YOBUILD                - top level directory for libraries used by plasma
 #   YOVERSION              - major version of YOBUILD
 #
 # Functions
@@ -31,8 +31,8 @@
 #
 # This module includes Ob*.cmake to define the following functions:
 #
-#   ObFindLibs()        - see $G_SPEAK_HOME/lib/cmake/ObFindLibs.cmake
-#   ObCheckCxxFlags()   - see $G_SPEAK_HOME/lib/cmake/ObCheckCxxFlags.cmake
+#   ObFindLibs()        - see $PLASMA_HOME/lib/cmake/ObFindLibs.cmake
+#   ObCheckCxxFlags()   - see $PLASMA_HOME/lib/cmake/ObCheckCxxFlags.cmake
 #
 # For apps using the Chromium Embedded Framework to embed a browser,
 # ObFindLibs() may also include FindCEFxxx.cmake to define following functions:
@@ -43,13 +43,13 @@
 # ::
 # Copyright (C) 2015-2017 Oblong Industries
 
-# If no install prefix set, default to G_SPEAK_HOME
+# If no install prefix set, default to PLASMA_HOME
 IF(CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT)
-   SET(CMAKE_INSTALL_PREFIX "${G_SPEAK_HOME}" CACHE PATH "Install prefix" FORCE)
+   SET(CMAKE_INSTALL_PREFIX "${PLASMA_HOME}" CACHE PATH "Install prefix" FORCE)
 ENDIF(CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT)
 
-# Tell cmake about where to find Oblong's libraries (like g-speak and obs)
-LIST(INSERT CMAKE_PREFIX_PATH 0 "${G_SPEAK_HOME}")
+# Tell cmake about where to find Oblong's libraries (like plasma and obs)
+LIST(INSERT CMAKE_PREFIX_PATH 0 "${PLASMA_HOME}")
 
 # The INCLUDE directives below are intended to find foo.cmake in the
 # same directory as this file, but alas, cmake doesn't behave like
@@ -57,7 +57,7 @@ LIST(INSERT CMAKE_PREFIX_PATH 0 "${G_SPEAK_HOME}")
 # .cmake suffix, which makes cmake search CMAKE_MODULE_PATH,
 # which we set in FindOblong.cmake (or yovo's CMakeLists.txt, FIXME).
 
-# Figure out where g-speak's dependencies live
+# Figure out where plasma's dependencies live
 INCLUDE("ObGetSettings")
 #ObGetYobuild(YOBUILD)
 #ObGetYoversion(YOVERSION)
@@ -73,9 +73,9 @@ ObCommonOpts()
 ADD_DEFINITIONS("-DBOOST_ALL_NO_LIB")
 
 IF (WIN32)
-    # Kludge: on Windows, add g-speak install directories to linker search path, else it doesn't find our dlls
+    # Kludge: on Windows, add plasma install directories to linker search path, else it doesn't find our dlls
     # FIXME: check these
-    SET(CMAKE_EXE_LINKER_FLAGS "/LIBPATH:\"${YOBUILD}/binaries\";\"${G_SPEAK_HOME}/lib/${CMAKE_BUILD_TYPE}\"")
+    SET(CMAKE_EXE_LINKER_FLAGS "/LIBPATH:\"${YOBUILD}/binaries\";\"${PLASMA_HOME}/lib/${CMAKE_BUILD_TYPE}\"")
     SET(CMAKE_SHARED_LINKER_FLAGS "/LIBPATH:\"${YOBUILD}/binaries\"")
     # Kludge: on Windows, add yobuild's gstreamer to pkgconfig search path
     # FIXME: build gstreamer normally in yobuild, with DLLs in ${YOBUILD}/bin as ${DEITY} intended
@@ -89,7 +89,7 @@ INCLUDE("ObGeneratePC")
 
 # If user's asking for verbosity, he probably would like to know these global settings:
 IF (CMAKE_VERBOSE_MAKEFILE)
-    MESSAGE("ObBoilerplate: G_SPEAK_HOME=${G_SPEAK_HOME}")
+    MESSAGE("ObBoilerplate: PLASMA_HOME=${PLASMA_HOME}")
     MESSAGE("ObBoilerplate: YOBUILD=${YOBUILD}")
     MESSAGE("ObBoilerplate: ENV{PATH}=$ENV{PATH}")
     MESSAGE("ObBoilerplate: ENV{PKG_CONFIG_PATH}=$ENV{PKG_CONFIG_PATH}")

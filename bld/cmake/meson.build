@@ -1,6 +1,6 @@
 configure_file(
-  input: 'FindGSpeak.cmake.in',
-  output: 'FindGSpeak.cmake',
+  input: 'FindPlasma.cmake.in',
+  output: 'FindPlasma.cmake',
   configuration: cdata,
   install: true,
   install_dir : 'lib/cmake'
@@ -13,7 +13,7 @@ configure_file(
 # In Ubuntu, we register symlinks in /usr/bin for peek, poke, etc., and
 # a symlink in /usr/lib/cmake for OblongConfig.cmake.
 # See ../../debian/oblong-loam4.3.postinst
-# OblongConfig.cmake just includes $G_SPEAK_HOME/src/FindOblong.cmake.
+# OblongConfig.cmake just includes $PLASMA_HOME/src/FindOblong.cmake.
 configure_file(
   input: 'Oblong/OblongConfig.cmake.in',
   output: 'OblongConfig.cmake',
@@ -40,7 +40,7 @@ install_data(
 )
 
 if get_option('b_sanitize') == 'address' or build_machine.system() == 'linux'
-  # Needed for running e.g. ruby or python that loads a native g-speak plugin
+  # Needed for running e.g. ruby or python that loads a native Plasma plugin
   # Install unconditionally on Linux because conditional debian packaging is... hard.
   install_data(
     'asanpreload',

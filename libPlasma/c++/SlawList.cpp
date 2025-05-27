@@ -182,8 +182,22 @@ int64 SlawList::IndexOf (bslaw s, unt64 start) const
   using namespace std;
   if (start >= elements_.size ())
     return -1;
-  ConstSlawIter it = find_if (elements_.begin () + start, elements_.end (),
-                              bind2nd (mem_fun_ref (&SlawRef::Equals), s));
+
+// below changes are partially auto-synthesized by Gemini
+
+#if __cplusplus >= 201103L // C++11 and later (covers C++17)
+  ConstSlawIter it = find_if(elements_.begin(), elements_.end(),
+               [&s](const detail::SlawRef& ref) {
+                 return ref.Equals(s);
+               });
+#else // Pre-C++11 (C++03/98) fallback
+  ConstSlawIter it = find_if(elements_.begin(), elements_.end(),
+               bind2nd(mem_fun_ref(&detail::SlawRef::Equals), s));
+#endif
+
+//  ConstSlawIter it = find_if (elements_.begin () + start, elements_.end (),
+//                              bind2nd (mem_fun_ref (&SlawRef::Equals), s)); //problems with C++17
+//                              &s {return ref.Equals(s); });
   if (it == elements_.end ())
     return -1;
   return int64 (it - elements_.begin ());
