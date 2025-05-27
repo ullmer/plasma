@@ -28,3 +28,11 @@ options:
   ignore_private: true
   include_guard: plasma_binding_guard
 
+io_configs:
+  - inputs:  [AtomicComposite.h, Hose.h,          PlasmaStreams.h,   ProteinComposite.h, SlawCons.h,      SlawList.h,  slaw-traits.h,
+              CompositeSlaw.h,   PlasmaForward.h, PlasmaxxRetorts.h, Protein.h,          Slaw.h,          SlawMap.h,
+              HoseGang.h,        Plasma.h,        Pool.h,            RefCounted.h,       SlawIterator.h,  SlawRef.h]
+
+    output: "/home/bullmer/git/plasma/libPlasma/pythonb"
+
+### end ###
