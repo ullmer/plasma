@@ -1,0 +1,38 @@
+module: plasma
+headers:
+  - libPlasma/c++/AtomicComposite.h
+  - libPlasma/c++/CompositeSlaw.h
+  - libPlasma/c++/Hose.h
+  - libPlasma/c++/HoseGang.h
+  - libPlasma/c++/Plasma.h
+  - libPlasma/c++/PlasmaForward.h
+  - libPlasma/c++/PlasmaStreams.h
+  - libPlasma/c++/PlasmaxxRetorts.h
+  - libPlasma/c++/Pool.h
+  - libPlasma/c++/Protein.h
+  - libPlasma/c++/ProteinComposite.h
+  - libPlasma/c++/RefCounted.h
+  - libPlasma/c++/Slaw.h
+  - libPlasma/c++/SlawCons.h
+  - libPlasma/c++/SlawIterator.h
+  - libPlasma/c++/SlawList.h
+  - libPlasma/c++/SlawMap.h
+  - libPlasma/c++/SlawRef.h
+  - libPlasma/c++/slaw-traits.h
+
+output: bindings/plasma_binding.cc.inc
+
+options:
+  namespace: plasma
+  docstring: true
+  ignore_private: true
+  include_guard: plasma_binding_guard
+
+io_configs:
+  - inputs:  [AtomicComposite.h, Hose.h,          PlasmaStreams.h,   ProteinComposite.h, SlawCons.h,      SlawList.h,  slaw-traits.h,
+              CompositeSlaw.h,   PlasmaForward.h, PlasmaxxRetorts.h, Protein.h,          Slaw.h,          SlawMap.h,
+              HoseGang.h,        Plasma.h,        Pool.h,            RefCounted.h,       SlawIterator.h,  SlawRef.h]
+
+    output: "/home/bullmer/git/plasma/libPlasma/pythonb"
+
+### end ###
