@@ -1,28 +1,7 @@
-module: plasma
-headers:
-  - libPlasma/c++/AtomicComposite.h
-  - libPlasma/c++/CompositeSlaw.h
-  - libPlasma/c++/Hose.h
-  - libPlasma/c++/HoseGang.h
-  - libPlasma/c++/Plasma.h
-  - libPlasma/c++/PlasmaForward.h
-  - libPlasma/c++/PlasmaStreams.h
-  - libPlasma/c++/PlasmaxxRetorts.h
-  - libPlasma/c++/Pool.h
-  - libPlasma/c++/Protein.h
-  - libPlasma/c++/ProteinComposite.h
-  - libPlasma/c++/RefCounted.h
-  - libPlasma/c++/Slaw.h
-  - libPlasma/c++/SlawCons.h
-  - libPlasma/c++/SlawIterator.h
-  - libPlasma/c++/SlawList.h
-  - libPlasma/c++/SlawMap.h
-  - libPlasma/c++/SlawRef.h
-  - libPlasma/c++/slaw-traits.h
-
-output: bindings/plasma_binding.cc.inc
-
-options:
+common_config:
+  include_directories: ["/home/bullmer/git/plasma/libPlasma/c++",
+                        "/home/bullmer/git/plasma/libLoam",
+                        "/home/bullmer/git/plasma/libLoam/c"]
   namespace: plasma
   docstring: true
   ignore_private: true
@@ -48,6 +27,6 @@ io_configs:
               libPlasma/c++/SlawIterator.h,  
               libPlasma/c++/SlawRef.h]
 
-    output: "/home/bullmer/git/plasma/libPlasma/pythonb"
+    output: "/home/bullmer/git/plasma/libPlasma/pythonb/plasma_bindings.cc.ing"
 
 ### end ###
