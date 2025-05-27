@@ -1,5 +1,6 @@
 common_config:
   include_directories: ["/home/bullmer/git/plasma/libPlasma/c++/",
+                        "/home/bullmer/git/plasma/libPlasma/c/", 
                         "/home/bullmer/git/plasma/libLoam/",
                         "/home/bullmer/git/plasma/libLoam/c/",
                         "/home/bullmer/git/plasma/"]
@@ -15,6 +16,6 @@ io_configs:
              #ProteinComposite.h, SlawCons.h, SlawList.h,      PlasmaForward.h, #PlasmaRetorts.h, 
              #SlawIterator.h,     SlawRef.h]
 
-    output: "/home/bullmer/git/plasma/libPlasma/pythonb/plasma_bindings.cc.ing"
+    output: "/home/bullmer/git/plasma/libPlasma/pythonb/plasma_bindings.cc.inc"
 
 ### end ###
