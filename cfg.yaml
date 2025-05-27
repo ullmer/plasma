@@ -1,7 +1,8 @@
 common_config:
   include_directories: ["/home/bullmer/git/plasma/libPlasma/c++/",
                         "/home/bullmer/git/plasma/libLoam/",
-                        "/home/bullmer/git/plasma/libLoam/c/"]
+                        "/home/bullmer/git/plasma/libLoam/c/",
+                        "/home/bullmer/git/plasma/",
   #namespace: plasma
   #docstring: true
   #ignore_private: true
