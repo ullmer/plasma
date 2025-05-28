@@ -28,7 +28,7 @@ find_library(PLASMA_LIB plasma PATHS ../../build/libPlasma/c++)
 if(PLASMA_LIB)
   target_link_libraries(plasma PRIVATE ${PLASMA_LIB})
 else()
-  message(FATAL_ERROR "Could not find plasma library)
+  message(FATAL_ERROR "Could not find plasma library")
 endif()
 
 target_include_directories(plasma PRIVATE ../c++)
