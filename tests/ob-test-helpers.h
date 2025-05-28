@@ -19,9 +19,9 @@ static char *ob_test_source_relative3 (const char *abssrcdir, const char *fname,
 {
 
 #if __cplusplus >= 201103L
-  snprintf(buf, sizeof(buf), "%s/%s", abssrcdir, fname);
+  snprintf(buf, sizeof(buf), "%s/%s", abssrcdir, fname);
 #else
-  sprintf(buf, "%s/%s", abssrcdir, fname);  // fallback for C++98
+  sprintf(buf, "%s/%s", abssrcdir, fname);  // fallback for C++98
 #endif
 
   //sprintf (buf, "%s/%s", abssrcdir, fname);
