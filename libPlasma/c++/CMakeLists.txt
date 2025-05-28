@@ -57,6 +57,8 @@ ObGeneratePC (
 
 include_directories(${Plasma++_SOURCE_DIR})
 
+set(CMAKE_POSITION_INDEPENDENT_CODE ON)
+
 add_library(Plasma++ ${LIBRARY_TYPE} ${Plasma++_SOURCES})
 target_link_libraries(Plasma++ ${Plasma++_LINK_LIBS})
 set_target_properties(Plasma++ PROPERTIES
