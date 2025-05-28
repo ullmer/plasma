@@ -1,4 +1,5 @@
 #include <pybind11/pybind11.h>
+namespace py = pybind11;
 
 // Include the generated bindings
 #include "libPlasma/c/private/slaw-viscera-private.h" // wouldn't have thought to be necessary, but otherwise hanging on _slaw fwd ref
@@ -15,6 +16,7 @@ PYBIND11_MODULE(plasma, m) {
     py::module plasma = oblong.def_submodule("plasma");
 
     // Instantiate the binding struct to populate the module
-    Bind_oblong_plasma<>(plasma);
+    //Bind_oblong_plasma<>(plasma);
+    Bind_oblong_plasma<>(EntityScope{plasma});
 }
 
