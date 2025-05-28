@@ -77,10 +77,10 @@ endif()
 STRING(REPLACE ";" " " ICU_LIBRARIES_SPACE_SEP "${ICU_LIBRARIES}" )
 
 #pybind11 syntax by Copilot; mileage may vary
-set(PYBIND11_FINDPYTHON ON)
-find_package(pybind11 REQUIRED)
+#set(PYBIND11_FINDPYTHON ON)
+#find_package(pybind11 REQUIRED)
 #target_link_libraries(plasma PRIVATE pybind11::module)
-pybind11_add_module(plasma src/bindings.cpp)
+#pybind11_add_module(plasma src/bindings.cpp)
 
 # otherwise boost includes optimized and debug versions, which fouls up the build
 set(Boost_USE_DEBUG_RUNTIME FALSE)
