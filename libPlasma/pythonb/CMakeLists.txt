@@ -12,6 +12,7 @@ include_directories(
     /home/bullmer/git/plasma/libPlasma/c++/
     /home/bullmer/git/plasma/libLoam/
     /home/bullmer/git/plasma/libLoam/c/
+    /home/bullmer/git/plasma/libLoam/c++/
     /home/bullmer/git/plasma/
 )
 
@@ -22,10 +23,18 @@ pybind11_add_module(plasma
 )
 
 # Link any additional libraries if needed
-# target_link_libraries(plasma PRIVATE your_library_name)
+
+set(LOAM_LIB /home/bullmer/git/plasma/build/libLoam/c/libLoam.a)
+#if(EXISTS ${LOAM_LIB})
+target_link_libraries(plasma PRIVATE ${LOAM_LIB})
+#else()
+#  message(FATAL_ERROR "Could not find libLoam.a")
+#endif()
+
+set(CPLASMA_LIB /home/bullmer/git/plasma/build/libPlasma/c/libPlasma.a)
+target_link_libraries(plasma PRIVATE ${CPLASMA_LIB})
 
 set(PLASMA_LIB /home/bullmer/git/plasma/build/libPlasma/c++/libPlasma++.a)
-
 find_library(PLASMA_LIB plasma PATHS /home/bullmer/git/plasma/build/libPlasma/c++)
 if(PLASMA_LIB)
   target_link_libraries(plasma PRIVATE ${PLASMA_LIB})
