@@ -1,7 +1,7 @@
 #include <pybind11/pybind11.h>
 
 // Include the generated bindings
-#include "slaw-viscera-private.h" // wouldn't have thought to be necessary, but otherwise hanging on _slaw fwd ref
+#include "libPlasma/c/private/slaw-viscera-private.h" // wouldn't have thought to be necessary, but otherwise hanging on _slaw fwd ref
 #include "plasma_bindings.cc.inc"
 
 PYBIND11_MODULE(plasma, m) {
