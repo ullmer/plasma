@@ -24,3 +24,9 @@ pybind11_add_module(plasma
 # Link any additional libraries if needed
 # target_link_libraries(plasma PRIVATE your_library_name)
 
+target_link_libraries(plasma PRIVATE plasma)  # or whatever your target is called
+
+find_library(PLASMA_LIB plasma PATHS /path/to/libPlasma)
+target_link_libraries(plasma PRIVATE ${PLASMA_LIB})
+target_include_directories(plasma PRIVATE /path/to/libPlasma/include)
+
