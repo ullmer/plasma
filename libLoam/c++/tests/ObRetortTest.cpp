@@ -341,12 +341,12 @@ TEST (ObRetortTest, RetortsInASet)
   //std::random_shuffle (vec.begin (), vec.end ());
 
 #if __cplusplus >= 201103L
-  // C++11: std::shuffle is available
+  // C++11: std::shuffle is available
   std::random_device rd3;
   std::mt19937 g3(rd3());
   std::shuffle(vec.begin(), vec.end(), g3);
 #else
-  // C++98: use deprecated std::random_shuffle
+  // C++98: use deprecated std::random_shuffle
   std::random_shuffle (vec.begin (), vec.end ());
 #endif
 
