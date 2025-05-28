@@ -52,16 +52,24 @@ endif()
 
 target_include_directories(plasma PRIVATE ../c++)
 
+get_target_property(SSL_LOCATION OpenSSL::SSL IMPORTED_LOCATION)
+get_target_property(CRYPTO_LOCATION OpenSSL::Crypto IMPORTED_LOCATION)
+
 target_link_libraries(plasma PRIVATE
   ${LOAM_LIB}
   ${CPLASMA_LIB}
   ${PLASMA_LIB}
-  OpenSSL::SSL
-  OpenSSL::Crypto
+  ${SSL_LOCATION}
+  ${CRYPTO_LOCATION}
 )
+#  OpenSSL::SSL
+#  OpenSSL::Crypto
 
 message(STATUS "OpenSSL SSL: ${OpenSSL_SSL_LIBRARY}")
 message(STATUS "OpenSSL Crypto: ${OpenSSL_CRYPTO_LIBRARY}")
+
+message(STATUS "OpenSSL::SSL location: ${SSL_LOCATION}")
+message(STATUS "OpenSSL::Crypto location: ${CRYPTO_LOCATION}")
 
 set(CMAKE_VERBOSE_MAKEFILE ON)
 
