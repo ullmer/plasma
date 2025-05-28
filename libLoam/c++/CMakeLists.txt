@@ -125,6 +125,8 @@ ObGeneratePC (
 
 include_directories(${Loam++_SOURCE_DIR})
 
+set(CMAKE_POSITION_INDEPENDENT_CODE ON)
+
 add_library(Loam++ ${LIBRARY_TYPE} ${Loam++_SOURCES})
 target_link_libraries(Loam++ ${Loam++_LINK_LIBS})
 set_target_properties(Loam++ PROPERTIES
