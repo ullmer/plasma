@@ -58,12 +58,12 @@ static void waste_time ()
   //std::random_shuffle (vals + 0, vals + enuf);
 
 #if __cplusplus >= 201103L
-  // C++11: std::shuffle is available
+  //C++11: std::shuffle is available
   std::random_device rd4;
   std::mt19937 g4(rd4());
   std::shuffle(vals+0, vals+enuf, g4);
 #else
-  // C++98: use deprecated std::random_shuffle
+  //C++98: use deprecated std::random_shuffle
   std::random_shuffle (vals + 0, vals + enuf);
 #endif
 
