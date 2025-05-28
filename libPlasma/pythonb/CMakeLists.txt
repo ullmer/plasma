@@ -24,6 +24,9 @@ pybind11_add_module(plasma
 
 # Link any additional libraries if needed
 
+find_package(OpenSSL REQUIRED)
+target_link_libraries(plasma PRIVATE OpenSSL::SSL OpenSSL::Crypto)
+
 set(LOAM_LIB /home/bullmer/git/plasma/build/libLoam/c/libLoam.a)
 #if(EXISTS ${LOAM_LIB})
 target_link_libraries(plasma PRIVATE ${LOAM_LIB})
