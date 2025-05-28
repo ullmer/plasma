@@ -127,6 +127,9 @@ include_directories(${Loam_SOURCE_DIR})
 # Use a convenience library here so we can set special compile options for one file
 # FIXME: can't we just do
 # set_source_files_properties(dSFMT.c PROPERTIES COMPILE_FLAGS "${dSFMT_SPECIAL_CFLAGS}") ?
+
+set(CMAKE_POSITION_INDEPENDENT_CODE ON)
+
 add_library(dSFMT OBJECT dSFMT.c)
 if (NOT WIN32)
    set_target_properties(
