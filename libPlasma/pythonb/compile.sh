@@ -1,0 +1,2 @@
+/usr/bin/c++ -fPIC -flto -shared  -o plasma.cpython-312-x86_64-linux-gnu.so CMakeFiles/plasma.dir/module.cpp.o  /home/bullmer/git/plasma/build/libLoam/c/libLoam.a /home/bullmer/git/plasma/build/libLoam/c++/libLoam++.a /home/bullmer/git/plasma/build/libPlasma/c++/libPlasma++.a  /home/bullmer/git/plasma/build/libLoam/c/libLoam.a  /home/bullmer/git/plasma/build/libPlasma/c/libPlasma.a  /home/bullmer/git/plasma/build/libPlasma/c++/libPlasma++.a /usr/lib/x86_64-linux-gnu/libssl.so /usr/lib/x86_64-linux-gnu/libcrypto.so 
+
