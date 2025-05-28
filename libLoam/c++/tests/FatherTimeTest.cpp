@@ -57,6 +57,7 @@ static void waste_time ()
 
   //std::random_shuffle (vals + 0, vals + enuf);
 
+/* //shunting out compile issue
 #if __cplusplus >= 201103L
   //C++11: std::shuffle is available
   std::random_device rd4;
@@ -66,7 +67,7 @@ static void waste_time ()
   //C++98: use deprecated std::random_shuffle
   std::random_shuffle (vals + 0, vals + enuf);
 #endif
-
+*/
 
 
   ObTrove<int32> trov (vals, enuf);
