@@ -27,6 +27,11 @@ pybind11_add_module(plasma
 find_package(OpenSSL REQUIRED)
 target_link_libraries(plasma PRIVATE OpenSSL::SSL OpenSSL::Crypto)
 
+#target_link_libraries(plasma PRIVATE
+#  /usr/lib/x86_64-linux-gnu/libssl.so
+#  /usr/lib/x86_64-linux-gnu/libcrypto.so
+#)
+
 set(LOAM_LIB /home/bullmer/git/plasma/build/libLoam/c/libLoam.a)
 #if(EXISTS ${LOAM_LIB})
 target_link_libraries(plasma PRIVATE ${LOAM_LIB})
@@ -35,7 +40,7 @@ target_link_libraries(plasma PRIVATE ${LOAM_LIB})
 #endif()
 
 set(CPLASMA_LIB /home/bullmer/git/plasma/build/libPlasma/c/libPlasma.a)
-target_link_libraries(plasma PRIVATE ${CPLASMA_LIB})
+#target_link_libraries(plasma PRIVATE ${CPLASMA_LIB})
 
 set(PLASMA_LIB /home/bullmer/git/plasma/build/libPlasma/c++/libPlasma++.a)
 find_library(PLASMA_LIB plasma PATHS /home/bullmer/git/plasma/build/libPlasma/c++)
@@ -46,5 +51,18 @@ else()
 endif()
 
 target_include_directories(plasma PRIVATE ../c++)
+
+target_link_libraries(plasma PRIVATE
+  ${LOAM_LIB}
+  ${CPLASMA_LIB}
+  ${PLASMA_LIB}
+  OpenSSL::SSL
+  OpenSSL::Crypto
+)
+
+message(STATUS "OpenSSL SSL: ${OpenSSL_SSL_LIBRARY}")
+message(STATUS "OpenSSL Crypto: ${OpenSSL_CRYPTO_LIBRARY}")
+
+set(CMAKE_VERBOSE_MAKEFILE ON)
 
 ### end ###
