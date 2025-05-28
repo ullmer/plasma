@@ -24,7 +24,9 @@ pybind11_add_module(plasma
 # Link any additional libraries if needed
 # target_link_libraries(plasma PRIVATE your_library_name)
 
-find_library(PLASMA_LIB plasma PATHS ../../build/libPlasma/c++)
+set(PLASMA_LIB /home/bullmer/git/plasma/build/libPlasma/c++/libPlasma++.a)
+
+find_library(PLASMA_LIB plasma PATHS /home/bullmer/git/plasma/build/libPlasma/c++)
 if(PLASMA_LIB)
   target_link_libraries(plasma PRIVATE ${PLASMA_LIB})
 else()
