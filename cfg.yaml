@@ -1,6 +1,7 @@
 common_config:
   include_directories: ["/home/bullmer/git/plasma/libPlasma/c++/",
                         "/home/bullmer/git/plasma/libPlasma/c/", 
+                        "/home/bullmer/git/plasma/libPlasma/c/private/", 
                         "/home/bullmer/git/plasma/libLoam/",
                         "/home/bullmer/git/plasma/libLoam/c/",
                         "/home/bullmer/git/plasma/"]
