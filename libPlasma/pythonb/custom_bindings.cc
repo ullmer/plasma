@@ -1,7 +1,7 @@
 #include <pybind11/pybind11.h>
 #include <pybind11/stl.h>
-#include "plasma/Slaw.h"
-#include "plasma/Protein.h"
+#include "Slaw.h"
+#include "Protein.h"
 
 template <class Pybind11T = pybind11::class_<oblong::plasma::Slaw>>
 struct Bind_oblong_plasma_Slaw : public pybind11_weaver::EntityBase {
