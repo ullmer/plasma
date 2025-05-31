@@ -8,7 +8,10 @@ add_library(SlawTypesTest STATIC SlawTypesTest.cpp Callbacks.cpp)
 
 set(
   Plasma++Tests_TESTS
-
+  p-await-helloWorld01
+  #p-await-helloWorld02
+  #p-deposit-helloWorld1
+  #p-deposit-helloWorld2
   HoseNthTest
   HoseTest
   HoseTimedTest
