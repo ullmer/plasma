@@ -4,7 +4,6 @@ from   plasma import pool
 import plasmaHelpers 
 
 pool.DEFAULT_PORT  = 25333
-pool.validate_name = plasmaHelpers.validate_name
 
 def main():
   pool_name = "tcp://localhost/hello"
