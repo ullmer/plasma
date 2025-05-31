@@ -3,9 +3,8 @@
 
 #include "libPlasma/c++/Pool.h"
 #include "libPlasma/c++/Protein.h"
-#include "libPlasma/c++/Slaw.h"
+#include "libPlasma/c++/Hose.h"
 #include "libLoam/c++/Str.h"
-#include "libLoam/c++/ObLog.h"
 
 #include <iostream>
 #include <memory>
@@ -14,28 +13,26 @@ using namespace oblong::plasma;
 using namespace oblong::loam;
 
 int main() {
-  const Str pool_name("tcp://localhost/hello");
+  const char *pool_name = "tcp://localhost/hello";
+  ObRetort ret;
 
-  try {
-    // Open the pool
-    std::shared_ptr<Pool> pool = Pool::Open(pool_name);
-
-    while (true) {
-      // Wait indefinitely for the next protein
-      Protein p = pool->Next();
-
-      // Print the protein overview
-      std::cout << p.ToSlaw().ToString() << std::endl;
-    }
-
-    // Not reached in this loop, but good practice
-    pool->Withdraw();
-  } catch (const oblong::loam::Exception &e) {
-    OB_LOG_ERROR << "Exception: " << e.what();
-    return EXIT_FAILURE;
+  std::unique_ptr<Hose> hose(Pool::Participate(pool_name, &ret));
+  if (!hose || ret != OB_OK) {
+    std::cerr << "Failed to connect to pool: " << pool_name << std::endl;
+    return 1;
   }
 
-  return EXIT_SUCCESS;
-}
+  while (true) {
+    Protein p = hose->Next();  // waits indefinitely
+    if (p.IsNull()) {
+      std::cerr << "Error reading from pool: " << ob_error_string(hose->LastRetort().NumericRetort()) << std::endl;
+      break;
+    }
 
+    std::cout << p.ToSlaw().ToString() << std::endl;
+  }
+
+  hose->Withdraw();
+  return 0;
+}
 /// end ///
