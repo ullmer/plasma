@@ -20,14 +20,14 @@ PYBIND11_MODULE(plasma, m) {
   py::module protein = m.def_submodule("protein");
 
   // Create the 'hose' submodule 
-  py::module hose   = m.def_submodule("slaw");
+  py::module slaw    = m.def_submodule("slaw");
 
   // Set up the custom binding registry
   pybind11_weaver::CustomBindingRegistry registry;
 
   // Register custom bindings
-  registry.SetCustomBinding<Bind_oblong_plasma_Slaw>();
-  registry.SetCustomBinding<Bind_oblong_plasma_Protein>();
+  registry.SetCustomBinding<Entity_oblong_plasma_Slaw>();
+  registry.SetCustomBinding<Entity_oblong_plasma_Protein>();
 
   // Call the weaver-generated binding function with the registry
   auto guard = DeclFn(m, registry);
