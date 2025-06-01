@@ -8,8 +8,6 @@
 #include <string>
 #include <map>
 #include <functional>
-#include <mutex>
-#include <thread>
 #include <vector>
 
 namespace pybind11_weaver {
@@ -89,6 +87,54 @@ CreateEntity(EntityScope &&parent_h, const CustomBindingRegistry &registry) {
     }
 }
 
-} // namespace pybind11_weaver
+class CallUpdateGuard {
+public:
+    using Fn = std::function<void(void)>;
+    CallUpdateGuard(Fn fn) : fn_(fn) {}
+
+    CallUpdateGuard(CallUpdateGuard &&rhs) {
+        this->fn_ = rhs.fn_;
+        rhs.fn_ = nullptr;
+    }
+
+    void operator()() {
+        if (fn_) {
+            fn_();
+            fn_ = nullptr;
+        }
+    }
+
+    ~CallUpdateGuard() { this->operator()(); }
+
+private:
+    Fn fn_;
+};
+
+[[nodiscard]] CallUpdateGuard DeclFn(pybind11::module &m, const CustomBindingRegistry &registry) {
+    auto v0 = CreateEntity<Entity_oblong>(EntityScope(m), registry);
+    auto v1 = CreateEntity<Entity_oblong_plasma>(v0->AsScope(), registry);
+    auto v2 = CreateEntity<Entity_oblong_plasma_OStreamReference>(v1->AsScope(), registry);
+    auto v3 = CreateEntity<Entity_std>(EntityScope(m), registry);
+    auto v4 = CreateEntity<Entity_std_hash6oblong_plasma_Protein9>(v3->AsScope(), registry);
+    auto v5 = CreateEntity<Entity_std_hash6oblong_plasma_Slaw9>(v3->AsScope(), registry);
+
+    auto update_fn = [=]() {
+        v0->Update();
+        v1->Update();
+        v2->Update();
+        v3->Update();
+        v4->Update();
+        v5->Update();
+    };
+    return {update_fn};
+}
+
+  template <class BindT, class PB11T>
+  void TryAddDefaultCtor(PB11T &handle) {
+    if constexpr (std::is_default_constructible<BindT>::value) {
+      handle.def(pybind11::init<>());
+    }
+  } // namespace pybind11_weaver
+}
 
 #endif // BINDING_INFRA_H

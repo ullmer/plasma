@@ -97,3 +97,90 @@ struct Bind_oblong_plasma_Pool : public pybind11_weaver::EntityBase {
 #ifndef PB11_WEAVER_DISABLE_Entity_oblong_plasma_Pool
 using Entity_oblong_plasma_Pool = Bind_oblong_plasma_Pool<>;
 #endif
+// These are required for DeclFn to compile
+template <class Pybind11T = pybind11::module_>
+struct Bind_oblong : public pybind11_weaver::EntityBase {
+  using Pybind11Type = Pybind11T;
+  Pybind11Type handle;
+
+  explicit Bind_oblong(pybind11_weaver::EntityScope parent_h)
+      : handle(static_cast<pybind11::module_ &>(parent_h).def_submodule("oblong")) {}
+  void Update() override {}
+  pybind11_weaver::EntityScope AsScope() override { return pybind11_weaver::EntityScope(handle); }
+  static const char *Key() { return "oblong"; }
+};
+using Entity_oblong = Bind_oblong<>;
+
+template <class Pybind11T = pybind11::module_>
+struct Bind_oblong_plasma : public pybind11_weaver::EntityBase {
+  using Pybind11Type = Pybind11T;
+  Pybind11Type handle;
+
+  explicit Bind_oblong_plasma(pybind11_weaver::EntityScope parent_h)
+      : handle(static_cast<pybind11::module_ &>(parent_h).def_submodule("plasma")) {}
+  void Update() override {}
+  pybind11_weaver::EntityScope AsScope() override { return pybind11_weaver::EntityScope(handle); }
+  static const char *Key() { return "oblong_plasma"; }
+};
+using Entity_oblong_plasma = Bind_oblong_plasma<>;
+
+template <class Pybind11T = pybind11::class_<oblong::plasma::OStreamReference>>
+struct Bind_oblong_plasma_OStreamReference : public pybind11_weaver::EntityBase {
+  using Pybind11Type = Pybind11T;
+  Pybind11Type handle;
+
+  explicit Bind_oblong_plasma_OStreamReference(pybind11_weaver::EntityScope parent_h)
+      : handle(parent_h, "OStreamReference", pybind11::dynamic_attr()) {
+    handle.def(pybind11::init<std::basic_ostream<char> &>());
+  }
+  void Update() override {}
+  pybind11_weaver::EntityScope AsScope() override { return pybind11_weaver::EntityScope(handle); }
+  static const char *Key() { return "oblong_plasma_OStreamReference"; }
+};
+using Entity_oblong_plasma_OStreamReference = Bind_oblong_plasma_OStreamReference<>;
+
+template <class Pybind11T = pybind11::module_>
+struct Bind_std : public pybind11_weaver::EntityBase {
+  using Pybind11Type = Pybind11T;
+  Pybind11Type handle;
+
+  explicit Bind_std(pybind11_weaver::EntityScope parent_h)
+      : handle(static_cast<pybind11::module_ &>(parent_h).def_submodule("std")) {}
+  void Update() override {}
+  pybind11_weaver::EntityScope AsScope() override { return pybind11_weaver::EntityScope(handle); }
+  static const char *Key() { return "std"; }
+};
+using Entity_std = Bind_std<>;
+
+template <class Pybind11T = pybind11::class_<std::hash<oblong::plasma::Protein>>>
+struct Bind_std_hash6oblong_plasma_Protein9 : public pybind11_weaver::EntityBase {
+  using Pybind11Type = Pybind11T;
+  Pybind11Type handle;
+
+  explicit Bind_std_hash6oblong_plasma_Protein9(pybind11_weaver::EntityScope parent_h)
+      : handle(parent_h, "hash6oblong_plasma_Protein9", pybind11::dynamic_attr()) {
+    pybind11_weaver::TryAddDefaultCtor<std::hash<oblong::plasma::Protein>>(handle);
+  }
+  void Update() override {}
+  pybind11_weaver::EntityScope AsScope() override { return pybind11_weaver::EntityScope(handle); }
+  static const char *Key() { return "std_hash6oblong_plasma_Protein9"; }
+};
+using Entity_std_hash6oblong_plasma_Protein9 = Bind_std_hash6oblong_plasma_Protein9<>;
+
+template <class Pybind11T = pybind11::class_<std::hash<oblong::plasma::Slaw>>>
+struct Bind_std_hash6oblong_plasma_Slaw9 : public pybind11_weaver::EntityBase {
+  using Pybind11Type = Pybind11T;
+  Pybind11Type handle;
+
+  explicit Bind_std_hash6oblong_plasma_Slaw9(pybind11_weaver::EntityScope parent_h)
+      : handle(parent_h, "hash6oblong_plasma_Slaw9", pybind11::dynamic_attr()) {
+    pybind11_weaver::TryAddDefaultCtor<std::hash<oblong::plasma::Slaw>>(handle);
+  }
+  void Update() override {}
+  pybind11_weaver::EntityScope AsScope() override { return pybind11_weaver::EntityScope(handle); }
+  static const char *Key() { return "std_hash6oblong_plasma_Slaw9"; }
+};
+
+using Entity_std_hash6oblong_plasma_Slaw9 = Bind_std_hash6oblong_plasma_Slaw9<>;
+
+/// end ///
