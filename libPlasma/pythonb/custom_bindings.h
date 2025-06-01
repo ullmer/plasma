@@ -10,124 +10,85 @@
 
 namespace pybind11_weaver {
 
-template <typename Pybind11T = pybind11::module_>
-struct Bind_oblong : public EntityBase {
-    Pybind11T handle;
-    explicit Bind_oblong(EntityScope scope)
-        : handle(scope.AsScope().cast<pybind11::module_>().def_submodule("oblong")) {}
-    void Update() override {}
-    EntityScope AsScope() override { return EntityScope(handle); }
-    static const char *Key() { return "oblong"; }
-};
-
-template <typename Pybind11T = pybind11::module_>
-struct Bind_oblong_plasma : public EntityBase {
-    Pybind11T handle;
-    explicit Bind_oblong_plasma(EntityScope scope)
-        : handle(scope.AsScope().cast<pybind11::module_>().def_submodule("plasma")) {}
-    void Update() override {}
-    EntityScope AsScope() override { return EntityScope(handle); }
-    static const char *Key() { return "oblong_plasma"; }
-};
-
-template <typename Pybind11T = pybind11::module_>
-struct Bind_oblong_plasma_OStreamReference : public EntityBase {
-    Pybind11T handle;
-    explicit Bind_oblong_plasma_OStreamReference(EntityScope scope)
-        : handle(scope.AsScope().cast<pybind11::module_>().def_submodule("OStreamReference")) {}
-    void Update() override {}
-    EntityScope AsScope() override { return EntityScope(handle); }
-    static const char *Key() { return "oblong_plasma_OStreamReference"; }
-};
-
-template <typename Pybind11T = pybind11::module_>
-struct Bind_std : public EntityBase {
-    Pybind11T handle;
-    explicit Bind_std(EntityScope scope)
-        : handle(scope.AsScope().cast<pybind11::module_>().def_submodule("std")) {}
-    void Update() override {}
-    EntityScope AsScope() override { return EntityScope(handle); }
-    static const char *Key() { return "std"; }
-};
-
 template <typename Pybind11T = pybind11::class_<oblong::plasma::Slaw>>
-struct Bind_oblong_plasma_Slaw : public EntityBase {
-    Pybind11T handle;
-    explicit Bind_oblong_plasma_Slaw(EntityScope scope)
-        : handle(pybind11::class_<oblong::plasma::Slaw>(scope.AsScope(), "Slaw")
-            .def(pybind11::init<>())
-            .def("IsNull", &oblong::plasma::Slaw::IsNull)
-            .def("IsCons", &oblong::plasma::Slaw::IsCons)
-            .def("Car", &oblong::plasma::Slaw::Car)
-            .def("Cdr", &oblong::plasma::Slaw::Cdr)) {}
-    void Update() override {}
-    EntityScope AsScope() override { return EntityScope(handle); }
-    static const char *Key() { return "oblong_plasma_Slaw"; }
+struct Bind_oblong_plasma_Slaw {
+  static const char *Key() { return "oblong_plasma_Slaw"; }
+  Bind_oblong_plasma_Slaw(EntityScope scope) {
+    auto handle = scope
+      .attr("Slaw")
+      .def(pybind11::init<>())
+      .def("IsNull", &oblong::plasma::Slaw::IsNull)
+      .def("IsCons", &oblong::plasma::Slaw::IsCons)
+      .def("Car", &oblong::plasma::Slaw::Car)
+      .def("Cdr", &oblong::plasma::Slaw::Cdr);
+    TryAddDefaultCtor(handle);
+  }
 };
 
 template <typename Pybind11T = pybind11::class_<oblong::plasma::Protein>>
-struct Bind_oblong_plasma_Protein : public EntityBase {
-    Pybind11T handle;
-    explicit Bind_oblong_plasma_Protein(EntityScope scope)
-        : handle(pybind11::class_<oblong::plasma::Protein>(scope.AsScope(), "Protein")
-            .def(pybind11::init<>())
-            .def("IsNull", &oblong::plasma::Protein::IsNull)
-            .def("Descrips", &oblong::plasma::Protein::Descrips)
-            .def("Ingests", &oblong::plasma::Protein::Ingests)) {}
-    void Update() override {}
-    EntityScope AsScope() override { return EntityScope(handle); }
-    static const char *Key() { return "oblong_plasma_Protein"; }
+struct Bind_oblong_plasma_Protein {
+  static const char *Key() { return "oblong_plasma_Protein"; }
+  Bind_oblong_plasma_Protein(EntityScope scope) {
+    auto handle = scope
+      .attr("Protein")
+      .def(pybind11::init<>())
+      .def("IsNull", &oblong::plasma::Protein::IsNull)
+      .def("Descrips", &oblong::plasma::Protein::Descrips)
+      .def("Ingests", &oblong::plasma::Protein::Ingests);
+    TryAddDefaultCtor(handle);
+  }
 };
 
 template <typename Pybind11T = pybind11::class_<oblong::plasma::Hose>>
-struct Bind_oblong_plasma_Hose : public EntityBase {
-    Pybind11T handle;
-    explicit Bind_oblong_plasma_Hose(EntityScope scope)
-        : handle(pybind11::class_<oblong::plasma::Hose>(scope.AsScope(), "Hose")
-            .def(pybind11::init<>())
-            .def("IsConfigured", &oblong::plasma::Hose::IsConfigured)
-            .def("Name", &oblong::plasma::Hose::Name)
-            .def("Deposit", &oblong::plasma::Hose::Deposit)
-            .def("Next", &oblong::plasma::Hose::Next)
-            .def("Withdraw", &oblong::plasma::Hose::Withdraw)) {}
-    void Update() override {}
-    EntityScope AsScope() override { return EntityScope(handle); }
-    static const char *Key() { return "oblong_plasma_Hose"; }
+struct Bind_oblong_plasma_Hose {
+  static const char *Key() { return "oblong_plasma_Hose"; }
+  Bind_oblong_plasma_Hose(EntityScope scope) {
+    auto handle = scope
+      .attr("Hose")
+      .def(pybind11::init<>())
+      .def("IsNull", &oblong::plasma::Hose::IsNull)
+      .def("Name", &oblong::plasma::Hose::Name)
+      .def("Open", &oblong::plasma::Hose::Open)
+      .def("Close", &oblong::plasma::Hose::Close);
+    TryAddDefaultCtor(handle);
+  }
 };
 
 template <typename Pybind11T = pybind11::class_<oblong::plasma::Pool>>
-struct Bind_oblong_plasma_Pool : public EntityBase {
-    Pybind11T handle;
-    explicit Bind_oblong_plasma_Pool(EntityScope scope)
-        : handle(pybind11::class_<oblong::plasma::Pool>(scope.AsScope(), "Pool")
-            .def(pybind11::init<>())
-            .def_static("Participate", pybind11::overload_cast<const char *>(&oblong::plasma::Pool::Participate))
-            .def_static("Create", pybind11::overload_cast<const char *, oblong::plasma::Pool::Configuration, bool>(&oblong::plasma::Pool::Create))) {}
-    void Update() override {}
-    EntityScope AsScope() override { return EntityScope(handle); }
-    static const char *Key() { return "oblong_plasma_Pool"; }
+struct Bind_oblong_plasma_Pool {
+  static const char *Key() { return "oblong_plasma_Pool"; }
+  Bind_oblong_plasma_Pool(EntityScope scope) {
+    auto handle = scope
+      .attr("Pool")
+      .def(pybind11::init<>())
+      .def("IsNull", &oblong::plasma::Pool::IsNull)
+      .def("Name", &oblong::plasma::Pool::Name)
+      .def("Open", &oblong::plasma::Pool::Open)
+      .def("Close", &oblong::plasma::Pool::Close);
+    TryAddDefaultCtor(handle);
+  }
 };
 
 template <typename Pybind11T = pybind11::class_<std::hash<oblong::plasma::Protein>>>
-struct Bind_std_hash6oblong_plasma_Protein9 : public EntityBase {
-    Pybind11T handle;
-    explicit Bind_std_hash6oblong_plasma_Protein9(EntityScope scope)
-        : handle(pybind11::class_<std::hash<oblong::plasma::Protein>>(scope.AsScope(), "hash<oblong::plasma::Protein>")
-            .def(pybind11::init<>())) {}
-    void Update() override {}
-    EntityScope AsScope() override { return EntityScope(handle); }
-    static const char *Key() { return "std_hash6oblong_plasma_Protein9"; }
+struct Bind_std_hash6oblong_plasma_Protein9 {
+  static const char *Key() { return "std_hash6oblong_plasma_Protein9"; }
+  Bind_std_hash6oblong_plasma_Protein9(EntityScope scope) {
+    auto handle = scope
+      .attr("hash<oblong::plasma::Protein>")
+      .def(pybind11::init<>());
+    TryAddDefaultCtor(handle);
+  }
 };
 
 template <typename Pybind11T = pybind11::class_<std::hash<oblong::plasma::Slaw>>>
-struct Bind_std_hash6oblong_plasma_Slaw9 : public EntityBase {
-    Pybind11T handle;
-    explicit Bind_std_hash6oblong_plasma_Slaw9(EntityScope scope)
-        : handle(pybind11::class_<std::hash<oblong::plasma::Slaw>>(scope.AsScope(), "hash<oblong::plasma::Slaw>")
-            .def(pybind11::init<>())) {}
-    void Update() override {}
-    EntityScope AsScope() override { return EntityScope(handle); }
-    static const char *Key() { return "std_hash6oblong_plasma_Slaw9"; }
+struct Bind_std_hash6oblong_plasma_Slaw9 {
+  static const char *Key() { return "std_hash6oblong_plasma_Slaw9"; }
+  Bind_std_hash6oblong_plasma_Slaw9(EntityScope scope) {
+    auto handle = scope
+      .attr("hash<oblong::plasma::Slaw>")
+      .def(pybind11::init<>());
+    TryAddDefaultCtor(handle);
+  }
 };
 
 using Entity_oblong = Bind_oblong<>;
@@ -144,14 +105,6 @@ using Entity_std_hash6oblong_plasma_Slaw9 = Bind_std_hash6oblong_plasma_Slaw9<>;
     auto v3 = CreateEntity<Entity_std>(EntityScope(m), registry);
     auto v4 = CreateEntity<Entity_std_hash6oblong_plasma_Protein9>(v3->AsScope(), registry);
     auto v5 = CreateEntity<Entity_std_hash6oblong_plasma_Slaw9>(v3->AsScope(), registry);
-    auto update_fn = [=]() {
-        v0->Update();
-        v1->Update();
-        v2->Update();
-        v3->Update();
-        v4->Update();
-        v5->Update();
-    };
     return {update_fn};
 }
 

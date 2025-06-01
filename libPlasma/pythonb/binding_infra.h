@@ -18,6 +18,7 @@ struct EntityScope {
 struct EntityBase {
     virtual ~EntityBase() = default;
     virtual void Update() = 0;
+    virtual EntityScope AsScope() = 0;
 };
 
 template <typename PB11T>
@@ -44,7 +45,6 @@ private:
 template <typename EntityT>
 std::shared_ptr<EntityBase> CreateEntity(EntityScope &&parent_h, const CustomBindingRegistry &registry) {
     auto entity = std::make_shared<EntityT>(std::move(parent_h));
-    registry.SetCustomBinding<EntityT>(entity);
     return entity;
 }
 
