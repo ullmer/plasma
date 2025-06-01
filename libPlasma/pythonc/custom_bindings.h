@@ -154,3 +154,26 @@ struct Bind_oblong_loam_ObRetort : public pybind11_weaver::EntityBase {
 using Entity_oblong_loam_ObRetort = Bind_oblong_loam_ObRetort<>;
 #endif
 
+template <class Pybind11T = pybind11::class_<oblong::plasma::ObRetort_DepositInfo>>
+struct Bind_oblong_plasma_ObRetort_DepositInfo : public pybind11_weaver::EntityBase {
+  using Pybind11Type = Pybind11T;
+  Pybind11Type handle;
+
+  explicit Bind_oblong_plasma_ObRetort_DepositInfo(pybind11_weaver::EntityScope parent_h)
+      : handle(parent_h, "ObRetort_DepositInfo", pybind11::dynamic_attr()) {
+    handle.def("IsError", &oblong::plasma::ObRetort_DepositInfo::IsError);
+    handle.def("Code", &oblong::plasma::ObRetort_DepositInfo::Code);
+    handle.def("Description", &oblong::plasma::ObRetort_DepositInfo::Description);
+    handle.def("NumericRetort", &oblong::plasma::ObRetort_DepositInfo::NumericRetort);
+  }
+
+  void Update() override {}
+  pybind11_weaver::EntityScope AsScope() override { return pybind11_weaver::EntityScope(handle); }
+  static const char *Key() { return "oblong_plasma_ObRetort_DepositInfo"; }
+};
+
+#ifndef PB11_WEAVER_DISABLE_Entity_oblong_plasma_ObRetort_DepositInfo
+using Entity_oblong_plasma_ObRetort_DepositInfo = Bind_oblong_plasma_ObRetort_DepositInfo<>;
+#endif
+
+/// end ///
