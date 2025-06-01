@@ -5,8 +5,11 @@
 #include <pybind11/pybind11.h>
 #include <pybind11/stl.h>
 #include "binding_infra.h"
+
 #include "Protein.h"
 #include "Slaw.h"
+#include "Hose.h"
+#include "Pool.h"
 
 namespace py = pybind11;
 
