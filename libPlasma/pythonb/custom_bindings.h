@@ -101,6 +101,49 @@ struct Bind_std_hash6oblong_plasma_Slaw9 : public EntityBase {
     return {update_fn};
 }
 
-} // namespace pybind11_weaver
 
 #endif // CUSTOM_BINDINGS_CLEANED_H
+struct Bind_oblong_plasma_Hose : public EntityBase {
+  using Pybind11Type = py::class_<oblong::plasma::Hose>;
+  Pybind11Type handle;
+
+  static const char* Key() { return "oblong_plasma_Hose"; }
+
+  explicit Bind_oblong_plasma_Hose(EntityScope scope)
+      : handle(scope.Get(), "Hose") {
+    handle
+      .def(py::init<const oblong::loam::Str &>())
+      .def("IsConfigured", &oblong::plasma::Hose::IsConfigured)
+      .def("Withdraw", &oblong::plasma::Hose::Withdraw)
+      .def("Next", &oblong::plasma::Hose::Next, py::arg("timeout") = oblong::plasma::Hose::WAIT)
+      .def("Current", &oblong::plasma::Hose::Current)
+      .def("Previous", &oblong::plasma::Hose::Previous)
+      .def("PoolName", &oblong::plasma::Hose::PoolName)
+      .def("Name", &oblong::plasma::Hose::Name);
+    TryAddDefaultCtor<oblong::plasma::Hose>(handle);
+  }
+
+  void Update() override {}
+  EntityScope AsScope() override { return EntityScope(handle); }
+};
+
+struct Bind_oblong_plasma_Pool : public EntityBase {
+  using Pybind11Type = py::class_<oblong::plasma::Pool>;
+  Pybind11Type handle;
+
+  static const char* Key() { return "oblong_plasma_Pool"; }
+
+  explicit Bind_oblong_plasma_Pool(EntityScope scope)
+      : handle(scope.Get(), "Pool") {
+    handle
+      .def_static("Participate", py::overload_cast<const char*, oblong::loam::ObRetort*>(&oblong::plasma::Pool::Participate),
+                  py::arg("pool_name"), py::arg("ret") = nullptr)
+      .def_static("Dispose", &oblong::plasma::Pool::Dispose, py::arg("name"))
+      .def_static("DisposeOfAutoDisposables", &oblong::plasma::Pool::DisposeOfAutoDisposables);
+    TryAddDefaultCtor<oblong::plasma::Pool>(handle);
+  }
+
+  void Update() override {}
+  EntityScope AsScope() override { return EntityScope(handle); }
+};
+} // namespace pybind11_weaver
