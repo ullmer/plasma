@@ -27,12 +27,11 @@ struct Bind_oblong_plasma_Slaw : public pybind11_weaver::EntityBase {
         handle.def("Keys",    &oblong::plasma::Slaw::MapKeys); //more pythonic
 
         //handle.def_static("List", pybind11::overload_cast<slaw>(&Slaw::List));
-        //handle.def_static("Map", pybind11::overload_cast<slaw, slaw>(&Slaw::Map));
-
-
+        //handle.def_static("Map",  pybind11::overload_cast<slaw, slaw>(&Slaw::Map));
 
         handle.def_static("List",  [](const oblong::plasma::Slaw &s){return oblong::plasma::Slaw::List(s); });
-        //handle.def_static("Map",   {return oblong::plasma::Slaw::Map(k, v); });
+        handle.def_static("Map",   [](const oblong::plasma::Slaw &k, oblong::plasma::Slaw v){
+                           return oblong::plasma::Slaw::Map(k, v); });
         handle.def_static("Cons",  [](const oblong::plasma::Slaw &car, const oblong::plasma::Slaw &cdr){
                            return oblong::plasma::Slaw::Cons(car, cdr); });
 
@@ -40,12 +39,10 @@ struct Bind_oblong_plasma_Slaw : public pybind11_weaver::EntityBase {
 			     (&oblong::plasma::Slaw::Find));
 
         handle.def("__getitem__", [](const oblong::plasma::Slaw &s, const oblong::plasma::Slaw &key) {
-          return s.Find(key);
-        });
+          return s.Find(key); });
 
         handle.def("ToString",    [](const oblong::plasma::Slaw &s) {
-            return std::string(static_cast<const char *>(s.ToString()));
-        });
+            return std::string(static_cast<const char *>(s.ToString())); });
     }
 
     void Update() override {}
