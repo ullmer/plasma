@@ -10,11 +10,11 @@ def main():
   try:
     while True:
       protein = hose.Next(-1)  # Waits indefinitely
-      if protein.IsNull():
-        print("Error: received null protein")
-        break
+      #if protein.IsNull(): print("Error: received null protein") break
 
-      print(protein.ToSlaw().ToString())
+      s1 = protein.ToSlaw()
+      s2 = s1.ToString()
+      print(str(s2))
   finally: print("add hose.withdraw binding"); #hose.Withdraw()
 
 if __name__ == "__main__":
