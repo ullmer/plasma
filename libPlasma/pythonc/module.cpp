@@ -27,6 +27,9 @@ void AddCustomEntities(pybind11::module_ &m, const pybind11_weaver::CustomBindin
 
     EntityScope top_scope4(m);
     CreateEntity<Entity_oblong_plasma_Slaw>(std::move(top_scope4), registry)->Update();
+
+    EntityScope top_scopeX(m);
+    CreateEntity<Entity_oblong_loam_ObRetort>(std::move(top_scopeX), registry)->Update();
 }
 
 PYBIND11_MODULE(plasma, m) {
@@ -46,10 +49,12 @@ PYBIND11_MODULE(plasma, m) {
     pybind11_weaver::CustomBindingRegistry registry;
 
     // Register custom bindings
-    //registry.SetCustomBinding<Entity_oblong_plasma_Slaw>();
-    //registry.SetCustomBinding<Entity_oblong_plasma_Protein>();
+    //registry.SetCustomBinding<Entity_oblong_plasma_Slaw>();    // already bound by pybind11_weaver
+    //registry.SetCustomBinding<Entity_oblong_plasma_Protein>(); // already bound by pybind11_weaver
+
     registry.SetCustomBinding<Entity_oblong_plasma_Hose>();
     registry.SetCustomBinding<Entity_oblong_plasma_Pool>();
+    registry.SetCustomBinding<Entity_oblong_loam_ObRetort>();
 
     // Call the weaver-generated binding function with the registry
     auto guard = DeclFn(m, registry);

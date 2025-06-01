@@ -44,8 +44,11 @@ struct Bind_oblong_plasma_Protein : public pybind11_weaver::EntityBase {
         handle.def(pybind11::init<>());
         handle.def(pybind11::init<oblong::plasma::Slaw>());
         handle.def(pybind11::init<oblong::plasma::Slaw, oblong::plasma::Slaw>());
-        handle.def("ToSlaw", &oblong::plasma::Protein::ToSlaw);
-        handle.def("IsNull", &oblong::plasma::Protein::IsNull);
+        handle.def("ToSlaw",   &oblong::plasma::Protein::ToSlaw);
+        handle.def("IsNull",   &oblong::plasma::Protein::IsNull);
+        handle.def("Descrips", &oblong::plasma::Protein::Descrips);
+        handle.def("Ingests",  &oblong::plasma::Protein::Ingests);
+
     }
 
     void Update() override {}
@@ -106,3 +109,27 @@ struct Bind_oblong_plasma_Pool : public pybind11_weaver::EntityBase {
 #ifndef PB11_WEAVER_DISABLE_Entity_oblong_plasma_Pool
 using Entity_oblong_plasma_Pool = Bind_oblong_plasma_Pool<>;
 #endif
+
+template <class Pybind11T = pybind11::class_<oblong::loam::ObRetort>>
+struct Bind_oblong_loam_ObRetort : public pybind11_weaver::EntityBase {
+  using Pybind11Type = Pybind11T;
+  Pybind11Type handle;
+
+  explicit Bind_oblong_loam_ObRetort(pybind11_weaver::EntityScope parent_h)
+      : handle(parent_h, "ObRetort", pybind11::dynamic_attr()) {
+    handle.def("IsError", &oblong::loam::ObRetort::IsError);
+    handle.def("Code", &oblong::loam::ObRetort::Code);
+    handle.def("Description", &oblong::loam::ObRetort::Description);
+  }
+
+  void Update() override {}
+  pybind11_weaver::EntityScope AsScope() override {
+    return pybind11_weaver::EntityScope(handle);
+  }
+  static const char *Key() { return "oblong_loam_ObRetort"; }
+};
+
+#ifndef PB11_WEAVER_DISABLE_Entity_oblong_loam_ObRetort
+using Entity_oblong_loam_ObRetort = Bind_oblong_loam_ObRetort<>;
+#endif
+
