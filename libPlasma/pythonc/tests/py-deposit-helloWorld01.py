@@ -1,3 +1,4 @@
+
 import plasma
 
 def main():
@@ -13,7 +14,7 @@ def main():
         protein = plasma.Protein(descrips, ingests)
 
         print(f"depositing in {pool_name}")
-        protein.ToSlaw().SpewToStderr()
+        print(protein.ToSlaw().ToString())
 
         ret = hose.Deposit(protein)
         if ret.IsError():
