@@ -63,11 +63,17 @@ int main() {
     }
 
     ret = hose->Deposit(prot);
+
     if (ret != OB_OK) {
         cerr << "no luck on the deposit: " << ob_error_string(ret.NumericRetort()) << endl;
         return 1;
     }
 
     hose->Withdraw();
+
+    cerr << "pre-delete" << endl;
+    //prot->Delete();
+    cerr << "post-delete" << endl;
+
     return 0;
 }
