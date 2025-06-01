@@ -171,8 +171,15 @@ struct EntityScope {
         }
     }
     bool IsDisabled() const { return module_ == nullptr && type_ == nullptr; }
+    //pybind11::handle Get() const {
+    //    return module_ ? pybind11::handle(*module_) : pybind11::handle(*type_);
+    //}
+    //pybind11::object& Get() { return module_ ? *module_ : *type_; }
+
     pybind11::handle Get() const {
-        return module_ ? pybind11::handle(*module_) : pybind11::handle(*type_);
+      if        (module_) { return pybind11::handle(*module_);
+      } else if (type_)   { return pybind11::handle(*type_);
+      } else {               throw std::runtime_error("EntityScope::Get() called on an uninitialized scope.");}
     }
 
 private:
