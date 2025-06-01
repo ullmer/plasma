@@ -111,3 +111,225 @@ using Entity_std_hash6oblong_plasma_Slaw9 = Bind_std_hash6oblong_plasma_Slaw9<>;
 } // namespace pybind11_weaver
 
 #endif // CUSTOM_BINDINGS_H
+template <class Pybind11T=pybind11::module_> struct Bind_oblong : public EntityBase {
+  using Pybind11Type = Pybind11T;
+   
+  
+  explicit Bind_oblong(EntityScope parent_h): handle{ parent_h.Get().def_submodule("oblong") }
+  {}
+  
+  template<class... HandleArgsT>
+  explicit Bind_oblong(EntityScope parent_h, HandleArgsT&&... args):handle{std::forward(args)...}
+  {}
+  
+  void Update() override {
+    
+  }
+  
+  EntityScope AsScope() override {
+    return EntityScope(handle);
+  }
+  
+  static const char * Key(){ 
+    return "oblong";
+  }
+   
+  Pybind11Type handle; 
+};
+template <class Pybind11T=pybind11::module_> struct Bind_oblong_plasma : public EntityBase {
+  using Pybind11Type = Pybind11T;
+   
+  
+  explicit Bind_oblong_plasma(EntityScope parent_h): handle{ parent_h.Get().def_submodule("plasma") }
+  {}
+  
+  template<class... HandleArgsT>
+  explicit Bind_oblong_plasma(EntityScope parent_h, HandleArgsT&&... args):handle{std::forward(args)...}
+  {}
+  
+  void Update() override {
+    
+  }
+  
+  EntityScope AsScope() override {
+    return EntityScope(handle);
+  }
+  
+  static const char * Key(){ 
+    return "oblong_plasma";
+  }
+   
+  Pybind11Type handle; 
+};
+template <class Pybind11T=pybind11::class_<oblong::plasma::OStreamReference>> struct Bind_oblong_plasma_OStreamReference : public EntityBase {
+  using Pybind11Type = Pybind11T;
+  
+
+virtual const char * AddCtor0(){
+    const char * _pb11_weaver_comment_str = R"_pb11_weaver(/**
+ * It is forbidden (with echo sound effect like in Superman) to
+ * include any C++ I/O headers, even harmless little \<iosfwd\>,
+ * in "normal" Oblong headers like Slaw.h.  So, we take a
+ * Plessy v. Ferguson approach and segregate all mention of
+ * std::ostream into this header, PlasmaStreams.h.
+ *
+ * However, the problem is that Jao long ago gave Slaw this method:
+ *
+ * \code
+ *   void Spew (\::std::ostream &os)  const;
+ * \endcode
+ *
+ * So, in order to remain backwards-compatible with that method,
+ * while retroactively purging \<iosfwd\> from Slaw.h, we have to
+ * resort to a little trick.  We change the method to instead be:
+ *
+ * \code
+ *   void Spew (OStreamReference os)  const;
+ * \endcode
+ *
+ * Where OStreamReference is forward-declared in PlasmaForward.h.
+ * Then, if you actually want to call that method, you include
+ * PlasmaStream.h, which defines OStreamReference to be a simple
+ * wrapper around a reference to \::std::ostream, and most importantly,
+ * with a constructor that will automatically wrap the ostream for you.
+ * Therefore, due to the wonders of C++, you can continue to call
+ * the method just like you used to, even though the signature has
+ * changed.  This double-indirection-of-forward-declarations seems
+ * silly, but then the lengths to which Oblong goes to avoid the
+ * standard C++ library are often silly.
+ */)_pb11_weaver";
+    
+#ifndef PB11_WEAVER_DISABLE_oblong_plasma_OStreamReference_Ctor0
+    handle.def(pybind11::init<std::basic_ostream<char> &>(),_pb11_weaver_comment_str);
+#endif
+    return _pb11_weaver_comment_str;
+}
+ 
+  
+  explicit Bind_oblong_plasma_OStreamReference(EntityScope parent_h): handle{ parent_h,"OStreamReference", pybind11::dynamic_attr(),R"_pb11_weaver(/**
+ * It is forbidden (with echo sound effect like in Superman) to
+ * include any C++ I/O headers, even harmless little \<iosfwd\>,
+ * in "normal" Oblong headers like Slaw.h.  So, we take a
+ * Plessy v. Ferguson approach and segregate all mention of
+ * std::ostream into this header, PlasmaStreams.h.
+ *
+ * However, the problem is that Jao long ago gave Slaw this method:
+ *
+ * \code
+ *   void Spew (\::std::ostream &os)  const;
+ * \endcode
+ *
+ * So, in order to remain backwards-compatible with that method,
+ * while retroactively purging \<iosfwd\> from Slaw.h, we have to
+ * resort to a little trick.  We change the method to instead be:
+ *
+ * \code
+ *   void Spew (OStreamReference os)  const;
+ * \endcode
+ *
+ * Where OStreamReference is forward-declared in PlasmaForward.h.
+ * Then, if you actually want to call that method, you include
+ * PlasmaStream.h, which defines OStreamReference to be a simple
+ * wrapper around a reference to \::std::ostream, and most importantly,
+ * with a constructor that will automatically wrap the ostream for you.
+ * Therefore, due to the wonders of C++, you can continue to call
+ * the method just like you used to, even though the signature has
+ * changed.  This double-indirection-of-forward-declarations seems
+ * silly, but then the lengths to which Oblong goes to avoid the
+ * standard C++ library are often silly.
+ */)_pb11_weaver" }
+  {}
+  
+  template<class... HandleArgsT>
+  explicit Bind_oblong_plasma_OStreamReference(EntityScope parent_h, HandleArgsT&&... args):handle{std::forward(args)...}
+  {}
+  
+  void Update() override {
+   AddCtor0(); 
+  }
+  
+  EntityScope AsScope() override {
+    return EntityScope(handle);
+  }
+  
+  static const char * Key(){ 
+    return "oblong_plasma_OStreamReference";
+  }
+   
+  Pybind11Type handle; 
+};
+template <class Pybind11T=pybind11::module_> struct Bind_std : public EntityBase {
+  using Pybind11Type = Pybind11T;
+   
+  
+  explicit Bind_std(EntityScope parent_h): handle{ parent_h.Get().def_submodule("std") }
+  {}
+  
+  template<class... HandleArgsT>
+  explicit Bind_std(EntityScope parent_h, HandleArgsT&&... args):handle{std::forward(args)...}
+  {}
+  
+  void Update() override {
+    
+  }
+  
+  EntityScope AsScope() override {
+    return EntityScope(handle);
+  }
+  
+  static const char * Key(){ 
+    return "std";
+  }
+   
+  Pybind11Type handle; 
+};
+template <class Pybind11T=pybind11::class_<std::hash<oblong::plasma::Protein>>> struct Bind_std_hash6oblong_plasma_Protein9 : public EntityBase {
+  using Pybind11Type = Pybind11T;
+  using _Tp = oblong::plasma::Protein; 
+  
+  explicit Bind_std_hash6oblong_plasma_Protein9(EntityScope parent_h): handle{ parent_h,"hash6oblong_plasma_Protein9", pybind11::dynamic_attr() }
+  {}
+  
+  template<class... HandleArgsT>
+  explicit Bind_std_hash6oblong_plasma_Protein9(EntityScope parent_h, HandleArgsT&&... args):handle{std::forward(args)...}
+  {}
+  
+  void Update() override {
+   pybind11_weaver::TryAddDefaultCtor<std::hash<oblong::plasma::Protein>>(handle); 
+  }
+  
+  EntityScope AsScope() override {
+    return EntityScope(handle);
+  }
+  
+  static const char * Key(){ 
+    return "std_hash6oblong_plasma_Protein9";
+  }
+   
+  Pybind11Type handle; 
+};
+template <class Pybind11T=pybind11::class_<std::hash<oblong::plasma::Slaw>>> struct Bind_std_hash6oblong_plasma_Slaw9 : public EntityBase {
+  using Pybind11Type = Pybind11T;
+  using _Tp = oblong::plasma::Slaw; 
+  
+  explicit Bind_std_hash6oblong_plasma_Slaw9(EntityScope parent_h): handle{ parent_h,"hash6oblong_plasma_Slaw9", pybind11::dynamic_attr() }
+  {}
+  
+  template<class... HandleArgsT>
+  explicit Bind_std_hash6oblong_plasma_Slaw9(EntityScope parent_h, HandleArgsT&&... args):handle{std::forward(args)...}
+  {}
+  
+  void Update() override {
+   pybind11_weaver::TryAddDefaultCtor<std::hash<oblong::plasma::Slaw>>(handle); 
+  }
+  
+  EntityScope AsScope() override {
+    return EntityScope(handle);
+  }
+  
+  static const char * Key(){ 
+    return "std_hash6oblong_plasma_Slaw9";
+  }
+   
+  Pybind11Type handle; 
+};
