@@ -41,6 +41,7 @@ struct Bind_oblong_plasma_Protein : public pybind11_weaver::EntityBase {
         handle.def(pybind11::init<>());
         handle.def(pybind11::init<oblong::plasma::Slaw>());
         handle.def(pybind11::init<oblong::plasma::Slaw, oblong::plasma::Slaw>());
+	handle.def("ToSlaw", &oblong::plasma::Protein::ToSlaw);
     }
 
     void Update() override {}

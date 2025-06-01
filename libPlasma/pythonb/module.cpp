@@ -21,6 +21,8 @@ void AddCustomEntities(pybind11::module_ &m, const pybind11_weaver::CustomBindin
     // Recreate top_scope since it's been moved
     EntityScope top_scope2(m);
     CreateEntity<Entity_oblong_plasma_Pool>(std::move(top_scope2), registry)->Update();
+  EntityScope top_scope3(m);
+  CreateEntity<Entity_oblong_plasma_Protein>(std::move(top_scope3), registry)->Update();
 }
 
 PYBIND11_MODULE(plasma, m) {
