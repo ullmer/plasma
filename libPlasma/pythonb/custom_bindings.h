@@ -90,10 +90,9 @@ struct Bind_oblong_plasma_Pool : public EntityBase {
     explicit Bind_oblong_plasma_Pool(EntityScope scope)
         : handle(pybind11::class_<oblong::plasma::Pool>(scope.AsScope(), "Pool")
                      .def(pybind11::init<>())
-                     .def_static("Participate", pybind11::overload_cast<const char *, oblong::loam::ObRetort *>(&oblong::plasma::Pool::Participate))
-                     .def_static("Participate", pybind11::overload_cast<const char *, oblong::plasma::Pool::Configuration, oblong::loam::ObRetort *, bool>(&oblong::plasma::Pool::Participate))
-                     .def_static("Create", pybind11::overload_cast<const char *, oblong::plasma::PoolType, bool, oblong::plasma::Protein>(&oblong::plasma::Pool::Create))
-                     .def_static("Create", pybind11::overload_cast<const char *, oblong::plasma::PoolType, bool, oblong::plasma::Slaw>(&oblong::plasma::Pool::Create))) {}
+                     .def_static("Participate", py::overload_cast<const char *>(&oblong::plasma::Pool::Participate))
+                     .def_static("Create", py::overload_cast<const char *, oblong::plasma::Pool::Configuration, bool>(&oblong::plasma::Pool::Create))
+                     .def_static("Dispose", &oblong::plasma::Pool::Dispose)) {}
     void Update() override {}
     EntityScope AsScope() override { return EntityScope(handle); }
     static const char *Key() { return "oblong_plasma_Pool"; }
@@ -135,6 +134,7 @@ using Entity_std_hash6oblong_plasma_Slaw9 = Bind_std_hash6oblong_plasma_Slaw9<>;
     auto v3 = CreateEntity<Entity_std>(EntityScope(m), registry);
     auto v4 = CreateEntity<Entity_std_hash6oblong_plasma_Protein9>(v3->AsScope(), registry);
     auto v5 = CreateEntity<Entity_std_hash6oblong_plasma_Slaw9>(v3->AsScope(), registry);
+
     auto update_fn = [=]() {
         v0->Update();
         v1->Update();
@@ -143,6 +143,7 @@ using Entity_std_hash6oblong_plasma_Slaw9 = Bind_std_hash6oblong_plasma_Slaw9<>;
         v4->Update();
         v5->Update();
     };
+
     return {update_fn};
 }
 
