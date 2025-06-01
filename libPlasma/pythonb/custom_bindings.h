@@ -9,37 +9,8 @@
 #include "Pool.h"
 
 namespace py = pybind11;
+
 namespace pybind11_weaver {
-
-template <typename Pybind11T = pybind11::module_>
-struct Bind_oblong : public EntityBase {
-    Pybind11T handle;
-    explicit Bind_oblong(EntityScope scope)
-        : handle(scope.AsScope().def_submodule("oblong")) {}
-    void Update() override {}
-    EntityScope AsScope() override { return EntityScope(handle); }
-    static const char *Key() { return "oblong"; }
-};
-
-template <typename Pybind11T = pybind11::module_>
-struct Bind_oblong_plasma : public EntityBase {
-    Pybind11T handle;
-    explicit Bind_oblong_plasma(EntityScope scope)
-        : handle(scope.AsScope().def_submodule("plasma")) {}
-    void Update() override {}
-    EntityScope AsScope() override { return EntityScope(handle); }
-    static const char *Key() { return "oblong_plasma"; }
-};
-
-template <typename Pybind11T = pybind11::module_>
-struct Bind_oblong_plasma_OStreamReference : public EntityBase {
-    Pybind11T handle;
-    explicit Bind_oblong_plasma_OStreamReference(EntityScope scope)
-        : handle(scope.AsScope().def_submodule("OStreamReference")) {}
-    void Update() override {}
-    EntityScope AsScope() override { return EntityScope(handle); }
-    static const char *Key() { return "oblong_plasma_OStreamReference"; }
-};
 
 template <typename Pybind11T = pybind11::class_<oblong::plasma::Slaw>>
 struct Bind_oblong_plasma_Slaw : public EntityBase {
@@ -77,32 +48,9 @@ struct Bind_oblong_plasma_Hose : public EntityBase {
         : handle(pybind11::class_<oblong::plasma::Hose>(scope.AsScope(), "Hose")
             .def(pybind11::init<>())
             .def("IsConfigured", &oblong::plasma::Hose::IsConfigured)
-            .def("LastRetort", &oblong::plasma::Hose::LastRetort)
-            .def("Withdraw", &oblong::plasma::Hose::Withdraw)
-            .def("Deposit", &oblong::plasma::Hose::Deposit)
-            .def("Next", &oblong::plasma::Hose::Next)
-            .def("Current", &oblong::plasma::Hose::Current)
-            .def("Previous", &oblong::plasma::Hose::Previous)
-            .def("Nth", &oblong::plasma::Hose::Nth)
-            .def("ProbeForward", &oblong::plasma::Hose::ProbeForward)
-            .def("ProbeBackward", &oblong::plasma::Hose::ProbeBackward)
-            .def("EnableWakeup", &oblong::plasma::Hose::EnableWakeup)
-            .def("WakeUp", &oblong::plasma::Hose::WakeUp)
-            .def("CurrentIndex", &oblong::plasma::Hose::CurrentIndex)
-            .def("OldestIndex", &oblong::plasma::Hose::OldestIndex)
-            .def("NewestIndex", &oblong::plasma::Hose::NewestIndex)
-            .def("SeekTo", &oblong::plasma::Hose::SeekTo)
-            .def("SeekToTime", &oblong::plasma::Hose::SeekToTime)
-            .def("SeekBy", &oblong::plasma::Hose::SeekBy)
-            .def("SeekByTime", &oblong::plasma::Hose::SeekByTime)
-            .def("ToLast", &oblong::plasma::Hose::ToLast)
-            .def("Runout", &oblong::plasma::Hose::Runout)
-            .def("Rewind", &oblong::plasma::Hose::Rewind)
-            .def("PoolName", &oblong::plasma::Hose::PoolName)
             .def("Name", &oblong::plasma::Hose::Name)
-            .def("SetName", &oblong::plasma::Hose::SetName)
-            .def("ResetName", &oblong::plasma::Hose::ResetName)
-            .def("RawHose", &oblong::plasma::Hose::RawHose)) {}
+            .def("Deposit", &oblong::plasma::Hose::Deposit)
+            .def("Next", &oblong::plasma::Hose::Next)) {}
     void Update() override {}
     EntityScope AsScope() override { return EntityScope(handle); }
     static const char *Key() { return "oblong_plasma_Hose"; }
@@ -115,10 +63,7 @@ struct Bind_oblong_plasma_Pool : public EntityBase {
         : handle(pybind11::class_<oblong::plasma::Pool>(scope.AsScope(), "Pool")
             .def(pybind11::init<>())
             .def_static("Participate", py::overload_cast<const char *>(&oblong::plasma::Pool::Participate))
-            .def_static("Create", py::overload_cast<const char *, oblong::plasma::Pool::Configuration, bool>(&oblong::plasma::Pool::Create))
-            .def_static("Dispose", &oblong::plasma::Pool::Dispose)
-            .def_static("DisposeOfAutoDisposables", &oblong::plasma::Pool::DisposeOfAutoDisposables)
-            .def_static("OptionsSlawFromConfiguration", &oblong::plasma::Pool::OptionsSlawFromConfiguration)) {}
+            .def_static("Create", py::overload_cast<const char *, oblong::plasma::Pool::Configuration, bool>(&oblong::plasma::Pool::Create))) {}
     void Update() override {}
     EntityScope AsScope() override { return EntityScope(handle); }
     static const char *Key() { return "oblong_plasma_Pool"; }
@@ -144,16 +89,6 @@ struct Bind_std_hash6oblong_plasma_Slaw9 : public EntityBase {
     void Update() override {}
     EntityScope AsScope() override { return EntityScope(handle); }
     static const char *Key() { return "std_hash6oblong_plasma_Slaw9"; }
-};
-
-template <typename Pybind11T = pybind11::module_>
-struct Bind_std : public EntityBase {
-    Pybind11T handle;
-    explicit Bind_std(EntityScope scope)
-        : handle(scope.AsScope().def_submodule("std")) {}
-    void Update() override {}
-    EntityScope AsScope() override { return EntityScope(handle); }
-    static const char *Key() { return "std"; }
 };
 
 using Entity_oblong = Bind_oblong<>;
