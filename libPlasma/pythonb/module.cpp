@@ -15,15 +15,12 @@ using namespace oblong::plasma;
 void AddCustomEntities(pybind11::module_ &m, const pybind11_weaver::CustomBindingRegistry &registry) {
     using namespace pybind11_weaver;
 
-    pybind11::object oblong_mod = m.attr("oblong");
-    pybind11::object plasma_mod = oblong_mod.attr("plasma");
+    EntityScope top_scope(m);
+    CreateEntity<Entity_oblong_plasma_Hose>(std::move(top_scope), registry)->Update();
 
-    EntityScope plasma_scope(static_cast<pybind11::detail::generic_type&>(plasma_mod));
-    CreateEntity<Entity_oblong_plasma_Hose>(std::move(plasma_scope), registry)->Update();
-
-    // Recreate plasma_scope since it's been moved
-    EntityScope plasma_scope2(static_cast<pybind11::detail::generic_type&>(plasma_mod));
-    CreateEntity<Entity_oblong_plasma_Pool>(std::move(plasma_scope2), registry)->Update();
+    // Recreate top_scope since it's been moved
+    EntityScope top_scope2(m);
+    CreateEntity<Entity_oblong_plasma_Pool>(std::move(top_scope2), registry)->Update();
 }
 
 PYBIND11_MODULE(plasma, m) {
@@ -52,6 +49,6 @@ PYBIND11_MODULE(plasma, m) {
     auto guard = DeclFn(m, registry);
     guard();  // Optional: immediately update all bindings
 
-    // Add custom entities
+    // Add custom entities to the top-level module
     AddCustomEntities(m, registry);
 }
