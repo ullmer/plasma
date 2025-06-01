@@ -4,10 +4,10 @@
 #include "Protein.h"
 
 //Include the generated bindings
-#include "binding_infra.h"
+#include "custom_bindings.h"
 
 // Include your custom bindings
-#include "custom_bindings.h"
+#include "binding_infra.h"
 
 namespace py = pybind11;
 using namespace oblong::plasma;
