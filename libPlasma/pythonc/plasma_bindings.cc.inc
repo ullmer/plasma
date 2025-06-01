@@ -504,8 +504,6 @@ struct Entity_std : public pybind11_weaver::DisabledEntity {
 #endif // PB11_WEAVER_DISABLE_Entity_std
 
 
-
-
 template <class Pybind11T=pybind11::class_<std::hash<oblong::plasma::Protein>>> struct Bind_std_hash6oblong_plasma_Protein9 : public EntityBase {
   using Pybind11Type = Pybind11T;
   using _Tp = oblong::plasma::Protein; 
