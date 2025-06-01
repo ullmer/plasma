@@ -12,6 +12,19 @@
 namespace py = pybind11;
 using namespace oblong::plasma;
 
+
+void AddCustomEntities(pybind11::module_ &m, const pybind11_weaver::CustomBindingRegistry &registry) {
+    using namespace pybind11_weaver;
+
+    pybind11::object oblong_mod = m.attr("oblong");
+    pybind11::object plasma_mod = oblong_mod.attr("plasma");
+
+    EntityScope plasma_scope(static_cast<pybind11::detail::generic_type&>(plasma_mod));
+    CreateEntity<Entity_oblong_plasma_Hose>(plasma_scope, registry)->Update();
+    CreateEntity<Entity_oblong_plasma_Pool>(plasma_scope, registry)->Update();
+}
+
+
 PYBIND11_MODULE(plasma, m) {
     m.doc() = "Python bindings for libPlasma using pybind11_weaver";
 
@@ -36,5 +49,6 @@ PYBIND11_MODULE(plasma, m) {
 
     // Call the weaver-generated binding function with the registry
     auto guard = DeclFn(m, registry);
+    AddCustomEntities(m, registry);
     guard();  // Optional: immediately update all bindings
 }
