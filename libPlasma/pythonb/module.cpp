@@ -2,12 +2,8 @@
 #include <pybind11/pybind11.h>
 #include "Slaw.h"
 #include "Protein.h"
-
-//Include the generated bindings
-#include "plasma_bindings.cc.inc"
-
-// Include your custom bindings
 #include "custom_bindings.h"
+#include "binding_infra.h"
 
 namespace py = pybind11;
 using namespace oblong::plasma;
@@ -22,11 +18,11 @@ void AddCustomEntities(pybind11::module_ &m, const pybind11_weaver::CustomBindin
     EntityScope top_scope2(m);
     CreateEntity<Entity_oblong_plasma_Pool>(std::move(top_scope2), registry)->Update();
 
-    //EntityScope top_scope3(m);
-    //CreateEntity<Entity_oblong_plasma_Protein>(std::move(top_scope3), registry)->Update();
+    EntityScope top_scope3(m);
+    CreateEntity<Entity_oblong_plasma_Protein>(std::move(top_scope3), registry)->Update();
 
-    //EntityScope top_scope4(m);
-    //CreateEntity<Entity_oblong_plasma_Slaw>(std::move(top_scope4), registry)->Update();
+    EntityScope top_scope4(m);
+    CreateEntity<Entity_oblong_plasma_Slaw>(std::move(top_scope4), registry)->Update();
 }
 
 PYBIND11_MODULE(plasma, m) {
@@ -34,13 +30,14 @@ PYBIND11_MODULE(plasma, m) {
 
     // Expose Slaw directly under the top-level module
     py::class_<Slaw>(m, "Slaw")
-        .def(py::init<const char*>());
+    .def(py::init<const char*>());
 
     // Expose Protein directly under the top-level module
     py::class_<Protein>(m, "Protein")
-        .def(py::init<>())
-        .def(py::init<Slaw>())
-        .def(py::init<Slaw, Slaw>());
+    .def(py::init<>())
+    .def(py::init<Slaw>())
+    .def(py::init<Slaw, Slaw>())
+    .def("ToSlaw", &Protein::ToSlaw);
 
     // Set up the custom binding registry
     pybind11_weaver::CustomBindingRegistry registry;
@@ -50,10 +47,6 @@ PYBIND11_MODULE(plasma, m) {
     registry.SetCustomBinding<Entity_oblong_plasma_Protein>();
     registry.SetCustomBinding<Entity_oblong_plasma_Hose>();
     registry.SetCustomBinding<Entity_oblong_plasma_Pool>();
-
-    // Call the weaver-generated binding function with the registry
-    auto guard = DeclFn(m, registry);
-    guard();  // Optional: immediately update all bindings
 
     // Add custom entities to the top-level module
     AddCustomEntities(m, registry);
