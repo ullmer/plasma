@@ -10,7 +10,8 @@ struct Bind_oblong_plasma_Slaw : public pybind11_weaver::EntityBase {
 
   explicit Bind_oblong_plasma_Slaw(pybind11_weaver::EntityScope parent_h)
       : handle(parent_h, "Slaw", pybind11::dynamic_attr()) {
-    handle.def(pybind11::init<const std::string &>());  // Adjust constructor as needed
+    //handle.def(pybind11::init<const std::string &>());  // Adjust constructor as needed
+    handle.def(pybind11::init<const char*>());
   }
 
   void Update() override {}
