@@ -5,11 +5,7 @@
 #include "Protein.h"
 #include "Hose.h"
 #include "Pool.h"
-
-namespace pybind11_weaver { // forward declaration
-struct EntityScope;
-struct EntityBase;
-}
+#include "binding_infra.h"
 
 template <class Pybind11T = pybind11::class_<oblong::plasma::Slaw>>
 struct Bind_oblong_plasma_Slaw : public pybind11_weaver::EntityBase {
@@ -65,9 +61,6 @@ struct Bind_oblong_plasma_Hose : public pybind11_weaver::EntityBase {
     explicit Bind_oblong_plasma_Hose(pybind11_weaver::EntityScope parent_h)
     : handle(parent_h, "Hose", pybind11::dynamic_attr()) {
         handle.def(pybind11::init<const oblong::loam::Str&>());
-        //handle.def(pybind11::init<oblong::plasma::pool_hose>());
-        // 	handle.def(pybind11::init<pool_hose>());
-
         handle.def("Next", &oblong::plasma::Hose::Next);
         handle.def("Deposit", &oblong::plasma::Hose::Deposit);
     }
