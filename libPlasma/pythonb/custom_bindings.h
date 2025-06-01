@@ -138,20 +138,6 @@ struct Bind_oblong_plasma_OStreamReference : public pybind11_weaver::EntityBase 
   static const char *Key() { return "oblong_plasma_OStreamReference"; }
 };
 using Entity_oblong_plasma_OStreamReference = Bind_oblong_plasma_OStreamReference<>;
-
-template <class Pybind11T = pybind11::module_>
-struct Bind_std : public pybind11_weaver::EntityBase {
-  using Pybind11Type = Pybind11T;
-  Pybind11Type handle;
-
-  explicit Bind_std(pybind11_weaver::EntityScope parent_h)
-      : handle(static_cast<pybind11::module_ &>(parent_h).def_submodule("std")) {}
-  void Update() override {}
-  pybind11_weaver::EntityScope AsScope() override { return pybind11_weaver::EntityScope(handle); }
-  static const char *Key() { return "std"; }
-};
-using Entity_std = Bind_std<>;
-
 template <class Pybind11T = pybind11::class_<std::hash<oblong::plasma::Protein>>>
 struct Bind_std_hash6oblong_plasma_Protein9 : public pybind11_weaver::EntityBase {
   using Pybind11Type = Pybind11T;
@@ -165,6 +151,7 @@ struct Bind_std_hash6oblong_plasma_Protein9 : public pybind11_weaver::EntityBase
   pybind11_weaver::EntityScope AsScope() override { return pybind11_weaver::EntityScope(handle); }
   static const char *Key() { return "std_hash6oblong_plasma_Protein9"; }
 };
+
 using Entity_std_hash6oblong_plasma_Protein9 = Bind_std_hash6oblong_plasma_Protein9<>;
 
 template <class Pybind11T = pybind11::class_<std::hash<oblong::plasma::Slaw>>>
@@ -184,3 +171,6 @@ struct Bind_std_hash6oblong_plasma_Slaw9 : public pybind11_weaver::EntityBase {
 using Entity_std_hash6oblong_plasma_Slaw9 = Bind_std_hash6oblong_plasma_Slaw9<>;
 
 /// end ///
+
+#endif // BINDING_INFRA_H
+

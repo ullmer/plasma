@@ -12,6 +12,8 @@
 
 namespace pybind11_weaver {
 
+using Entity_std = Bind_std<>;
+
 struct EntityScope {
     explicit EntityScope(int64_t, int64_t) {} // a tag for disabled scope
     explicit EntityScope(pybind11::module_ &parent_h) : module_{&parent_h} {}
@@ -135,6 +137,17 @@ private:
       handle.def(pybind11::init<>());
     }
   } // namespace pybind11_weaver
+
+template <class Pybind11T = pybind11::module_>
+struct Bind_std : public pybind11_weaver::EntityBase {
+  using Pybind11Type = Pybind11T;
+  Pybind11Type handle;
+
+  explicit Bind_std(pybind11_weaver::EntityScope parent_h)
+      : handle(static_cast<pybind11::module_ &>(parent_h).def_submodule("std")) {}
+  void Update() override {}
+  pybind11_weaver::EntityScope AsScope() override { return pybind11_weaver::EntityScope(handle); }
+  static const char *Key() { return "std"; }
+};
 }
 
-#endif // BINDING_INFRA_H
