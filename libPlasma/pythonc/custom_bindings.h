@@ -19,13 +19,15 @@ struct Bind_oblong_plasma_Slaw : public pybind11_weaver::EntityBase {
     explicit Bind_oblong_plasma_Slaw(pybind11_weaver::EntityScope parent_h)
     : handle(parent_h, "Slaw", pybind11::dynamic_attr()) {
         handle.def(pybind11::init<const char*>());
-        handle.def("IsList", &oblong::plasma::Slaw::IsList);
-        handle.def("IsMap",  &oblong::plasma::Slaw::IsMap);
-        handle.def("Count",  &oblong::plasma::Slaw::Count);
-        handle.def("Nth",    &oblong::plasma::Slaw::Nth);
-        handle.def("Keys",   &oblong::plasma::Slaw::Keys);
+        handle.def("IsList",  &oblong::plasma::Slaw::IsList);
+        handle.def("IsMap",   &oblong::plasma::Slaw::IsMap);
+        handle.def("Count",   &oblong::plasma::Slaw::Count);
+        handle.def("Nth",     &oblong::plasma::Slaw::Nth);
+        handle.def("MapKeys", &oblong::plasma::Slaw::MapKeys);
+        handle.def("Keys",    &oblong::plasma::Slaw::MapKeys); //more pythonic
+
         handle.def("Find",   pybind11::overload_cast<const oblong::plasma::Slaw &>(&oblong::plasma::Slaw::Find, pybind11::const_));
-	handle.def("__getitem__", { return s.Find(key); });
+        handle.def("__getitem__", [](const ob s.Find(key);
 
         handle.def("ToString", [](const oblong::plasma::Slaw &s) {
             return std::string(static_cast<const char *>(s.ToString()));
