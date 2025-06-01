@@ -18,7 +18,7 @@ def main():
     objCoords = [10, 10]
 
     psObjName, psObjAction    = plasma.Slaw(objName),   plasma.Slaw(objAction)
-    psObjCoords               = plasma.Slaw.List(objCoords)
+    psObjCoords               = plasma.Slaw.Array(objCoords)
     psObjUpdates              = plasma.Slaw.List(psObjAction, psObjCoords)
 
     ingests = plasma.Slaw.Map(psObjName, psObjUpdates)
