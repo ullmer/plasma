@@ -86,6 +86,7 @@ struct Bind_oblong_plasma_Pool : public pybind11_weaver::EntityBase {
     explicit Bind_oblong_plasma_Pool(pybind11_weaver::EntityScope parent_h)
     : handle(parent_h, "Pool", pybind11::dynamic_attr()) {
         handle.def_static("Participate", pybind11::overload_cast<const char*, oblong::loam::ObRetort*>(&oblong::plasma::Pool::Participate), pybind11::return_value_policy::reference);
+handle.def_static("Participate", [](const char* name) { return oblong::plasma::Pool::Participate(name, nullptr); }, pybind11::return_value_policy::reference);
         handle.def_static("Create", pybind11::overload_cast<const char*, oblong::plasma::PoolType, bool, oblong::plasma::Protein>(&oblong::plasma::Pool::Create));
         handle.def_static("Dispose", &oblong::plasma::Pool::Dispose);
     }
