@@ -2,8 +2,8 @@
 #include <pybind11/pybind11.h>
 #include "Slaw.h"
 #include "Protein.h"
-#include "custom_bindings.h"
 #include "binding_infra.h"
+#include "custom_bindings.h"
 
 namespace py = pybind11;
 using namespace oblong::plasma;
@@ -30,14 +30,13 @@ PYBIND11_MODULE(plasma, m) {
 
     // Expose Slaw directly under the top-level module
     py::class_<Slaw>(m, "Slaw")
-    .def(py::init<const char*>());
+        .def(py::init<const char*>());
 
     // Expose Protein directly under the top-level module
     py::class_<Protein>(m, "Protein")
-    .def(py::init<>())
-    .def(py::init<Slaw>())
-    .def(py::init<Slaw, Slaw>())
-    .def("ToSlaw", &Protein::ToSlaw);
+        .def(py::init<>())
+        .def(py::init<Slaw>())
+        .def(py::init<Slaw, Slaw>());
 
     // Set up the custom binding registry
     pybind11_weaver::CustomBindingRegistry registry;

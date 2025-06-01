@@ -1,3 +1,4 @@
+
 cmake_minimum_required(VERSION 3.14)
 project(plasma_bindings)
 
@@ -19,8 +20,6 @@ include_directories(
 # Add the Python module (no longer includes the weaver-generated .inc)
 pybind11_add_module(plasma
   module.cpp
-  #custom_bindings.h
-  #binding_infra.h
 )
 
 # Link OpenSSL
@@ -43,11 +42,19 @@ endif()
 
 target_include_directories(plasma PRIVATE ../c++)
 
+# Link ICU libraries
+find_package(ICU REQUIRED COMPONENTS uc i18n)
+target_link_libraries(plasma PRIVATE ICU::uc ICU::i18n)
+
+set(LOAMXX_LIB /home/bullmer/git/plasma/build/libLoam/c++/libLoam++.a)
+target_link_libraries(plasma PRIVATE ${LOAMXX_LIB})
+
 # Verbose output and diagnostics
 get_target_property(SSL_LOCATION OpenSSL::SSL IMPORTED_LOCATION)
 get_target_property(CRYPTO_LOCATION OpenSSL::Crypto IMPORTED_LOCATION)
 target_link_libraries(plasma PRIVATE
   ${LOAM_LIB}
+  ${LOAMXX_LIB}
   ${CPLASMA_LIB}
   ${PLASMA_LIB}
   ${SSL_LOCATION}
