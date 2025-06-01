@@ -8,11 +8,12 @@
 #include "Protein.h"
 #include "Slaw.h"
 
+namespace py = pybind11;
+
 namespace pybind11_weaver {
 
-template <typename Pybind11T = py::class_<oblong::plasma::Slaw>>
 struct Bind_oblong_plasma_Slaw : public EntityBase {
-    using Pybind11Type = Pybind11T;
+    using Pybind11Type = py::class_<oblong::plasma::Slaw>;
     Pybind11Type handle;
 
     static const char* Key() { return "oblong_plasma_Slaw"; }
@@ -32,9 +33,8 @@ struct Bind_oblong_plasma_Slaw : public EntityBase {
     EntityScope AsScope() override { return EntityScope(handle); }
 };
 
-template <typename Pybind11T = py::class_<oblong::plasma::Protein>>
 struct Bind_oblong_plasma_Protein : public EntityBase {
-    using Pybind11Type = Pybind11T;
+    using Pybind11Type = py::class_<oblong::plasma::Protein>;
     Pybind11Type handle;
 
     static const char* Key() { return "oblong_plasma_Protein"; }
@@ -54,9 +54,8 @@ struct Bind_oblong_plasma_Protein : public EntityBase {
     EntityScope AsScope() override { return EntityScope(handle); }
 };
 
-template <typename Pybind11T = py::class_<std::hash<oblong::plasma::Protein>>>
 struct Bind_std_hash6oblong_plasma_Protein9 : public EntityBase {
-    using Pybind11Type = Pybind11T;
+    using Pybind11Type = py::class_<std::hash<oblong::plasma::Protein>>;
     Pybind11Type handle;
 
     static const char* Key() { return "std_hash6oblong_plasma_Protein9"; }
@@ -70,9 +69,8 @@ struct Bind_std_hash6oblong_plasma_Protein9 : public EntityBase {
     EntityScope AsScope() override { return EntityScope(handle); }
 };
 
-template <typename Pybind11T = py::class_<std::hash<oblong::plasma::Slaw>>>
 struct Bind_std_hash6oblong_plasma_Slaw9 : public EntityBase {
-    using Pybind11Type = Pybind11T;
+    using Pybind11Type = py::class_<std::hash<oblong::plasma::Slaw>>;
     Pybind11Type handle;
 
     static const char* Key() { return "std_hash6oblong_plasma_Slaw9"; }

@@ -4,14 +4,11 @@
 
 #include <pybind11/pybind11.h>
 #include <pybind11/stl.h>
+#include <functional>
+#include <map>
 #include <memory>
 #include <string>
 #include <vector>
-#include <functional>
-#include <map>
-#include <mutex>
-#include <thread>
-#include <utility>
 
 namespace pybind11_weaver {
 
@@ -43,7 +40,8 @@ struct _PointerWrapperBase {
     intptr_t get_ptr() { return reinterpret_cast<intptr_t>(ptr); }
     void set_ptr(intptr_t ptr_v) { ptr = reinterpret_cast<void *>(ptr_v); }
     static void FastBind(pybind11::module &m) {
-        pybind11::class_<_PointerWrapperBase, std::shared_ptr<_PointerWrapperBase>>(m, "_PointerWrapperBase", pybind11::dynamic_attr())
+        pybind11::class_<_PointerWrapperBase, std::shared_ptr<_PointerWrapperBase>>(
+            m, "_PointerWrapperBase", pybind11::dynamic_attr())
             .def(pybind11::init<void *>())
             .def(pybind11::init<intptr_t>())
             .def("get_ptr", &_PointerWrapperBase::get_ptr)
@@ -58,7 +56,8 @@ struct PointerWrapper : public _PointerWrapperBase {
     using _PointerWrapperBase::_PointerWrapperBase;
 
     static void FastBind(pybind11::module &m, const std::string &name) {
-        pybind11::class_<PointerWrapper, std::shared_ptr<PointerWrapper>, _PointerWrapperBase>(m, name.c_str(), pybind11::dynamic_attr())
+        pybind11::class_<PointerWrapper, std::shared_ptr<PointerWrapper>, _PointerWrapperBase>(
+            m, name.c_str(), pybind11::dynamic_attr())
             .def(pybind11::init<intptr_t>())
             .def_static("from_capsule", [](pybind11::capsule o) {
                 return std::make_shared<PointerWrapper<T>>(reinterpret_cast<void *>(o.get_pointer()));
@@ -123,6 +122,7 @@ struct FnPointerWrapper {
         std::lock_guard<std::mutex> _(FnMapMutex());
         FnMap()[uuid0].erase(uuid1);
     }
+
     static FnMapT &FnMap() {
         static FnMapT fns;
         return fns;
@@ -171,7 +171,9 @@ struct EntityScope {
         }
     }
     bool IsDisabled() const { return module_ == nullptr && type_ == nullptr; }
-    pybind11::object& Get() { return module_ ? *module_ : *type_; }
+    pybind11::handle Get() const {
+        return module_ ? pybind11::handle(*module_) : pybind11::handle(*type_);
+    }
 
 private:
     pybind11::detail::generic_type *type_ = nullptr;
@@ -193,9 +195,7 @@ struct CustomBindingRegistry {
     using CTorT = std::function<std::shared_ptr<EntityBase>(EntityScope &&)>;
     using RegistryT = std::map<std::string, CTorT>;
 
-    bool contains(const std::string &key) const {
-        return registry_.count(key) > 0;
-    }
+    bool contains(const std::string &key) const { return registry_.count(key) > 0; }
     CTorT at(const std::string &key) const { return registry_.at(key); }
 
     template <class BindingT>
@@ -204,16 +204,12 @@ struct CustomBindingRegistry {
         registry_.emplace(key, [](EntityScope &&) { return std::make_shared<DisabledEntity>(); });
     }
 
-    void RegCustomBinding(const std::string &key, CTorT &&ctor) {
-        registry_.emplace(key, std::move(ctor));
-    }
+    void RegCustomBinding(const std::string &key, CTorT &&ctor) { registry_.emplace(key, std::move(ctor)); }
 
     template <class BindingT>
     void SetCustomBinding() {
         auto key = std::string(BindingT::Key());
-        registry_.emplace(key, [](EntityScope &&parent_h) {
-            return std::make_shared<BindingT>(std::move(parent_h));
-        });
+        registry_.emplace(key, [](EntityScope &&parent_h) { return std::make_shared<BindingT>(std::move(parent_h)); });
     }
 
 private:
@@ -221,8 +217,7 @@ private:
 };
 
 template <class EntityT>
-std::shared_ptr<EntityBase>
-CreateEntity(EntityScope &&parent_h, const CustomBindingRegistry &registry) {
+std::shared_ptr<EntityBase> CreateEntity(EntityScope &&parent_h, const CustomBindingRegistry &registry) {
     if (parent_h.IsDisabled()) {
         return std::make_shared<DisabledEntity>();
     }
