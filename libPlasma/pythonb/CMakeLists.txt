@@ -20,7 +20,6 @@ include_directories(
 pybind11_add_module(plasma
     module.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/plasma_bindings.cc.inc
-    ${CMAKE_CURRENT_SOURCE_DIR}/custom_bindings.cc  
 )
 
 # Link any additional libraries if needed

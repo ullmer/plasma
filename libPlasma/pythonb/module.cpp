@@ -5,7 +5,7 @@ namespace py = pybind11;
 #include "plasma_bindings.cc.inc"
 
 // Include your custom bindings
-#include "custom_bindings.cc"
+#include "custom_bindings.h"
 
 PYBIND11_MODULE(plasma, m) {
   m.doc() = "Python bindings for libPlasma using pybind11_weaver";
