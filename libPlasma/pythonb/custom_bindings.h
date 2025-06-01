@@ -62,7 +62,7 @@ struct Bind_oblong_plasma_Hose : public pybind11_weaver::EntityBase {
     : handle(parent_h, "Hose", pybind11::dynamic_attr()) {
         handle.def(pybind11::init<const oblong::loam::Str&>());
         //handle.def(pybind11::init<oblong::plasma::pool_hose>());
-	handle.def(pybind11::init<pool_hose>());
+// 	handle.def(pybind11::init<pool_hose>());
 
         handle.def("Next", &oblong::plasma::Hose::Next);
         handle.def("Deposit", &oblong::plasma::Hose::Deposit);
@@ -78,7 +78,7 @@ struct Bind_oblong_plasma_Hose : public pybind11_weaver::EntityBase {
 using Entity_oblong_plasma_Hose = Bind_oblong_plasma_Hose<>;
 #endif
 
-template <class Pybind11T = pybind11::class_<oblong::plasma::Pool>>
+template <class Pybind11T = pybind11::class_<oblong::plasma::Pool, std::unique_ptr<oblong::plasma::Pool, pybind11::nodelete>>>
 struct Bind_oblong_plasma_Pool : public pybind11_weaver::EntityBase {
     using Pybind11Type = Pybind11T;
     Pybind11Type handle;
