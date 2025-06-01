@@ -4,70 +4,71 @@ project(plasma_bindings)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_POSITION_INDEPENDENT_CODE ON)
+set(CMAKE_VERBOSE_MAKEFILE ON)
 
-# Find pybind11
-find_package(pybind11 REQUIRED)
+# Get user's home directory and define base project path
+set(HOME_DIR $ENV{HOME})
+set(GIT_BASE ${HOME_DIR}/git)
+set(PLASMA_ROOT ${GIT_BASE}/plasma)
 
-# Include directories from your config
+# Define subpaths
+set(LOAM_C ${PLASMA_ROOT}/libLoam/c)
+set(LOAM_CPP ${PLASMA_ROOT}/libLoam/c++)
+set(PLASMA_C ${PLASMA_ROOT}/libPlasma/c)
+set(PLASMA_CPP ${PLASMA_ROOT}/libPlasma/c++)
+set(BUILD_DIR ${PLASMA_ROOT}/build)
+
+# Include directories
 include_directories(
-  /home/bullmer/git/plasma/libPlasma/c++/
-  /home/bullmer/git/plasma/libLoam/
-  /home/bullmer/git/plasma/libLoam/c/
-  /home/bullmer/git/plasma/libLoam/c++/
-  /home/bullmer/git/plasma/
+  ${PLASMA_ROOT}
+  ${PLASMA_CPP}
+  ${LOAM_C}
+  ${LOAM_CPP}
 )
 
-# Add the Python module (no longer includes the weaver-generated .inc)
-pybind11_add_module(plasma
-  module.cpp
-)
+# Add the Python module
+find_package(pybind11 REQUIRED)
+pybind11_add_module(plasma module.cpp)
 
 # Link OpenSSL
 find_package(OpenSSL REQUIRED)
 target_link_libraries(plasma PRIVATE OpenSSL::SSL OpenSSL::Crypto)
 
-# Link Loam and Plasma libraries
-set(LOAM_LIB /home/bullmer/git/plasma/build/libLoam/c/libLoam.a)
-target_link_libraries(plasma PRIVATE ${LOAM_LIB})
-
-set(CPLASMA_LIB /home/bullmer/git/plasma/build/libPlasma/c/libPlasma.a)
-set(PLASMA_LIB /home/bullmer/git/plasma/build/libPlasma/c++/libPlasma++.a)
-find_library(PLASMA_LIB plasma PATHS /home/bullmer/git/plasma/build/libPlasma/c++)
-
-if(PLASMA_LIB)
-  target_link_libraries(plasma PRIVATE ${PLASMA_LIB})
-else()
-  message(FATAL_ERROR "Could not find plasma library")
-endif()
-
-target_include_directories(plasma PRIVATE ../c++)
-
-# Link ICU libraries
+# Link ICU
 find_package(ICU REQUIRED COMPONENTS uc i18n)
 target_link_libraries(plasma PRIVATE ICU::uc ICU::i18n)
 
-find_package(PkgConfig REQUIRED)
-pkg_check_modules(YAML REQUIRED yaml-0.1)
+# Link Loam and Plasma libraries
+set(LOAM_LIB ${BUILD_DIR}/libLoam/c/libLoam.a)
+set(LOAMXX_LIB ${BUILD_DIR}/libLoam/c++/libLoam++.a)
+set(CPLASMA_LIB ${BUILD_DIR}/libPlasma/c/libPlasma.a)
+set(PLASMA_LIB ${BUILD_DIR}/libPlasma/c++/libPlasma++.a)
 
-target_include_directories(plasma PRIVATE ${YAML_INCLUDE_DIRS})
-target_link_libraries(plasma PRIVATE ${YAML_LIBRARIES})
+if(EXISTS ${PLASMA_LIB})
+  target_link_libraries(plasma PRIVATE ${PLASMA_LIB})
+else()
+  message(FATAL_ERROR "Could not find plasma library at ${PLASMA_LIB}")
+endif()
 
-set(LOAMXX_LIB /home/bullmer/git/plasma/build/libLoam/c++/libLoam++.a)
-target_link_libraries(plasma PRIVATE ${LOAMXX_LIB})
+target_include_directories(plasma PRIVATE ${PLASMA_CPP})
 
-# Verbose output and diagnostics
-get_target_property(SSL_LOCATION OpenSSL::SSL IMPORTED_LOCATION)
-get_target_property(CRYPTO_LOCATION OpenSSL::Crypto IMPORTED_LOCATION)
+# Link YAML manually (more reliable than pkg-config here)
+find_path(YAML_INCLUDE_DIR yaml.h PATHS /opt/local/include)
+find_library(YAML_LIBRARY yaml PATHS /opt/local/lib)
+
+if(YAML_INCLUDE_DIR AND YAML_LIBRARY)
+  message(STATUS "Found libyaml: ${YAML_LIBRARY}")
+  target_include_directories(plasma PRIVATE ${YAML_INCLUDE_DIR})
+  target_link_libraries(plasma PRIVATE ${YAML_LIBRARY})
+else()
+  message(FATAL_ERROR "Could not find libyaml")
+endif()
+
+# Final linking
 target_link_libraries(plasma PRIVATE
   ${LOAM_LIB}
   ${LOAMXX_LIB}
   ${CPLASMA_LIB}
-  ${PLASMA_LIB}
   ${SSL_LOCATION}
   ${CRYPTO_LOCATION}
 )
-
-message(STATUS "OpenSSL::SSL location: ${SSL_LOCATION}")
-message(STATUS "OpenSSL::Crypto location: ${CRYPTO_LOCATION}")
-
-set(CMAKE_VERBOSE_MAKEFILE ON)
