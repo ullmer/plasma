@@ -33,11 +33,6 @@ PYBIND11_MODULE(plasma, m) {
         .def(py::init<const char*>());
 
     // Expose Protein directly under the top-level module
-    py::class_<Protein>(m, "Protein")
-        .def(py::init<>())
-        .def(py::init<Slaw>())
-        .def(py::init<Slaw, Slaw>());
-
     // Set up the custom binding registry
     pybind11_weaver::CustomBindingRegistry registry;
 
