@@ -3,6 +3,11 @@
 #include "Slaw.h"
 #include "Protein.h"
 
+namespace pybind11_weaver { // forward declaration
+  struct EntityScope;
+  struct EntityBase;
+}
+
 template <class Pybind11T = pybind11::class_<oblong::plasma::Slaw>>
 struct Bind_oblong_plasma_Slaw : public pybind11_weaver::EntityBase {
   using Pybind11Type = Pybind11T;
