@@ -46,6 +46,12 @@ target_include_directories(plasma PRIVATE ../c++)
 find_package(ICU REQUIRED COMPONENTS uc i18n)
 target_link_libraries(plasma PRIVATE ICU::uc ICU::i18n)
 
+find_package(PkgConfig REQUIRED)
+pkg_check_modules(YAML REQUIRED yaml-0.1)
+
+target_include_directories(plasma PRIVATE ${YAML_INCLUDE_DIRS})
+target_link_libraries(plasma PRIVATE ${YAML_LIBRARIES})
+
 set(LOAMXX_LIB /home/bullmer/git/plasma/build/libLoam/c++/libLoam++.a)
 target_link_libraries(plasma PRIVATE ${LOAMXX_LIB})
 
