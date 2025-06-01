@@ -602,16 +602,16 @@ auto v0 = pybind11_weaver::CreateEntity<Entity_oblong>(EntityScope(m), registry)
 auto v1 = pybind11_weaver::CreateEntity<Entity_oblong_plasma>(v0->AsScope(), registry);
 auto v2 = pybind11_weaver::CreateEntity<Entity_oblong_plasma_OStreamReference>(v1->AsScope(), registry);
 auto v3 = pybind11_weaver::CreateEntity<Entity_std>(EntityScope(m), registry);
-auto v4 = pybind11_weaver::CreateEntity<Entity_std_hash6oblong_plasma_Protein9>(v3->AsScope(), registry);
-auto v5 = pybind11_weaver::CreateEntity<Entity_std_hash6oblong_plasma_Slaw9>(v3->AsScope(), registry);
+//auto v4 = pybind11_weaver::CreateEntity<Entity_std_hash6oblong_plasma_Protein9>(v3->AsScope(), registry);
+//auto v5 = pybind11_weaver::CreateEntity<Entity_std_hash6oblong_plasma_Slaw9>(v3->AsScope(), registry);
 
     auto update_fn = [=](){
 v0->Update();
 v1->Update();
 v2->Update();
 v3->Update();
-v4->Update();
-v5->Update();    
+//v4->Update();
+//v5->Update();    
     };
     return {update_fn};
 }
