@@ -18,8 +18,8 @@ def main():
     objCoords = [10, 10]
 
     psObjName, psObjAction    = plasma.Slaw(objName),   plasma.Slaw(objAction)
-    psObjCoords               = plasma.Slaw(objCoords)
-    psObjUpdates              = plasma.Slaw.List([10, 10])
+    psObjCoords               = plasma.Slaw.List(objCoords)
+    psObjUpdates              = plasma.Slaw.List(psObjAction, psObjCoords)
 
     ingests = plasma.Slaw.Map(psObjName, psObjUpdates)
     protein = plasma.Protein(descrips, ingests)
