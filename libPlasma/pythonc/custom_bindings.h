@@ -26,13 +26,14 @@ struct Bind_oblong_plasma_Slaw : public pybind11_weaver::EntityBase {
         handle.def("MapKeys", &oblong::plasma::Slaw::MapKeys);
         handle.def("Keys",    &oblong::plasma::Slaw::MapKeys); //more pythonic
 
-        handle.def("Find", static_cast<oblong::plasma::Slaw (oblong::plasma::Slaw::*)(const oblong::plasma::Slaw &) const>(&oblong::plasma::Slaw::Find));
+        handle.def("Find", static_cast<oblong::plasma::Slaw (oblong::plasma::Slaw::*)(const oblong::plasma::Slaw &) const>
+			     (&oblong::plasma::Slaw::Find));
 
-        handle.def("__getitem__",  {
+        handle.def("__getitem__", [](const oblong::plasma::Slaw &s, const oblong::plasma::Slaw &key) {
           return s.Find(key);
         });
 
-        handle.def("ToString", [](const oblong::plasma::Slaw &s) {
+        handle.def("ToString",    [](const oblong::plasma::Slaw &s) {
             return std::string(static_cast<const char *>(s.ToString()));
         });
     }
