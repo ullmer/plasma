@@ -29,17 +29,12 @@ struct Bind_oblong_plasma_Slaw : public pybind11_weaver::EntityBase {
         //handle.def_static("List", pybind11::overload_cast<slaw>(&Slaw::List));
         //handle.def_static("Map", pybind11::overload_cast<slaw, slaw>(&Slaw::Map));
 
-        //handle.def_static("List",  { return Slaw::List(s);   });
-        //handle.def_static("Map",   { return Slaw::Map(k, v); });
-        //handle.def_static("Cons", [](const Slaw &car, const Slaw &r); });
 
-        //handle.def_static("List",  { return Slaw::List(s); });
-        //handle.def_static("Map",   { return Slaw::Map(k, v); });
-        //handle.def_static("Cons",  { return Slaw::Cons(car, cdr); });
 
-        handle.def_static("List",  {return oblong::plasma::Slaw::List(s); });
-        handle.def_static("Map",   {return oblong::plasma::Slaw::Map(k, v); });
-        handle.def_static("Cons",  {return oblong::plasma::Slaw::Cons(car, cdr); });
+        handle.def_static("List",  [](const oblong::plasma::Slaw &s){return oblong::plasma::Slaw::List(s); });
+        //handle.def_static("Map",   {return oblong::plasma::Slaw::Map(k, v); });
+        handle.def_static("Cons",  [](const oblong::plasma::Slaw &car, const oblong::plasma::Slaw &cdr){
+                           return oblong::plasma::Slaw::Cons(car, cdr); });
 
         handle.def("Find", static_cast<oblong::plasma::Slaw (oblong::plasma::Slaw::*)(const oblong::plasma::Slaw &) const>
 			     (&oblong::plasma::Slaw::Find));
