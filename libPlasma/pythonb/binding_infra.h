@@ -177,9 +177,9 @@ struct EntityScope {
     //pybind11::object& Get() { return module_ ? *module_ : *type_; }
 
     pybind11::handle Get() const {
-      if        (module_) { return pybind11::handle(*module_);
-      } else if (type_)   { return pybind11::handle(*type_);
-      } else {               throw std::runtime_error("EntityScope::Get() called on an uninitialized scope.");}
+      if        (module_) {return pybind11::handle(*module_);
+      } else if (type_)   {return pybind11::handle(*type_);
+      } else              {throw std::runtime_error("EntityScope::Get() called on an uninitialized scope.");}
     }
 
 private:
