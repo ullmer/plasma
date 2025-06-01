@@ -45,6 +45,7 @@ struct Bind_oblong_plasma_Protein : public pybind11_weaver::EntityBase {
         handle.def(pybind11::init<oblong::plasma::Slaw>());
         handle.def(pybind11::init<oblong::plasma::Slaw, oblong::plasma::Slaw>());
         handle.def("ToSlaw", &oblong::plasma::Protein::ToSlaw);
+        handle.def("IsNull", &oblong::plasma::Protein::IsNull);
     }
 
     void Update() override {}
@@ -68,8 +69,9 @@ struct Bind_oblong_plasma_Hose : public pybind11_weaver::EntityBase {
         //handle.def(pybind11::init<oblong::plasma::pool_hose>());
         // 	handle.def(pybind11::init<pool_hose>());
 
-        handle.def("Next", &oblong::plasma::Hose::Next);
-        handle.def("Deposit", &oblong::plasma::Hose::Deposit);
+        handle.def("Next",     &oblong::plasma::Hose::Next);
+        handle.def("Deposit",  &oblong::plasma::Hose::Deposit);
+        handle.def("Withdraw", &oblong::plasma::Hose::Withdraw);
     }
 
     void Update() override {}
