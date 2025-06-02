@@ -218,6 +218,8 @@ struct Bind_oblong_plasma_detail_SlawList : public pybind11_weaver::EntityBase {
 using Entity_oblong_plasma_detail_SlawList = Bind_oblong_plasma_detail_SlawList<>;
 #endif
 
+/*
+
 template <class Pybind11T = pybind11::class_<oblong::plasma::detail::SlawRef>>
 struct Bind_oblong_plasma_detail_SlawRef : public pybind11_weaver::EntityBase {
   using Pybind11Type = Pybind11T;
@@ -226,14 +228,15 @@ struct Bind_oblong_plasma_detail_SlawRef : public pybind11_weaver::EntityBase {
   explicit Bind_oblong_plasma_detail_SlawRef(pybind11_weaver::EntityScope parent_h)
     : handle(parent_h, "SlawRef", pybind11::dynamic_attr()) {
     handle.def(pybind11::init<>());     // Default constructor
+
     //handle.def(pybind11::init<slaw>()); // Constructor from slaw
     //handle.def(pybind11::init<oblong::plasma::Slaw>());
 
     //.def(py::init<bslaw, SlawRef>())  // Constructor from bslaw and parent
 
-    handle.def_static("from_slaw", [](const oblong::plasma::Slaw &s) {
-      return oblong::plasma::detail::SlawRef(s);
-    });
+    //handle.def_static("from_slaw", [](const oblong::plasma::Slaw &s) {
+    //  return oblong::plasma::detail::SlawRef(s);
+    //});
 
     handle.def("swap_if_null", &oblong::plasma::detail::SlawRef::SwapIfNull);
     handle.def("is_null",      &oblong::plasma::detail::SlawRef::IsNull);
@@ -266,6 +269,6 @@ struct Bind_oblong_plasma_detail_SlawRef : public pybind11_weaver::EntityBase {
 #ifndef PB11_WEAVER_DISABLE_Entity_oblong_plasma_detail_SlawRef
 using Entity_oblong_plasma_detail_SlawRef = Bind_oblong_plasma_detail_SlawRef<>;
 #endif
-
+*/
 /// end ///
 
