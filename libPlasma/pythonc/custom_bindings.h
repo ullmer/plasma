@@ -1,5 +1,6 @@
 #include <pybind11/pybind11.h>
 #include <pybind11/stl.h>
+#include <libLoam/c++/ob-coretypes-hash.h>
 #include "Slaw.h"
 #include "Protein.h"
 #include "Hose.h"
@@ -176,5 +177,11 @@ struct Bind_oblong_plasma_ObRetort_DepositInfo : public pybind11_weaver::EntityB
 #ifndef PB11_WEAVER_DISABLE_Entity_oblong_plasma_ObRetort_DepositInfo
 using Entity_oblong_plasma_ObRetort_DepositInfo = Bind_oblong_plasma_ObRetort_DepositInfo<>;
 #endif
+
+py::class_<v2int32>(m, "v2int32")
+  .def(py::init<int32, int32>())
+  .def_readwrite("x", &v2int32::x)
+  .def_readwrite("y", &v2int32::y)
+  .def("__repr__", { return "<v2int32 x=" + std::to_string(v.x) + ", y=" + std::to_string(v.y) + ">"; });
 
 /// end ///
