@@ -200,6 +200,50 @@ struct Bind_oblong_plasma_detail_SlawList : public pybind11_weaver::EntityBase {
   explicit Bind_oblong_plasma_detail_SlawList(pybind11_weaver::EntityScope parent_h)
       : handle(parent_h, "SlawList", pybind11::dynamic_attr()) {
     handle.def(pybind11::init<>());
+
+    handle.def(pybind11::init([](const std::vector<oblong::plasma::Slaw>& slaws) {
+      oblong::plasma::detail::SlawRefs refs;
+      refs.reserve(slaws.size());
+      for (const auto &s : slaws) {
+        oblong::plasma::detail::SlawRef s2 = oblong::plasma::detail::SlawRef(s);
+        refs.push_back(s2);
+      }
+      return oblong::plasma::SlawList(refs);
+    }), pybind11::arg("slaws"));
+
+        // AsSlaw() returns SlawRef, which can be directly stored in SlawRefs (std::vector<SlawRef>)
+        //refs.push_back(s.AsSlaw());
+        //refs.push_back(s.SlawRef());
+
+    //handle.def(pybind11::init([](const std::vector<oblong::plasma::Slaw>& slaws) {
+    //  oblong::plasma::detail::SlawRefs refs;
+    //  refs.reserve(slaws.size());
+    //  for (const auto &s : slaws) {
+    //    // Correct conversion: get the underlying C-style slaw* from Slaw
+    //    // and use SlawRef's constructor that takes 'slaw'.
+    //    refs.push_back(oblong::plasma::detail::SlawRef(s.AsSlaw()));
+    //  }
+    //  return oblong::plasma::detail::SlawList(refs);
+    //}), pybind11::arg("slaws"));
+
+    //handle.def(pybind11::init([](const std::vector<oblong::plasma::Slaw>& slaws) {
+    //  oblong::plasma::detail::SlawRefs refs;
+    //  refs.reserve(slaws.size());
+    //  for (const auto &s : slaws) {
+    //    // Attempt to construct SlawRef from Slaw.
+    //    // If SlawRef does not have a public constructor like SlawRef(const Slaw&),
+    //    // this line will cause a compilation error.
+    //    refs.push_back(oblong::plasma::detail::SlawRef(s));
+    //  }
+    //  return oblong::plasma::detail::SlawList(refs);
+    //}), pybind11::arg("slaws"));
+
+    //handle.def(pybind11::init([](const std::vector<oblong::plasma::Slaw>& slaws) {
+    //  // If SlawList has a constructor like SlawList(const std::vector<Slaw>&), this will work.
+    //  // Otherwise, you might need to adjust the C++ SlawList class or provide a factory method.
+    //  return oblong::plasma::detail::SlawList(slaws);
+    //}), pybind11::arg("slaws"));
+
     //handle.def(pybind11::init<oblong::plasma::detail::SlawRefs refs>) {
     //  refs.reserve(slaws.size());
     //  for (const auto &s : slaws) {
@@ -207,14 +251,23 @@ struct Bind_oblong_plasma_detail_SlawList : public pybind11_weaver::EntityBase {
     //  } return oblong::plasma::detail::SlawList(refs);
     //}), pybind11::arg("slaws"));
 
-    handle.def(pybind11::init( {
-      oblong::plasma::detail::SlawRefs refs;
-      refs.reserve(slaws.size());
-      for (const auto &s : slaws) {
-        refs.push_back(s.SlawRef());
-      }
-      return oblong::plasma::detail::SlawList(refs);
-    }), pybind11::arg("slaws"));
+    //handle.def(pybind11::init( {
+    //  oblong::plasma::detail::SlawRefs refs;
+    //  refs.reserve(slaws.size());
+    //  for (const auto &s : slaws) {
+    //    refs.push_back(s.SlawRef());
+    // }
+    //  return oblong::plasma::detail::SlawList(refs);
+    //}), pybind11::arg("slaws"));
+
+    //handle.def(pybind11::init([](const std::vector<oblong::plasma::Slaw>& slaws) {
+    //  oblong::plasma::detail::SlawRefs refs;
+    //  refs.reserve(slaws.size());
+    //  for (const auto &s : slaws) {
+    //    refs.push_back(s.SlawRef());
+    //  }
+    //  return oblong::plasma::detail::SlawList(refs);
+    //}), pybind11::arg("slaws"));
 
     //handle.def("ListAppend", &oblong::plasma::detail::SlawList::Add();
     //handle.def("ListAppend", [](const oblong::plasma::SlawRef s) { Add(s); });
