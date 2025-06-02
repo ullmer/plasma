@@ -3,6 +3,7 @@
 #include <libLoam/c++/ob-coretypes-hash.h>
 #include "Slaw.h"
 #include "SlawList.h"
+#include "SlawRef.h"
 #include "Protein.h"
 #include "Hose.h"
 #include "Pool.h"
@@ -199,7 +200,18 @@ struct Bind_oblong_plasma_detail_SlawList : public pybind11_weaver::EntityBase {
   explicit Bind_oblong_plasma_detail_SlawList(pybind11_weaver::EntityScope parent_h)
       : handle(parent_h, "SlawList", pybind11::dynamic_attr()) {
     handle.def(pybind11::init<>());
-    handle.def("ListAppend", &oblong::plasma::detail::SlawList::Add);
+    handle.def(pybind11::init({
+      oblong::plasma::detail::SlawRefs refs;
+      refs.reserve(slaws.size());
+      for (const auto &s : slaws) {
+        refs.push_back(s.SlawRef()); // Convert each Slaw to SlawRef
+      } return oblong::plasma::detail::SlawList(refs);
+    }), pybind11::arg("slaws"));
+
+    //handle.def("ListAppend", &oblong::plasma::detail::SlawList::Add();
+    //handle.def("ListAppend", [](const oblong::plasma::SlawRef s) { Add(s); });
+    //handle.def("ListAppend", [](const oblong::plasma::Slaw &s) { self.Add(s.SlawRef()); });
+    //handle.def("ListAppend", [](const oblong::plasma::Slaw &s) { ListAppend(s); });
   }
 
   void Update() override {}
