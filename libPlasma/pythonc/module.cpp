@@ -75,3 +75,5 @@ PYBIND11_MODULE(plasma, m) {
     // Add custom entities to the top-level module
     AddCustomEntities(m, registry);
 }
+
+/// end ///

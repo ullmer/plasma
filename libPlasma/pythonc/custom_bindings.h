@@ -229,24 +229,24 @@ struct Bind_oblong_plasma_detail_SlawRef : public pybind11_weaver::EntityBase {
     handle.def(pybind11::init<slaw>()); // Constructor from slaw
     //.def(py::init<bslaw, SlawRef>())  // Constructor from bslaw and parent
 
-    handle.def("swap_if_null", &oblong::plasma::detail::SlawRef::SwapIfNull)
-    handle.def("is_null",      &oblong::plasma::detail::SlawRef::IsNull)
-    handle.def("equals",       &oblong::plasma::detail::SlawRef::Equals)
-    handle.def("is_array",     &oblong::plasma::detail::SlawRef::IsArray)
-    handle.def("is_boolean",   &oblong::plasma::detail::SlawRef::IsBoolean)
-    handle.def("is_cons",      &oblong::plasma::detail::SlawRef::IsCons)
-    handle.def("is_list",      &oblong::plasma::detail::SlawRef::IsList)
-    handle.def("is_map",       &oblong::plasma::detail::SlawRef::IsMap)
-    handle.def("is_protein",   &oblong::plasma::detail::SlawRef::IsProtein)
-    handle.def("is_atomic",    &oblong::plasma::detail::SlawRef::IsAtomic)
-    handle.def("to_str",       &oblong::plasma::detail::SlawRef::ToStr)
-    handle.def("spew",         &oblong::plasma::detail::SlawRef::Spew)
+    handle.def("swap_if_null", &oblong::plasma::detail::SlawRef::SwapIfNull);
+    handle.def("is_null",      &oblong::plasma::detail::SlawRef::IsNull);
+    handle.def("equals",       &oblong::plasma::detail::SlawRef::Equals);
+    handle.def("is_array",     &oblong::plasma::detail::SlawRef::IsArray);
+    handle.def("is_boolean",   &oblong::plasma::detail::SlawRef::IsBoolean);
+    handle.def("is_cons",      &oblong::plasma::detail::SlawRef::IsCons);
+    handle.def("is_list",      &oblong::plasma::detail::SlawRef::IsList);
+    handle.def("is_map",       &oblong::plasma::detail::SlawRef::IsMap);
+    handle.def("is_protein",   &oblong::plasma::detail::SlawRef::IsProtein);
+    handle.def("is_atomic",    &oblong::plasma::detail::SlawRef::IsAtomic);
+    handle.def("to_str",       &oblong::plasma::detail::SlawRef::ToStr);
+    handle.def("spew",         &oblong::plasma::detail::SlawRef::Spew);
 
-    handle.def("__eq__",       &oblong::plasma::detail::SlawRef::operator==)
-    handle.def("__ne__",       &oblong::plasma::detail::SlawRef::operator!=)
+    handle.def("__eq__",       &oblong::plasma::detail::SlawRef::operator==);
+    handle.def("__ne__",       &oblong::plasma::detail::SlawRef::operator!=);
 
-    handle.def("__str__",  { return s.ToStr(); });
-    handle.def("__repr__", { return "<SlawRef: " + s.ToStr() + ">"; });
+    //handle.def("__str__",  { return s.ToStr(); });
+    //handle.def("__repr__", { return "<SlawRef: " + s.ToStr() + ">"; });
 
     //.def("__str__",  [](const s.ToStr(); })
     //.def("__repr__", [](const return "<SlawRef: " + s.ToStr() + ">"; });
