@@ -244,9 +244,8 @@ void bind_SlawRef(py::module_ &m) {
     .def("__eq__",       &SlawRef::operator==)
     .def("__ne__",       &SlawRef::operator!=)
 
-    .def("__str__",  [](constn s.ToStr(); })
-    .def("__repr__", [](const return "<SlawRef: " + s.ToStr() + ">";
+    .def("__str__",  [](const s.ToStr(); })
+    .def("__repr__", [](const return "<SlawRef: " + s.ToStr() + ">"; });
 }
-
 /// end ///
 
