@@ -19,6 +19,9 @@ struct Bind_oblong_plasma_Slaw : public pybind11_weaver::EntityBase {
     explicit Bind_oblong_plasma_Slaw(pybind11_weaver::EntityScope parent_h)
     : handle(parent_h, "Slaw", pybind11::dynamic_attr()) {
         handle.def(pybind11::init<const char*>());
+        handle.def(pybind11::init<int64_t>())
+        handle.def(pybind11::init<double>())
+        handle.def(pybind11::init<bool>())
         handle.def("IsList",  &oblong::plasma::Slaw::IsList);
         handle.def("IsArray", &oblong::plasma::Slaw::IsArray);
         handle.def("IsMap",   &oblong::plasma::Slaw::IsMap);
@@ -26,6 +29,19 @@ struct Bind_oblong_plasma_Slaw : public pybind11_weaver::EntityBase {
         handle.def("Nth",     &oblong::plasma::Slaw::Nth);
         handle.def("MapKeys", &oblong::plasma::Slaw::MapKeys);
         handle.def("Keys",    &oblong::plasma::Slaw::MapKeys); //more pythonic
+        handle.def(pybind11::init([](py::object obj) {
+            if (py::isinstance<py::int_>(obj)) {
+                return Slaw(obj.cast<int64_t>());
+            } else if (py::isinstance<py::float_>(obj)) {
+                return Slaw(obj.cast<double>());
+            } else if (py::isinstance<py::str>(obj)) {
+                return Slaw(obj.cast<std::string>().c_str());
+            } else if (py::isinstance<py::bool_>(obj)) {
+                return Slaw(obj.cast<bool>());
+            } else {
+                throw std::invalid_argument("Unsupported type for Slaw constructor");
+            }
+        }))
 
         //handle.def_static("List", pybind11::overload_cast<slaw>(&Slaw::List));
         //handle.def_static("Map",  pybind11::overload_cast<slaw, slaw>(&Slaw::Map));
@@ -188,3 +204,5 @@ class v2int32(m, "v2int32")
 //  .def("__repr__", { return "<v2int32 x=" + std::to_string(v.x) + ", y=" + std::to_string(v.y) + ">"; });
 
 /// end ///
+
+
