@@ -19,7 +19,8 @@ def main():
 
     psObjName, psObjAction    = plasma.Slaw(objName),      plasma.Slaw(objAction)
     psObjX, psObjY            = plasma.Slaw(objCoords[0]), plasma.Slaw(objCoords[1]) # a v2int32 would be better
-    psObjUpdates              = plasma.Slaw.List(psObjAction, psObjX, psObjY)
+    psObjUpdates              = plasma.Slaw.List()
+    for el in [psObjAction, psObjX, psObjY]: psObjUpdates.Add(el)
 
     ingests = plasma.Slaw.Map(psObjName, psObjUpdates)
     protein = plasma.Protein(descrips, ingests)
