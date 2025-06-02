@@ -178,10 +178,13 @@ struct Bind_oblong_plasma_ObRetort_DepositInfo : public pybind11_weaver::EntityB
 using Entity_oblong_plasma_ObRetort_DepositInfo = Bind_oblong_plasma_ObRetort_DepositInfo<>;
 #endif
 
-py::class_<v2int32>(m, "v2int32")
+/*
+class v2int32(m, "v2int32")
   .def(py::init<int32, int32>())
   .def_readwrite("x", &v2int32::x)
   .def_readwrite("y", &v2int32::y)
-  .def("__repr__", { return "<v2int32 x=" + std::to_string(v.x) + ", y=" + std::to_string(v.y) + ">"; });
+  .def("__repr__", { return std::string("v2int32(") + std::to_string(v.x) + ", " + std::to_string(v.y) + ")"; }
+*/
+//  .def("__repr__", { return "<v2int32 x=" + std::to_string(v.x) + ", y=" + std::to_string(v.y) + ">"; });
 
 /// end ///
