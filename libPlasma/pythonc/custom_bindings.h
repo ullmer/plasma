@@ -35,8 +35,9 @@ struct Bind_oblong_plasma_Slaw : public pybind11_weaver::EntityBase {
         //handle.def_static("List", pybind11::overload_cast<slaw>(&Slaw::List));
         //handle.def_static("Map",  pybind11::overload_cast<slaw, slaw>(&Slaw::Map));
 
-        handle.def_static("List",  [](const oblong::plasma::Slaw &s){return oblong::plasma::Slaw::List(s); });
-        //handle.def_static("Array", [](const oblong::plasma::Slaw &s){return oblong::plasma::Slaw::Array(s); });
+        handle.def_static("List",  [](){return oblong::plasma::Slaw::List(); });
+
+        //handle.def_static("List",  [](const oblong::plasma::Slaw &s){return oblong::plasma::Slaw::List(s); });
         handle.def_static("Map",   [](const oblong::plasma::Slaw &k, oblong::plasma::Slaw v){
                            return oblong::plasma::Slaw::Map(k, v); });
         handle.def_static("Cons",  [](const oblong::plasma::Slaw &car, const oblong::plasma::Slaw &cdr){
