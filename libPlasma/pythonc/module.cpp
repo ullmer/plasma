@@ -18,8 +18,7 @@ void AddCustomEntities(pybind11::module_ &m, const pybind11_weaver::CustomBindin
     EntityScope top_scope(m);
     CreateEntity<Entity_oblong_plasma_Hose>(std::move(top_scope), registry)->Update();
 
-    // Recreate top_scope since it's been moved
-    EntityScope top_scope2(m);
+    EntityScope top_scope2(m); // Recreate top_scope since it's been moved
     CreateEntity<Entity_oblong_plasma_Pool>(std::move(top_scope2), registry)->Update();
 
     EntityScope top_scope3(m);
@@ -34,7 +33,7 @@ void AddCustomEntities(pybind11::module_ &m, const pybind11_weaver::CustomBindin
     EntityScope top_scope_slist(m);
     CreateEntity<Entity_oblong_plasma_detail_SlawList>(std::move(top_scope_slist), registry)->Update();
 
-    EntityScope top_scope_slist(m);
+    EntityScope top_scope_SR(m);
     CreateEntity<Entity_oblong_plasma_detail_SlawRef>(std::move(top_scope_slist), registry)->Update();
 
     EntityScope top_scope_retinfo(m);
@@ -61,7 +60,9 @@ PYBIND11_MODULE(plasma, m) {
     //registry.SetCustomBinding<Entity_oblong_plasma_Slaw>();    // already bound by pybind11_weaver
     //registry.SetCustomBinding<Entity_oblong_plasma_Protein>(); // already bound by pybind11_weaver
 
-    registry.SetCustomBinding<Entity_oblong_plasma_SlawRef>();
+    //registry.SetCustomBinding<Entity_oblong_plasma_SlawRef>();
+    registry.SetCustomBinding<Entity_oblong_plasma_detail_SlawRef>();
+
     registry.SetCustomBinding<Entity_oblong_plasma_Hose>();
     registry.SetCustomBinding<Entity_oblong_plasma_Pool>();
     registry.SetCustomBinding<Entity_oblong_plasma_ObRetort_DepositInfo>();
