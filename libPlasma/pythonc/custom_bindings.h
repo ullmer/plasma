@@ -2,6 +2,7 @@
 #include <pybind11/stl.h>
 #include <libLoam/c++/ob-coretypes-hash.h>
 #include "Slaw.h"
+#include "SlawList.h"
 #include "Protein.h"
 #include "Hose.h"
 #include "Pool.h"
