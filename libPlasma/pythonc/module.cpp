@@ -34,7 +34,7 @@ void AddCustomEntities(pybind11::module_ &m, const pybind11_weaver::CustomBindin
     CreateEntity<Entity_oblong_plasma_detail_SlawList>(std::move(top_scope_slist), registry)->Update();
 
     EntityScope top_scope_SR(m);
-    CreateEntity<Entity_oblong_plasma_detail_SlawRef>(std::move(top_scope_slist), registry)->Update();
+    CreateEntity<Entity_oblong_plasma_detail_SlawRef>(std::move(top_scope_SR), registry)->Update();
 
     EntityScope top_scope_retinfo(m);
     CreateEntity<Entity_oblong_plasma_ObRetort_DepositInfo>(std::move(top_scope_retinfo), registry)->Update();

@@ -226,8 +226,14 @@ struct Bind_oblong_plasma_detail_SlawRef : public pybind11_weaver::EntityBase {
   explicit Bind_oblong_plasma_detail_SlawRef(pybind11_weaver::EntityScope parent_h)
     : handle(parent_h, "SlawRef", pybind11::dynamic_attr()) {
     handle.def(pybind11::init<>());     // Default constructor
-    handle.def(pybind11::init<slaw>()); // Constructor from slaw
+    //handle.def(pybind11::init<slaw>()); // Constructor from slaw
+    //handle.def(pybind11::init<oblong::plasma::Slaw>());
+
     //.def(py::init<bslaw, SlawRef>())  // Constructor from bslaw and parent
+
+    handle.def_static("from_slaw", [](const oblong::plasma::Slaw &s) {
+      return oblong::plasma::detail::SlawRef(s);
+    });
 
     handle.def("swap_if_null", &oblong::plasma::detail::SlawRef::SwapIfNull);
     handle.def("is_null",      &oblong::plasma::detail::SlawRef::IsNull);
@@ -248,8 +254,8 @@ struct Bind_oblong_plasma_detail_SlawRef : public pybind11_weaver::EntityBase {
     //handle.def("__str__",  { return s.ToStr(); });
     //handle.def("__repr__", { return "<SlawRef: " + s.ToStr() + ">"; });
 
-    //.def("__str__",  [](const s.ToStr(); })
-    //.def("__repr__", [](const return "<SlawRef: " + s.ToStr() + ">"; });
+    //handle.def("__str__",  [](const s.ToStr(); });
+    //handle.def("__repr__", [](const return "<SlawRef: " + s.ToStr() + ">"; });
   }
 
   void Update() override {}
