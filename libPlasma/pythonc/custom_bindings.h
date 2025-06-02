@@ -37,10 +37,12 @@ struct Bind_oblong_plasma_Slaw : public pybind11_weaver::EntityBase {
         //handle.def_static("Map",  pybind11::overload_cast<slaw, slaw>(&Slaw::Map));
 
         handle.def_static("List",  [](){return oblong::plasma::Slaw::List(); });
+
         handle.def_static("List",  [](const oblong::plasma::Slaw &s){return oblong::plasma::Slaw::List(s); });
 
         handle.def_static("Map",   [](const oblong::plasma::Slaw &k, oblong::plasma::Slaw v){
                            return oblong::plasma::Slaw::Map(k, v); });
+
         handle.def_static("Cons",  [](const oblong::plasma::Slaw &car, const oblong::plasma::Slaw &cdr){
                            return oblong::plasma::Slaw::Cons(car, cdr); });
 
@@ -203,7 +205,7 @@ struct Bind_oblong_plasma_detail_SlawList : public pybind11_weaver::EntityBase {
   explicit Bind_oblong_plasma_detail_SlawList(pybind11_weaver::EntityScope parent_h)
       : handle(parent_h, "SlawList", pybind11::dynamic_attr()) {
     handle.def(pybind11::init<>());
-    handle.def("ListAppend", &oblong::plasma::detail::SlawList::Add);
+    handle.def("ListAppend", [](const oblong::plasma::Slaw &s) {oblong::plasma::detail::SlawList::ListAppend(s));}
   }
 
   void Update() override {}
