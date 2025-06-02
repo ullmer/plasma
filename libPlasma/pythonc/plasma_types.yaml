@@ -1,87 +1,87 @@
-signed   char         int8;
-unsigned char         unt8;
-signed   short        int16;
-unsigned short        unt16;
-signed   int          int32;
-unsigned int          unt32;
-__int64               int64;
-unsigned __int64      unt64;
-long     long         int64;
-unsigned long long    unt64;
-long                  int64;
-unsigned long         unt64;
-long     long         int64;
-unsigned long long    unt64;
-float                 float32;
-double                float64;
-unt8                  byte;
-{ int8 re, im; }      int8c;
-{ unt8 re, im; }      unt8c;
-{ int16 re, im; }     int16c;
-{ unt16 re, im; }     unt16c;
-{ int32 re, im; }     int32c;
-{ unt32 re, im; }     unt32c;
-{ int64 re, im; }     int64c;
-{ unt64 re, im; }     unt64c;
-{ float32 re, im; }   float32c;
-{ float64 re, im; }   float64c;
-{ int8 x, y; }        v2int8;
-{ unt8 x, y; }        v2unt8;
-{ int16 x, y; }       v2int16;
-{ unt16 x, y; }       v2unt16;
-{ int32 x, y; }       v2int32;
-{ unt32 x, y; }       v2unt32;
-{ int64 x, y; }       v2int64;
-{ unt64 x, y; }       v2unt64;
-{ float32 x, y; }     v2float32;
-{ float64 x, y; }     v2float64;
-{ int8 x, y, z; }     v3int8;
-{ unt8 x, y, z; }     v3unt8;
-{ int16 x, y, z;}     v3int16;
-{ unt16 x, y, z; }    v3unt16;
-{ int32 x, y, z; }    v3int32;
-{ unt32   x, y, z; }  v3unt32;
-{ int64   x, y, z; }  v3int64;
-{ unt64   x, y, z; }  v3unt64;
-{ float32 x, y, z; }  v3float32;
-{ float64 x, y, z; }  v3float64;
-{ int8 x, y, z, w; }  v4int8;
-{ unt8 x, y, z, w; }  v4unt8;
-{ int16 x, y, z, w; } v4int16;
-{ unt16 x, y, z, w; } v4unt16;
-{ int32 x, y, z, w; } v4int32;
-{ unt32 x, y, z, w; } v4unt32;
-{ int64 x, y, z, w; } v4int64;
-{ unt64 x, y, z, w; }  v4unt64;
-{ float32 x, y, z, w;} v4float32;
-{ float64 x, y, z, w;} v4float64;
-{ int8c x, y; }        v2int8c;
-{ unt8c x, y; }        v2unt8c;
-{ int16c x, y; }       v2int16c;
-{ unt16c x, y; }       v2unt16c;
-{ int32c x, y; }       v2int32c;
-{ unt32c x, y; }       v2unt32c;
-{ int64c x, y; }       v2int64c;
-{ unt64c x, y; }       v2unt64c;
-{ float32c x, y; }     v2float32c;
-{ float64c x, y; }     v2float64c;
-{ int8c x, y, z; }     v3int8c;
-{ unt8c x, y, z; }     v3unt8c;
-{ int16c x, y, z; }    v3int16c;
-{ unt16c x, y, z; }    v3unt16c;
-{ int32c x, y, z; }    v3int32c;
-{ unt32c x, y, z; }    v3unt32c;
-{ int64c x, y, z; }    v3int64c;
-{ unt64c x, y, z; }    v3unt64c;
-{ float32c x, y, z; }  v3float32c;
-{ float64c x, y, z; }  v3float64c;
-{ int8c x, y, z, w; }  v4int8c;
-{ unt8c x, y, z, w; }  v4unt8c;
-{ int16c x, y, z, w; } v4int16c;
-{ unt16c x, y, z, w; } v4unt16c;
-{ int32c x, y, z, w; } v4int32c;
-{ unt32c x, y, z, w; } v4unt32c;
-{ int64c x, y, z, w; } v4int64c;
-{ unt64c x, y, z, w; } v4unt64c;
-{ float32c x, y, z, w;} v4float32c;
-{ float64c x, y, z, w;} v4float64c;
+int8:  core: char,    descrip: signed   char         
+unt8:  core: byte,    descrip: unsigned char         
+int16: core: int, bits: 16, descrip: signed   short        
+unsigned short        unt16:
+signed   int          int32:
+unsigned int          unt32:
+__int64               int64:
+unsigned __int64      unt64:
+long     long         int64:
+unsigned long long    unt64:
+long                  int64:
+unsigned long         unt64:
+long     long         int64:
+unsigned long long    unt64:
+float                 float32:
+double                float64:
+unt8                  byte:
+"{ int8 re, im; }"      int8c:
+"{ unt8 re, im; }"      unt8c:
+"{ int16 re, im; }"     int16c:
+"{ unt16 re, im; }"     unt16c:
+"{ int32 re, im; }"     int32c:
+"{ unt32 re, im; }"     unt32c:
+"{ int64 re, im; }"     int64c:
+"{ unt64 re, im; }"     unt64c:
+"{ float32 re, im; }"   float32c:
+"{ float64 re, im; }"   float64c:
+"{ int8 x, y; }"        v2int8:
+"{ unt8 x, y; }"        v2unt8:
+"{ int16 x, y; }"       v2int16:
+"{ unt16 x, y; }"       v2unt16:
+"{ int32 x, y; }"       v2int32:
+"{ unt32 x, y; }"       v2unt32:
+"{ int64 x, y; }"       v2int64:
+"{ unt64 x, y; }"       v2unt64:
+"{ float32 x, y; }"     v2float32:
+"{ float64 x, y; }"     v2float64:
+"{ int8 x, y, z; }"     v3int8:
+"{ unt8 x, y, z; }"     v3unt8:
+"{ int16 x, y, z;}"     v3int16:
+"{ unt16 x, y, z; }"    v3unt16:
+"{ int32 x, y, z; }"    v3int32:
+"{ unt32   x, y, z; }"  v3unt32:
+"{ int64   x, y, z; }"  v3int64:
+"{ unt64   x, y, z; }"  v3unt64:
+"{ float32 x, y, z; }"  v3float32:
+"{ float64 x, y, z; }"  v3float64:
+"{ int8 x, y, z, w; }"  v4int8:
+"{ unt8 x, y, z, w; }"  v4unt8:
+"{ int16 x, y, z, w; }" v4int16:
+"{ unt16 x, y, z, w; }" v4unt16:
+"{ int32 x, y, z, w; }" v4int32:
+"{ unt32 x, y, z, w; }" v4unt32:
+"{ int64 x, y, z, w; }" v4int64:
+"{ unt64 x, y, z, w; }"  v4unt64:
+"{ float32 x, y, z, w;}" v4float32:
+"{ float64 x, y, z, w;}" v4float64:
+"{ int8c x, y; }"        v2int8c:
+"{ unt8c x, y; }"        v2unt8c:
+"{ int16c x, y; }"       v2int16c:
+"{ unt16c x, y; }"       v2unt16c:
+"{ int32c x, y; }"       v2int32c:
+"{ unt32c x, y; }"       v2unt32c:
+"{ int64c x, y; }"       v2int64c:
+"{ unt64c x, y; }"       v2unt64c:
+"{ float32c x, y; }"     v2float32c:
+"{ float64c x, y; }"     v2float64c:
+"{ int8c x, y, z; }"     v3int8c:
+"{ unt8c x, y, z; }"     v3unt8c:
+"{ int16c x, y, z; }"    v3int16c:
+"{ unt16c x, y, z; }"    v3unt16c:
+"{ int32c x, y, z; }"    v3int32c:
+"{ unt32c x, y, z; }"    v3unt32c:
+"{ int64c x, y, z; }"    v3int64c:
+"{ unt64c x, y, z; }"    v3unt64c:
+"{ float32c x, y, z; }"  v3float32c:
+"{ float64c x, y, z; }"  v3float64c:
+"{ int8c x, y, z, w; }"  v4int8c:
+"{ unt8c x, y, z, w; }"  v4unt8c:
+"{ int16c x, y, z, w; }" v4int16c:
+"{ unt16c x, y, z, w; }" v4unt16c:
+"{ int32c x, y, z, w; }" v4int32c:
+"{ unt32c x, y, z, w; }" v4unt32c:
+"{ int64c x, y, z, w; }" v4int64c:
+"{ unt64c x, y, z, w; }" v4unt64c:
+"{ float32c x, y, z, w;}" v4float32c:
+"{ float64c x, y, z, w;}" v4float64c:
