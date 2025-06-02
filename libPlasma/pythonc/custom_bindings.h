@@ -195,6 +195,26 @@ class v2int32(m, "v2int32")
 //  .def("__repr__", { return "<v2int32 x=" + std::to_string(v.x) + ", y=" + std::to_string(v.y) + ">"; });
 
 
+template <class Pybind11T = pybind11::class_<oblong::plasma::detail::SlawList>>
+struct Bind_oblong_plasma_detail_SlawList : public pybind11_weaver::EntityBase {
+  using Pybind11Type = Pybind11T;
+  Pybind11Type handle;
+
+  explicit Bind_oblong_plasma_detail_SlawList(pybind11_weaver::EntityScope parent_h)
+      : handle(parent_h, "SlawList", pybind11::dynamic_attr()) {
+    handle.def(pybind11::init<>());
+    handle.def("ListAppend", &oblong::plasma::detail::SlawList::Add);
+  }
+
+  void Update() override {}
+  pybind11_weaver::EntityScope AsScope() override { return pybind11_weaver::EntityScope(handle); }
+  static const char *Key() { return "oblong_plasma_detail_SlawList"; }
+};
+
+#ifndef PB11_WEAVER_DISABLE_Entity_oblong_plasma_detail_SlawList
+using Entity_oblong_plasma_detail_SlawList = Bind_oblong_plasma_detail_SlawList<>;
+#endif
+
 /// end ///
 
 
