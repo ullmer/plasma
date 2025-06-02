@@ -10,9 +10,7 @@ set(
   Plasma++Tests_TESTS
   p-await-helloWorld04
   p-deposit-helloWorld04
-  #p-await-helloWorld02
-  #p-deposit-helloWorld1
-  #p-deposit-helloWorld2
+  v2int32Test
   HoseNthTest
   HoseTest
   HoseTimedTest
