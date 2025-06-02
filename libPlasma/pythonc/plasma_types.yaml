@@ -1,10 +1,13 @@
-int8:  core: char,    descrip: signed   char         
-unt8:  core: byte,    descrip: unsigned char         
-int16: core: int, bits: 16, descrip: signed   short        
-unsigned short        unt16:
-signed   int          int32:
-unsigned int          unt32:
-__int64               int64:
+int8:    {core: char, fields: 1, bits: 8,  descrip: signed   char}
+unt8:    {core: byte, fields: 1, bits: 8,  descrip: unsigned char}
+int16:   {core: int,  fields: 1, bits: 16, descrip: signed   short}
+unt16:   {core: unt,  fields: 1, bits: 16, descrip: unsigned short}
+int32:   {core: int,  fields: 1, bits: 32, descrip: signed   int}
+unt32:   {core: unt,  fields: 1, bits: 32, descrip: unsigned int}
+int64:   {core: int,  fields: 1, bits: 64, descrip: __int64}
+v2int32: {core: int,  fields: 2, bits: 32, descrip: "{int32 x, y;}"}
+vunt64c: {core: unt,  fields: 4, bits: 64, descrip: "{unt64c x, y, z, w;}"}
+
 unsigned __int64      unt64:
 long     long         int64:
 unsigned long long    unt64:
