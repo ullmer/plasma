@@ -205,10 +205,10 @@ struct Bind_oblong_plasma_detail_SlawList : public pybind11_weaver::EntityBase {
       oblong::plasma::detail::SlawRefs refs;
       refs.reserve(slaws.size());
       for (const auto &s : slaws) {
-        oblong::plasma::detail::SlawRef s2 = oblong::plasma::detail::SlawRef(s);
+        oblong::plasma::detail::SlawRef s2 = oblong::plasma::detail::SlawRef(oblong::plasma::Slaw s);
         refs.push_back(s2);
       }
-      return oblong::plasma::SlawList(refs);
+      return oblong::plasma::detail::SlawList(refs);
     }), pybind11::arg("slaws"));
 
         // AsSlaw() returns SlawRef, which can be directly stored in SlawRefs (std::vector<SlawRef>)
