@@ -218,6 +218,35 @@ struct Bind_oblong_plasma_detail_SlawList : public pybind11_weaver::EntityBase {
 using Entity_oblong_plasma_detail_SlawList = Bind_oblong_plasma_detail_SlawList<>;
 #endif
 
-/// end ///
+namespace py = pybind11;
 
+void bind_SlawRef(py::module_ &m) {
+  using namespace oblong::plasma::detail;
+
+  py::class_<SlawRef>(m, "SlawRef")
+    .def(py::init<>())     // Default constructor
+    .def(py::init<slaw>()) // Constructor from slaw
+    .def(py::init<bslaw, SlawRef>())  // Constructor from bslaw and parent
+
+    .def("swap_if_null", &SlawRef::SwapIfNull)
+    .def("is_null",      &SlawRef::IsNull)
+    .def("equals",       &SlawRef::Equals)
+    .def("is_array",     &SlawRef::IsArray)
+    .def("is_boolean",   &SlawRef::IsBoolean)
+    .def("is_cons",      &SlawRef::IsCons)
+    .def("is_list",      &SlawRef::IsList)
+    .def("is_map",       &SlawRef::IsMap)
+    .def("is_protein",   &SlawRef::IsProtein)
+    .def("is_atomic",    &SlawRef::IsAtomic)
+    .def("to_str",       &SlawRef::ToStr)
+    .def("spew",         &SlawRef::Spew)
+
+    .def("__eq__",       &SlawRef::operator==)
+    .def("__ne__",       &SlawRef::operator!=)
+
+    .def("__str__",  [](constn s.ToStr(); })
+    .def("__repr__", [](const return "<SlawRef: " + s.ToStr() + ">";
+}
+
+/// end ///
 
