@@ -16,8 +16,11 @@ class enoAniMenu:
   menuHandles = ['an', 'ap', 'op', 'da', 'pr', 'te', 'he']
   actorDict   = None
 
-  x0, y0      = 70, 70
-  dx, dy      = 0,  110
+  x0,  y0     = 70, 70
+  dx,  dy     = 0,  110 #base positioning
+  hdx, hdy    = -110, 0 #hidden relative positioning
+
+  isMenuHidden = True
 
   placeFns    = ['map45Ber01a_100', 'mapBer01a_100', 'mapBos01a_100',
                  'mapCeu01a_100',   'mapDca01a_100', 'mapLax01a_100', 
@@ -44,6 +47,12 @@ class enoAniMenu:
       self.actorDict[actorHandle] = a
       x += self.dx; y += self.dy
 
+  ########### toggle menu display ########### 
+
+  def toggleMenuDisplay(self):
+    if self.isMenuHidden: self.animMenuOpen();   self.isMenuHidden = False
+    else:                 self.animMenuHidden(); self.isMenuHidden = True
+
   ########### draw ########### 
 
   def draw(self, screen):
@@ -58,6 +67,8 @@ class enoAniMenu:
     if self.actorDict is None: self.msg("draw called but uninitiated"); return
     for el in self.menuHandles:
       a = self.actorDict[el]
-      if a.collidepoint(pos): print(el + " pressed")
+      if a.collidepoint(pos): 
+        self.msg(el + " pressed")
+        if el == 'an': self.toggleMenuDisplay()
 
 ### end ###
