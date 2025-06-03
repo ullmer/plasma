@@ -10,14 +10,11 @@ class enoAniMenu:
   imgHe               = 'help01a_100'
 
   menuImgs    = [imgAn, imgAp, imgOp, imgDa, imgPr, imgTe, imgHe]
+  menuHandles = ['an', 'ap', 'op', 'da', 'pr', 'te', 'he']
+  actorDict   = None
 
-map45Ber01a_100
-mapBer01a_100
-mapBos01a_100
-mapCeu01a_100
-mapDca01a_100
-mapLax01a_100
-mapMit01a_100
-mapTyo01a_100
+  placeFns    = ['map45Ber01a_100', 'mapBer01a_100', 'mapBos01a_100',
+                 'mapCeu01a_100',   'mapDca01a_100', 'mapLax01a_100', 
+                 'mapMit01a_100',   'mapTyo01a_100']
 
 ### end ###
