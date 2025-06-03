@@ -2,6 +2,8 @@
 # Brygg Ullmer, Clemson University
 # Begun 2025-06-02
 
+WIDTH, HEIGHT = 800, 800
+
 ######## animist canvas ######## 
 
 class AnimCanvas:
@@ -10,15 +12,23 @@ class AnimCanvas:
   actorSq, actorArtist, actorSpace = [None]*3
 
   ########### constructor ########### 
-
   def __init__(self, **kwargs):
     self.__dict__.update(kwargs) #allow class fields to be passed in constructor
-    self.prepCats2Vals()
+    self.prepActors()
 
-########### constructor ########### 
+  ########### prepare actors ########### 
+  def prepActors(self):
+    self.actorSq     = Actor(self.imgSqFn)
+    self.actorArtist = Actor(self.imgArtistFn)
+    self.actorSpace  = Actor(self.imgSpaceFn)
+
+  ########### draw ########### 
+  def draw(self): self.actorSq.draw()
+
+########### main ########### 
 
 ac = AnimCanvas()
 
-def draw(): c.draw()
+def draw(): screen.clear(); ac.draw()
 
 ### end ###
