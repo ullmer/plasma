@@ -4,6 +4,8 @@
 
 WIDTH, HEIGHT = 800, 800
 
+from enoActorScaled import *
+
 ######## animist canvas ######## 
 
 class AnimCanvas:
@@ -18,12 +20,12 @@ class AnimCanvas:
 
   ########### prepare actors ########### 
   def prepActors(self):
-    self.actorSq     = Actor(self.imgSqFn)
-    self.actorArtist = Actor(self.imgArtistFn)
-    self.actorSpace  = Actor(self.imgSpaceFn)
+    self.actorSq     = enoActorScaled(self.imgSqFn, scale=.2)
+    self.actorArtist = enoActorScaled(self.imgArtistFn)
+    self.actorSpace  = enoActorScaled(self.imgSpaceFn)
 
   ########### draw ########### 
-  def draw(self): self.actorSq.draw()
+  def draw(self): self.actorSq.draw(screen)
 
 ########### main ########### 
 
