@@ -20,15 +20,19 @@ class AnimCanvas:
 
   ########### prepare actors ########### 
   def prepActors(self):
-    self.actorSq     = enoActorScaled(self.imgSqFn,     scale=.2)
-    self.actorArtist = enoActorScaled(self.imgArtistFn, scale=.5)
-    self.actorSpace  = enoActorScaled(self.imgSpaceFn, scale=.75, pos=(530,525))
-    self.actorSpace.alpha = 80
+    self.actorSq     = enoActorScaled(self.imgSqFn,     scale=.2,
+                                      pos=(1000, 500),   alpha = 220)
+
+    self.actorArtist = enoActorScaled(self.imgArtistFn, scale=.25, 
+                                      pos=(1000, 1000),   alpha = 80)
+
+    self.actorSpace  = enoActorScaled(self.imgSpaceFn,  scale=.75, 
+                                      pos=(530,525),    alpha = 80)
 
   ########### draw ########### 
   def draw(self): 
-    self.actorSpace.draw(screen)
-    self.actorSq.draw(screen)
+    for a in self.actorSpace, self.actorArtist, self.actorSq:
+      a.draw(screen)
 
 ########### main ########### 
 
