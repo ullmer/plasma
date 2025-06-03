@@ -41,6 +41,9 @@ class enoAniMenu:
   ########### draw ########### 
 
   def draw(self, screen):
-    if self.actorDict is None:
+    if self.actorDict is None: self.msg("draw called but uninitiated"); return
+    for el in self.menuHandles:
+      a = self.actorDict[el]
+      a.draw()
 
 ### end ###
