@@ -16,8 +16,8 @@ class enoAniMenu:
   menuHandles = ['an', 'ap', 'op', 'da', 'pr', 'te', 'he']
   actorDict   = None
 
-  x0, y0      = 50, 50
-  dx, dy      = 0,  75
+  x0, y0      = 70, 70
+  dx, dy      = 0,  110
 
   placeFns    = ['map45Ber01a_100', 'mapBer01a_100', 'mapBos01a_100',
                  'mapCeu01a_100',   'mapDca01a_100', 'mapLax01a_100', 
@@ -42,7 +42,7 @@ class enoAniMenu:
       imgPath = '%s/%s' % (self.pathPrefix, imgFn)
       a = Actor(imgPath, pos=(x,y))
       self.actorDict[actorHandle] = a
-      x += dx; y += dy
+      x += self.dx; y += self.dy
 
   ########### draw ########### 
 
