@@ -2,6 +2,9 @@
 # Brygg Ullmer, Clemson University
 # Begun 2025-06-02
 
+from pgzero.builtins import Actor, animate, keyboard, keys
+import traceback
+
 class enoAniMenu:
 
   pathPrefix = 'animist_menu'
@@ -25,6 +28,9 @@ class enoAniMenu:
   def __init__(self, **kwargs):
     self.__dict__.update(kwargs) #allow class fields to be passed in constructor
     self.prepActors()
+
+  def msg(self, msg): print("enoAniMenu msg: " + str(msg))
+  def err(self, msg): print("enoAniMenu error: " + str(msg)); traceback.print_exc()
 
   ########### prepare actors ########### 
 
