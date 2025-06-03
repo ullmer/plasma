@@ -56,7 +56,7 @@ class enoAniMenu:
   ########### toggle menu display ########### 
 
   def toggleMenuDisplay(self):
-    self.msg("toggleMenuDisplay")
+    if self.verbose:      self.msg("toggleMenuDisplay")
     if self.isMenuHidden: self.animMenuOpen();   self.isMenuHidden = False
     else:                 self.animMenuHidden(); self.isMenuHidden = True
   
