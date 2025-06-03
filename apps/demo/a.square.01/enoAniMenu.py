@@ -20,6 +20,9 @@ class enoAniMenu:
   dx,  dy     = 0,  110 #base positioning
   hdx, hdy    = -110, 0 #hidden relative positioning
 
+  shortestUnfoldDuration = .2  # in seconds 
+  progressUnfoldMult     = 1.5
+
   isMenuHidden = True
 
   placeFns    = ['map45Ber01a_100', 'mapBer01a_100', 'mapBos01a_100',
@@ -52,7 +55,21 @@ class enoAniMenu:
   def toggleMenuDisplay(self):
     if self.isMenuHidden: self.animMenuOpen();   self.isMenuHidden = False
     else:                 self.animMenuHidden(); self.isMenuHidden = True
+  
+  ########### toggle menu display ########### 
 
+  def animMenu(self, dx, dy):
+    if self.actorDict is None: self.msg("amo called but uninitiated"); return
+    x, y = self.x0, self.y0
+    d    = self.shortestUnfoldDuration
+    for el in self.menuHandles:
+      a = self.actorDict[el]
+      animate(a, pos=(x,y), duration=d)
+      x += self.dx; y += self.dy; d *= self.progressUnfoldMult
+
+  def animMenuOpen(self):   self.animMenu(0,0)
+  def animMenuHidden(self): self.animMenu(self.hdx, self.hdy)
+  
   ########### draw ########### 
 
   def draw(self, screen):
@@ -64,7 +81,9 @@ class enoAniMenu:
   ######################### on_mouse_down #########################
 
   def on_mouse_down(self, pos):
-    if self.actorDict is None: self.msg("draw called but uninitiated"); return
+    if self.actorDict is None: 
+      self.msg("on_mouse_down called but uninitiated"); return
+
     for el in self.menuHandles:
       a = self.actorDict[el]
       if a.collidepoint(pos): 
