@@ -48,14 +48,19 @@ class enoActorScaled(Actor): #scaled actor
       else:
         #screen.blit(self.lastScaledSurf, self.pos)
         screen.blit(self.lastScaledSurf, self.topleft)
+  
+############# main ############# 
 
-#a1 = enoActorScaled("ipan_usa_bea08c")
-#a1.scale=.1
+def grow(a1=None): animate(a1, scale=1,  duration=1.5, tween='accel_decel', 
+                        on_finished=shrink)
 
-#def grow():   animate(a1, scale=1,  duration=1.5, tween='accel_decel', on_finished=shrink)
-#def shrink(): animate(a1, scale=.1, duration=1.5, tween='accel_decel', on_finished=grow)
+def shrink(a1=None): animate(a1, scale=.1, duration=1.5, tween='accel_decel', 
+                        on_finished=grow)
 
-#grow()
+def main():
+  a1 = enoActorScaled("ipan_usa_bea08c")
+  a1.scale=.1
+  grow(a1)
 
 #def draw(): 
 #  a1.draw()
