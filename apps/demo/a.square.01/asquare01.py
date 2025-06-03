@@ -23,11 +23,11 @@ class AnimCanvas:
     self.actorSq     = enoActorScaled(self.imgSqFn,     scale=.2,
                                       pos=(1000, 500),   alpha = 220)
 
-    self.actorArtist = enoActorScaled(self.imgArtistFn, scale=.25, 
-                                      pos=(1000, 1000),   alpha = 80)
+    self.actorArtist = enoActorScaled(self.imgArtistFn, scale=.22, 
+                                      pos=(1080, 1250), alpha = 95)
 
     self.actorSpace  = enoActorScaled(self.imgSpaceFn,  scale=.75, 
-                                      pos=(530,525),    alpha = 80)
+                                      pos=(530,525),    alpha = 40)
 
   ########### draw ########### 
   def draw(self): 
