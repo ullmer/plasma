@@ -21,7 +21,7 @@ class enoAniMenu:
   hdx, hdy    = -110, 0 #hidden relative positioning
 
   shortestUnfoldDuration = .2  # in seconds 
-  progressUnfoldMult     = 1.5
+  progressUnfoldMult     = 1.1
 
   isMenuHidden = True
 
@@ -49,26 +49,30 @@ class enoAniMenu:
       a = Actor(imgPath, pos=(x,y))
       self.actorDict[actorHandle] = a
       x += self.dx; y += self.dy
+      if actorHandle == 'an' and self.isMenuHidden:
+        x += self.hdx; y += self.hdy 
 
   ########### toggle menu display ########### 
 
   def toggleMenuDisplay(self):
+    self.msg("toggleMenuDisplay")
     if self.isMenuHidden: self.animMenuOpen();   self.isMenuHidden = False
     else:                 self.animMenuHidden(); self.isMenuHidden = True
   
   ########### toggle menu display ########### 
 
   def animMenu(self, dx, dy):
+    self.msg("animMenu %i %i" % (dx,dy)) 
     if self.actorDict is None: self.msg("amo called but uninitiated"); return
     x, y = self.x0, self.y0
     d    = self.shortestUnfoldDuration
     for el in self.menuHandles:
       a = self.actorDict[el]
       animate(a, pos=(x,y), duration=d)
-      x += self.dx; y += self.dy; d *= self.progressUnfoldMult
+      x += dx; y += dy; d *= self.progressUnfoldMult
 
-  def animMenuOpen(self):   self.animMenu(0,0)
-  def animMenuHidden(self): self.animMenu(self.hdx, self.hdy)
+  def animMenuOpen(self):   self.animMenu(-self.hdx, -self.hdy)
+  def animMenuHidden(self): self.animMenu( self.hdx,  self.hdy)
   
   ########### draw ########### 
 
