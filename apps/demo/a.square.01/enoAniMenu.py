@@ -17,4 +17,10 @@ class enoAniMenu:
                  'mapCeu01a_100',   'mapDca01a_100', 'mapLax01a_100', 
                  'mapMit01a_100',   'mapTyo01a_100']
 
+  ########### constructor ########### 
+
+  def __init__(self, **kwargs):
+    self.__dict__.update(kwargs) #allow class fields to be passed in constructor
+    self.prepActors()
+
 ### end ###

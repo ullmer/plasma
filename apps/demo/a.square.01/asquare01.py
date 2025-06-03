@@ -14,11 +14,13 @@ class AnimCanvas:
   actorSq, actorArtist, actorSpace = [None]*3
 
   ########### constructor ########### 
+
   def __init__(self, **kwargs):
     self.__dict__.update(kwargs) #allow class fields to be passed in constructor
     self.prepActors()
 
   ########### prepare actors ########### 
+
   def prepActors(self):
     self.actorSq     = enoActorScaled(self.imgSqFn,     scale=.2,
                                       pos=(1000, 500),   alpha = 220)
@@ -30,6 +32,7 @@ class AnimCanvas:
                                       pos=(530,525),    alpha = 40)
 
   ########### draw ########### 
+
   def draw(self): 
     for a in [self.actorSpace, self.actorSq]:
       a.draw(screen)
