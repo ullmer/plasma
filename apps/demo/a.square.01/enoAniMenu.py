@@ -52,4 +52,12 @@ class enoAniMenu:
       a = self.actorDict[el]
       a.draw()
 
+  ######################### on_mouse_down #########################
+
+  def on_mouse_down(self, pos):
+    if self.actorDict is None: self.msg("draw called but uninitiated"); return
+    for el in self.menuHandles:
+      a = self.actorDict[el]
+      if a.collidepoint(pos): print(el + " pressed")
+
 ### end ###
