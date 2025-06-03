@@ -14,6 +14,7 @@ class enoActorScaled(Actor): #scaled actor
   lastScaleVal   = 1.
   lastScaledSurf = None
   scaleIncrement = 1000
+  alpha          = 255
 
   ############# constructor ############# 
 
@@ -29,6 +30,8 @@ class enoActorScaled(Actor): #scaled actor
       lastScaleInt = int(self.lastScaleVal * self.scaleIncrement)
 
       if scaleInt == lastScaleInt: return  #nothing to do
+      if self.alpha != 255:        self._orig_surf.set_alpha(self.alpha)
+
       w, h                = self.width * self.scale, self.height * self.scale
       self.lastScaledSurf = pygame.transform.scale(self._orig_surf, (w, h))
 

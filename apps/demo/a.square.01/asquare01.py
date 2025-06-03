@@ -23,7 +23,7 @@ class AnimCanvas:
     self.actorSq     = enoActorScaled(self.imgSqFn,     scale=.2)
     self.actorArtist = enoActorScaled(self.imgArtistFn, scale=.5)
     self.actorSpace  = enoActorScaled(self.imgSpaceFn, scale=.75, pos=(530,525))
-    self.actorSpace.transparency = .3
+    self.actorSpace.alpha = 80
 
   ########### draw ########### 
   def draw(self): 
