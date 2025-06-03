@@ -5,6 +5,7 @@
 WIDTH, HEIGHT = 800, 800
 
 from enoActorScaled import *
+from enoAniMenu     import *
 
 ######## animist canvas ######## 
 
@@ -33,14 +34,17 @@ class AnimCanvas:
 
   ########### draw ########### 
 
-  def draw(self): 
+  def draw(self, screen): 
     for a in [self.actorSpace, self.actorSq]:
       a.draw(screen)
 
 ########### main ########### 
 
-ac = AnimCanvas()
+ac  = AnimCanvas()
+eam = enoAniMenu()
 
-def draw(): screen.clear(); ac.draw()
+def draw(): 
+  screen.clear(); 
+  for el in [ac, eam]: el.draw(screen)
 
 ### end ###
