@@ -28,7 +28,7 @@ class AnimCanvas:
   ########### draw ########### 
   def draw(self): 
     self.actorSpace.draw(screen)
-    #self.actorSq.draw(screen)
+    self.actorSq.draw(screen)
 
 ########### main ########### 
 
