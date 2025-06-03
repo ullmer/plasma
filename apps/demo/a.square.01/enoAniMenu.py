@@ -69,10 +69,10 @@ class enoAniMenu:
     for el in self.menuHandles:
       a = self.actorDict[el]
       animate(a, pos=(x,y), duration=d)
-      x += dx; y += dy; d *= self.progressUnfoldMult
+      x += self.dx + dx; y += self.dy + dy; d *= self.progressUnfoldMult
 
-  def animMenuOpen(self):   self.animMenu(-self.hdx, -self.hdy)
-  def animMenuHidden(self): self.animMenu( self.hdx,  self.hdy)
+  def animMenuOpen(self):   self.animMenu(0, 0)
+  def animMenuHidden(self): self.animMenu(self.hdx, self.hdy)
   
   ########### draw ########### 
 
