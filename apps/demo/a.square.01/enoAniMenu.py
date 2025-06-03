@@ -24,6 +24,7 @@ class enoAniMenu:
   progressUnfoldMult     = 1.1
 
   isMenuHidden = True
+  verbose      = False
 
   placeFns    = ['map45Ber01a_100', 'mapBer01a_100', 'mapBos01a_100',
                  'mapCeu01a_100',   'mapDca01a_100', 'mapLax01a_100', 
@@ -62,7 +63,7 @@ class enoAniMenu:
   ########### toggle menu display ########### 
 
   def animMenu(self, dx, dy):
-    self.msg("animMenu %i %i" % (dx,dy)) 
+    if self.verbose:           self.msg("animMenu %i %i" % (dx,dy)) 
     if self.actorDict is None: self.msg("amo called but uninitiated"); return
     x, y = self.x0, self.y0
     d    = self.shortestUnfoldDuration
