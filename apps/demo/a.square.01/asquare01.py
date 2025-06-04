@@ -25,11 +25,11 @@ class AnimCanvas:
   ########### prepare actors ########### 
 
   def prepActors(self):
-    self.actorBox    = Actor(self.imgTBox,               pos=( 500, 500)
-    self.actorSq     = enoActorScaled(self.imgSqFn,      pos=(1000, 500),  
+    self.actorBox    = Actor(self.imgTBox,               pos=( 500, 500))
+    self.actorSq     = enoActorScaled(self.imgSqFn,      pos=(1000, 500), 
                                                    scale=.2, alpha = 220)
 
-    self.actorSpace  = enoActorScaled(self.imgSpaceFn,   pos=(530,525),    
+    self.actorSpace  = enoActorScaled(self.imgSpaceFn,   pos=(530,525), 
                                                    scale=.75, alpha = 40)
 
     #self.actorArtist = enoActorScaled(self.imgArtistFn, pos=(1080, 1250), 
@@ -38,7 +38,8 @@ class AnimCanvas:
   ########### draw ########### 
 
   def draw(self, screen): 
-    for a in [self.actorSpace, self.actorSq]:
+    #for a in [self.actorSpace, self.actorSq, a.actorBox]:
+    for a in [self.actorSpace, a.actorBox]:
       a.draw(screen)
   
   ########### on mouse down ########### 
@@ -76,8 +77,13 @@ def draw():
   screen.clear(); 
   for el in [ac, eam]: el.draw(screen)
 
-def on_mouse_down(pos):          for el in [ac, eam]: el.on_mouse_down(pos)
-def on_mouse_move(rel, buttons): for el in [ac, eam]: el.on_mouse_move(rel, buttons)
-def on_mouse_up(
+def on_mouse_down(pos): 
+    for el in [ac, eam]: el.on_mouse_down(pos)
+
+def on_mouse_move(rel, buttons): 
+    for el in [ac, eam]: el.on_mouse_move(rel, buttons)
+
+def on_mouse_up():               
+    for el in [ac, eam]: el.on_mouse_up()
 
 ### end ###
