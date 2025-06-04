@@ -38,9 +38,8 @@ class AnimCanvas:
   ########### draw ########### 
 
   def draw(self, screen): 
-    #for a in [self.actorSpace, self.actorSq, a.actorBox]:
-    for a in [self.actorSpace, a.actorBox]:
-      a.draw(screen)
+    self.actorSpace.draw(screen)
+    self.actorBox.draw()
   
   ########### on mouse down ########### 
 
@@ -53,16 +52,10 @@ class AnimCanvas:
 
   def on_mouse_move(self, rel, buttons):
     if self.boxSelected:
-      x1, y1 = actor.pos
+      x1, y1 = self.actorBox.pos
       dx, dy = rel
       x2, y2 = x1+dx, y1+dy
-
-      if id in self.readingTextDrawOffset and not(self.dotSelected):
-        x3, y3 = self.readingTextDrawOffset[id]
-        x4, y4 = x3+dx, y3+dy
-        self.readingTextDrawOffset[id] = (x4, y4)
-
-      actor.pos = (x2, y2)
+      self.actorBox.pos = (x2, y2)
 
   ################## on_mouse_up ##################
 
