@@ -11,8 +11,8 @@ from enoAniMenu     import *
 
 class AnimCanvas:
   imgSqFn, imgArtistFn = 'sspirito01h', 'pollaiolo01'
-  imgSpaceFn           = 'sspirito_extrap_cp1'
-  actorSq, actorArtist, actorSpace = [None]*3
+  imgSpaceFn, imgTBox  = 'sspirito_extrap_cp1', 'transp_box01'
+  actorSq, actorArtist, actorSpace, actorBox = [None]*4
 
   ########### constructor ########### 
 
@@ -23,14 +23,15 @@ class AnimCanvas:
   ########### prepare actors ########### 
 
   def prepActors(self):
-    self.actorSq     = enoActorScaled(self.imgSqFn,     scale=.2,
-                                      pos=(1000, 500),   alpha = 220)
+    self.actorBox    = Actor(self.imgTBox,               pos=( 500, 500)
+    self.actorSq     = enoActorScaled(self.imgSqFn,      pos=(1000, 500),  
+                                                   scale=.2, alpha = 220)
 
-    #self.actorArtist = enoActorScaled(self.imgArtistFn, scale=.22, 
-    #                                  pos=(1080, 1250), alpha = 95)
+    self.actorSpace  = enoActorScaled(self.imgSpaceFn,   pos=(530,525),    
+                                                   scale=.75, alpha = 40)
 
-    self.actorSpace  = enoActorScaled(self.imgSpaceFn,  scale=.75, 
-                                      pos=(530,525),    alpha = 40)
+    #self.actorArtist = enoActorScaled(self.imgArtistFn, pos=(1080, 1250), 
+    #                                               scale=.22, alpha = 95)
 
   ########### draw ########### 
 
