@@ -95,4 +95,9 @@ class enoAniMenu:
         self.msg(el + " pressed")
         if el == 'an': self.toggleMenuDisplay()
 
+  ######################### on_mouse_move, up#########################
+
+  def on_mouse_move(self, rel, button): pass
+  def on_mouse_up(self):                pass
+
 ### end ###

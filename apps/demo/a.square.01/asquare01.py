@@ -33,7 +33,7 @@ class AnimCanvas:
                                                    scale=.75, alpha = 40)
 
     #self.actorArtist = enoActorScaled(self.imgArtistFn, pos=(1080, 1250), 
-    #                                               scale=.22, alpha = 95)
+    #                                              scale=.22, alpha = 95)
 
   ########### draw ########### 
 
@@ -51,12 +51,7 @@ class AnimCanvas:
   ################## on_mouse_move ##################
 
   def on_mouse_move(self, rel, buttons):
-    if self.actorSelectedId is not None:
-      id     = self.actorSelectedId
-
-      if not(self.dotSelected): actor  = self.actors[id]                           //A
-      else:                     actor  = self.timeDotActors[id]
-
+    if self.boxSelected:
       x1, y1 = actor.pos
       dx, dy = rel
       x2, y2 = x1+dx, y1+dy
@@ -81,7 +76,8 @@ def draw():
   screen.clear(); 
   for el in [ac, eam]: el.draw(screen)
 
-def on_mouse_down(pos): 
-  for el in [ac, eam]: el.on_mouse_down(pos)
+def on_mouse_down(pos):          for el in [ac, eam]: el.on_mouse_down(pos)
+def on_mouse_move(rel, buttons): for el in [ac, eam]: el.on_mouse_move(rel, buttons)
+def on_mouse_up(
 
 ### end ###
