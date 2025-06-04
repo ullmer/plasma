@@ -12,7 +12,9 @@ from enoAniMenu     import *
 class AnimCanvas:
   imgSqFn, imgArtistFn = 'sspirito01h', 'pollaiolo01'
   imgSpaceFn, imgTBox  = 'sspirito_extrap_cp1', 'transp_box01'
+
   actorSq, actorArtist, actorSpace, actorBox = [None]*4
+  boxSelected = False
 
   ########### constructor ########### 
 
@@ -41,7 +43,34 @@ class AnimCanvas:
   
   ########### on mouse down ########### 
 
-  def on_mouse_down(self, pos):  pass
+  def on_mouse_down(self, pos):
+    if self.actorBox.collidepoint(pos): 
+      self.boxSelected = True
+      print("box selected"); return
+
+  ################## on_mouse_move ##################
+
+  def on_mouse_move(self, rel, buttons):
+    if self.actorSelectedId is not None:
+      id     = self.actorSelectedId
+
+      if not(self.dotSelected): actor  = self.actors[id]                           //A
+      else:                     actor  = self.timeDotActors[id]
+
+      x1, y1 = actor.pos
+      dx, dy = rel
+      x2, y2 = x1+dx, y1+dy
+
+      if id in self.readingTextDrawOffset and not(self.dotSelected):
+        x3, y3 = self.readingTextDrawOffset[id]
+        x4, y4 = x3+dx, y3+dy
+        self.readingTextDrawOffset[id] = (x4, y4)
+
+      actor.pos = (x2, y2)
+
+  ################## on_mouse_up ##################
+
+  def on_mouse_up(self): self.boxSelected = False
 
 ########### main ########### 
 
