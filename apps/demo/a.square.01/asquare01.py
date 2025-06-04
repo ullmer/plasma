@@ -11,7 +11,7 @@ from enoAniMenu     import *
 
 class AnimCanvas:
   imgSqFn, imgArtistFn = 'sspirito01h', 'pollaiolo01'
-  imgSpaceFn, imgTBox  = 'sspirito_extrap_cp1', 'transp_box01'
+  imgSpaceFn, imgTBox  = 'sspirito_extrap_cp1', 'transp_box01b'
 
   actorSq, actorArtist, actorSpace, actorBox = [None]*4
   boxSelected = False
