@@ -32,7 +32,7 @@ class AnimCanvas:
   ########### prepare actors ########### 
 
   def prepActors(self):
-    self.actorSpace  = enoActorScaled(self.imgSpaceFn,   pos=(530,525), 
+    self.actorSpace  = enoActorScaled(self.imgSpaceFn,   pos=(500, 500),
                                                    scale=.75, alpha = 40)
 
     #self.actorArtist = enoActorScaled(self.imgArtistFn, pos=(1080, 1250), 
