@@ -21,7 +21,7 @@ class AnimCanvas:
   def __init__(self, **kwargs):
     self.__dict__.update(kwargs) #allow class fields to be passed in constructor
     self.prepActors()
-    self.epas = enoPgzASquare(screenDim=(WIDTH, HEIGHT))
+    self.epas = enoPgzASquare(windowDim=(WIDTH, HEIGHT))
 
   ########### prepare actors ########### 
 

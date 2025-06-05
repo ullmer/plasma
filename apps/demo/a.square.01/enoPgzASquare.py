@@ -18,7 +18,7 @@ class enoPgzASquare:
   flangeBaseColor = (128, 128, 128, 128) #alpha; pygame-targeted (!0)
   flangeSurfaces  = None
   lastBoxPos      = None
-  screenDim       = None #screen dimensions tuple, for flange extent calculation
+  windowDim       = None #screen dimensions tuple, for flange extent calculation
 
   ########### constructor ########### 
 
@@ -44,6 +44,26 @@ class enoPgzASquare:
     if self.screenDim is None: self.msg("prepFlange: screenDim(ensions) must be assigned"); return None
 
     self.lastBoxPos = self.actorBox.pos
+  
+  ########### calc flange coordinate ########### 
+
+  def calcFlangeCoordinate(self, 
+                           basePos: tuple[int, int], 
+                           xsign:   int, 
+                           ysign:   int, 
+                           flangeAdjacent: bool):
+
+    x1, y1 = basePos
+
+    if flangeAdjacent is False: #calculate relative to ends of window
+      if   xsign == -1: x2=0
+      elif xsign ==  1: x2=self.windowDim[0]
+      else:             x2=x1
+
+      if   ysign == -1: y2=0
+      elif ysign ==  1: y2=self.windowDim[1]
+      else:             y2=y1
+      return (x2, y2)
 
   ########### draw ########### 
 
