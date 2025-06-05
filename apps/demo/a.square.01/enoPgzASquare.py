@@ -48,16 +48,23 @@ class enoPgzASquare:
     pos                 = self.actorBox.pos
     self.lastBoxPos     = pos
 
-    self.flangeSurfaces['L'] = self.calcFlangeCoordinates(pos, -1,  0)
-    self.flangeSurfaces['R'] = self.calcFlangeCoordinates(pos,  1,  0)
-    self.flangeSurfaces['T'] = self.calcFlangeCoordinates(pos,  0,  1)
-    self.flangeSurfaces['B'] = self.calcFlangeCoordinates(pos,  0, -1)
+    self.flangeCoordinates['L'] = self.calcFlangeCoordinates(pos, -1,  0)
+    self.flangeCoordinates['R'] = self.calcFlangeCoordinates(pos,  1,  0)
+    self.flangeCoordinates['T'] = self.calcFlangeCoordinates(pos,  0,  1)
+    self.flangeCoordinates['B'] = self.calcFlangeCoordinates(pos,  0, -1)
 
   ########## generate flange surfaces ########### 
 
   def genFlangeSurfaces(self):
-    if self.flangeSurfaces    is None: self.flangeSurfaces = {}
-    if self.flangeCoordinates is None: self.calcFlangeCoordinates()
+    try:
+      if self.flangeSurfaces    is None: self.flangeSurfaces = {}
+      if self.flangeCoordinates is None: self.calcFlangeCoordinates()
+
+      for orientedFlangeHandles in ['L', 'R', 'T', 'B']:
+        orientedFlangeCoordinates = self.flangeCoordinates[orientedFlangeHandles]
+
+   
+    except: self.err("genFlangeSurfaces")
   
   ########### calc flange coordinates ########### 
 
@@ -92,11 +99,16 @@ class enoPgzASquare:
         if   ysign == -1: y2=0
         elif ysign ==  1: y2=self.windowDim[1]
         else:             y2=y1
-        return (x2, y2)
 
-      x2 = x1 + xsign * self.flangeBoxOffset 
-      y2 = y1 + ysign * self.flangeBoxOffset 
-     return (x2, y2)
+      else:
+        x2 = x1 + xsign * self.flangeBoxOffset  # midpoints
+        y2 = y1 + ysign * self.flangeBoxOffset 
+
+      fw2 = self.flangeWidth / 2.
+      x3, y3 = x2 + ysign * fw2, y2 + xsign * fw2 # believe xsign/ysign inversion appropros; test
+      x4, y4 = x2 - ysign * fw2, y2 - xsign * fw2
+      result = [(x3, y3), (x4, y4)]
+      return result
 
     except: self.err("calcFlangeCoordinate"); return None
 
