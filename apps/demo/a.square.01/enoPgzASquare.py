@@ -20,6 +20,7 @@ class enoPgzASquare:
   flangeCoordinates = None
   lastBoxPos        = None
   windowDim         = None #screen dimensions tuple, for flange extent calculation
+
   orientedFlangeHandles = ['L', 'R', 'T', 'B']
 
   ########### constructor ########### 
@@ -37,9 +38,9 @@ class enoPgzASquare:
     self.actorBox    = Actor(self.imgTBox,               pos=( 500, 500))
     self.actorSq     = enoActorScaled(self.imgSqFn,      pos=(1000, 500), 
                                                    scale=.2, alpha = 220)
-  ########### calculate flange coordinates ########### 
+  ########### calculate and store flange coordinates ########### 
 
-  def calcFlangeCoordinates(self):
+  def cacheFlangeCoordinates(self):
     try:
       if self.actorBox  is None: self.msg("prepFlange: actor box is None"); return
       if self.screenDim is None: self.msg("prepFlange: screenDim(ensions) must be assigned"); return None
@@ -58,16 +59,18 @@ class enoPgzASquare:
   ########### drawFlanges ########### 
 
   def drawFlanges(self, screen):
-    boxPos = self.actorBox.pos
-    if boxPos != self.lastBoxPos:
-      self.calcFlangeCoordinates()
-      self.genFlangeSurfaces()
-      self.lastBoxPos = boxPos
+    try:
+      boxPos = self.actorBox.pos
+      if boxPos != self.lastBoxPos:
+        self.cacheFlangeCoordinates()
+        self.genFlangeSurfaces()
+        self.lastBoxPos = boxPos
 
-    for orientedFlangeHandle in self.orientedFlangeHandles:
-      flangeSurface = self.flangeSurfaces[   orientedFlangeHandle]
-      w, h, x, y    = self.flangeCoordinates[orientedFlangeHandle]
-      screen.blit(flangeSurface, (x,y))
+      for orientedFlangeHandle in self.orientedFlangeHandles:
+        flangeSurface = self.flangeSurfaces[   orientedFlangeHandle]
+        w, h, x, y    = self.flangeCoordinates[orientedFlangeHandle]
+        screen.blit(flangeSurface, (x,y))
+    except: self.err("drawFlanges")
 
   ########## generate flange surfaces ########### 
 
@@ -89,7 +92,10 @@ class enoPgzASquare:
   # this could be prudent to calculate this way from outset, but -- for coding 
   # expediency, initially leaving as-is
 
-  def calcFlangeCoordinatesWHXY(self, basePos, xsign, ysign):
+  def calcFlangeCoordinatesWHXY(self, 
+                                basePos: tuple[int, int], 
+                                xsign:   int, 
+                                ysign:   int):
 
     try:
       v1, v2 = self.calcFlangeCoordinates(basePos, xsign, ysing)
