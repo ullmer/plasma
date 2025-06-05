@@ -166,8 +166,8 @@ class enoPgzASquare:
         y2 = y1 - ysign * self.flangeBoxOffset 
 
       fw2 = self.flangeWidth / 2 # could be better to /2., but promotion to float might cost
-      x3, y3 = x2 + ysign * fw2, y2 + xsign * fw2 # believe xsign/ysign inversion appropros; test
-      x4, y4 = x2 - ysign * fw2, y2 - xsign * fw2
+      x3, y3 = x2 + ysign * fw2, y2 + ysign * fw2 # believe xsign/ysign inversion appropros; test
+      x4, y4 = x2 - ysign * fw2, y2 - ysign * fw2
       result = [(x3, y3), (x4, y4)]
       return result
 
