@@ -62,10 +62,31 @@ class enoPgzASquare:
 
       for orientedFlangeHandles in ['L', 'R', 'T', 'B']:
         orientedFlangeCoordinates = self.flangeCoordinates[orientedFlangeHandles]
-
    
     except: self.err("genFlangeSurfaces")
   
+  ########### calc flange coordinates W_H_TLX_TLY ########### 
+
+  # for transparent rendering w/in pygame, "width,height" and (tl.x, tl.y) are required
+
+  def calcFlangeCoordinatesWHXY(self, basePos, xsign, ysign):
+
+    try:
+      v1, v2 = self.calcFlangeCoordinates(basePos, xsign, ysing)
+      v1a, v1b = v1
+      v2a, v2b = v2
+
+      xcoords, ycoords = [], []
+
+      for v in [v1a, v1b, v2a, v2b]:
+        x, y = v
+        xcoords.append(x); ycoords.append(y)
+
+      minX, minY = min(xcoords), min(ycoords)
+      maxX, maxY = max(xcoords), max(ycoords)
+
+    except: self.err("calcFlangeCoordinatesWHXY")
+
   ########### calc flange coordinates ########### 
 
   def calcFlangeCoordinates(self, 
