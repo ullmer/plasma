@@ -20,6 +20,7 @@ class enoPgzASquare:
   flangeCoordinates = None
   lastBoxPos        = None
   windowDim         = None #screen dimensions tuple, for flange extent calculation
+  verbose           = True
 
   orientedFlangeHandles = ['L', 'R', 'T', 'B']
 
@@ -69,6 +70,11 @@ class enoPgzASquare:
       for orientedFlangeHandle in self.orientedFlangeHandles:
         flangeSurface = self.flangeSurfaces[   orientedFlangeHandle]
         w, h, x, y    = self.flangeCoordinates[orientedFlangeHandle]
+
+        if self.verbose: 
+          hwhxy = "%s %i %i %i %i" % (orientedFlangeHandle, w, h, x, y)
+          self.msg("drawFlanges called: " + hwhxy)
+
         screen.blit(flangeSurface, (x,y))
     except: self.err("drawFlanges")
 
