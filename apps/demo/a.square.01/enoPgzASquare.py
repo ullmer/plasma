@@ -21,6 +21,7 @@ class enoPgzASquare:
   lastBoxPos        = None
   windowDim         = None #screen dimensions tuple, for flange extent calculation
   verbose           = True
+  pos               = (400, 400) #default position
 
   orientedFlangeHandles = ['L', 'R', 'T', 'B']
 
@@ -38,7 +39,7 @@ class enoPgzASquare:
   ########### prepare actors ########### 
 
   def prepActors(self):
-    self.actorBox    = Actor(self.imgTBox, pos=( 500, 500))
+    self.actorBox    = Actor(self.imgTBox, pos=self.pos)
 
   ########### calculate and store flange coordinates ########### 
 
