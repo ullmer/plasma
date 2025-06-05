@@ -8,11 +8,17 @@ TITLE         = 'animist square'
 from enoActorScaled import *
 from enoAniMenu     import *
 from enoPgzASquare  import *
+   
+#### reassigning app icon must happen early 
+#iconFn       = 'images/sspirito01h.png' # rework to 32x32, see if that makes a difference
+#icon_surface = pygame.image.load(iconFn)
+#pygame.display.set_icon(icon_surface)
 
 ######## animist canvas ######## 
 
 class AnimCanvas:
-  imgArtistFn, imgSpaceFn = 'pollaiolo01', 'sspirito_extrap_cp1'
+
+  imgArtistFn, imgSpaceFn = 'pollaiolo01', 'sspirito_extrap_cp1', 
   actorArtist, actorSpace = None, None
   epas                    = None
 

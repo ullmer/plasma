@@ -68,7 +68,6 @@ class enoPgzASquare:
         self.lastBoxPos = boxPos
 
       for orientedFlangeHandle in self.orientedFlangeHandles:
-        if orientedFlangeHandle in ['T']: continue #shunt for testing
         flangeSurface = self.flangeSurfaces[   orientedFlangeHandle]
         w, h, x, y    = self.flangeCoordinates[orientedFlangeHandle]
 
@@ -121,7 +120,7 @@ class enoPgzASquare:
       maxX, maxY = max(xcoords), max(ycoords)
 
       w,   h   = maxX - minX, maxY - minY
-      tlx, tly = minX, maxY 
+      tlx, tly = minX, minY 
       result = [w, h, tlx, tly]
       return result
 
@@ -157,8 +156,8 @@ class enoPgzASquare:
         elif xsign ==  1: x2=self.windowDim[0]
         else:             x2=x1
 
-        if   ysign == -1: y2=0
-        elif ysign ==  1: y2=self.windowDim[1]
+        if   ysign ==  1: y2=0
+        elif ysign == -1: y2=self.windowDim[1]
         else:             y2=y1
 
       else:
@@ -166,9 +165,10 @@ class enoPgzASquare:
         y2 = y1 - ysign * self.flangeBoxOffset 
 
       fw2 = self.flangeWidth / 2 # could be better to /2., but promotion to float might cost
-      x3, y3 = x2 + ysign * fw2, y2 - xsign * fw2 # believe xsign/ysign inversion appropros; test
-      x4, y4 = x2 - ysign * fw2, y2 + xsign * fw2
+      x3, y3 = x2 + ysign * fw2, y2 + xsign * fw2 # believe xsign/ysign inversion appropros; test
+      x4, y4 = x2 - ysign * fw2, y2 - xsign * fw2
       result = [(x3, y3), (x4, y4)]
+      print("CFC Y:", y2, y3, y4)
       return result
 
     except: self.err("calcFlangeCoordinate"); return None
