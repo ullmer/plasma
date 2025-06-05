@@ -2,14 +2,19 @@
 # Brygg Ullmer, Clemson University
 # Begun 2025-06-02
 
-from enoActorScaled import *
+import pygame, traceback
+from enoActorScaled  import *
+from pgzero.builtins import Actor, animate, keyboard, keys
 
-######## animist canvas ######## 
+######## enodia pygame zero animist square ######## 
 
 class enoPgzASquare:
   imgSqFn, imgTBox  = 'sspirito01h', 'transp_box01b'
   actorSq, actorBox = None, None
-  boxSelected = False
+
+  boxSelected     = False
+  flangeWidth     = 20
+  flangeBaseColor = (128, 128, 128, 128) #alpha; pygame-targeted (!0)
 
   ########### constructor ########### 
 
