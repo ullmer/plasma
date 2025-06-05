@@ -15,7 +15,8 @@ class enoPgzASquare:
   boxSelected       = False
   flangeWidth       = 20
   flangeBoxOffset   = 100
-  flangeBaseColor   = (128, 128, 128, 128) #alpha; pygame-targeted (!0)
+  #flangeBaseColor   = (128, 128, 128, 128) #alpha; pygame-targeted (!0)
+  flangeBaseColor   = (255, 128, 128, 255) #alpha; pygame-targeted (!0)
   flangeSurfaces    = None
   flangeCoordinates = None
   lastBoxPos        = None
@@ -62,7 +63,7 @@ class enoPgzASquare:
   def drawFlanges(self, screen):
     try:
       boxPos = self.actorBox.pos
-      if boxPos != self.lastBoxPos:
+      if self.lastBoxPos is None or boxPos != self.lastBoxPos:
         self.cacheFlangeCoordinates()
         self.genFlangeSurfaces()
         self.lastBoxPos = boxPos
@@ -71,11 +72,12 @@ class enoPgzASquare:
         flangeSurface = self.flangeSurfaces[   orientedFlangeHandle]
         w, h, x, y    = self.flangeCoordinates[orientedFlangeHandle]
 
+        screen.blit(flangeSurface, (x,y))
+
         if self.verbose: 
           hwhxy = "%s %i %i %i %i" % (orientedFlangeHandle, w, h, x, y)
           self.msg("drawFlanges called: " + hwhxy)
-
-        screen.blit(flangeSurface, (x,y))
+        
     except: self.err("drawFlanges")
 
   ########## generate flange surfaces ########### 
@@ -88,6 +90,7 @@ class enoPgzASquare:
       for orientedFlangeHandle in self.orientedFlangeHandles:
         w, h, x, y = self.flangeCoordinates[orientedFlangeHandle]
         s = pygame.Surface((w,h), pygame.SRCALPHA)
+        s.fill(self.flangeBaseColor)
         self.flangeSurfaces[orientedFlangeHandle] = s
    
     except: self.err("genFlangeSurfaces")
