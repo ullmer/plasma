@@ -46,8 +46,10 @@ class enoActorScaled(Actor): #scaled actor
       if self.lastScaledSurf is None:
         print("ActorScaled draw: unexpected error with last scaled surface")
       else:
-        #screen.blit(self.lastScaledSurf, self.pos)
-        screen.blit(self.lastScaledSurf, self.topleft)
+        scaled_width, scaled_height = self.lastScaledSurf.get_size()
+        blitX = self.pos[0] - scaled_width // 2
+        blitY = self.pos[1] - scaled_height // 2
+        screen.blit(self.lastScaledSurf, (blitX, blitY))
   
 ############# main ############# 
 
