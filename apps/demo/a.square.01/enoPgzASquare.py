@@ -15,7 +15,7 @@ class enoPgzASquare:
   boxSelected       = False
   flangeWidth       = 20
   flangeBoxOffset   = 100
-  flangeBaseColor   = (128, 128, 128, 90) #alpha; pygame-targeted (!0)
+  flangeBaseColor   = (128, 128, 128, 70) #alpha; pygame-targeted (!0)
   flangeSurfaces    = None
   flangeCoordinates = None
   lastBoxPos        = None
@@ -32,6 +32,8 @@ class enoPgzASquare:
 
   def msg(self, msgstr): print("enoPgzASquare message: " + str(msgstr))
   def err(self, msgstr): print("enoPgzASquare error: "   + str(msgstr)); traceback.print_exc()
+        
+  def getFlangeColor(self, orientedFlangeHandle): return self.flangeBaseColor
 
   ########### prepare actors ########### 
 
@@ -84,7 +86,8 @@ class enoPgzASquare:
       for orientedFlangeHandle in self.orientedFlangeHandles:
         w, h, x, y = self.flangeCoordinates[orientedFlangeHandle]
         s = pygame.Surface((w,h), pygame.SRCALPHA)
-        s.fill(self.flangeBaseColor)
+        c = self.getFlangeColor(orientedFlangeHandle) # we will animate this in a descendant class
+        s.fill(c)
         self.flangeSurfaces[orientedFlangeHandle] = s
    
     except: self.err("genFlangeSurfaces")
