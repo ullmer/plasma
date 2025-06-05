@@ -15,7 +15,7 @@ class enoPgzASquare:
   boxSelected       = False
   flangeWidth       = 20
   flangeBoxOffset   = 100
-  flangeBaseColor   = (128, 128, 128, 128) #alpha; pygame-targeted (!0)
+  flangeBaseColor   = (128, 128, 128, 90) #alpha; pygame-targeted (!0)
   flangeSurfaces    = None
   flangeCoordinates = None
   lastBoxPos        = None
