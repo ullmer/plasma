@@ -2,7 +2,8 @@
 # Brygg Ullmer, Clemson University
 # Begun 2023-03-22
 
-#https://pillow.readthedocs.io/en/stable/reference/Image.html
+#engages https://pillow.readthedocs.io/en/stable/reference/Image.html
+#may be worth checking https://github.com/lordmauve/wasabi2d/blob/master/tests/test_tilemap.py
 
 import os, sys, math
 import yaml, PIL, pygame
