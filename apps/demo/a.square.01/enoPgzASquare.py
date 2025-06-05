@@ -20,6 +20,7 @@ class enoPgzASquare:
   flangeCoordinates = None
   lastBoxPos        = None
   windowDim         = None #screen dimensions tuple, for flange extent calculation
+  orientedFlangeHandles = ['L', 'R', 'T', 'B']
 
   ########### constructor ########### 
 
@@ -60,9 +61,10 @@ class enoPgzASquare:
       if self.flangeSurfaces    is None: self.flangeSurfaces = {}
       if self.flangeCoordinates is None: self.calcFlangeCoordinates()
 
-      for orientedFlangeHandles in ['L', 'R', 'T', 'B']:
-        w, h, x, y = self.flangeCoordinates[orientedFlangeHandles]
+      for orientedFlangeHandle in self.orientedFlangeHandles:
+        w, h, x, y = self.flangeCoordinates[orientedFlangeHandle]
         s = pygame.Surface((w,h), pygame.SRCALPHA)
+        self.flangeSurfaces[orientedFlangeHandle] = s
    
     except: self.err("genFlangeSurfaces")
   
