@@ -72,11 +72,6 @@ class enoPgzASquare:
         w, h, x, y    = self.flangeCoordinates[orientedFlangeHandle]
 
         screen.blit(flangeSurface, (x,y))
-
-        if self.verbose: 
-          hwhxy = "%s %i %i %i %i" % (orientedFlangeHandle, w, h, x, y)
-          self.msg("drawFlanges called: " + hwhxy)
-        
     except: self.err("drawFlanges")
 
   ########## generate flange surfaces ########### 
@@ -168,7 +163,6 @@ class enoPgzASquare:
       x3, y3 = x2 + ysign * fw2, y2 + xsign * fw2 # believe xsign/ysign inversion appropros; test
       x4, y4 = x2 - ysign * fw2, y2 - xsign * fw2
       result = [(x3, y3), (x4, y4)]
-      print("CFC Y:", y2, y3, y4)
       return result
 
     except: self.err("calcFlangeCoordinate"); return None
