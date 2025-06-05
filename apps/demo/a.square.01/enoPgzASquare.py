@@ -48,10 +48,10 @@ class enoPgzASquare:
     pos                 = self.actorBox.pos
     self.lastBoxPos     = pos
 
-    self.flangeCoordinates['L'] = self.calcFlangeCoordinates(pos, -1,  0)
-    self.flangeCoordinates['R'] = self.calcFlangeCoordinates(pos,  1,  0)
-    self.flangeCoordinates['T'] = self.calcFlangeCoordinates(pos,  0,  1)
-    self.flangeCoordinates['B'] = self.calcFlangeCoordinates(pos,  0, -1)
+    self.flangeCoordinates['L'] = self.calcFlangeCoordinatesWHXY(pos, -1,  0)
+    self.flangeCoordinates['R'] = self.calcFlangeCoordinatesWHXY(pos,  1,  0)
+    self.flangeCoordinates['T'] = self.calcFlangeCoordinatesWHXY(pos,  0,  1)
+    self.flangeCoordinates['B'] = self.calcFlangeCoordinatesWHXY(pos,  0, -1)
 
   ########## generate flange surfaces ########### 
 
@@ -61,13 +61,16 @@ class enoPgzASquare:
       if self.flangeCoordinates is None: self.calcFlangeCoordinates()
 
       for orientedFlangeHandles in ['L', 'R', 'T', 'B']:
-        orientedFlangeCoordinates = self.flangeCoordinates[orientedFlangeHandles]
+        w, h, x, y = self.flangeCoordinates[orientedFlangeHandles]
+        s = pygame.Surface((w,h), pygame.SRCALPHA)
    
     except: self.err("genFlangeSurfaces")
   
   ########### calc flange coordinates W_H_TLX_TLY ########### 
 
   # for transparent rendering w/in pygame, "width,height" and (tl.x, tl.y) are required
+  # this could be prudent to calculate this way from outset, but -- for coding 
+  # expediency, initially leaving as-is
 
   def calcFlangeCoordinatesWHXY(self, basePos, xsign, ysign):
 
@@ -84,6 +87,11 @@ class enoPgzASquare:
 
       minX, minY = min(xcoords), min(ycoords)
       maxX, maxY = max(xcoords), max(ycoords)
+
+      w,   h   = maxX - minX, maxY - minY
+      tlx, tly = minX, maxY 
+      result = [w, h, tlx, tly]
+      return result
 
     except: self.err("calcFlangeCoordinatesWHXY")
 
@@ -125,7 +133,7 @@ class enoPgzASquare:
         x2 = x1 + xsign * self.flangeBoxOffset  # midpoints
         y2 = y1 + ysign * self.flangeBoxOffset 
 
-      fw2 = self.flangeWidth / 2.
+      fw2 = self.flangeWidth / 2 # could be better to /2., but promotion to float might cost
       x3, y3 = x2 + ysign * fw2, y2 + xsign * fw2 # believe xsign/ysign inversion appropros; test
       x4, y4 = x2 - ysign * fw2, y2 - xsign * fw2
       result = [(x3, y3), (x4, y4)]
