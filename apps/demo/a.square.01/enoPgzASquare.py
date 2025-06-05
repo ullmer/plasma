@@ -41,18 +41,34 @@ class enoPgzASquare:
   ########### calculate flange coordinates ########### 
 
   def calcFlangeCoordinates(self):
-    if self.actorBox  is None: self.msg("prepFlange: actor box is None"); return
-    if self.screenDim is None: self.msg("prepFlange: screenDim(ensions) must be assigned"); return None
+    try:
+      if self.actorBox  is None: self.msg("prepFlange: actor box is None"); return
+      if self.screenDim is None: self.msg("prepFlange: screenDim(ensions) must be assigned"); return None
 
-    if self.flangeCoordinates is None: self.flangeCoordinates = {}
+      if self.flangeCoordinates is None: self.flangeCoordinates = {}
 
-    pos                 = self.actorBox.pos
-    self.lastBoxPos     = pos
+      pos                 = self.actorBox.pos
+      self.lastBoxPos     = pos
 
-    self.flangeCoordinates['L'] = self.calcFlangeCoordinatesWHXY(pos, -1,  0)
-    self.flangeCoordinates['R'] = self.calcFlangeCoordinatesWHXY(pos,  1,  0)
-    self.flangeCoordinates['T'] = self.calcFlangeCoordinatesWHXY(pos,  0,  1)
-    self.flangeCoordinates['B'] = self.calcFlangeCoordinatesWHXY(pos,  0, -1)
+      self.flangeCoordinates['L'] = self.calcFlangeCoordinatesWHXY(pos, -1,  0)
+      self.flangeCoordinates['R'] = self.calcFlangeCoordinatesWHXY(pos,  1,  0)
+      self.flangeCoordinates['T'] = self.calcFlangeCoordinatesWHXY(pos,  0,  1)
+      self.flangeCoordinates['B'] = self.calcFlangeCoordinatesWHXY(pos,  0, -1)
+    except: self.err("genFlangeCoordinates")
+
+  ########### drawFlanges ########### 
+
+  def drawFlanges(self):
+    boxPos = self.actorBox.pos
+    if boxPos != self.lastBoxPos:
+      self.calcFlangeCoordinates()
+      self.genFlangeSurfaces()
+      self.lastBoxPos = boxPos
+
+    for orientedFlangeHandle in self.orientedFlangeHandles:
+      flangeSurface = self.flangeSurfaces[   orientedFlangeHandle]
+      w, h, x, y    = self.flangeCoordinates[orientedFlangeHandle]
+      screen.blit(flangeSurface, (x,y))
 
   ########## generate flange surfaces ########### 
 
