@@ -9,8 +9,8 @@ from pgzero.builtins import Actor, animate, keyboard, keys
 ######## enodia pygame zero animist square ######## 
 
 class enoPgzASquare:
-  imgSqFn, imgTBox  = 'sspirito01h', 'transp_box01b'
-  actorSq, actorBox = None, None
+  imgTBox  = 'transp_box01b'
+  actorBox = None
 
   boxSelected       = False
   flangeWidth       = 20
@@ -38,9 +38,8 @@ class enoPgzASquare:
   ########### prepare actors ########### 
 
   def prepActors(self):
-    self.actorBox    = Actor(self.imgTBox,               pos=( 500, 500))
-    self.actorSq     = enoActorScaled(self.imgSqFn,      pos=(1000, 500), 
-                                                   scale=.2, alpha = 220)
+    self.actorBox    = Actor(self.imgTBox, pos=( 500, 500))
+
   ########### calculate and store flange coordinates ########### 
 
   def cacheFlangeCoordinates(self):
