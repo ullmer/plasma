@@ -68,6 +68,7 @@ class enoPgzASquare:
         self.lastBoxPos = boxPos
 
       for orientedFlangeHandle in self.orientedFlangeHandles:
+        if orientedFlangeHandle in ['T']: continue #shunt for testing
         flangeSurface = self.flangeSurfaces[   orientedFlangeHandle]
         w, h, x, y    = self.flangeCoordinates[orientedFlangeHandle]
 
@@ -162,7 +163,7 @@ class enoPgzASquare:
 
       else:
         x2 = x1 + xsign * self.flangeBoxOffset  # midpoints
-        y2 = y1 + ysign * self.flangeBoxOffset 
+        y2 = y1 - ysign * self.flangeBoxOffset 
 
       fw2 = self.flangeWidth / 2 # could be better to /2., but promotion to float might cost
       x3, y3 = x2 + ysign * fw2, y2 + xsign * fw2 # believe xsign/ysign inversion appropros; test
