@@ -3,6 +3,7 @@
 # Begun 2025-06-02
 
 WIDTH, HEIGHT = 800, 800
+TITLE         = 'animist square'
 
 from enoActorScaled import *
 from enoAniMenu     import *
@@ -20,7 +21,7 @@ class AnimCanvas:
   def __init__(self, **kwargs):
     self.__dict__.update(kwargs) #allow class fields to be passed in constructor
     self.prepActors()
-    self.epas = enoPgzASquare()
+    self.epas = enoPgzASquare(screenDim=(WIDTH, HEIGHT))
 
   ########### prepare actors ########### 
 
