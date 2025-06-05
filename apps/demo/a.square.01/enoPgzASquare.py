@@ -14,13 +14,20 @@ class enoPgzASquare:
 
   boxSelected     = False
   flangeWidth     = 20
+  flangeBoxOffset = 100
   flangeBaseColor = (128, 128, 128, 128) #alpha; pygame-targeted (!0)
+  flangeSurfaces  = None
+  lastBoxPos      = None
 
   ########### constructor ########### 
 
   def __init__(self, **kwargs):
     self.__dict__.update(kwargs) #allow class fields to be passed in constructor
     self.prepActors()
+    self.prepFlange()
+
+  def msg(self, msgstr): print("enoPgzASquare message: " + str(msgstr))
+  def err(self, msgstr): print("enoPgzASquare error: "   + str(msgstr))
 
   ########### prepare actors ########### 
 
@@ -28,12 +35,24 @@ class enoPgzASquare:
     self.actorBox    = Actor(self.imgTBox,               pos=( 500, 500))
     self.actorSq     = enoActorScaled(self.imgSqFn,      pos=(1000, 500), 
                                                    scale=.2, alpha = 220)
+  ########### prepare flange ########### 
+
+  def prepFlange(self):
+    self.flangeSurfaces = {}
+    if self.actorBox is None: self.msg("prepFlange: actor box is None"); return
+
+    self.lastBoxPos = self.actorBox.pos
 
   ########### draw ########### 
 
   def draw(self, screen): 
+    self.drawFlange(screen)
     self.actorBox.draw()
   
+  ########### drawFlange ########### 
+
+  def drawFlange(self, screen): 
+
   ########### on mouse down ########### 
 
   def on_mouse_down(self, pos):
