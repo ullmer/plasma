@@ -12,13 +12,14 @@ class enoPgzASquare:
   imgSqFn, imgTBox  = 'sspirito01h', 'transp_box01b'
   actorSq, actorBox = None, None
 
-  boxSelected     = False
-  flangeWidth     = 20
-  flangeBoxOffset = 100
-  flangeBaseColor = (128, 128, 128, 128) #alpha; pygame-targeted (!0)
-  flangeSurfaces  = None
-  lastBoxPos      = None
-  windowDim       = None #screen dimensions tuple, for flange extent calculation
+  boxSelected       = False
+  flangeWidth       = 20
+  flangeBoxOffset   = 100
+  flangeBaseColor   = (128, 128, 128, 128) #alpha; pygame-targeted (!0)
+  flangeSurfaces    = None
+  flangeCoordinates = None
+  lastBoxPos        = None
+  windowDim         = None #screen dimensions tuple, for flange extent calculation
 
   ########### constructor ########### 
 
@@ -36,14 +37,27 @@ class enoPgzASquare:
     self.actorBox    = Actor(self.imgTBox,               pos=( 500, 500))
     self.actorSq     = enoActorScaled(self.imgSqFn,      pos=(1000, 500), 
                                                    scale=.2, alpha = 220)
-  ########### prepare flange ########### 
+  ########### calculate flange coordinates ########### 
 
-  def prepFlange(self):
-    self.flangeSurfaces = {}
+  def calcFlangeCoordinates(self):
     if self.actorBox  is None: self.msg("prepFlange: actor box is None"); return
     if self.screenDim is None: self.msg("prepFlange: screenDim(ensions) must be assigned"); return None
 
-    self.lastBoxPos = self.actorBox.pos
+    if self.flangeCoordinates is None: self.flangeCoordinates = {}
+
+    pos                 = self.actorBox.pos
+    self.lastBoxPos     = pos
+
+    self.flangeSurfaces['L'] = self.calcFlangeCoordinates(pos, -1,  0)
+    self.flangeSurfaces['R'] = self.calcFlangeCoordinates(pos,  1,  0)
+    self.flangeSurfaces['T'] = self.calcFlangeCoordinates(pos,  0,  1)
+    self.flangeSurfaces['B'] = self.calcFlangeCoordinates(pos,  0, -1)
+
+  ########## generate flange surfaces ########### 
+
+  def genFlangeSurfaces(self):
+    if self.flangeSurfaces    is None: self.flangeSurfaces = {}
+    if self.flangeCoordinates is None: self.calcFlangeCoordinates()
   
   ########### calc flange coordinates ########### 
 
@@ -56,6 +70,7 @@ class enoPgzASquare:
       v1 = self.calcFlangeCoordinate(basePos, xsign, ysign, True)  # box-adjacent
       v2 = self.calcFlangeCoordinate(basePos, xsign, ysign, False) # edge-of-window
       return [v1, v2]
+
     except: self.err("calcFlangeCoordinates")
 
   ########### calc flange coordinate ########### 
