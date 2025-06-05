@@ -43,7 +43,7 @@ class enoPgzASquare:
   def cacheFlangeCoordinates(self):
     try:
       if self.actorBox  is None: self.msg("prepFlange: actor box is None"); return
-      if self.screenDim is None: self.msg("prepFlange: screenDim(ensions) must be assigned"); return None
+      if self.windowDim is None: self.msg("prepFlange: windowDim(ensions) must be assigned"); return None
 
       if self.flangeCoordinates is None: self.flangeCoordinates = {}
 
@@ -98,7 +98,7 @@ class enoPgzASquare:
                                 ysign:   int):
 
     try:
-      v1, v2 = self.calcFlangeCoordinates(basePos, xsign, ysing)
+      v1, v2 = self.calcFlangeCoordinates(basePos, xsign, ysign)
       v1a, v1b = v1
       v2a, v2b = v2
 
