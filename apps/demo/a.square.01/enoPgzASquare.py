@@ -28,7 +28,7 @@ class enoPgzASquare:
     self.prepFlange()
 
   def msg(self, msgstr): print("enoPgzASquare message: " + str(msgstr))
-  def err(self, msgstr): print("enoPgzASquare error: "   + str(msgstr))
+  def err(self, msgstr): print("enoPgzASquare error: "   + str(msgstr)); traceback.print_exc()
 
   ########### prepare actors ########### 
 
@@ -45,25 +45,45 @@ class enoPgzASquare:
 
     self.lastBoxPos = self.actorBox.pos
   
+  ########### calc flange coordinates ########### 
+
+  def calcFlangeCoordinates(self, 
+                            basePos: tuple[int, int], 
+                            xsign:   int, 
+                            ysign:   int):
+   
+    try:
+      v1 = self.calcFlangeCoordinate(basePos, xsign, ysign, True)  # box-adjacent
+      v2 = self.calcFlangeCoordinate(basePos, xsign, ysign, False) # edge-of-window
+      return [v1, v2]
+    except: self.err("calcFlangeCoordinates")
+
   ########### calc flange coordinate ########### 
 
   def calcFlangeCoordinate(self, 
                            basePos: tuple[int, int], 
                            xsign:   int, 
                            ysign:   int, 
-                           flangeAdjacent: bool):
+                           boxAdjacent : bool):
 
-    x1, y1 = basePos
+    try:
+      x1, y1 = basePos
 
-    if flangeAdjacent is False: #calculate relative to ends of window
-      if   xsign == -1: x2=0
-      elif xsign ==  1: x2=self.windowDim[0]
-      else:             x2=x1
+      if boxAdjacent is False: #calculate relative to ends of window
+        if   xsign == -1: x2=0
+        elif xsign ==  1: x2=self.windowDim[0]
+        else:             x2=x1
 
-      if   ysign == -1: y2=0
-      elif ysign ==  1: y2=self.windowDim[1]
-      else:             y2=y1
-      return (x2, y2)
+        if   ysign == -1: y2=0
+        elif ysign ==  1: y2=self.windowDim[1]
+        else:             y2=y1
+        return (x2, y2)
+
+      x2 = x1 + xsign * self.flangeBoxOffset 
+      y2 = y1 + ysign * self.flangeBoxOffset 
+     return (x2, y2)
+
+    except: self.err("calcFlangeCoordinate"); return None
 
   ########### draw ########### 
 
