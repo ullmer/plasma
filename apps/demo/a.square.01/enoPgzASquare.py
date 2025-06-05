@@ -68,7 +68,7 @@ class enoPgzASquare:
         self.lastBoxPos = boxPos
 
       for orientedFlangeHandle in self.orientedFlangeHandles:
-        #if orientedFlangeHandle in ['T']: continue #shunt for testing
+        if orientedFlangeHandle in ['T']: continue #shunt for testing
         flangeSurface = self.flangeSurfaces[   orientedFlangeHandle]
         w, h, x, y    = self.flangeCoordinates[orientedFlangeHandle]
 
