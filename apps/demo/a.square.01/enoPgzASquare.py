@@ -27,7 +27,6 @@ class enoPgzASquare:
   def __init__(self, **kwargs):
     self.__dict__.update(kwargs) #allow class fields to be passed in constructor
     self.prepActors()
-    self.prepFlange()
 
   def msg(self, msgstr): print("enoPgzASquare message: " + str(msgstr))
   def err(self, msgstr): print("enoPgzASquare error: "   + str(msgstr)); traceback.print_exc()
@@ -58,7 +57,7 @@ class enoPgzASquare:
 
   ########### drawFlanges ########### 
 
-  def drawFlanges(self):
+  def drawFlanges(self, screen):
     boxPos = self.actorBox.pos
     if boxPos != self.lastBoxPos:
       self.calcFlangeCoordinates()
@@ -162,12 +161,8 @@ class enoPgzASquare:
   ########### draw ########### 
 
   def draw(self, screen): 
-    self.drawFlange(screen)
+    self.drawFlanges(screen)
     self.actorBox.draw()
-  
-  ########### drawFlange ########### 
-
-  def drawFlange(self, screen): 
 
   ########### on mouse down ########### 
 
@@ -190,3 +185,4 @@ class enoPgzASquare:
   def on_mouse_up(self): self.boxSelected = False
 
 ### end ###
+  
