@@ -1,3 +1,11 @@
+# Prospective YAML (re)representation of Plasma types
+# Initial variant by Brygg Ullmer, Clemson University
+# Begun 2025-06-02
+
+# Mignon also suggests reviewing and rationalizing this with 
+#  https://github.com/plasma-hamper/plasma/blob/iz/libPlasma/c/doc/mor-plasma.md#slawx-represented-as-yaml
+#  https://github.com/plasma-hamper/plasma/blob/iz/libPlasma/c/doc/mor-plasma.md#slaw-types
+
 int8:    {core: char, fields: 1, bits: 8,  descrip: signed   char}
 unt8:    {core: byte, fields: 1, bits: 8,  descrip: unsigned char}
 int16:   {core: int,  fields: 1, bits: 16, descrip: signed   short}
@@ -7,6 +15,8 @@ unt32:   {core: unt,  fields: 1, bits: 32, descrip: unsigned int}
 int64:   {core: int,  fields: 1, bits: 64, descrip: __int64}
 v2int32: {core: int,  fields: 2, bits: 32, descrip: "{int32 x, y;}"}
 vunt64c: {core: unt,  fields: 4, bits: 64, descrip: "{unt64c x, y, z, w;}"}
+
+--- # continue mapping the rest as stability, time, interest, and necessity call
 
 unsigned __int64      unt64:
 long     long         int64:
