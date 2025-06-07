@@ -8,6 +8,8 @@
 #include "Hose.h"
 #include "Pool.h"
 
+namespace py = pybind11;
+
 namespace pybind11_weaver { // forward declaration
 struct EntityScope;
 struct EntityBase;
