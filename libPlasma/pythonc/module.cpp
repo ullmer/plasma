@@ -3,7 +3,6 @@
 #include "SlawRef.h"
 #include "Protein.h"
 #include "ob-types.h"
-#include "ob-coretypes.h"
 
 //Include the generated bindings
 #include "plasma_bindings.cc.inc"
