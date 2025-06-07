@@ -15,17 +15,17 @@
       }
       if (s.CanEmit<v3int32>()) {
         auto vec = s.Emit<v3int32>();
-        if (index == 0) return Slaw(vec.x);
-        if (index == 1) return Slaw(vec.y);
-        if (index == 2) return Slaw(vec.z);
+        if (index == 0) return vec.x;
+        if (index == 1) return vec.y;
+        if (index == 2) return vec.z;
         throw py::index_error("v3int32 index out of range");
       }
       if (s.CanEmit<v4int32>()) {
         auto vec = s.Emit<v4int32>();
-        if (index == 0) return Slaw(vec.x);
-        if (index == 1) return Slaw(vec.y);
-        if (index == 2) return Slaw(vec.z);
-        if (index == 3) return Slaw(vec.w);
+        if (index == 0) return vec.x;
+        if (index == 1) return vec.y;
+        if (index == 2) return vec.z;
+        if (index == 3) return vec.w;
         throw py::index_error("v4int32 index out of range");
       }
       if (s.IsList() || s.IsArray()) {
@@ -36,27 +36,6 @@
       throw py::type_error("Unsupported Slaw type for indexing");
     });
 
-    handle.def("Find", static_cast<Slaw (Slaw::*)(const Slaw &) const>(&Slaw::Find));
-    handle.def("__getitem__",  {
-      return s.Find(key);
-    });
-
-    handle.def_static("List",  { return Slaw::List(); });
-    handle.def_static("List",  { return Slaw::List(s); });
-    handle.def_static("Map",  {
-      return Slaw::Map(k, v);
-    });
-    handle.def_static("Cons",  {
-      return Slaw::Cons(car, cdr);
-    });
-  }
-
-  void Update() override {}
-  pybind11_weaver::EntityScope AsScope() override {
-    return pybind11_weaver::EntityScope(handle);
-  }
-  static const char *Key() { return "oblong_plasma_Slaw"; }
-};
 
 #ifndef PB11_WEAVER_DISABLE_Entity_oblong_plasma_Slaw
 using Entity_oblong_plasma_Slaw = Bind_oblong_plasma_Slaw<>;
