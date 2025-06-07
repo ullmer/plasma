@@ -4,7 +4,7 @@
     handle.def("as_v3int32",  [](const oblong::plasma::Slaw &s){ return s.Emit<v3int32>(); });
     handle.def("as_v4int32",  [](const oblong::plasma::Slaw &s){ return s.Emit<v4int32>(); });
 
-    handle.def("__getitem__",  {
+    handle.def("__getitem__",  [](const oblong::plasma::Slaw &s){
       if (s.CanEmit<v2int32>()) {
         auto vec = s.Emit<v2int32>();
         if (index == 0) return vec.x;

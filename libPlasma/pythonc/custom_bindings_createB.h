@@ -1,3 +1,6 @@
+#include <pybind11/pybind11.h>
+namespace py = pybind11;
+
 #ifndef PB11_WEAVER_DISABLE_Entity_oblong_plasma_Slaw
 using Entity_oblong_plasma_Slaw = Bind_oblong_plasma_Slaw<>;
 #endif
