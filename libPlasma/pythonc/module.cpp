@@ -55,6 +55,7 @@ PYBIND11_MODULE(plasma, m) {
     //    .def(py::init<Slaw, Slaw>());
 
 #include "module_create.cpp"
+Bind_VectorTypes(m);
 
     // Set up the custom binding registry
     pybind11_weaver::CustomBindingRegistry registry;
