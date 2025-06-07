@@ -1,20 +1,16 @@
 //plasma.create-specific bindings
 
-    handle.def("as_v2int32",  {
-      return s.Emit<v2int32>();
-    });
-    handle.def("as_v3int32",  {
-      return s.Emit<v3int32>();
-    });
-    handle.def("as_v4int32",  {
-      return s.Emit<v4int32>();
-    });
+[](const oblong::plasma::Slaw &s)
+
+    handle.def("as_v2int32",  [](const oblong::plasma::Slaw &s){ return s.Emit<v2int32>(); });
+    handle.def("as_v3int32",  [](const oblong::plasma::Slaw &s){ return s.Emit<v3int32>(); });
+    handle.def("as_v4int32",  [](const oblong::plasma::Slaw &s){ return s.Emit<v4int32>(); });
 
     handle.def("__getitem__",  {
       if (s.CanEmit<v2int32>()) {
         auto vec = s.Emit<v2int32>();
-        if (index == 0) return Slaw(vec.x);
-        if (index == 1) return Slaw(vec.y);
+        if (index == 0) return vec.x;
+        if (index == 1) return vec.y;
         throw py::index_error("v2int32 index out of range");
       }
       if (s.CanEmit<v3int32>()) {
