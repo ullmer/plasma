@@ -12,8 +12,6 @@
 namespace py = pybind11;
 using namespace oblong::plasma;
 
-#include "module_create.cpp"
-
 void AddCustomEntities(pybind11::module_ &m, const pybind11_weaver::CustomBindingRegistry &registry) {
     using namespace pybind11_weaver;
 
@@ -54,6 +52,8 @@ PYBIND11_MODULE(plasma, m) {
     //    .def(py::init<>())
     //    .def(py::init<Slaw>())
     //    .def(py::init<Slaw, Slaw>());
+
+#include "module_create.cpp"
 
     // Set up the custom binding registry
     pybind11_weaver::CustomBindingRegistry registry;
