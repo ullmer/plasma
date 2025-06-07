@@ -7,7 +7,7 @@ inline void Bind_VectorTypes(py::module_ &m) {
     .def(py::init<>())
     .def_readwrite("x", &v2int32::x)
     .def_readwrite("y", &v2int32::y)
-    .def("__repr__",  {
+    .def("__repr__",  [](const pybind11::class_<v2int32>& v){
       return "<v2int32 x=" + std::to_string(v.x) + ", y=" + std::to_string(v.y) + ">";
     });
 
@@ -16,7 +16,7 @@ inline void Bind_VectorTypes(py::module_ &m) {
     .def_readwrite("x", &v3int32::x)
     .def_readwrite("y", &v3int32::y)
     .def_readwrite("z", &v3int32::z)
-    .def("__repr__",  {
+    .def("__repr__",  [](const pybind11::class_<v3int32>& v){
       return "<v3int32 x=" + std::to_string(v.x) + ", y=" + std::to_string(v.y) + ", z=" + std::to_string(v.z) + ">";
     });
 
@@ -26,7 +26,7 @@ inline void Bind_VectorTypes(py::module_ &m) {
     .def_readwrite("y", &v4int32::y)
     .def_readwrite("z", &v4int32::z)
     .def_readwrite("w", &v4int32::w)
-    .def("__repr__",  {
+    .def("__repr__",  [](const pybind11::class_<v4int32>& v){
       return "<v4int32 x=" + std::to_string(v.x) + ", y=" + std::to_string(v.y) +
              ", z=" + std::to_string(v.z) + ", w=" + std::to_string(v.w) + ">";
     });
