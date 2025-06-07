@@ -12,6 +12,8 @@
 namespace py = pybind11;
 using namespace oblong::plasma;
 
+#include "module_create.cpp"
+
 void AddCustomEntities(pybind11::module_ &m, const pybind11_weaver::CustomBindingRegistry &registry) {
     using namespace pybind11_weaver;
 
