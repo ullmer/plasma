@@ -57,7 +57,7 @@ struct Bind_oblong_plasma_Slaw : public pybind11_weaver::EntityBase {
         handle.def("ToString",    [](const oblong::plasma::Slaw &s) {
             return std::string(static_cast<const char *>(s.ToString())); });
 
-#include "custom_bindings_create.h"
+#include "custom_bindings_createA.h"
     }
 
     void Update() override {}
@@ -221,6 +221,8 @@ struct Bind_oblong_plasma_detail_SlawList : public pybind11_weaver::EntityBase {
 #ifndef PB11_WEAVER_DISABLE_Entity_oblong_plasma_detail_SlawList
 using Entity_oblong_plasma_detail_SlawList = Bind_oblong_plasma_detail_SlawList<>;
 #endif
+
+#include "custom_bindings_createB.h"
 
 /*
 
