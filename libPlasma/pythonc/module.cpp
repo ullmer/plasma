@@ -54,7 +54,7 @@ PYBIND11_MODULE(plasma, m) {
     //    .def(py::init<Slaw>())
     //    .def(py::init<Slaw, Slaw>());
 
-#include "module_create.cpp"
+#include "module_createA.cpp"
 Bind_VectorTypes(m);
 
     // Set up the custom binding registry
@@ -80,5 +80,7 @@ Bind_VectorTypes(m);
     // Add custom entities to the top-level module
     AddCustomEntities(m, registry);
 }
+
+#include "module_createB.cpp"
 
 /// end ///

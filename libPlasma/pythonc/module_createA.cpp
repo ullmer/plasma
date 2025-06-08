@@ -15,7 +15,8 @@ py::class_<v2int32>(m, "v2int32")
     .def_readwrite("x", &v2int32::x)
     .def_readwrite("y", &v2int32::y)
     .def("__repr__",  {
-        return "<v2int32 x=" + std::to_string(v.x) + ", y=" + std::to_string(v.y) + ">";
+        return "<v2int32 x=" + std::to_string(v[0]) + ", y=" + std::to_string(v[1]) + ">";
+//        return "<v2int32 x=" + std::to_string(v.x) + ", y=" + std::to_string(v.y) + ">";
     });
 
 
