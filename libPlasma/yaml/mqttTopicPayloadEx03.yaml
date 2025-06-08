@@ -1,0 +1,27 @@
+
+# Raw or processed sensor data.
+Sense:      { sensor_id: "", timestamp: "", location: "", data_type: "", value: "" }
+
+# Commands to devices or systems.
+Actuate:    { target_id: "", command: "", parameters: {}, priority: "", auth_token: "" }
+
+# Human-readable or symbolic messages.
+Narrate:    { author: "", language: "", format: "", content: "", tags: [] }
+
+# Synchronization and planning.
+Coordinate: { participants: [], schedule: "", location: "", objective: "", status: "" }
+
+# High-priority or emergency notifications.
+Alert:      { severity: "", affected_area: "", instructions: "", timestamp: "", ack_required: true }
+
+# Feedback, evaluation, or learning.
+Reflect:    { source: "", metric: "", score: "", comments: "", timestamp: "" }
+
+# Exchange of value or permissions.
+Transact:   { from: "", to: "", value: "", currency: "", conditions: "" }
+
+# Describes intentions, preferences, or constraints for graphical representation.
+Visualize:  { source: "", mode: "", interactivity: true, annotations: [], layout: "" }
+
+# Captures user gestures, gaze, touch, or voice interactions with displays.
+Interact:   { user_id: "", device_id: "", gesture: "", timestamp: "", context: "" }
