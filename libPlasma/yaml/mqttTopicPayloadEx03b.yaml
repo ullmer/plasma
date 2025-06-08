@@ -1,0 +1,23 @@
+# Per session by CoPilot and Brygg Ullmer, 2025-06-07
+
+# Sense:      Raw or processed sensor data.
+# Interact:   Captures user gestures, gaze, touch, or voice interactions with displays.
+# Visualize:  Describes intentions, preferences, or constraints for graphical representation.
+# Actuate:    Commands to devices or systems.
+# Narrate:    Human-readable or symbolic messages.
+# Coordinate: Synchronization and planning.
+# Alert:      High-priority or emergency notifications.
+# Reflect:    Feedback, evaluation, or learning.
+# Transact:   Exchange of value or permissions.
+
+Sense:      { sensor_id: "",    location: "",  timestamp: "", data_type: "", value: "" }
+Interact:   { user_id: "",      device_id: "", gesture: "", timestamp: "", context: "" }
+Visualize:  { source: "",       mode: "",      interactivity: true, annotations: [], layout: "" }
+Actuate:    { target_id: "",    command: "",   parameters: {}, priority: "", auth_token: "" }
+Narrate:    { author: "",       language: "",  format: "",     content: "", tags: [] }
+Coordinate: { participants: [], schedule: "",  location: "", objective: "", status: "" }
+Alert:      { severity: "",     affected_area: "", instructions: "", timestamp: "", ack_required: true }
+Reflect:    { source: "",       metric: "", score: "", comments: "", timestamp: "" }
+Transact:   { from: "",         to: "",     value: "", currency: "", conditions: "" }
+
+### end ###
