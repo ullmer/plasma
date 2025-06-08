@@ -1,0 +1,83 @@
+# Threaded, callback-based PlasmaListener code
+# Original co-implemented by CoPilot and Brygg Ullmer, Clemson University
+# Begun 2025-06-08
+
+import threading
+import plasma
+import time
+import logging
+
+################ PlasmaListener ################ 
+
+class PlasmaListener:
+  pool_name, hose,  thread = [None]*3
+  running, callback, ready = [None]*3
+
+  #### constructor ####
+
+  def __init__(self, pool_name="tcp://localhost/hello", callback=None):
+    self.pool_name = pool_name
+    self.hose      = None
+    self.thread    = None
+    self.running   = False
+    self.callback  = callback
+    self.ready     = threading.Event()
+
+    logging.basicConfig(level=logging.INFO)
+    self.logger = logging.getLogger(__name__)
+
+  #### _listen ####
+
+  def _listen(self):
+    self.hose = plasma.Pool.Participate(self.pool_name)
+    if self.hose is None:
+      self.logger.error(f"Failed to connect to pool: {self.pool_name}")
+      return
+
+    self.logger.info("Connected to pool, listening for messages...")
+    self.ready.set()
+
+    try:
+      while self.running:
+        protein = self.hose.Next(-1)
+        if protein.IsNull(): self.logger.error("Received null protein"); break
+        if self.callback:    self.callback(protein)
+    finally:
+      self.hose.Withdraw()
+
+  #### start ####
+
+  def start(self):
+    if not self.running:
+      self.running = True
+      self.thread  = threading.Thread(target=self._listen, daemon=True)
+      self.thread.start()
+      self.logger.info("PlasmaListener started")
+  
+  #### stop ####
+
+  def stop(self):
+    self.running = False
+    if self.thread:
+      self.thread.join()
+      self.logger.info("PlasmaListener stopped")
+
+################## Test harness ################## 
+
+def handle_message(protein):
+  d, i = protein.Descrips(), protein.Ingests()
+  print("d ->", d.ToString())
+  print("i ->", i.ToString())
+
+if __name__ == "__main__":
+  listener = PlasmaListener(pool_name="tcp://localhost/hello", callback=handle_message)
+  listener.start()
+  listener.ready.wait(timeout=1.0)
+  time.sleep(0.5)
+
+  try:
+    while True: time.sleep(0.1)
+  except KeyboardInterrupt:
+    listener.stop()
+
+### end ###
