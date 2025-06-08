@@ -42,7 +42,7 @@ class enoPlasmaListener:
       while self.running:
         #protein = self.hose.Next(-1)
         protein = self.hose.Next(self.checkinInterval)
-        if protein.IsNull(): self.logger.error("Received null protein"); break
+        if protein.IsNull(): continue
         if self.callback:    self.callback(protein)
     finally:
       self.hose.Withdraw()
