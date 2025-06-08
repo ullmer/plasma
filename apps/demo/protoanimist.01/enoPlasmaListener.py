@@ -3,24 +3,21 @@
 # Begun 2025-06-08
 
 import threading
+import logging
 import plasma
 import time
-import logging
 
 ################ PlasmaListener ################ 
 
-class PlasmaListener:
-  pool_name, hose,  thread = [None]*3
+class enoPlasmaListener:
+  poolName,  hose,  thread = [None]*3
   running, callback, ready = [None]*3
 
   #### constructor ####
 
-  def __init__(self, pool_name="tcp://localhost/hello", callback=None):
-    self.pool_name = pool_name
-    self.hose      = None
-    self.thread    = None
+  def __init__(self, **kwargs):
+    self.__dict__.update(kwargs) #allow class fields to be passed in constructor
     self.running   = False
-    self.callback  = callback
     self.ready     = threading.Event()
 
     logging.basicConfig(level=logging.INFO)
@@ -29,13 +26,16 @@ class PlasmaListener:
   #### _listen ####
 
   def _listen(self):
-    self.hose = plasma.Pool.Participate(self.pool_name)
-    if self.hose is None:
-      self.logger.error(f"Failed to connect to pool: {self.pool_name}")
-      return
+    try:
+      if self.poolName is None: self.logger.error(f"No pool name provided!"); return
 
-    self.logger.info("Connected to pool, listening for messages...")
-    self.ready.set()
+      self.hose = plasma.Pool.Participate(self.poolName)
+
+      if self.hose is None: self.logger.error(f"Failed to connect to pool: {self.poolName}"); return
+
+      self.logger.info("Connected to pool, listening for messages...")
+      self.ready.set()
+    except: self.logger.error(f"_listener setup issue caught")
 
     try:
       while self.running:
@@ -52,7 +52,7 @@ class PlasmaListener:
       self.running = True
       self.thread  = threading.Thread(target=self._listen, daemon=True)
       self.thread.start()
-      self.logger.info("PlasmaListener started")
+      self.logger.info("enoPlasmaListener started")
   
   #### stop ####
 
@@ -70,7 +70,7 @@ def handle_message(protein):
   print("i ->", i.ToString())
 
 if __name__ == "__main__":
-  listener = PlasmaListener(pool_name="tcp://localhost/hello", callback=handle_message)
+  listener = PlasmaListener(poolName="tcp://localhost/hello", callback=handle_message)
   listener.start()
   listener.ready.wait(timeout=1.0)
   time.sleep(0.5)
