@@ -1,3 +1,7 @@
+# Threaded, callback-based PlasmaListener code
+# Original co-implemented by CoPilot and Brygg Ullmer, Clemson University
+# Begun 2025-06-08
+
 import threading
 import plasma
 import time
@@ -58,7 +62,8 @@ class PlasmaListener:
       self.thread.join()
       self.logger.info("CallbackPlasmaListener stopped")
 
-# Test harness
+################## Test harness ################## 
+
 def handle_message(protein):
   d, i = protein.Descrips(), protein.Ingests()
   print("d ->", d.ToString())
@@ -71,8 +76,7 @@ if __name__ == "__main__":
   time.sleep(0.5)
 
   try:
-    while True:
-      time.sleep(0.1)
+    while True: time.sleep(0.1)
   except KeyboardInterrupt:
     listener.stop()
 
