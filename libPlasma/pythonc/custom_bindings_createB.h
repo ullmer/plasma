@@ -8,7 +8,8 @@ inline void Bind_VectorTypes(py::module_ &m) {
     .def_readwrite("x", &v2int32::x)
     .def_readwrite("y", &v2int32::y)
     .def("__repr__",  [](const pybind11::class_<v2int32>& v){
-      return "<v2int32 x=" + std::to_string(v.x) + ", y=" + std::to_string(v.y) + ">";
+      return "<v2int32 x=" + std::to_string(v[0]) + ", y=" + std::to_string(v[1]) + ">";
+      //return "<v2int32 x=" + std::to_string(v.x) + ", y=" + std::to_string(v.y) + ">";
     });
 
   py::class_<v3int32>(m, "v3int32")
