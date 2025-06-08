@@ -55,6 +55,7 @@ class enoPlasmaListener:
       self.thread  = threading.Thread(target=self._listen, daemon=True)
       self.thread.start()
       self.logger.info("enoPlasmaListener started")
+    self.ready.wait(timeout=1.0)
   
   #### stop ####
 

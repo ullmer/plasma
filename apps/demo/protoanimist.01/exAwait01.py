@@ -10,7 +10,6 @@ def handle_message(protein):
 
 listener = enoPlasmaListener(poolName="tcp://localhost/hello", callback=handle_message)
 listener.start()
-listener.ready.wait(timeout=1.0)
 
 for i in range(1000): 
   print(str(i) + " ", end='')
