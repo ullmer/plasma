@@ -52,7 +52,7 @@ class PlasmaListener:
       self.running = True
       self.thread  = threading.Thread(target=self._listen, daemon=True)
       self.thread.start()
-      self.logger.info("CallbackPlasmaListener started")
+      self.logger.info("PlasmaListener started")
   
   #### stop ####
 
@@ -60,7 +60,7 @@ class PlasmaListener:
     self.running = False
     if self.thread:
       self.thread.join()
-      self.logger.info("CallbackPlasmaListener stopped")
+      self.logger.info("PlasmaListener stopped")
 
 ################## Test harness ################## 
 
