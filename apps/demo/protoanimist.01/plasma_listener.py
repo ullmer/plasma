@@ -1,7 +1,3 @@
-### PlasmaListener class, initially synthesized by CoPilot
-# Brygg Ullmer, Clemson University & CoPilot
-# Begun 2025-06-08
-
 import threading
 import plasma
 import queue
@@ -11,9 +7,9 @@ import logging
 class PlasmaListener:
   def __init__(self, pool_name="tcp://localhost/hello"):
     self.pool_name = pool_name
-    self.hose      = None
-    self.thread    = None
-    self.running   = False
+    self.hose = None
+    self.thread = None
+    self.running = False
     self.message_queue = queue.Queue()  # Thread-safe queue for communication
 
     # Set up logging
@@ -26,13 +22,22 @@ class PlasmaListener:
       self.logger.error(f"Failed to connect to pool: {self.pool_name}")
       return
 
+    self.logger.info("Connected to pool, listening for messages...")
+
     try:
       while self.running:
+        print(1)
         protein = self.hose.Next(-1)
+        print(2)
         if protein.IsNull():
           self.logger.error("Received null protein")
           break
-        self.message_queue.put(protein)  # Pass to main thread or handler
+        self.logger.debug(f"Received protein: {protein}")
+        self.logger.debug(f"Descrips: {protein.Descrips().ToString()}")
+        self.logger.debug(f"Ingests: {protein.Ingests().ToString()}")
+        print(3)
+        self.message_queue.put(protein)
+        print(4)
     finally:
       self.hose.Withdraw()
 
@@ -51,7 +56,11 @@ class PlasmaListener:
 
   def get_message(self):
     try:
-      return self.message_queue.get_nowait()
+      print(5)
+      #result = self.message_queue.get(timeout=0.1)
+      result = self.message_queue.get()
+      print(6)
+      return result
     except queue.Empty:
       return None
 
@@ -59,16 +68,21 @@ class PlasmaListener:
 if __name__ == "__main__":
   listener = PlasmaListener(pool_name="tcp://localhost/hello")
   listener.start()
+  time.sleep(0.5)
 
   try:
     while True:
+      print('A')
       message = listener.get_message()
+      print('B')
       if message:
-        d, i = message.Descrips(), message.Ingests()
-        print("d ->", d.ToString())
-        print("i ->", i.ToString())
-      time.sleep(1)
+        try:
+          d, i = message.Descrips(), message.Ingests()
+          print("d ->", d.ToString())
+          print("i ->", i.ToString())
+        except Exception as e:
+          print("Error processing message:", e)
+      time.sleep(0.1)
   except KeyboardInterrupt:
     listener.stop()
 
-### end ###
