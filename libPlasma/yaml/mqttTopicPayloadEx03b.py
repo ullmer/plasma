@@ -30,14 +30,15 @@ visualize_payload = {"source": "sensor_cluster_alpha", "mode": "timeline", "inte
 client = mqtt.Client()
 
 # Define the on_connect callback
+
 def on_connect(client, userdata, flags, rc):
-    print(f"Connected with result code {rc}")
-    for t in [TOPIC_SENSE, TOPIC_ALERT, TOPIC_INTERACT, TOPIC_VISUALIZE]:
-      client.subscribe(t)
+  print(f"Connected with result code {rc}")
+  for t in [TOPIC_SENSE, TOPIC_ALERT, TOPIC_INTERACT, TOPIC_VISUALIZE]: client.subscribe(t)
 
 # Define the on_message callback
+
 def on_message(client, userdata, msg):
-    print(f"Message received on topic {msg.topic}: {msg.payload.decode()}")
+  print(f"Message received on topic {msg.topic}: {msg.payload.decode()}")
 
 # Set callbacks
 client.on_connect = on_connect
@@ -55,9 +56,11 @@ client.publish(TOPIC_VISUALIZE, json.dumps(visualize_payload))
 # Start the loop
 client.loop_start()
 
+delta=.1
+
 # Keep the script running to listen for messages
 try:
-  while True: pass
+  while True: sleep(delta); pass
 
 except KeyboardInterrupt:
   client.loop_stop()
