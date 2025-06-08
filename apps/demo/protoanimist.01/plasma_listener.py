@@ -1,3 +1,6 @@
+### PlasmaListener class, initially synthesized by CoPilot
+# Brygg Ullmer, Clemson University & CoPilot
+# Begun 2025-06-08
 
 import threading
 import plasma
@@ -8,9 +11,9 @@ import logging
 class PlasmaListener:
   def __init__(self, pool_name="tcp://localhost/hello"):
     self.pool_name = pool_name
-    self.hose = None
-    self.thread = None
-    self.running = False
+    self.hose      = None
+    self.thread    = None
+    self.running   = False
     self.message_queue = queue.Queue()  # Thread-safe queue for communication
 
     # Set up logging
@@ -67,3 +70,5 @@ if __name__ == "__main__":
       time.sleep(1)
   except KeyboardInterrupt:
     listener.stop()
+
+### end ###
