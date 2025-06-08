@@ -5,11 +5,17 @@ import time
 import logging
 
 class PlasmaListener:
+
+  pool_name, hose, thread, running = [None]*4
+  message_queue, ready             = [None]*2
+
   def __init__(self, pool_name="tcp://localhost/hello"):
     self.pool_name = pool_name
-    self.hose = None
-    self.thread = None
-    self.running = False
+    self.hose      = None
+    self.thread    = None
+    self.running   = False
+    self.ready     = threading.Event()
+
     self.message_queue = queue.Queue()  # Thread-safe queue for communication
 
     # Set up logging
@@ -18,6 +24,8 @@ class PlasmaListener:
 
   def _listen(self):
     self.hose = plasma.Pool.Participate(self.pool_name)
+    self.ready.set()
+
     if self.hose is None:
       self.logger.error(f"Failed to connect to pool: {self.pool_name}")
       return
@@ -68,6 +76,7 @@ class PlasmaListener:
 if __name__ == "__main__":
   listener = PlasmaListener(pool_name="tcp://localhost/hello")
   listener.start()
+  listener.ready.wait(timeout=1.0)  # Wait until listener is ready
   time.sleep(0.5)
 
   try:
