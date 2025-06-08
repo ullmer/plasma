@@ -12,6 +12,7 @@ import time
 class enoPlasmaListener:
   poolName,  hose,  thread = [None]*3
   running, callback, ready = [None]*3
+  checkinInterval          = .03 # this should change depending upon many particulars
 
   #### constructor ####
 
@@ -39,7 +40,8 @@ class enoPlasmaListener:
 
     try:
       while self.running:
-        protein = self.hose.Next(-1)
+        #protein = self.hose.Next(-1)
+        protein = self.hose.Next(self.checkinInterval)
         if protein.IsNull(): self.logger.error("Received null protein"); break
         if self.callback:    self.callback(protein)
     finally:
@@ -70,7 +72,7 @@ def handle_message(protein):
   print("i ->", i.ToString())
 
 if __name__ == "__main__":
-  listener = PlasmaListener(poolName="tcp://localhost/hello", callback=handle_message)
+  listener = enoPlasmaListener(poolName="tcp://localhost/hello", callback=handle_message)
   listener.start()
   listener.ready.wait(timeout=1.0)
   time.sleep(0.5)
