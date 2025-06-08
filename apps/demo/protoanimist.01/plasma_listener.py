@@ -3,9 +3,13 @@ import plasma
 import time
 import logging
 
-class CallbackPlasmaListener:
+################ PlasmaListener ################ 
+
+class PlasmaListener:
   pool_name, hose,  thread = [None]*3
   running, callback, ready = [None]*3
+
+  #### constructor ####
 
   def __init__(self, pool_name="tcp://localhost/hello", callback=None):
     self.pool_name = pool_name
@@ -17,6 +21,8 @@ class CallbackPlasmaListener:
 
     logging.basicConfig(level=logging.INFO)
     self.logger = logging.getLogger(__name__)
+
+  #### _listen ####
 
   def _listen(self):
     self.hose = plasma.Pool.Participate(self.pool_name)
@@ -35,12 +41,16 @@ class CallbackPlasmaListener:
     finally:
       self.hose.Withdraw()
 
+  #### start ####
+
   def start(self):
     if not self.running:
       self.running = True
-      self.thread = threading.Thread(target=self._listen, daemon=True)
+      self.thread  = threading.Thread(target=self._listen, daemon=True)
       self.thread.start()
       self.logger.info("CallbackPlasmaListener started")
+  
+  #### stop ####
 
   def stop(self):
     self.running = False
@@ -55,7 +65,7 @@ def handle_message(protein):
   print("i ->", i.ToString())
 
 if __name__ == "__main__":
-  listener = CallbackPlasmaListener(pool_name="tcp://localhost/hello", callback=handle_message)
+  listener = PlasmaListener(pool_name="tcp://localhost/hello", callback=handle_message)
   listener.start()
   listener.ready.wait(timeout=1.0)
   time.sleep(0.5)
