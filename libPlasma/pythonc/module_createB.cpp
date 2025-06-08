@@ -11,7 +11,6 @@ py::class_<v2int32>(m, "v2int32")
         return "<v2int32 x=" + std::to_string(v.x) + ", y=" + std::to_string(v.y) + ">";
     });
 
-
 //   oblong::plasma::v2int32 vec = {static_cast<oblong::plasma::int32>(a),
 //                                  static_cast<oblong::plasma::int32>(b)};
 

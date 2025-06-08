@@ -1,14 +1,12 @@
-/// "create" submodule and associated types 
+/// "create" submodule and associated types
 /// Brygg Ullmer, Clemson University
 /// Initial stub by copilot
 
 py::module_ create = m.def_submodule("create", "Factory functions for libPlasma types");
 
 create.def("v2int32", [](int a, int b) {
-   v2int32 vec = {static_cast<int32>(a),
-                                  static_cast<int32>(b)};
-   return oblong::plasma::Slaw(vec);
-
+  v2int32 vec = {static_cast<int32>(a), static_cast<int32>(b)};
+  return oblong::plasma::Slaw(vec);
 
 py::class_<v2int32>(m, "v2int32")
     .def(py::init<>())
@@ -18,7 +16,6 @@ py::class_<v2int32>(m, "v2int32")
         return "<v2int32 x=" + std::to_string(v[0]) + ", y=" + std::to_string(v[1]) + ">";
 //        return "<v2int32 x=" + std::to_string(v.x) + ", y=" + std::to_string(v.y) + ">";
     });
-
 
 
 }, "Create a Slaw-wrapped v2int32 from two integers");
