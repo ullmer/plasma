@@ -45,14 +45,20 @@ PYBIND11_MODULE(plasma, m) {
     m.doc() = "Python bindings for libPlasma using pybind11_weaver";
 
     // Expose Slaw directly under the top-level module
-    //py::class_<Slaw>(m, "Slaw")
-    //    .def(py::init<const char*>());
+    py::class_<Slaw>(m, "Slaw")
+        .def(py::init<const char*>());
 
     // Expose Protein directly under the top-level module
-    //py::class_<Protein>(m, "Protein")
-    //    .def(py::init<>())
-    //    .def(py::init<Slaw>())
-    //    .def(py::init<Slaw, Slaw>());
+    py::class_<Protein>(m, "Protein")
+        .def(py::init<>())
+        .def(py::init<Slaw>())
+        .def(py::init<Slaw, Slaw>());
+
+    py::module_ create = m.def_submodule("create", "Factory functions for libPlasma types");
+
+    create.def("v2int32", [](int a, int b) {
+      v2int32 vec = {static_cast<int32>(a), static_cast<int32>(b)};
+      return oblong::plasma::Slaw(vec);
 
 #include "module_createA.cpp"
 //Bind_VectorTypes(m);
