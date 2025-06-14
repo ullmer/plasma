@@ -1,5 +1,7 @@
 //plasma.create-specific bindings
 
+/*
+
     handle.def("as_v2int32",  [](const oblong::plasma::Slaw &s){ return s.Emit<v2int32>(); });
     handle.def("as_v3int32",  [](const oblong::plasma::Slaw &s){ return s.Emit<v3int32>(); });
     handle.def("as_v4int32",  [](const oblong::plasma::Slaw &s){ return s.Emit<v4int32>(); });
@@ -34,5 +36,6 @@
       }
       throw py::type_error("Unsupported Slaw type for indexing");
     });
+*/
 
 /// end ///

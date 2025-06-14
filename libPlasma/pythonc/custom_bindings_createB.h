@@ -1,3 +1,5 @@
+/*
+
 #ifndef PB11_WEAVER_DISABLE_Entity_oblong_plasma_Slaw
 using Entity_oblong_plasma_Slaw = Bind_oblong_plasma_Slaw<>;
 #endif
@@ -32,4 +34,6 @@ inline void Bind_VectorTypes(py::module_ &m) {
              ", z=" + std::to_string(v.z) + ", w=" + std::to_string(v.w) + ">";
     });
 }
+*/
 
+//// end ////
