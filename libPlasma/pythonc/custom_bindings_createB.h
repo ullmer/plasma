@@ -1,9 +1,10 @@
-/*
 
 #ifndef PB11_WEAVER_DISABLE_Entity_oblong_plasma_Slaw
 using Entity_oblong_plasma_Slaw = Bind_oblong_plasma_Slaw<>;
 #endif
+
 // Bind vector types
+/*
 inline void Bind_VectorTypes(py::module_ &m) {
   py::class_<v2int32>(m, "v2int32")
     .def(py::init<>())
