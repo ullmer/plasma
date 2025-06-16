@@ -10,24 +10,24 @@
 ### operations ###
 
 app:
-  getName:             {descr:, args:}
-  getAuthor:           {descr:, args:}
-  getListeningDevices: {descr:, args:}
-  getListeningWindows: {descr:, args:}
-  listOps:             {descr:, args:}
+  getAppName:          {descr: 0x0110, args:}
+  getAuthorOrgs:       {descr: 0x0120, args:}
+  getAuthorNames:      {descr: 0x0130, args:}
+  getListeningDevices: {descr: 0x0140, args:}
+  getListeningWindows: {descr: 0x0150, args:}
+  listOps:             {descr: 0x0160, args:}
 
 ops:
   create:
-    square:            {descr:, args:}
-    window:            {descr:, args:}
+    square:            {descr: 0x0200, args:}
+    window:            {descr: 0x0210, args:}
 
-ops:
   move:
-    square:            {descr:, args:}
-    window:            {descr:, args:}
+    square:            {descr: 0x0220, args:}
+    window:            {descr: 0x0230, args:}
 
   toggle:
-    square:            {descr:, args:}
+    square:            {descr: 0x0240, args:}
 
 plasma:
   address:        {bs: ABBB CCCC DDDD EEEE} #bs: bitstring
@@ -43,6 +43,5 @@ plasma:
           close:  {bs: 0000 0001 0010, bv: 0x0120}
           new:    {bs: 0000 0001 0011, bv: 0x0130}
           save:   {bs: 0000 0001 0100, bv: 0x0140}
-
 
 ### end ###
