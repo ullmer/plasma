@@ -29,7 +29,7 @@ class enoPlasmaListener:
 
   def deposit(self, protein):
     if self.hose is None: self.logger.error(f"deposit: no hose"); return
-    try:    self.hose.Deposit(protein)
+    try:    return self.hose.Deposit(protein)
     except: self.logger.error(f"deposit error"); traceback.print_exc()
 
   #### _listen ####
