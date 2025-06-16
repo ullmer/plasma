@@ -24,6 +24,11 @@ create.def("v2int32", [](int a, int b) {
    return oblong::plasma::Slaw(vec);
 }, "Create a Slaw-wrapped v2int32 from two integers");
 
+//create.def("string", [](const std::string& str1) {
+create.def("string", [](const char *str) {
+   return oblong::plasma::Slaw(str);
+}, "Create a Slaw-wrapped string from a string");
+
 create.def("list", [](py::list plist) { // body from Slaw.h::664-670
   std::vector<oblong::plasma::Slaw> vsl;
   oblong::plasma::Slaw s;
