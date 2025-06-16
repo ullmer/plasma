@@ -13,7 +13,7 @@ struct EntityScope;
 struct EntityBase;
 }
 
-bool appendSlawToList(pybind11::list lst, const oblong::plasma::Slaw &s) {
+bool appendSlawToList(pybind11::list &lst, const oblong::plasma::Slaw &s) {
   pybind11::list result = lst;
 
   if (s.CanEmit<v2int32>()) {
@@ -32,6 +32,11 @@ bool appendSlawToList(pybind11::list lst, const oblong::plasma::Slaw &s) {
     auto vec = s.Emit<v2int8>();
     result.append(vec.x);
     result.append(vec.y);
+    return true;
+
+  } else if (s.CanEmit<int32>()) {
+    auto el = s.Emit<int32>();
+    result.append(el);
     return true;
   }
   return false;
@@ -100,24 +105,10 @@ struct Bind_oblong_plasma_Slaw : public pybind11_weaver::EntityBase {
         handle.def("getList",         [](const oblong::plasma::Slaw &s) {
           pybind11::list result;
 
-          if (s.CanEmit<v2int32>()) {
-            auto vec = s.Emit<v2int32>();
-            result.append(vec.x);
-            result.append(vec.y);
-          }
-          else if (s.CanEmit<v2int16>()) {
-            auto vec = s.Emit<v2int16>();
-            result.append(vec.x);
-            result.append(vec.y);
-          }
-          else if (s.CanEmit<v2int8>()) {
-            auto vec = s.Emit<v2int8>();
-            result.append(vec.x);
-            result.append(vec.y);
-          }
+          bool appendListSlawSimpleTypes = appendSlawToList(result, s);
 
-          //else if (s.CanEmit<oblong::plasma::detail::Slaw::List>()) {
-          else if (s.IsList()) {
+          if (appendListSlawSimpleTypes == false and s.IsList()) { 
+                    
             int slen = s.Count();
             for (int i=0; i<slen; i++) {
               //oblong::plasma::Slaw el = s.Nth(i).cast<oblong::plasma::Slaw>();
@@ -125,6 +116,9 @@ struct Bind_oblong_plasma_Slaw : public pybind11_weaver::EntityBase {
               if (el.CanEmit<const char *>()) {
                 std::string str = el.Emit<const char *>();
                 result.append(str);
+              } else {
+                bool alsst2 = appendSlawToList(result, el);
+                if (alsst2 == false) {} // handle it! and also, handle list of lists, etc.
               }
             } 
           }
