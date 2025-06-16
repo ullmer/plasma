@@ -56,15 +56,13 @@ struct Bind_oblong_plasma_Slaw : public pybind11_weaver::EntityBase {
             return std::string(static_cast<const char *>(s.ToString())); });
 
         handle.def("getList",         [](const oblong::plasma::Slaw &s) {
-
+          pybind11::list result;
           if (s.CanEmit<v2int32>()) {
-            pybind11::list result;
             auto vec = s.Emit<v2int32>();
             result.append(vec.x);
             result.append(vec.y);
-            return result;
           }
-          //return pybind11::int_(42); // inching forward :-)
+          return result;
         });
     }
 
