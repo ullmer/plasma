@@ -3,21 +3,24 @@
 # Begun 2025-06-16 
 
 # Exploring compact messaging:
-#  message descriptor/descrips: v2int8  (pair of bytes)
-#  message arguments/ingests:   v2int32 (pair of 32-bit signed integers)
+#  message descriptor|descr|descrips: v2int8  (pair of bytes)
+#  message arguments |args |ingests:  v2int32 (pair of 32-bit signed integers)
+#                                     string  (character string)
 
 ### operations ###
 
-app.getName:    
-app.getAuthor:  
-app.getListeningDevices:
+app.getName:             {
+app.getAuthor:           {
+app.getListeningDevices: {
+app.getListeningWindows: {
+app.listOps:             {
 
-ops.create.square:
-ops.create.window:
+ops.create.square:       {
+ops.create.window:       {
 
-ops.move.square:
-ops.move.window:
+ops.move.square:         {
+ops.move.window:         {
 
-ops.toggle.square:
+ops.toggle.square:       {
 
 ### end ###
