@@ -4,5 +4,12 @@
 
 ### operations ###
 
+ops.create.square:
+ops.create.window:
+
+ops.move.square:
+ops.move.window:
+
+ops.toggle.square:
 
 ### end ###
