@@ -17,13 +17,12 @@ def main():
     objAction = "move"
     objCoords = [10, 10]
 
-    psObjName, psObjAction    = plasma.Slaw(objName),      plasma.Slaw(objAction)
-    psObjX, psObjY            = plasma.Slaw(objCoords[0]), plasma.Slaw(objCoords[1]) # a v2int32 would be better
-    psObjUpdates              = plasma.Slaw.List()
-    for el in [psObjAction, psObjX, psObjY]: psObjUpdates.Add(el)
+    x, y = objCoords
+    psObjName, psObjAction    = plasma.create.string(objName), plasma.create.string(objAction)
+    psObjLoc                  = plasma.create.v2int32(x,y)
+    psObjUpdates              = plasma.create.list([psObjAction, psObjLoc])
 
-    ingests = plasma.Slaw.Map(psObjName, psObjUpdates)
-    protein = plasma.Protein(descrips, ingests)
+    protein = plasma.Protein(psObjName, psObjUpdates)
 
     print(f"depositing in {pool_name}")
     print(protein.ToSlaw().ToString())
