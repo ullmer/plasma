@@ -1,0 +1,84 @@
+#include <pybind11/pybind11.h>
+#include "Slaw.h"
+#include "SlawRef.h"
+#include "Protein.h"
+#include "ob-types.h"
+#include "ob-coretypes.h"
+
+//Include the generated bindings
+#include "plasma_bindings.cc.inc"
+
+// Include your custom bindings
+#include "custom_bindings.h"
+
+namespace py = pybind11;
+using namespace oblong::plasma;
+
+void AddCustomEntities(pybind11::module_ &m, const pybind11_weaver::CustomBindingRegistry &registry) {
+    using namespace pybind11_weaver;
+
+    EntityScope top_scope(m);
+    CreateEntity<Entity_oblong_plasma_Hose>(std::move(top_scope), registry)->Update();
+
+    EntityScope top_scope2(m); // Recreate top_scope since it's been moved
+    CreateEntity<Entity_oblong_plasma_Pool>(std::move(top_scope2), registry)->Update();
+
+    EntityScope top_scope3(m);
+    CreateEntity<Entity_oblong_plasma_Protein>(std::move(top_scope3), registry)->Update();
+
+    EntityScope top_scope4(m);
+    CreateEntity<Entity_oblong_plasma_Slaw>(std::move(top_scope4), registry)->Update();
+
+    EntityScope top_scopeX(m);
+    CreateEntity<Entity_oblong_loam_ObRetort>(std::move(top_scopeX), registry)->Update();
+
+    EntityScope top_scope_slist(m);
+    CreateEntity<Entity_oblong_plasma_detail_SlawList>(std::move(top_scope_slist), registry)->Update();
+
+    //EntityScope top_scope_SR(m);
+    //CreateEntity<Entity_oblong_plasma_detail_SlawRef>(std::move(top_scope_SR), registry)->Update();
+
+    EntityScope top_scope_retinfo(m);
+    CreateEntity<Entity_oblong_plasma_ObRetort_DepositInfo>(std::move(top_scope_retinfo), registry)->Update();
+}
+
+PYBIND11_MODULE(plasma, m) {
+    m.doc() = "Python bindings for libPlasma using pybind11_weaver";
+
+    // Expose Slaw directly under the top-level module
+    //py::class_<Slaw>(m, "Slaw")
+    //    .def(py::init<const char*>());
+
+    // Expose Protein directly under the top-level module
+    //py::class_<Protein>(m, "Protein")
+    //    .def(py::init<>())
+    //    .def(py::init<Slaw>())
+    //    .def(py::init<Slaw, Slaw>());
+
+#include "module_create.cpp"
+
+    // Set up the custom binding registry
+    pybind11_weaver::CustomBindingRegistry registry;
+
+    // Register custom bindings
+    //registry.SetCustomBinding<Entity_oblong_plasma_Slaw>();    // already bound by pybind11_weaver
+    //registry.SetCustomBinding<Entity_oblong_plasma_Protein>(); // already bound by pybind11_weaver
+
+    //registry.SetCustomBinding<Entity_oblong_plasma_SlawRef>();
+    //registry.SetCustomBinding<Entity_oblong_plasma_detail_SlawRef>();
+
+    registry.SetCustomBinding<Entity_oblong_plasma_Hose>();
+    registry.SetCustomBinding<Entity_oblong_plasma_Pool>();
+    registry.SetCustomBinding<Entity_oblong_plasma_ObRetort_DepositInfo>();
+    registry.SetCustomBinding<Entity_oblong_loam_ObRetort>();
+    registry.SetCustomBinding<Entity_oblong_plasma_detail_SlawList>();
+
+    // Call the weaver-generated binding function with the registry
+    auto guard = DeclFn(m, registry);
+    guard();  // Optional: immediately update all bindings
+
+    // Add custom entities to the top-level module
+    AddCustomEntities(m, registry);
+}
+
+/// end ///
