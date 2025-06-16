@@ -2,7 +2,7 @@
 # Brygg Ullmer, Clemson University
 # Begun 2025-06-02
 
-import pygame, traceback
+import pygame, traceback, sys
 from enoPgzASquare     import *
 from pgzero.builtins   import Actor, animate, keyboard, keys
 from enoPlasmaListener import *
@@ -18,6 +18,7 @@ class enoPgzASquareAnim(enoPgzASquare):
   pscopeStr        = "sharedCanvas"
   psq1Str, pmovStr = "sq1", "move"
   psq1, pmov       = [None]*2 
+  screenCache      = None
 
   actorSq = None
   verbose = False
@@ -38,7 +39,7 @@ class enoPgzASquareAnim(enoPgzASquare):
     self.plasmaListener = enoPlasmaListener(poolName = self.poolName, 
                                             callback = self.plasmaCB)
     self.plasmaListener.start()
-    self.pscope = plasma.create.string(self.pscope)
+    self.pscope = plasma.create.string(self.pscopeStr)
 
   ########### init plasma ########### 
 
@@ -52,17 +53,26 @@ class enoPgzASquareAnim(enoPgzASquare):
 
     except: self.err("plasmaCB")
 
+  ########### draw ########### 
+
+  def draw(self, screen):
+    super().draw(screen)
+    if self.screenCache is None: self.screenCache = screen
+
   ########### parseMessage ########### 
 
   def parseMessage(self, d, il):
     try:
-      if d != self.pscope: return #ignore if not for us
+      if d != self.pscopeStr: return #ignore if not for us
       obj, cmd, x1, y1 = il
+
       if obj != self.psq1Str: return
       if cmd != self.pmovStr: return
 
       x0, y0 = self.actorBox.pos
-      if x1 != x0 or y1 != y0: self.actorBox.pos = (x1, y1)
+      if x1 != x0 or y1 != y0: 
+        self.actorBox.pos = (x1, y1)
+        if self.screenCache is not None: self.draw(self.screenCache)
 
     except: self.err("parseMessage")
 
