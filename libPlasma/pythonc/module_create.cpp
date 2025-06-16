@@ -15,16 +15,13 @@ create.def("int32", [](int a) {
 }, "Create a Slaw-wrapped int32 from an integer");
 
 create.def("list", [](py::list plist) { // body from Slaw.h::664-670
-  std::vector<slaw> vsl;
+  std::vector<oblong::plasma::Slaw> vsl;
   oblong::plasma::Slaw s;
   for (int i = 0; i < plist.size(); i++) {
     s = plist[i].cast<oblong::plasma::Slaw>(); 
     vsl.push_back(s);
   }
-  Slaw list = Slaw::ListCollect (list.begin (), list.end ());
-  assert (list.Count () == vsl.size ());
-  for (int i = 0; i < plist.size(); ++i)
-    assert (list[i].SlawValue() == vsl[i]);
+  oblong::plasma::Slaw list = oblong::plasma::Slaw::ListCollect (vsl.begin(), vsl.end());
   return list;
 }, "Create a Slaw-wrapped List from a Python list of arbitrary length");
 
