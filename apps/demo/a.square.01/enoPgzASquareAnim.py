@@ -13,9 +13,14 @@ import plasma
 class enoPgzASquareAnim(enoPgzASquare):
   imgSqFn  = 'sspirito01h'
   poolName = 'tcp://localhost/grObjPool'
-  plasmaListener = None
+  plasmaListener   = None
+  pscope           = None
+  pscopeStr        = "sharedCanvas"
+  psq1Str, pmovStr = "sq1", "move"
+  psq1, pmov       = [None]*2 
 
   actorSq = None
+  verbose = False
 
   ########### constructor ########### 
 
@@ -33,27 +38,40 @@ class enoPgzASquareAnim(enoPgzASquare):
     self.plasmaListener = enoPlasmaListener(poolName = self.poolName, 
                                             callback = self.plasmaCB)
     self.plasmaListener.start()
-        
+    self.pscope = plasma.create.string(self.pscope)
+
   ########### init plasma ########### 
 
   def plasmaCB(self, protein):
     try:
       d,  i  = protein.Descrips(), protein.Ingests()
       dl, il = d.getList(), i.getList()
-      print("D:", str(dl[0]))
-      print("I:", str(il))
-    except: print("exception"); traceback.print_exc()
+      if self.verbose: print(" D:", str(dl[0]), end='')
+      if self.verbose: print(" I:", str(il))
+      self.parseMessage(dl[0], il)
+
+    except: self.err("plasmaCB")
+
+  ########### parseMessage ########### 
+
+  def parseMessage(self, d, i):
+    try:
+      if d != self.pscope: return #self.msg("parseMessage: ignoring " + str(d))
+
+    except: self.err("parseMessage")
 
   ########### init plasma ########### 
 
   def broadcastBoxMove(self, pos):
-    pscope = plasma.create.string("sharedCanvas")
     plist  = []; x, y = pos
-    plist.append(plasma.create.string("sq1"))
-    plist.append(plasma.create.string("move"))
-    plist.append(plasma.create.v2int32(x,y))
+    
+    if self.psq1 is None: self.psq1 = plasma.create.string(self.psq1Str)
+    if self.pmov is None: self.pmov = plasma.create.string(self.pmovStr)
+
+    for i in [self.psq1, self.pmov]: plist.append(i)
+    plist.append(plasma.create.v2int32(int(x),int(y)))
     pmsg = plasma.create.list(plist)
-    msg  = plasma.Protein(pscope, pmsg)
+    msg  = plasma.Protein(self.pscope, pmsg)
     ret  = self.plasmaListener.deposit(msg)
     if ret.IsError():
       self.msg(f"broadcastBoxMove: deposit challenges: {ret}")

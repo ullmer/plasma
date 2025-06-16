@@ -2,6 +2,9 @@
 # Brygg Ullmer, Clemson University
 # Begun 2025-06-02
 
+import pgzrun
+import pygame
+
 WIDTH, HEIGHT = 800, 800
 TITLE         = 'animist square'
 
@@ -67,5 +70,7 @@ def on_mouse_move(rel, buttons):
 
 def on_mouse_up():               
     for el in [ac, eam]: el.on_mouse_up()
+
+pgzrun.go()
 
 ### end ###
