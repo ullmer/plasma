@@ -13,6 +13,30 @@ struct EntityScope;
 struct EntityBase;
 }
 
+bool appendSlawToList(pybind11::list lst, const oblong::plasma::Slaw &s) {
+  pybind11::list result = lst;
+
+  if (s.CanEmit<v2int32>()) {
+    auto vec = s.Emit<v2int32>();
+    result.append(vec.x);
+    result.append(vec.y);
+    return true;
+
+  } else if (s.CanEmit<v2int16>()) {
+    auto vec = s.Emit<v2int16>();
+    result.append(vec.x);
+    result.append(vec.y);
+    return true;
+
+  } else if (s.CanEmit<v2int8>()) {
+    auto vec = s.Emit<v2int8>();
+    result.append(vec.x);
+    result.append(vec.y);
+    return true;
+  }
+  return false;
+}
+
 template <class Pybind11T = pybind11::class_<oblong::plasma::Slaw>>
 struct Bind_oblong_plasma_Slaw : public pybind11_weaver::EntityBase {
     using Pybind11Type = Pybind11T;
