@@ -92,13 +92,18 @@ struct Bind_oblong_plasma_Slaw : public pybind11_weaver::EntityBase {
             result.append(vec.y);
           }
 
-          /* if (s.CanEmit<oblong::plasma::detail::SlawList>()) {
+          //else if (s.CanEmit<oblong::plasma::detail::Slaw::List>()) {
+          else if (s.IsList()) {
             int slen = s.Count();
             for (int i=0; i<slen; i++) {
-              oblong::plasma::Slaw el = s.Nth(i).cast<oblong::plasma::Slaw>();
-              result.append(el);
+              //oblong::plasma::Slaw el = s.Nth(i).cast<oblong::plasma::Slaw>();
+              oblong::plasma::Slaw el = s.Nth(i);
+              if (el.CanEmit<const char *>()) {
+                std::string str = el.Emit<const char *>();
+                result.append(str);
+              }
             } 
-          }*/
+          }
 
           return result;
         });
