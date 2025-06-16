@@ -24,7 +24,13 @@ ops:
 
   move:
     square:            {descr: 0x0220, args:}
+      get:             {descr: 0x0221, args:}
+      getR:            {descr: 0x0222, args: v2int32} #get response
+      set:             {descr: 0x0223, args: v2int32}
     window:            {descr: 0x0230, args:}
+      get:             {descr: 0x0231, args:}
+      getR:            {descr: 0x0231, args: v2int32}
+      set:             {descr: 0x0232, args: v2int32}
 
   toggle:
     square:            {descr: 0x0240, args:}
