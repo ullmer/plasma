@@ -14,6 +14,30 @@ create.def("int32", [](int a) {
    return oblong::plasma::Slaw(i);
 }, "Create a Slaw-wrapped int32 from an integer");
 
+create.def("list", [](py::list plist) { // body from Slaw.h::664-670
+  std::vector<slaw> vsl;
+  oblong::plasma::Slaw s;
+  for (int i = 0; i < plist.size(); i++) {
+    s = plist[i].cast<oblong::plasma::Slaw>(); 
+    vsl.push_back(s);
+  }
+  Slaw list = Slaw::ListCollect (list.begin (), list.end ());
+  assert (list.Count () == vsl.size ());
+  for (int i = 0; i < plist.size(); ++i)
+    assert (list[i].SlawValue() == vsl[i]);
+  return list;
+}, "Create a Slaw-wrapped List from a Python list of arbitrary length");
+
+/*
+create.def("list", [](py::list plist) {
+    std::vector<oblong::plasma::Slaw> slaw_elements;
+    for (auto item : plist) {
+      slaw_elements.push_back(item.cast<oblong::plasma::Slaw>());
+    }
+    return oblong::plasma::Slaw::List(slaw_elements);
+}, "Create a Slaw-wrapped List from a Python list of arbitrary length");
+*/
+/*
 create.def("list", [](py::list plist) { 
   int plen = plist.size();
   switch (plen) { //initially hacked very embarassingly
@@ -29,5 +53,5 @@ create.def("list", [](py::list plist) {
     default: return oblong::plasma::Slaw::List();
   }
 }, "Create a Slaw-wrapped List from a python list");
-
+*/
 /// end ///
