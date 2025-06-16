@@ -12,6 +12,7 @@ import yaml
 class enoPlasYaml:
   yamlFn = None
   yamlD  = None
+  modsD, appD, opsD = [None] * 3
 
   ########### constructor ########### 
 
@@ -24,8 +25,23 @@ class enoPlasYaml:
 
   ########### constructor ########### 
 
+  def storeYamlEl(self, fieldStr, fieldRef):
+    if self.yamlD is None: self.msg("storeYamlEl: yamlD is unassigned"); return
+    if fieldStr in self.yamlD:
+      val = self.yamlD[fieldStr]
+      fieldRef = val
+
+  ########### constructor ########### 
+
   def loadYaml(self):
     if self.yamlFn is None: self.msg("loadYaml: yamlFn is unassigned"); return
+    yamlF      = open(self.yamlFn, 'rt')
+    self.yamlD = yaml.safe_load(yamlF)
+
+    self.storeYamlEl('mods', self.modsD)
+    self.storeYamlEl('app',  self.appD)
+    self.storeYamlEl('ops',  self.opsD)
+
 
 ### operations ###
 
