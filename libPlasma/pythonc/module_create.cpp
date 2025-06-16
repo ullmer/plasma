@@ -14,6 +14,11 @@ create.def("v2int8", [](int a, int b) {
    return oblong::plasma::Slaw(vec);
 }, "Create a Slaw-wrapped v2int8 from two integers");
 
+create.def("v2int16", [](int a, int b) {
+   v2int16 vec = {static_cast<int16>(a), static_cast<int16>(b)};
+   return oblong::plasma::Slaw(vec);
+}, "Create a Slaw-wrapped v2int16 from two integers");
+
 create.def("v2int32", [](int a, int b) {
    v2int32 vec = {static_cast<int32>(a), static_cast<int32>(b)};
    return oblong::plasma::Slaw(vec);
