@@ -8,9 +8,12 @@
 #                                     string  (character string)
 
 import yaml
+import traceback
 
 class enoPlasYaml:
-  yamlFn = None
+  yamlFn     = None
+  poolName   = None
+  poolHandle = None
   yamlD  = None
   modsD, appD, opsD = [None] * 3
 
@@ -18,10 +21,14 @@ class enoPlasYaml:
 
   def __init__(self, **kwargs):
     self.__dict__.update(kwargs) #allow class fields to be passed in constructor
-    if self.yamlFn is not None: self.loadYaml()
+   
+    try:
+      if self.yamlFn   is not None: self.loadYaml()
+      if self.poolName is not None: self.connectToPool()
+    except: self.err("__init__")
 
   def msg(self, mstr): print("enoPlasYaml msg: " + str(mstr))
-  def err(self, mstr): print("enoPlasYaml err: " + str(mstr))
+  def err(self, mstr): print("enoPlasYaml err: " + str(mstr)); traceback.print_exc()
 
   ########### constructor ########### 
 
@@ -30,6 +37,11 @@ class enoPlasYaml:
     if fieldStr in self.yamlD:
       val = self.yamlD[fieldStr]
       fieldRef = val
+
+  ########### connect to pool ########### 
+
+  def connectToPool(self)
+      if self.poolName is None: self.msg("connectToPool: pool name is empty")
 
   ########### constructor ########### 
 
