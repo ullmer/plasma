@@ -9,6 +9,12 @@
 
 ### operations ###
 
+mods:
+  get:            {descrMod: 0x0001} #add to descr[iption] ~address
+  getR:           {descrMod: 0x0002}
+  set:            {descrMod: 0x0003}
+  setR:           {descrMod: 0x0004}
+
 app:
   name:           {descr: 0x0110, args:, response: string}
   descr:          {descr: 0x0110, args:, response: string}
