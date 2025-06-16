@@ -5,9 +5,9 @@
 WIDTH, HEIGHT = 800, 800
 TITLE         = 'animist square'
 
-from enoActorScaled import *
-from enoAniMenu     import *
-from enoPgzASquare  import *
+from enoActorScaled     import *
+from enoAniMenu         import *
+from enoPgzASquareAnim  import *
    
 #### reassigning app icon must happen early 
 #iconFn       = 'images/sspirito01h.png' # rework to 32x32, see if that makes a difference
@@ -27,7 +27,7 @@ class AnimCanvas:
   def __init__(self, **kwargs):
     self.__dict__.update(kwargs) #allow class fields to be passed in constructor
     self.prepActors()
-    self.epas = enoPgzASquare(windowDim=(WIDTH, HEIGHT), pos=(200,200))
+    self.epas = enoPgzASquareAnim(windowDim=(WIDTH, HEIGHT), pos=(200,200))
 
   ########### prepare actors ########### 
 

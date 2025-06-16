@@ -16,8 +16,7 @@ class enoPgzASquareAnim(enoPgzASquare):
 
   def __init__(self, **kwargs):
     self.__dict__.update(kwargs) #allow class fields to be passed in constructor
-    super().__init()
-    #self.prepActors()
+    super().__init__()
 
   def msg(self, msgstr): print("enoPgzASquareAnim message: " + str(msgstr))
   def err(self, msgstr): print("enoPgzASquareAnim error: "   + str(msgstr)); traceback.print_exc()
@@ -25,6 +24,7 @@ class enoPgzASquareAnim(enoPgzASquare):
   ########### prepare actors ########### 
 
   def prepActors(self):
+    super().prepActors()
     self.actorSq     = enoActorScaled(self.imgSqFn,      pos=(1000, 500), 
                                                    scale=.2, alpha = 220)
 
