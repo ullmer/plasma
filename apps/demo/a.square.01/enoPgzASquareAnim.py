@@ -53,12 +53,6 @@ class enoPgzASquareAnim(enoPgzASquare):
 
     except: self.err("plasmaCB")
 
-  ########### draw ########### 
-
-  def draw(self, screen):
-    super().draw(screen)
-    if self.screenCache is None: self.screenCache = screen
-
   ########### parseMessage ########### 
 
   def parseMessage(self, d, il):
@@ -72,7 +66,6 @@ class enoPgzASquareAnim(enoPgzASquare):
       x0, y0 = self.actorBox.pos
       if x1 != x0 or y1 != y0: 
         self.actorBox.pos = (x1, y1)
-        if self.screenCache is not None: self.draw(self.screenCache)
 
     except: self.err("parseMessage")
 

@@ -59,8 +59,11 @@ ac  = AnimCanvas()
 eam = enoAniMenu()
 
 def draw(): 
+  #print(".", end=''); sys.stdout.flush()
   screen.clear(); 
   for el in [ac, eam]: el.draw(screen)
+
+def update(): pass
 
 def on_mouse_down(pos): 
     for el in [ac, eam]: el.on_mouse_down(pos)
