@@ -54,9 +54,15 @@ class enoPgzASquareAnim(enoPgzASquare):
 
   ########### parseMessage ########### 
 
-  def parseMessage(self, d, i):
+  def parseMessage(self, d, il):
     try:
-      if d != self.pscope: return #self.msg("parseMessage: ignoring " + str(d))
+      if d != self.pscope: return #ignore if not for us
+      obj, cmd, x1, y1 = il
+      if obj != self.psq1Str: return
+      if cmd != self.pmovStr: return
+
+      x0, y0 = self.actorBox.pos
+      if x1 != x0 or y1 != y0: self.actorBox.pos = (x1, y1)
 
     except: self.err("parseMessage")
 
