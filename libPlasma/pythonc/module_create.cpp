@@ -25,6 +25,9 @@ create.def("list", [](py::list plist) { // body from Slaw.h::664-670
   return list;
 }, "Create a Slaw-wrapped List from a Python list of arbitrary length");
 
+/// end ///
+
+// prior hacky experiments follows, prior to excision
 /*
 create.def("list", [](py::list plist) {
     std::vector<oblong::plasma::Slaw> slaw_elements;
@@ -51,4 +54,3 @@ create.def("list", [](py::list plist) {
   }
 }, "Create a Slaw-wrapped List from a python list");
 */
-/// end ///
