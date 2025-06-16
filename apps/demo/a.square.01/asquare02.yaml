@@ -10,16 +10,15 @@
 ### operations ###
 
 app:
-  getAppName:           {descr: 0x0110, args:}
-  getAppNameR:          {descr: 0x0110, args: string}
-  getAuthorOrgs:        {descr: 0x0120, args:}
-  getAuthorOrgsL:       {descr: 0x0120, args: list of strings}
-  getAuthorNames:       {descr: 0x0130, args:}
-  getAuthorNamesL:      {descr: 0x0130, args: list of strings}
-  getListeningDevices:  {descr: 0x0140, args:}
-  getListeningDevicesL: {descr: 0x0140, args:}
-  getListeningWindows:  {descr: 0x0150, args:}
-  getListeningWindowsL: {descr: 0x0150, args:}
+  name:           {descr: 0x0110, args:, response: string}
+  descr:          {descr: 0x0110, args:, response: string}
+  authors:
+    orgs:         {descr: 0x0120, args:, response: list of strings}
+    names:        {descr: 0x0130, args:}
+  listeners:      {descr: 0x0140, args:}
+    devices:      {descr: 0x0140, args:}
+    windows:      {descr: 0x0140, args:}
+
   listOps:              {descr: 0x0160, args:} #~glossary?
 
 ops:
