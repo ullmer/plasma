@@ -52,8 +52,12 @@ struct Bind_oblong_plasma_Slaw : public pybind11_weaver::EntityBase {
         handle.def("__getitem__", [](const oblong::plasma::Slaw &s, const oblong::plasma::Slaw &key) {
           return s.Find(key); });
 
-        handle.def("ToString",    [](const oblong::plasma::Slaw &s) {
+        handle.def("ToString",       [](const oblong::plasma::Slaw &s) {
             return std::string(static_cast<const char *>(s.ToString())); });
+
+        handle.def("getVal",         [](const oblong::plasma::Slaw &s) {
+            return 42; // inching forward :-)
+        });
     }
 
     void Update() override {}
@@ -186,6 +190,10 @@ struct Bind_oblong_plasma_ObRetort_DepositInfo : public pybind11_weaver::EntityB
 #ifndef PB11_WEAVER_DISABLE_Entity_oblong_plasma_ObRetort_DepositInfo
 using Entity_oblong_plasma_ObRetort_DepositInfo = Bind_oblong_plasma_ObRetort_DepositInfo<>;
 #endif
+
+//class v2int32(m, "v2int32")
+//  .def(py::init<int32, int32>())
+//  .get()
 
 /*
 class v2int32(m, "v2int32")
