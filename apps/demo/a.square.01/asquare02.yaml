@@ -9,18 +9,40 @@
 
 ### operations ###
 
-app.getName:             {descr:, args:}
-app.getAuthor:           {descr:, args:}
-app.getListeningDevices: {descr:, args:}
-app.getListeningWindows: {descr:, args:}
-app.listOps:             {descr:, args:}
+app:
+  getName:             {descr:, args:}
+  getAuthor:           {descr:, args:}
+  getListeningDevices: {descr:, args:}
+  getListeningWindows: {descr:, args:}
+  listOps:             {descr:, args:}
 
-ops.create.square:       {descr:, args:}
-ops.create.window:       {descr:, args:}
+ops:
+  create:
+    square:            {descr:, args:}
+    window:            {descr:, args:}
 
-ops.move.square:         {descr:, args:}
-ops.move.window:         {descr:, args:}
+ops:
+  move:
+    square:            {descr:, args:}
+    window:            {descr:, args:}
 
-ops.toggle.square:       {descr:, args:}
+  toggle:
+    square:            {descr:, args:}
+
+plasma:
+  address:        {bs: ABBB CCCC DDDD EEEE} #bs: bitstring
+
+  sw:        ############# SOFTWARE ############ classes of services
+      address:    {bs: 0BBB CCCC, bv: 0,  nm: software, prefix: SW}
+      std:
+        addr:     {bs: 0000 CCCC DDDD EEEE} 
+
+        file:     
+          addr:   {bs: 0000 0001 0000, bv: 0x0100}
+          open:   {bs: 0000 0001 0001, bv: 0x0110}
+          close:  {bs: 0000 0001 0010, bv: 0x0120}
+          new:    {bs: 0000 0001 0011, bv: 0x0130}
+          save:   {bs: 0000 0001 0100, bv: 0x0140}
+
 
 ### end ###
