@@ -90,9 +90,10 @@ struct Bind_oblong_plasma_Slaw : public pybind11_weaver::EntityBase {
 
         handle.def("getStr",         [](const oblong::plasma::Slaw &s) {
           if (s.CanEmit<const char *>()) {
-            std::string result = s.Emit<const char *>();
+            std::string result = std::string(s.Emit<const char *>());
             return result;
           }
+          return std::string("[unknown fault]");
         });
 
         handle.def("getVal",         [](const oblong::plasma::Slaw &s) {
