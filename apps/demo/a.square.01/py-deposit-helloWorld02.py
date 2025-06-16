@@ -12,7 +12,7 @@ def main():
     return 1
 
   try:
-    descrips = plasma.Slaw.List(plasma.Slaw("sharedCanvas"))
+    pscope = plasma.create.string("sharedCanvas")
     objName   = "sq1"
     objAction = "move"
     objCoords = [10, 10]
@@ -20,9 +20,9 @@ def main():
     x, y = objCoords
     psObjName, psObjAction    = plasma.create.string(objName), plasma.create.string(objAction)
     psObjLoc                  = plasma.create.v2int32(x,y)
-    psObjUpdates              = plasma.create.list([psObjAction, psObjLoc])
+    psObjUpdates              = plasma.create.list([psObjName, psObjAction, psObjLoc])
 
-    protein = plasma.Protein(psObjName, psObjUpdates)
+    protein = plasma.Protein(pscope, psObjUpdates)
 
     print(f"depositing in {pool_name}")
     print(protein.ToSlaw().ToString())
