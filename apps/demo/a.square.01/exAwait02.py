@@ -8,12 +8,10 @@ import time, sys, traceback
 def handle_message(protein): 
   #print("!", end=''); sys.stdout.flush()
   try:
-    d, i = protein.Descrips(), protein.Ingests()
-    print(1)
-    dstr, ilst = d.getStr(), i.getList()
-    print(2)
-    print("D:", dstr)
-    print("I:", str(ilst))
+    d,  i  = protein.Descrips(), protein.Ingests()
+    dl, il = d.getList(), i.getList()
+    print("D:", str(dl[0]))
+    print("I:", str(il))
   except: print("exception"); traceback.print_exc()
 
 pn = 'tcp://localhost/grObjPool'
