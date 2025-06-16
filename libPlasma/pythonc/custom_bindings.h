@@ -69,14 +69,13 @@ struct Bind_oblong_plasma_Slaw : public pybind11_weaver::EntityBase {
         handle.def("getList",         [](const oblong::plasma::Slaw &s) {
           pybind11::list result;
 
-          if (s.CanEmit<v2int8>()) {
-            auto vec = s.Emit<v2int8>();
+          if (s.CanEmit<v2int32>()) {
+            auto vec = s.Emit<v2int32>();
             result.append(vec.x);
             result.append(vec.y);
           }
-
-          if (s.CanEmit<v2int32>()) {
-            auto vec = s.Emit<v2int32>();
+          else if (s.CanEmit<v2int8>()) {
+            auto vec = s.Emit<v2int8>();
             result.append(vec.x);
             result.append(vec.y);
           }
