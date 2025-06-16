@@ -6,13 +6,14 @@ import threading
 import logging
 import plasma
 import time
+import traceback
 
 ################ PlasmaListener ################ 
 
 class enoPlasmaListener:
   poolName,  hose,  thread = [None]*3
   running, callback, ready = [None]*3
-  checkinInterval          = .03 # this should change depending upon many particulars
+  checkinInterval          = .03 # should change depending upon particulars
 
   #### constructor ####
 
@@ -23,6 +24,13 @@ class enoPlasmaListener:
 
     logging.basicConfig(level=logging.INFO)
     self.logger = logging.getLogger(__name__)
+
+  #### deposit ####
+
+  def deposit(self, protein):
+    if self.hose is None: self.logger.error(f"deposit: no hose"); return
+    try:    self.hose.Deposit(protein)
+    except: self.logger.error(f"deposit error"); traceback.print_exc()
 
   #### _listen ####
 
