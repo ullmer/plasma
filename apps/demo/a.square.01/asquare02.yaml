@@ -9,18 +9,18 @@
 
 ### operations ###
 
-app.getName:             {
-app.getAuthor:           {
-app.getListeningDevices: {
-app.getListeningWindows: {
-app.listOps:             {
+app.getName:             {descr:, args:}
+app.getAuthor:           {descr:, args:}
+app.getListeningDevices: {descr:, args:}
+app.getListeningWindows: {descr:, args:}
+app.listOps:             {descr:, args:}
 
-ops.create.square:       {
-ops.create.window:       {
+ops.create.square:       {descr:, args:}
+ops.create.window:       {descr:, args:}
 
-ops.move.square:         {
-ops.move.window:         {
+ops.move.square:         {descr:, args:}
+ops.move.window:         {descr:, args:}
 
-ops.toggle.square:       {
+ops.toggle.square:       {descr:, args:}
 
 ### end ###
