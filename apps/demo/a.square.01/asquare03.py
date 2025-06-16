@@ -44,7 +44,7 @@ class AnimCanvas:
   ########### draw ########### 
 
   def draw(self, screen): 
-    self.actorSpace.draw(screen)
+    #self.actorSpace.draw(screen)
     self.epas.draw(screen)
   
   ########### on mouse down, move, up ########### 
