@@ -38,18 +38,22 @@ struct Bind_oblong_plasma_Slaw : public pybind11_weaver::EntityBase {
 
         handle.def_static("List",  [](){return oblong::plasma::Slaw::List(); });
 
-        handle.def_static("List",  [](const oblong::plasma::Slaw &s){return oblong::plasma::Slaw::List(s); });
+        handle.def_static("List",  [](const oblong::plasma::Slaw &s){
+                                      return oblong::plasma::Slaw::List(s); });
 
-        handle.def_static("Map",   [](const oblong::plasma::Slaw &k, oblong::plasma::Slaw v){
+        handle.def_static("Map",   [](const oblong::plasma::Slaw &k, 
+                                      oblong::plasma::Slaw v){
                            return oblong::plasma::Slaw::Map(k, v); });
 
-        handle.def_static("Cons",  [](const oblong::plasma::Slaw &car, const oblong::plasma::Slaw &cdr){
+        handle.def_static("Cons",  [](const oblong::plasma::Slaw &car, 
+                                      const oblong::plasma::Slaw &cdr){
                            return oblong::plasma::Slaw::Cons(car, cdr); });
 
         handle.def("Find", static_cast<oblong::plasma::Slaw (oblong::plasma::Slaw::*)(const oblong::plasma::Slaw &) const>
 			     (&oblong::plasma::Slaw::Find));
 
-        handle.def("__getitem__", [](const oblong::plasma::Slaw &s, const oblong::plasma::Slaw &key) {
+        handle.def("__getitem__", [](const oblong::plasma::Slaw &s, 
+                                     const oblong::plasma::Slaw &key) {
           return s.Find(key); });
 
         handle.def("ToString",       [](const oblong::plasma::Slaw &s) {
