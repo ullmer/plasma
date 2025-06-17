@@ -76,17 +76,17 @@ class enoPgzASquareAnim(enoPgzASquare):
 
      gdd = self.glyphDeltaDict = {}
 
-     glyphlL      = ','.split('b1,b2,b3,t1,t2,t3')
-     glyphlCoords = [(bx1, by), (bx2, by), (bx3, by), (tx1, ty), (tx2, ty), (tx3, ty)]
-     for glyphN, glyphCoord in zip(glyphL, glyphCoords): gdd[glyphN] = glyphCoord
+     glyphlL1     = ','.split('b1,b2,b3,t1,t2,t3')
+     glyphCoords1 = [(bx1, by), (bx2, by), (bx3, by), (tx1, ty), (tx2, ty), (tx3, ty)]
+     for glyphN, glyphCoord in zip(glyphL1, glyphCoords1): gdd[glyphN] = glyphCoord
 
-
-bl,
-l1,l2,l3,' +
-           'r1,r2,r3,
-tr,' +
-           'br1,br2,sb1,sb2,sl1,sl2,sr1,' +
-           'sr2,st1,st2,stl,hl1,hl2,fr'
+     glyphL2      = ','.split('l1,l2,l3,r1,r2,r3')
+     glyphCoords2 = [(lx, ly1), (lx, ly2), (lx, ly3), (rx, ry1), (rx, ry2), (rx, ry3)]
+     for glyphN, glyphCoord in zip(glyphL2, glyphCoords2): gdd[glyphN] = glyphCoord
+#bl,
+#tr,' +
+#           'br1,br2,sb1,sb2,sl1,sl2,sr1,' +
+#           'sr2,st1,st2,stl,hl1,hl2,fr'
 
   ########### init plasma ########### 
 
