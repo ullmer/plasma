@@ -18,7 +18,20 @@ class enoPgzASquareAnim(enoPgzASquare):
   pscopeStr        = "sharedCanvas"
   psq1Str, pmovStr = "sq1", "move"
   psq1, pmov       = [None]*2 
-  screenCache      = None
+  glyphActorDict   = None
+  glyphDeltaDict   = None
+  glyphList        = None
+
+  glyphs = 'b1,b2,b3,bl,l1,l2,l3,' +
+           'r1,r2,r3,t1,t2,t3,tr,' +
+           'br1,br2,sb1,sb2,sl1,sl2,sr1,' +
+           'sr2,st1,st2,stl,hl1,hl2,fr'
+
+  delta1, delta2 = 350, 50 
+  dxDict, dyDict = None, None
+  cx, cy         = 400, 400
+
+  glyphPrefix = 'deco/tbox02n_'
 
   actorSq = None
   verbose = False
@@ -28,10 +41,30 @@ class enoPgzASquareAnim(enoPgzASquare):
   def __init__(self, **kwargs):
     self.__dict__.update(kwargs) #allow class fields to be passed in constructor
     super().__init__()
+    self.buildActors()
+    self.buildDeltas()
     self.initPlasma()
 
   def msg(self, msgstr): print("enoPgzASquareAnim message: " + str(msgstr))
   def err(self, msgstr): print("enoPgzASquareAnim error: "   + str(msgstr)); traceback.print_exc()
+
+  ########### build actors ########### 
+
+  def buildActors(self):
+    self.glyphActorsDict     = {}
+    self.glyphList           = ','.split(self.glyphs)
+    self.dxDict, self.dyDict = {}, {}
+
+    for glyphFn in self.glyphList:
+      fn = self.flyphPrefix + glyphFn
+      a  = Actor(fn)
+      self.glyphActorDict[fn] = a
+
+  ########### build deltas ########### 
+
+  def buildDeltas(self):
+     gdd = self.glyphDeltaDict = {}
+     cx, cy                    = self.cx, self.cy
 
   ########### init plasma ########### 
 
@@ -72,7 +105,7 @@ class enoPgzASquareAnim(enoPgzASquare):
   ########### init plasma ########### 
 
   def broadcastBoxMove(self, pos):
-    plist  = []; x, y = pos
+    plist = []; x, y = pos
     
     if self.psq1 is None: self.psq1 = plasma.create.string(self.psq1Str)
     if self.pmov is None: self.pmov = plasma.create.string(self.pmovStr)
