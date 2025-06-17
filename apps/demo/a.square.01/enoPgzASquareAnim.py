@@ -63,8 +63,30 @@ class enoPgzASquareAnim(enoPgzASquare):
   ########### build deltas ########### 
 
   def buildDeltas(self):
+     cx, cy = self.cx, self.cy
+     bx, by = cx, cy - delta1
+     tx, ty = cx, cy + delta1
+     rx, ry = cx + delta1, cy
+     lx, ly = cx - delta1, cy
+
+     bx1, bx2, bx3 = bx - delta2, bx, bx + delta2
+     ly1, ly2, ly3 = ly - delta2, ly, ly + delta2
+     tx1, tx2, tx3 = bx1, bx2, bx3
+     ry1, ry2, ry3 = ly1, ly2, ly3
+
      gdd = self.glyphDeltaDict = {}
-     cx, cy                    = self.cx, self.cy
+
+     glyphlL      = ','.split('b1,b2,b3,t1,t2,t3')
+     glyphlCoords = [(bx1, by), (bx2, by), (bx3, by), (tx1, ty), (tx2, ty), (tx3, ty)]
+     for glyphN, glyphCoord in zip(glyphL, glyphCoords): gdd[glyphN] = glyphCoord
+
+
+bl,
+l1,l2,l3,' +
+           'r1,r2,r3,
+tr,' +
+           'br1,br2,sb1,sb2,sl1,sl2,sr1,' +
+           'sr2,st1,st2,stl,hl1,hl2,fr'
 
   ########### init plasma ########### 
 
