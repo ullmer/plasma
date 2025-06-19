@@ -22,9 +22,9 @@ class enoPgzASquareAnim(enoPgzASquare):
   glyphDeltaDict   = None
   glyphList        = None
 
-  glyphs = 'b1,b2,b3,bl,l1,l2,l3,' +
-           'r1,r2,r3,t1,t2,t3,tr,' +
-           'br1,br2,sb1,sb2,sl1,sl2,sr1,' +
+  glyphs = 'b1,b2,b3,bl,l1,l2,l3,' + \
+           'r1,r2,r3,t1,t2,t3,tr,' + \
+           'br1,br2,sb1,sb2,sl1,sl2,sr1,' + \
            'sr2,st1,st2,stl,hl1,hl2,fr'
 
   delta1, delta2 = 350, 50 
