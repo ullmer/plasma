@@ -180,7 +180,7 @@ class enoPgzASquareAnim(enoPgzASquare):
     super().on_mouse_move(rel, buttons)
     if self.boxSelected:
       pos = self.actorBox.pos
-      self.broadcastBoxMove(pos)
+      if self.activatePlasma: self.broadcastBoxMove(pos)
 
 ### end ###
   
