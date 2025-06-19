@@ -59,11 +59,11 @@ class enoPgzASquareAnim(enoPgzASquare):
     self.glyphList           = self.glyphs.split(',')
     self.dxDict, self.dyDict = {}, {}
 
-    self.msg("buildActors gl: " + str(self.glyphList))
+    if self.verbose: self.msg("buildActors gl: " + str(self.glyphList))
 
     for glyphFn in self.glyphList:
       fn = self.glyphPrefix + glyphFn
-      self.msg("buildActors fn: " + fn) 
+      if self.verbose: self.msg("buildActors fn: " + fn) 
       a  = Actor(fn)
       self.glyphActorDict[fn] = a
       if glyphFn in gdd:
@@ -107,9 +107,13 @@ class enoPgzASquareAnim(enoPgzASquare):
   def draw(self, screen):
     super().draw(screen)
 
+    gdd = self.glyphDeltaDict 
     for glyphFn in self.glyphList:
-      a = self.glyphActorDict[fn] 
-      if glyphFn in gdd: a.draw()
+      if (glyphFn in gdd) and (glyphFn in self.glyphActorDict): 
+        try:
+          a = self.glyphActorDict[glyphFn] 
+          a.draw()
+        except: self.err("draw")
 
   ########### init plasma ########### 
 
