@@ -63,14 +63,16 @@ class enoPgzASquareAnim(enoPgzASquare):
   ########### build deltas ########### 
 
   def buildDeltas(self):
-     cx, cy = self.cx, self.cy
-     bx, by = cx, cy - delta1
-     tx, ty = cx, cy + delta1
-     rx, ry = cx + delta1, cy
-     lx, ly = cx - delta1, cy
+     d1, d2 = self.delta1, self.delta2
+     cx, cy = self.cx,     self.cy
 
-     bx1, bx2, bx3 = bx - delta2, bx, bx + delta2
-     ly1, ly2, ly3 = ly - delta2, ly, ly + delta2
+     bx, by = cx, cy - d1
+     tx, ty = cx, cy + d1
+     rx, ry = cx + d1, cy
+     lx, ly = cx - d1, cy
+
+     bx1, bx2, bx3 = bx - d2, bx, bx + d2
+     ly1, ly2, ly3 = ly - d2, ly, ly + d2
      tx1, tx2, tx3 = bx1, bx2, bx3
      ry1, ry2, ry3 = ly1, ly2, ly3
 
@@ -83,8 +85,10 @@ class enoPgzASquareAnim(enoPgzASquare):
      glyphL2      = ','.split('l1,l2,l3,r1,r2,r3')
      glyphCoords2 = [(lx, ly1), (lx, ly2), (lx, ly3), (rx, ry1), (rx, ry2), (rx, ry3)]
      for glyphN, glyphCoord in zip(glyphL2, glyphCoords2): gdd[glyphN] = glyphCoord
-#bl,
-#tr,' +
+
+     gdd['bl'] = [cx-d1, cy+d1]
+     gdd['tr'] = [cx+d1, cy-d1]
+
 #           'br1,br2,sb1,sb2,sl1,sl2,sr1,' +
 #           'sr2,st1,st2,stl,hl1,hl2,fr'
 
