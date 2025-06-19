@@ -41,24 +41,29 @@ class enoPgzASquareAnim(enoPgzASquare):
   def __init__(self, **kwargs):
     self.__dict__.update(kwargs) #allow class fields to be passed in constructor
     super().__init__()
-    self.buildActors()
     self.buildDeltas()
+    self.buildActors()
     self.initPlasma()
 
   def msg(self, msgstr): print("enoPgzASquareAnim message: " + str(msgstr))
   def err(self, msgstr): print("enoPgzASquareAnim error: "   + str(msgstr)); traceback.print_exc()
-
   ########### build actors ########### 
 
   def buildActors(self):
+    gdd = self.glyphDeltaDict 
+    if gdd is None: self.msg("buildActors: please call buildDeltas first"); return
+
     self.glyphActorsDict     = {}
     self.glyphList           = ','.split(self.glyphs)
     self.dxDict, self.dyDict = {}, {}
 
     for glyphFn in self.glyphList:
-      fn = self.flyphPrefix + glyphFn
+      fn = self.glyphPrefix + glyphFn
       a  = Actor(fn)
       self.glyphActorDict[fn] = a
+      if glyphFn in gdd:
+        pos = gdd[glyphFn]
+        a.pos = pos
 
   ########### build deltas ########### 
 
@@ -91,6 +96,15 @@ class enoPgzASquareAnim(enoPgzASquare):
 
 #           'br1,br2,sb1,sb2,sl1,sl2,sr1,' +
 #           'sr2,st1,st2,stl,hl1,hl2,fr'
+
+  ########### draw ########### 
+
+  def draw(self, screen):
+    super().draw(screen)
+
+    for glyphFn in self.glyphList:
+      a = self.glyphActorDict[fn] 
+      if glyphFn in gdd: a.draw()
 
   ########### init plasma ########### 
 
