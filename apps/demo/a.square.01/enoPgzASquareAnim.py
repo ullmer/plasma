@@ -54,11 +54,14 @@ class enoPgzASquareAnim(enoPgzASquare):
     if gdd is None: self.msg("buildActors: please call buildDeltas first"); return
 
     self.glyphActorsDict     = {}
-    self.glyphList           = ','.split(self.glyphs)
+    self.glyphList           = self.glyphs.split(',')
     self.dxDict, self.dyDict = {}, {}
+
+    self.msg("buildActors gl: " + str(self.glyphList))
 
     for glyphFn in self.glyphList:
       fn = self.glyphPrefix + glyphFn
+      self.msg("buildActors fn: " + fn) 
       a  = Actor(fn)
       self.glyphActorDict[fn] = a
       if glyphFn in gdd:
@@ -83,11 +86,11 @@ class enoPgzASquareAnim(enoPgzASquare):
 
      gdd = self.glyphDeltaDict = {}
 
-     glyphlL1     = ','.split('b1,b2,b3,t1,t2,t3')
+     glyphL1     = 'b1,b2,b3,t1,t2,t3'.split(',')
      glyphCoords1 = [(bx1, by), (bx2, by), (bx3, by), (tx1, ty), (tx2, ty), (tx3, ty)]
      for glyphN, glyphCoord in zip(glyphL1, glyphCoords1): gdd[glyphN] = glyphCoord
 
-     glyphL2      = ','.split('l1,l2,l3,r1,r2,r3')
+     glyphL2      = 'l1,l2,l3,r1,r2,r3'.split(',')
      glyphCoords2 = [(lx, ly1), (lx, ly2), (lx, ly3), (rx, ry1), (rx, ry2), (rx, ry3)]
      for glyphN, glyphCoord in zip(glyphL2, glyphCoords2): gdd[glyphN] = glyphCoord
 
