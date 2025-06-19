@@ -21,6 +21,7 @@ class enoPgzASquareAnim(enoPgzASquare):
   glyphActorDict   = None
   glyphDeltaDict   = None
   glyphList        = None
+  activatePlasma   = False
 
   glyphs = 'b1,b2,b3,bl,l1,l2,l3,' + \
            'r1,r2,r3,t1,t2,t3,tr,' + \
@@ -43,7 +44,8 @@ class enoPgzASquareAnim(enoPgzASquare):
     super().__init__()
     self.buildDeltas()
     self.buildActors()
-    self.initPlasma()
+ 
+    if self.activatePlasma: self.initPlasma()
 
   def msg(self, msgstr): print("enoPgzASquareAnim message: " + str(msgstr))
   def err(self, msgstr): print("enoPgzASquareAnim error: "   + str(msgstr)); traceback.print_exc()
@@ -53,7 +55,7 @@ class enoPgzASquareAnim(enoPgzASquare):
     gdd = self.glyphDeltaDict 
     if gdd is None: self.msg("buildActors: please call buildDeltas first"); return
 
-    self.glyphActorsDict     = {}
+    self.glyphActorDict      = {}
     self.glyphList           = self.glyphs.split(',')
     self.dxDict, self.dyDict = {}, {}
 

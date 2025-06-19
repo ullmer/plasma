@@ -24,13 +24,15 @@ class AnimCanvas:
   imgArtistFn, imgSpaceFn = 'pollaiolo01', 'sspirito_extrap_cp1', 
   actorArtist, actorSpace = None, None
   epas                    = None
+  activatePlasma          = False
 
   ########### constructor ########### 
 
   def __init__(self, **kwargs):
     self.__dict__.update(kwargs) #allow class fields to be passed in constructor
     self.prepActors()
-    self.epas = enoPgzASquareAnim(windowDim=(WIDTH, HEIGHT), pos=(200,200))
+    self.epas = enoPgzASquareAnim(windowDim=(WIDTH, HEIGHT), pos=(200,200), 
+                                  activatePlasma=self.activatePlasma)
 
   ########### prepare actors ########### 
 
