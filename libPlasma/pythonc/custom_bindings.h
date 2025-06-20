@@ -13,30 +13,41 @@ struct EntityScope;
 struct EntityBase;
 }
 
-bool appendSlawToList(pybind11::list &lst, const oblong::plasma::Slaw &s) {
-  pybind11::list result = lst;
+// Nest instructs how (for the moment) multi-field elements (esp. vectors) should be handled.
+bool appendSlawToList(pybind11::list &lst, const oblong::plasma::Slaw &s, bool nest=false) {
+  pybind11::list target = lst;
+
+  if (nest) { // determine whether to insert elements into a sublist/etc.
+    if (s.CanEmit<v2int32>() ||
+        s.CanEmit<v2int16>() ||
+        s.CanEmit<v2int8>()) {
+      pybind11::list nestedVec;
+      target.append(nestedVec);
+      target = nestedVec;
+    }
+  }
 
   if (s.CanEmit<v2int32>()) {
     auto vec = s.Emit<v2int32>();
-    result.append(vec.x);
-    result.append(vec.y);
+    target.append(vec.x);
+    target.append(vec.y);
     return true;
 
   } else if (s.CanEmit<v2int16>()) {
     auto vec = s.Emit<v2int16>();
-    result.append(vec.x);
-    result.append(vec.y);
+    target.append(vec.x);
+    target.append(vec.y);
     return true;
 
   } else if (s.CanEmit<v2int8>()) {
     auto vec = s.Emit<v2int8>();
-    result.append(vec.x);
-    result.append(vec.y);
+    target.append(vec.x);
+    target.append(vec.y);
     return true;
 
   } else if (s.CanEmit<int32>()) {
     auto el = s.Emit<int32>();
-    result.append(el);
+    target.append(el);
     return true;
   }
   return false;
@@ -105,7 +116,7 @@ struct Bind_oblong_plasma_Slaw : public pybind11_weaver::EntityBase {
         handle.def("getList",         [](const oblong::plasma::Slaw &s) {
           pybind11::list result;
 
-          bool appendListSlawSimpleTypes = appendSlawToList(result, s);
+          bool appendListSlawSimpleTypes = appendSlawToList(result, s, false);
 
           if (appendListSlawSimpleTypes == false and s.IsList()) { 
                     
@@ -117,7 +128,7 @@ struct Bind_oblong_plasma_Slaw : public pybind11_weaver::EntityBase {
                 std::string str = el.Emit<const char *>();
                 result.append(str);
               } else {
-                bool alsst2 = appendSlawToList(result, el);
+                bool alsst2 = appendSlawToList(result, el, true);
                 if (alsst2 == false) {} // handle it! and also, handle list of lists, etc.
               }
             } 
