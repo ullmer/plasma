@@ -23,8 +23,8 @@ class enoPgzASquareAnim(enoPgzASquare):
   glyphList        = None
   activatePlasma   = False
 
-  glyphs = 'b1,b2,b3,bl,l1,l2,l3,' + \
-           'r1,r2,r3,t1,t2,t3,tr,' + \
+  glyphs = 'b1,b2,b3,bl,l1,l2,l3,'        + \
+           'r1,r2,r3,t1,t2,t3,tr,'        + \
            'br1,br2,sb1,sb2,sl1,sl2,sr1,' + \
            'sr2,st1,st2,stl,hl1,hl2,fr'
 
@@ -126,6 +126,7 @@ class enoPgzASquareAnim(enoPgzASquare):
   ########### init plasma ########### 
 
   def plasmaCB(self, protein):
+    return
     try:
       d,  i  = protein.Descrips(), protein.Ingests()
       dl, il = d.getList(), i.getList()
@@ -180,7 +181,7 @@ class enoPgzASquareAnim(enoPgzASquare):
     super().on_mouse_move(rel, buttons)
     if self.boxSelected:
       pos = self.actorBox.pos
-      if self.activatePlasma: self.broadcastBoxMove(pos)
+      #if self.activatePlasma: self.broadcastBoxMove(pos)
 
 ### end ###
   
