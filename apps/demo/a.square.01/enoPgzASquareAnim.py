@@ -28,7 +28,7 @@ class enoPgzASquareAnim(enoPgzASquare):
            'br1,br2,sb1,sb2,sl1,sl2,sr1,' + \
            'sr2,st1,st2,stl,hl1,hl2,fr'
 
-  delta1, delta2 = 350, 50 
+  delta1, delta2 = 325, 110
   dxDict, dyDict = None, None
   cx, cy         = 400, 400
 
@@ -65,39 +65,43 @@ class enoPgzASquareAnim(enoPgzASquare):
       fn = self.glyphPrefix + glyphFn
       if self.verbose: self.msg("buildActors fn: " + fn) 
       a  = Actor(fn)
-      self.glyphActorDict[fn] = a
+      self.glyphActorDict[glyphFn] = a
       if glyphFn in gdd:
         pos = gdd[glyphFn]
         a.pos = pos
 
+    if self.verbose: self.msg("buildActors: " + str(self.glyphActorDict))
+
   ########### build deltas ########### 
 
   def buildDeltas(self):
-     d1, d2 = self.delta1, self.delta2
-     cx, cy = self.cx,     self.cy
+    d1, d2 = self.delta1, self.delta2
+    cx, cy = self.cx,     self.cy
 
-     bx, by = cx, cy - d1
-     tx, ty = cx, cy + d1
-     rx, ry = cx + d1, cy
-     lx, ly = cx - d1, cy
+    bx, by = cx, cy + d1
+    tx, ty = cx, cy - d1
+    rx, ry = cx + d1, cy
+    lx, ly = cx - d1, cy
 
-     bx1, bx2, bx3 = bx - d2, bx, bx + d2
-     ly1, ly2, ly3 = ly - d2, ly, ly + d2
-     tx1, tx2, tx3 = bx1, bx2, bx3
-     ry1, ry2, ry3 = ly1, ly2, ly3
+    bx1, bx2, bx3 = bx - d2, bx, bx + d2
+    ly1, ly2, ly3 = ly - d2, ly, ly + d2
+    tx1, tx2, tx3 = bx1, bx2, bx3
+    ry1, ry2, ry3 = ly1, ly2, ly3
 
-     gdd = self.glyphDeltaDict = {}
+    gdd = self.glyphDeltaDict = {}
 
-     glyphL1     = 'b1,b2,b3,t1,t2,t3'.split(',')
-     glyphCoords1 = [(bx1, by), (bx2, by), (bx3, by), (tx1, ty), (tx2, ty), (tx3, ty)]
-     for glyphN, glyphCoord in zip(glyphL1, glyphCoords1): gdd[glyphN] = glyphCoord
+    glyphL1     = 'b1,b2,b3,t1,t2,t3'.split(',')
+    glyphCoords1 = [(bx1, by), (bx2, by), (bx3, by), (tx1, ty), (tx2, ty), (tx3, ty)]
+    for glyphN, glyphCoord in zip(glyphL1, glyphCoords1): gdd[glyphN] = glyphCoord
 
-     glyphL2      = 'l1,l2,l3,r1,r2,r3'.split(',')
-     glyphCoords2 = [(lx, ly1), (lx, ly2), (lx, ly3), (rx, ry1), (rx, ry2), (rx, ry3)]
-     for glyphN, glyphCoord in zip(glyphL2, glyphCoords2): gdd[glyphN] = glyphCoord
+    glyphL2      = 'l1,l2,l3,r1,r2,r3'.split(',')
+    glyphCoords2 = [(lx, ly1), (lx, ly2), (lx, ly3), (rx, ry1), (rx, ry2), (rx, ry3)]
+    for glyphN, glyphCoord in zip(glyphL2, glyphCoords2): gdd[glyphN] = glyphCoord
 
-     gdd['bl'] = [cx-d1, cy+d1]
-     gdd['tr'] = [cx+d1, cy-d1]
+    gdd['bl'] = [cx-d1, cy+d1]
+    gdd['tr'] = [cx+d1, cy-d1]
+
+    if self.verbose: self.msg("buildDeltas: " + str(gdd))
 
 #           'br1,br2,sb1,sb2,sl1,sl2,sr1,' +
 #           'sr2,st1,st2,stl,hl1,hl2,fr'
@@ -108,6 +112,7 @@ class enoPgzASquareAnim(enoPgzASquare):
     super().draw(screen)
 
     gdd = self.glyphDeltaDict 
+    #self.msg("draw: " + str(self.glyphList))
     for glyphFn in self.glyphList:
       if (glyphFn in gdd) and (glyphFn in self.glyphActorDict): 
         try:
