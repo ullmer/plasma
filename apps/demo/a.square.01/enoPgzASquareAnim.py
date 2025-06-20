@@ -22,6 +22,8 @@ class enoPgzASquareAnim(enoPgzASquare):
   glyphDeltaDict   = None
   glyphList        = None
   activatePlasma   = False
+  tween            = 'accel_decel'
+  animDur          = .25
 
   glyphs = 'b1,b2,b3,bl,l1,l2,l3,'        + \
            'r1,r2,r3,t1,t2,t3,tr,'        + \
@@ -49,6 +51,7 @@ class enoPgzASquareAnim(enoPgzASquare):
 
   def msg(self, msgstr): print("enoPgzASquareAnim message: " + str(msgstr))
   def err(self, msgstr): print("enoPgzASquareAnim error: "   + str(msgstr)); traceback.print_exc()
+
   ########### build actors ########### 
 
   def buildActors(self):
@@ -98,8 +101,9 @@ class enoPgzASquareAnim(enoPgzASquare):
     glyphCoords2 = [(lx, ly1), (lx, ly2), (lx, ly3), (rx, ry1), (rx, ry2), (rx, ry3)]
     for glyphN, glyphCoord in zip(glyphL2, glyphCoords2): gdd[glyphN] = glyphCoord
 
-    gdd['bl'] = [cx-d1, cy+d1]
-    gdd['tr'] = [cx+d1, cy-d1]
+    gdd['bl']  = [cx-d1, cy+d1]
+    gdd['tr']  = [cx+d1, cy-d1]
+    gdd['hl2'] = [cx+d1, cy+d1]
 
     if self.verbose: self.msg("buildDeltas: " + str(gdd))
 
@@ -113,10 +117,10 @@ class enoPgzASquareAnim(enoPgzASquare):
 
     gdd = self.glyphDeltaDict 
     #self.msg("draw: " + str(self.glyphList))
-    for glyphFn in self.glyphList:
-      if (glyphFn in gdd) and (glyphFn in self.glyphActorDict): 
+    for glyph in self.glyphList:
+      if (glyph in gdd) and (glyph in self.glyphActorDict): 
         try:
-          a = self.glyphActorDict[glyphFn] 
+          a = self.glyphActorDict[glyph] 
           a.draw()
         except: self.err("draw")
 
@@ -179,6 +183,22 @@ class enoPgzASquareAnim(enoPgzASquare):
     super().prepActors()
     #self.actorSq     = enoActorScaled(self.imgSqFn,      pos=(1000, 500), 
     #                                               scale=.2, alpha = 220)
+
+  ################## on_mouse_move ##################
+
+  def on_mouse_down(self, pos):
+    try:
+      gdd, gad = self.glyphDeltaDict, self.glyphActorDict
+      for glyph in self.glyphList:
+        if (glyph in gdd) and (glyph in gad):
+          a = self.glyphActorDict[glyph]
+          if a.collidepoint(pos):
+            ac = self.glyphActorDict['hl2'] # actor ~cursor
+            animate(ac, pos = a.pos, duration=self.animDur, tween=self.tween)
+            return
+
+      super().on_mouse_down(pos) # only if interaction not captured above
+    except: self.err("on_mouse_down")
 
   ################## on_mouse_move ##################
 
