@@ -76,6 +76,7 @@ tool_use_epochs:
     - {epoch: ENIAC,                     start_yce: 1945, end_yce: 1955}
     - {epoch: Sketchpad,                 start_yce: 1963, end_yce: 1965}
     - {epoch: Engelbart_NLS,             start_yce: 1968, end_yce: 1976}
+    - {epoch: Unix,                      start_yce: 1969}
     - {epoch: Apple_I,                   start_yce: 1976, end_yce: 1977}
     - {epoch: Xerox_Alto,                start_yce: 1973, end_yce: 1985}
     - {epoch: Apple_II,                  start_yce: 1977, end_yce: 1983}
@@ -83,7 +84,6 @@ tool_use_epochs:
     - {epoch: Apple_Lisa,                start_yce: 1983, end_yce: 1986}
     - {epoch: macOS,                     start_yce: 1984}
     - {epoch: Microsoft Windows,         start_yce: 1985}
-    - {epoch: Unix,                      start_yce: 1969}
     - {epoch: Linux,                     start_yce: 1991}
     - {epoch: MagicCap,                  start_yce: 1994, end_yce: 1996}
     - {epoch: gSpeak,                    start_yce: 2005, end_yce: 2020}
