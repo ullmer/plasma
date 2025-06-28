@@ -2,33 +2,33 @@
 # Initial version by Brygg Ullmer and CoPilot, 2025-06-28
 
 species_presence:
-- {species: Homo erectus,         region: China,   start_kya: 2100, end_kya: 400}
-- {species: Homo erectus,         region: Israel,  start_kya: 1500, end_kya: 500}
-- {species: Homo antecessor,      region: UK,      start_kya:  950, end_kya: 800}
-- {species: Homo heidelbergensis, region: UK,      start_kya:  480, end_kya: 200}
-- {species: Homo heidelbergensis, region: Europe,  start_kya:  600, end_kya: 200}
-- {species: Neanderthal,          region: UK,      start_kya:  400, end_kya:  40}
-- {species: Neanderthal,          region: Europe,  start_kya:  400, end_kya:  40}
-- {species: Homo sapiens,         region: Israel,  start_kya:  190}
-- {species: Homo sapiens,         region: Europe,  start_kya:   45}
-- {species: Homo sapiens,         region: UK,      start_kya:   44}
-- {species: Homo sapiens,         region: Ireland, start_kya:   10}
+  - {species: Homo erectus,         region: China,   start_kya: 2100, end_kya: 400}
+  - {species: Homo erectus,         region: Israel,  start_kya: 1500, end_kya: 500}
+  - {species: Homo antecessor,      region: UK,      start_kya:  950, end_kya: 800}
+  - {species: Homo heidelbergensis, region: UK,      start_kya:  480, end_kya: 200}
+  - {species: Homo heidelbergensis, region: Europe,  start_kya:  600, end_kya: 200}
+  - {species: Neanderthal,          region: UK,      start_kya:  400, end_kya:  40}
+  - {species: Neanderthal,          region: Europe,  start_kya:  400, end_kya:  40}
+  - {species: Homo sapiens,         region: Israel,  start_kya:  190}
+  - {species: Homo sapiens,         region: Europe,  start_kya:   45}
+  - {species: Homo sapiens,         region: UK,      start_kya:   44}
+  - {species: Homo sapiens,         region: Ireland, start_kya:   10}
 
 mammoth_presence:
-- {species: Steppe Mammoth,       region: UK,      start_kya:  800, end_kya: 190}
-- {species: Woolly Mammoth,       region: UK,      start_kya:  200, end_kya:  10}
+  - {species: Steppe Mammoth,       region: UK,      start_kya:  800, end_kya: 190}
+  - {species: Woolly Mammoth,       region: UK,      start_kya:  200, end_kya:  10}
 
 land_bridge:
   Doggerland: #Land bridge between present-day Great Britain and Continental Europe
-   - {start_kya: 2000, end_kya: 1300, descr: Early Pleistocene exposure, speculative}
-   - {start_kya: 1200, end_kya: 900,  descr: Pre-Cromerian glacial exposure}
-   - {start_kya:  850, end_kya: 600,  descr: Cromerian Complex exposure}
-   - {start_kya:  580, end_kya: 450,  descr: Pre-Anglian exposure}
-   - {start_kya:  450, end_kya: 400,  descr: Anglian glaciation and breach}
-   - {start_kya:  300, end_kya: 240,  descr: MIS 8 exposure}
-   - {start_kya:  190, end_kya: 130,  descr: MIS 6 exposure}
-   - {start_kya:  120, end_kya:  80,  descr: Late Pleistocene exposure}
-   - {start_kya:   18, end_kya:   8,  descr: Holocene Doggerland, Mesolithic occupation}
+    - {start_kya: 2000, end_kya: 1300, descr: Early Pleistocene exposure, speculative}
+    - {start_kya: 1200, end_kya: 900,  descr: Pre-Cromerian glacial exposure}
+    - {start_kya:  850, end_kya: 600,  descr: Cromerian Complex exposure}
+    - {start_kya:  580, end_kya: 450,  descr: Pre-Anglian exposure}
+    - {start_kya:  450, end_kya: 400,  descr: Anglian glaciation and breach}
+    - {start_kya:  300, end_kya: 240,  descr: MIS 8 exposure}
+    - {start_kya:  190, end_kya: 130,  descr: MIS 6 exposure}
+    - {start_kya:  120, end_kya:  80,  descr: Late Pleistocene exposure}
+    - {start_kya:   18, end_kya:   8,  descr: Holocene Doggerland, Mesolithic occupation}
 
 tool_use_epochs:
   - {epoch: Oldowan,                   start_kya: 2600, end_kya: 1500}
