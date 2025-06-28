@@ -30,6 +30,10 @@ land_bridge:
     - {start_kya:  120, end_kya:  80,  descr: Late Pleistocene exposure}
     - {start_kya:   18, end_kya:   8,  descr: Holocene Doggerland, Mesolithic occupation}
 
+  Sahul: #possibly referenced in Aboriginal Australasian Songlines and/or Tjuringa 
+    - {start_kya:   }
+ 
+
 tool_use_epochs:
   - {epoch: Oldowan,                   start_kya: 2600, end_kya: 1500}
   - {epoch: Acheulean,                 start_kya: 1500, end_kya:  200}
