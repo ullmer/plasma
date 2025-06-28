@@ -70,7 +70,7 @@ tool_use_epochs:
     - {epoch: Writing Systems,           start_kya:  5.2}
     - {epoch: Andean Qipu,               start_kya:  4.6, end_yce: 1900}
   
-  os: #no attempt at 1:1 comparison of impact, but to engage curiousity and exploration
+  os: #no assertion of comparative impact, but to engage curiousity and exploration
     - {epoch: Bush_DifferentialAnalyzer, start_yce: 1931, end_yce: 1942}
     - {epoch: Zuse_Z3,                   start_yce: 1941, end_yce: 1945}
     - {epoch: ENIAC,                     start_yce: 1945, end_yce: 1955}
@@ -79,25 +79,25 @@ tool_use_epochs:
     - {epoch: Apple_I,                   start_yce: 1976, end_yce: 1977}
     - {epoch: Xerox_Alto,                start_yce: 1973, end_yce: 1985}
     - {epoch: Apple_II,                  start_yce: 1977, end_yce: 1983}
+    - {epoch: Xerox_Star,                start_yce: 1981, end_yce: 1985}
     - {epoch: Apple_Lisa,                start_yce: 1983, end_yce: 1986}
     - {epoch: macOS,                     start_yce: 1984}
+    - {epoch: Unix,                      start_yce: 1969}
+    - {epoch: Linux,                     start_yce: 1991}
+    - {epoch: MagicCap,                  start_yce: 1994, end_yce: 1996}
+    - {epoch: gSpeak,                    start_yce: 2005, end_yce: 2020}
+    - {epoch: quantum,                   start_yce: 2020}
+    - {epoch: Animist,                   start_yce: 2024}
 
-  app: 
+  app: #no assertion of comparative impact, but to engage curiousity and exploration
     - {epoch: SlotMachine,               start_yce: 1976}
-    - {epoch: app_BBS,                   start_yce: 1979}
-    - {epoch: Xerox_Star,                start_yce: 1981, end_yce: 1985}
+    - {epoch: BBS,                       start_yce: 1979}
     - {epoch: Microsoft Windows,         start_yce: 1985}
-    - {epoch: os_Unix,                   start_yce: 1969}
-    - {epoch: os_Linux,                  start_yce: 1991}
-    - {epoch: os_MagicCap,               start_yce: 1994, end_yce: 1996}
-    - {epoch: app_PassiveProps,          start_yce: 1994}
-    - {epoch: app_Bricks,                start_yce: 1994}
-    - {epoch: app_TangibleGeospace,      start_yce: 1996}
-    - {epoch: app_mediaBlocks,           start_yce: 1997}
-    - {epoch: app_Urp,                   start_yce: 1998}
+    - {epoch: PassiveProps,              start_yce: 1994}
+    - {epoch: Bricks,                    start_yce: 1994}
+    - {epoch: TangibleGeospace,          start_yce: 1996}
+    - {epoch: mediaBlocks,               start_yce: 1997}
+    - {epoch: Urp,                       start_yce: 1998}
     - {epoch: sw_quantum,                start_yce: 1998}
-    - {epoch: os_gSpeak,                 start_yce: 2005, end_yce: 2020}
-    - {epoch: os_quantum,                start_yce: 2020}
-    - {epoch: os_Animist,                start_yce: 2024}
     
   ### end ###
