@@ -36,13 +36,13 @@ tool_use_epochs:
   - {epoch: Mousterian,                start_kya:  200, end_kya:   45}
   - {epoch: Upper Paleolithic,         start_kya:   45, end_kya:   10}
   - {epoch: Pre-Oldowan,               start_kya: 3300, end_kya: 2600}
-  - {epoch: Controlled Fire Use,       start_kya: 1500, end_kya:    0}
-  - {epoch: Tjuringa,                  start_kya:   40, end_kya:    0}
+  - {epoch: Controlled Fire Use,       start_kya: 1500}
+  - {epoch: Tjuringa,                  start_kya:   40}
   - {epoch: Bone_Calculi,              start_kya:   20, end_kya:    5}
   - {epoch: Clay Accounting Tokens,    start_kya:   10, end_kya:    5}
   - {epoch: Native Copper Tools,       start_kya:  6.5, end_kya:    5}
-  - {epoch: Wheel Use,                 start_kya:  5.5, end_kya:    0}
-  - {epoch: Writing Systems,           start_kya:  5.2, end_kya:    0}
+  - {epoch: Wheel Use,                 start_kya:  5.5}
+  - {epoch: Writing Systems,           start_kya:  5.2}
   - {epoch: Andean Qipu,               start_kya:  4.6, end_yce: 1900}
   - {epoch: Bush_DifferentialAnalyzer, start_yce: 1931, end_yce: 1942}
   - {epoch: Zuse_Z3,                   start_yce: 1941, end_yce: 1945}
