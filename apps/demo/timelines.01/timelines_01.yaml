@@ -53,44 +53,51 @@ land_bridge:
     - {start_kya:  120, end_kya:   14, descr: Connected mainland Asia to Indonesia, key Homo erectus and sapiens route}
 
 tool_use_epochs:
-  - {epoch: Oldowan,                   start_kya: 2600, end_kya: 1500}
-  - {epoch: Acheulean,                 start_kya: 1500, end_kya:  200}
-  - {epoch: Mousterian,                start_kya:  200, end_kya:   45}
-  - {epoch: Upper Paleolithic,         start_kya:   45, end_kya:   10}
-  - {epoch: Pre-Oldowan,               start_kya: 3300, end_kya: 2600}
-  - {epoch: Controlled Fire Use,       start_kya: 1500}
-  - {epoch: Tjuringa,                  start_kya:   40}
-  - {epoch: Bone_Calculi,              start_kya:   20, end_kya:    5}
-  - {epoch: Clay Accounting Tokens,    start_kya:   10, end_kya:    5}
-  - {epoch: Native Copper Tools,       start_kya:  6.5, end_kya:    5}
-  - {epoch: Wheel Use,                 start_kya:  5.5}
-  - {epoch: Writing Systems,           start_kya:  5.2}
-  - {epoch: Andean Qipu,               start_kya:  4.6, end_yce: 1900}
-  - {epoch: Bush_DifferentialAnalyzer, start_yce: 1931, end_yce: 1942}
-  - {epoch: Zuse_Z3,                   start_yce: 1941, end_yce: 1945}
-  - {epoch: ENIAC,                     start_yce: 1945, end_yce: 1955}
-  - {epoch: Sketchpad_OS,              start_yce: 1963, end_yce: 1965}
-  - {epoch: Engelbart_NLS,             start_yce: 1968, end_yce: 1976}
-  - {epoch: os_Apple_I,                start_yce: 1976, end_yce: 1977}
-  - {epoch: os_Xerox_Alto,             start_yce: 1973, end_yce: 1985}
-  - {epoch: app_SlotMachine,           start_yce: 1976}
-  - {epoch: os_Apple_II,               start_yce: 1977, end_yce: 1983}
-  - {epoch: app_BBS,                   start_yce: 1979}
-  - {epoch: os_Xerox_Star,             start_yce: 1981, end_yce: 1985}
-  - {epoch: os_Apple_Lisa,             start_yce: 1983, end_yce: 1986}
-  - {epoch: os_macOS,                  start_yce: 1984}
-  - {epoch: Microsoft Windows,         start_yce: 1985}
-  - {epoch: os_Unix,                   start_yce: 1969}
-  - {epoch: os_Linux,                  start_yce: 1991}
-  - {epoch: os_MagicCap,               start_yce: 1994, end_yce: 1996}
-  - {epoch: app_PassiveProps,          start_yce: 1994}
-  - {epoch: app_Bricks,                start_yce: 1994}
-  - {epoch: app_TangibleGeospace,      start_yce: 1996}
-  - {epoch: app_mediaBlocks,           start_yce: 1997}
-  - {epoch: app_Urp,                   start_yce: 1998}
-  - {epoch: sw_quantum,                start_yce: 1998}
-  - {epoch: os_gSpeak,                 start_yce: 2005, end_yce: 2020}
-  - {epoch: os_quantum,                start_yce: 2020}
-  - {epoch: os_Animist,                start_yce: 2024}
+  cat1: #rename
+    - {epoch: Oldowan,                   start_kya: 2600, end_kya: 1500}
+    - {epoch: Acheulean,                 start_kya: 1500, end_kya:  200}
+    - {epoch: Mousterian,                start_kya:  200, end_kya:   45}
+    - {epoch: Upper Paleolithic,         start_kya:   45, end_kya:   10}
+    - {epoch: Pre-Oldowan,               start_kya: 3300, end_kya: 2600}
+    - {epoch: Controlled Fire Use,       start_kya: 1500}
+
+  cat2: #rename
+    - {epoch: Tjuringa,                  start_kya:   40}
+    - {epoch: Bone_Calculi,              start_kya:   20, end_kya:    5}
+    - {epoch: Clay Accounting Tokens,    start_kya:   10, end_kya:    5}
+    - {epoch: Native Copper Tools,       start_kya:  6.5, end_kya:    5}
+    - {epoch: Wheel Use,                 start_kya:  5.5}
+    - {epoch: Writing Systems,           start_kya:  5.2}
+    - {epoch: Andean Qipu,               start_kya:  4.6, end_yce: 1900}
   
-### end ###
+  os: #no attempt at 1:1 comparison of impact, but to engage curiousity and exploration
+    - {epoch: Bush_DifferentialAnalyzer, start_yce: 1931, end_yce: 1942}
+    - {epoch: Zuse_Z3,                   start_yce: 1941, end_yce: 1945}
+    - {epoch: ENIAC,                     start_yce: 1945, end_yce: 1955}
+    - {epoch: Sketchpad,                 start_yce: 1963, end_yce: 1965}
+    - {epoch: Engelbart_NLS,             start_yce: 1968, end_yce: 1976}
+    - {epoch: Apple_I,                   start_yce: 1976, end_yce: 1977}
+    - {epoch: Xerox_Alto,                start_yce: 1973, end_yce: 1985}
+    - {epoch: Apple_II,                  start_yce: 1977, end_yce: 1983}
+    - {epoch: Apple_Lisa,                start_yce: 1983, end_yce: 1986}
+    - {epoch: macOS,                     start_yce: 1984}
+
+  app: 
+    - {epoch: SlotMachine,               start_yce: 1976}
+    - {epoch: app_BBS,                   start_yce: 1979}
+    - {epoch: Xerox_Star,                start_yce: 1981, end_yce: 1985}
+    - {epoch: Microsoft Windows,         start_yce: 1985}
+    - {epoch: os_Unix,                   start_yce: 1969}
+    - {epoch: os_Linux,                  start_yce: 1991}
+    - {epoch: os_MagicCap,               start_yce: 1994, end_yce: 1996}
+    - {epoch: app_PassiveProps,          start_yce: 1994}
+    - {epoch: app_Bricks,                start_yce: 1994}
+    - {epoch: app_TangibleGeospace,      start_yce: 1996}
+    - {epoch: app_mediaBlocks,           start_yce: 1997}
+    - {epoch: app_Urp,                   start_yce: 1998}
+    - {epoch: sw_quantum,                start_yce: 1998}
+    - {epoch: os_gSpeak,                 start_yce: 2005, end_yce: 2020}
+    - {epoch: os_quantum,                start_yce: 2020}
+    - {epoch: os_Animist,                start_yce: 2024}
+    
+  ### end ###
