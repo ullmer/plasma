@@ -31,8 +31,16 @@ land_bridge:
     - {start_kya:   18, end_kya:   8,  descr: Holocene Doggerland, Mesolithic occupation}
 
   Sahul: #possibly referenced in Aboriginal Australasian Songlines and/or Tjuringa 
-    - {start_kya:   }
- 
+    - {start_kya: 2000, end_kya: 1300, descr: Early Pleistocene exposure, speculative}
+    - {start_kya: 1200, end_kya:  900, descr: Pre-Cromerian glacial exposure}
+    - {start_kya:  850, end_kya:  600, descr: Cromerian Complex exposure}
+    - {start_kya:  580, end_kya:  450, descr: Pre-Anglian exposure}
+    - {start_kya:  450, end_kya:  400, descr: Anglian glaciation and breach}
+    - {start_kya:  300, end_kya:  240, descr: MIS 8 exposure}
+    - {start_kya:  190, end_kya:  130, descr: MIS 6 exposure}
+    - {start_kya:  120, end_kya:   80, descr: Late Pleistocene exposure}
+    - {start_kya:   65, end_kya:   14, descr: Human arrival and full Sahul landmass}
+    - {start_kya:   14, end_kya:    8, descr: Gradual submergence post-LGM}
 
 tool_use_epochs:
   - {epoch: Oldowan,                   start_kya: 2600, end_kya: 1500}
