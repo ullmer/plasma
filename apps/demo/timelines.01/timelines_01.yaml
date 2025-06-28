@@ -70,7 +70,7 @@ tool_use_epochs:
     - {epoch: Writing Systems,           start_kya:  5.2}
     - {epoch: Andean Qipu,               start_kya:  4.6, end_yce: 1900}
   
-  os: #no assertion of comparative impact, but to engage curiousity and exploration
+  os: #no assertion of comparative impact, but to engage curiousity and exploration; mixes hw+sw
     - {epoch: Bush_DifferentialAnalyzer, start_yce: 1931, end_yce: 1942}
     - {epoch: Zuse_Z3,                   start_yce: 1941, end_yce: 1945}
     - {epoch: ENIAC,                     start_yce: 1945, end_yce: 1955}
@@ -82,6 +82,7 @@ tool_use_epochs:
     - {epoch: Xerox_Star,                start_yce: 1981, end_yce: 1985}
     - {epoch: Apple_Lisa,                start_yce: 1983, end_yce: 1986}
     - {epoch: macOS,                     start_yce: 1984}
+    - {epoch: Microsoft Windows,         start_yce: 1985}
     - {epoch: Unix,                      start_yce: 1969}
     - {epoch: Linux,                     start_yce: 1991}
     - {epoch: MagicCap,                  start_yce: 1994, end_yce: 1996}
@@ -92,7 +93,6 @@ tool_use_epochs:
   app: #no assertion of comparative impact, but to engage curiousity and exploration
     - {epoch: SlotMachine,               start_yce: 1976}
     - {epoch: BBS,                       start_yce: 1979}
-    - {epoch: Microsoft Windows,         start_yce: 1985}
     - {epoch: PassiveProps,              start_yce: 1994}
     - {epoch: Bricks,                    start_yce: 1994}
     - {epoch: TangibleGeospace,          start_yce: 1996}
