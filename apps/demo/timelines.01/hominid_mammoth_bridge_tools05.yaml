@@ -34,6 +34,7 @@ tool_use_epochs:
 - {epoch: Native Copper Tools,       start_kya:  6.5, end_kya:    5}
 - {epoch: Wheel Use,                 start_kya:  5.5, end_kya:    0}
 - {epoch: Writing Systems,           start_kya:  5.2, end_kya:    0}
+- {epoch: Andean Qipu,               start_kya:  4.6, end_yce: 1900}
 - {epoch: Bush_DifferentialAnalyzer, start_yce: 1931, end_yce: 1942}
 - {epoch: Zuse_Z3,                   start_yce: 1941, end_yce: 1945}
 - {epoch: ENIAC,                     start_yce: 1945, end_yce: 1955}
