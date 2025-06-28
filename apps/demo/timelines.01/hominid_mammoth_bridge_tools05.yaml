@@ -42,7 +42,9 @@ tool_use_epochs:
 - {epoch: Engelbart_NLS,             start_yce: 1968, end_yce: 1976}
 - {epoch: os_Apple_I,                start_yce: 1976, end_yce: 1977}
 - {epoch: os_Xerox_Alto,             start_yce: 1973, end_yce: 1985}
+- {epoch: app_SlotMachine,           start_yce: 1976}
 - {epoch: os_Apple_II,               start_yce: 1977, end_yce: 1983}
+- {epoch: app_BBS,                   start_yce: 1979}
 - {epoch: os_Xerox_Star,             start_yce: 1981, end_yce: 1985}
 - {epoch: os_Apple_Lisa,             start_yce: 1983, end_yce: 1986}
 - {epoch: os_macOS,                  start_yce: 1984}
@@ -50,6 +52,11 @@ tool_use_epochs:
 - {epoch: os_Unix,                   start_yce: 1969}
 - {epoch: os_Linux,                  start_yce: 1991}
 - {epoch: os_MagicCap,               start_yce: 1994, end_yce: 1996}
+- {epoch: app_PassiveProps,          start_yce: 1994}
+- {epoch: app_Bricks,                start_yce: 1994}
+- {epoch: app_TangibleGeospace,      start_yce: 1996}
+- {epoch: app_mediaBlocks,           start_yce: 1997}
+- {epoch: app_Urp,                   start_yce: 1998}
 - {epoch: sw_quantum,                start_yce: 1998}
 - {epoch: os_gSpeak,                 start_yce: 2005, end_yce: 2020}
 - {epoch: os_quantum,                start_yce: 2020}
