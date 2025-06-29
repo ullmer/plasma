@@ -16,17 +16,8 @@
  *   thing to this, which is very minimal and ad-hoc, is a couple of
  *   functions at the end of libPlasma/c/pool_cmd.[ch].  They are mostly
  *   meant for use by plasma utilities, but could be called by other
- *   programs (since nearly all Oblong apps depend on libPlasma anyway),
- *   or could be used as a source of inspiration for writing additional
- *   functions.
- *
- * - A separate, C++-based logging facility exists in libBasement/Logger.h.
- *   It had once had some aspirations of being merged with this facility,
- *   but that has not yet happened.  (bug 817)
- *
- * - There were also once some aspirations that this long, header-file
- *   based documentation would move to some more appropriate Jeffy-provided
- *   location, where it would be more accessible to users of the SDK.
+ *   programs, or could be used as a source of inspiration for writing
+ *   additional functions.
  *
  * - The "begin usage" and "end usage" comments below are used by
  *   generate-ob-log-usage.hs to auto-generate the usage message in
@@ -703,7 +694,7 @@ OB_LOAM_API bool ob_log_is_enabled (const char *file, ob_log_level *lvl,
 typedef void (*ob_abort_func_t) (void);
 
 /**
- * This function pointer is called what ob_log_fatal() is called with
+ * This function pointer is called when ob_log_fatal() is called with
  * an \a exitcode of -1.  For other exitcodes, ob_log_fatal() calls
  * exit(), which you can hook into with atexit().  Since atexit()
  * functions are not called by abort(), ob_abort_func provides a way

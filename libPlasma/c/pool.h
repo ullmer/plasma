@@ -194,6 +194,10 @@ OB_PLASMA_API ob_retort pool_exists_ctx (const char *pool_name,
  * Possible return values:
  *   - OB_OK if the name is just fine.
  *   - OB_POOLNAME_BADTH if the name is no good.
+ *
+ * \note This only validates a local pool name (or the "pool_name"
+ * or "path" component of a pool URI).  It will fail on remote
+ * pool names, such as "tcp://mango:10000/my_pool".
  */
 OB_PLASMA_API ob_retort pool_validate_name (const char *pool_name);
 
@@ -412,8 +416,8 @@ OB_PLASMA_API ob_retort pool_advance_oldest (pool_hose ph, int64 idx_in);
  * either a protein or a slaw map, as in pool_create().
  *
  * The possible keys for the options map/protein are documented in
- * share/doc/g-speak/option-map-keys.html in the install tree,
- * or doc-non-dox/option-map-keys.html in the source tree.
+ * (FIXME: unknown?) in the install tree,
+ * or libPlasma/c/doc/pool-create-options.md in the source tree.
  */
 OB_PLASMA_API ob_retort pool_change_options (pool_hose ph, bslaw options);
 
@@ -605,7 +609,7 @@ OB_PLASMA_API ob_retort pool_deposit_ex (pool_hose ph, bprotein p, int64 *idx,
 //@}
 
 /**
- * Used an an argument to pool_fetch() to specify desired
+ * Used as an argument to pool_fetch() to specify desired
  * portions of a protein to fetch.
  */
 typedef struct pool_fetch_op
@@ -683,7 +687,8 @@ OB_PLASMA_API ob_retort pool_next (pool_hose ph, protein *ret_prot,
  * Returns POOL_AWAIT_TIMEDOUT if no protein arrived before the
  * timeout expired.
  */
-OB_PLASMA_API ob_retort pool_await_next (pool_hose ph, pool_timestamp timeout,
+OB_PLASMA_API ob_retort pool_await_next (pool_hose ph,
+                                         pool_timestamp timeout,
                                          protein *ret_prot,
                                          pool_timestamp *ret_ts,
                                          int64 *ret_index);
@@ -715,7 +720,8 @@ OB_PLASMA_API ob_retort pool_hose_wake_up (pool_hose ph);
  * Retrieve the protein at the pool hose's index. If no protein
  * is available, this function returns POOL_NO_SUCH_PROTEIN.
  */
-OB_PLASMA_API ob_retort pool_curr (pool_hose ph, protein *ret_prot,
+OB_PLASMA_API ob_retort pool_curr (pool_hose ph,
+                                   protein *ret_prot,
                                    pool_timestamp *ret_ts);
 
 /**
@@ -724,8 +730,10 @@ OB_PLASMA_API ob_retort pool_curr (pool_hose ph, protein *ret_prot,
  * protein before the current one is available, we return
  * POOL_NO_SUCH_PROTEIN.
  */
-OB_PLASMA_API ob_retort pool_prev (pool_hose ph, protein *ret_prot,
-                                   pool_timestamp *ret_ts, int64 *ret_index);
+OB_PLASMA_API ob_retort pool_prev (pool_hose ph,
+                                   protein *ret_prot,
+                                   pool_timestamp *ret_ts,
+                                   int64 *ret_index);
 
 /**
  * Search forward in the pool for a protein with a descrip matching
@@ -733,10 +741,15 @@ OB_PLASMA_API ob_retort pool_prev (pool_hose ph, protein *ret_prot,
  * values.  On success (OB_OK), the hose's current index will be
  * 1 + *idx.  On failure (non-OB_OK), the hose's current index will
  * remain unchanged.
+ * \note \a search is matched against candidate proteins using
+ * protein_search().  Therefore, if \a search is a list, performs
+ * slaw_list_gapsearch().  Otherwise, performs slaw_list_find().
  */
-OB_PLASMA_API ob_retort pool_probe_frwd (pool_hose ph, bslaw search,
+OB_PLASMA_API ob_retort pool_probe_frwd (pool_hose ph,
+                                         bslaw search,
                                          protein *ret_prot,
-                                         pool_timestamp *ret_ts, int64 *idx);
+                                         pool_timestamp *ret_ts,
+                                         int64 *idx);
 
 /**
  * The same as pool_probe_frwd(), but wait if necessary.  See
@@ -745,7 +758,8 @@ OB_PLASMA_API ob_retort pool_probe_frwd (pool_hose ph, bslaw search,
  * \note \a timeout is overall, and does not restart when a non-matching
  * protein is found.
  */
-OB_PLASMA_API ob_retort pool_await_probe_frwd (pool_hose ph, bslaw search,
+OB_PLASMA_API ob_retort pool_await_probe_frwd (pool_hose ph,
+                                               bslaw search,
                                                pool_timestamp timeout,
                                                protein *ret_prot,
                                                pool_timestamp *ret_ts,
@@ -758,9 +772,11 @@ OB_PLASMA_API ob_retort pool_await_probe_frwd (pool_hose ph, bslaw search,
  * On success (OB_OK), the hose's current index will be *idx.
  * On failure (non-OB_OK), the hose's current index will remain unchanged.
  */
-OB_PLASMA_API ob_retort pool_probe_back (pool_hose ph, bslaw search,
+OB_PLASMA_API ob_retort pool_probe_back (pool_hose ph,
+                                         bslaw search,
                                          protein *ret_prot,
-                                         pool_timestamp *ret_ts, int64 *idx);
+                                         pool_timestamp *ret_ts,
+                                         int64 *idx);
 
 /**
  * Fetch all or some of one or more proteins.  The \a ops array,
@@ -778,8 +794,11 @@ OB_PLASMA_API ob_retort pool_probe_back (pool_hose ph, bslaw search,
  * occurs, they will be set to a negative number-- specifically,
  * the retort indicating the error.
  */
-OB_PLASMA_API void pool_fetch (pool_hose ph, pool_fetch_op *ops, int64 nops,
-                               int64 *oldest_idx_out, int64 *newest_idx_out);
+OB_PLASMA_API void pool_fetch (pool_hose ph,
+                               pool_fetch_op *ops,
+                               int64 nops,
+                               int64 *oldest_idx_out,
+                               int64 *newest_idx_out);
 
 /**
  * Same as pool_fetch(), but can optionally clamp the idx values to within
@@ -788,8 +807,11 @@ OB_PLASMA_API void pool_fetch (pool_hose ph, pool_fetch_op *ops, int64 nops,
  * an error.)  If clamped, the idx member in \a ops will be changed to
  * reflect the index of the protein actually retrieved.
  */
-OB_PLASMA_API void pool_fetch_ex (pool_hose ph, pool_fetch_op *ops, int64 nops,
-                                  int64 *oldest_idx_out, int64 *newest_idx_out,
+OB_PLASMA_API void pool_fetch_ex (pool_hose ph,
+                                  pool_fetch_op *ops,
+                                  int64 nops,
+                                  int64 *oldest_idx_out,
+                                  int64 *newest_idx_out,
                                   bool clamp);
 //@}
 
@@ -911,8 +933,8 @@ OB_PLASMA_API ob_retort pool_await_multi (pool_gang gang,
 /**
  * A signal-safe and thread-safe function to interrupt any call to
  * pool_await_next_multi() on this gang. For each time that this
- * function is called, one call to await_next_multi() will return with a
- * pool_retort of POOL_AWAIT_WOKEN.
+ * function is called, one call to pool_await_next_multi() will return
+ * with a pool_retort of POOL_AWAIT_WOKEN.
  *
  * Unlike bare pool hoses, all gangs have wakeup enabled. Thus there is
  * no need for an equivalent of pool_hose_enable_wakeup() for gangs.
