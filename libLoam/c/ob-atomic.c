@@ -290,7 +290,7 @@ bool ob_atomic_int64_compare_and_swap (int64 *loc, int64 was, int64 shall_be)
   return !result; /* if succeded, return 1 else 0 */
 
 
-elif defined(__powerpc__) && !defined(__powerpc64__)
+#elif defined(__powerpc__) && !defined(__powerpc64__)
   // Use libatomic_ops for 64-bit CAS
   return AO_compare_and_swap_full((volatile AO_t *)loc, (AO_t)was, (AO_t)shall_be);
 
@@ -327,6 +327,11 @@ int64 ob_atomic_int64_add (int64 *loc, int64 addend)
     }
   while (status);
   return tmp;
+
+#elif defined(__powerpc__) && !defined(__powerpc64__)
+  // Use libatomic_ops for 64-bit atomic add
+  return AO_fetch_and_add_full((volatile AO_t *)loc, (AO_t)addend) + addend;
+
 #else
   return __sync_add_and_fetch (loc, addend);
 #endif
