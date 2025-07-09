@@ -2,10 +2,10 @@ sc:
  nps: 
    meta: 
      fn:  [chpi2 cong2 cowp2 fosu2 kimo2 nisi2 ovvi2 reer2]
-     dim: [, ]
+     dim: [290, 203]
 
- postfix: 
+ overview: 
    fn:  sc2
-   dim: [
+   dim: [796, 347]
 
 ### end ###
