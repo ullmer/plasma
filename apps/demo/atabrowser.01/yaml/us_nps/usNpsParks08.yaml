@@ -4780,7 +4780,8 @@ parkDetails:
   name:  Rio Grande
   designation: Wild and Scenic River
   state: Texas
- -
+
+ rira:
   homepage:  https://www.nps.gov/rira/index.htm
   image1x:   B98DD095-1DD8-B71B-0BED314879DC9F6A_003.jpg
   image2x:   B98DD095-1DD8-B71B-0BED314879DC9F6A_002.jpg
@@ -4790,7 +4791,8 @@ parkDetails:
   name:  River Raisin
   designation: National Battlefield Park
   state: Michigan
- -
+
+ rocr:
   homepage:  https://www.nps.gov/rocr/index.htm
   image1x:   F2DADE64-1DD8-B71B-0B7065A6B5181CD4_003.JPG
   image2x:   F2DADE64-1DD8-B71B-0B7065A6B5181CD4.JPG
@@ -4800,7 +4802,8 @@ parkDetails:
   name:  Rock Creek
   designation: Park
   state: District of Columbia
- -
+
+ romo:
   homepage:  https://www.nps.gov/romo/index.htm
   image1x:   E3EE1554-C926-F2BA-FA9E08225D404C05.jpg
   image2x:   E3EE1554-C926-F2BA-FA9E08225D404C05_003.jpg
@@ -4810,7 +4813,8 @@ parkDetails:
   name:  Rocky Mountain
   designation: National Park
   state: Colorado
- -
+
+ rowi:
   homepage:  https://www.nps.gov/rowi/index.htm
   image1x:   3DD63AA4-95D9-6762-62B8EC26DA6C21A9_002.jpg
   image2x:   3DD63AA4-95D9-6762-62B8EC26DA6C21A9_003.jpg
@@ -4820,7 +4824,8 @@ parkDetails:
   name:  Roger Williams
   designation: National Memorial
   state: Rhode Island
- -
+
+ roca:
   homepage:  https://www.nps.gov/roca/index.htm
   image1x:   CE63E090-1DD8-B71B-0B00F5E1F5645D83_004.jpg
   image2x:   CE63E090-1DD8-B71B-0B00F5E1F5645D83_003.jpg
@@ -4830,7 +4835,8 @@ parkDetails:
   name:  Roosevelt Campobello
   designation: International Park
   state: Maine
- -
+
+ rori:
   homepage:  https://www.nps.gov/rori/index.htm
   image1x:   F20434BE-CC57-6A13-8748A8F8B6C80B52_003.jpg
   image2x:   F20434BE-CC57-6A13-8748A8F8B6C80B52.jpg
@@ -4840,7 +4846,8 @@ parkDetails:
   name:  Rosie the Riveter WWII Home Front
   designation: National Historical Park
   state: California
- -
+
+ ruca:
   homepage:  https://www.nps.gov/ruca/index.htm
   image1x:   69E6F5BF-1DD8-B71B-0B3BA5B283CD6A50.jpg
   image2x:   69E6F5BF-1DD8-B71B-0B3BA5B283CD6A50_003.jpg
@@ -4850,7 +4857,8 @@ parkDetails:
   name:  Russell Cave
   designation: National Monument
   state: Alabama
- -
+
+ sahi:
   homepage:  https://www.nps.gov/sahi/index.htm
   image1x:   648A71B3-EC16-F797-A758102DAA3DC6CC.jpg
   image2x:   648A71B3-EC16-F797-A758102DAA3DC6CC_003.jpg
@@ -4860,7 +4868,8 @@ parkDetails:
   name:  Sagamore Hill
   designation: National Historic Site
   state: New York
- -
+
+ sagu:
   homepage:  https://www.nps.gov/sagu/index.htm
   image1x:   A1FBB788-F45D-B459-C591CDCE4B5749FC.jpg
   image2x:   A1FBB788-F45D-B459-C591CDCE4B5749FC_003.jpg
@@ -4870,7 +4879,8 @@ parkDetails:
   name:  Saguaro
   designation: National Park
   state: Arizona
- -
+
+ sacn:
   homepage:  https://www.nps.gov/sacn/index.htm
   image1x:   7464D7A8-0D1D-AB5B-69D2E918E8B35284_003.jpg
   image2x:   7464D7A8-0D1D-AB5B-69D2E918E8B35284.jpg
@@ -4880,7 +4890,8 @@ parkDetails:
   name:  Saint Croix
   designation: National Scenic Riverway
   state: [Wisconsin, Minnesota]
- -
+
+ sacr:
   homepage:  https://www.nps.gov/sacr/index.htm
   image1x:   2602356E-1DD8-B71B-0B0533AB23A7C7DB_002.jpg
   image2x:   2602356E-1DD8-B71B-0B0533AB23A7C7DB_003.jpg
@@ -4890,7 +4901,8 @@ parkDetails:
   name:  Saint Croix Island
   designation: International Historic Site
   state: Maine
- -
+
+ saga:
   homepage:  https://www.nps.gov/saga/index.htm
   image1x:   FA45934A-F2A5-0D40-6A5E57F6BF023107_002.jpg
   image2x:   FA45934A-F2A5-0D40-6A5E57F6BF023107_003.jpg
@@ -4900,7 +4912,8 @@ parkDetails:
   name:  Saint-Gaudens
   designation: National Historical Park
   state: New Hampshire
- -
+
+ sapa:
   homepage:  https://www.nps.gov/sapa/index.htm
   image1x:   186B4A5A-1DD8-B71B-0B36D0E2E8F9D196_003.jpg
   image2x:   186B4A5A-1DD8-B71B-0B36D0E2E8F9D196.jpg
@@ -4910,7 +4923,8 @@ parkDetails:
   name:  Saint Paul's Church
   designation: National Historic Site
   state: New York
- -
+
+ sama:
   homepage:  https://www.nps.gov/sama/index.htm
   image1x:   24D3766C-0E42-BFF0-595EFE5C67C3521F_002.jpeg
   image2x:   24D3766C-0E42-BFF0-595EFE5C67C3521F_003.jpeg
@@ -4920,7 +4934,8 @@ parkDetails:
   name:  Salem Maritime
   designation: National Historic Site
   state: Massachusetts
- -
+
+ sapu:
   homepage:  https://www.nps.gov/sapu/index.htm
   image1x:   769AE60E-F492-425D-86B0F4300C62BC9A_002.jpg
   image2x:   769AE60E-F492-425D-86B0F4300C62BC9A_004.jpg
@@ -4930,7 +4945,8 @@ parkDetails:
   name:  Salinas Pueblo Missions
   designation: National Monument
   state: New Mexico
- -
+
+ sari:
   homepage:  https://www.nps.gov/sari/index.htm
   image1x:   C56E94AA-1DD8-B71B-0BF2D9ECD102CA77_002.jpg
   image2x:   C56E94AA-1DD8-B71B-0BF2D9ECD102CA77.jpg
