@@ -2,7 +2,7 @@
 # Brygg Ullmer, Clemson University
 # Begun 2025-07-09
 
-WIDTH, HEIGHT = 800, 800
+WIDTH, HEIGHT = 1600, 1000
 from imgLabeledPgz import *
 
 ilp = ADImgLabeledObjPgz()

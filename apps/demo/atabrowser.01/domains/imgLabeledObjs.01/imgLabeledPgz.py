@@ -17,7 +17,7 @@ class ADImgLabeledObjPgz(ADImgLabeledObj):
   actorWH   = None
   actors    = None
   verbose   = True
-  basePos      = ( 50,  50)
+  basePos      = (160, 110)
   actorPosDiff = (300, 210)
   numCols      =  2
 
