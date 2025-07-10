@@ -3964,7 +3964,8 @@ parkDetails:
   name:  Missouri
   designation: National Recreational River
   state: [South Dakota, Nebraska]
- -
+
+ moja:
   homepage:  https://www.nps.gov/moja/index.htm
   image1x:   C86265B5-E54D-D68F-9F29D39DE2FFE0ED_002.jpg
   image2x:   C86265B5-E54D-D68F-9F29D39DE2FFE0ED.jpg
@@ -3974,7 +3975,8 @@ parkDetails:
   name:  Mojave
   designation: National Preserve
   state: California
- -
+
+ mono:
   homepage:  https://www.nps.gov/mono/index.htm
   image1x:   867B2D92-1DD8-B71B-0B2BA041DA1F3075.jpg
   image2x:   867B2D92-1DD8-B71B-0B2BA041DA1F3075_003.jpg
@@ -3984,7 +3986,8 @@ parkDetails:
   name:  Monocacy
   designation: National Battlefield
   state: Maryland
- -
+
+ moca:
   homepage:  https://www.nps.gov/moca/index.htm
   image1x:   BA73B693-FEB9-09BB-73BFAC618170A0C5_003.jpg
   image2x:   BA73B693-FEB9-09BB-73BFAC618170A0C5.jpg
@@ -3994,7 +3997,8 @@ parkDetails:
   name:  Montezuma Castle
   designation: National Monument
   state: Arizona
- -
+
+ mocr:
   homepage:  https://www.nps.gov/mocr/index.htm
   image1x:   C642669B-1DD8-B71B-0B6D05947F435372.jpg
   image2x:   C642669B-1DD8-B71B-0B6D05947F435372_004.jpg
@@ -4004,7 +4008,8 @@ parkDetails:
   name:  Moores Creek
   designation: National Battlefield
   state: North Carolina
- -
+
+ mopi:
   homepage:  https://www.nps.gov/mopi/index.htm
   image1x:   287DD7D6-1DD8-B71B-0B0B215F72B27D70_004.jpg
   image2x:   287DD7D6-1DD8-B71B-0B0B215F72B27D70.jpg
@@ -4014,7 +4019,8 @@ parkDetails:
   name:  Mormon Pioneer
   designation: National Historic Trail
   state: [Wyoming, Iowa, Nebraska, Utah, Illinois]
- -
+
+ morr:
   homepage:  https://www.nps.gov/morr/index.htm
   image1x:   26F151C2-C8A2-E228-8C2A897EB53E538C_002.jpg
   image2x:   26F151C2-C8A2-E228-8C2A897EB53E538C_004.jpg
@@ -4024,7 +4030,8 @@ parkDetails:
   name:  Morristown
   designation: National Historical Park
   state: New Jersey
- -
+
+ mora:
   homepage:  https://www.nps.gov/mora/index.htm
   image1x:   EFEE6DC6-1DD8-B71B-0B9A2188BE6539A9_003.jpg
   image2x:   EFEE6DC6-1DD8-B71B-0B9A2188BE6539A9_002.jpg
@@ -4034,7 +4041,8 @@ parkDetails:
   name:  Mount Rainier
   designation: National Park
   state: Washington
- -
+
+ moru:
   homepage:  https://www.nps.gov/moru/index.htm
   image1x:   7217C5F3-F744-0CD3-B2F714471E441F8A_002.jpg
   image2x:   7217C5F3-F744-0CD3-B2F714471E441F8A.jpg
@@ -4044,7 +4052,8 @@ parkDetails:
   name:  Mount Rushmore
   designation: National Memorial
   state: South Dakota
- -
+
+ muwo:
   homepage:  https://www.nps.gov/muwo/index.htm
   image1x:   2C4D5ED2-1DD8-B71B-0BDC86B6CEA3BFA6_002.jpg
   image2x:   2C4D5ED2-1DD8-B71B-0BDC86B6CEA3BFA6_003.jpg
@@ -4054,7 +4063,8 @@ parkDetails:
   name:  Muir Woods
   designation: National Monument
   state: California
- -
+
+ natc:
   homepage:  https://www.nps.gov/natc/index.htm
   image1x:   6129F7BB-1DD8-B71B-0BB399C60176BCFD_003.jpg
   image2x:   6129F7BB-1DD8-B71B-0BB399C60176BCFD_002.jpg
@@ -4064,7 +4074,8 @@ parkDetails:
   name:  Natchez
   designation: National Historical Park
   state: Mississippi
- -
+
+ natt:
   homepage:  https://www.nps.gov/natt/index.htm
   image1x:   C6835217-1DD8-B71B-0B152D15684CEB08_002.jpg
   image2x:   C6835217-1DD8-B71B-0B152D15684CEB08_003.jpg
@@ -4074,7 +4085,8 @@ parkDetails:
   name:  Natchez Trace
   designation: National Scenic Trail
   state: [Tennessee, Alabama, Mississippi]
- -
+
+ natr:
   homepage:  https://www.nps.gov/natr/index.htm
   image1x:   EF2AC908-AC66-4192-FD298293D52D661D.jpg
   image2x:   EF2AC908-AC66-4192-FD298293D52D661D_002.jpg
@@ -4084,7 +4096,8 @@ parkDetails:
   name:  Natchez Trace
   designation: Parkway
   state: [Tennessee, Alabama, Mississippi]
- -
+
+ nace:
   homepage:  https://www.nps.gov/nace/index.htm
   image1x:   728548EB-1DD8-B71B-0BF345D4B6FAB581.jpg
   image2x:   728548EB-1DD8-B71B-0BF345D4B6FAB581_002.jpg
@@ -4094,7 +4107,8 @@ parkDetails:
   name:  National Capital Parks-East
   designation: Other Park Designation
   state: District of Columbia
- -
+
+ nama:
   homepage:  https://www.nps.gov/nama/index.htm
   image1x:   A30D1EFE-9A26-E565-E52927643161F959_004.jpg
   image2x:   A30D1EFE-9A26-E565-E52927643161F959_003.jpg
@@ -4104,7 +4118,8 @@ parkDetails:
   name:  National Mall and Memorial Parks
   designation: Other Park Designation
   state: District of Columbia
- -
+
+ npsa:
   homepage:  https://www.nps.gov/npsa/index.htm
   image1x:   25FAA5B5-1DD8-B71B-0B96C6CD4CEB4517_003.jpg
   image2x:   25FAA5B5-1DD8-B71B-0B96C6CD4CEB4517.jpg
@@ -4114,7 +4129,8 @@ parkDetails:
   name:  National Park of American Samoa
   designation: National Park
   state: American Samoa
- -
+
+ npnh:
   homepage:  https://www.nps.gov/npnh/index.htm
   image1x:   09A40BB4-D7AB-68B8-968978140F69AF94.jpg
   image2x:   09A40BB4-D7AB-68B8-968978140F69AF94_002.jpg
@@ -4124,7 +4140,8 @@ parkDetails:
   name:  National Parks of New York Harbor
   designation: Other Park Designation
   state: New York
- -
+
+ nabr:
   homepage:  https://www.nps.gov/nabr/index.htm
   image1x:   F2D588C1-1DD8-B71B-0B97DBA1090D9392_003.jpg
   image2x:   F2D588C1-1DD8-B71B-0B97DBA1090D9392.jpg
@@ -4134,7 +4151,8 @@ parkDetails:
   name:  Natural Bridges
   designation: National Monument
   state: Utah
- -
+
+ nava:
   homepage:  https://www.nps.gov/nava/index.htm
   image1x:   D54CE322-1DD8-B71B-0B6ECDA4B99240E4_002.jpg
   image2x:   D54CE322-1DD8-B71B-0B6ECDA4B99240E4.jpg
@@ -4144,7 +4162,8 @@ parkDetails:
   name:  Navajo
   designation: National Monument
   state: Arizona
- -
+
+ nebe:
   homepage:  https://www.nps.gov/nebe/index.htm
   image1x:   96BEA0FB-A7F4-18B4-A4BCE5523A95946F.jpg
   image2x:   96BEA0FB-A7F4-18B4-A4BCE5523A95946F_002.jpg
@@ -4154,7 +4173,8 @@ parkDetails:
   name:  New Bedford Whaling
   designation: National Historical Park
   state: Massachusetts
- -
+
+ neen:
   homepage:  https://www.nps.gov/neen/index.htm
   image1x:   E602113B-F149-09A4-CE817DA7947FA259_002.jpg
   image2x:   E602113B-F149-09A4-CE817DA7947FA259.jpg
@@ -4164,7 +4184,8 @@ parkDetails:
   name:  New England
   designation: National Scenic Trail
   state: [Massachusetts, Connecticut]
- -
+
+ pine:
   homepage:  https://www.nps.gov/pine/index.htm
   image1x:   07B60C52-1DD8-B71B-0B03089EE706BC39.jpg
   image2x:   07B60C52-1DD8-B71B-0B03089EE706BC39_002.jpg
@@ -4174,7 +4195,8 @@ parkDetails:
   name:  New Jersey Pinelands
   designation: National Reserve
   state: New Jersey
- -
+
+ jazz:
   homepage:  https://www.nps.gov/jazz/index.htm
   image1x:   B1C09071-9F2C-750B-23D33F2AAD000FF1.jpg
   image2x:   B1C09071-9F2C-750B-23D33F2AAD000FF1_002.jpg
@@ -4184,7 +4206,8 @@ parkDetails:
   name:  New Orleans Jazz
   designation: National Historical Park
   state: Louisiana
- -
+
+ neph:
   homepage:  https://www.nps.gov/neph/index.htm
   image1x:   A9DAF227-F981-FA82-DA572393681C7A80.jpg
   image2x:   A9DAF227-F981-FA82-DA572393681C7A80_002.jpg
@@ -4194,7 +4217,8 @@ parkDetails:
   name:  New Philadelphia
   designation: National Historic Site
   state: Illinois
- -
+
+ neri:
   homepage:  https://www.nps.gov/neri/index.htm
   image1x:   EA12B8AB-F036-916E-66218D90C8CC9667_002.jpg
   image2x:   EA12B8AB-F036-916E-66218D90C8CC9667.jpg
