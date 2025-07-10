@@ -3,6 +3,7 @@
 # Begun 2025-07-09
 
 import os, traceback, yaml
+from   ataBase import *
 
 ########## YAML resource file ##########
 
@@ -15,10 +16,10 @@ class YamlRc(AtaBase):
 
   ########## loadYaml ##########
   def loadYaml(self):
-    if self.yamlPath is None or self.yamlFn is None:
-      self.msg("loadYaml: yamlPath or yamlFn presently unassigned"); return
+    try:  
+      if self.yamlPath is None or self.yamlFn is None:
+        self.msg("loadYaml: yaml path or fn unassigned"); return False
 
-    try:
       relPath = self.yamlPath + self.yamlFn
       absPath = os.path.expanduser(relPath)
       if not os.path.isfile(absPath):

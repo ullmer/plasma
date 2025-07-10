@@ -20,8 +20,8 @@ class ADImgLabeledObj(AtaDomain):
   ########## loadYaml ##########
   def loadYaml(self):
     try:
-      self.yamlSCrc  = YamlRc(self.yamlPath + self.yamlFnSC)
-      self.yamlNPSrc = YamlRc(self.yamlPath + self.yamlFnNPS)
+      self.yamlSCrc  = YamlRc(self.yamlFnSC)
+      self.yamlNPSrc = YamlRc(self.yamlFnNPS)
 
       ilmd = self.imgLabeledMetad = self.getYamlPath(self.yamlPath1)
       if ilmd is None: 
