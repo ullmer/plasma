@@ -10,6 +10,8 @@ from pgzero.builtins import Actor, animate, keyboard, keys
 
 class ADImgLabeledObjPgz(ADImgLabeledObj):
 
+  imgPathPrefix = 'us_nps/meta/'
+
   actorDict = None
   actorFns  = None
   actorWH   = None
@@ -36,15 +38,25 @@ class ADImgLabeledObjPgz(ADImgLabeledObj):
       self.actorFns  = ilmd['fn']
       self.actorWH   = ilmd['dim']
       self.actorDict = {}
+      self.actors    = []
       bx, by         = self.basePos
       dx, dy         = self.actorPosDiff
 
-      x, y = bx, by
+      x, y       = bx, by
+      idxX, idxY = 0, 0
+
       for actorFn in self.actorFns:
-        a = Actor(actorFn, pos=(x,y))
+        fn = self.imgPathPrefix + actorFn
+        a = Actor(fn, pos=(x,y))
         self.actorDict[actorFn] = a
-        actors.append(a) #space-inefficient to store in both a lookup and a list; but easier to follow for some
-        x += dx; y += dy
+        self.actors.append(a) #space-inefficient to store in both a lookup and a list; but easier to follow for some
+
+        idxX += 1; x += dx
+        if idxX >= self.numCols: 
+          idxX  = 0
+          idxY += 1
+          x     = bx
+          y    += dy
 
       return True
     except: self.err("loadYaml"); return False
