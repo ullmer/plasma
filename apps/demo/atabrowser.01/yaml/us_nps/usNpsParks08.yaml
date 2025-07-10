@@ -2671,7 +2671,8 @@ parkDetails:
   name:  George Washington
   designation: Memorial Parkway
   state: [Virginia, Maryland, District of Columbia]
- -
+
+ gewa:
   homepage:  https://www.nps.gov/gewa/index.htm
   image1x:   B5451D8A-E2C6-39AF-02F3016633FA8CE5_003.jpg
   image2x:   B5451D8A-E2C6-39AF-02F3016633FA8CE5_004.jpg
@@ -2681,7 +2682,8 @@ parkDetails:
   name:  George Washington Birthplace
   designation: National Monument
   state: Virginia
- -
+
+ gwca:
   homepage:  https://www.nps.gov/gwca/index.htm
   image1x:   70C723A4-013C-3C6F-FDE62E7932F1D229_002.jpg
   image2x:   70C723A4-013C-3C6F-FDE62E7932F1D229_003.jpg
@@ -2691,7 +2693,8 @@ parkDetails:
   name:  George Washington Carver
   designation: National Monument
   state: Missouri
- -
+
+ gett:
   homepage:  https://www.nps.gov/gett/index.htm
   image1x:   B5F8A6AC-D06E-222B-F3E21252DAD96EB5_003.jpg
   image2x:   B5F8A6AC-D06E-222B-F3E21252DAD96EB5.jpg
@@ -2701,7 +2704,8 @@ parkDetails:
   name:  Gettysburg
   designation: National Military Park
   state: Pennsylvania
- -
+
+ gicl:
   homepage:  https://www.nps.gov/gicl/index.htm
   image1x:   64939D70-D0C0-87D7-A660B8425D633D94_003.jpg
   image2x:   64939D70-D0C0-87D7-A660B8425D633D94.jpg
@@ -2711,7 +2715,8 @@ parkDetails:
   name:  Gila Cliff Dwellings
   designation: National Monument
   state: New Mexico
- -
+
+ glac:
   homepage:  https://www.nps.gov/glac/index.htm
   image1x:   C5A56E57-BB50-A74E-C7FA6F9F2218D91F_002.jpg
   image2x:   C5A56E57-BB50-A74E-C7FA6F9F2218D91F_004.jpg
@@ -2721,7 +2726,8 @@ parkDetails:
   name:  Glacier
   designation: National Park
   state: Montana
- -
+
+ glba:
   homepage:  https://www.nps.gov/glba/index.htm
   image1x:   3BB1EBD0-9642-3D1C-E8F8EAFFEBAA8F33_003.jpg
   image2x:   3BB1EBD0-9642-3D1C-E8F8EAFFEBAA8F33.jpg
@@ -2731,7 +2737,8 @@ parkDetails:
   name:  Glacier Bay
   designation: National Park and Preserve
   state: Alaska
- -
+
+ glca:
   homepage:  https://www.nps.gov/glca/index.htm
   image1x:   F8F9A7E0-F3FF-38B9-F112BE76AB3F79EF.jpg
   image2x:   F8F9A7E0-F3FF-38B9-F112BE76AB3F79EF_003.jpg
@@ -2741,7 +2748,8 @@ parkDetails:
   name:  Glen Canyon
   designation: National Recreation Area
   state: [Arizona, Utah]
- -
+
+ glec:
   homepage:  https://www.nps.gov/glec/index.htm
   image1x:   6A1BD80B-1DD8-B71B-0BC38D4E008597D6.jpg
   image2x:   6A1BD80B-1DD8-B71B-0BC38D4E008597D6_002.jpg
@@ -2751,7 +2759,8 @@ parkDetails:
   name:  Glen Echo
   designation: Park
   state: Maryland
- -
+
+ glde:
   homepage:  https://www.nps.gov/glde/index.htm
   image1x:   286820EF-1DD8-B71B-0B9F29DE7689F844_003.jpg
   image2x:   286820EF-1DD8-B71B-0B9F29DE7689F844_004.jpg
@@ -2761,7 +2770,8 @@ parkDetails:
   name:  Gloria Dei Church
   designation: National Historic Site
   state: Pennsylvania
- -
+
+ goga:
   homepage:  https://www.nps.gov/goga/index.htm
   image1x:   A325B9AC-1DD8-B71B-0BA0F195846A6A4B_002.jpg
   image2x:   A325B9AC-1DD8-B71B-0BA0F195846A6A4B.jpg
@@ -2771,7 +2781,8 @@ parkDetails:
   name:  Golden Gate
   designation: National Recreation Area
   state: California
- -
+
+ gosp:
   homepage:  https://www.nps.gov/gosp/index.htm
   image1x:   42B294E9-9CAF-E947-0F75F2C0D0C5074B.jpg
   image2x:   42B294E9-9CAF-E947-0F75F2C0D0C5074B_003.jpg
@@ -2781,7 +2792,8 @@ parkDetails:
   name:  Golden Spike
   designation: National Historical Park
   state: Utah
- -
+
+ gois:
   homepage:  https://www.nps.gov/gois/index.htm
   image1x:   121CBC15-FA9C-0858-D664F18FA1D6C512_004.jpg
   image2x:   121CBC15-FA9C-0858-D664F18FA1D6C512_003.jpg
@@ -2791,7 +2803,8 @@ parkDetails:
   name:  Governors Island
   designation: National Monument
   state: New York
- -
+
+ grca:
   homepage:  https://www.nps.gov/grca/index.htm
   image1x:   99556161-1DD8-B71B-0B896E4D786C6B47_003.jpg
   image2x:   99556161-1DD8-B71B-0B896E4D786C6B47_002.jpg
@@ -2801,7 +2814,8 @@ parkDetails:
   name:  Grand Canyon
   designation: National Park
   state: Arizona
- -
+
+ para:
   homepage:  https://www.nps.gov/para/index.htm
   image1x:   67C2F73A-E5A7-5E5F-96F1DE097E29E380_004.jpg
   image2x:   67C2F73A-E5A7-5E5F-96F1DE097E29E380_002.jpg
@@ -2811,7 +2825,8 @@ parkDetails:
   name:  Grand Canyon-Parashant
   designation: National Monument
   state: Arizona
- -
+
+ grpo:
   homepage:  https://www.nps.gov/grpo/index.htm
   image1x:   18691510-F154-B5AE-C7D1B3E447E0D299_003.jpg
   image2x:   18691510-F154-B5AE-C7D1B3E447E0D299_002.jpg
@@ -2821,7 +2836,8 @@ parkDetails:
   name:  Grand Portage
   designation: National Monument
   state: Minnesota
- -
+
+ grte:
   homepage:  https://www.nps.gov/grte/index.htm
   image1x:   B3CF0402-0C72-2247-816D63B41D1B3300_003.jpg
   image2x:   B3CF0402-0C72-2247-816D63B41D1B3300.jpg
@@ -2831,7 +2847,8 @@ parkDetails:
   name:  Grand Teton
   designation: National Park
   state: Wyoming
- -
+
+ grko:
   homepage:  https://www.nps.gov/grko/index.htm
   image1x:   6621A475-1DD8-B71B-0BA99AFE93AD2EAE.jpg
   image2x:   6621A475-1DD8-B71B-0BA99AFE93AD2EAE_004.jpg
@@ -2841,7 +2858,8 @@ parkDetails:
   name:  Grant-Kohrs Ranch
   designation: National Historic Site
   state: Montana
- -
+
+ grba:
   homepage:  https://www.nps.gov/grba/index.htm
   image1x:   201FE384-F8DF-7A67-F799282C9034E8B1_003.jpg
   image2x:   201FE384-F8DF-7A67-F799282C9034E8B1_002.jpg
@@ -2852,7 +2870,8 @@ parkDetails:
   designation: National Park
   state: Nevada
   imageCredit: Tom Auchter
- -
+
+ greg:
   homepage:  https://www.nps.gov/greg/index.htm
   image1x:   42CD97B7-1DD8-B71B-0B5C5F22432EAA4E_003.jpg
   image2x:   42CD97B7-1DD8-B71B-0B5C5F22432EAA4E_002.jpg
@@ -2862,7 +2881,8 @@ parkDetails:
   name:  Great Egg Harbor River
   designation: National Wild and Scenic Riverway
   state: New Jersey
- -
+
+ grfa:
   homepage:  https://www.nps.gov/grfa/index.htm
   image1x:   1CB2262D-BE64-E710-06C03F8E85060371_003.jpg
   image2x:   1CB2262D-BE64-E710-06C03F8E85060371_002.jpg
@@ -2872,7 +2892,8 @@ parkDetails:
   name:  Great Falls
   designation: Park
   state: Virginia
- -
+
+ grsa:
   homepage:  https://www.nps.gov/grsa/index.htm
   image1x:   6427905B-FF1D-D650-14FAC11B82A47C0B_002.jpg
   image2x:   6427905B-FF1D-D650-14FAC11B82A47C0B_003.jpg
@@ -2882,7 +2903,8 @@ parkDetails:
   name:  Great Sand Dunes
   designation: National Park and Preserve
   state: Colorado
- -
+
+ grsm:
   homepage:  https://www.nps.gov/grsm/index.htm
   image1x:   747B3819-F172-2AEA-B362B1FC038D2106_002.jpg
   image2x:   747B3819-F172-2AEA-B362B1FC038D2106_004.jpg
@@ -2892,7 +2914,8 @@ parkDetails:
   name:  Great Smoky Mountains
   designation: National Park
   state: [Tennessee, North Carolina]
- -
+
+ gree:
   homepage:  https://www.nps.gov/gree/index.htm
   image1x:   C015FCE9-1DD8-B71B-0BB48701B9288D78.jpg
   image2x:   C015FCE9-1DD8-B71B-0BB48701B9288D78_002.jpg
@@ -2902,7 +2925,8 @@ parkDetails:
   name:  Greenbelt
   designation: Park
   state: Maryland
- -
+
+ grsp:
   homepage:  https://www.nps.gov/grsp/index.htm
   image1x:   F538F5E5-1DD8-B71B-0BF864E26881983F_002.JPG
   image2x:   F538F5E5-1DD8-B71B-0BF864E26881983F_003.JPG
@@ -2912,7 +2936,8 @@ parkDetails:
   name:  Green Springs
   designation: National Historic Landmark
   state: Virginia
- -
+
+ gumo:
   homepage:  https://www.nps.gov/gumo/index.htm
   image1x:   80E2D888-F25A-75F0-639ADEB893018593.jpg
   image2x:   80E2D888-F25A-75F0-639ADEB893018593_002.jpg
@@ -2922,7 +2947,8 @@ parkDetails:
   name:  Guadalupe Mountains
   designation: National Park
   state: Texas
- -
+
+ guco:
   homepage:  https://www.nps.gov/guco/index.htm
   image1x:   A234D746-A2C0-921D-C486BFB639C3860D.jpg
   image2x:   A234D746-A2C0-921D-C486BFB639C3860D_002.jpg
@@ -2932,7 +2958,8 @@ parkDetails:
   name:  Guilford Courthouse
   designation: National Military Park
   state: North Carolina
- -
+
+ guis:
   homepage:  https://www.nps.gov/guis/index.htm
   image1x:   9E88FF04-F4B3-8E8E-5588BE90F1ACC64F.jpg
   image2x:   9E88FF04-F4B3-8E8E-5588BE90F1ACC64F_002.jpg
@@ -2942,7 +2969,8 @@ parkDetails:
   name:  Gulf Islands
   designation: National Seashore
   state: [Mississippi, Florida]
- -
+
+ hafo:
   homepage:  https://www.nps.gov/hafo/index.htm
   image1x:   E9A6DC8D-A4B2-1CAC-AC59ABD8A604BB14.jpg
   image2x:   E9A6DC8D-A4B2-1CAC-AC59ABD8A604BB14_002.jpg
@@ -2952,7 +2980,8 @@ parkDetails:
   name:  Hagerman Fossil Beds
   designation: National Monument
   state: Idaho
- -
+
+ hale:
   homepage:  https://www.nps.gov/hale/index.htm
   image1x:   357AE736-1DD8-B71B-0B099C77F75FF816_003.jpg
   image2x:   357AE736-1DD8-B71B-0B099C77F75FF816.jpg
@@ -2962,7 +2991,8 @@ parkDetails:
   name:  Haleakala
   designation: National Park
   state: Hawaii
- -
+
+ hagr:
   homepage:  https://www.nps.gov/hagr/index.htm
   image1x:   5963FD39-1DD8-B71B-0B3A510B44184717_004.jpg
   image2x:   5963FD39-1DD8-B71B-0B3A510B44184717_003.jpg
@@ -2972,7 +3002,8 @@ parkDetails:
   name:  Hamilton Grange
   designation: National Memorial
   state: New York
- -
+
+ hamp:
   homepage:  https://www.nps.gov/hamp/index.htm
   image1x:   27AAEE8A-BE49-EDBA-E4ACF9676D311E6B.jpg
   image2x:   27AAEE8A-BE49-EDBA-E4ACF9676D311E6B_002.jpg
@@ -2982,7 +3013,8 @@ parkDetails:
   name:  Hampton
   designation: National Historic Site
   state: Maryland
- -
+
+ haha:
   homepage:  https://www.nps.gov/haha/index.htm
   image1x:   911346EE-1DD8-B71B-0B9A446BF42C3CE5_003.jpg
   image2x:   911346EE-1DD8-B71B-0B9A446BF42C3CE5.jpg
@@ -2992,7 +3024,8 @@ parkDetails:
   name:  Harmony Hall
   designation: National Heritage Area
   state: Maryland
- -
+
+ hafe:
   homepage:  https://www.nps.gov/hafe/index.htm
   image1x:   CC00A6B1-9D46-95EF-562B7D28C124EDD4_003.jpg
   image2x:   CC00A6B1-9D46-95EF-562B7D28C124EDD4.jpg
@@ -3002,7 +3035,8 @@ parkDetails:
   name:  Harpers Ferry
   designation: National Historical Park
   state: [Virginia, Maryland, West Virginia]
- -
+
+ hart:
   homepage:  https://www.nps.gov/hart/index.htm
   image1x:   96CD2C67-C9D9-75AC-279FF980FBF044ED_002.jpg
   image2x:   96CD2C67-C9D9-75AC-279FF980FBF044ED_003.jpg
@@ -3012,7 +3046,8 @@ parkDetails:
   name:  Harriet Tubman
   designation: National Historical Park
   state: New York
- -
+
+ hatu:
   homepage:  https://www.nps.gov/hatu/index.htm
   image1x:   B17A8788-C2FA-53E7-7B4BA1581303290C_002.jpg
   image2x:   B17A8788-C2FA-53E7-7B4BA1581303290C.jpg
@@ -3022,7 +3057,8 @@ parkDetails:
   name:  Harriet Tubman Underground Railroad
   designation: National Historical Park
   state: Maryland
- -
+
+ hstr:
   homepage:  https://www.nps.gov/hstr/index.htm
   image1x:   F4A9BB35-9FF6-38C0-5B2011DA0E6354C3.jpg
   image2x:   F4A9BB35-9FF6-38C0-5B2011DA0E6354C3_003.jpg
@@ -3032,7 +3068,8 @@ parkDetails:
   name:  Harry S Truman
   designation: National Historic Site
   state: Missouri
- -
+
+ havo:
   homepage:  https://www.nps.gov/havo/index.htm
   image1x:   36C3E97C-965A-0FBC-49F40566687E9E0E_002.jpg
   image2x:   36C3E97C-965A-0FBC-49F40566687E9E0E.jpg
@@ -3042,7 +3079,8 @@ parkDetails:
   name:  Hawai'i Volcanoes
   designation: National Park
   state: Hawaii
- -
+
+ heho:
   homepage:  https://www.nps.gov/heho/index.htm
   image1x:   19B0EE22-1DD8-B71B-0B5F8089AF6AFC18.jpg
   image2x:   19B0EE22-1DD8-B71B-0B5F8089AF6AFC18_003.jpg
@@ -3052,7 +3090,8 @@ parkDetails:
   name:  Herbert Hoover
   designation: National Historic Site
   state: Iowa
- -
+
+ jame:
   homepage:  https://www.nps.gov/jame/index.htm
   image1x:   4D3B92DD-1DD8-B71B-0B0E87A209585F6C.JPG
   image2x:   4D3B92DD-1DD8-B71B-0B0E87A209585F6C_002.JPG
@@ -3062,7 +3101,8 @@ parkDetails:
   name:  Historic Jamestowne
   designation: Affiliated Area
   state: Virginia
- -
+
+ hofr:
   homepage:  https://www.nps.gov/hofr/index.htm
   image1x:   E4187530-04EE-9083-B37339B3B6D4D425.jpg
   image2x:   E4187530-04EE-9083-B37339B3B6D4D425_002.jpg
@@ -3072,7 +3112,8 @@ parkDetails:
   name:  Home Of Franklin D Roosevelt
   designation: National Historic Site
   state: New York
- -
+
+ home:
   homepage:  https://www.nps.gov/home/index.htm
   image1x:   C07936F5-9B8C-9F0C-339D0589858DACC2.jpg
   image2x:   C07936F5-9B8C-9F0C-339D0589858DACC2_003.jpg
@@ -3082,7 +3123,8 @@ parkDetails:
   name:  Homestead
   designation: National Historical Park
   state: Nebraska
- -
+
+ hono:
   homepage:  https://www.nps.gov/hono/index.htm
   image1x:   3D329FAB-1DD8-B71B-0B3011BB51354737_003.jpg
   image2x:   3D329FAB-1DD8-B71B-0B3011BB51354737_002.jpg
@@ -3092,7 +3134,8 @@ parkDetails:
   name:  Honouliuli
   designation: National Historic Site
   state: Hawaii
- -
+
+ hocu:
   homepage:  https://www.nps.gov/hocu/index.htm
   image1x:   D1ADFEB2-1DD8-B71B-0B71AD4922F35D27_003.jpg
   image2x:   D1ADFEB2-1DD8-B71B-0B71AD4922F35D27_002.jpg
@@ -3102,7 +3145,8 @@ parkDetails:
   name:  Hopewell Culture
   designation: National Historical Park
   state: Ohio
- -
+
+ hofu:
   homepage:  https://www.nps.gov/hofu/index.htm
   image1x:   D20D7411-E74F-1E9C-1EA81C1F8AEE3077_003.jpg
   image2x:   D20D7411-E74F-1E9C-1EA81C1F8AEE3077_002.jpg
@@ -3112,7 +3156,8 @@ parkDetails:
   name:  Hopewell Furnace
   designation: National Historic Site
   state: Pennsylvania
- -
+
+ hobe:
   homepage:  https://www.nps.gov/hobe/index.htm
   image1x:   8DD46E05-1DD8-B71B-0B671C612BB7783C_002.jpg
   image2x:   8DD46E05-1DD8-B71B-0B671C612BB7783C.jpg
@@ -3122,7 +3167,8 @@ parkDetails:
   name:  Horseshoe Bend
   designation: National Military Park
   state: Alabama
- -
+
+ hosp:
   homepage:  https://www.nps.gov/hosp/index.htm
   image1x:   EC804E3D-DA2E-8D80-414AD1E55DF95EE6_003.jpg
   image2x:   EC804E3D-DA2E-8D80-414AD1E55DF95EE6.jpg
