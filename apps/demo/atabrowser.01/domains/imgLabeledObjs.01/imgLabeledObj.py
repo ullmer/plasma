@@ -3,9 +3,10 @@
 # Begun 2025-07-09
 
 import os
+from ataDomain import *
 
 class ADImgLabeledObj(AtaDomain):
-  yamlPath = '~/git/plasma/apps/demo/atabrowser.01/yaml'
+  yamlPath = '~/git/plasma/apps/demo/atabrowser.01/yaml/'
   yamlFn   = 'us_nps/sc.yaml'
 
   ########## constructor ##########
