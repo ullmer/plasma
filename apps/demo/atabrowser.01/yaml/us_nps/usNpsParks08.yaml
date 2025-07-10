@@ -4956,7 +4956,8 @@ parkDetails:
   name:  Salt River Bay
   designation: National Historical Park and Ecological Preserve
   state: Virgin Islands
- -
+
+ saan:
   homepage:  https://www.nps.gov/saan/index.htm
   image1x:   BC82BA5B-DE90-F3E0-D0C04A17884630D7.jpg
   image2x:   BC82BA5B-DE90-F3E0-D0C04A17884630D7_002.jpg
@@ -4966,7 +4967,8 @@ parkDetails:
   name:  San Antonio Missions
   designation: National Historical Park
   state: Texas
- -
+
+ sand:
   homepage:  https://www.nps.gov/sand/index.htm
   image1x:   F6896CC6-1DD8-B71B-0B8FC5B3794BD9C6_003.JPG
   image2x:   F6896CC6-1DD8-B71B-0B8FC5B3794BD9C6_002.JPG
@@ -4976,7 +4978,8 @@ parkDetails:
   name:  Sand Creek Massacre
   designation: National Historic Site
   state: Colorado
- -
+
+ safr:
   homepage:  https://www.nps.gov/safr/index.htm
   image1x:   284B41CA-1DD8-B71B-0B495622C54988D4_003.jpg
   image2x:   284B41CA-1DD8-B71B-0B495622C54988D4.jpg
@@ -4986,7 +4989,8 @@ parkDetails:
   name:  San Francisco Maritime
   designation: National Historical Park
   state: California
- -
+
+ saju:
   homepage:  https://www.nps.gov/saju/index.htm
   image1x:   71A25583-1DD8-B71B-0B8132583C0B0912_003.jpg
   image2x:   71A25583-1DD8-B71B-0B8132583C0B0912_002.jpg
@@ -4996,7 +5000,8 @@ parkDetails:
   name:  San Juan
   designation: National Historic Site
   state: Puerto Rico
- -
+
+ safj:
   homepage:  https://www.nps.gov/sajh/index.htm
   image1x:   F834D6FE-B5A0-510B-5E5032642158B7CB_003.jpeg
   image2x:   F834D6FE-B5A0-510B-5E5032642158B7CB_002.jpeg
@@ -5006,7 +5011,8 @@ parkDetails:
   name:  San Juan Island
   designation: National Historical Park
   state: Washington
- -
+
+ safe:
   homepage:  https://www.nps.gov/safe/index.htm
   image1x:   F84BE970-1DD8-B71B-0B5BC6B3559A5D17_003.jpg
   image2x:   F84BE970-1DD8-B71B-0B5BC6B3559A5D17_002.jpg
@@ -5016,7 +5022,8 @@ parkDetails:
   name:  Santa Fe
   designation: National Historic Trail
   state: [Colorado, Missouri, Oklahoma, New Mexico, Kansas]
- -
+
+ samo:
   homepage:  https://www.nps.gov/samo/index.htm
   image1x:   8226B56C-0C8E-62C7-F82BEE1E3CE74798_003.jpg
   image2x:   8226B56C-0C8E-62C7-F82BEE1E3CE74798_004.jpg
@@ -5026,7 +5033,8 @@ parkDetails:
   name:  Santa Monica Mountains
   designation: National Recreation Area
   state: California
- -
+
+ sara:
   homepage:  https://www.nps.gov/sara/index.htm
   image1x:   F7EFD31C-AFE3-72DA-2A8D9263E5B68F15_002.jpg
   image2x:   F7EFD31C-AFE3-72DA-2A8D9263E5B68F15.jpg
@@ -5036,7 +5044,8 @@ parkDetails:
   name:  Saratoga
   designation: National Historical Park
   state: New York
- -
+
+ sair:
   homepage:  https://www.nps.gov/sair/index.htm
   image1x:   8AE4E97E-1DD8-B71B-0BFFBB26B99E5CB3_003.jpg
   image2x:   8AE4E97E-1DD8-B71B-0BFFBB26B99E5CB3_004.jpg
@@ -5046,7 +5055,8 @@ parkDetails:
   name:  Saugus Iron Works
   designation: National Historic Site
   state: Massachusetts
- -
+
+ scbl:
   homepage:  https://www.nps.gov/scbl/index.htm
   image1x:   8DA7A914-B9EF-77A0-FB1D9E5FD93CD41E_002.jpg
   image2x:   8DA7A914-B9EF-77A0-FB1D9E5FD93CD41E.jpg
@@ -5056,7 +5066,8 @@ parkDetails:
   name:  Scotts Bluff
   designation: National Monument
   state: Nebraska
- -
+
+ semo:
   homepage:  https://www.nps.gov/semo/index.htm
   image1x:   AA6FFEB6-AC36-5F31-DCC9C9E80A8792CA_004.jpg
   image2x:   AA6FFEB6-AC36-5F31-DCC9C9E80A8792CA_003.jpg
@@ -5066,7 +5077,8 @@ parkDetails:
   name:  Selma To Montgomery
   designation: National Historic Trail
   state: Alabama
- -
+
+ seki:
   homepage:  https://www.nps.gov/seki/index.htm
   image1x:   14B0FC86-DB98-FED5-4605BEDEEB487B7B_002.jpg
   image2x:   14B0FC86-DB98-FED5-4605BEDEEB487B7B.jpg
@@ -5076,7 +5088,8 @@ parkDetails:
   name:  Sequoia & Kings Canyon
   designation: National Parks
   state: California
- -
+
+ shen:
   homepage:  https://www.nps.gov/shen/index.htm
   image1x:   4474CBB2-A30D-F875-446B6B2CB537AC64.jpg
   image2x:   4474CBB2-A30D-F875-446B6B2CB537AC64_003.jpg
@@ -5086,7 +5099,8 @@ parkDetails:
   name:  Shenandoah
   designation: National Park
   state: Virginia
- -
+
+ shil:
   homepage:  https://www.nps.gov/shil/index.htm
   image1x:   6CEFB030-1DD8-B71B-0B790BD7080C316E_003.jpg
   image2x:   6CEFB030-1DD8-B71B-0B790BD7080C316E_002.jpg
@@ -5096,7 +5110,8 @@ parkDetails:
   name:  Shiloh
   designation: National Military Park
   state: [Tennessee, Mississippi]
- -
+
+ sitk:
   homepage:  https://www.nps.gov/sitk/index.htm
   image1x:   917C6FB1-1DD8-B71B-0B2C7338B9D25EAF_003.jpg
   image2x:   917C6FB1-1DD8-B71B-0B2C7338B9D25EAF.jpg
@@ -5106,7 +5121,8 @@ parkDetails:
   name:  Sitka
   designation: National Historical Park
   state: Alaska
- -
+
+ slbe:
   homepage:  https://www.nps.gov/slbe/index.htm
   image1x:   9C2FBB0F-E355-BD8F-C10A1A9955C40F44.jpg
   image2x:   9C2FBB0F-E355-BD8F-C10A1A9955C40F44_003.jpg
@@ -5116,7 +5132,8 @@ parkDetails:
   name:  Sleeping Bear Dunes
   designation: National Lakeshore
   state: Michigan
- -
+
+ spra:
   homepage:  https://www.nps.gov/spra/index.htm
   image1x:   9482BBC6-E306-FE6F-571281D82AD4B997_002.jpg
   image2x:   9482BBC6-E306-FE6F-571281D82AD4B997_003.jpg
@@ -5127,7 +5144,8 @@ parkDetails:
   designation: National Monument
   state: Illinois
   imageCredit: Smithsonian National Museum of African American History and Culture
- -
+
+ spar:
   homepage:  https://www.nps.gov/spar/index.htm
   image1x:   D984C87D-B572-D996-D0F3F623E9EBFCB4.jpg
   image2x:   D984C87D-B572-D996-D0F3F623E9EBFCB4_003.jpg
@@ -5137,7 +5155,8 @@ parkDetails:
   name:  Springfield Armory
   designation: National Historic Site
   state: Massachusetts
- -
+
+ stsp:
   homepage:  https://www.nps.gov/stsp/index.htm
   image1x:   DCF8CA60-9815-A0D1-534340671AB53354_003.jpg
   image2x:   DCF8CA60-9815-A0D1-534340671AB53354.jpg
@@ -5147,7 +5166,8 @@ parkDetails:
   name:  Star-Spangled Banner
   designation: National Historic Trail
   state: [Virginia, Maryland, District of Columbia]
- -
+
+ stli:
   homepage:  https://www.nps.gov/stli/index.htm
   image1x:   F1719CBE-1DD8-B71B-0B93EA7C972FAAB2_003.jpg
   image2x:   F1719CBE-1DD8-B71B-0B93EA7C972FAAB2.jpg
@@ -5157,7 +5177,8 @@ parkDetails:
   name:  Statue Of Liberty
   designation: National Monument
   state: New York
- -
+
+ stea:
   homepage:  https://www.nps.gov/stea/index.htm
   image1x:   6CCA14A8-D1E0-4B13-B71878200ED4DB38_004.jpg
   image2x:   6CCA14A8-D1E0-4B13-B71878200ED4DB38_002.jpg
@@ -5167,7 +5188,8 @@ parkDetails:
   name:  Steamtown
   designation: National Historic Site
   state: Pennsylvania
- -
+
+ stge:
   homepage:  https://www.nps.gov/stge/index.htm
   image1x:   7F6318F7-0C5E-8C32-D3536A7CC9E35D31_002.jpg
   image2x:   7F6318F7-0C5E-8C32-D3536A7CC9E35D31.jpg
@@ -5177,7 +5199,8 @@ parkDetails:
   name:  Ste. Genevi`eve
   designation: National Historical Park
   state: Missouri
- -
+
+ stri:
   homepage:  https://www.nps.gov/stri/index.htm
   image1x:   15E7E26B-1DD8-B71B-0BC1008BE8662F64_003.jpg
   image2x:   15E7E26B-1DD8-B71B-0BC1008BE8662F64_002.jpg
@@ -5187,7 +5210,8 @@ parkDetails:
   name:  Stones River
   designation: National Battlefield
   state: Tennessee
- -
+
+ ston:
   homepage:  https://www.nps.gov/ston/index.htm
   image1x:   0C34D78D-D3A3-7E58-5F3E4F8E7F81958E_004.jpg
   image2x:   0C34D78D-D3A3-7E58-5F3E4F8E7F81958E.jpg
@@ -5197,7 +5221,8 @@ parkDetails:
   name:  Stonewall
   designation: National Monument
   state: New York
- -
+
+ sucr:
   homepage:  https://www.nps.gov/sucr/index.htm
   image1x:   50E2C7D1-9DE9-3441-16351256446D4C27_003.jpg
   image2x:   50E2C7D1-9DE9-3441-16351256446D4C27.jpg
