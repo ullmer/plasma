@@ -41,7 +41,7 @@ class AtaDomain:
         f = open(absPath)
         self.yamlD = yaml.safe_load(f)
         f.close()
-    except: self.err("exception")
+    except: self.err("loadYaml")
 
   ########## loadYaml ##########
   def getYamlPath(self, path: str):
