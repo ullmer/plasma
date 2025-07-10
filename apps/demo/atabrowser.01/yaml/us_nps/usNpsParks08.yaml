@@ -739,7 +739,8 @@ parkDetails:
   name:  Alagnak
   designation: Wild River
   state: Alaska
- -
+
+ alka:
   homepage:  https://www.nps.gov/alka/index.htm
   image1x:   12830801-D5A6-1D3B-EBDD08089E9F2811_002.jpg
   image2x:   12830801-D5A6-1D3B-EBDD08089E9F2811.jpg
@@ -749,7 +750,8 @@ parkDetails:
   name:  Ala Kahakai
   designation: National Historic Trail
   state: Hawaii
- -
+
+ anch:
   homepage:  https://www.nps.gov/anch/index.htm
   image1x:   F1D02B62-08B1-4284-264B17A7E482EF86.jpg
   image2x:   F1D02B62-08B1-4284-264B17A7E482EF86_002.jpg
@@ -759,7 +761,8 @@ parkDetails:
   name:  Alaska Public Lands
   designation: Center
   state: Alaska
- -
+
+ alca: 
   homepage:  https://www.nps.gov/alca/index.htm
   image1x:   9A38B580-BF6D-14C4-9F5C262C4836E906_003.jpg
   image2x:   9A38B580-BF6D-14C4-9F5C262C4836E906.jpg
@@ -769,7 +772,8 @@ parkDetails:
   name:  Alcatraz Island
   designation: Affiliated Area
   state: California
- -
+
+ aleu:
   homepage:  https://www.nps.gov/aleu/index.htm
   image1x:   11D8C03B-D12D-9D83-6A96713FA6499DF7.jpg
   image2x:   11D8C03B-D12D-9D83-6A96713FA6499DF7_004.jpg
@@ -779,7 +783,8 @@ parkDetails:
   name:  Aleutian Islands World War II
   designation: National Historic Area
   state: Alaska
- -
+
+ alfl:
   homepage:  https://www.nps.gov/alfl/index.htm
   image1x:   E97C8AB8-1DD8-B71B-0B57EC948E32B200_003.JPG
   image2x:   E97C8AB8-1DD8-B71B-0B57EC948E32B200.JPG
@@ -789,7 +794,8 @@ parkDetails:
   name:  Alibates Flint Quarries
   designation: National Monument
   state: Texas
- -
+
+ alpo:
   homepage:  https://www.nps.gov/alpo/index.htm
   image1x:   09B1E740-A00A-1494-8184F58386ED9251.jpg
   image2x:   09B1E740-A00A-1494-8184F58386ED9251_002.jpg
@@ -799,7 +805,8 @@ parkDetails:
   name:  Allegheny Portage Railroad
   designation: National Historic Site
   state: Pennsylvania
- -
+
+ amch:
   homepage:  https://www.nps.gov/amch/index.htm
   image1x:   D95AB99B-D9B3-00C9-451218EDF631EA36.jpg
   image2x:   D95AB99B-D9B3-00C9-451218EDF631EA36_003.jpg
@@ -809,7 +816,8 @@ parkDetails:
   name:  Amache
   designation: National Historic Site
   state: Colorado
- -
+
+ amme:
   homepage:  https://www.nps.gov/amme/index.htm
   image1x:   97CB2726-95F7-77BC-59ADA20EFD1E278F_002.jpg
   image2x:   97CB2726-95F7-77BC-59ADA20EFD1E278F.jpg
@@ -819,7 +827,8 @@ parkDetails:
   name:  American Memorial
   designation: Park
   state: Northern Mariana Islands
- -
+
+ amis:
   homepage:  https://www.nps.gov/amis/index.htm
   image1x:   0987E6E1-D074-5403-940F1F394B1AD212.jpg
   image2x:   0987E6E1-D074-5403-940F1F394B1AD212_003.jpg
@@ -829,7 +838,8 @@ parkDetails:
   name:  Amistad
   designation: National Recreation Area
   state: Texas
- -
+
+ anac:
   homepage:  https://www.nps.gov/anac/index.htm
   image1x:   20D7ECCC-1DD8-B71B-0B2B68C9415E82E0_002.jpg
   image2x:   20D7ECCC-1DD8-B71B-0B2B68C9415E82E0_003.jpg
@@ -839,7 +849,8 @@ parkDetails:
   name:  Anacostia
   designation: Park
   state: District of Columbia
- -
+
+ ande:
   homepage:  https://www.nps.gov/ande/index.htm
   image1x:   96B80091-BD0A-B390-B0F3567D16702FD9_002.jpg
   image2x:   96B80091-BD0A-B390-B0F3567D16702FD9.jpg
@@ -849,7 +860,8 @@ parkDetails:
   name:  Andersonville
   designation: National Historic Site
   state: Georgia
- -
+
+ anjo:
   homepage:  https://www.nps.gov/anjo/index.htm
   image1x:   7DB8CD45-DED4-9942-4FB0750CDE0CCA16_002.jpg
   image2x:   7DB8CD45-DED4-9942-4FB0750CDE0CCA16.jpg
@@ -859,7 +871,8 @@ parkDetails:
   name:  Andrew Johnson
   designation: National Historic Site
   state: Tennessee
- -
+
+ ania:
   homepage:  https://www.nps.gov/ania/index.htm
   image1x:   688758FF-1DD8-B71B-0B93DCF10DC8FFD0.jpg
   image2x:   688758FF-1DD8-B71B-0B93DCF10DC8FFD0_003.jpg
@@ -869,7 +882,8 @@ parkDetails:
   name:  Aniakchak
   designation: National Monument and Preserve
   state: Alaska
- -
+
+ anti:
   homepage:  https://www.nps.gov/anti/index.htm
   image1x:   F6E6C201-1DD8-B71B-0BFA608807233790_002.jpg
   image2x:   F6E6C201-1DD8-B71B-0BFA608807233790_003.jpg
@@ -879,7 +893,8 @@ parkDetails:
   name:  Antietam
   designation: National Battlefield
   state: Maryland
- -
+
+ apis:
   homepage:  https://www.nps.gov/apis/index.htm
   image1x:   A575EE34-B21D-92DC-022E1753C2524008_002.jpg
   image2x:   A575EE34-B21D-92DC-022E1753C2524008.jpg
@@ -901,7 +916,8 @@ parkDetails:
   state: [Tennessee, Virginia, New York, New Hampshire, Massachusetts, Maryland, 
           Connecticut, New Jersey, Maine, Georgia, Vermont, Pennsylvania, 
           North Carolina, West Virginia]
- -
+
+ apco:
   homepage:  https://www.nps.gov/apco/index.htm
   image1x:   3E32BB73-95A4-AAB9-64C79FD663466A63_004.jpg
   image2x:   3E32BB73-95A4-AAB9-64C79FD663466A63_003.jpg
@@ -911,7 +927,8 @@ parkDetails:
   name:  Appomattox Court House
   designation: National Historical Park
   state: Virginia
- -
+
+ arch:
   homepage:  https://www.nps.gov/arch/index.htm
   image1x:   438D2599-B433-F166-9A6156C1B2F148D8.jpg
   image2x:   438D2599-B433-F166-9A6156C1B2F148D8_003.jpg
@@ -921,7 +938,8 @@ parkDetails:
   name:  Arches
   designation: National Park
   state: Utah
- -
+
+ arpo:
   homepage:  https://www.nps.gov/arpo/index.htm
   image1x:   FCE1CD2C-1DD8-B71B-0B7F2C4A8C85EA76_002.JPG
   image2x:   FCE1CD2C-1DD8-B71B-0B7F2C4A8C85EA76_003.JPG
@@ -931,7 +949,8 @@ parkDetails:
   name:  Arkansas Post
   designation: National Memorial
   state: Arkansas
- -
+
+ arho:
   homepage:  https://www.nps.gov/arho/index.htm
   image1x:   8612C7CC-E6EE-8D81-9CD4823A74C81FAF_002.jpg
   image2x:   8612C7CC-E6EE-8D81-9CD4823A74C81FAF_004.jpg
@@ -941,7 +960,8 @@ parkDetails:
   name:  "Arlington House, The Robert E. Lee Memorial"
   designation: National Memorial
   state: Virginia
- -
+
+ asis:
   homepage:  https://www.nps.gov/asis/index.htm
   image1x:   EEC332E9-1DD8-B71B-0B2E317D3CB04043.jpg
   image2x:   EEC332E9-1DD8-B71B-0B2E317D3CB04043_003.jpg
@@ -951,7 +971,8 @@ parkDetails:
   name:  Assateague Island
   designation: National Seashore
   state: [Virginia, Maryland]
- -
+
+ azru:
   homepage:  https://www.nps.gov/azru/index.htm
   image1x:   99BD2CD4-B644-D68F-5DF93E385262F14A_003.jpg
   image2x:   99BD2CD4-B644-D68F-5DF93E385262F14A_002.jpg
@@ -962,7 +983,8 @@ parkDetails:
   designation: National Monument
   state: New Mexico
   imageCredit: Bettymaya Foott
- -
+
+ badl:
   homepage:  https://www.nps.gov/badl/index.htm
   image1x:   C4524107-A9DF-29E3-80B8554266867C06.jpg
   image2x:   C4524107-A9DF-29E3-80B8554266867C06_003.jpg
@@ -972,7 +994,8 @@ parkDetails:
   name:  Badlands
   designation: National Park
   state: South Dakota
- -
+
+ bawa:
   homepage:  https://www.nps.gov/bawa/index.htm
   image1x:   E0D7A29F-C16D-3E68-3C745DC7E9DD9536_004.jpg
   image2x:   E0D7A29F-C16D-3E68-3C745DC7E9DD9536_002.jpg
@@ -982,7 +1005,8 @@ parkDetails:
   name:  Baltimore-Washington
   designation: Parkway
   state: Maryland
- -
+
+ band:
   homepage:  https://www.nps.gov/band/index.htm
   image1x:   754A7C26-CEDF-EC5C-062F03143283E755.jpg
   image2x:   754A7C26-CEDF-EC5C-062F03143283E755_003.jpg
@@ -992,7 +1016,8 @@ parkDetails:
   name:  Bandelier
   designation: National Monument
   state: New Mexico
- -
+
+ bepa:
   homepage:  https://www.nps.gov/bepa/index.htm
   image1x:   D76A20F5-1DD8-B71B-0BAE8EDA6442924D_004.jpg
   image2x:   D76A20F5-1DD8-B71B-0BAE8EDA6442924D_003.jpg
@@ -1002,7 +1027,8 @@ parkDetails:
   name:  Belmont-Paul Women's Equality
   designation: National Monument
   state: District of Columbia
- -
+
+ beol:
   homepage:  https://www.nps.gov/beol/index.htm
   image1x:   E321718E-BEB6-C3DD-52DF7C39C5C324DC_002.jpeg
   image2x:   E321718E-BEB6-C3DD-52DF7C39C5C324DC_003.jpeg
@@ -1012,7 +1038,8 @@ parkDetails:
   name:  Bent's Old Fort
   designation: National Historic Site
   state: Colorado
- -
+
+ bela:
   homepage:  https://www.nps.gov/bela/index.htm
   image1x:   CC29E0F3-9879-06F8-CE20687873CF9C04.jpg
   image2x:   CC29E0F3-9879-06F8-CE20687873CF9C04_002.jpg
@@ -1022,7 +1049,8 @@ parkDetails:
   name:  Bering Land Bridge
   designation: National Preserve
   state: Alaska
- -
+
+ bibe:
   homepage:  https://www.nps.gov/bibe/index.htm
   image1x:   F69740AB-1DD8-B71B-0BF4CCD783D01EDD_002.JPG
   image2x:   F69740AB-1DD8-B71B-0BF4CCD783D01EDD.JPG
@@ -1032,7 +1060,8 @@ parkDetails:
   name:  Big Bend
   designation: National Park
   state: Texas
- -
+
+ bicy:
   homepage:  https://www.nps.gov/bicy/index.htm
   image1x:   1985E11C-0E87-DB69-2E2D0F5FB20B2206_002.jpg
   image2x:   1985E11C-0E87-DB69-2E2D0F5FB20B2206.jpg
@@ -1042,7 +1071,8 @@ parkDetails:
   name:  Big Cypress
   designation: National Preserve
   state: Florida
- -
+
+ biho:
   homepage:  https://www.nps.gov/biho/index.htm
   image1x:   E0387C98-1DD8-B71B-0B4435D5A53B0E43_002.jpg
   image2x:   E0387C98-1DD8-B71B-0B4435D5A53B0E43_003.jpg
@@ -1052,7 +1082,8 @@ parkDetails:
   name:  Big Hole
   designation: National Battlefield
   state: Montana
- -
+
+ bica:
   homepage:  https://www.nps.gov/bica/index.htm
   image1x:   3246FB1F-1DD8-B71B-0B71635C3AB281A2.jpg
   image2x:   3246FB1F-1DD8-B71B-0B71635C3AB281A2_002.jpg
@@ -1062,7 +1093,8 @@ parkDetails:
   name:  Bighorn Canyon
   designation: National Recreation Area
   state: [Wyoming, Montana]
- -
+
+ biso:
   homepage:  https://www.nps.gov/biso/index.htm
   image1x:   ABAF4DA4-0415-D493-CBD8A822A1E65451_004.jpg
   image2x:   ABAF4DA4-0415-D493-CBD8A822A1E65451_003.jpg
@@ -1072,7 +1104,8 @@ parkDetails:
   name:  Big South Fork
   designation: National River and Recreation Area
   state: [Tennessee, Kentucky]
- -
+
+ bith:
   homepage:  https://www.nps.gov/bith/index.htm
   image1x:   8D6C4B6E-E546-B211-82DBCA3466699AFC_003.jpg
   image2x:   8D6C4B6E-E546-B211-82DBCA3466699AFC_002.jpg
@@ -1082,7 +1115,8 @@ parkDetails:
   name:  Big Thicket
   designation: National Preserve
   state: Texas
- -
+
+ bicr:
   homepage:  https://www.nps.gov/bicr/index.htm
   image1x:   27367C59-1DD8-B71B-0B288C4C582287AA.jpg
   image2x:   27367C59-1DD8-B71B-0B288C4C582287AA_003.jpg
@@ -1092,7 +1126,8 @@ parkDetails:
   name:  Birmingham Civil Rights
   designation: National Monument
   state: Alabama
- -
+
+ bisc:
   homepage:  https://www.nps.gov/bisc/index.htm
   image1x:   1FCA9BB2-C027-31FF-D77F060FFA94ABBD_002.jpg
   image2x:   1FCA9BB2-C027-31FF-D77F060FFA94ABBD_003.jpg
@@ -1102,7 +1137,8 @@ parkDetails:
   name:  Biscayne
   designation: National Park
   state: Florida
- -
+
+ blca:
   homepage:  https://www.nps.gov/blca/index.htm
   image1x:   80C31B6D-D119-C863-A282F06CEF2032F2_003.jpg
   image2x:   80C31B6D-D119-C863-A282F06CEF2032F2_002.jpg
@@ -1112,7 +1148,8 @@ parkDetails:
   name:  Black Canyon Of The Gunnison
   designation: National Park
   state: Colorado
- -
+
+ blrv:
   homepage:  https://www.nps.gov/blrv/index.htm
   image1x:   E4F52457-A26A-DE6C-83EAA6150F7FC584.jpg
   image2x:   E4F52457-A26A-DE6C-83EAA6150F7FC584_003.jpg
@@ -1133,7 +1170,8 @@ parkDetails:
   name:  Blackwell School
   designation: National Historic Site
   state: Texas
- -
+
+ blri:
   homepage:  https://www.nps.gov/blri/index.htm
   image1x:   0B4612ED-B121-6E84-63F84083A6500C2A_002.jpg
   image2x:   0B4612ED-B121-6E84-63F84083A6500C2A.jpg
@@ -1143,7 +1181,8 @@ parkDetails:
   name:  Blue Ridge
   designation: Parkway
   state: [Virginia, North Carolina]
- -
+
+ blue:
   homepage:  https://www.nps.gov/blue/index.htm
   image1x:   673D633F-E7C3-380F-7935BF57A7B02695_004.jpg
   image2x:   673D633F-E7C3-380F-7935BF57A7B02695_003.jpg
@@ -1153,7 +1192,8 @@ parkDetails:
   name:  Bluestone
   designation: National Scenic River
   state: West Virginia
- -
+
+ bowa:
   homepage:  https://www.nps.gov/bowa/index.htm
   image1x:   BF9BF1BA-F1EA-DA21-009C461A811E9A50.jpg
   image2x:   BF9BF1BA-F1EA-DA21-009C461A811E9A50_003.jpg
@@ -1163,7 +1203,8 @@ parkDetails:
   name:  Booker T Washington
   designation: National Monument
   state: Virginia
- -
+
+ bost:
   homepage:  https://www.nps.gov/bost/index.htm
   image1x:   9B675730-A1E2-9F26-40AA247853AEE3A3_002.jpg
   image2x:   9B675730-A1E2-9F26-40AA247853AEE3A3.jpg
@@ -1173,7 +1214,8 @@ parkDetails:
   name:  Boston
   designation: National Historical Park
   state: Massachusetts
- -
+
+ boaf:
   homepage:  https://www.nps.gov/boaf/index.htm
   image1x:   9F910FDA-A75B-A5A0-307CCE7EF68D02E8.jpg
   image2x:   9F910FDA-A75B-A5A0-307CCE7EF68D02E8_003.jpg
