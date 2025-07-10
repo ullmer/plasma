@@ -2054,7 +2054,8 @@ parkDetails:
   name:  Edgar Allan Poe
   designation: National Historic Site
   state: Pennsylvania
- -
+
+ efmo:
   homepage:  https://www.nps.gov/efmo/index.htm
   image1x:   8D55ABD1-1DD8-B71B-0BEA4CD7FAB20212_003.jpg
   image2x:   8D55ABD1-1DD8-B71B-0BEA4CD7FAB20212.jpg
@@ -2064,7 +2065,8 @@ parkDetails:
   name:  Effigy Mounds
   designation: National Monument
   state: Iowa
- -
+
+ eise:
   homepage:  https://www.nps.gov/eise/index.htm
   image1x:   2434FFA7-09FC-A74F-A029F675E4FCE61A_002.jpg
   image2x:   2434FFA7-09FC-A74F-A029F675E4FCE61A_003.jpg
@@ -2074,7 +2076,8 @@ parkDetails:
   name:  Eisenhower
   designation: National Historic Site
   state: Pennsylvania
- -
+
+ elte:
   homepage:  https://www.nps.gov/elte/index.htm
   image1x:   CCA04FC9-1DD8-B71B-0BDF5B0BFD692D31_002.jpg
   image2x:   CCA04FC9-1DD8-B71B-0BDF5B0BFD692D31.jpg
@@ -2084,7 +2087,8 @@ parkDetails:
   name:  El Camino Real de los Tejas
   designation: National Historic Trail
   state: [Louisiana, Texas]
- -
+
+ elca:
   homepage:  https://www.nps.gov/elca/index.htm
   image1x:   963CE4BC-1DD8-B71B-0BBC2BDA12FC7EDD.jpg
   image2x:   963CE4BC-1DD8-B71B-0BBC2BDA12FC7EDD_003.jpg
@@ -2094,7 +2098,8 @@ parkDetails:
   name:  El Camino Real de Tierra Adentro
   designation: National Historic Trail
   state: [New Mexico, Texas]
- -
+
+ elro:
   homepage:  https://www.nps.gov/elro/index.htm
   image1x:   A18F9290-E264-E402-2F6A80C1CB676777.jpg
   image2x:   A18F9290-E264-E402-2F6A80C1CB676777_003.jpg
@@ -2104,7 +2109,8 @@ parkDetails:
   name:  Eleanor Roosevelt
   designation: National Historic Site
   state: New York
- -
+
+ elis:
   homepage:  https://www.nps.gov/elis/index.htm
   image1x:   F226C0FF-1DD8-B71B-0BB2BF5D8876B15C_002.jpg
   image2x:   F226C0FF-1DD8-B71B-0BB2BF5D8876B15C.jpg
@@ -2114,7 +2120,8 @@ parkDetails:
   name:  Ellis Island
   designation: Other Park Designation
   state: [New York, New Jersey]
- -
+
+ elma:
   homepage:  https://www.nps.gov/elma/index.htm
   image1x:   802430D0-9B26-4057-361A4B41966DB227_002.jpeg
   image2x:   802430D0-9B26-4057-361A4B41966DB227.jpeg
@@ -2124,7 +2131,8 @@ parkDetails:
   name:  El Malpais
   designation: National Monument
   state: New Mexico
- -
+
+ elmo:
   homepage:  https://www.nps.gov/elmo/index.htm
   image1x:   98880ACD-D5D9-AD15-6C3CE1BC2EF10853.jpg
   image2x:   98880ACD-D5D9-AD15-6C3CE1BC2EF10853_003.jpg
@@ -2134,7 +2142,8 @@ parkDetails:
   name:  El Morro
   designation: National Monument
   state: New Mexico
- -
+
+ till:
   homepage:  https://www.nps.gov/till/index.htm
   image1x:   0A3B410B-EFA9-EF87-98F926D9A148478F.jpg
   image2x:   0A3B410B-EFA9-EF87-98F926D9A148478F_002.jpg
@@ -2144,7 +2153,8 @@ parkDetails:
   name:  Emmett Till and Mamie Till-Mobley
   designation: National Monument
   state: [Mississippi, Illinois]
- -
+
+ euon:
   homepage:  https://www.nps.gov/euon/index.htm
   image1x:   647CB170-BE53-D0A7-69A5EE12459E452B_003.jpg
   image2x:   647CB170-BE53-D0A7-69A5EE12459E452B_002.jpg
@@ -2154,7 +2164,8 @@ parkDetails:
   name:  Eugene O'Neill
   designation: National Historic Site
   state: California
- -
+
+ ever:
   homepage:  https://www.nps.gov/ever/index.htm
   image1x:   29DCD268-EA83-A59B-BDBF9AB3877B9E60_003.jpg
   image2x:   29DCD268-EA83-A59B-BDBF9AB3877B9E60_002.jpg
@@ -2164,7 +2175,8 @@ parkDetails:
   name:  Everglades
   designation: National Park
   state: Florida
- -
+
+ feha:
   homepage:  https://www.nps.gov/feha/index.htm
   image1x:   17FAD1E1-1DD8-B71B-0B4620B96F176ADE_003.jpg
   image2x:   17FAD1E1-1DD8-B71B-0B4620B96F176ADE_002.jpg
@@ -2174,7 +2186,8 @@ parkDetails:
   name:  Federal Hall
   designation: National Memorial
   state: New York
- -
+
+ fiis:
   homepage:  https://www.nps.gov/fiis/index.htm
   image1x:   3B848E12-BDFF-672E-B2E6C57D89D24329_003.jpg
   image2x:   3B848E12-BDFF-672E-B2E6C57D89D24329_002.jpg
@@ -2184,7 +2197,8 @@ parkDetails:
   name:  Fire Island
   designation: National Seashore
   state: New York
- -
+
+ fila:
   homepage:  https://www.nps.gov/fila/index.htm
   image1x:   99B7D49D-A8C1-374E-79760BC16C1C0160_002.jpg
   image2x:   99B7D49D-A8C1-374E-79760BC16C1C0160.jpg
@@ -2194,7 +2208,8 @@ parkDetails:
   name:  First Ladies
   designation: National Historic Site
   state: Ohio
- -
+
+ frst:
   homepage:  https://www.nps.gov/frst/index.htm
   image1x:   0DE32C07-A433-A971-579A3161CBE5E5AE.jpg
   image2x:   0DE32C07-A433-A971-579A3161CBE5E5AE_002.jpg
@@ -2204,7 +2219,8 @@ parkDetails:
   name:  First State
   designation: National Historical Park
   state: [Delaware, Pennsylvania]
- -
+
+ flni:
   homepage:  https://www.nps.gov/flni/index.htm
   image1x:   5D8BAD30-F9BD-2A52-9F4A89ECCAA19585.jpg
   image2x:   5D8BAD30-F9BD-2A52-9F4A89ECCAA19585_002.jpg
@@ -2214,7 +2230,8 @@ parkDetails:
   name:  Flight 93
   designation: National Memorial
   state: Pennsylvania
- -
+
+ flfo:
   homepage:  https://www.nps.gov/flfo/index.htm
   image1x:   E637DB3D-CA66-9FB4-81E8BEF8F6CBBEF9_002.jpg
   image2x:   E637DB3D-CA66-9FB4-81E8BEF8F6CBBEF9_003.jpg
@@ -2224,7 +2241,8 @@ parkDetails:
   name:  Florissant Fossil Beds
   designation: National Monument
   state: Colorado
- -
+
+ foth:
   homepage:  https://www.nps.gov/foth/index.htm
   image1x:   7EEF3A68-B366-67F2-080202E161345C28_004.jpg
   image2x:   7EEF3A68-B366-67F2-080202E161345C28.jpg
@@ -2234,7 +2252,8 @@ parkDetails:
   name:  Ford's Theatre
   designation: National Historic Site
   state: District of Columbia
- -
+
+ fobo:
   homepage:  https://www.nps.gov/fobo/index.htm
   image1x:   F663FA45-B8A3-EA48-2437305B12DCA6F1_003.jpg
   image2x:   F663FA45-B8A3-EA48-2437305B12DCA6F1.jpg
@@ -2244,7 +2263,8 @@ parkDetails:
   name:  Fort Bowie
   designation: National Historic Site
   state: Arizona
- -
+
+ foda:
   homepage:  https://www.nps.gov/foda/index.htm
   image1x:   58FA80FD-1DD8-B71B-0BEA34A1203E1198_002.JPG
   image2x:   58FA80FD-1DD8-B71B-0BEA34A1203E1198.JPG
@@ -2254,7 +2274,8 @@ parkDetails:
   name:  Fort Davis
   designation: National Historic Site
   state: Texas
- -
+
+ fodo:
   homepage:  https://www.nps.gov/fodo/index.htm
   image1x:   9A048A38-F82C-4F19-1B190E3BFC2F3B37_003.jpg
   image2x:   9A048A38-F82C-4F19-1B190E3BFC2F3B37.jpg
@@ -2264,7 +2285,8 @@ parkDetails:
   name:  Fort Donelson
   designation: National Battlefield
   state: [Tennessee, Kentucky]
- -
+
+ fodu:
   homepage:  https://www.nps.gov/fodu/index.htm
   image1x:   681B9596-9A79-F5B6-5B5C61EEA0C16330_002.jpg
   image2x:   681B9596-9A79-F5B6-5B5C61EEA0C16330_003.jpg
@@ -2274,7 +2296,8 @@ parkDetails:
   name:  Fort Dupont Park
   designation: Park
   state: District of Columbia
- -
+
+ fofo:
   homepage:  https://www.nps.gov/fofo/index.htm
   image1x:   90AD9A37-1DD8-B71B-0B2328A6351EA3A0.jpg
   image2x:   90AD9A37-1DD8-B71B-0B2328A6351EA3A0_003.jpg
@@ -2284,7 +2307,8 @@ parkDetails:
   name:  Fort Foote
   designation: Park
   state: Maryland
- -
+
+ fofr:
   homepage:  https://www.nps.gov/fofr/index.htm
   image1x:   E8CB8744-C0FB-4A7D-4C1D14C9109543F2_003.jpg
   image2x:   E8CB8744-C0FB-4A7D-4C1D14C9109543F2.jpg
@@ -2294,7 +2318,8 @@ parkDetails:
   name:  Fort Frederica
   designation: National Monument
   state: Georgia
- -
+
+ fola:
   homepage:  https://www.nps.gov/fola/index.htm
   image1x:   38136EC7-1DD8-B71B-0BB8B66FAA1D0793_002.jpg
   image2x:   38136EC7-1DD8-B71B-0BB8B66FAA1D0793.jpg
@@ -2304,7 +2329,8 @@ parkDetails:
   name:  Fort Laramie
   designation: National Historic Site
   state: Wyoming
- -
+
+ fols:
   homepage:  https://www.nps.gov/fols/index.htm
   image1x:   C382DD6C-B038-5BF9-7CD28C8B18165BA1_003.jpg
   image2x:   C382DD6C-B038-5BF9-7CD28C8B18165BA1.jpg
@@ -2314,7 +2340,8 @@ parkDetails:
   name:  Fort Larned
   designation: National Historic Site
   state: Kansas
- -
+
+ foma:
   homepage:  https://www.nps.gov/foma/index.htm
   image1x:   5EB9291E-1DD8-B71B-0BF0CEF2775CADD6_003.jpg
   image2x:   5EB9291E-1DD8-B71B-0BF0CEF2775CADD6.jpg
@@ -2324,7 +2351,8 @@ parkDetails:
   name:  Fort Matanzas
   designation: National Monument
   state: Florida
- -
+
+ fomc:
   homepage:  https://www.nps.gov/fomc/index.htm
   image1x:   0F3A3647-B13F-9ABA-77F15A380732EFA2_002.jpg
   image2x:   0F3A3647-B13F-9ABA-77F15A380732EFA2.jpg
@@ -2334,7 +2362,8 @@ parkDetails:
   name:  Fort McHenry
   designation: National Monument and Historic Shrine
   state: Maryland
- -
+
+ fomr:
   homepage:  https://www.nps.gov/fomr/index.htm
   image1x:   06FA1E62-F095-5D99-2ED62A853D482B66.jpg
   image2x:   06FA1E62-F095-5D99-2ED62A853D482B66_002.jpg
@@ -2344,7 +2373,8 @@ parkDetails:
   name:  Fort Monroe
   designation: National Monument
   state: Virginia
- -
+
+ fone:
   homepage:  https://www.nps.gov/fone/index.htm
   image1x:   0A6C5260-9174-CDFD-FA6B57F9A8AE025C.jpg
   image2x:   0A6C5260-9174-CDFD-FA6B57F9A8AE025C_003.jpg
@@ -2354,7 +2384,8 @@ parkDetails:
   name:  Fort Necessity
   designation: National Battlefield
   state: Pennsylvania
- -
+
+ fopo:
   homepage:  https://www.nps.gov/fopo/index.htm
   image1x:   BCE6B0BF-1DD8-B71B-0B4C79AB41B8BFFB_003.jpg
   image2x:   BCE6B0BF-1DD8-B71B-0B4C79AB41B8BFFB.jpg
@@ -2364,7 +2395,8 @@ parkDetails:
   name:  Fort Point
   designation: National Historic Site
   state: California
- -
+
+ fopu:
   homepage:  https://www.nps.gov/fopu/index.htm
   image1x:   BA4CA134-C020-99DC-DDFA680B6497BE37_003.jpg
   image2x:   BA4CA134-C020-99DC-DDFA680B6497BE37_002.jpg
@@ -2374,7 +2406,8 @@ parkDetails:
   name:  Fort Pulaski
   designation: National Monument
   state: Georgia
- -
+
+ fora:
   homepage:  https://www.nps.gov/fora/index.htm
   image1x:   918988D1-1DD8-B71B-0B31C6081AA0F4A5.jpg
   image2x:   918988D1-1DD8-B71B-0B31C6081AA0F4A5_003.jpg
