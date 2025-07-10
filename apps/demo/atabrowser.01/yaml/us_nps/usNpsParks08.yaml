@@ -5685,7 +5685,8 @@ parkDetails:
   name:  Whiskeytown
   state: California
   designation: National Recreation Area
- -
+
+ whsa:
   homepage:  https://www.nps.gov/whsa/index.htm
   image1x:   A16AAF73-C278-1129-5EB3056BED7BA85C.jpg
   image2x:   A16AAF73-C278-1129-5EB3056BED7BA85C_003.jpg
@@ -5695,7 +5696,8 @@ parkDetails:
   name:  White Sands
   state: New Mexico
   designation: National Park
- -
+
+ whmi:
   homepage:  https://www.nps.gov/whmi/index.htm
   image1x:   F303E0FF-B269-1516-F158AE3710D437F4_003.jpg
   image2x:   F303E0FF-B269-1516-F158AE3710D437F4.jpg
@@ -5705,7 +5707,8 @@ parkDetails:
   name:  Whitman Mission
   state: Washington
   designation: National Historic Site
- -
+
+ wiho:
   homepage:  https://www.nps.gov/wiho/index.htm
   image1x:   4BB99B4F-9491-5515-DCADA2E5EEC07B5B_002.jpg
   image2x:   4BB99B4F-9491-5515-DCADA2E5EEC07B5B.jpg
@@ -5715,7 +5718,8 @@ parkDetails:
   name:  William Howard Taft
   state: Ohio
   designation: National Historic Site
- -
+
+ wicr:
   homepage:  https://www.nps.gov/wicr/index.htm
   image1x:   7F0BE8E9-1DD8-B71B-0B2B7CC9C5B96F58_002.JPG
   image2x:   7F0BE8E9-1DD8-B71B-0B2B7CC9C5B96F58.JPG
@@ -5725,7 +5729,8 @@ parkDetails:
   name:  Wilson's Creek
   state: Missouri
   designation: National Battlefield
- -
+
+ wica:
   homepage:  https://www.nps.gov/wica/index.htm
   image1x:   CC25AAB0-1DD8-B71B-0B48DF48A0B8DE84_003.JPG
   image2x:   CC25AAB0-1DD8-B71B-0B48DF48A0B8DE84_002.JPG
@@ -5735,7 +5740,8 @@ parkDetails:
   name:  Wind Cave
   state: South Dakota
   designation: National Park
- -
+
+ wing:
   homepage:  https://www.nps.gov/wing/index.htm
   image1x:   F4D5C3CB-1DD8-B71B-0B69BAE75576DC93.jpg
   image2x:   F4D5C3CB-1DD8-B71B-0B69BAE75576DC93_004.jpg
@@ -5745,7 +5751,8 @@ parkDetails:
   name:  Wing Luke Museum
   state: Washington
   designation: Affiliated Area
- -
+
+ wotr:
   homepage:  https://www.nps.gov/wotr/index.htm
   image1x:   A22EC4AC-F13A-8E19-249DF4F7A277030F_004.jpg
   image2x:   A22EC4AC-F13A-8E19-249DF4F7A277030F.jpg
@@ -5755,7 +5762,8 @@ parkDetails:
   name:  Wolf Trap National Park for the Performing Arts
   state: Virginia
   designation: National Park
- -
+
+ wori:
   homepage:  https://www.nps.gov/wori/index.htm
   image1x:   36ECE0C0-FA9B-3839-BDE6E7B0FFD3E28D_002.jpg
   image2x:   36ECE0C0-FA9B-3839-BDE6E7B0FFD3E28D.jpg
@@ -5765,7 +5773,8 @@ parkDetails:
   name:  Women's Rights
   state: New York
   designation: National Historical Park
- -
+
+ wwii:
   homepage:  https://www.nps.gov/wwii/index.htm
   image1x:   189F1D1D-9507-0652-8DC23CFF8974D143_003.jpg
   image2x:   189F1D1D-9507-0652-8DC23CFF8974D143.jpg
@@ -5775,7 +5784,8 @@ parkDetails:
   name:  World War II Memorial
   state: District of Columbia
   designation: National Memorial
- -
+
+ wwim:
   homepage:  https://www.nps.gov/wwim/index.htm
   image1x:   AA2A97CA-F859-CC9B-B4E546BE19EEBCD3_003.jpg
   image2x:   AA2A97CA-F859-CC9B-B4E546BE19EEBCD3_002.jpg
@@ -5785,7 +5795,8 @@ parkDetails:
   name:  World War I Memorial
   state: District of Columbia
   designation: National Memorial
- -
+
+ wrst:
   homepage:  https://www.nps.gov/wrst/index.htm
   image1x:   F8805363-1DD8-B71B-0BE59C3D3428BD7B_003.jpg
   image2x:   F8805363-1DD8-B71B-0BE59C3D3428BD7B_002.jpg
@@ -5795,7 +5806,8 @@ parkDetails:
   name:  Wrangell - St Elias
   state: Alaska
   designation: National Park and Preserve
- -
+
+ wrbr:
   homepage:  https://www.nps.gov/wrbr/index.htm
   image1x:   4A4DBC42-1DD8-B71B-0BEC493394AD992C_003.jpg
   image2x:   4A4DBC42-1DD8-B71B-0BEC493394AD992C.jpg
@@ -5805,7 +5817,8 @@ parkDetails:
   name:  Wright Brothers
   state: North Carolina
   designation: National Memorial
- -
+
+ wupa:
   homepage:  https://www.nps.gov/wupa/index.htm
   image1x:   A6551ADE-0594-BEF4-C983C6C81900073F.jpg
   image2x:   A6551ADE-0594-BEF4-C983C6C81900073F_003.jpg
@@ -5815,7 +5828,8 @@ parkDetails:
   name:  Wupatki
   state: Arizona
   designation: National Monument
- -
+
+ yell:
   homepage:  https://www.nps.gov/yell/index.htm
   image1x:   AB35B204-F3A3-F2EF-8FD64286E7C2E4A2_003.jpg
   image2x:   AB35B204-F3A3-F2EF-8FD64286E7C2E4A2.jpg
@@ -5825,7 +5839,8 @@ parkDetails:
   name:  Yellowstone
   state: [Wyoming, Montana, Idaho]
   designation: National Park
- -
+
+ york:
   homepage:  https://www.nps.gov/york/index.htm
   image1x:   C019CC73-1DD8-B71B-0B69C9FC167FFEA9.jpg
   image2x:   C019CC73-1DD8-B71B-0B69C9FC167FFEA9_002.jpg
@@ -5835,7 +5850,8 @@ parkDetails:
   name:  Yorktown Battlefield
   designation: National Cemetery
   state: Virginia
- -
+
+ yose:
   homepage:  https://www.nps.gov/yose/index.htm
   image1x:   36C683FE-1DD8-B71B-0B6B4AE9C34946B8_002.jpg
   image2x:   36C683FE-1DD8-B71B-0B6B4AE9C34946B8_003.jpg
@@ -5845,7 +5861,8 @@ parkDetails:
   name:  Yosemite
   state: California
   designation: National Park
- -
+
+ yuho:
   homepage:  https://www.nps.gov/yuho/index.htm
   image1x:   2AFCDBD9-1DD8-B71B-0B183BDA29A6154D_004.JPG
   image2x:   2AFCDBD9-1DD8-B71B-0B183BDA29A6154D.JPG
@@ -5855,7 +5872,8 @@ parkDetails:
   name:  Yucca House
   state: Colorado
   designation: National Monument
- -
+
+ yuch:
   homepage:  https://www.nps.gov/yuch/index.htm
   image1x:   462E2050-B8F3-227B-F00C993F648D0FA4.jpg
   image2x:   462E2050-B8F3-227B-F00C993F648D0FA4_003.jpg
@@ -5865,7 +5883,8 @@ parkDetails:
   name:  Yukon - Charley Rivers
   state: Alaska
   designation: National Preserve
- -
+
+ zion:
   homepage:  https://www.nps.gov/zion/index.htm
   image1x:   47299690-C5E9-0C7F-0CF70CFE6625C0E7_002.jpg
   image2x:   47299690-C5E9-0C7F-0CF70CFE6625C0E7.jpg
