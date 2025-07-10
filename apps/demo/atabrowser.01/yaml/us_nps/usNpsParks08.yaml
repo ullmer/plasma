@@ -3454,7 +3454,8 @@ parkDetails:
   designation: National Battlefield Park
   state: Georgia
   imageCredit: Adobe
- -
+
+ kewe:
   homepage:  https://www.nps.gov/kewe/index.htm
   image1x:   C13CF5F0-1DD8-B71B-0BFDC5AD9454F107_002.jpg
   image2x:   C13CF5F0-1DD8-B71B-0BFDC5AD9454F107.jpg
@@ -3464,7 +3465,8 @@ parkDetails:
   name:  Keweenaw
   designation: National Historical Park
   state: Michigan
- -
+
+ kimo:
   homepage:  https://www.nps.gov/kimo/index.htm
   image1x:   DF1FE45F-0B80-EA5E-E50AF28430FDF573.jpg
   image2x:   DF1FE45F-0B80-EA5E-E50AF28430FDF573_004.jpg
@@ -3474,7 +3476,8 @@ parkDetails:
   name:  Kings Mountain
   designation: National Military Park
   state: South Carolina
- -
+
+ klgo:
   homepage:  https://www.nps.gov/klgo/index.htm
   image1x:   830BC677-BA83-57C6-CE581878E5EF3E36_002.jpg
   image2x:   830BC677-BA83-57C6-CE581878E5EF3E36.jpg
@@ -3484,7 +3487,8 @@ parkDetails:
   name:  Klondike Gold Rush
   designation: National Historical Park
   state: Alaska
- -
+
+ klse:
   homepage:  https://www.nps.gov/klse/index.htm
   image1x:   B6B7A38F-1DD8-B71B-0BF72F7D2733B2CF_003.jpg
   image2x:   B6B7A38F-1DD8-B71B-0BF72F7D2733B2CF_004.jpg
@@ -3494,7 +3498,8 @@ parkDetails:
   name:  Klondike Gold Rush - Seattle Unit
   designation: National Historical Park
   state: Washington
- -
+
+ knri:
   homepage:  https://www.nps.gov/knri/index.htm
   image1x:   672DACD6-1DD8-B71B-0B0D35D40DFDE105_002.jpg
   image2x:   672DACD6-1DD8-B71B-0B0D35D40DFDE105_003.jpg
@@ -3504,7 +3509,8 @@ parkDetails:
   name:  Knife River Indian Villages
   designation: National Historic Site
   state: North Dakota
- -
+
+ kova:
   homepage:  https://www.nps.gov/kova/index.htm
   image1x:   3AA12CC6-E6E6-9F7D-79DA7C33936C11AC.jpg
   image2x:   3AA12CC6-E6E6-9F7D-79DA7C33936C11AC_004.jpg
@@ -3514,7 +3520,8 @@ parkDetails:
   name:  Kobuk Valley
   designation: National Park
   state: Alaska
- -
+
+ kowa:
   homepage:  https://www.nps.gov/kowa/index.htm
   image1x:   874D0F44-0BCF-EDA9-AC0532658528D353_003.jpg
   image2x:   874D0F44-0BCF-EDA9-AC0532658528D353_002.jpg
@@ -3524,7 +3531,8 @@ parkDetails:
   name:  Korean War Veterans Memorial
   designation: Memorial
   state: District of Columbia
- -
+
+ lacl:
   homepage:  https://www.nps.gov/lacl/index.htm
   image1x:   9D511285-1DD8-B71B-0B39C127CBF6FD5D_002.jpg
   image2x:   9D511285-1DD8-B71B-0B39C127CBF6FD5D_003.jpg
@@ -3534,7 +3542,8 @@ parkDetails:
   name:  Lake Clark
   designation: National Park and Preserve
   state: Alaska
- -
+
+ lake:
   homepage:  https://www.nps.gov/lake/index.htm
   image1x:   5DCF097A-9150-7258-8765AFC81DCB7966_003.jpg
   image2x:   5DCF097A-9150-7258-8765AFC81DCB7966.jpg
@@ -3544,7 +3553,8 @@ parkDetails:
   name:  Lake Mead
   designation: National Recreation Area
   state: [Arizona, Nevada]
- -
+
+ lamr:
   homepage:  https://www.nps.gov/lamr/index.htm
   image1x:   809C0948-1DD8-B71B-0B49017953D9B56E.JPG
   image2x:   809C0948-1DD8-B71B-0B49017953D9B56E_003.JPG
@@ -3554,7 +3564,8 @@ parkDetails:
   name:  Lake Meredith
   designation: National Recreation Area
   state: Texas
- -
+
+ laro:
   homepage:  https://www.nps.gov/laro/index.htm
   image1x:   ACFE2FE3-F847-F4F3-A008EA40282EEB40.jpg
   image2x:   ACFE2FE3-F847-F4F3-A008EA40282EEB40_003.jpg
@@ -3564,7 +3575,8 @@ parkDetails:
   name:  Lake Roosevelt
   designation: National Recreation Area
   state: Washington
- -
+
+ lavo:
   homepage:  https://www.nps.gov/lavo/index.htm
   image1x:   4092E028-988D-C75D-56E62D51A83D26C7.jpg
   image2x:   4092E028-988D-C75D-56E62D51A83D26C7_002.jpg
@@ -3574,7 +3586,8 @@ parkDetails:
   name:  Lassen Volcanic
   designation: National Park
   state: California
- -
+
+ labe:
   homepage:  https://www.nps.gov/labe/index.htm
   image1x:   BD648EF7-B2E7-DAF0-611CAE6571F1F9CA_002.jpg
   image2x:   BD648EF7-B2E7-DAF0-611CAE6571F1F9CA.jpg
@@ -3584,7 +3597,8 @@ parkDetails:
   name:  Lava Beds
   designation: National Monument
   state: California
- -
+
+ lyba:
   homepage:  https://www.nps.gov/lyba/index.htm
   image1x:   C357E96E-1DD8-B71B-0B31244A8D10DDE9_002.JPG
   image2x:   C357E96E-1DD8-B71B-0B31244A8D10DDE9_003.JPG
@@ -3594,7 +3608,8 @@ parkDetails:
   name:  LBJ Memorial Grove on the Potomac
   designation: National Memorial
   state: District of Columbia
- -
+
+ lewi:
   homepage:  https://www.nps.gov/lewi/index.htm
   image1x:   0542A813-1DD8-B71B-0BE9A4D62EA8FFE3.jpg
   image2x:   0542A813-1DD8-B71B-0BE9A4D62EA8FFE3_003.jpg
@@ -3604,7 +3619,8 @@ parkDetails:
   name:  Lewis and Clark
   designation: National Historical Park
   state: [Oregon, Washington]
- -
+
+ lecl:
   homepage:  https://www.nps.gov/lecl/index.htm
   image1x:   CE59BB4B-A1D4-4AE9-D36BF47E4ED76F44_002.jpg
   image2x:   CE59BB4B-A1D4-4AE9-D36BF47E4ED76F44_004.jpg
@@ -3616,7 +3632,8 @@ parkDetails:
   state: [North Dakota, South Dakota, Ohio, Iowa, Kentucky, Nebraska, Missouri, 
           Indiana, Montana, Pennsylvania, Oregon, Idaho, Washington, Illinois, 
           West Virginia, Kansas]
- -
+
+ libo:
   homepage:  https://www.nps.gov/libo/index.htm
   image1x:   C0BE3511-AA37-B305-E887C035B15290AA.jpg
   image2x:   C0BE3511-AA37-B305-E887C035B15290AA_003.jpg
@@ -3626,7 +3643,8 @@ parkDetails:
   name:  Lincoln Boyhood
   designation: National Memorial
   state: Indiana
- -
+
+ liho:
   homepage:  https://www.nps.gov/liho/index.htm
   image1x:   CD80C223-1DD8-B71B-0BA4734A9862F6B1.jpg
   image2x:   CD80C223-1DD8-B71B-0BA4734A9862F6B1_003.jpg
@@ -3636,7 +3654,8 @@ parkDetails:
   name:  Lincoln Home
   designation: National Historic Site
   state: Illinois
- -
+
+ linc:
   homepage:  https://www.nps.gov/linc/index.htm
   image1x:   16044A76-B4CB-40B7-2B3037EB53CF2D7D_003.jpg
   image2x:   16044A76-B4CB-40B7-2B3037EB53CF2D7D.jpg
@@ -3646,7 +3665,8 @@ parkDetails:
   name:  Lincoln Memorial
   designation: Memorial
   state: District of Columbia
- -
+
+ libi:
   homepage:  https://www.nps.gov/libi/index.htm
   image1x:   46EEA76B-1DD8-B71B-0BBDCE8B71F914F5.jpg
   image2x:   46EEA76B-1DD8-B71B-0BBDCE8B71F914F5_002.jpg
@@ -3656,7 +3676,8 @@ parkDetails:
   name:  Little Bighorn Battlefield
   designation: National Monument
   state: Montana
- -
+
+ liri:
   homepage:  https://www.nps.gov/liri/index.htm
   image1x:   60DF56FA-0DAC-708A-B684702BF13B0069.jpg
   image2x:   60DF56FA-0DAC-708A-B684702BF13B0069_004.jpg
@@ -3666,7 +3687,8 @@ parkDetails:
   name:  Little River Canyon
   designation: National Preserve
   state: Alabama
- -
+
+ chsc:
   homepage:  https://www.nps.gov/chsc/index.htm
   image1x:   94EAF64C-080C-859A-47E3E884FFF52B2C.jpeg
   image2x:   94EAF64C-080C-859A-47E3E884FFF52B2C_002.jpeg
@@ -3676,7 +3698,8 @@ parkDetails:
   name:  Little Rock Central High School
   designation: National Historic Site
   state: Arkansas
- -
+
+ long:
   homepage:  https://www.nps.gov/long/index.htm
   image1x:   5D3676B7-B33B-B799-9FCC385E67B2CE8F_003.jpg
   image2x:   5D3676B7-B33B-B799-9FCC385E67B2CE8F.jpg
@@ -3686,7 +3709,8 @@ parkDetails:
   name:  Longfellow House Washington's Headquarters
   designation: National Historic Site
   state: Massachusetts
- -
+
+ lowe:
   homepage:  https://www.nps.gov/lowe/index.htm
   image1x:   21528081-1DD8-B71B-0B44E002F90CF58B_004.jpg
   image2x:   21528081-1DD8-B71B-0B44E002F90CF58B_002.jpg
@@ -3696,7 +3720,8 @@ parkDetails:
   name:  Lowell
   designation: National Historical Park
   state: Massachusetts
- -
+
+ lode:
   homepage:  https://www.nps.gov/lode/index.htm
   image1x:   4D467C3B-CA30-AD9F-32E59561CAC9815A_003.jpg
   image2x:   4D467C3B-CA30-AD9F-32E59561CAC9815A.jpg
@@ -3706,7 +3731,8 @@ parkDetails:
   name:  Lower Delaware
   designation: National Wild and Scenic Riverway
   state: [New Jersey, Pennsylvania]
- -
+
+ loea:
   homepage:  https://www.nps.gov/loea/index.htm
   image1x:   AE592CF4-0FAA-AA1D-F0EFECB354FA2335.jpg
   image2x:   AE592CF4-0FAA-AA1D-F0EFECB354FA2335_003.jpg
@@ -3717,7 +3743,8 @@ parkDetails:
   designation: National Historic Site
   state: New York
   imageCredit: Tenement Museum
- -
+
+ lyjo:
   homepage:  https://www.nps.gov/lyjo/index.htm
   image1x:   65C48460-1DD8-B71B-0BD66994AF9442B8_003.jpg
   image2x:   65C48460-1DD8-B71B-0BD66994AF9442B8.jpg
@@ -3727,7 +3754,8 @@ parkDetails:
   name:  Lyndon B Johnson
   designation: National Historical Park
   state: Texas
- -
+
+ mawa:
   homepage:  https://www.nps.gov/mawa/index.htm
   image1x:   D5F647F8-FA80-3B50-1A14519BC5DC92AD.jpeg
   image2x:   D5F647F8-FA80-3B50-1A14519BC5DC92AD_002.jpeg
@@ -3737,7 +3765,8 @@ parkDetails:
   name:  Maggie L Walker
   designation: National Historic Site
   state: Virginia
- -
+
+ maac:
   homepage:  https://www.nps.gov/maac/index.htm
   image1x:   2DDB73D7-1DD8-B71B-0B29562C73C47239.jpg
   image2x:   2DDB73D7-1DD8-B71B-0B29562C73C47239_002.jpg
@@ -3747,7 +3776,8 @@ parkDetails:
   name:  Maine Acadian Culture
   designation: Center
   state: Maine
- -
+
+ maca:
   homepage:  https://www.nps.gov/maca/index.htm
   image1x:   DAC2749D-E403-B377-78ECD083ED78A395.jpg
   image2x:   DAC2749D-E403-B377-78ECD083ED78A395_002.jpg
@@ -3757,7 +3787,8 @@ parkDetails:
   name:  Mammoth Cave
   designation: National Park
   state: Kentucky
- -
+
+ mana:
   homepage:  https://www.nps.gov/mana/index.htm
   image1x:   00943195-CFB4-9260-40FA2E7FE6DD6CCB_004.jpg
   image2x:   00943195-CFB4-9260-40FA2E7FE6DD6CCB_003.jpg
@@ -3767,7 +3798,8 @@ parkDetails:
   name:  Manassas
   designation: National Battlefield Park
   state: Virginia
- -
+
+ mapr:
   homepage:  https://www.nps.gov/mapr/index.htm
   image1x:   E36DD87F-E625-E304-F6A7358337B0DDBE_002.jpg
   image2x:   E36DD87F-E625-E304-F6A7358337B0DDBE.jpg
@@ -3778,7 +3810,8 @@ parkDetails:
   designation: National Historical Park
   state: [Tennessee, New Mexico, Washington]
   imageCredit: US Department of Energy/Ed Westcott
- -
+
+ manz:
   homepage:  https://www.nps.gov/manz/index.htm
   image1x:   C9F33A44-1DD8-B71B-0B758BD8E5831A88_003.JPG
   image2x:   C9F33A44-1DD8-B71B-0B758BD8E5831A88_002.JPG
@@ -3788,7 +3821,8 @@ parkDetails:
   name:  Manzanar
   designation: National Historic Site
   state: California
- -
+
+ mabi:
   homepage:  https://www.nps.gov/mabi/index.htm
   image1x:   389D8B35-0359-1EFD-6948669E9A7DFDB3_002.jpg
   image2x:   389D8B35-0359-1EFD-6948669E9A7DFDB3.jpg
@@ -3798,7 +3832,8 @@ parkDetails:
   name:  Marsh - Billings - Rockefeller
   designation: National Historical Park
   state: Vermont
- -
+
+ malu:
   homepage:  https://www.nps.gov/malu/index.htm
   image1x:   6A4A314F-9BD3-3C94-56F45B400EEBC636_003.jpg
   image2x:   6A4A314F-9BD3-3C94-56F45B400EEBC636.jpg
@@ -3808,7 +3843,8 @@ parkDetails:
   name:  "Martin Luther King, Jr."
   designation: National Historical Park
   state: Georgia
- -
+
+ mlkm:
   homepage:  https://www.nps.gov/mlkm/index.htm
   image1x:   62307FD2-1DD8-B71B-0BCF3A6B635873A6_003.jpg
   image2x:   62307FD2-1DD8-B71B-0BCF3A6B635873A6_002.jpg
@@ -3818,7 +3854,8 @@ parkDetails:
   name:  "Martin Luther King, Jr. Memorial"
   designation: Memorial
   state: District of Columbia
- -
+
+ mava:
   homepage:  https://www.nps.gov/mava/index.htm
   image1x:   4D245750-D077-F5C8-4CB8B886364F911B_003.jpg
   image2x:   4D245750-D077-F5C8-4CB8B886364F911B.jpg
@@ -3828,7 +3865,8 @@ parkDetails:
   name:  Martin Van Buren
   designation: National Historic Site
   state: New York
- -
+
+ mamc:
   homepage:  https://www.nps.gov/mamc/index.htm
   image1x:   5981E8B3-1DD8-B71B-0BE56F960A40FE3E_002.jpg
   image2x:   5981E8B3-1DD8-B71B-0BE56F960A40FE3E_003.jpg
@@ -3838,7 +3876,8 @@ parkDetails:
   name:  Mary McLeod Bethune Council House
   designation: National Historic Site
   state: District of Columbia
- -
+
+ memy:
   homepage:  https://www.nps.gov/memy/index.htm
   image1x:   B5FF843C-D41B-01FF-B2564077A1F363FA_002.jpg
   image2x:   B5FF843C-D41B-01FF-B2564077A1F363FA_003.jpg
@@ -3848,7 +3887,8 @@ parkDetails:
   name:  Medgar and Myrlie Evers Home
   designation: National Monument
   state: Mississippi
- -
+
+ meve:
   homepage:  https://www.nps.gov/meve/index.htm
   image1x:   49412770-0F02-5CAF-A5D5A6585822C556_002.jpg
   image2x:   49412770-0F02-5CAF-A5D5A6585822C556_003.jpg
@@ -3858,7 +3898,8 @@ parkDetails:
   name:  Mesa Verde
   designation: National Park
   state: Colorado
- -
+
+ misp:
   homepage:  https://www.nps.gov/misp/index.htm
   image1x:   227E0B3A-CC38-B26D-DF6F645D48E5DC6A.jpg
   image2x:   227E0B3A-CC38-B26D-DF6F645D48E5DC6A_002.jpg
@@ -3868,7 +3909,8 @@ parkDetails:
   name:  Mill Springs Battlefield
   designation: National Monument
   state: Kentucky
- -
+
+ miin:
   homepage:  https://www.nps.gov/miin/index.htm
   image1x:   B12849EE-BBF2-AAC7-D5326DE922344D56_002.jpg
   image2x:   B12849EE-BBF2-AAC7-D5326DE922344D56.jpg
@@ -3878,7 +3920,8 @@ parkDetails:
   name:  Minidoka
   designation: National Historic Site
   state: [Idaho, Washington]
- -
+
+ mima:
   homepage:  https://www.nps.gov/mima/index.htm
   image1x:   3392993C-C99C-CE14-82CA28454D3D0B91_002.jpg
   image2x:   3392993C-C99C-CE14-82CA28454D3D0B91_003.jpg
@@ -3888,7 +3931,8 @@ parkDetails:
   name:  Minute Man
   designation: National Historical Park
   state: Massachusetts
- -
+
+ mimi:
   homepage:  https://www.nps.gov/mimi/index.htm
   image1x:   9F2AF2F2-1DD8-B71B-0BCD6055341B730F_002.jpg
   image2x:   9F2AF2F2-1DD8-B71B-0BCD6055341B730F.jpg
@@ -3898,7 +3942,8 @@ parkDetails:
   name:  Minuteman Missile
   designation: National Historic Site
   state: South Dakota
- -
+
+ miss:
   homepage:  https://www.nps.gov/miss/index.htm
   image1x:   43011D18-D0B8-AE7B-75B31D65D0D3F4D1_002.jpg
   image2x:   43011D18-D0B8-AE7B-75B31D65D0D3F4D1.jpg
@@ -3908,7 +3953,8 @@ parkDetails:
   name:  Mississippi
   designation: National River and Recreation Area
   state: Minnesota
- -
+
+ mnrr:
   homepage:  https://www.nps.gov/mnrr/index.htm
   image1x:   50554800-A637-35EA-67C611FCBE48E41D_003.jpg
   image2x:   50554800-A637-35EA-67C611FCBE48E41D_002.jpg
