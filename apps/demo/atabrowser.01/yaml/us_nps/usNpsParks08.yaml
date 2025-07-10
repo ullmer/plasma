@@ -5508,7 +5508,8 @@ parkDetails:
   name:  Upper Delaware
   designation: Scenic and Recreational River
   state: [New York, Pennsylvania]
- -
+
+ vall:
   homepage:  https://www.nps.gov/vall/index.htm
   image1x:   9D5DD046-E880-0642-57DDCAC7FACBE7CB_003.jpg
   image2x:   9D5DD046-E880-0642-57DDCAC7FACBE7CB_002.jpg
@@ -5518,7 +5519,8 @@ parkDetails:
   name:  Valles Caldera
   designation: National Preserve
   state: New Mexico
- -
+
+ vafo:
   homepage:  https://www.nps.gov/vafo/index.htm
   image1x:   A3231ABE-D827-76EF-E7293A909E1AEE91.jpg
   image2x:   A3231ABE-D827-76EF-E7293A909E1AEE91_002.jpg
@@ -5528,7 +5530,8 @@ parkDetails:
   name:  Valley Forge
   designation: National Historical Park
   state: Pennsylvania
- -
+
+ vama:
   homepage:  https://www.nps.gov/vama/index.htm
   image1x:   E3C0191E-C464-1CB2-ACFD91B619D4ED03_004.jpg
   image2x:   E3C0191E-C464-1CB2-ACFD91B619D4ED03_003.jpg
@@ -5538,7 +5541,8 @@ parkDetails:
   name:  Vanderbilt Mansion
   state: New York
   designation: National Historic Site
- -
+
+ vick:
   homepage:  https://www.nps.gov/vick/index.htm
   image1x:   F2D4BDCF-DBDA-9F41-AD5243E6819A86DF_003.jpg
   image2x:   F2D4BDCF-DBDA-9F41-AD5243E6819A86DF_002.jpg
@@ -5548,7 +5552,8 @@ parkDetails:
   name:  Vicksburg
   state: [Louisiana, Mississippi]
   designation: National Military Park
- -
+
+ vive:
   homepage:  https://www.nps.gov/vive/index.htm
   image1x:   FAE90DEB-F229-E511-F00237602FCBFE22_004.jpg
   image2x:   FAE90DEB-F229-E511-F00237602FCBFE22.jpg
@@ -5558,7 +5563,8 @@ parkDetails:
   name:  Vietnam Veterans Memorial
   state: District of Columbia
   designation: Memorial
- -
+
+ viis:
   homepage:  https://www.nps.gov/viis/index.htm
   image1x:   9F5976B7-D4D2-3A7A-7B1B9359FB8E1FBB_002.jpg
   image2x:   9F5976B7-D4D2-3A7A-7B1B9359FB8E1FBB_003.jpg
@@ -5568,7 +5574,8 @@ parkDetails:
   name:  Virgin Islands
   state: Virgin Islands
   designation: National Park
- -
+
+ vicr:
   homepage:  https://www.nps.gov/vicr/index.htm
   image1x:   03E32A14-1DD8-B71B-0B3F69E90BF26898_003.jpg
   image2x:   03E32A14-1DD8-B71B-0B3F69E90BF26898_002.jpg
@@ -5578,7 +5585,8 @@ parkDetails:
   name:  Virgin Islands Coral Reef
   state: Virgin Islands
   designation: National Monument
- -
+
+ voya:
   homepage:  https://www.nps.gov/voya/index.htm
   image1x:   C73409B8-A2E9-FFD1-1FFE7949CA129255_004.jpg
   image2x:   C73409B8-A2E9-FFD1-1FFE7949CA129255.jpg
@@ -5588,7 +5596,8 @@ parkDetails:
   name:  Voyageurs
   state: Minnesota
   designation: National Park
- -
+
+ waco:
   homepage:  https://www.nps.gov/waco/index.htm
   image1x:   64FFAB29-E58B-2358-C033FE3B4C5577D7.jpg
   image2x:   64FFAB29-E58B-2358-C033FE3B4C5577D7_003.jpg
@@ -5598,7 +5607,8 @@ parkDetails:
   name:  Waco Mammoth
   state: Texas
   designation: National Monument
- -
+
+ waca:
   homepage:  https://www.nps.gov/waca/index.htm
   image1x:   308E7AF0-9604-3671-82738DB3CCFD8F3B_002.jpg
   image2x:   308E7AF0-9604-3671-82738DB3CCFD8F3B.jpg
@@ -5608,7 +5618,8 @@ parkDetails:
   name:  Walnut Canyon
   state: Arizona
   designation: National Monument
- -
+
+ wapa:
   homepage:  https://www.nps.gov/wapa/index.htm
   image1x:   3F82C391-D50D-AAA1-B59A080046E88E71_002.jpg
   image2x:   3F82C391-D50D-AAA1-B59A080046E88E71.jpg
@@ -5618,7 +5629,8 @@ parkDetails:
   name:  War In The Pacific
   state: Guam
   designation: National Historical Park
- -
+
+ wamo:
   homepage:  https://www.nps.gov/wamo/index.htm
   image1x:   8A5BBA76-C167-4569-0226BB4F14FCB2BB_003.jpg
   image2x:   8A5BBA76-C167-4569-0226BB4F14FCB2BB.jpg
@@ -5628,7 +5640,8 @@ parkDetails:
   name:  Washington Monument
   state: District of Columbia
   designation: National Memorial
- -
+
+ waro:
   homepage:  https://www.nps.gov/waro/index.htm
   image1x:   8CEE9053-1DD8-B71B-0B56C42ABE637EAE_003.jpg
   image2x:   8CEE9053-1DD8-B71B-0B56C42ABE637EAE_004.jpg
@@ -5639,7 +5652,8 @@ parkDetails:
   state: [Virginia, New York, Massachusetts, Maryland, Connecticut, Delaware, 
          New Jersey, District of Columbia, Pennsylvania, Rhode Island]
   designation: National Historic Trail
- -
+
+ waba:
   homepage:  https://www.nps.gov/waba/index.htm
   image1x:   3FC662E3-1DD8-B71B-0BD452CF5E197D24_002.jpg
   image2x:   3FC662E3-1DD8-B71B-0BD452CF5E197D24.jpg
@@ -5649,7 +5663,8 @@ parkDetails:
   name:  Washita Battlefield
   state: Oklahoma
   designation: National Historic Site
- -
+
+ wefa:
   homepage:  https://www.nps.gov/wefa/index.htm
   image1x:   85BFAFBD-1DD8-B71B-0BAA826F1B49B808_003.jpg
   image2x:   85BFAFBD-1DD8-B71B-0BAA826F1B49B808.jpg
@@ -5659,7 +5674,8 @@ parkDetails:
   name:  Weir Farm
   state: Connecticut
   designation: National Historical Park
- -
+
+ whis:
   homepage:  https://www.nps.gov/whis/index.htm
   image1x:   7923B05F-A4A6-37C4-5FF2F65DF673EE73_003.jpg
   image2x:   7923B05F-A4A6-37C4-5FF2F65DF673EE73.jpg
