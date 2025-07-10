@@ -4,19 +4,25 @@
 
 import os, yaml
 from ataDomain import *
+from yamlRc    import *
 
 class ADImgLabeledObj(AtaDomain):
-  yamlFn1   = 'us_nps/sc.yaml'
-  yamlFn2   = 'us_nps/usNpsParks07.yaml'
+  yamlFnSC   = 'us_nps/sc.yaml'
+  yamlFnNPS  = 'us_nps/usNpsParks07.yaml'
 
-  yamlPath1 = 'sc:nps:meta'
+  yamlSCrc  = None
+  yamlNPSrc = None
+
+  yamlSCPath1 = 'sc:nps:meta'
 
   imgLabeledMetad = None
 
   ########## loadYaml ##########
   def loadYaml(self):
     try:
-      super().loadYaml()
+      self.yamlSCrc  = YamlRc(self.yamlPath + self.yamlFnSC)
+      self.yamlNPSrc = YamlRc(self.yamlPath + self.yamlFnNPS)
+
       ilmd = self.imgLabeledMetad = self.getYamlPath(self.yamlPath1)
       if ilmd is None: 
         self.msg("loadYaml: not finding anticipated data here: " + str(self.yamlPath1))
