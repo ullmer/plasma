@@ -14,6 +14,10 @@ class YamlRc(AtaBase):
   verbose  = True
   yamlPathSeparator = ':' #allowing paths to be expressed like a:b:c
 
+  ########## constructor ##########
+  def __init__(self, yamlFn: str = None):
+    if yamlFn is not None: self.yamlFn = yamlFn
+
   ########## loadYaml ##########
   def loadYaml(self):
     try:  
