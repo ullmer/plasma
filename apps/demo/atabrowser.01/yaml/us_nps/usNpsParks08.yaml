@@ -4537,7 +4537,8 @@ parkDetails:
   name:  Petrified Forest
   designation: National Park
   state: Arizona
- -
+
+ petr:
   homepage:  https://www.nps.gov/petr/index.htm
   image1x:   F08CECF8-EDEF-6DE2-3813A687877B682F.jpg
   image2x:   F08CECF8-EDEF-6DE2-3813A687877B682F_003.jpg
@@ -4547,7 +4548,8 @@ parkDetails:
   name:  Petroglyph
   designation: National Monument
   state: New Mexico
- -
+
+ piro:
   homepage:  https://www.nps.gov/piro/index.htm
   image1x:   34599246-D879-07CF-4BC68E9E03D23459_002.jpg
   image2x:   34599246-D879-07CF-4BC68E9E03D23459.jpg
@@ -4557,7 +4559,8 @@ parkDetails:
   name:  Pictured Rocks
   designation: National Lakeshore
   state: Michigan
- -
+
+ pinn: 
   homepage:  https://www.nps.gov/pinn/index.htm
   image1x:   2913AF89-1DD8-B71B-0B428CC0594DA1F3.jpg
   image2x:   2913AF89-1DD8-B71B-0B428CC0594DA1F3_003.jpg
@@ -4567,7 +4570,8 @@ parkDetails:
   name:  Pinnacles
   designation: National Park
   state: California
- -
+
+ pisp:
   homepage:  https://www.nps.gov/pisp/index.htm
   image1x:   FDC7E3F3-1DD8-B71B-0B3AC926E2D9074C_003.jpg
   image2x:   FDC7E3F3-1DD8-B71B-0B3AC926E2D9074C.jpg
@@ -4577,7 +4581,8 @@ parkDetails:
   name:  Pipe Spring
   designation: National Monument
   state: Arizona
- -
+
+ pipe:
   homepage:  https://www.nps.gov/pipe/index.htm
   image1x:   FD74A26F-B965-4C7E-B7CBCE51DA32C29E.jpg
   image2x:   FD74A26F-B965-4C7E-B7CBCE51DA32C29E_002.jpg
@@ -4587,7 +4592,8 @@ parkDetails:
   name:  Pipestone
   designation: National Monument
   state: Minnesota
- -
+
+ pisc:
   homepage:  https://www.nps.gov/pisc/index.htm
   image1x:   90E62BC8-1DD8-B71B-0B3D7F58652235CE_004.jpg
   image2x:   90E62BC8-1DD8-B71B-0B3D7F58652235CE_002.jpg
@@ -4597,7 +4603,8 @@ parkDetails:
   name:  Piscataway
   designation: Park
   state: Maryland
- -
+
+ pore:
   homepage:  https://www.nps.gov/pore/index.htm
   image1x:   4C46F9D5-1DD8-B71B-0B378F8DE3187643.jpg
   image2x:   4C46F9D5-1DD8-B71B-0B378F8DE3187643_002.jpg
@@ -4607,7 +4614,8 @@ parkDetails:
   name:  Point Reyes
   designation: National Seashore
   state: California
- -
+
+ poex:
   homepage:  https://www.nps.gov/poex/index.htm
   image1x:   29F8FAE5-1DD8-B71B-0B6BD847830B5714_003.jpg
   image2x:   29F8FAE5-1DD8-B71B-0B6BD847830B5714_002.jpg
@@ -4617,7 +4625,8 @@ parkDetails:
   name:  Pony Express
   designation: National Historic Trail
   state: [Wyoming, Colorado, Nebraska, California, Missouri, Utah, Nevada, Kansas]
- -
+
+ poch:
   homepage:  https://www.nps.gov/poch/index.htm
   image1x:   443235C7-0FC7-D44E-7242BD60B69BE93C_002.jpg
   image2x:   443235C7-0FC7-D44E-7242BD60B69BE93C.jpg
@@ -4627,7 +4636,8 @@ parkDetails:
   name:  Port Chicago Naval Magazine
   designation: National Memorial
   state: California
- -
+
+ pohe:
   homepage:  https://www.nps.gov/pohe/index.htm
   image1x:   00C7B693-1DD8-B71B-0B69B8C02D6F7527_002.jpg
   image2x:   00C7B693-1DD8-B71B-0B69B8C02D6F7527.jpg
@@ -4637,7 +4647,8 @@ parkDetails:
   name:  Potomac Heritage
   designation: National Scenic Trail
   state: [Virginia, Maryland, District of Columbia, Pennsylvania]
- -
+
+ popo:
   homepage:  https://www.nps.gov/popo/index.htm
   image1x:   C446F6FC-1DD8-B71B-0B4664678B338EC9_002.jpg
   image2x:   C446F6FC-1DD8-B71B-0B4664678B338EC9.jpg
@@ -4647,7 +4658,8 @@ parkDetails:
   name:  Poverty Point
   designation: National Monument
   state: Louisiana
- -
+
+ wicl: 
   homepage:  https://www.nps.gov/wicl/index.htm
   image1x:   FC5F591D-0E86-4FE8-8EAD345DAAA7CCC2.jpg
   image2x:   FC5F591D-0E86-4FE8-8EAD345DAAA7CCC2_002.jpg
@@ -4657,7 +4669,8 @@ parkDetails:
   name:  President William Jefferson Clinton Birthplace Home
   designation: National Historic Site
   state: Arkansas
- -
+
+ prsf:
   homepage:  https://www.nps.gov/prsf/index.htm
   image1x:   3715F9E4-1DD8-B71B-0BF5B8A819C7C178.jpg
   image2x:   3715F9E4-1DD8-B71B-0BF5B8A819C7C178_002.jpg
@@ -4667,7 +4680,8 @@ parkDetails:
   name:  Presidio of San Francisco
   designation: Other Park Designation
   state: California
- -
+
+ prwi:
   homepage:  https://www.nps.gov/prwi/index.htm
   image1x:   88AF8616-0C2C-4090-9E686D12BD203A80_002.jpg
   image2x:   88AF8616-0C2C-4090-9E686D12BD203A80_003.jpg
@@ -4677,7 +4691,8 @@ parkDetails:
   name:  Prince William Forest
   designation: Park
   state: Virginia
- -
+
+ pull:
   homepage:  https://www.nps.gov/pull/index.htm
   image1x:   5D2DF1D6-1DD8-B71B-0BB533F1BC37C059_003.jpg
   image2x:   5D2DF1D6-1DD8-B71B-0BB533F1BC37C059.jpg
@@ -4687,7 +4702,8 @@ parkDetails:
   name:  Pullman
   designation: National Historical Park
   state: Illinois
- -
+
+ puho:
   homepage:  https://www.nps.gov/puho/index.htm
   image1x:   A9928E89-E41D-A2A5-29CC53D3E18F6FA8.jpg
   image2x:   A9928E89-E41D-A2A5-29CC53D3E18F6FA8_003.jpg
@@ -4697,7 +4713,8 @@ parkDetails:
   name:  Pu'uhonua o Honaunau
   designation: National Historical Park
   state: Hawaii
- -
+
+ puhe:
   homepage:  https://www.nps.gov/puhe/index.htm
   image1x:   465FDEFE-C26E-840C-A49923FDE161561B_002.jpg
   image2x:   465FDEFE-C26E-840C-A49923FDE161561B_003.jpg
@@ -4708,7 +4725,8 @@ parkDetails:
   designation: National Historic Site
   state: Hawaii
   imageCredit: Herb Kane
- -
+
+ rabr:
   homepage:  https://www.nps.gov/rabr/index.htm
   image1x:   89B04D01-1DD8-B71B-0BE20CF1FD6E8406.jpg
   image2x:   89B04D01-1DD8-B71B-0BE20CF1FD6E8406_002.jpg
@@ -4718,7 +4736,8 @@ parkDetails:
   name:  Rainbow Bridge
   designation: National Monument
   state: Utah
- -
+
+ reer:
   homepage:  https://www.nps.gov/reer/index.htm
   image1x:   9A7C3FE3-9437-7BC0-7380A26A098F9F65.jpg
   image2x:   9A7C3FE3-9437-7BC0-7380A26A098F9F65_002.jpg
@@ -4728,7 +4747,8 @@ parkDetails:
   name:  Reconstruction Era
   designation: National Historical Park
   state: South Carolina
- -
+
+ redw:
   homepage:  https://www.nps.gov/redw/index.htm
   image1x:   0FBA9AF8-1DD8-B71B-0BF72F798FF5BC7E_003.jpg
   image2x:   0FBA9AF8-1DD8-B71B-0BF72F798FF5BC7E_002.jpg
@@ -4738,7 +4758,8 @@ parkDetails:
   name:  Redwood
   designation: National and State Parks
   state: California
- -
+
+ rich:
   homepage:  https://www.nps.gov/rich/index.htm
   image1x:   A73ACCC0-B406-5E95-930F566C219400CD_003.jpg
   image2x:   A73ACCC0-B406-5E95-930F566C219400CD.jpg
@@ -4748,7 +4769,8 @@ parkDetails:
   name:  Richmond
   designation: National Battlefield Park
   state: Virginia
- -
+
+ rigr:
   homepage:  https://www.nps.gov/rigr/index.htm
   image1x:   2B800006-1DD8-B71B-0B12EF22FF4F37B2_003.JPG
   image2x:   2B800006-1DD8-B71B-0B12EF22FF4F37B2.JPG
