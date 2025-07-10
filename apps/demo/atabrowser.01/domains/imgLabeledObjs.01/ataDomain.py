@@ -10,6 +10,7 @@ class AtaDomain:
   yamlPath = '~/git/plasma/apps/demo/atabrowser.01/yaml/'
   yamlFn   = None
   yamlD    = None
+  yamlPathSeparator = ':' #allowing paths to be expressed like a:b:c
 
   ########## constructor ##########
   def __init__(self): self.loadYaml()
@@ -41,6 +42,20 @@ class AtaDomain:
         self.yamlD = yaml.safe_load(f)
         f.close()
     except: self.err("exception")
+
+  ########## loadYaml ##########
+  def getYamlPath(self, path: str):
+    if self.yamlD is None:
+      self.msg("getYamlPath: yamlD not yet assigned!"); return None
+
+    try:
+      keys = path.split(self.yamlPathSeparator)
+
+      for key in keys:
+        if isinstance(data, dict) and key in data: data = data[key]
+        else:                                      return None  
+
+    return data
 
   ########## loadYaml ##########
   def printYaml(self): print(self.yamlD)
