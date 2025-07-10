@@ -20,12 +20,12 @@ class ADImgLabeledObj(AtaDomain):
   ########## loadYaml ##########
   def loadYaml(self):
     try:
-      self.yamlSCrc  = YamlRc(self.yamlFnSC)
-      self.yamlNPSrc = YamlRc(self.yamlFnNPS)
+      ys = self.yamlSCrc  = YamlRc(self.yamlFnSC)
+      yn = self.yamlNPSrc = YamlRc(self.yamlFnNPS)
 
-      ilmd = self.imgLabeledMetad = self.getYamlPath(self.yamlPath1)
+      ilmd = self.imgLabeledMetad = ys.getYamlPath(self.yamlSCPath1)
       if ilmd is None: 
-        self.msg("loadYaml: not finding anticipated data here: " + str(self.yamlPath1))
+        self.msg("loadYaml: not finding anticipated data here: " + str(self.yamlSCPath1))
         return False
       self.msg("loadYaml d: " + str(ilmd))
 
