@@ -1722,7 +1722,8 @@ parkDetails:
   name:  Chickasaw
   designation: National Recreation Area
   state: Oklahoma
- -
+
+ chir:
   homepage:  https://www.nps.gov/chir/index.htm
   image1x:   AA9475A7-AE13-A5C3-0EB9BA667C5E2FE7_003.jpg
   image2x:   AA9475A7-AE13-A5C3-0EB9BA667C5E2FE7.jpg
@@ -1732,7 +1733,8 @@ parkDetails:
   name:  Chiricahua
   designation: National Monument
   state: Arizona
- -
+
+ chri:
   homepage:  https://www.nps.gov/chri/index.htm
   image1x:   163CFF44-9D2B-6582-0B5D37C352D6FB23_002.jpg
   image2x:   163CFF44-9D2B-6582-0B5D37C352D6FB23.jpg
@@ -1742,7 +1744,8 @@ parkDetails:
   name:  Christiansted
   designation: National Historic Site
   state: Virgin Islands
- -
+
+ ciro:
   homepage:  https://www.nps.gov/ciro/index.htm
   image1x:   6E39589C-F429-0094-794B64A0F0E97A38_002.jpg
   image2x:   6E39589C-F429-0094-794B64A0F0E97A38_003.jpg
@@ -1752,7 +1755,8 @@ parkDetails:
   name:  City Of Rocks
   designation: National Reserve
   state: Idaho
- -
+
+ cwdw:
   homepage:  https://www.nps.gov/cwdw/index.htm
   image1x:   A9BE215D-1DD8-B71B-0B2F9C396BCBD9F4_003.jpg
   image2x:   A9BE215D-1DD8-B71B-0B2F9C396BCBD9F4.jpg
@@ -1762,7 +1766,8 @@ parkDetails:
   name:  Civil War Defenses of Washington
   designation: National Historic Site
   state: [Virginia, Maryland, District of Columbia]
- -
+
+ clba:
   homepage:  https://www.nps.gov/clba/index.htm
   image1x:   642992F2-1DD8-B71B-0BCD35725492FCF1_002.jpg
   image2x:   642992F2-1DD8-B71B-0BCD35725492FCF1_004.jpg
@@ -1772,7 +1777,8 @@ parkDetails:
   name:  Clara Barton
   designation: National Historic Site
   state: Maryland
- -
+
+ colo:
   homepage:  https://www.nps.gov/colo/index.htm
   image1x:   213D95B3-1DD8-B71B-0B95FC0EEE0E0249_002.jpg
   image2x:   213D95B3-1DD8-B71B-0B95FC0EEE0E0249.jpg
@@ -1782,7 +1788,8 @@ parkDetails:
   name:  Colonial
   designation: National Historical Park
   state: Virginia
- -
+
+ colm:
   homepage:  https://www.nps.gov/colm/index.htm
   image1x:   3A82E260-DAF8-D0C6-50675E0374C95EB3.jpg
   image2x:   3A82E260-DAF8-D0C6-50675E0374C95EB3_003.jpg
@@ -1792,7 +1799,8 @@ parkDetails:
   name:  Colorado
   designation: National Monument
   state: Colorado
- -
+
+ colt:
   homepage:  https://www.nps.gov/colt/index.htm
   image1x:   C92C8717-C438-B55E-02A09C01DF8883F8_002.jpg
   image2x:   C92C8717-C438-B55E-02A09C01DF8883F8.jpg
@@ -1802,7 +1810,8 @@ parkDetails:
   name:  Coltsville
   designation: National Historical Park
   state: Connecticut
- -
+
+ cong:
   homepage:  https://www.nps.gov/cong/index.htm
   image1x:   4E73B87D-FAA7-4272-FA3498E5C56C628F_003.jpg
   image2x:   4E73B87D-FAA7-4272-FA3498E5C56C628F.jpg
@@ -1812,7 +1821,8 @@ parkDetails:
   name:  Congaree
   designation: National Park
   state: South Carolina
- -
+
+ coga:
   homepage:  https://www.nps.gov/coga/index.htm
   image1x:   DB92072B-1DD8-B71B-0B2477229FBAC9B4_003.jpg
   image2x:   DB92072B-1DD8-B71B-0B2477229FBAC9B4.jpg
@@ -1822,7 +1832,8 @@ parkDetails:
   name:  Constitution Gardens
   designation: Other Designation
   state: District of Columbia
- -
+
+ coro:
   homepage:  https://www.nps.gov/coro/index.htm
   image1x:   D2D478A5-EC04-A1A8-C662FB1E19A9A9DE_003.jpg
   image2x:   D2D478A5-EC04-A1A8-C662FB1E19A9A9DE.jpg
@@ -1832,7 +1843,8 @@ parkDetails:
   name:  Coronado
   designation: National Memorial
   state: Arizona
- -
+
+ cowp:
   homepage:  https://www.nps.gov/cowp/index.htm
   image1x:   0B8C2D6D-9275-A102-385B0A4E9067CA3A.jpg
   image2x:   0B8C2D6D-9275-A102-385B0A4E9067CA3A_003.jpg
@@ -1842,7 +1854,8 @@ parkDetails:
   name:  Cowpens
   designation: National Battlefield
   state: South Carolina
- -
+
+ crla:
   homepage:  https://www.nps.gov/crla/index.htm
   image1x:   6B97B34B-1DD8-B71B-0B609E4FF8532FE9.jpg
   image2x:   6B97B34B-1DD8-B71B-0B609E4FF8532FE9_003.jpg
@@ -1852,7 +1865,8 @@ parkDetails:
   name:  Crater Lake
   designation: National Park
   state: Oregon
- -
+
+ crmo:
   homepage:  https://www.nps.gov/crmo/index.htm
   image1x:   D6CB768C-D783-4C51-59A65011C6CC6416.jpg
   image2x:   D6CB768C-D783-4C51-59A65011C6CC6416_002.jpg
@@ -1863,7 +1877,8 @@ parkDetails:
   designation: National Monument and Preserve
   state: Idaho
   imageCredit: NPS Photo / Lauren Reid
- -
+
+ cuga:
   homepage:  https://www.nps.gov/cuga/index.htm
   image1x:   54E49EAF-DC74-CA53-74996A6106D71332_003.jpg
   image2x:   54E49EAF-DC74-CA53-74996A6106D71332_004.jpg
@@ -1873,7 +1888,8 @@ parkDetails:
   name:  Cumberland Gap
   designation: National Historical Park
   state: [Tennessee, Virginia, Kentucky]
- -
+
+ cuis:
   homepage:  https://www.nps.gov/cuis/index.htm
   image1x:   5C80920D-1DD8-B71B-0B05A116E229DEDA_004.jpg
   image2x:   5C80920D-1DD8-B71B-0B05A116E229DEDA.jpg
@@ -1883,7 +1899,8 @@ parkDetails:
   name:  Cumberland Island
   designation: National Seashore
   state: Georgia
- -
+
+ cure:
   homepage:  https://www.nps.gov/cure/index.htm
   image1x:   7A455F30-9B5A-E0DE-002CFA1F70C76FE3_003.jpg
   image2x:   7A455F30-9B5A-E0DE-002CFA1F70C76FE3_002.jpg
@@ -1893,7 +1910,8 @@ parkDetails:
   name:  Curecanti
   designation: National Recreation Area
   state: Colorado
- -
+
+ cuva:
   homepage:  https://www.nps.gov/cuva/index.htm
   image1x:   43DCA43B-1DD8-B71B-0B2FE823CAB2AA52.jpg
   image2x:   43DCA43B-1DD8-B71B-0B2FE823CAB2AA52_003.jpg
@@ -1903,7 +1921,8 @@ parkDetails:
   name:  Cuyahoga Valley
   designation: National Park
   state: Ohio
- -
+
+ daav:
   homepage:  https://www.nps.gov/daav/index.htm
   image1x:   14E85B96-1DD8-B71B-0BA7046F428F16D7.JPG
   image2x:   14E85B96-1DD8-B71B-0BA7046F428F16D7_003.JPG
@@ -1913,7 +1932,8 @@ parkDetails:
   name:  Dayton Aviation Heritage
   designation: National Historical Park
   state: Ohio
- -
+
+ deva:
   homepage:  https://www.nps.gov/deva/index.htm
   image1x:   43327B46-CEE1-2592-5E47D7A73AE1AB5C.jpg
   image2x:   43327B46-CEE1-2592-5E47D7A73AE1AB5C_003.jpg
@@ -1923,7 +1943,8 @@ parkDetails:
   name:  Death Valley
   designation: National Park
   state: [California, Nevada]
- -
+
+ dewa:
   homepage:  https://www.nps.gov/dewa/index.htm
   image1x:   0D301857-D8B9-0C5B-07E311369E47F6FB_003.jpg
   image2x:   0D301857-D8B9-0C5B-07E311369E47F6FB.jpg
@@ -1933,7 +1954,8 @@ parkDetails:
   name:  Delaware Water Gap
   designation: National Recreation Area
   state: [New Jersey, Pennsylvania]
- -
+
+ dena:
   homepage:  https://www.nps.gov/dena/index.htm
   image1x:   ECE79510-155D-9421-1FCF6F833BD84413_003.jpg
   image2x:   ECE79510-155D-9421-1FCF6F833BD84413_002.jpg
@@ -1943,7 +1965,8 @@ parkDetails:
   name:  Denali
   designation: National Park and Preserve
   state: Alaska
- -
+
+ deso:
   homepage:  https://www.nps.gov/deso/index.htm
   image1x:   644A6734-1DD8-B71B-0B0D5031E9028EA6.jpg
   image2x:   644A6734-1DD8-B71B-0B0D5031E9028EA6_002.jpg
@@ -1953,7 +1976,8 @@ parkDetails:
   name:  De Soto
   designation: National Memorial
   state: Florida
- -
+
+ depo:
   homepage:  https://www.nps.gov/depo/index.htm
   image1x:   5E72DA3A-1DD8-B71B-0B1BC6BACD25559F_002.JPG
   image2x:   5E72DA3A-1DD8-B71B-0B1BC6BACD25559F_004.JPG
@@ -1963,7 +1987,8 @@ parkDetails:
   name:  Devils Postpile
   designation: National Monument
   state: California
- -
+
+ deto:
   homepage:  https://www.nps.gov/deto/index.htm
   image1x:   7B1B5D15-A279-372D-4CFD57152CC09DEC_002.jpg
   image2x:   7B1B5D15-A279-372D-4CFD57152CC09DEC_003.jpg
@@ -1973,7 +1998,8 @@ parkDetails:
   name:  Devils Tower
   designation: National Monument
   state: Wyoming
- -
+
+ dino:
   homepage:  https://www.nps.gov/dino/index.htm
   image1x:   DE10AFCB-1DD8-B71B-0BB545D2FA673387.jpg
   image2x:   DE10AFCB-1DD8-B71B-0BB545D2FA673387_003.jpg
@@ -1983,7 +2009,8 @@ parkDetails:
   name:  Dinosaur
   designation: National Monument
   state: [Colorado, Utah]
- -
+
+ drto:
   homepage:  https://www.nps.gov/drto/index.htm
   image1x:   B8CF5C7E-1DD8-B71B-0B62F152705DCACA.jpg
   image2x:   B8CF5C7E-1DD8-B71B-0B62F152705DCACA_002.jpg
@@ -1993,7 +2020,8 @@ parkDetails:
   name:  Dry Tortugas
   designation: National Park
   state: Florida
- -
+
+ ddem:
   homepage:  https://www.nps.gov/ddem/index.htm
   image1x:   256D5D19-A222-5125-3468EAAB2B603A13_002.jpg
   image2x:   256D5D19-A222-5125-3468EAAB2B603A13_003.jpg
@@ -2003,7 +2031,8 @@ parkDetails:
   name:  Dwight D. Eisenhower
   designation: Memorial
   state: District of Columbia
- -
+
+ ebla:
   homepage:  https://www.nps.gov/ebla/index.htm
   image1x:   E3B9DC6E-0C4E-7517-A2CCD386249E6D0D_002.jpg
   image2x:   E3B9DC6E-0C4E-7517-A2CCD386249E6D0D_003.jpg
@@ -2014,7 +2043,8 @@ parkDetails:
   designation: National Historical Reserve
   state: Washington
   imageCredit: Photo courtesy of Rich Yukubousky
- -
+
+ edal:
   homepage:  https://www.nps.gov/edal/index.htm
   image1x:   2538A459-1DD8-B71B-0B2BA55F75DDA901_002.jpg
   image2x:   2538A459-1DD8-B71B-0B2BA55F75DDA901_004.jpg
