@@ -5232,7 +5232,8 @@ parkDetails:
   name:  Sunset Crater Volcano
   designation: National Monument
   state: Arizona
- -
+
+ tapr:
   homepage:  https://www.nps.gov/tapr/index.htm
   image1x:   3E6AF101-1DD8-B71B-0BB028BE3988C7D5.jpg
   image2x:   3E6AF101-1DD8-B71B-0BB028BE3988C7D5_002.jpg
@@ -5242,7 +5243,8 @@ parkDetails:
   name:  Tallgrass Prairie
   designation: National Preserve
   state: Kansas
- -
+
+ thko:
   homepage:  https://www.nps.gov/thko/index.htm
   image1x:   F3D00FAD-1DD8-B71B-0B6EAF045BAD6B7A_004.jpg
   image2x:   F3D00FAD-1DD8-B71B-0B6EAF045BAD6B7A_003.jpg
@@ -5252,7 +5254,8 @@ parkDetails:
   name:  Thaddeus Kosciuszko
   designation: National Memorial
   state: Pennsylvania
- -
+
+ thro:
   homepage:  https://www.nps.gov/thro/index.htm
   image1x:   2118F52C-1DD8-B71B-0B0713EA8F3E1AEA_002.jpg
   image2x:   2118F52C-1DD8-B71B-0B0713EA8F3E1AEA_003.jpg
@@ -5262,7 +5265,8 @@ parkDetails:
   name:  Theodore Roosevelt
   designation: National Park
   state: North Dakota
- -
+
+ thrb:
   homepage:  https://www.nps.gov/thrb/index.htm
   image1x:   185C0F94-1DD8-B71B-0BC217328653DCAC_002.jpg
   image2x:   185C0F94-1DD8-B71B-0BC217328653DCAC.jpg
@@ -5272,7 +5276,8 @@ parkDetails:
   name:  Theodore Roosevelt Birthplace
   designation: National Historic Site
   state: New York
- -
+
+ thri:
   homepage:  https://www.nps.gov/thri/index.htm
   image1x:   E1F44E63-1DD8-B71B-0BC47381231023D4.jpg
   image2x:   E1F44E63-1DD8-B71B-0BC47381231023D4_003.jpg
@@ -5282,7 +5287,8 @@ parkDetails:
   name:  Theodore Roosevelt Inaugural
   designation: National Historic Site
   state: New York
- -
+
+ this:
   homepage:  https://www.nps.gov/this/index.htm
   image1x:   662991DD-1DD8-B71B-0BB617FCCCAE549E.jpg
   image2x:   662991DD-1DD8-B71B-0BB617FCCCAE549E_003.jpg
@@ -5292,7 +5298,8 @@ parkDetails:
   name:  Theodore Roosevelt Island
   designation: Park
   state: District of Columbia
- -
+
+ whho:
   homepage:  https://www.nps.gov/whho/index.htm
   image1x:   E12B16FB-1DD8-B71B-0BB08B518DE6B0E7.JPG
   image2x:   E12B16FB-1DD8-B71B-0BB08B518DE6B0E7_004.JPG
@@ -5302,7 +5309,8 @@ parkDetails:
   name:  The White House and President's Park
   designation: Other Designation
   state: District of Columbia
- -
+
+ thco:
   homepage:  https://www.nps.gov/thco/index.htm
   image1x:   2D9A2A48-BFA2-1539-3FE92BD17332024A.jpg
   image2x:   2D9A2A48-BFA2-1539-3FE92BD17332024A_003.jpg
@@ -5312,7 +5320,8 @@ parkDetails:
   name:  Thomas Cole
   designation: National Historic Site
   state: New York
- -
+
+ edis:
   homepage:  https://www.nps.gov/edis/index.htm
   image1x:   F6FE8981-A17D-B033-673F7365C6D05C4F_002.jpg
   image2x:   F6FE8981-A17D-B033-673F7365C6D05C4F_004.jpg
@@ -5322,7 +5331,8 @@ parkDetails:
   name:  Thomas Edison
   designation: National Historical Park
   state: New Jersey
- -
+
+ thje:
   homepage:  https://www.nps.gov/thje/index.htm
   image1x:   5C5D4FF5-A86B-5964-E64BB0710F4704CE_004.jpg
   image2x:   5C5D4FF5-A86B-5964-E64BB0710F4704CE_002.jpg
@@ -5332,7 +5342,8 @@ parkDetails:
   name:  Thomas Jefferson Memorial
   designation: Memorial
   state: District of Columbia
- -
+
+ thst:
   homepage:  https://www.nps.gov/thst/index.htm
   image1x:   7DA4785B-AD75-BE98-BED2AC9DC8465307.jpg
   image2x:   7DA4785B-AD75-BE98-BED2AC9DC8465307_002.jpg
@@ -5342,7 +5353,8 @@ parkDetails:
   name:  Thomas Stone
   designation: National Historic Site
   state: Maryland
- -
+
+ tica:
   homepage:  https://www.nps.gov/tica/index.htm
   image1x:   D797089C-1DD8-B71B-0BC708A8BC4ADCFB_003.jpg
   image2x:   D797089C-1DD8-B71B-0BC708A8BC4ADCFB_002.jpg
@@ -5352,7 +5364,8 @@ parkDetails:
   name:  Timpanogos Cave
   designation: National Monument
   state: Utah
- -
+
+ timu:
   homepage:  https://www.nps.gov/timu/index.htm
   image1x:   67AFF71F-1DD8-B71B-0B6E5D25D78C2D49_002.jpg
   image2x:   67AFF71F-1DD8-B71B-0B6E5D25D78C2D49.jpg
@@ -5362,7 +5375,8 @@ parkDetails:
   name:  Timucuan
   designation: Ecological and Historic Preserve
   state: Florida
- -
+
+ tont:
   homepage:  https://www.nps.gov/tont/index.htm
   image1x:   0A725A27-E6C8-2448-2B18E96B0B5CF06C.jpg
   image2x:   0A725A27-E6C8-2448-2B18E96B0B5CF06C_004.jpg
@@ -5372,7 +5386,8 @@ parkDetails:
   name:  Tonto
   designation: National Monument
   state: Arizona
- -
+
+ tosy:
   homepage:  https://www.nps.gov/tosy/index.htm
   image1x:   BA80CE1C-1DD8-B71B-0BF31E03465140E6.png
   image2x:   BA80CE1C-1DD8-B71B-0BF31E03465140E6_002.png
@@ -5382,7 +5397,8 @@ parkDetails:
   name:  Touro Synagogue
   designation: National Historic Site
   state: Rhode Island
- -
+
+ trte:
   homepage:  https://www.nps.gov/trte/index.htm
   image1x:   04BF34CE-1DD8-B71B-0BC369EFB22742A2.jpg
   image2x:   04BF34CE-1DD8-B71B-0BC369EFB22742A2_002.jpg
@@ -5392,7 +5408,8 @@ parkDetails:
   name:  Trail Of Tears
   designation: National Historic Trail
   state: [Tennessee, Alabama, Kentucky, Missouri, Georgia, Oklahoma, Arkansas, Illinois, North Carolina]
- -
+
+ tule:
   homepage:  https://www.nps.gov/tule/index.htm
   image1x:   B1A6CA8F-C401-8D3A-0A6AD736A5DA0563_003.jpg
   image2x:   B1A6CA8F-C401-8D3A-0A6AD736A5DA0563_002.jpg
@@ -5402,7 +5419,8 @@ parkDetails:
   name:  Tule Lake
   designation: National Monument
   state: California
- -
+
+ tusk:
   homepage:  https://www.nps.gov/tusk/index.htm
   image1x:   16CA5FB1-D153-8A00-1D5F2D6C93B99A52_002.jpg
   image2x:   16CA5FB1-D153-8A00-1D5F2D6C93B99A52_003.jpg
@@ -5412,7 +5430,8 @@ parkDetails:
   name:  Tule Springs Fossil Beds
   designation: National Monument
   state: Nevada
- -
+
+ tuma:
   homepage:  https://www.nps.gov/tuma/index.htm
   image1x:   B32F62F4-CC15-0497-771B1EA9D6B6D3F9_002.jpg
   image2x:   B32F62F4-CC15-0497-771B1EA9D6B6D3F9.jpg
@@ -5423,7 +5442,8 @@ parkDetails:
   designation: National Historical Park
   state: Arizona
   imageCredit: T.Ferraro
- -
+
+ tupe:
   homepage:  https://www.nps.gov/tupe/index.htm
   image1x:   C84BC09B-1DD8-B71B-0B85BA6DF3D38047_003.jpg
   image2x:   C84BC09B-1DD8-B71B-0B85BA6DF3D38047.jpg
@@ -5433,7 +5453,8 @@ parkDetails:
   name:  Tupelo
   designation: National Battlefield
   state: Mississippi
- -
+
+ tuai:
   homepage:  https://www.nps.gov/tuai/index.htm
   image1x:   A04B9A9A-1DD8-B71B-0B6E70D5D0B2F4F9_004.jpg
   image2x:   A04B9A9A-1DD8-B71B-0B6E70D5D0B2F4F9_002.jpg
@@ -5443,7 +5464,8 @@ parkDetails:
   name:  Tuskegee Airmen
   designation: National Historic Site
   state: Alabama
- -
+
+ tuin:
   homepage:  https://www.nps.gov/tuin/index.htm
   image1x:   6D56F5FF-1DD8-B71B-0BC30B25D9D85A49_003.jpg
   image2x:   6D56F5FF-1DD8-B71B-0BC30B25D9D85A49_002.jpg
@@ -5453,7 +5475,8 @@ parkDetails:
   name:  Tuskegee Institute
   designation: National Historic Site
   state: Alabama
- -
+
+ tuzi:
   homepage:  https://www.nps.gov/tuzi/index.htm
   image1x:   A515F0D9-C50F-AE1D-EBF72D6DEAD1C158_002.jpg
   image2x:   A515F0D9-C50F-AE1D-EBF72D6DEAD1C158_003.jpg
@@ -5463,7 +5486,8 @@ parkDetails:
   name:  Tuzigoot
   designation: National Monument
   state: Arizona
- -
+
+ ulsg:
   homepage:  https://www.nps.gov/ulsg/index.htm
   image1x:   D11AC363-DE35-EF54-D6FD1E2900FCF67C_002.jpg
   image2x:   D11AC363-DE35-EF54-D6FD1E2900FCF67C.jpg
@@ -5473,7 +5497,8 @@ parkDetails:
   name:  Ulysses S Grant
   designation: National Historic Site
   state: Missouri
- -
+
+ upde:
   homepage:  https://www.nps.gov/upde/index.htm
   image1x:   CA615926-B795-FA79-BD03852589D09D9C_004.jpg
   image2x:   CA615926-B795-FA79-BD03852589D09D9C.jpg
