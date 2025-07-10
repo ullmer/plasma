@@ -27,7 +27,7 @@ class ADImgLabeledObj(AtaDomain):
 ########## main ##########
 if __name__ == "__main__":
   adilo = ADImgLabeledObj()
-  #print("yaml:"); adilo.printYaml()
+  adilo.loadYaml()
 
 #Initial key directories
 #./domains/imgLabeledObjs.01

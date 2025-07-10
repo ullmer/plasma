@@ -13,9 +13,6 @@ class AtaDomain:
   verbose  = True
   yamlPathSeparator = ':' #allowing paths to be expressed like a:b:c
 
-  ########## constructor ##########
-  def __init__(self): self.loadYaml()
-
   ########## message ##########
   def msg(self, mstr: str): 
     mstr2 = self.getClassName() + ' msg: ' + mstr; print(mstr2)
