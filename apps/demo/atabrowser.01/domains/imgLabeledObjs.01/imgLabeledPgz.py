@@ -12,6 +12,7 @@ class ADImgLabeledObjPgz(ADImgLabeledObj):
   actorDict = None
   actorFns  = None
   actorWH   = None
+  actors    = None
   basePos      = ( 50,  50)
   actorPosDiff = (300, 210)
   numCols      =  2
@@ -33,8 +34,15 @@ class ADImgLabeledObjPgz(ADImgLabeledObj):
       self.actorFns  = ilmd['fn']
       self.actorWH   = ilmd['dim']
       self.actorDict = {}
+      bx, by         = self.basePos
+      dx, dy         = self.actorPosDiff
 
+      x, y = bx, by
       for actorFn in self.actorFns:
+        a = Actor(actorFn, pos=(x,y))
+        self.actorDict[actorFn] = a
+        actors.append(a) #space-inefficient to store in both a lookup and a list; but easier to follow for some
+        x += dx; y += dy
 
       super().loadYaml()
       ilmd = self.imgLabeledMetad = self.getYamlPath(self.yamlPath1)
