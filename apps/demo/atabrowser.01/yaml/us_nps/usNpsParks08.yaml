@@ -662,7 +662,7 @@ topics:
   - {id: 122, name: Women's History}
 
 parkDetails:
- -
+ abli:
   homepage:  https://www.nps.gov/abli/index.htm
   image1x:   78B653B5-05D2-5174-9B695D6987CF1435_003.jpg
   image2x:   78B653B5-05D2-5174-9B695D6987CF1435_002.jpg
@@ -672,7 +672,8 @@ parkDetails:
   name:  Abraham Lincoln Birthplace
   state: Kentucky
   designation: National Historical Park
- -
+
+ acad:
   homepage:  https://www.nps.gov/acad/index.htm
   image1x:   6B1F4159-F010-E2C4-5AD7D3C0ED65EC07_002.jpg
   image2x:   6B1F4159-F010-E2C4-5AD7D3C0ED65EC07.jpg
@@ -683,7 +684,8 @@ parkDetails:
   designation: National Park
   state: Maine
   imageCredit: Photo by Alan Nyiri. Used with permission
- -
+
+ adam:
   homepage:  https://www.nps.gov/adam/index.htm
   image1x:   83142505-E96D-4E2C-11DA3CF62B4B882D_003.jpg
   image2x:   83142505-E96D-4E2C-11DA3CF62B4B882D.jpg
@@ -693,7 +695,8 @@ parkDetails:
   name:  Adams
   designation: National Historical Park
   state: Massachusetts
- -
+
+ afam:
   homepage:  https://www.nps.gov/afam/index.htm
   image1x:   16C67AF1-1DD8-B71B-0B14DC290E4F5AFB_004.JPG
   image2x:   16C67AF1-1DD8-B71B-0B14DC290E4F5AFB.JPG
@@ -703,7 +706,8 @@ parkDetails:
   name:  African American Civil War Memorial
   designation: Memorial
   state: District of Columbia
- -
+
+ afbg:
   homepage:  https://www.nps.gov/afbg/index.htm
   image1x:   88D87D8C-1DD8-B71B-0B492C15143C61B7_002.jpg
   image2x:   88D87D8C-1DD8-B71B-0B492C15143C61B7.jpg
@@ -713,7 +717,8 @@ parkDetails:
   name:  African Burial Ground
   designation: National Monument
   state: New York
- -
+
+ agfo:
   homepage:  https://www.nps.gov/agfo/index.htm
   image1x:   7C640C61-E46F-9355-A4ECAB465DC68C54_003.jpg
   image2x:   7C640C61-E46F-9355-A4ECAB465DC68C54_002.jpg
@@ -723,7 +728,8 @@ parkDetails:
   name:  Agate Fossil Beds
   designation: National Monument
   state: Nebraska
- -
+
+ alag:
   homepage:  https://www.nps.gov/alag/index.htm
   image1x:   67E1A54B-1DD8-B71B-0B812CD85FBE3E0C_004.jpg
   image2x:   67E1A54B-1DD8-B71B-0B812CD85FBE3E0C.jpg
