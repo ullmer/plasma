@@ -44,13 +44,6 @@ class ADImgLabeledObjPgz(ADImgLabeledObj):
         actors.append(a) #space-inefficient to store in both a lookup and a list; but easier to follow for some
         x += dx; y += dy
 
-      super().loadYaml()
-      ilmd = self.imgLabeledMetad = self.getYamlPath(self.yamlPath1)
-      if ilmd is None: 
-        self.msg("loadYaml: not finding anticipated data here: " + str(self.yamlPath1))
-        return False
-      self.msg("loadYaml d: " + str(ilmd))
-
       return True
     except: self.err("loadYaml"); return False
 
