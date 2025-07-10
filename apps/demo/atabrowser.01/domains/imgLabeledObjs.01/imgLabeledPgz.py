@@ -11,6 +11,10 @@ class ADImgLabeledObjPgz(ADImgLabeledObj):
 
   actorDict = None
   actorFns  = None
+  actorWH   = None
+  basePos      = ( 50,  50)
+  actorPosDiff = (300, 210)
+  numCols      =  2
 
   ########## initiate pygame zero ##########
   def initPgz(self):
@@ -23,10 +27,14 @@ class ADImgLabeledObjPgz(ADImgLabeledObj):
       if 'fn' not in ilmd:
         self.msg("initPgz: filename not present in metadata where expected"); return False
 
+      if 'dim' not in ilmd:
+        self.msg("initPgz: image dimension not present in metadata where expected"); return False
+
       self.actorFns  = ilmd['fn']
+      self.actorWH   = ilmd['dim']
       self.actorDict = {}
 
-       for 
+      for actorFn in self.actorFns:
 
       super().loadYaml()
       ilmd = self.imgLabeledMetad = self.getYamlPath(self.yamlPath1)
