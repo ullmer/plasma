@@ -2417,7 +2417,8 @@ parkDetails:
   name:  Fort Raleigh
   designation: National Historic Site
   state: North Carolina
- -
+
+ fosc:
   homepage:  https://www.nps.gov/fosc/index.htm
   image1x:   3FB37740-B0A7-D885-2EEFC2D6ADFAACF2_002.jpg
   image2x:   3FB37740-B0A7-D885-2EEFC2D6ADFAACF2.jpg
@@ -2427,7 +2428,8 @@ parkDetails:
   name:  Fort Scott
   designation: National Historic Site
   state: Kansas
- -
+
+ fosm:
   homepage:  https://www.nps.gov/fosm/index.htm
   image1x:   D40931FE-B098-B172-FB603CCF73DF92FC.jpg
   image2x:   D40931FE-B098-B172-FB603CCF73DF92FC_004.jpg
@@ -2437,7 +2439,8 @@ parkDetails:
   name:  Fort Smith
   designation: National Historic Site
   state: [Oklahoma, Arkansas]
- -
+
+ fost:
   homepage:  https://www.nps.gov/fost/index.htm
   image1x:   F11FDA50-1DD8-B71B-0BA6FD9735D140FA_002.jpg
   image2x:   F11FDA50-1DD8-B71B-0BA6FD9735D140FA.jpg
@@ -2447,7 +2450,8 @@ parkDetails:
   name:  Fort Stanwix
   designation: National Monument
   state: New York
- -
+
+ fosu:
   homepage:  https://www.nps.gov/fosu/index.htm
   image1x:   4E9F8F63-F9CF-801C-20F7F45F3119DCEF_002.jpg
   image2x:   4E9F8F63-F9CF-801C-20F7F45F3119DCEF_003.jpg
@@ -2457,7 +2461,8 @@ parkDetails:
   name:  Fort Sumter and Fort Moultrie
   designation: National Historical Park
   state: South Carolina
- -
+
+ foun:
   homepage:  https://www.nps.gov/foun/index.htm
   image1x:   ED53A897-1DD8-B71B-0BAC8A07158C68E8_002.jpg
   image2x:   ED53A897-1DD8-B71B-0BAC8A07158C68E8_003.jpg
@@ -2467,7 +2472,8 @@ parkDetails:
   name:  Fort Union
   designation: National Monument
   state: New Mexico
- -
+
+ fous:
   homepage:  https://www.nps.gov/fous/index.htm
   image1x:   FBDB85DA-1DD8-B71B-0B085466C35F0B92_002.jpg
   image2x:   FBDB85DA-1DD8-B71B-0B085466C35F0B92_003.jpg
@@ -2477,7 +2483,8 @@ parkDetails:
   name:  Fort Union Trading Post
   designation: National Historic Site
   state: [North Dakota, Montana]
- -
+
+ fova:
   homepage:  https://www.nps.gov/fova/index.htm
   image1x:   CB3CF57E-1DD8-B71B-0B69381E816B74B0_003.jpg
   image2x:   CB3CF57E-1DD8-B71B-0B69381E816B74B0_002.jpg
@@ -2487,7 +2494,8 @@ parkDetails:
   name:  Fort Vancouver
   designation: National Historic Site
   state: [Oregon, Washington]
- -
+
+ fowa:
   homepage:  https://www.nps.gov/fowa/index.htm
   image1x:   69A9AF1B-C2F3-E26C-7132B56EA6030358_002.jpg
   image2x:   69A9AF1B-C2F3-E26C-7132B56EA6030358_003.jpg
@@ -2497,7 +2505,8 @@ parkDetails:
   name:  Fort Washington
   designation: Park
   state: Maryland
- -
+
+ fobu:
   homepage:  https://www.nps.gov/fobu/index.htm
   image1x:   81181DB2-AA63-A896-FF60EBC8142E0D7E_003.jpg
   image2x:   81181DB2-AA63-A896-FF60EBC8142E0D7E_002.jpg
@@ -2507,7 +2516,8 @@ parkDetails:
   name:  Fossil Butte
   designation: National Monument
   state: Wyoming
- -
+
+ frpe:
   homepage:  https://www.nps.gov/frpe/index.htm
   image1x:   049855FD-B083-A68C-9E9816D242C8C64D_003.jpg
   image2x:   049855FD-B083-A68C-9E9816D242C8C64D.jpg
@@ -2518,7 +2528,8 @@ parkDetails:
   designation: National Monument
   state: Maine
   imageCredit: Department of the Interior
- -
+
+ frde:
   homepage:  https://www.nps.gov/frde/index.htm
   image1x:   819B753F-A561-DC91-9C98F61A47BD81D9.jpg
   image2x:   819B753F-A561-DC91-9C98F61A47BD81D9_003.jpg
@@ -2528,7 +2539,8 @@ parkDetails:
   name:  Franklin Delano Roosevelt Memorial
   designation: National Memorial
   state: District of Columbia
- -
+
+ frdo:
   homepage:  https://www.nps.gov/frdo/index.htm
   image1x:   50D4F6FC-1DD8-B71B-0B3563996DC21D7F.jpg
   image2x:   50D4F6FC-1DD8-B71B-0B3563996DC21D7F_003.jpg
@@ -2538,7 +2550,8 @@ parkDetails:
   name:  Frederick Douglass
   designation: National Historic Site
   state: District of Columbia
- -
+
+ frla:
   homepage:  https://www.nps.gov/frla/index.htm
   image1x:   1C78C7A0-BEE6-3C59-D271B2164AA92937.jpeg
   image2x:   1C78C7A0-BEE6-3C59-D271B2164AA92937_003.jpeg
@@ -2548,7 +2561,8 @@ parkDetails:
   name:  Frederick Law Olmsted
   designation: National Historic Site
   state: Massachusetts
- -
+
+ frsp:
   homepage:  https://www.nps.gov/frsp/index.htm
   image1x:   3983DF02-D7E7-FE86-9B6FF90EA1BD8996_003.jpg
   image2x:   3983DF02-D7E7-FE86-9B6FF90EA1BD8996.jpg
@@ -2558,7 +2572,8 @@ parkDetails:
   name:  Fredericksburg & Spotsylvania
   designation: National Military Park
   state: Virginia
- -
+
+ frri:
   homepage:  https://www.nps.gov/frri/index.htm
   image1x:   2FCADB14-1DD8-B71B-0B4669752A36A1AB_003.jpg
   image2x:   2FCADB14-1DD8-B71B-0B4669752A36A1AB_002.jpg
@@ -2568,7 +2583,8 @@ parkDetails:
   name:  Freedom Riders
   designation: National Monument
   state: Alabama
- -
+
+ frhi:
   homepage:  https://www.nps.gov/frhi/index.htm
   image1x:   09ED722A-E0D5-FFC6-64E681A02138BF7A_002.jpeg
   image2x:   09ED722A-E0D5-FFC6-64E681A02138BF7A_003.jpeg
@@ -2578,7 +2594,8 @@ parkDetails:
   name:  Friendship Hill
   designation: National Historic Site
   state: Pennsylvania
- -
+
+ gaar:
   homepage:  https://www.nps.gov/gaar/index.htm
   image1x:   80BF2CBB-1DD8-B71B-0B0EE177F0BF9659.jpg
   image2x:   80BF2CBB-1DD8-B71B-0B0EE177F0BF9659_003.jpg
@@ -2588,7 +2605,8 @@ parkDetails:
   name:  Gates Of The Arctic
   designation: National Park and Preserve
   state: Alaska
- -
+
+ gate:
   homepage:  https://www.nps.gov/gate/index.htm
   image1x:   AA9C4C86-0830-BFCA-AD7B319888F0DFBF.jpg
   image2x:   AA9C4C86-0830-BFCA-AD7B319888F0DFBF_004.jpg
@@ -2598,7 +2616,8 @@ parkDetails:
   name:  Gateway
   designation: National Recreation Area
   state: [New York, New Jersey]
- -
+
+ jeff:
   homepage:  https://www.nps.gov/jeff/index.htm
   image1x:   3B27D537-A6DF-9DFC-50E6FFA69B702157_004.jpg
   image2x:   3B27D537-A6DF-9DFC-50E6FFA69B702157_002.jpg
@@ -2608,7 +2627,8 @@ parkDetails:
   name:  Gateway Arch
   designation: National Park
   state: Missouri
- -
+
+ gari:
   homepage:  https://www.nps.gov/gari/index.htm
   image1x:   F59BB0A6-B69D-B34D-5AC5CC8E23986F72_004.jpg
   image2x:   F59BB0A6-B69D-B34D-5AC5CC8E23986F72.jpg
@@ -2618,7 +2638,8 @@ parkDetails:
   name:  Gauley River
   designation: National Recreation Area
   state: West Virginia
- -
+
+ gegr:
   homepage:  https://www.nps.gov/gegr/index.htm
   image1x:   2E54A636-1DD8-B71B-0B57FF3E4BCE76A5.jpg
   image2x:   2E54A636-1DD8-B71B-0B57FF3E4BCE76A5_003.jpg
@@ -2628,7 +2649,8 @@ parkDetails:
   name:  General Grant
   designation: National Memorial
   state: New York
- -
+
+ gero:
   homepage:  https://www.nps.gov/gero/index.htm
   image1x:   BB698C90-E38D-F45F-764E4DFBC057CF32.jpg
   image2x:   BB698C90-E38D-F45F-764E4DFBC057CF32_002.jpg
@@ -2638,7 +2660,8 @@ parkDetails:
   name:  George Rogers Clark
   designation: National Historical Park
   state: Indiana
- -
+
+ gwmp:
   homepage:  https://www.nps.gov/gwmp/index.htm
   image1x:   11E7E4CB-9DBB-BF47-244CA89A1737FC54_003.jpg
   image2x:   11E7E4CB-9DBB-BF47-244CA89A1737FC54.jpg
