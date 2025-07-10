@@ -15,9 +15,10 @@ class ADImgLabeledObj(AtaDomain):
       super().loadYaml()
       data = self.getYamlPath(self.yamlPath1)
       if data is None: 
-        self.msg("loadYaml: not finding anticipated data here:" + str(self.yamlPath1)); return
-
-    except: self.err("loadYaml")
+        self.msg("loadYaml: not finding anticipated data here: " + str(self.yamlPath1))
+        return False
+      return True
+    except: self.err("loadYaml"); return False
 
 ########## main ##########
 if __name__ == "__main__":
