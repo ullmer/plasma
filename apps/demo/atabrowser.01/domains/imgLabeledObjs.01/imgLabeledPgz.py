@@ -4,7 +4,8 @@
 
 import os, yaml
 from imgLabeledObj import *
-  
+from pgzero.builtins import Actor, animate, keyboard, keys
+
 ########## primary class ##########
 
 class ADImgLabeledObjPgz(ADImgLabeledObj):
@@ -13,6 +14,7 @@ class ADImgLabeledObjPgz(ADImgLabeledObj):
   actorFns  = None
   actorWH   = None
   actors    = None
+  verbose   = True
   basePos      = ( 50,  50)
   actorPosDiff = (300, 210)
   numCols      =  2
@@ -49,5 +51,10 @@ class ADImgLabeledObjPgz(ADImgLabeledObj):
 
   ########## pgz draw method ##########
   def draw(self, screen):
+    try:
+      if self.actors is None: 
+        if self.verbose: self.msg("draw called, but no actors present"); return
+      for a in self.actors: a.draw()
+    except: self.err("draw")
 
 ### end ###
