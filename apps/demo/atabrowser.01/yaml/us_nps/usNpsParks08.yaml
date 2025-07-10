@@ -1160,7 +1160,8 @@ parkDetails:
   designation: National Historical Park
   state: [Massachusetts, Rhode Island]
   imageCredit: Hendrickson
- -
+
+ blsc:
   homepage:  https://www.nps.gov/blsc/index.htm
   image1x:   5A6B668B-BD48-2A01-3B0BB97A950CDF1B_002.jpg
   image2x:   5A6B668B-BD48-2A01-3B0BB97A950CDF1B.jpg
@@ -1225,7 +1226,8 @@ parkDetails:
   name:  Boston African American
   designation: National Historic Site
   state: Massachusetts
- -
+
+ boha:
   homepage:  https://www.nps.gov/boha/index.htm
   image1x:   123DF6DF-EEDE-DF62-351A55456F8396D3.jpg
   image2x:   123DF6DF-EEDE-DF62-351A55456F8396D3_003.jpg
@@ -1235,7 +1237,8 @@ parkDetails:
   name:  Boston Harbor Islands
   designation: National Recreation Area
   state: Massachusetts
- -
+
+ brcr:
   homepage:  https://www.nps.gov/brcr/index.htm
   image1x:   1A4EFEC4-F1AA-8679-8258844F8E47A2AA_002.jpg
   image2x:   1A4EFEC4-F1AA-8679-8258844F8E47A2AA.jpg
@@ -1245,7 +1248,8 @@ parkDetails:
   name:  Brices Cross Roads
   designation: National Battlefield Site
   state: Mississippi
- -
+
+ brvb:
   homepage:  https://www.nps.gov/brvb/index.htm
   image1x:   F94A6B09-1DD8-B71B-0BC335C4C2ABAFE7_004.jpg
   image2x:   F94A6B09-1DD8-B71B-0BC335C4C2ABAFE7_002.jpg
@@ -1255,7 +1259,8 @@ parkDetails:
   name:  Brown v. Board of Education
   designation: National Historical Park
   state: Kansas
- -
+
+ brca:
   homepage:  https://www.nps.gov/brca/index.htm
   image1x:   1DB59E1B-A974-0512-565535214BD62FD1.jpg
   image2x:   1DB59E1B-A974-0512-565535214BD62FD1_002.jpg
@@ -1265,7 +1270,8 @@ parkDetails:
   name:  Bryce Canyon
   designation: National Park
   state: Utah
- -
+
+ buis:
   homepage:  https://www.nps.gov/buis/index.htm
   image1x:   CA7314FC-1DD8-B71B-0BB5143834507451.jpg
   image2x:   CA7314FC-1DD8-B71B-0BB5143834507451_003.jpg
@@ -1275,7 +1281,8 @@ parkDetails:
   name:  Buck Island Reef
   designation: National Monument
   state: Virgin Islands
- -
+
+ buff:
   homepage:  https://www.nps.gov/buff/index.htm
   image1x:   5FE74EAA-00F3-C05F-7E99B8EDFAF67D56_002.jpg
   image2x:   5FE74EAA-00F3-C05F-7E99B8EDFAF67D56_003.jpg
@@ -1285,7 +1292,8 @@ parkDetails:
   name:  Buffalo
   designation: National River
   state: Arkansas
- -
+
+ buov:
   homepage:  https://www.nps.gov/buov/index.htm
   image1x:   77C7752B-F031-D0B1-A5E3FB17549760FC.jpg
   image2x:   77C7752B-F031-D0B1-A5E3FB17549760FC_002.jpg
@@ -1295,7 +1303,8 @@ parkDetails:
   name:  Butterfield Overland
   designation: National Historic Trail
   state: [Arizona, California, Missouri, Oklahoma, New Mexico, Arkansas, Texas]
- -
+
+ cabr:
   homepage:  https://www.nps.gov/cabr/index.htm
   image1x:   310FA70B-0A33-0BC4-091A6EC2A618A332_004.jpeg
   image2x:   310FA70B-0A33-0BC4-091A6EC2A618A332_002.jpeg
@@ -1306,7 +1315,8 @@ parkDetails:
   designation: National Monument
   state: California
   imageCredit: Chris
- -
+
+ cali:
   homepage:  https://www.nps.gov/cali/index.htm
   image1x:   8E59DBDE-1DD8-B71B-0BB41EEEA0A5F18F_004.jpg
   image2x:   8E59DBDE-1DD8-B71B-0BB41EEEA0A5F18F_002.jpg
@@ -1316,7 +1326,8 @@ parkDetails:
   name:  California
   designation: National Historic Trail
   state: [Wyoming, Colorado, Nebraska, California, Missouri, Oregon, Idaho, Utah, Nevada, Kansas]
- -
+
+ cane:
   homepage:  https://www.nps.gov/cane/index.htm
   image1x:   4436EF04-D305-DBDF-79C2CB5FC5605720.jpg
   image2x:   4436EF04-D305-DBDF-79C2CB5FC5605720_002.jpg
@@ -1326,7 +1337,8 @@ parkDetails:
   name:  Camp Nelson
   designation: National Monument
   state: Kentucky
- -
+
+ cana:
   homepage:  https://www.nps.gov/cana/index.htm
   image1x:   351B1221-B26E-6836-DAD0C886854A3C2B_002.jpg
   image2x:   351B1221-B26E-6836-DAD0C886854A3C2B_004.jpg
@@ -1336,7 +1348,8 @@ parkDetails:
   name:  Canaveral
   designation: National Seashore
   state: Florida
- -
+
+ cari:
   homepage:  https://www.nps.gov/cari/index.htm
   image1x:   B5AB5DA6-1DD8-B71B-0B06953950B3AB6B.jpg
   image2x:   B5AB5DA6-1DD8-B71B-0B06953950B3AB6B_002.jpg
@@ -1346,7 +1359,8 @@ parkDetails:
   name:  Cane River Creole
   designation: National Historical Park
   state: Louisiana
- -
+
+ cach:
   homepage:  https://www.nps.gov/cach/index.htm
   image1x:   829664DA-1DD8-B71B-0B30DA12B4178318_002.jpg
   image2x:   829664DA-1DD8-B71B-0B30DA12B4178318_003.jpg
@@ -1356,7 +1370,8 @@ parkDetails:
   name:  Canyon de Chelly
   designation: National Monument
   state: Arizona
- -
+
+ cany:
   homepage:  https://www.nps.gov/cany/index.htm
   image1x:   48CFD420-1DD8-B71B-0B3250F8209F782D_003.jpg
   image2x:   48CFD420-1DD8-B71B-0B3250F8209F782D_002.jpg
@@ -1366,7 +1381,8 @@ parkDetails:
   name:  Canyonlands
   designation: National Park
   state: Utah
- -
+
+ caco:
   homepage:  https://www.nps.gov/caco/index.htm
   image1x:   4BB11906-E948-CE57-06B3F8C7C3B6EB75.jpg
   image2x:   4BB11906-E948-CE57-06B3F8C7C3B6EB75_003.jpg
@@ -1376,7 +1392,8 @@ parkDetails:
   name:  Cape Cod
   designation: National Seashore
   state: Massachusetts
- -
+
+ caha:
   homepage:  https://www.nps.gov/caha/index.htm
   image1x:   98F05A9B-97A6-8EA3-58F15E7AAAC4297E.jpg
   image2x:   98F05A9B-97A6-8EA3-58F15E7AAAC4297E_003.jpg
@@ -1386,7 +1403,8 @@ parkDetails:
   name:  Cape Hatteras
   designation: National Seashore
   state: North Carolina
- -
+
+ came:
   homepage:  https://www.nps.gov/came/index.htm
   image1x:   ED8EC7B7-1DD8-B71B-0BC71B1CE9860237.jpg
   image2x:   ED8EC7B7-1DD8-B71B-0BC71B1CE9860237_003.jpg
@@ -1396,7 +1414,8 @@ parkDetails:
   name:  Cape Henry Memorial
   designation: Memorial
   state: Virginia
- -
+
+ cakr:
   homepage:  https://www.nps.gov/cakr/index.htm
   image1x:   23584246-1DD8-B71B-0BF5597A602128C2.JPG
   image2x:   23584246-1DD8-B71B-0BF5597A602128C2_003.JPG
@@ -1406,7 +1425,8 @@ parkDetails:
   name:  Cape Krusenstern
   designation: National Monument
   state: Alaska
- -
+
+ calo:
   homepage:  https://www.nps.gov/calo/index.htm
   image1x:   4BA0FE0C-B652-DA0A-73A99FFC92101420_002.jpg
   image2x:   4BA0FE0C-B652-DA0A-73A99FFC92101420_004.jpg
@@ -1416,7 +1436,8 @@ parkDetails:
   name:  Cape Lookout
   designation: National Seashore
   state: North Carolina
- -
+
+ cahi:
   homepage:  https://www.nps.gov/cahi/index.htm
   image1x:   4506DC17-1DD8-B71B-0BB9269379E44FE2_002.jpg
   image2x:   4506DC17-1DD8-B71B-0BB9269379E44FE2.jpg
@@ -1426,7 +1447,8 @@ parkDetails:
   name:  Capitol Hill Parks
   designation: Park
   state: District of Columbia
- -
+
+ care:
   homepage:  https://www.nps.gov/care/index.htm
   image1x:   4278897C-E561-2333-807608024BC97BFB_003.jpg
   image2x:   4278897C-E561-2333-807608024BC97BFB_002.jpg
@@ -1436,7 +1458,8 @@ parkDetails:
   name:  Capitol Reef
   designation: National Park
   state: Utah
- -
+
+ cajo:
   homepage:  https://www.nps.gov/cajo/index.htm
   image1x:   07A984A0-AA8E-E5B7-9671D7F3873829BD_002.jpg
   image2x:   07A984A0-AA8E-E5B7-9671D7F3873829BD.jpg
@@ -1446,7 +1469,8 @@ parkDetails:
   name:  Captain John Smith Chesapeake
   designation: National Historic Trail
   state: [Virginia, New York, Maryland, Delaware, District of Columbia, Pennsylvania]
- -
+
+ cavo:
   homepage:  https://www.nps.gov/cavo/index.htm
   image1x:   2F1C93A7-1DD8-B71B-0B6D198F060D493E_003.JPG
   image2x:   2F1C93A7-1DD8-B71B-0B6D198F060D493E_002.JPG
@@ -1456,7 +1480,8 @@ parkDetails:
   name:  Capulin Volcano
   designation: National Monument
   state: New Mexico
- -
+
+ cibs:
   homepage:  https://www.nps.gov/cibs/index.htm
   image1x:   810682D3-B47F-FCD7-A203E375DCF81CA0_004.jpg
   image2x:   810682D3-B47F-FCD7-A203E375DCF81CA0_003.jpg
@@ -1466,7 +1491,8 @@ parkDetails:
   name:  Carlisle Federal Indian Boarding School
   designation: National Monument
   state: Pennsylvania
- -
+
+ carl:
   homepage:  https://www.nps.gov/carl/index.htm
   image1x:   11A17EDA-951E-6B8B-664DBA177E0FC67E_003.jpg
   image2x:   11A17EDA-951E-6B8B-664DBA177E0FC67E.jpg
@@ -1476,7 +1502,8 @@ parkDetails:
   name:  Carl Sandburg Home
   designation: National Historic Site
   state: North Carolina
- -
+
+ cave:
   homepage:  https://www.nps.gov/cave/index.htm
   image1x:   C5B8D801-1DD8-B71B-0BABA1941111F83C.jpg
   image2x:   C5B8D801-1DD8-B71B-0BABA1941111F83C_003.jpg
@@ -1486,7 +1513,8 @@ parkDetails:
   name:  Carlsbad Caverns
   designation: National Park
   state: New Mexico
- -
+
+ cawo:
   homepage:  https://www.nps.gov/cawo/index.htm
   image1x:   95B1AA40-1DD8-B71B-0BE3D0DC1FD49689_002.jpg
   image2x:   95B1AA40-1DD8-B71B-0BE3D0DC1FD49689_003.jpg
@@ -1496,7 +1524,8 @@ parkDetails:
   name:  Carter G. Woodson Home
   designation: National Historic Site
   state: District of Columbia
- -
+
+ cagr:
   homepage:  https://www.nps.gov/cagr/index.htm
   image1x:   504DD96B-B5B3-098B-C65C9CB1F36AFB8E.jpg
   image2x:   504DD96B-B5B3-098B-C65C9CB1F36AFB8E_002.jpg
@@ -1506,7 +1535,8 @@ parkDetails:
   name:  Casa Grande Ruins
   designation: National Monument
   state: Arizona
- -
+
+ casa:
   homepage:  https://www.nps.gov/casa/index.htm
   image1x:   3EC2DDE3-AAF6-3A99-3847B1EDC529808C_002.jpg
   image2x:   3EC2DDE3-AAF6-3A99-3847B1EDC529808C_003.jpg
@@ -1516,7 +1546,8 @@ parkDetails:
   name:  Castillo de San Marcos
   designation: National Monument
   state: Florida
- -
+
+ cacl:
   homepage:  https://www.nps.gov/cacl/index.htm
   image1x:   D68FF211-F3E8-C86F-E7F2410EA592C7D2.jpg
   image2x:   D68FF211-F3E8-C86F-E7F2410EA592C7D2_002.jpg
@@ -1526,7 +1557,8 @@ parkDetails:
   name:  Castle Clinton
   designation: National Monument
   state: New York
- -
+
+ camo:
   homepage:  https://www.nps.gov/camo/index.htm
   image1x:   C97D2ADC-1DD8-B71B-0BF7356391F8D316_003.jpg
   image2x:   C97D2ADC-1DD8-B71B-0BF7356391F8D316.jpg
@@ -1536,7 +1568,8 @@ parkDetails:
   name:  Castle Mountains
   designation: National Monument
   state: California
- -
+
+ cato:
   homepage:  https://www.nps.gov/cato/index.htm
   image1x:   F1606B1E-B0DE-2DE2-9568FEA588A710AC_003.jpg
   image2x:   F1606B1E-B0DE-2DE2-9568FEA588A710AC.jpg
@@ -1546,7 +1579,8 @@ parkDetails:
   name:  Catoctin Mountain
   designation: Park
   state: Maryland
- -
+
+ cebr:
   homepage:  https://www.nps.gov/cebr/index.htm
   image1x:   0C256CF4-1DD8-B71B-0B9DCFFD72E44508_002.jpg
   image2x:   0C256CF4-1DD8-B71B-0B9DCFFD72E44508.jpg
@@ -1556,7 +1590,8 @@ parkDetails:
   name:  Cedar Breaks
   designation: National Monument
   state: Utah
- -
+
+ cebe:
   homepage:  https://www.nps.gov/cebe/index.htm
   image1x:   E708A0B8-1DD8-B71B-0B9A2E6996098C41_003.jpg
   image2x:   E708A0B8-1DD8-B71B-0B9A2E6996098C41_002.jpg
@@ -1566,7 +1601,8 @@ parkDetails:
   name:  Cedar Creek & Belle Grove
   designation: National Historical Park
   state: Virginia
- -
+
+ cech:
   homepage:  https://www.nps.gov/cech/index.htm
   image1x:   D2B796CB-1DD8-B71B-0B87A3571B6F975D_003.jpg
   image2x:   D2B796CB-1DD8-B71B-0B87A3571B6F975D_002.jpg
@@ -1576,7 +1612,8 @@ parkDetails:
   name:  "César E. Chávez"
   designation: National Monument
   state: California
- -
+
+ chcu:
   homepage:  https://www.nps.gov/chcu/index.htm
   image1x:   CB75ACC1-9D56-9304-9679B6E3FD2CEA8E_004.jpg
   image2x:   CB75ACC1-9D56-9304-9679B6E3FD2CEA8E.jpg
@@ -1586,7 +1623,8 @@ parkDetails:
   name:  Chaco Culture
   designation: National Historical Park
   state: New Mexico
- -
+
+ cham:
   homepage:  https://www.nps.gov/cham/index.htm
   image1x:   EC4343F9-D1D2-636A-1F26EBE8A948C05D_003.jpg
   image2x:   EC4343F9-D1D2-636A-1F26EBE8A948C05D_002.jpg
@@ -1596,7 +1634,8 @@ parkDetails:
   name:  Chamizal
   designation: National Memorial
   state: Texas
- -
+
+ chis:
   homepage:  https://www.nps.gov/chis/index.htm
   image1x:   8B1831DF-1DD8-B71B-0BF9865C590EE5A5_002.jpg
   image2x:   8B1831DF-1DD8-B71B-0BF9865C590EE5A5_003.jpg
@@ -1606,7 +1645,8 @@ parkDetails:
   name:  Channel Islands
   designation: National Park
   state: California
- -
+
+ chpi:
   homepage:  https://www.nps.gov/chpi/index.htm
   image1x:   5172D06D-9039-1D8C-646EADD4BDE18D3B_002.jpg
   image2x:   5172D06D-9039-1D8C-646EADD4BDE18D3B_003.jpg
@@ -1616,7 +1656,8 @@ parkDetails:
   name:  Charles Pinckney
   designation: National Historic Site
   state: South Carolina
- -
+
+ chyo:
   homepage:  https://www.nps.gov/chyo/index.htm
   image1x:   4AB46AAB-A8B7-7986-00A7272A3887F666_003.jpg
   image2x:   4AB46AAB-A8B7-7986-00A7272A3887F666_002.jpg
@@ -1626,7 +1667,8 @@ parkDetails:
   name:  Charles Young Buffalo Soldiers
   designation: National Monument
   state: Ohio
- -
+
+ chat:
   homepage:  https://www.nps.gov/chat/index.htm
   image1x:   222AC627-09A4-0ABD-3FABB253D16A4C95_003.jpg
   image2x:   222AC627-09A4-0ABD-3FABB253D16A4C95_002.jpg
@@ -1636,7 +1678,8 @@ parkDetails:
   name:  Chattahoochee River
   designation: National Recreation Area
   state: Georgia
- -
+
+ chpo:
   homepage:  https://www.nps.gov/cbpo/index.htm
   image1x:   D01ED828-C9B3-B4F0-23A6FBE3FBC4A262_004.jpg
   image2x:   D01ED828-C9B3-B4F0-23A6FBE3FBC4A262.jpg
@@ -1646,7 +1689,8 @@ parkDetails:
   name:  Chesapeake Bay
   designation: Ecological and Historic Preserve
   state: [Virginia, New York, Maryland, Delaware, District of Columbia, Pennsylvania, West Virginia]
- -
+
+ choh:
   homepage:  https://www.nps.gov/choh/index.htm
   image1x:   FC4A26B4-07C2-1984-FA7B062845717558_003.jpg
   image2x:   FC4A26B4-07C2-1984-FA7B062845717558_002.jpg
@@ -1656,7 +1700,8 @@ parkDetails:
   name:  Chesapeake & Ohio Canal
   designation: National Historical Park
   state: [Maryland, District of Columbia, West Virginia]
- -
+
+ chch:
   homepage:  https://www.nps.gov/chch/index.htm
   image1x:   A6A2F51B-DE72-79AF-158DBA8A9905E017_003.jpg
   image2x:   A6A2F51B-DE72-79AF-158DBA8A9905E017.jpg
@@ -1666,7 +1711,8 @@ parkDetails:
   name:  Chickamauga & Chattanooga
   designation: National Military Park
   state: [Tennessee, Georgia]
- -
+
+ chic:
   homepage:  https://www.nps.gov/chic/index.htm
   image1x:   765FE49B-E4A7-6E30-B382A3A9ECD53F85_004.jpg
   image2x:   765FE49B-E4A7-6E30-B382A3A9ECD53F85_002.jpg
