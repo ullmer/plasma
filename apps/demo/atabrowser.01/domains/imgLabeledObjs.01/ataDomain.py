@@ -10,6 +10,7 @@ class AtaDomain:
   yamlPath = '~/git/plasma/apps/demo/atabrowser.01/yaml/'
   yamlFn   = None
   yamlD    = None
+  verbose  = True
   yamlPathSeparator = ':' #allowing paths to be expressed like a:b:c
 
   ########## constructor ##########
@@ -52,9 +53,11 @@ class AtaDomain:
 
     try:
       keys = path.split(self.yamlPathSeparator)
+      if self.verbose: self.msg("getYamlPath " + str(keys))
+      yd = self.yamlD
       for key in keys:
-        if isinstance(data, dict) and key in data: data = data[key]
-        else:                                      return None
+        if isinstance(yd, dict) and key in yd: data = yd[key]
+        else:                                  return None
 
       return data
     except: self.err("getYamlPath")
