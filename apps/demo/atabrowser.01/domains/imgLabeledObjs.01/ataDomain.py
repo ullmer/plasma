@@ -50,12 +50,12 @@ class AtaDomain:
 
     try:
       keys = path.split(self.yamlPathSeparator)
+      for key in keys:
+        if isinstance(data, dict) and key in data: data = data[key]
+        else:                                      return None
 
-      for key in keys:
-        if isinstance(data, dict) and key in data: data = data[key]
-        else:                                      return None  
-
-    return data
+      return data
+    except: self.err("getYamlPath")
 
   ########## loadYaml ##########
   def printYaml(self): print(self.yamlD)
