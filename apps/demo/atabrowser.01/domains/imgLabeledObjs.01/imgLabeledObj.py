@@ -6,7 +6,9 @@ import os, yaml
 from ataDomain import *
 
 class ADImgLabeledObj(AtaDomain):
-  yamlFn    = 'us_nps/sc.yaml'
+  yamlFn1   = 'us_nps/sc.yaml'
+  yamlFn2   = 'us_nps/usNpsParks07.yaml'
+
   yamlPath1 = 'sc:nps:meta'
 
   imgLabeledMetad = None
