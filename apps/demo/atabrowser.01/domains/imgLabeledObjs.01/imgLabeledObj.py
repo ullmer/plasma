@@ -8,12 +8,14 @@ from yamlRc    import *
 
 class ADImgLabeledObj(AtaDomain):
   yamlFnSC   = 'us_nps/sc.yaml'
-  yamlFnNPS  = 'us_nps/usNpsParks07.yaml'
+  yamlFnNPS  = 'us_nps/usNpsParks08.yaml'
 
   yamlSCrc  = None
   yamlNPSrc = None
 
-  yamlSCPath1 = 'sc:nps:meta'
+  objDetailsDict   = None
+  objDetailsPrefix = 'parkDetails:'
+  yamlSCPath1      = 'sc:nps:meta'
 
   imgLabeledMetad = None
 
@@ -28,6 +30,21 @@ class ADImgLabeledObj(AtaDomain):
         self.msg("loadYaml: not finding anticipated data here: " + str(self.yamlSCPath1))
         return False
       self.msg("loadYaml d: " + str(ilmd))
+
+      if 'fn' not in ilmd:
+        self.msg("initPgz: filename not present in metadata where expected"); return False
+
+      self.objDetailsDict = {}
+      ofns = self.objFns  = ilmd['fn']
+      for ofn1 in ofns: 
+        # in warmup, postfixed with 2 (relating to pixel density); strip that
+        ofn2 = ofn1[:-1]
+        self.msg(ofn2)
+
+        yp = self.objDetailsPrefix + ofn2
+        od = yn.getYamlPath(yp)
+        if od is None: self.msg("loadYaml: obj details not found for path " + str(yp); continue
+        self.objDetailsDict[ofn2] = od
 
       return True
     except: self.err("loadYaml"); return False
