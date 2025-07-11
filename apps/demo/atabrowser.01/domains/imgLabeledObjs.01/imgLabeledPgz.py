@@ -17,8 +17,8 @@ class ADImgLabeledObjPgz(ADImgLabeledObj):
   actorWH   = None
   actors    = None
   verbose   = True
-  basePos      = (160, 110)
-  actorPosDiff = (300, 210)
+  basePos      = (460, 110)
+  actorPosDiff = (600, 210)
   numCols      =  2
 
   ########## initiate pygame zero ##########
@@ -49,7 +49,8 @@ class ADImgLabeledObjPgz(ADImgLabeledObj):
         fn = self.imgPathPrefix + actorFn
         a = Actor(fn, pos=(x,y))
         self.actorDict[actorFn] = a
-        self.actors.append(a) #space-inefficient to store in both a lookup and a list; but easier to follow for some
+        self.actors.append(a) #space-inefficient to store in both a lookup and a list; 
+                              # but easier to follow for some
 
         idxX += 1; x += dx
         if idxX >= self.numCols: 
