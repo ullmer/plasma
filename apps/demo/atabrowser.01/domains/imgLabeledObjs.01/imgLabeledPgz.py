@@ -59,6 +59,14 @@ class ADImgLabeledObjPgz(ADImgLabeledObj):
           x     = bx
           y    += dy
 
+        objHandle = actorFn[:-1] 
+
+        if self.objDetailsDict is None:
+          self.msg("initPgz: object details dictionary is not populated"); return False
+
+        if objHandle in self.objDetailsDict: # get associated image filename
+          pass
+
       return True
     except: self.err("loadYaml"); return False
 

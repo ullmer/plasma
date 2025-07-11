@@ -43,7 +43,7 @@ class ADImgLabeledObj(AtaDomain):
 
         yp = self.objDetailsPrefix + ofn2
         od = yn.getYamlPath(yp)
-        if od is None: self.msg("loadYaml: obj details not found for path " + str(yp); continue
+        if od is None: self.msg("loadYaml: obj details not found for path " + str(yp)); continue
         self.objDetailsDict[ofn2] = od
 
       return True
