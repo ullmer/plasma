@@ -24,5 +24,20 @@
 # with tightly limited storage, and toward initial demonstration, it's hopefully a pragmatic
 # compromise, with some abstraction to support for extension.
 
+import ataBase
+
+class AtaFileCache(AtaBase):
+  cachePath1 = None
+  cachePath2 = None
+
+  useSymlinks = True
+  useNumerics = True
+  currentNumIdx = 0
+  numIdxDigits  = 4
+
+  def mapIdxToPaddedNumStr(idx: int):
+    try:    return str(idx).zfill(self.numIdxDigits)
+    except: self.err("mapIdxToPaddedNumStr")
+
 ### end ### 
 
