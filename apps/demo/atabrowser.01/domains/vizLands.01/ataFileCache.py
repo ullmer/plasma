@@ -24,6 +24,7 @@
 # with tightly limited storage, and toward initial demonstration, it's hopefully a pragmatic
 # compromise, with some abstraction to support for extension.
 
+import os
 import ataBase
 
 class AtaFileCache(AtaBase):
@@ -41,7 +42,8 @@ class AtaFileCache(AtaBase):
   def __init__(): 
     try: 
       super().__init__()
-     self.cacheDict = {}
+      self.cacheDict = {}
+    except: self.err("constructor")
 
   ################# constructor #################
 
@@ -52,7 +54,15 @@ class AtaFileCache(AtaBase):
 
       if path1 in self.cacheDict: return self.cacheDict(path1)
 
-      
+      cp2 = self.cachePath2
+      if os.path.isdir(cp2) is False:
+        self.msg("mapPaths: target cache path does not appear to be a directory")
+        return None
+
+      if os.assess(cp2, os.W_OK) is False:
+        self.msg("mapPaths: target cache path directory appears to exist, but not be writable")
+        return None
+
 
     except: self.err("mapIdxToPaddedNumStr")
 
