@@ -34,6 +34,29 @@ class AtaFileCache(AtaBase):
   useNumerics = True
   currentNumIdx = 0
   numIdxDigits  = 4
+  cacheDict     = None
+
+  ################# constructor #################
+
+  def __init__(): 
+    try: 
+      super().__init__()
+     self.cacheDict = {}
+
+  ################# constructor #################
+
+  def mapPaths(path1: str):
+    try:    
+      if self.cacheDict is None: 
+        self.msg("mapPaths curiosity: cache dictionary is empty"); return None
+
+      if path1 in self.cacheDict: return self.cacheDict(path1)
+
+      
+
+    except: self.err("mapIdxToPaddedNumStr")
+
+  ################# constructor #################
 
   def mapIdxToPaddedNumStr(idx: int):
     try:    return str(idx).zfill(self.numIdxDigits)
