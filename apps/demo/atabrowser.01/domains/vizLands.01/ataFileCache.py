@@ -33,21 +33,21 @@ class AtaFileCache(AtaBase):
 
   useSymlinks = True
   useNumerics = True
-  currentNumIdx = 0
-  numIdxDigits  = 4
-  cacheDict     = None
+  currentCacheIdx = 0
+  numIdxDigits    = 4
+  cacheDict       = None
 
   ################# constructor #################
 
-  def __init__(): 
+  def __init__(self): 
     try: 
       super().__init__()
       self.cacheDict = {}
     except: self.err("constructor")
 
-  ################# constructor #################
+  ################# map cache paths #################
 
-  def mapPaths(path1: str):
+  def mapPaths(self, path1: str): # name could benefit from reconsideration
     try:    
       if self.cacheDict is None: 
         self.msg("mapPaths curiosity: cache dictionary is empty"); return None
@@ -66,9 +66,15 @@ class AtaFileCache(AtaBase):
 
     except: self.err("mapIdxToPaddedNumStr")
 
+  ################# increment cache index #################
+
+  def incrCacheIdx(self):
+    try: 
+  currentCacheIdx = 0
+
   ################# constructor #################
 
-  def mapIdxToPaddedNumStr(idx: int):
+  def mapIdxToPaddedNumStr(self, idx: int):
     try:    return str(idx).zfill(self.numIdxDigits)
     except: self.err("mapIdxToPaddedNumStr")
 
