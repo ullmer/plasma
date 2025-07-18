@@ -16,7 +16,7 @@ class ADVizLands(AtaDomain):
   objDetailsDict   = None
   objDetailsPrefix = 'parkDetails:'
   yamlSCPath1      = 'sc:nps:meta'
-  img1x, img3x     = None
+  img1x, img3x     = None, None
 
   imgLabeledMetad = None
 

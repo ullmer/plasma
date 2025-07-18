@@ -46,10 +46,12 @@ class ADVizLandsPgz(ADVizLands):
       idxX, idxY = 0, 0
 
       for actorFn in self.actorFns:
-        fn = self.imgPathPrefix + actorFn
-        a = Actor(fn, pos=(x,y))
-        self.actorDict[actorFn] = a
-        self.actors.append(a) #space-inefficient to store in both a lookup and a list; 
+        fn1 = self.imgPathPrefix + actorFn
+        fn2 = self.imgPathPrefix + self.img1x
+        print("1+2: " + str([fn1, fn2]))
+        a1 = Actor(fn1, pos=(x,y))
+        self.actorDict[actorFn] = a1
+        self.actors.append(a1) #space-inefficient to store in both a lookup and a list; 
                               # but easier to follow for some
 
         idxX += 1; x += dx
