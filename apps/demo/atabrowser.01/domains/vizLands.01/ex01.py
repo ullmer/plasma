@@ -3,7 +3,7 @@
 # Begun 2025-07-09
 
 WIDTH, HEIGHT = 1600, 1000
-from imgLabeledPgz import *
+from vizLandsPgz import *
 
 ilp = ADImgLabeledObjPgz()
 ilp.loadYaml()

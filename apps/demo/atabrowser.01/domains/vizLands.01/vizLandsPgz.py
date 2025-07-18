@@ -3,7 +3,7 @@
 # Begun 2025-07-09
 
 import os, yaml
-from imgLabeledObj import *
+from vizLands import *
 from pgzero.builtins import Actor, animate, keyboard, keys
 
 ########## primary class ##########
