@@ -33,6 +33,7 @@ class AtaFileCache(AtaBase):
 
   useSymlinks = True
   useNumerics = True
+
   currentCacheIdx = 0
   numIdxDigits    = 4
   cacheDict       = None
@@ -94,8 +95,30 @@ class AtaFileCache(AtaBase):
       idx = self.incrCacheIdx()
       pns = self.mapIdxToPaddedNumStr(idx)
 
-  cachePath2 = None
-      return pn
+      cpwd = self.confirmCachePathWritableDir()
+      if cpwd is False: 
+        self.msg("getNextCachePath: punting due to cache path directory issue");
+        return None
+
+      result = os.path.join(self.cachePath2, pns) 
+      return result
+    except: self.err("getNextCachePath")
+
+  ################# getNextCachePath #################
+  # takes a fn1 -- initially relative to a path expressed by cachePath1 
+  # first tests if this exists (initially limited to pre-cached variants in local filespace)
+  # then, attempt creation of an (initially numeric, symlinked) ~proxy if allowed.
+  # initially, if any of this is not so, punt, hopefully with appropriate reporting
+
+  def cachePaths(self, fn1: str, cachepath: str):
+    try:
+      if self.useSymlinks is not True:
+        self.msg("cachePaths: use symlinks is not set; this case is not yet supported"); return False
+
+      if self.useNumerics is not True:
+        self.msg("cachePaths: use numerics is not set; this case is not yet supported"); return False
+
+    except: self.err("cachePaths")
 
 ### end ### 
 
