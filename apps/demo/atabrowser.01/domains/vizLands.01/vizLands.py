@@ -46,6 +46,10 @@ class ADVizLands(AtaDomain):
         if od is None: self.msg("loadYaml: obj details not found for path " + str(yp)); continue
         self.objDetailsDict[ofn2] = od
 
+        img1x = od['image1x']
+        img3x = od['image3x']
+        print("1+3: " + str([img1x, img3x]))
+
       return True
     except: self.err("loadYaml"); return False
 

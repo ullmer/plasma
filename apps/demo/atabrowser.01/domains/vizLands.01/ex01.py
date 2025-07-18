@@ -4,11 +4,10 @@
 
 import os
 
-os.environ['SDL_VIDEO_WINDOW_POS'] = '0,0'
+os.environ['SDL_VIDEO_WINDOW_POS'] = '0,0' #place window at top-left
 WIDTH, HEIGHT = 1600, 1000
 
 import pgzrun
-
 from vizLandsPgz import *
 
 avlp = ADVizLandsPgz()
