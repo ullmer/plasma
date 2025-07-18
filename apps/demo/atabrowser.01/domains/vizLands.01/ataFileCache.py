@@ -48,12 +48,16 @@ class AtaFileCache(AtaBase):
 
   ################# map cache paths #################
 
-  def mapPaths(self, path1: str): # name could benefit from reconsideration
+  def mapPaths(self, srcFn: str): # name could benefit from reconsideration
     try:    
       if self.cacheDict is None: 
         self.msg("mapPaths curiosity: cache dictionary is empty"); return None
 
-      if path1 in self.cacheDict: return self.cacheDict(path1)
+      if srcFn in self.cacheDict: return self.cacheDict(srcFn)
+
+      cp = self.cachePath(srcFn)
+      self.cacheDict[srcFn] = cp
+      return cp
 
     except: self.err("mapIdxToPaddedNumStr")
 
@@ -110,7 +114,7 @@ class AtaFileCache(AtaBase):
   # then, attempt creation of an (initially numeric, symlinked) ~proxy if allowed.
   # initially, if any of this is not so, punt, hopefully with appropriate reporting
 
-  def cachePaths(self, fn1: str, cachepath: str):
+  def cachePath(self, fn: str):
     try:
       if self.useSymlinks is not True:
         self.msg("cachePaths: use symlinks is not set; this case is not yet supported"); return False
@@ -121,11 +125,16 @@ class AtaFileCache(AtaBase):
       if self.cachePath1 is None:
         self.msg("cachePaths: source cache path is unset"); return
 
-      path1 = os.join(self.cachePath1, fn1)
-      pe    = os.path.exists(path1)
+      src = os.join(self.cachePath1, fn)
+      pe  = os.path.exists(src)
       if pe is False: self.msg("cachePaths: source path doesn't exist: " + str(pe)); return False
   
-      path2 = self.getNextCachePath()
+      dest = self.getNextCachePath()
+
+      try:    os.symlink(src, dest)
+      except: self.err("cachePaths: symlinking paths attempted, but failed")
+
+      return dest #successful symlinked cache
       
     except: self.err("cachePaths")
 
