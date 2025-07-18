@@ -118,6 +118,15 @@ class AtaFileCache(AtaBase):
       if self.useNumerics is not True:
         self.msg("cachePaths: use numerics is not set; this case is not yet supported"); return False
 
+      if self.cachePath1 is None:
+        self.msg("cachePaths: source cache path is unset"); return
+
+      path1 = os.join(self.cachePath1, fn1)
+      pe    = os.path.exists(path1)
+      if pe is False: self.msg("cachePaths: source path doesn't exist: " + str(pe)); return False
+  
+      path2 = self.getNextCachePath()
+      
     except: self.err("cachePaths")
 
 ### end ### 
