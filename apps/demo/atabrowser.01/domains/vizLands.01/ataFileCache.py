@@ -54,29 +54,48 @@ class AtaFileCache(AtaBase):
 
       if path1 in self.cacheDict: return self.cacheDict(path1)
 
+    except: self.err("mapIdxToPaddedNumStr")
+
+  ################# increment cache index #################
+  
+  def confirmCachePathWritableDir(self):
+    try:
       cp2 = self.cachePath2
       if os.path.isdir(cp2) is False:
         self.msg("mapPaths: target cache path does not appear to be a directory")
-        return None
+        return False
 
       if os.assess(cp2, os.W_OK) is False:
         self.msg("mapPaths: target cache path directory appears to exist, but not be writable")
-        return None
+        return False
 
-
-    except: self.err("mapIdxToPaddedNumStr")
+      return True
+    except: self.err("confirmCachePathWritableDir")
 
   ################# increment cache index #################
 
   def incrCacheIdx(self):
-    try: 
-  currentCacheIdx = 0
+    try:    self.currentCacheIdx += 1; return self.currentCacheIdx
+    except: self.err("incrCacheIdx")
 
-  ################# constructor #################
+  ################# map index to padded numeric string #################
 
   def mapIdxToPaddedNumStr(self, idx: int):
     try:    return str(idx).zfill(self.numIdxDigits)
     except: self.err("mapIdxToPaddedNumStr")
+
+  ################# getNextCachePath #################
+
+  def getNextCachePath(self):
+    try:
+      if self.cachePath2 is None:
+        self.msg("getNextCachePath: problem with cache path"
+
+      idx = self.incrCacheIdx()
+      pns = self.mapIdxToPaddedNumStr(idx)
+
+  cachePath2 = None
+      return pn
 
 ### end ### 
 
