@@ -8,7 +8,7 @@ from pgzero.builtins import Actor, animate, keyboard, keys
 
 ########## primary class ##########
 
-class ADImgLabeledObjPgz(ADImgLabeledObj):
+class ADVizLandsPgz(ADVizLands):
 
   imgPathPrefix = 'us_nps/meta/'
 

@@ -6,7 +6,7 @@ import os, yaml
 from ataDomain import *
 from yamlRc    import *
 
-class ADImgLabeledObj(AtaDomain):
+class ADVizLands(AtaDomain):
   yamlFnSC   = 'us_nps/sc.yaml'
   yamlFnNPS  = 'us_nps/usNpsParks08.yaml'
 
@@ -51,7 +51,7 @@ class ADImgLabeledObj(AtaDomain):
 
 ########## main ##########
 if __name__ == "__main__":
-  adilo = ADImgLabeledObj()
+  adilo = ADVizLands()
   adilo.loadYaml()
 
 #Initial key directories

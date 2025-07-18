@@ -5,10 +5,10 @@
 WIDTH, HEIGHT = 1600, 1000
 from vizLandsPgz import *
 
-ilp = ADImgLabeledObjPgz()
-ilp.loadYaml()
-ilp.initPgz()
+avlp = ADVizLandsPgz()
+avlp.loadYaml()
+avlp.initPgz()
 
-def draw(): screen.clear(); ilp.draw(screen)
+def draw(): screen.clear(); avlp.draw(screen)
 
 ### end ###
