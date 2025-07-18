@@ -10,15 +10,17 @@ from pgzero.builtins import Actor, animate, keyboard, keys
 
 class ADVizLandsPgz(ADVizLands):
 
-  imgPathPrefix = 'us_nps/meta/'
+  imgPathPrefix1 = 'us_nps/meta/'
+  imgPathPrefix2 = 'us_nps/cache/'
 
-  actorDict = None
+  actorDictMeta  = None
+  actorDictThumb = None
   actorFns  = None
   actorWH   = None
-  actors    = None
   verbose   = True
   basePos      = (460, 110)
   actorPosDiff = (600, 210)
+  actRelDiff   = (-500, 0) #clearly inadequate naming, but a start
   numCols      =  2
 
   ########## initiate pygame zero ##########
@@ -40,26 +42,28 @@ class ADVizLandsPgz(ADVizLands):
       self.actorDict = {}
       self.actors    = []
       bx, by         = self.basePos
-      dx, dy         = self.actorPosDiff
+      dx1, dy1       = self.actorPosDiff
+      dx2, dy2       = self.actRelDiff
 
       x, y       = bx, by
       idxX, idxY = 0, 0
 
       for actorFn in self.actorFns:
-        fn1 = self.imgPathPrefix + actorFn
-        fn2 = self.imgPathPrefix + self.img1x
-        print("1+2: " + str([fn1, fn2]))
+        fn1 = self.imgPathPrefix1 + actorFn
+        fn2 = self.imgPathPrefix2 + self.img1x
+        if self.verbose: self.msg("1+2: " + str([fn1, fn2]))
         a1 = Actor(fn1, pos=(x,y))
-        self.actorDict[actorFn] = a1
-        self.actors.append(a1) #space-inefficient to store in both a lookup and a list; 
-                              # but easier to follow for some
+        a2 = Actor(fn2, pos=(x+dx2, y+dy2))
 
-        idxX += 1; x += dx
+        self.actorDictMeta[actorFn]  = a1
+        self.actorDictThumb[actorFn] = a2
+
+        idxX += 1; x += dx1
         if idxX >= self.numCols: 
           idxX  = 0
           idxY += 1
           x     = bx
-          y    += dy
+          y    += dy1
 
         objHandle = actorFn[:-1] 
 
@@ -75,9 +79,16 @@ class ADVizLandsPgz(ADVizLands):
   ########## pgz draw method ##########
   def draw(self, screen):
     try:
-      if self.actors is None: 
-        if self.verbose: self.msg("draw called, but no actors present"); return
-      for a in self.actors: a.draw()
+      if self.actorDictThumb is not None: 
+       for an in self.actorDictThumb:
+         a1 = self.actorDictThumb[an]
+         a1.draw()
+        
+      if self.actorDictMeta is not None: 
+       for an in self.actorDictMeta:
+         a1 = self.actorDictMeta[an]
+         a1.draw()
+
     except: self.err("draw")
 
 ### end ###
