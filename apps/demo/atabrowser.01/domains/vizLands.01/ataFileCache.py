@@ -44,10 +44,10 @@ class AtaFileCache(AtaBase):
 
   autoloadCacheMap           = True
   cacheMapUpdatedThisSession = False
+  backupYamlLogOnEachStart   = True
   logMapToYaml               = True
   flushYamlMapAfterEachEntry = True
   closeYamlFAfterEachEntry   = False
-  backupYamlLogOnEachStart   = True
 
   ################# constructor #################
 
@@ -81,7 +81,7 @@ class AtaFileCache(AtaBase):
 
   def replicateYamlCacheToBkup(self):
     try:
-      if os.path.exists(self.yamlMapPrimaryFn) is False:
+      if not os.path.exists(self.yamlMapPrimaryFn):
         self.msg("replicateYamlCacheToBkup called, but existing yaml cache map not found")
         return False
 
@@ -91,7 +91,16 @@ class AtaFileCache(AtaBase):
       return True
     except: self.err("replicateYamlCacheToBkup"); return False 
 
-  def logMapToYaml(self, srcFn: str): # name could benefit from reconsideration
+  ################# logCacheMapEntryToYaml #################
+
+  def logCacheMapEntryToYaml(self, srcFn: str, targFn: str):
+    try:
+      if self.backupYamlLogOnEachStart and 
+         not self.cacheMapUpdatedThisSession:
+
+        self.replicateYamlCacheToBkup()
+        self.cacheMapUpdatedThisSession = True
+    except: self.err("logCacheMapEntryToYaml")
 
   ################# map cache paths #################
 
