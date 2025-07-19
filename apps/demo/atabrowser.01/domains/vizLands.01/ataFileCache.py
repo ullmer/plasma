@@ -200,6 +200,8 @@ class AtaFileCache(AtaBase):
       try:    os.symlink(src, dest)
       except: self.err("cachePaths: symlinking paths attempted, but failed")
 
+      self.logCacheMapEntryToYaml(src, dest)
+
       return dest #successful symlinked cache
       
     except: self.err("cachePaths")
