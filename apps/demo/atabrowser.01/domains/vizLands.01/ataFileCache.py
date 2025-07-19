@@ -76,10 +76,11 @@ class AtaFileCache(AtaBase):
       if isinstance(yd, dict): 
         for key in yd:
           entry = yd[key]
-          lastNotedCacheIdx, fn = entry.idx, entry.fn
+          #self.msg("loadCacheMap iter " + str(entry))
+          lastNotedCacheIdx, fn = entry['idx'], entry['fn']
           self.cacheDict[key] = fn
 
-        self.currentCacheIdx = lastNotedCacheIdx() + 1
+        self.currentCacheIdx = lastNotedCacheIdx + 1
         return True #successful
 
       self.msg("loadCacheMap: curious: yaml cache map loaded, but not a dictionary as anticipated")
