@@ -25,7 +25,7 @@
 # compromise, with some abstraction to support for extension.
 
 import os, yaml, shutil
-import ataBase
+from ataBase import *
 
 class AtaFileCache(AtaBase):
   cachePath1 = None
@@ -64,7 +64,7 @@ class AtaFileCache(AtaBase):
   def loadCacheMap(self):
     try:
       if os.path.exists(self.yamlMapPrimaryFn) is False:
-        self.msg('loadCacheMap: pre-existing yaml cache map not found. This will be created")
+        self.msg("loadCacheMap: pre-existing yaml cache map not found. This will be created")
         return False # no cache map loaded, but not necessarily a problem
 
       f  = open(self.yamlMapPrimaryFn, 'rt')
@@ -95,16 +95,14 @@ class AtaFileCache(AtaBase):
 
   def logCacheMapEntryToYaml(self, srcFn: str, targFn: str):
     try:
-      if self.backupYamlLogOnEachStart and 
-         not self.cacheMapUpdatedThisSession:
-
+      if self.backupYamlLogOnEachStart and not self.cacheMapUpdatedThisSession:
         self.replicateYamlCacheToBkup()
         self.cacheMapUpdatedThisSession = True
 
       if self.yamlMapPrimaryF is None: #file not open
         self.yamlMapPrimaryF = open(self.yamlMapPrimaryFn, 'at') #open for appending
 
-      outstr = '"%s": %s\n" % (srcFn, targFn) # quoting asymmetry may be worth revisiting
+      outstr = "\"%s\": %s\n" % (srcFn, targFn) # quoting asymmetry may be worth revisiting
       self.yamlMapPrimaryF.write(outstr)
 
       if self.flushYamlMapAfterEachEntry: self.yamlMapPrimaryF.flush()
@@ -160,7 +158,7 @@ class AtaFileCache(AtaBase):
   def getNextCachePath(self):
     try:
       if self.cachePath2 is None:
-        self.msg("getNextCachePath: problem with cache path"
+        self.msg("getNextCachePath: problem with cache path"); return None
 
       idx = self.incrCacheIdx()
       pns = self.mapIdxToPaddedNumStr(idx)
