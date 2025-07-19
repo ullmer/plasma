@@ -71,11 +71,34 @@ class AtaFileCache(AtaBase):
       yd = yaml.safe_load(f)
       f.close()
 
-      if isinstance(yd, dict): self.cacheDict = yd; return True #successful
+      if isinstance(yd, dict): 
+        self.cacheDict = yd
+        self.currentCacheIdx = self.findLastNotedCacheIdx() + 1
+        return True #successful
 
       self.msg("loadCacheMap: curious: yaml cache map loaded, but not a dictionary as anticipated")
       return False
     except: self.err("loadCacheMap"); return False
+
+  ################# find last noted cache index #################
+
+  def findLastNotedCacheIdx(self):
+    try:
+      largestObservedIdx = None
+
+      if self.cacheDict is None:  
+        self.msg("findLastNotedCacheIdx: cache dict not instantiated"); return None
+
+      if not istype(self.cacheDict, dict): 
+        self.msg("findLastNotedCacheIdx: cache dict not a dictionary"); return None
+
+      for key in self.cacheDict:
+        destPath  = self.cacheDict[key]
+        bn        = os.path.basename(destPath)
+        root, ext = os.path.splitext(bn)
+        idxStr    = 
+
+    except: self.err("findLastNotedCacheIdx")
       
   ################# replicate Yaml Cache to Bkup #################
 
@@ -190,6 +213,8 @@ class AtaFileCache(AtaBase):
         self.msg("cachePaths: source cache path is unset"); return
 
       src = os.path.join(self.cachePath1, fn)
+      if src in self.cacheDict: return self.cacheDict[src]
+
       base, ext = os.path.splitext(src)
       pe  = os.path.exists(src)
       if pe is False: self.msg("cachePaths: source path doesn't exist: " + str(pe)); return False
