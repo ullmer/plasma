@@ -206,5 +206,15 @@ class AtaFileCache(AtaBase):
       
     except: self.err("cachePaths")
 
+#### test stub ####
+
+if __name__ == "__main__":
+  afc = AtaFileCache()
+
+  fn1  = 'images/us_nps/cache1/9A7C3FE3-9437-7BC0-7380A26A098F9F65.jpg'
+  fn1c = afc.cachePath(fn1)
+
+  print(fn1, fn1c)
+
 ### end ### 
 
