@@ -24,7 +24,7 @@
 # with tightly limited storage, and toward initial demonstration, it's hopefully a pragmatic
 # compromise, with some abstraction to support for extension.
 
-import os
+import os, yaml, shutil
 import ataBase
 
 class AtaFileCache(AtaBase):
@@ -38,13 +38,60 @@ class AtaFileCache(AtaBase):
   numIdxDigits    = 4
   cacheDict       = None
 
+  yamlMapPrimaryFn = 'cacheMap.yaml'
+  yamlMapPrimaryF  = None            #holds file handle, while file is open
+  yamlMapBkupFn    = 'cacheMapBk.yaml'
+
+  autoloadCacheMap           = True
+  cacheMapUpdatedThisSession = False
+  logMapToYaml               = True
+  flushYamlMapAfterEachEntry = True
+  closeYamlFAfterEachEntry   = False
+  backupYamlLogOnEachStart   = True
+
   ################# constructor #################
 
   def __init__(self): 
     try: 
       super().__init__()
       self.cacheDict = {}
+
+      if self.autoloadCacheMap: self.loadCacheMap()
     except: self.err("constructor")
+
+  ################# loadCacheMap #################
+
+  def loadCacheMap(self):
+    try:
+      if os.path.exists(self.yamlMapPrimaryFn) is False:
+        self.msg('loadCacheMap: pre-existing yaml cache map not found. This will be created")
+        return False # no cache map loaded, but not necessarily a problem
+
+      f  = open(self.yamlMapPrimaryFn, 'rt')
+      yd = yaml.safe_load(f)
+      f.close()
+
+      if isInstance(yd, dict): self.cacheDict = yd; return True #successful
+
+      self.msg("loadCacheMap: curious: yaml cache map loaded, but not a dictionary as anticipated")
+      return False
+    except: self.err("loadCacheMap"); return False
+      
+  ################# replicate Yaml Cache to Bkup #################
+
+  def replicateYamlCacheToBkup(self):
+    try:
+      if os.path.exists(self.yamlMapPrimaryFn) is False:
+        self.msg("replicateYamlCacheToBkup called, but existing yaml cache map not found")
+        return False
+
+      try:    shutil.copy(self.yamlMapPrimaryFn, self.yamlMapBkupFn)
+      except: self.err("replicateYamlCacheToBkup copy error:"); return False
+
+      return True
+    except: self.err("replicateYamlCacheToBkup"); return False 
+
+  def logMapToYaml(self, srcFn: str): # name could benefit from reconsideration
 
   ################# map cache paths #################
 
