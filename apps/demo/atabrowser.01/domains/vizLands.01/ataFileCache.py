@@ -100,6 +100,16 @@ class AtaFileCache(AtaBase):
 
         self.replicateYamlCacheToBkup()
         self.cacheMapUpdatedThisSession = True
+
+      if self.yamlMapPrimaryF is None: #file not open
+        self.yamlMapPrimaryF = open(self.yamlMapPrimaryFn, 'at') #open for appending
+
+      outstr = '"%s": %s\n" % (srcFn, targFn) # quoting asymmetry may be worth revisiting
+      self.yamlMapPrimaryF.write(outstr)
+
+      if self.flushYamlMapAfterEachEntry: self.yamlMapPrimaryF.flush()
+      if self.closeYamlFAfterEachEntry:   self.yamlMapPrimaryF.close()
+
     except: self.err("logCacheMapEntryToYaml")
 
   ################# map cache paths #################
