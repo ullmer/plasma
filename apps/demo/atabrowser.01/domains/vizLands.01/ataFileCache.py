@@ -71,35 +71,21 @@ class AtaFileCache(AtaBase):
       yd = yaml.safe_load(f)
       f.close()
 
+      lastNotedCacheIdx = None
+
       if isinstance(yd, dict): 
-        self.cacheDict = yd
-        self.currentCacheIdx = self.findLastNotedCacheIdx() + 1
+        for key in yd:
+          entry = yd[key]
+          lastNotedCacheIdx, fn = entry.idx, entry.fn
+          self.cacheDict[key] = fn
+
+        self.currentCacheIdx = lastNotedCacheIdx() + 1
         return True #successful
 
       self.msg("loadCacheMap: curious: yaml cache map loaded, but not a dictionary as anticipated")
       return False
     except: self.err("loadCacheMap"); return False
 
-  ################# find last noted cache index #################
-
-  def findLastNotedCacheIdx(self):
-    try:
-      largestObservedIdx = None
-
-      if self.cacheDict is None:  
-        self.msg("findLastNotedCacheIdx: cache dict not instantiated"); return None
-
-      if not istype(self.cacheDict, dict): 
-        self.msg("findLastNotedCacheIdx: cache dict not a dictionary"); return None
-
-      for key in self.cacheDict:
-        destPath  = self.cacheDict[key]
-        bn        = os.path.basename(destPath)
-        root, ext = os.path.splitext(bn)
-        idxStr    = 
-
-    except: self.err("findLastNotedCacheIdx")
-      
   ################# replicate Yaml Cache to Bkup #################
 
   def replicateYamlCacheToBkup(self):
@@ -116,7 +102,7 @@ class AtaFileCache(AtaBase):
 
   ################# logCacheMapEntryToYaml #################
 
-  def logCacheMapEntryToYaml(self, srcFn: str, targFn: str):
+  def logCacheMapEntryToYaml(self, srcFn: str, idx: int, targFn: str):
     try:
       if self.backupYamlLogOnEachStart and not self.cacheMapUpdatedThisSession:
         self.replicateYamlCacheToBkup()
@@ -125,7 +111,9 @@ class AtaFileCache(AtaBase):
       if self.yamlMapPrimaryF is None: #file not open
         self.yamlMapPrimaryF = open(self.yamlMapPrimaryFn, 'at') #open for appending
 
-      outstr = "\"%s\": %s\n" % (srcFn, targFn) # quoting asymmetry may be worth revisiting
+      # path quoting asymmetry in below may be worth revisiting
+      outstr = "\"%s\": {idx: %i, fn: %s}\n" % (srcFn, idx, targFn) 
+
       self.yamlMapPrimaryF.write(outstr)
 
       if self.flushYamlMapAfterEachEntry: self.yamlMapPrimaryF.flush()
@@ -230,6 +218,27 @@ class AtaFileCache(AtaBase):
       
     except: self.err("cachePaths")
 
+  ################# find last noted cache index #################
+  # the below was refactored but left commented in case later useful
+
+  #def findLastNotedCacheIdx(self):
+  #  try:
+  #    largestObservedIdx = None
+  #
+  #    if self.cacheDict is None:  
+  #      self.msg("findLastNotedCacheIdx: cache dict not instantiated"); return None
+  #
+  #    if not istype(self.cacheDict, dict): 
+  #      self.msg("findLastNotedCacheIdx: cache dict not a dictionary"); return None
+  #
+  #    for key in self.cacheDict:
+  #      destPath  = self.cacheDict[key]
+  #      bn        = os.path.basename(destPath)
+  #      root, ext = os.path.splitext(bn)
+  #      idxStr    = 
+  #
+  #  except: self.err("findLastNotedCacheIdx")
+      
 #### test stub ####
 
 if __name__ == "__main__":
