@@ -28,8 +28,8 @@ import os, yaml, shutil
 from ataBase import *
 
 class AtaFileCache(AtaBase):
-  cachePath1 = None
-  cachePath2 = None
+  cachePath1 = "images/us_nps/cache1/"
+  cachePath2 = "images/us_nps/cache2/"
 
   useSymlinks = True
   useNumerics = True
@@ -71,7 +71,7 @@ class AtaFileCache(AtaBase):
       yd = yaml.safe_load(f)
       f.close()
 
-      if isInstance(yd, dict): self.cacheDict = yd; return True #successful
+      if isinstance(yd, dict): self.cacheDict = yd; return True #successful
 
       self.msg("loadCacheMap: curious: yaml cache map loaded, but not a dictionary as anticipated")
       return False
@@ -134,7 +134,7 @@ class AtaFileCache(AtaBase):
         self.msg("mapPaths: target cache path does not appear to be a directory")
         return False
 
-      if os.assess(cp2, os.W_OK) is False:
+      if os.access(cp2, os.W_OK) is False:
         self.msg("mapPaths: target cache path directory appears to exist, but not be writable")
         return False
 
@@ -189,11 +189,12 @@ class AtaFileCache(AtaBase):
       if self.cachePath1 is None:
         self.msg("cachePaths: source cache path is unset"); return
 
-      src = os.join(self.cachePath1, fn)
+      src = os.path.join(self.cachePath1, fn)
+      base, ext = os.path.splitext(src)
       pe  = os.path.exists(src)
       if pe is False: self.msg("cachePaths: source path doesn't exist: " + str(pe)); return False
   
-      dest = self.getNextCachePath()
+      dest = self.getNextCachePath() + ext
 
       try:    os.symlink(src, dest)
       except: self.err("cachePaths: symlinking paths attempted, but failed")
@@ -209,7 +210,7 @@ class AtaFileCache(AtaBase):
 if __name__ == "__main__":
   afc = AtaFileCache()
 
-  fn1  = 'images/us_nps/cache1/9A7C3FE3-9437-7BC0-7380A26A098F9F65.jpg'
+  fn1  = '9A7C3FE3-9437-7BC0-7380A26A098F9F65.jpg'
   fn1c = afc.cachePath(fn1)
 
   print(fn1, fn1c)

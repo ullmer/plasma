@@ -11,7 +11,7 @@ from pgzero.builtins import Actor, animate, keyboard, keys
 class ADVizLandsPgz(ADVizLands):
 
   imgPathPrefix1 = 'us_nps/meta/'
-  imgPathPrefix2 = 'us_nps/cache/'
+  imgPathPrefix2 = 'us_nps/cache1/'
 
   actorDictMeta  = None
   actorDictThumb = None
