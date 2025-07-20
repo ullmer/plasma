@@ -69,7 +69,26 @@ class AtaLabelBlock(AtaBase):
 
     except: self.err("determineBlocksSurroundingPoint")
 
-### end ###
+  ################ move block ################
+
+  def moveBlock(self, handle: str, dx: int, dy: int):
+    try:
+      if handle not in self.placedSurfaceDict:
+        self.msg("moveBlock: handle not in placed surface dictionary"); return False
+
+      ps = self.placedSurfaceDict[handle]
+      surfaceHandle, x, y = ps
+      x += dx; y += dy
+      placedAlphaSurface = [surfaceHandle, x, y]
+
+      self.placedSurfaceDict[handle] = placedAlphaSurface
+
+  ################ move blocks ################
+
+  def moveBlocks(self, handles: list[str], dx: int, dy: int):
+    try:
+      for handle in handles: self.moveBlock(handle, dx, dy)
+    except: self.err("moveBlocks")
 
   ################ draw ################
 
