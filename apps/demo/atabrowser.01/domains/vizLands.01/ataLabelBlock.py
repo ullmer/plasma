@@ -109,7 +109,7 @@ class AtaLabelBlock(AtaBase):
 
       if (txtPrim is None) and (txtSec is None): return False #nothing to do
       
-      if handle not in rectSurfaceDims or handle not in placedSurfaceDict:
+      if handle not in self.rectSurfaceDims or handle not in self.placedSurfaceDict:
         self.msg("drawBlockText issue: difficulty determining coordinates"); return False
 
       w, h     = self.rectSurfaceDims[handle]
