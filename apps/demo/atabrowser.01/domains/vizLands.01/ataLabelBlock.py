@@ -49,7 +49,6 @@ class AtaLabelBlock(AtaBase):
   ################ create alpha surface ################
 
   def createAlphaSurface(self, handle: str, w: int, h: int, rcolor=None, ralpha=None):
-
     try:
       if rcolor is None: rcolor = self.defaultBgColor
       if ralpha is None: ralpha = self.defaultBgAlpha
@@ -59,8 +58,17 @@ class AtaLabelBlock(AtaBase):
       rect_surface.fill ((r,g,b,ralpha))
       self.rectSurfaceCache[handle] = rect_surface
       self.rectSurfaceDims[handle]  = [w,h]
+      return True
+    except: self.err("createTranslSurface"); return False
 
-    except: self.err("createTranslSurface")
+  ################ create alpha surface ################
+
+  def createAlphaSurface2(self, handle: str, w: int, h: int, rcolor=None, ralpha=None):
+    try:
+      self.createAlphaSurface(handle,       w, h,                  rcolor, ralpha)
+      self.createAlphaSurface(handle + "2", w, secondaryBoxHeight, rcolor, ralpha)
+      return True
+    except: self.err("createAlphaSurface2"); return False
 
   ################ place alpha surface ################
 
