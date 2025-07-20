@@ -12,6 +12,9 @@ class AtaLabelBlock(AtaBase):
   rectSurfaceDims   = None
   placedSurfaceDict = None
 
+  labelDictPrimary   = None #"major/title" labels
+  labelDictSecondary = None #sublabels
+
   defaultColor = (70, 70, 100)
   defaultAlpha = 128
 
@@ -22,6 +25,9 @@ class AtaLabelBlock(AtaBase):
     self.rectSurfaceCache  = {}
     self.rectSurfaceDims   = {}
     self.placedSurfaceDict = {}
+
+    self.labelDictPrimary   = {}
+    self.labelDictSecondary = {}
   
   ################ create alpha surface ################
 
