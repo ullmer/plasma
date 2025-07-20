@@ -15,6 +15,9 @@ class AtaLabelBlock(AtaBase):
   labelDictPrimary   = None #"major/title" labels
   labelDictSecondary = None #sublabels
 
+  textPadPrimary     = (10, 10)
+  textPadSecondary   = (30, 30)
+
   fontNamePrimary    = "saira/saira_condensed_black"
   fontNameSecondary  = "saira/saira_condensed_regular"
 
@@ -24,8 +27,8 @@ class AtaLabelBlock(AtaBase):
   fontColorPrimary   = (255, 255, 255)
   fontColorSecondary = (255, 255, 255)
 
-  fontAlphaPrimary   = 200
-  fontAlphaSecondary = 125
+  fontAlphaPrimary   = .8
+  fontAlphaSecondary = .6
 
   defaultBgColor = (70, 70, 100)
   defaultBgAlpha = 128
@@ -75,26 +78,29 @@ class AtaLabelBlock(AtaBase):
       txtPrim = txtSec = None
 
       if handle in self.labelDictPrimary:   txtPrim = self.labelDictPrimary[handle]
-      if handle in self.labelDictSecondary: txtPrim = self.labelDictSecondary[handle]
+      if handle in self.labelDictSecondary: txtSec  = self.labelDictSecondary[handle]
 
-      if txtPrim is None and txtSec is None: return #nothing to do
-
+      if (txtPrim is None) and (txtSec is None): return False #nothing to do
+      
       if handle not in rectSurfaceDims or handle not in placedSurfaceDict:
         self.msg("drawBlockText issue: difficulty determining coordinates"); return False
 
-
-  rectSurfaceDims   = None
-  placedSurfaceDict = None
-
+      w, h     = self.rectSurfaceDims[handle]
+      sh, x, y = self.placedAlphaSurface[handle]
 
       if txtPrim is not None:
-        f, s = self.fontNamePrimary, self.fontSizePrimary
-        
-      
+        f, s   = self.fontNamePrimary, self.fontSizePrimary
+        c, a   = self.fontColorPrimary, self.fontAlphaPrimary
+        px, py = self.textPadPrimary
+        x1, y1 = x+px, y+htxtPrim+py
+        screen.draw.text(txtPrim, bottomleft = (x1, y1), fontname=f, fontsize=s, color=c, alpha=a)
 
-screen.draw.text("All together now:\nCombining the above options",
-    bottomright=(427,460), fontname="Boogaloo", fontsize=48,
-    color="#AAFF00", alpha=0.8)
+      if txtSecis not None:
+        f, s   = self.fontNameSecondary,  self.fontSizeSecondary
+        c, a   = self.fontColorSecondary, self.fontAlphaSecondary
+        px, py = self.textPadSecondary
+        x1, y1 = x+px, y+htxtPrim+py
+        screen.draw.text(txtPrim, topleft = (x1, y1), fontname=f, fontsize=s, color=c, alpha=a)
 
   ################ determine blocks surrounding point ################
 
