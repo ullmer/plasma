@@ -39,6 +39,7 @@ class ADVizLandsPgz(ADVizLands):
   def initPgz(self):
     try:
       ilmd = self.imgLabeledMetad 
+      od   = self.objDetailsDict
 
       if ilmd is None: 
         self.msg("initPgz expects metadata to be expanded, but isn't so");    return False
@@ -62,7 +63,16 @@ class ADVizLandsPgz(ADVizLands):
 
       for actorFn in self.actorFns:
         fn1 = self.imgPathPrefix1 + actorFn
-        fn2 = self.imgPathPrefix2 + self.img1x
+
+        i1x, i1xFn = 'image1x', None
+        af = actorFn[:-1]
+        self.msg("foo: " + af)
+        if af in od:
+          entry = od[af]
+          if i1x in entry:
+            i1xFn = entry[i1x]
+ 
+        fn2 = self.imgPathPrefix2 + i1xFn
         fn3 = self.afCache.cachePath(fn2)
 
         fn4, ext = os.path.splitext(fn3)

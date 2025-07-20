@@ -47,10 +47,6 @@ class ADVizLands(AtaDomain):
         if od is None: self.msg("loadYaml: obj details not found for path " + str(yp)); continue
         self.objDetailsDict[ofn2] = od
 
-        i1s, i3s = 'image1x', 'image3x'
-        if i1s in od: self.img1x = od[i1s] #cache these for later engagement
-        if i3s in od: self.img3x = od[i3s] # hacky; "build one to throw away"  
-
       return True
     except: self.err("loadYaml"); return False
 
