@@ -15,7 +15,7 @@ class AtaLabelBlock(AtaBase):
   labelDictPrimary   = None #"major/title" labels
   labelDictSecondary = None #sublabels
 
-  textPadPrimary     = (10, 10)
+  textPadPrimary     = (10, 70)
   textPadSecondary   = (30, 30)
 
   fontNamePrimary    = "saira/saira_condensed_black"
@@ -109,24 +109,25 @@ class AtaLabelBlock(AtaBase):
 
       if (txtPrim is None) and (txtSec is None): return False #nothing to do
       
-      if handle not in self.rectSurfaceDims or handle not in self.placedSurfaceDict:
-        self.msg("drawBlockText issue: difficulty determining coordinates"); return False
+      if handle not in self.placedSurfaceDict:
+        self.msg("drawBlockText issue: difficulty determining coordinates: " + str(handle))
+        return False
 
-      w, h     = self.rectSurfaceDims[handle]
-      sh, x, y = self.placedAlphaSurface[handle]
+      sh, x, y = self.placedSurfaceDict[handle]
+      w, h     = self.rectSurfaceDims[sh]
 
       if txtPrim is not None:
         f, s   = self.fontNamePrimary, self.fontSizePrimary
         c, a   = self.fontColorPrimary, self.fontAlphaPrimary
         px, py = self.textPadPrimary
-        x1, y1 = x+px, y+htxtPrim+py
+        x1, y1 = x+px, y+py
         screen.draw.text(txtPrim, bottomleft = (x1, y1), fontname=f, fontsize=s, color=c, alpha=a)
 
       if txtSec is not None:
         f, s   = self.fontNameSecondary,  self.fontSizeSecondary
         c, a   = self.fontColorSecondary, self.fontAlphaSecondary
         px, py = self.textPadSecondary
-        x1, y1 = x+px, y+htxtPrim+py
+        x1, y1 = x+px, y+py
         screen.draw.text(txtPrim, topleft = (x1, y1), fontname=f, fontsize=s, color=c, alpha=a)
 
     except: self.err("drawBlockText")
