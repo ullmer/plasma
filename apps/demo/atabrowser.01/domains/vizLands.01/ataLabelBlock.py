@@ -15,8 +15,8 @@ class AtaLabelBlock(AtaBase):
   labelDictPrimary   = None #"major/title" labels
   labelDictSecondary = None #sublabels
 
-  fontNamePrimary    = "Boogaloo"
-  fontNameSecondary  = "Boogaloo"
+  fontNamePrimary    = "saira/saira_condensed_black"
+  fontNameSecondary  = "saira/saira_condensed_regular"
 
   fontSizePrimary    = 48
   fontSizeSecondary  = 30
@@ -69,6 +69,28 @@ class AtaLabelBlock(AtaBase):
 
   def drawBlockText(self, handle: str):
     try:
+      if self.labelDictPrimary is None or self.labelDictSecondary is None:
+        self.msg("drawBlockText issue: dictionaries not properly initiated"); return False
+
+      txtPrim = txtSec = None
+
+      if handle in self.labelDictPrimary:   txtPrim = self.labelDictPrimary[handle]
+      if handle in self.labelDictSecondary: txtPrim = self.labelDictSecondary[handle]
+
+      if txtPrim is None and txtSec is None: return #nothing to do
+
+      if handle not in rectSurfaceDims or handle not in placedSurfaceDict:
+        self.msg("drawBlockText issue: difficulty determining coordinates"); return False
+
+
+  rectSurfaceDims   = None
+  placedSurfaceDict = None
+
+
+      if txtPrim is not None:
+        f, s = self.fontNamePrimary, self.fontSizePrimary
+        
+      
 
 screen.draw.text("All together now:\nCombining the above options",
     bottomright=(427,460), fontname="Boogaloo", fontsize=48,
