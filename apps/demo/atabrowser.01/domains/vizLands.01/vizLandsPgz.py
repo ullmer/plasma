@@ -31,6 +31,8 @@ class ADVizLandsPgz(ADVizLands):
   ########## constructor ##########
 
   def __init__(self):
+    self.actorDictMeta  = {}
+    self.actorDictThumb = {}
     self.afCache = AtaFileCache()
 
   ########## initiate pygame zero ##########
