@@ -13,7 +13,8 @@ from pgzero.builtins import Actor, animate, keyboard, keys
 class ADVizLandsPgz(ADVizLands):
 
   imgPathPrefix1 = 'us_nps/meta/'
-  imgPathPrefix2 = 'us_nps/cache1/'
+  #imgPathPrefix2 = 'us_nps/cache1/'
+  imgPathPrefix2 = ''
 
   actorDictMeta  = None
   actorDictThumb = None
@@ -61,11 +62,13 @@ class ADVizLandsPgz(ADVizLands):
         fn1 = self.imgPathPrefix1 + actorFn
         fn2 = self.imgPathPrefix2 + self.img1x
         fn3 = self.afCache.cachePath(fn2)
-        fn4, ext = os.path.splitext(fn3)
 
-        if self.verbose: self.msg("1+2+4: " + str([fn1, fn2, fn4]))
+        fn4, ext = os.path.splitext(fn3)
+        fn5 = fn4[7:] # skip "images/" prefix"
+        if self.verbose: self.msg("1+2+5: " + str([fn1, fn2, fn5]))
+
         a1 = Actor(fn1, pos=(x,y))
-        a2 = Actor(fn4, pos=(x+dx2, y+dy2))
+        a2 = Actor(fn5, pos=(x+dx2, y+dy2))
 
         self.actorDictMeta[actorFn]  = a1
         self.actorDictThumb[actorFn] = a2

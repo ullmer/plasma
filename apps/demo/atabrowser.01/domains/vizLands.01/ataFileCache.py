@@ -80,7 +80,7 @@ class AtaFileCache(AtaBase):
           lastNotedCacheIdx, fn = entry['idx'], entry['fn']
           self.cacheDict[key] = fn
 
-        self.currentCacheIdx = lastNotedCacheIdx + 1
+        self.currentCacheIdx = lastNotedCacheIdx 
         return True #successful
 
       self.msg("loadCacheMap: curious: yaml cache map loaded, but not a dictionary as anticipated")
@@ -206,7 +206,7 @@ class AtaFileCache(AtaBase):
 
       base, ext = os.path.splitext(src)
       pe  = os.path.exists(src)
-      if pe is False: self.msg("cachePaths: source path doesn't exist: " + str(pe)); return False
+      if pe is False: self.msg("cachePaths: source path doesn't exist: " + str(src)); return False
   
       dest = self.getNextCachePath() + ext
 
