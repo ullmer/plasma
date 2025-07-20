@@ -4,6 +4,8 @@
 
 import os, yaml
 from vizLands import *
+from ataFileCache import *
+
 from pgzero.builtins import Actor, animate, keyboard, keys
 
 ########## primary class ##########
@@ -15,6 +17,8 @@ class ADVizLandsPgz(ADVizLands):
 
   actorDictMeta  = None
   actorDictThumb = None
+  afCache        = None
+
   actorFns  = None
   actorWH   = None
   verbose   = True
@@ -22,6 +26,11 @@ class ADVizLandsPgz(ADVizLands):
   actorPosDiff = (600, 210)
   actRelDiff   = (-500, 0) #clearly inadequate naming, but a start
   numCols      =  2
+
+  ########## constructor ##########
+
+  def __init__(self):
+    self.afCache = AtaFileCache()
 
   ########## initiate pygame zero ##########
   def initPgz(self):
@@ -51,9 +60,12 @@ class ADVizLandsPgz(ADVizLands):
       for actorFn in self.actorFns:
         fn1 = self.imgPathPrefix1 + actorFn
         fn2 = self.imgPathPrefix2 + self.img1x
-        if self.verbose: self.msg("1+2: " + str([fn1, fn2]))
+        fn3 = self.afCache.cachePath(fn2)
+        fn4, ext = os.path.splitext(fn3)
+
+        if self.verbose: self.msg("1+2+4: " + str([fn1, fn2, fn4]))
         a1 = Actor(fn1, pos=(x,y))
-        a2 = Actor(fn2, pos=(x+dx2, y+dy2))
+        a2 = Actor(fn4, pos=(x+dx2, y+dy2))
 
         self.actorDictMeta[actorFn]  = a1
         self.actorDictThumb[actorFn] = a2
