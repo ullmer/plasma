@@ -68,6 +68,22 @@ class AtaLabelBlock(AtaBase):
       self.placedSurfaceDict[placeHandle] = placedAlphaSurface
     except: self.err("placeAlphaSurface")
   
+  ################ create alpha surface ################
+
+  def placeAlphaTextSurface(self, placeHandle: str, surfaceHandle: str, \
+                            x: int, y: int, primText, secText = None):
+    try:
+      if self.labelDictPrimary is None or self.labelDictSecondary is None:
+        self.msg("placeAlphaTextSurface issue: dictionaries not properly initiated"); return False
+
+      self.placeAlphaSurface(placeHandle, surfaceHandle, x, y)
+      self.labelDictPrimary[placeHandle] = primText
+
+      if secText is not None:
+        self.labelDictSecondary[placeHandle] = secText
+
+    except: self.err("placeAlphaTextSurface")
+
   ################ drawBlockText ################
 
   def drawBlockText(self, handle: str):
@@ -101,6 +117,8 @@ class AtaLabelBlock(AtaBase):
         px, py = self.textPadSecondary
         x1, y1 = x+px, y+htxtPrim+py
         screen.draw.text(txtPrim, topleft = (x1, y1), fontname=f, fontsize=s, color=c, alpha=a)
+
+    except: self.err("drawBlockText")
 
   ################ determine blocks surrounding point ################
 
