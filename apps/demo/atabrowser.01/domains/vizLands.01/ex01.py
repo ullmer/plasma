@@ -5,7 +5,7 @@
 import os
 
 os.environ['SDL_VIDEO_WINDOW_POS'] = '0,0' #place window at top-left
-WIDTH, HEIGHT = 1600, 1000
+WIDTH, HEIGHT = 1920, 1080
 
 import pgzrun
 from vizLandsPgz import *

@@ -23,9 +23,9 @@ class ADVizLandsPgz(ADVizLands):
   actorFns  = None
   actorWH   = None
   verbose   = True
-  basePos      = (460, 110)
-  actorPosDiff = (600, 210)
-  actRelDiff   = (-500, 0) #clearly inadequate naming, but a start
+  basePos      = (760,  150)
+  actorPosDiff = (890,  250)
+  actRelDiff   = (-410,  10) #clearly inadequate naming, but a start
   numCols      =  2
 
   ########## constructor ##########
