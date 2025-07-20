@@ -15,8 +15,20 @@ class AtaLabelBlock(AtaBase):
   labelDictPrimary   = None #"major/title" labels
   labelDictSecondary = None #sublabels
 
-  defaultColor = (70, 70, 100)
-  defaultAlpha = 128
+  fontNamePrimary    = "Boogaloo"
+  fontNameSecondary  = "Boogaloo"
+
+  fontSizePrimary    = 48
+  fontSizeSecondary  = 30
+
+  fontColorPrimary   = (255, 255, 255)
+  fontColorSecondary = (255, 255, 255)
+
+  fontAlphaPrimary   = 200
+  fontAlphaSecondary = 125
+
+  defaultBgColor = (70, 70, 100)
+  defaultBgAlpha = 128
 
   ################ constructor ################
 
@@ -34,8 +46,8 @@ class AtaLabelBlock(AtaBase):
   def createAlphaSurface(self, handle: str, w: int, h: int, rcolor=None, ralpha=None):
 
     try:
-      if rcolor is None: rcolor = self.defaultColor
-      if ralpha is None: ralpha = self.defaultAlpha
+      if rcolor is None: rcolor = self.defaultBgColor
+      if ralpha is None: ralpha = self.defaultBgAlpha
 
       rect_surface = pygame.Surface((w, h), pygame.SRCALPHA)
       r, g, b = rcolor
@@ -52,6 +64,15 @@ class AtaLabelBlock(AtaBase):
       placedAlphaSurface = [surfaceHandle, x, y]
       self.placedSurfaceDict[placeHandle] = placedAlphaSurface
     except: self.err("placeAlphaSurface")
+
+  
+  ################ drawBlockText ################
+
+  self drawBlockText(self, handle: str):
+
+screen.draw.text("All together now:\nCombining the above options",
+    bottomright=(427,460), fontname="Boogaloo", fontsize=48,
+    color="#AAFF00", alpha=0.8)
 
   ################ determine blocks surrounding point ################
 
