@@ -82,6 +82,7 @@ class AtaLabelBlock(AtaBase):
       placedAlphaSurface = [surfaceHandle, x, y]
 
       self.placedSurfaceDict[handle] = placedAlphaSurface
+    except: self.err("moveBlock")
 
   ################ move blocks ################
 
