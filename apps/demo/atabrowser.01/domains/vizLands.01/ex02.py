@@ -10,7 +10,12 @@ alb.placeAlphaSurface("box1", "blk100", 100, 100)
 alb.placeAlphaSurface("box2", "blk100", 150, 150)
 alb.placeAlphaSurface("box3", "blk100", 175, 175)
 
-def draw(): alb.draw(screen)
+def draw(): screen.clear(); alb.draw(screen)
+
+def on_mouse_down(pos): 
+  x, y = pos
+  touchedBlocks = alb.determineBlocksSurroundingPoint(x,y)
+  if len(touchedBlocks) > 0: print("touched: " + str(touchedBlocks))
 
 ### end ###
 
