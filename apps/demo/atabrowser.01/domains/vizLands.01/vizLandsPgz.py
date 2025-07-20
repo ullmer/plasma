@@ -108,6 +108,7 @@ class ADVizLandsPgz(ADVizLands):
     try:
       if self.actorDictThumb is not None: 
        for an in self.actorDictThumb:
+         if 'kimo2' == an: continue
          a1 = self.actorDictThumb[an]
          a1.draw()
         
