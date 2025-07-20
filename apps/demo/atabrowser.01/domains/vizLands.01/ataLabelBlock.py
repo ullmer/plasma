@@ -64,11 +64,11 @@ class AtaLabelBlock(AtaBase):
       placedAlphaSurface = [surfaceHandle, x, y]
       self.placedSurfaceDict[placeHandle] = placedAlphaSurface
     except: self.err("placeAlphaSurface")
-
   
   ################ drawBlockText ################
 
-  self drawBlockText(self, handle: str):
+  def drawBlockText(self, handle: str):
+    try:
 
 screen.draw.text("All together now:\nCombining the above options",
     bottomright=(427,460), fontname="Boogaloo", fontsize=48,
@@ -118,9 +118,9 @@ screen.draw.text("All together now:\nCombining the above options",
       for handle in handles: self.moveBlock(handle, dx, dy)
     except: self.err("moveBlocks")
 
-  ################ draw ################
+  ################ drawBlocks ################
 
-  def draw(self, screen):
+  def drawBlocks(self, screen):
     try:
       for handle in self.placedSurfaceDict:
         ps = self.placedSurfaceDict[handle]
@@ -131,7 +131,12 @@ screen.draw.text("All together now:\nCombining the above options",
 
         rect_surface = self.rectSurfaceCache[surfaceHandle]
         screen.blit(rect_surface, (x,y))
+    except: self.err("drawBlocks")
+
+  ################ draw ################
+
+  def draw(self, screen):
+    try:    self.drawBlocks()
     except: self.err("draw")
 
 ### end ###
-
