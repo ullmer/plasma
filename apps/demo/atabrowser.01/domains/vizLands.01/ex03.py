@@ -17,8 +17,9 @@ touched = None
 def on_mouse_down(pos): 
   x, y = pos
   touchedBlocks = alb.determineBlocksSurroundingPoint(x,y)
-  if len(touchedBlocks) > 0: print("touched: " + str(touchedBlocks))
-  global touched; touched = touchedBlocks
+  if len(touchedBlocks) > 0: 
+    print("touched: " + str(touchedBlocks))
+    global touched; touched = touchedBlocks
 
 def on_mouse_move(rel): 
   dx, dy = rel
