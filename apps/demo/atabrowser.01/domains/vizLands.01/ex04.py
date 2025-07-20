@@ -5,7 +5,7 @@ WIDTH, HEIGHT = 800, 800
 from ataLabelBlock import *
 
 alb = AtaLabelBlock()
-alb.createAlphaSurface("blk100", 100, 100, (80,80,100), 128)
+alb.createAlphaSurface2("blk100", 100, 100, (80,80,100), 128)
 alb.placeAlphaTextSurface("box1", "blk100", 100, 100, "foo", "foofoo")
 alb.placeAlphaTextSurface("box2", "blk100", 150, 150, "bar", "barbar")
 alb.placeAlphaTextSurface("box3", "blk100", 175, 175, "wah", "wahwah")

@@ -65,8 +65,9 @@ class AtaLabelBlock(AtaBase):
 
   def createAlphaSurface2(self, handle: str, w: int, h: int, rcolor=None, ralpha=None):
     try:
-      self.createAlphaSurface(handle,       w, h,                  rcolor, ralpha)
-      self.createAlphaSurface(handle + "2", w, secondaryBoxHeight, rcolor, ralpha)
+      sbh = self.secondaryBoxHeight
+      self.createAlphaSurface(handle,       w, h,   rcolor, ralpha)
+      self.createAlphaSurface(handle + "2", w, sbh, rcolor, ralpha)
       return True
     except: self.err("createAlphaSurface2"); return False
 
@@ -188,17 +189,27 @@ class AtaLabelBlock(AtaBase):
 
   ################ drawBlocks ################
 
+  def drawBlockHandle(self, handle: str, screen):
+    try:
+      ps = self.placedSurfaceDict[handle]
+      surfaceHandle, x, y = ps
+      if surfaceHandle not in self.rectSurfaceCache:
+        self.msg("draw: attempted to draw unknown surface handle: " + str(surfaceHandle))
+        return
+
+      rect_surface = self.rectSurfaceCache[surfaceHandle]
+      screen.blit(rect_surface, (x,y))
+    except: self.err("drawBlockHandle")
+
+  ################ drawBlocks ################
+
   def drawBlocks(self, screen):
     try:
       for handle in self.placedSurfaceDict:
-        ps = self.placedSurfaceDict[handle]
-        surfaceHandle, x, y = ps
-        if surfaceHandle not in self.rectSurfaceCache:
-          self.msg("draw: attempted to draw unknown surface handle: " + str(surfaceHandle))
-          continue
+        self.drawBlockHandle(handle, screen)
+        h2 = handle + "2"
+        if h2 in self.placedSurfaceDict: self.drawBlockHandle(h2)
 
-        rect_surface = self.rectSurfaceCache[surfaceHandle]
-        screen.blit(rect_surface, (x,y))
     except: self.err("drawBlocks")
 
   ################ draw ################
