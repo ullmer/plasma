@@ -21,9 +21,9 @@ class AtaLabelBlock(AtBase):
     self.rectSurfaceCache  = {}
     self.placedSurfaceDict = {}
   
-  ################ createTranslSurface ################
+  ################ create alpha surface ################
 
-  def createTranslSurface(self, handle: str, w: int, h: int, rcolor=None, ralpha=None):
+  def createAlphaSurface(self, handle: str, w: int, h: int, rcolor=None, ralpha=None):
 
     try:
       if rcolor is None: rcolor = self.defaultColor
@@ -36,20 +36,28 @@ class AtaLabelBlock(AtBase):
 
     except: self.err("createTranslSurface")
 
-  ################ createTranslSurface ################
+  ################ place alpha surface ################
 
-# Main loop
-running = True
-while running:
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            running = False
+  def placeAlphaSurface(self, placeHandle: str, surfaceHandle: str, x: int, y: int):
+    try:
+      placedAlphaSurface = [surfaceHandle, x, y]
+      self.placedSurfaceDit[placeHandle] = placedAlphaSurface
+    except: self.err("placeAlphaSurface")
 
-    screen.fill((30, 30, 30))  # Clear screen with dark background
-    screen.blit(rect_surface, (100, 100))  # Draw translucent rectangle
-    pygame.display.flip()
+  ################ draw ################
 
-pygame.quit()
+  def draw(self, screen):
+    try:
+      for handle in self.placedSurfaceDict:
+        ps = self.placedSurfaceDict[handle]
+        surfaceHandle, x, y = ps
+        if surfaceHandle not in self.rectSurfaceCache:
+          self.msg("draw: attempted to draw unknown surface handle: " + str(surfaceHandle))
+          continue
+
+        rect_surface = self.rectSurfaceCache[surfaceHandle]
+        screen.blit(rect_surface, (x,y))
+    except: self.err("draw")
 
 ### end ###
 
