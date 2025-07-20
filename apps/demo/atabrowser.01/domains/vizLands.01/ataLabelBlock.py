@@ -86,7 +86,18 @@ class AtaLabelBlock(AtaBase):
 
   ################ drawBlockText ################
 
-  def drawBlockText(self, handle: str):
+  def drawBlockTexts(self, screen):
+    try:
+      if self.labelDictPrimary is None or self.labelDictSecondary is None:
+        self.msg("drawBlockText issue: dictionaries not properly initiated"); return False
+
+      for handle in self.labelDictPrimary:
+        self.drawBlockText(handle, screen)
+    except: self.err("drawBlockTexts")
+
+  ################ drawBlockText ################
+
+  def drawBlockText(self, handle: str, screen):
     try:
       if self.labelDictPrimary is None or self.labelDictSecondary is None:
         self.msg("drawBlockText issue: dictionaries not properly initiated"); return False
@@ -111,7 +122,7 @@ class AtaLabelBlock(AtaBase):
         x1, y1 = x+px, y+htxtPrim+py
         screen.draw.text(txtPrim, bottomleft = (x1, y1), fontname=f, fontsize=s, color=c, alpha=a)
 
-      if txtSecis not None:
+      if txtSec is not None:
         f, s   = self.fontNameSecondary,  self.fontSizeSecondary
         c, a   = self.fontColorSecondary, self.fontAlphaSecondary
         px, py = self.textPadSecondary
@@ -182,7 +193,7 @@ class AtaLabelBlock(AtaBase):
   ################ draw ################
 
   def draw(self, screen):
-    try:    self.drawBlocks()
+    try:    self.drawBlocks(screen); self.drawBlockTexts(screen)
     except: self.err("draw")
 
 ### end ###
