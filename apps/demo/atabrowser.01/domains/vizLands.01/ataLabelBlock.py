@@ -16,7 +16,9 @@ class AtaLabelBlock(AtaBase):
   labelDictSecondary = None #sublabels
 
   textPadPrimary     = (10, 70)
-  textPadSecondary   = (30, 30)
+  textPadSecondary   = (10,  5)
+
+  secondaryBoxHeight = 40
 
   fontNamePrimary    = "saira/saira_condensed_black"
   fontNameSecondary  = "saira/saira_condensed_regular"
@@ -127,8 +129,8 @@ class AtaLabelBlock(AtaBase):
         f, s   = self.fontNameSecondary,  self.fontSizeSecondary
         c, a   = self.fontColorSecondary, self.fontAlphaSecondary
         px, py = self.textPadSecondary
-        x1, y1 = x+px, y+py
-        screen.draw.text(txtPrim, topleft = (x1, y1), fontname=f, fontsize=s, color=c, alpha=a)
+        x1, y1 = x+px, y+py+h
+        screen.draw.text(txtSec, bottomleft = (x1, y1), fontname=f, fontsize=s, color=c, alpha=a)
 
     except: self.err("drawBlockText")
 
