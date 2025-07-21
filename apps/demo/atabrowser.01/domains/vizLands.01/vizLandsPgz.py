@@ -62,10 +62,12 @@ class ADVizLandsPgz(ADVizLands):
       idxX, idxY = 0, 0
 
       for actorFn in self.actorFns:
+        if self.verbose: self.msg("initPgz: " + str(actorFn))
         fn1 = self.imgPathPrefix1 + actorFn
 
         i1x, i1xFn = 'image1x', None
-        af = actorFn[:-1]
+        if actorFn[-1] == '2': af = actorFn[:-1]
+        else:                  af = actorFn #so hacky
         #self.msg("foo: " + af)
         if af in od:
           entry = od[af]
@@ -78,7 +80,7 @@ class ADVizLandsPgz(ADVizLands):
           fn4, ext = os.path.splitext(fn3)
           fn5 = fn4[7:] # skip "images/" prefix"
 
-        #if self.verbose: self.msg("1+2+5: " + str([fn1, fn2, fn5]))
+          if self.verbose: self.msg("1+2+5: " + str([fn1, fn2, fn5]))
 
         try:    a1 = Actor(fn1, pos=(x,y))
         except: a1 = None
