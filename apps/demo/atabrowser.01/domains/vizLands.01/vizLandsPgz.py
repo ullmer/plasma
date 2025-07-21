@@ -135,4 +135,10 @@ class ADVizLandsPgz(ADVizLands):
 
     except: self.err("draw")
 
+  ########## pgz mouse events ##########
+
+  def on_mouse_down(self, pos): pass
+  def on_mouse_move(self, rel): pass
+  def on_mouse_up(self):        pass
+
 ### end ###
