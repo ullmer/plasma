@@ -32,34 +32,16 @@ avlp.yamlStatePath1 = 'az:nps:meta'
 avlp.loadYaml()
 avlp.initPgz()
 
-alb = AtaLabelBlock()
-alb.createAlphaSurface2("blk100", 100, 100, (80,80,100), 128)
-alb.placeAlphaTextSurface("box1", "blk100", 100, 100, "foo", "foofoo")
-alb.placeAlphaTextSurface("box2", "blk100", 150, 150, "bar", "barbar")
-alb.placeAlphaTextSurface("box3", "blk100", 175, 175, "wah", "wahwah")
-
 touched = None
 
 def draw(): 
   fullscreen()
   screen.clear()
   avlp.draw(screen)
-  alb.draw(screen)
 
-touched = None
-
-def on_mouse_down(pos): 
-  x, y = pos
-  touchedBlocks = alb.determineBlocksSurroundingPoint(x,y)
-  if len(touchedBlocks) > 0: 
-    print("touched: " + str(touchedBlocks))
-    global touched; touched = touchedBlocks
-
-def on_mouse_move(rel): 
-  dx, dy = rel
-  if touched is not None and len(touched) > 0: alb.moveBlocks(touched, dx, dy)
-
-def on_mouse_up(): global touched; touched = None
+def on_mouse_down(pos): avlp.on_mouse_down(pos)
+def on_mouse_move(rel): avlp.on_mouse_move(rel)
+def on_mouse_up():      avlp.on_mouse_up()
 
 pgzrun.go()
 

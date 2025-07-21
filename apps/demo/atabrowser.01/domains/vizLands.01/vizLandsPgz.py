@@ -4,7 +4,8 @@
 
 import os, yaml
 from vizLands import *
-from ataFileCache import *
+from ataFileCache  import *
+from ataLabelBlock import *
 
 from pgzero.builtins import Actor, animate, keyboard, keys
 
@@ -19,6 +20,7 @@ class ADVizLandsPgz(ADVizLands):
   actorDictMeta  = None
   actorDictThumb = None
   afCache        = None
+  alb            = None #AtaLabelBlock()
 
   actorFns  = None
   actorWH   = None
@@ -60,6 +62,7 @@ class ADVizLandsPgz(ADVizLands):
 
       x, y       = bx, by
       idxX, idxY = 0, 0
+      self.alb.createAlphaSurface2("blk100", 100, 100, (80,80,100), 128)
 
       for actorFn in self.actorFns:
         if self.verbose: self.msg("initPgz: " + str(actorFn))
@@ -67,8 +70,9 @@ class ADVizLandsPgz(ADVizLands):
 
         i1x, i1xFn = 'image1x', None
         if actorFn[-1] == '2': af = actorFn[:-1]
-        else:                  af = actorFn #so hacky
+        else:                  af = actorFn #so hacky, sigh; race toward functionality
         #self.msg("foo: " + af)
+
         if af in od:
           entry = od[af]
           if i1x in entry:
@@ -90,6 +94,10 @@ class ADVizLandsPgz(ADVizLands):
 
         self.actorDictMeta[actorFn]  = a1
         self.actorDictThumb[actorFn] = a2
+
+        print("foo:", str(od))
+
+        alb.placeAlphaTextSurface("box1", "blk100", x, y, "foo", "foofoo")
 
         idxX += 1; x += dx1
         if idxX >= self.numCols: 
@@ -113,15 +121,17 @@ class ADVizLandsPgz(ADVizLands):
   def draw(self, screen):
     try:
       if self.actorDictThumb is not None: 
-       for an in self.actorDictThumb:
-         if 'kimo2' == an: continue
-         a1 = self.actorDictThumb[an]
-         if a1 is not None: a1.draw()
+        for an in self.actorDictThumb:
+          #if 'kimo2' == an: continue
+          a1 = self.actorDictThumb[an]
+          if a1 is not None: a1.draw()
         
       if self.actorDictMeta is not None: 
-       for an in self.actorDictMeta:
-         a1 = self.actorDictMeta[an]
-         if a1 is not None: a1.draw()
+        for an in self.actorDictMeta:
+          a1 = self.actorDictMeta[an]
+          if a1 is not None: a1.draw()
+
+      self.alb.draw(screen)
 
     except: self.err("draw")
 
