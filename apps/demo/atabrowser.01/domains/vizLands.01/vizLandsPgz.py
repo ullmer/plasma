@@ -71,16 +71,20 @@ class ADVizLandsPgz(ADVizLands):
           entry = od[af]
           if i1x in entry:
             i1xFn = entry[i1x]
- 
-        fn2 = self.imgPathPrefix2 + i1xFn
-        fn3 = self.afCache.cachePath(fn2)
 
-        fn4, ext = os.path.splitext(fn3)
-        fn5 = fn4[7:] # skip "images/" prefix"
+        if i1xFn is not None: 
+          fn2 = self.imgPathPrefix2 + i1xFn
+          fn3 = self.afCache.cachePath(fn2)
+          fn4, ext = os.path.splitext(fn3)
+          fn5 = fn4[7:] # skip "images/" prefix"
+
         #if self.verbose: self.msg("1+2+5: " + str([fn1, fn2, fn5]))
 
-        a1 = Actor(fn1, pos=(x,y))
-        a2 = Actor(fn5, pos=(x+dx2, y+dy2))
+        try:    a1 = Actor(fn1, pos=(x,y))
+        except: a1 = None
+
+        try:    a2 = Actor(fn5, pos=(x+dx2, y+dy2))
+        except: a2 = None
 
         self.actorDictMeta[actorFn]  = a1
         self.actorDictThumb[actorFn] = a2
@@ -110,12 +114,12 @@ class ADVizLandsPgz(ADVizLands):
        for an in self.actorDictThumb:
          if 'kimo2' == an: continue
          a1 = self.actorDictThumb[an]
-         a1.draw()
+         if a1 is not None: a1.draw()
         
       if self.actorDictMeta is not None: 
        for an in self.actorDictMeta:
          a1 = self.actorDictMeta[an]
-         a1.draw()
+         if a1 is not None: a1.draw()
 
     except: self.err("draw")
 
