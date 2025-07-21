@@ -7,15 +7,15 @@ from ataDomain import *
 from yamlRc    import *
 
 class ADVizLands(AtaDomain):
-  yamlFnSC   = 'us_nps/sc.yaml'
-  yamlFnNPS  = 'us_nps/usNpsParks08.yaml'
+  yamlFnState = 'us_nps/sc.yaml'
+  yamlFnNPS   = 'us_nps/usNpsParks08.yaml'
 
-  yamlSCrc  = None
-  yamlNPSrc = None
+  yamlStateRc = None
+  yamlNPSrc   = None
 
   objDetailsDict   = None
   objDetailsPrefix = 'parkDetails:'
-  yamlSCPath1      = 'sc:nps:meta'
+  yamlStatePath1   = 'sc:nps:meta'
   img1x, img3x     = None, None
 
   imgLabeledMetad = None
@@ -23,12 +23,12 @@ class ADVizLands(AtaDomain):
   ########## loadYaml ##########
   def loadYaml(self):
     try:
-      ys = self.yamlSCrc  = YamlRc(self.yamlFnSC);  ys.loadYaml()
-      yn = self.yamlNPSrc = YamlRc(self.yamlFnNPS); yn.loadYaml()
+      ys = self.yamlStateRc = YamlRc(self.yamlFnState); ys.loadYaml()
+      yn = self.yamlNPSrc   = YamlRc(self.yamlFnNPS);   yn.loadYaml()
 
-      ilmd = self.imgLabeledMetad = ys.getYamlPath(self.yamlSCPath1)
+      ilmd = self.imgLabeledMetad = ys.getYamlPath(self.yamlStatePath1)
       if ilmd is None: 
-        self.msg("loadYaml: not finding anticipated data here: " + str(self.yamlSCPath1))
+        self.msg("loadYaml: not finding anticipated data here: " + str(self.yamlStatePath1))
         return False
       self.msg("loadYaml d: " + str(ilmd))
 
@@ -39,7 +39,8 @@ class ADVizLands(AtaDomain):
       ofns = self.objFns  = ilmd['fn']
       for ofn1 in ofns: 
         # in warmup, postfixed with 2 (relating to pixel density); strip that
-        ofn2 = ofn1[:-1]
+        if ofn1[-1] == '2': ofn2 = ofn1[:-1]
+        else:               ofn2 = ofn1      #super hacky, sigh
         self.msg(ofn2)
 
         yp = self.objDetailsPrefix + ofn2
