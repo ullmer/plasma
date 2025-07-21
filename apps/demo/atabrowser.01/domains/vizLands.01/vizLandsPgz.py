@@ -25,8 +25,9 @@ class ADVizLandsPgz(ADVizLands):
   actorFns  = None
   actorWH   = None
   verbose   = False
-  basePos      = (760,  150)
-  actorPosDiff = (890,  245)
+  basePos      = ( 820, 150)
+  labelOffset  = (-300, -85)
+  actorPosDiff = ( 775, 245)
   actRelDiff   = (-410,  10) #clearly inadequate naming, but a start
   numCols      =  2
 
@@ -64,7 +65,8 @@ class ADVizLandsPgz(ADVizLands):
 
       x, y       = bx, by
       idxX, idxY = 0, 0
-      self.alb.createAlphaSurface2("blk100", 100, 100, (80,80,100), 128)
+      lox, loy   = self.labelOffset  
+      self.alb.createAlphaSurface2("blk100", 275, 100, (80,80,100), 128)
 
       for actorFn in self.actorFns:
         if self.verbose: self.msg("initPgz: " + str(actorFn))
@@ -100,7 +102,9 @@ class ADVizLandsPgz(ADVizLands):
         try:    name = od[af]['name']
         except: name=''
 
-        self.alb.placeAlphaTextSurface("box1", "blk100", x, y, af, name)
+        atsName = 'box_' + af
+
+        self.alb.placeAlphaTextSurface(atsName, "blk100", x+lox, y+loy, af, name)
 
         idxX += 1; x += dx1
         if idxX >= self.numCols: 
