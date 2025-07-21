@@ -2,7 +2,7 @@ az:
  nps: 
    meta: 
      fn:  [buov,cach,cagr,chir,coro,fobo,glca,grca,para,hutr,juba,
-           lake,moca,nava,olsp,orpi,pefo,pisp,sagu,sucr,tont,tuma,tuzi,waca,wupa]}
+           lake,moca,nava,olsp,orpi,pefo,pisp,sagu,sucr,tont,tuma,tuzi,waca,wupa]
 
      dim: [290, 203]
 
