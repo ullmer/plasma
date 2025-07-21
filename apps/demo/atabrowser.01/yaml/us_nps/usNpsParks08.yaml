@@ -1296,7 +1296,8 @@ parkDetails:
 
  buov:
   homepage:  https://www.nps.gov/buov/index.htm
-  image1x:   77C7752B-F031-D0B1-A5E3FB17549760FC.jpg
+  #image1x:   77C7752B-F031-D0B1-A5E3FB17549760FC.jpg
+  image1x:   77C7752B-F031-D0B1-A5E3FB17549760FC_005.jpg
   image2x:   77C7752B-F031-D0B1-A5E3FB17549760FC_002.jpg
   image3x:   77C7752B-F031-D0B1-A5E3FB17549760FC_004.jpg
   panelHtml: 77C7752B-F031-D0B1-A5E3FB17549760FC_003.jpg
@@ -2741,7 +2742,8 @@ parkDetails:
 
  glca:
   homepage:  https://www.nps.gov/glca/index.htm
-  image1x:   F8F9A7E0-F3FF-38B9-F112BE76AB3F79EF.jpg
+  #image1x:   F8F9A7E0-F3FF-38B9-F112BE76AB3F79EF.jpg
+  image1x:   F8F9A7E0-F3FF-38B9-F112BE76AB3F79EF_005.jpg
   image2x:   F8F9A7E0-F3FF-38B9-F112BE76AB3F79EF_003.jpg
   image3x:   F8F9A7E0-F3FF-38B9-F112BE76AB3F79EF_004.jpg
   panelHtml: F8F9A7E0-F3FF-38B9-F112BE76AB3F79EF_002.jpg
@@ -3469,10 +3471,10 @@ parkDetails:
 
  kimo:
   homepage:  https://www.nps.gov/kimo/index.htm
-  image1x:   DF1FE45F-0B80-EA5E-E50AF28430FDF573.jpg
-  image2x:   DF1FE45F-0B80-EA5E-E50AF28430FDF573_004.jpg
-  image3x:   DF1FE45F-0B80-EA5E-E50AF28430FDF573_002.jpg
-  panelHtml: DF1FE45F-0B80-EA5E-E50AF28430FDF573_003.jpg
+  image1x:   DF1FE45F-0B80-EA5E-E50AF28430FDF573_005.jpg
+  image2x:   DF1FE45F-0B80-EA5E-E50AF28430FDF573.jpg
+  image3x:   DF1FE45F-0B80-EA5E-E50AF28430FDF573_003.jpg
+  panelHtml: DF1FE45F-0B80-EA5E-E50AF28430FDF573_004.jpg
   alt:   Kings Mountain banner image
   name:  Kings Mountain
   designation: National Military Park
@@ -4530,7 +4532,8 @@ parkDetails:
 
  pefo:
   homepage:  https://www.nps.gov/pefo/index.htm
-  image1x:   150EC131-05BF-1222-9FA407EC6101A8B7.jpg
+  #image1x:   150EC131-05BF-1222-9FA407EC6101A8B7.jpg
+  image1x:   150EC131-05BF-1222-9FA407EC6101A8B7_005.jpg
   image2x:   150EC131-05BF-1222-9FA407EC6101A8B7_002.jpg
   image3x:   150EC131-05BF-1222-9FA407EC6101A8B7_004.jpg
   panelHtml: 150EC131-05BF-1222-9FA407EC6101A8B7_003.jpg
@@ -5379,7 +5382,8 @@ parkDetails:
 
  tont:
   homepage:  https://www.nps.gov/tont/index.htm
-  image1x:   0A725A27-E6C8-2448-2B18E96B0B5CF06C.jpg
+  #image1x:   0A725A27-E6C8-2448-2B18E96B0B5CF06C.jpg
+  image1x:   0A725A27-E6C8-2448-2B18E96B0B5CF06C_005.jpg
   image2x:   0A725A27-E6C8-2448-2B18E96B0B5CF06C_004.jpg
   image3x:   0A725A27-E6C8-2448-2B18E96B0B5CF06C_003.jpg
   panelHtml: 0A725A27-E6C8-2448-2B18E96B0B5CF06C_002.jpg
