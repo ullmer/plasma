@@ -18,10 +18,10 @@ from ataLabelBlock import *
 fullscreenSet = False
 
 def fullscreen(): 
-  global fullscreenSet
+  #global fullscreenSet
   if not fullscreenSet: 
-     pygame.display.set_mode((WIDTH, HEIGHT), pygame.FULLSCREEN)
-     fullscreen_set = True
+    pygame.display.set_mode((WIDTH, HEIGHT), pygame.FULLSCREEN)
+    fullscreen_set = True
 
 #### main ####
 
@@ -41,11 +41,10 @@ alb.placeAlphaTextSurface("box3", "blk100", 175, 175, "wah", "wahwah")
 touched = None
 
 def draw(): 
-  #fullscreen(); 
-  screen.clear(); 
+  fullscreen()
+  screen.clear()
   avlp.draw(screen)
   alb.draw(screen)
-  #alb.draw(screen)
 
 touched = None
 
