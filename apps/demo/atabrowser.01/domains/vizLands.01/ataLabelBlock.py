@@ -18,7 +18,7 @@ class AtaLabelBlock(AtaBase):
   textPadPrimary     = (10, 70)
   textPadSecondary   = (10,  5)
 
-  secondaryBoxHeight  = 40
+  secondaryBoxHeight  = 65
   secondaryBoxPostfix = '_2'
 
   fontNamePrimary    = "saira/saira_condensed_black"
@@ -100,7 +100,9 @@ class AtaLabelBlock(AtaBase):
       if self.labelDictPrimary is None or self.labelDictSecondary is None:
         self.msg("placeAlphaTextSurface issue: dictionaries not properly initiated"); return False
 
-      self.placeAlphaSurface(placeHandle, surfaceHandle, x, y)
+      if secText is None: self.placeAlphaSurface( placeHandle, surfaceHandle, x, y)
+      else:               self.placeAlphaSurface2(placeHandle, surfaceHandle, x, y)
+
       self.labelDictPrimary[placeHandle] = primText
 
       if secText is not None:
@@ -221,7 +223,7 @@ class AtaLabelBlock(AtaBase):
       for handle in self.placedSurfaceDict:
         self.drawBlockHandle(handle, screen)
         h2 = handle + self.secondaryBoxPostfix
-        if h2 in self.placedSurfaceDict: self.drawBlockHandle(h2)
+        if h2 in self.placedSurfaceDict: self.drawBlockHandle(h2, screen)
 
     except: self.err("drawBlocks")
 
