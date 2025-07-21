@@ -11,7 +11,7 @@ class YamlRc(AtaBase):
   yamlPath = '~/git/plasma/apps/demo/atabrowser.01/yaml/'
   yamlFn   = None
   yamlD    = None
-  verbose  = True
+  verbose  = False
   yamlPathSeparator = ':' #allowing paths to be expressed like a:b:c
 
   ########## constructor ##########

@@ -41,7 +41,8 @@ class ADVizLands(AtaDomain):
         # in warmup, postfixed with 2 (relating to pixel density); strip that
         if ofn1[-1] == '2': ofn2 = ofn1[:-1]
         else:               ofn2 = ofn1      #super hacky, sigh
-        self.msg(ofn2)
+
+        if self.verbose: self.msg(ofn2)
 
         yp = self.objDetailsPrefix + ofn2
         od = yn.getYamlPath(yp)

@@ -22,9 +22,9 @@ class ADVizLandsPgz(ADVizLands):
 
   actorFns  = None
   actorWH   = None
-  verbose   = True
+  verbose   = False
   basePos      = (760,  150)
-  actorPosDiff = (890,  250)
+  actorPosDiff = (890,  245)
   actRelDiff   = (-410,  10) #clearly inadequate naming, but a start
   numCols      =  2
 
