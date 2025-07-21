@@ -43,6 +43,8 @@ class ADVizLandsPgz(ADVizLands):
       ilmd = self.imgLabeledMetad 
       od   = self.objDetailsDict
 
+      self.alb = AtaLabelBlock()
+
       if ilmd is None: 
         self.msg("initPgz expects metadata to be expanded, but isn't so");    return False
 
@@ -95,9 +97,10 @@ class ADVizLandsPgz(ADVizLands):
         self.actorDictMeta[actorFn]  = a1
         self.actorDictThumb[actorFn] = a2
 
-        print("foo:", str(od))
+        try:    name = od[af]['name']
+        except: name=''
 
-        alb.placeAlphaTextSurface("box1", "blk100", x, y, "foo", "foofoo")
+        self.alb.placeAlphaTextSurface("box1", "blk100", x, y, af, name)
 
         idxX += 1; x += dx1
         if idxX >= self.numCols: 

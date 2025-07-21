@@ -18,7 +18,7 @@ from ataLabelBlock import *
 fullscreenSet = False
 
 def fullscreen(): 
-  #global fullscreenSet
+  global fullscreenSet
   if not fullscreenSet: 
     pygame.display.set_mode((WIDTH, HEIGHT), pygame.FULLSCREEN)
     fullscreen_set = True
@@ -35,7 +35,7 @@ avlp.initPgz()
 touched = None
 
 def draw(): 
-  fullscreen()
+  #fullscreen()
   screen.clear()
   avlp.draw(screen)
 
