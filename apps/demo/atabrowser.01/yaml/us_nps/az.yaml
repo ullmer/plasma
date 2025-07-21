@@ -1,0 +1,13 @@
+az:
+ nps: 
+   meta: 
+     fn:  [buov,cach,cagr,chir,coro,fobo,glca,grca,para,hutr,juba,
+           lake,moca,nava,olsp,orpi,pefo,pisp,sagu,sucr,tont,tuma,tuzi,waca,wupa]}
+
+     dim: [290, 203]
+
+ overview: 
+   fn:  az2
+   dim: [796, 347]
+
+### end ###
