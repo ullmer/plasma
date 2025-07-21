@@ -18,7 +18,8 @@ class AtaLabelBlock(AtaBase):
   textPadPrimary     = (10, 70)
   textPadSecondary   = (10,  5)
 
-  secondaryBoxHeight = 40
+  secondaryBoxHeight  = 40
+  secondaryBoxPostfix = '_2'
 
   fontNamePrimary    = "saira/saira_condensed_black"
   fontNameSecondary  = "saira/saira_condensed_regular"
@@ -66,8 +67,9 @@ class AtaLabelBlock(AtaBase):
   def createAlphaSurface2(self, handle: str, w: int, h: int, rcolor=None, ralpha=None):
     try:
       sbh = self.secondaryBoxHeight
-      self.createAlphaSurface(handle,       w, h,   rcolor, ralpha)
-      self.createAlphaSurface(handle + "2", w, sbh, rcolor, ralpha)
+      handle2 = handle + self.secondaryBoxPostfix
+      self.createAlphaSurface(handle,  w, h,   rcolor, ralpha)
+      self.createAlphaSurface(handle2, w, sbh, rcolor, ralpha)
       return True
     except: self.err("createAlphaSurface2"); return False
 
@@ -77,6 +79,17 @@ class AtaLabelBlock(AtaBase):
     try:
       placedAlphaSurface = [surfaceHandle, x, y]
       self.placedSurfaceDict[placeHandle] = placedAlphaSurface
+    except: self.err("placeAlphaSurface")
+  
+  ################ place alpha surface ################
+
+  def placeAlphaSurface2(self, placeHandle: str, surfaceHandle: str, x: int, y: int):
+    try:
+      ph2 = placeHandle   + self.secondaryBoxPostfix
+      sh2 = surfaceHandle + self.secondaryBoxPostfix
+
+      self.placeAlphaSurface(placeHandle, surfaceHandle, x, y)
+      self.placeAlphaSurface(ph2,         sh2,           x, y)
     except: self.err("placeAlphaSurface")
   
   ################ create alpha surface ################
@@ -207,7 +220,7 @@ class AtaLabelBlock(AtaBase):
     try:
       for handle in self.placedSurfaceDict:
         self.drawBlockHandle(handle, screen)
-        h2 = handle + "2"
+        h2 = handle + self.secondaryBoxPostfix
         if h2 in self.placedSurfaceDict: self.drawBlockHandle(h2)
 
     except: self.err("drawBlocks")
