@@ -3,9 +3,10 @@
 # Begun 2025-07-09
 
 import os
+os.environ['SDL_VIDEO_WINDOW_POS'] = '0,0' #place window at top-left
+
 import pygame
 
-os.environ['SDL_VIDEO_WINDOW_POS'] = '0,0' #place window at top-left
 TITLE         = 'ATA.browser'
 WIDTH, HEIGHT =  1920, 1080
 
@@ -31,17 +32,20 @@ avlp.yamlStatePath1 = 'az:nps:meta'
 avlp.loadYaml()
 avlp.initPgz()
 
-def draw(): 
-  fullscreen(); screen.clear(); 
-  avlp.draw(screen); alb.draw(screen)
-
-
 alb = AtaLabelBlock()
-alb.createAlphaSurface("blk100", 100, 100, (80,80,100), 128)
-alb.placeAlphaSurface("box1", "blk100", 100, 100)
-alb.placeAlphaSurface("box2", "blk100", 150, 150)
-alb.placeAlphaSurface("box3", "blk100", 175, 175)
+alb.createAlphaSurface2("blk100", 100, 100, (80,80,100), 128)
+alb.placeAlphaTextSurface("box1", "blk100", 100, 100, "foo", "foofoo")
+alb.placeAlphaTextSurface("box2", "blk100", 150, 150, "bar", "barbar")
+alb.placeAlphaTextSurface("box3", "blk100", 175, 175, "wah", "wahwah")
 
+touched = None
+
+def draw(): 
+  #fullscreen(); 
+  screen.clear(); 
+  avlp.draw(screen)
+  alb.draw(screen)
+  #alb.draw(screen)
 
 touched = None
 
