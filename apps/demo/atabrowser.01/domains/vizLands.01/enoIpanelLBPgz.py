@@ -13,6 +13,7 @@ class enoIpanelLBPgz(enoIpanelYaml):
   blockWH      = (50, 50)
   blockPad     = ( 3,  3)
   blockBasePos = (10, 100)
+  regions      = None
 
   verbose      = False
 
@@ -27,7 +28,14 @@ class enoIpanelLBPgz(enoIpanelYaml):
   ############# get panel name #############
 
   def populateBlocksLBPgz(self):
+    try:
+      self.regions = self.getPanelAttrib('regions')
+    except: self.err("populateBlocksLBPgz")
 
-  def getPanelAttrib(self, attrib):
+############# main #############
+
+if __name__ == "__main__":
+  eipl  = enoIpanelLBPgz()
+  print(eipl.regions)
 
 ### end ###
