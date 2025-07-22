@@ -3,34 +3,20 @@
 # Begun 2024-10-09
 
 import sys, os, yaml, traceback
-from ataBase import *
+from ataLabelBlock import *
 
 ############# enodia interaction panel #############
 
-class enoIpanelYaml(AtaBase):
+class enoIpanelLBPgz(enoIpanelYaml):
 
-  panelFn = None
-  panelYd = None
-  panels  = None
-  panelCharToCategory = None
-  panelCharToCatList  = None
-  panelCharToCatLIdx  = None #index within panelCharToCatList keyed arrays
-  cachedMatrixDict  = None
-  cachedMatrix      = None
-
-  colorMap  = None
-  brightMap = None
-
-  rows, cols       = 8, 8
+  alb = None #AtaLabelBlock 
   verbose          = False
 
   ############# constructor #############
 
-  def __init__(self, **kwargs):
+  def __init__(self)
     self.__dict__.update(kwargs) #allow class fields to be passed in constructor
-
-    if self.panelFn is not None: self.loadYaml()
-    if self.isYamlLoaded():    self.cacheMatrixYaml()
+    super().__init__()
 
   ############# get panel name #############
 
