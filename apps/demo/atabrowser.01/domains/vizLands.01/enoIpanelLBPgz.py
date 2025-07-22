@@ -41,4 +41,9 @@ if __name__ == "__main__":
   my = eipl.expandMatrixYaml()
   print(my)
 
+  states = eipl.getPanelAttrib('states')
+  a0     = eipl.getMatrixLocus(0,0)
+  a0n    = states[a0]
+  print("A0:", a0, a0n)
+
 ### end ###
