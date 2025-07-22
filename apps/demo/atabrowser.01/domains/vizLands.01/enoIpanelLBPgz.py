@@ -9,8 +9,12 @@ from ataLabelBlock import *
 
 class enoIpanelLBPgz(enoIpanelYaml):
 
-  alb = None #AtaLabelBlock 
-  verbose          = False
+  alb          = None #AtaLabelBlock 
+  blockWH      = (50, 50)
+  blockPad     = ( 3,  3)
+  blockBasePos = (10, 100)
+
+  verbose      = False
 
   ############# constructor #############
 
