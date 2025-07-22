@@ -15,11 +15,10 @@ interactionPanel:
   
   regions:
     ne: {abbrev: Nn, name: New England,    col: 0x005697, states: [vt, nh, me, ct, ri, ma]}
-    me: {abbrev, Mm, name: Mideast,        col: 0x9B751C, states: [pa, ny, nj, de, dc, md]}
-    se: {abbrev: Ss, name: Southeast,      col: 0xAE573F, states: [ar, ky, va, tn, wv, ga, 
-                                                                   nc, la, ms, al, sc, fl]}
-                                                                   
-    gl: {abbrev: Ll, name: Great Lakes,    col: 0x4984C4, states: [wi, mi, il, oh, in]}
+    me: {abbrev, Mm, name: Mideast,        col: 0x9B751C, states: [pa, ny, de, nj, md, dc]}
+    se: {abbrev: Ss, name: Southeast,      col: 0xAE573F, states: [ar, ky, wv, la, tn, va,
+                                                                   ms, ga, nc, al, sc, fl]}
+    gl: {abbrev: Ll, name: Great Lakes,    col: 0x4984C4, states: [mi, il, wi, in, oh]}
     pl: {abbrev: Pp, name: Plains,         col: 0xA5B26D, states: [nd, mn, sd, ia, ka, mo]}
     sw: {abbrev, Ww, name: Southwest,      col: 0x845D56, states: [ok, az, nm, tx]}
     rm: {abbrev: Rr, name: Rocky Mountain, col: 0xEBC181, states: [mo, id, ut, wy, co]}
@@ -36,7 +35,7 @@ interactionPanel:
     .rpllnnn
     frpllmmm
     frpsssmm
-    frpwssss
+    frpwssms
     fPwwNsss
     .RLsM.ss
     fFW.S..s
