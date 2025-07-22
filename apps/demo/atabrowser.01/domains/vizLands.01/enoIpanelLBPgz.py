@@ -4,6 +4,7 @@
 
 import sys, os, yaml, traceback
 from ataLabelBlock import *
+from enoIpanelYaml import *
 
 ############# enodia interaction panel #############
 
