@@ -14,7 +14,9 @@ class enoIpanelLBPgz(enoIpanelYaml):
   blockWH      = (50, 50)
   blockPad     = ( 3,  3)
   blockBasePos = (10, 100)
+  blockDefaultAlpha = 128
   regions      = None
+  keyMap       = 'states' #panel attribute used to map cell abbreviations to full names
 
   verbose      = False
 
@@ -31,15 +33,20 @@ class enoIpanelLBPgz(enoIpanelYaml):
   def populateBlocksLBPgz(self):
     try:
       self.regions = self.getPanelAttrib('regions')
+      w, h = self.blockWH
+      for region in self.regions:
+        regionColor = region['col']
+        self.alb.createAlphaSurface2("region", w, h, regionColor, self.blockDefaultAlpha)
+
     except: self.err("populateBlocksLBPgz")
 
 ############# main #############
 
 if __name__ == "__main__":
   eipl  = enoIpanelLBPgz(panelFn = 'yaml/us-bea2.yaml')
-  print(eipl.regions)
-  my = eipl.expandMatrixYaml()
-  print(my)
+  #print(eipl.regions)
+  #my = eipl.expandMatrixYaml()
+  #print(my)
 
   states = eipl.getPanelAttrib('states')
   a0     = eipl.getMatrixLocus(0,0)
