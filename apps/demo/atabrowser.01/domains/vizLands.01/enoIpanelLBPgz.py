@@ -36,7 +36,7 @@ class enoIpanelLBPgz(enoIpanelYaml):
 ############# main #############
 
 if __name__ == "__main__":
-  eipl  = enoIpanelLBPgz()
+  eipl  = enoIpanelLBPgz(panelFn = 'yaml/us-bea2.yaml')
   print(eipl.regions)
 
 ### end ###
