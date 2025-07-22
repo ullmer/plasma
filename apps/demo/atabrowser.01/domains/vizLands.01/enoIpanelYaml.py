@@ -8,12 +8,12 @@ import sys, os, yaml, traceback
 
 class enoIpanelYaml:
 
-  tagFn = None
-  tagYd = None
-  tags  = None
-  tagCharToCategory = None
-  tagCharToCatList  = None
-  tagCharToCatLIdx  = None #index within tagCharToCatList keyed arrays
+  panelFn = None
+  panelYd = None
+  panels  = None
+  panelCharToCategory = None
+  panelCharToCatList  = None
+  panelCharToCatLIdx  = None #index within panelCharToCatList keyed arrays
   cachedMatrixDict  = None
   cachedMatrix      = None
 
@@ -28,7 +28,7 @@ class enoIpanelYaml:
   def __init__(self, **kwargs):
     self.__dict__.update(kwargs) #allow class fields to be passed in constructor
 
-    if self.tagFn is not None: self.loadYaml()
+    if self.panelFn is not None: self.loadYaml()
     if self.isYamlLoaded():    self.cacheMatrixYaml()
 
   ############# error, msg #############
@@ -43,7 +43,7 @@ class enoIpanelYaml:
       if not self.isYamlLoaded(): 
         self.msg("getPanelName: YAML not loaded"); return None
 
-      ipan = self.tagYd['interactionPanel']
+      ipan = self.panelYd['interactionPanel']
       val  = ipan[attrib]
       return val 
 
@@ -55,71 +55,71 @@ class enoIpanelYaml:
   ############# check if yaml is loaded #############
 
   def isYamlLoaded(self):
-    if self.tagYd is not None: return True
+    if self.panelYd is not None: return True
     return False
 
   ############# load yaml #############
 
   def loadYaml(self):
-    self.tags  = []
+    self.panels  = []
 
     try:
-      yf         = open(self.tagFn, 'rt')
-      self.tagYd = yaml.safe_load(yf)
+      yf         = open(self.panelFn, 'rt')
+      self.panelYd = yaml.safe_load(yf)
 
-      if 'tags' in self.tagYd:
-        ytags      = self.tagYd['tags']
-        for tag in ytags: self.tags.append(tag)
-      else: self.msg('loadYaml: tags not found in ' + str(self.tagFn))
+      if 'panels' in self.panelYd:
+        ypanels      = self.panelYd['panels']
+        for panel in ypanels: self.panels.append(panel)
+      else: self.msg('loadYaml: panels not found in ' + str(self.panelFn))
     except: self.err("loadYaml")
 
   ############# map char to category #############
 
-  def mapCharToCategory(self, tagChar): 
+  def mapCharToCategory(self, panelChar): 
     try:
-      if self.verbose: self.msg("mapCharToCategory " + str(tagChar))
-      if self.tagCharToCategory is None: self.tagCharToCategory = {}
-      if self.tagCharToCatList  is None: self.tagCharToCatList  = {}
-      if self.tagCharToCatLIdx  is None: self.tagCharToCatLIdx  = {}
+      if self.verbose: self.msg("mapCharToCategory " + str(panelChar))
+      if self.panelCharToCategory is None: self.panelCharToCategory = {}
+      if self.panelCharToCatList  is None: self.panelCharToCatList  = {}
+      if self.panelCharToCatLIdx  is None: self.panelCharToCatLIdx  = {}
 
-      if tagChar in self.tagCharToCategory: 
-        return self.tagCharToCategory[tagChar] #caching important to performance
+      if panelChar in self.panelCharToCategory: 
+        return self.panelCharToCategory[panelChar] #caching important to performance
 
-      try:    cm = self.tagYd['interactionPanel']['charMap']
+      try:    cm = self.panelYd['interactionPanel']['charMap']
       except: self.err('mapCharToCategory: problem accessing charMap in YAML descriptor'); return None
 
-      if tagChar not in cm: self.err('mapCharToCategory not finding character ' + str(tagChar)); return None
+      if panelChar not in cm: self.err('mapCharToCategory not finding character ' + str(panelChar)); return None
 
-      cme = cm[tagChar]
-      tag = cme[0]
+      cme = cm[panelChar]
+      panel = cme[0]
 
-      self.tagCharToCategory[tagChar] = tag
-      self.tagCharToCatList[tagChar]  = cme[0:]
-      self.tagCharToCatLIdx[tagChar]  = 0
+      self.panelCharToCategory[panelChar] = panel
+      self.panelCharToCatList[panelChar]  = cme[0:]
+      self.panelCharToCatLIdx[panelChar]  = 0
 
-      if self.verbose: self.msg("mapCharToCategory result: " + str(tag))
-      return tag
+      if self.verbose: self.msg("mapCharToCategory result: " + str(panel))
+      return panel
     except: self.err('mapCharToCategory')
 
   ############# map char to category next element #############
 
-  def mapCharToCatNextEl(self, tagChar): 
+  def mapCharToCatNextEl(self, panelChar): 
     try:
-      cat = self.mapCharToCategory(tagChar)
-      if tagChar not in self.tagCharToCatList or \
-         tagChar not in self.tagCharToCatLIdx:
+      cat = self.mapCharToCategory(panelChar)
+      if panelChar not in self.panelCharToCatList or \
+         panelChar not in self.panelCharToCatLIdx:
         #self.err("mapCharToCatNextEl: unexpected condition 0"); return None
         return None
 
-      idx  = self.tagCharToCatLIdx[tagChar]
-      catl = self.tagCharToCatList[tagChar]
+      idx  = self.panelCharToCatLIdx[panelChar]
+      catl = self.panelCharToCatList[panelChar]
       clen = len(catl)
 
       if idx >= clen: return None
         #self.err("mapCharToCatNextEl: unexpected condition 1"); return None
 
       result = catl[idx]
-      self.tagCharToCatLIdx[tagChar] += 1
+      self.panelCharToCatLIdx[panelChar] += 1
       return result
 
     except: self.err('mapCharToCatNextEl')
@@ -128,7 +128,7 @@ class enoIpanelYaml:
 
   def getCharMatrix(self):
     try:
-      result = self.tagYd['interactionPanel']['charMatrix']
+      result = self.panelYd['interactionPanel']['charMatrix']
       return result
     except: self.err("getCharMatrix")
 
@@ -146,8 +146,8 @@ class enoIpanelYaml:
         outrow = []
         for i in range(lenrow):
           ch  = row[i]
-          tag = self.mapCharToCatNextEl(ch)
-          outrow.append(tag)
+          panel = self.mapCharToCatNextEl(ch)
+          outrow.append(panel)
         #print(outrow)
         result.append(outrow)
       self.cachedMatrix = result
@@ -183,8 +183,8 @@ class enoIpanelYaml:
 ############# main #############
 
 if __name__ == "__main__":
-  #eip = enoIpanel(tagFn = 'cspan-tags.yaml')
-  eipy = enoIpanelYaml(tagFn = 'yaml/us-bea2.yaml')
+  #eip = enoIpanel(panelFn = 'cspan-panels.yaml')
+  eipy = enoIpanelYaml(panelFn = 'yaml/us-bea2.yaml')
   m    = eipy.getCharMatrix()
   print(m)
 
