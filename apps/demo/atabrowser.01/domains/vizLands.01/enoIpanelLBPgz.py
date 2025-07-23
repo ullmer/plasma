@@ -47,7 +47,8 @@ class EnoIpanelLBPgz(EnoIpanelYaml):
         self.msg("popBlL: " + str(region))
         regionColorInt = region['col']
         regionColor    = self.intToRgb(regionColorInt)
-        self.alb.createAlphaSurface2("region", w, h, regionColor, self.blockDefaultAlpha)
+        key = "region_" + str(regionKey)
+        self.alb.createAlphaSurface2(key, w, h, regionColor, self.blockDefaultAlpha)
 
     except: self.err("populateBlocksLBPgz")
 
