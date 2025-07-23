@@ -34,7 +34,8 @@ class EnoIpanelLBPgz(EnoIpanelYaml):
     try:
       self.regions = self.getPanelAttrib('regions')
       w, h = self.blockWH
-      for region in self.regions:
+      for regionKey in self.regions:
+        region = self.regions[regionKey]
         self.msg("popBlL: " + str(region))
         regionColor = region['col']
         self.alb.createAlphaSurface2("region", w, h, regionColor, self.blockDefaultAlpha)
