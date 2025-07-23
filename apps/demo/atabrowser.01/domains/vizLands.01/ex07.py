@@ -42,6 +42,7 @@ def draw():
   #fullscreen()
   screen.clear()
   avlp.draw(screen)
+  eil.draw(screen)
 
 def on_mouse_down(pos): avlp.on_mouse_down(pos)
 def on_mouse_move(rel): avlp.on_mouse_move(rel)
