@@ -36,6 +36,12 @@ class EnoIpanelLBPgz(EnoIpanelYaml):
     b = (hexInt)       & 0xFF
     return (r, g, b)
 
+  ############# draw #############
+
+  def draw(self, screen):
+    try:    self.alb.draw(screen)
+    except: self.err("draw")
+
   ############# populate blocks LBgpzname #############
 
   def populateBlocksLBPgz(self):
