@@ -28,7 +28,6 @@ class EnoIpanelLBPgz(EnoIpanelYaml):
     self.alb = AtaLabelBlock()
     self.populateBlocksLBPgz()
 
-
   ############# int to RGB #############
 
   def intToRgb(self, hexInt): 

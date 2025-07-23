@@ -73,6 +73,17 @@ class AtaLabelBlock(AtaBase):
       return True
     except: self.err("createAlphaSurface2"); return False
 
+  ################ print surface cache ################
+
+  def printSurfaceCache(self):
+    try:
+      self.msg("printSurfaceCache:")
+      for skey in self.rectSurfaceDims:
+        w, h = self.rectSurfaceDims[skey]
+        self.msg("%s %i %i" % (skey, w, h))
+
+    except: self.err("printSurfaceCache"); return False
+
   ################ place alpha surface ################
 
   def placeAlphaSurface(self, placeHandle: str, surfaceHandle: str, x: int, y: int):

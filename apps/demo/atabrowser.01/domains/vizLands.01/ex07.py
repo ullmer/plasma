@@ -34,6 +34,7 @@ avlp.loadYaml()
 avlp.initPgz()
 
 eil = EnoIpanelLBPgz(panelFn = 'yaml/us-bea2.yaml') 
+eil.printSurfaceCache()
 
 touched = None
 
