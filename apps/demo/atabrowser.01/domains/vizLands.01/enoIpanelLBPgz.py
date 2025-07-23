@@ -28,7 +28,16 @@ class EnoIpanelLBPgz(EnoIpanelYaml):
     self.alb = AtaLabelBlock()
     self.populateBlocksLBPgz()
 
-  ############# get panel name #############
+
+  ############# int to RGB #############
+
+  def intToRgb(self, hexInt): 
+    r = (hexInt >> 16) & 0xFF
+    g = (hexInt >>  8) & 0xFF
+    b = (hexInt)       & 0xFF
+    return (r, g, b)
+
+  ############# populate blocks LBgpzname #############
 
   def populateBlocksLBPgz(self):
     try:
@@ -37,7 +46,8 @@ class EnoIpanelLBPgz(EnoIpanelYaml):
       for regionKey in self.regions:
         region = self.regions[regionKey]
         self.msg("popBlL: " + str(region))
-        regionColor = region['col']
+        regionColorInt = region['col']
+        regionColor    = self.intToRgb(regionColorInt)
         self.alb.createAlphaSurface2("region", w, h, regionColor, self.blockDefaultAlpha)
 
     except: self.err("populateBlocksLBPgz")
