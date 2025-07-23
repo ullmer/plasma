@@ -10,7 +10,7 @@ from enoIpanelYaml     import *
 
 ############# enodia interaction panel midi #############
 
-class enoIpanelMidi(enoIpanelYaml):
+class EnoIpanelMidi(EnoIpanelYaml):
 
   emc     = None #enodia midi controller
   verbose = False
@@ -171,8 +171,8 @@ class enoIpanelMidi(enoIpanelYaml):
       mcoi = self.midiCtrlOutputId 
 
       self.msg("initMidi (%s, %i)" % (mcn, mcoi))
-      #self.emc = enoMidiController(mcn, midiCtrlOutputId=mcoi, activateOutput=True)
-      self.emc = enoMidiAkai(mcn, midiCtrlOutputId=mcoi, activateOutput=True)
+      #self.emc = EnoMidiController(mcn, midiCtrlOutputId=mcoi, activateOutput=True)
+      self.emc = EnoMidiAkai(mcn, midiCtrlOutputId=mcoi, activateOutput=True)
       self.emc.registerControls(self.midiCB)
     except: self.err("initMidi")
 
@@ -282,7 +282,7 @@ if __name__ == "__main__":
 
   print("=" * 70)
   #cm = enoIpanelMidi(tagFn = 'cspan-tags.yaml', casePaired=False)
-  cm = enoIpanelMidi(tagFn = 'us-bea.yaml',     casePaired=True)
+  cm = EnoIpanelMidi(tagFn = 'us-bea.yaml',     casePaired=True)
   m  = cm.getCharMatrix()
   cm.illumCharMatrixMidi()
   print(m)

@@ -7,7 +7,7 @@ from ataBase import *
 
 ############# enodia interaction panel #############
 
-class enoIpanelYaml(AtaBase):
+class EnoIpanelYaml(AtaBase):
 
   panelFn = None
   panelYd = None
@@ -180,7 +180,7 @@ class enoIpanelYaml(AtaBase):
 
 if __name__ == "__main__":
   #eip = enoIpanel(panelFn = 'cspan-panels.yaml')
-  eipy = enoIpanelYaml(panelFn = 'yaml/us-bea2.yaml')
+  eipy = EnoIpanelYaml(panelFn = 'yaml/us-bea2.yaml')
   m    = eipy.getCharMatrix()
   print(m)
 

@@ -8,7 +8,7 @@ from enoIpanelYaml import *
 
 ############# enodia interaction panel #############
 
-class enoIpanelLBPgz(enoIpanelYaml):
+class EnoIpanelLBPgz(EnoIpanelYaml):
 
   alb          = None #AtaLabelBlock 
   blockWH      = (50, 50)
@@ -43,7 +43,7 @@ class enoIpanelLBPgz(enoIpanelYaml):
 ############# main #############
 
 if __name__ == "__main__":
-  eipl  = enoIpanelLBPgz(panelFn = 'yaml/us-bea2.yaml')
+  eipl  = EnoIpanelLBPgz(panelFn = 'yaml/us-bea2.yaml')
   #print(eipl.regions)
   #my = eipl.expandMatrixYaml()
   #print(my)

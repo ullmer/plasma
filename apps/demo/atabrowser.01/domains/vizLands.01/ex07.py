@@ -11,8 +11,9 @@ TITLE         = 'ATA.browser'
 WIDTH, HEIGHT =  1920, 1080
 
 import pgzrun
-from vizLandsPgz   import *
-from ataLabelBlock import *
+from vizLandsPgz    import *
+from ataLabelBlock  import *
+from enoIpanelLBPgz import *
 
 #### deal with mac challenges ####
 fullscreenSet = False
@@ -31,6 +32,8 @@ avlp.yamlStatePath1 = 'az:nps:meta'
 
 avlp.loadYaml()
 avlp.initPgz()
+
+eil = EnoIpanelLBPgz() 
 
 touched = None
 
