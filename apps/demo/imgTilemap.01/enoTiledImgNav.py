@@ -25,6 +25,7 @@ class EnoTiledImgNav(AtaBase):
   c1                     = None
   depositMapSimpleUpdate = None
   moveImmediateIgnorePlasma = False
+  autoloadCursors        = False
 
   ############### constructor ###############
   
@@ -36,9 +37,10 @@ class EnoTiledImgNav(AtaBase):
     for k in self.cursorKeys:
       self.cursorsPressed[k] = False
 
-    self.c1                = Actor("cursor01a", pos=(200, 200))
-    self.legendRight       = Actor("legendright02",  pos=(1680, 500))
-    self.legendRightCursor = Actor("legendcursor02", pos=(1680, 905))
+    if self.autoloadCursors:
+      self.c1                = Actor("cursor01a", pos=(200, 200))
+      self.legendRight       = Actor("legendright02",  pos=(1680, 500))
+      self.legendRightCursor = Actor("legendcursor02", pos=(1680, 905))
 
   ############### draw callback ###############
   
