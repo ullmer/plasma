@@ -2,7 +2,9 @@
 # Brygg Ullmer, Clemson University
 # Begun 2025-07-23
 
-import plasma
+try: import plasma
+except: print("import plasma not possible")
+
 import time, sys, traceback
 from   ataBase           import *
 from   enoPlasmaListener import *
