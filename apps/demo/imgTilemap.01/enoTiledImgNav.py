@@ -45,8 +45,10 @@ class EnoTiledImgNav(AtaBase):
   ############### draw callback ###############
   
   def draw(self, screen): 
-    self.legendRight.draw()
-    self.legendRightCursor.draw()
+    try:
+      self.legendRight.draw()
+      self.legendRightCursor.draw()
+    except: pass
 
   ############### plasma move callback ###############
   
