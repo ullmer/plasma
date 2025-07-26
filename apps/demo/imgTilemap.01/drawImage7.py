@@ -19,7 +19,9 @@ etinav = enoTiledImgNav(eti)
 eti.adjustWindowPlacement(WIDTH, HEIGHT)
 eti.loadTmap(tmdn)
 
-c1          = Actor("cursor01a", pos=(200, 200))
+try: c1           = Actor("cursor01a", pos=(200, 200))
+except:           print("problem invoking cursor01a")
+
 legendRight       = Actor("legendright02",  pos=(1680, 500))
 legendRightCursor = Actor("legendcursor02", pos=(1680, 905))
 
