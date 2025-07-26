@@ -4,9 +4,11 @@
 
 import threading
 import logging
-import plasma
 import time
 import traceback
+
+try: import plasma
+except: print("import plasma not possible")
 
 ################ PlasmaListener ################ 
 
