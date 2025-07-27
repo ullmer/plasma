@@ -30,12 +30,13 @@ class ADVizLandsPgz(ADVizLands):
   actorPosDiff = ( 775, 245)
   actRelDiff   = (-410,  10) #clearly inadequate naming, but a start
   numCols      =  2
-  firstActor   = 8
+  firstActor   = 15
   currentActor = 0
 
   ########## constructor ##########
 
-  def __init__(self):
+  def __init__(self, **kwargs):
+    self.__dict__.update(kwargs) #allow class fields to be passed in constructor
     self.actorDictMeta  = {}
     self.actorDictThumb = {}
     self.afCache = AtaFileCache()

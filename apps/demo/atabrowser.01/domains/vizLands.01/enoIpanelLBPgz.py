@@ -11,17 +11,19 @@ from enoIpanelYaml import *
 class EnoIpanelLBPgz(EnoIpanelYaml):
 
   alb          = None #AtaLabelBlock 
-  blockWH      = (50, 50)
-  blockPad     = ( 3,  3)
-  blockBasePos = (1500, 700)
+  blockWH      = (40, 40)
+  blockPad     = ( 2,  2)
+  blockBasePos = (1575, 700)
   blockDefaultAlpha = 128
   regions      = None
   region2zones = None
   keyMap       = 'states' #panel attribute used to map cell abbreviations to full names
   verbose      = False
 
-  fontSizePrimary   = 24
+  fontSizePrimary   = 30
   fontSizeSecondary = 10
+  textPadPrimary     = ( 5, 40)
+  textPadSecondary   = (10,  5)
 
   ############# constructor #############
 
@@ -29,7 +31,9 @@ class EnoIpanelLBPgz(EnoIpanelYaml):
     self.__dict__.update(kwargs) #allow class fields to be passed in constructor
     super().__init__()
     self.alb = AtaLabelBlock(fontSizePrimary   = self.fontSizePrimary, \
-                             fontSizeSecondary = self.fontSizeSecondary)
+                             fontSizeSecondary = self.fontSizeSecondary,\
+                             textPadPrimary    = self.textPadPrimary,    \
+                             textPadSecondary  = self.textPadSecondary)
 
     self.populateBlocksLBPgz()
 
