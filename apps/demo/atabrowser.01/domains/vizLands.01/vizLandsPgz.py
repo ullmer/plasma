@@ -25,11 +25,13 @@ class ADVizLandsPgz(ADVizLands):
   actorFns  = None
   actorWH   = None
   verbose   = False
-  basePos      = ( 820, 150)
+  basePos      = ( 800, 150)
   labelOffset  = (-300, -85)
   actorPosDiff = ( 775, 245)
   actRelDiff   = (-410,  10) #clearly inadequate naming, but a start
   numCols      =  2
+  firstActor   = 8
+  currentActor = 0
 
   ########## constructor ##########
 
@@ -69,6 +71,10 @@ class ADVizLandsPgz(ADVizLands):
       self.alb.createAlphaSurface2("blk100", 275, 100, (80,80,100), 128)
 
       for actorFn in self.actorFns:
+        if self.firstActor is not None and \
+           self.firstActor > self.currentActor: 
+              self.currentActor += 1; continue
+
         if self.verbose: self.msg("initPgz: " + str(actorFn))
         fn1 = self.imgPathPrefix1 + actorFn
 

@@ -38,7 +38,9 @@ class AtaLabelBlock(AtaBase):
 
   ################ constructor ################
 
-  def __init__(self):
+  def __init__(self, **kwargs):
+    self.__dict__.update(kwargs) #allow class fields to be passed in constructor
+
     super().__init__()
     self.rectSurfaceCache  = {}
     self.rectSurfaceDims   = {}

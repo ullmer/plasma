@@ -33,7 +33,7 @@ avlp.yamlStatePath1 = 'az:nps:meta'
 avlp.loadYaml()
 avlp.initPgz()
 
-eil = EnoIpanelLBPgz(panelFn = 'yaml/us-bea2.yaml') 
+eil = EnoIpanelLBPgz(panelFn = 'yaml/us-bea2.yaml', firstRow=7) 
 eil.alb.printSurfaceCache()
 
 touched = None

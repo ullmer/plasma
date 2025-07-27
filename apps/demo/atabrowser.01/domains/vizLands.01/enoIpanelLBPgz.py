@@ -13,19 +13,24 @@ class EnoIpanelLBPgz(EnoIpanelYaml):
   alb          = None #AtaLabelBlock 
   blockWH      = (50, 50)
   blockPad     = ( 3,  3)
-  blockBasePos = (10, 100)
+  blockBasePos = (1500, 700)
   blockDefaultAlpha = 128
   regions      = None
   region2zones = None
   keyMap       = 'states' #panel attribute used to map cell abbreviations to full names
   verbose      = False
 
+  fontSizePrimary   = 24
+  fontSizeSecondary = 10
+
   ############# constructor #############
 
   def __init__(self, **kwargs):
     self.__dict__.update(kwargs) #allow class fields to be passed in constructor
     super().__init__()
-    self.alb = AtaLabelBlock()
+    self.alb = AtaLabelBlock(fontSizePrimary   = self.fontSizePrimary, \
+                             fontSizeSecondary = self.fontSizeSecondary)
+
     self.populateBlocksLBPgz()
 
   ############# int to RGB #############
@@ -71,8 +76,9 @@ class EnoIpanelLBPgz(EnoIpanelYaml):
       x0, y0 = self.blockBasePos
       for i   in range(self.rows):
         for j in range(self.cols):
-          abbrev = self.eipl.getMatrixLocus(i,j)
-          name   = self.elDict[abbrev] # e.g., states
+          abbrev = self.getMatrixLocus(i,j)
+          if abbrev not in elDict: continue
+          name   = elDict[abbrev] # e.g., states
           x, y = x0 + bw1*i, y0 + bh1*j
           region = self.zone2region[abbrev]
           regionSurf = "region_" + region
