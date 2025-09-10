@@ -1,3 +1,4 @@
+echo note that this likely includes particulars of macports (e.g. /opt/local)
 cmake .. -GNinja  -DOPENSSL_ROOT_DIR=/opt/local/libexec/openssl3 \
    -DOPENSSL_INCLUDE_DIR=/opt/local/libexec/openssl3/include      \
    -DCMAKE_CXX_STANDARD=17 \
