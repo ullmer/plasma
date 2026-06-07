@@ -7,6 +7,16 @@ option(PLASMA_LEGACY_MODE "Build for compatibility with older systems" OFF)
 option(PLASMA_ENABLE_TCP_OPTIMIZATIONS "Enable TCP performance optimizations" ON)
 option(PLASMA_ENABLE_LARGE_TRANSFER_LOGGING "Enable logging for transfers >1MB" ON)
 
+
+# Ensure plasma_BINARY_DIR is defined.
+# Some build paths still reference this variable, but it may be unset
+# after recent CMake refactors, leading to incorrect paths (e.g. "/").
+# Default it to the standard CMake build directory.
+
+if(NOT DEFINED plasma_BINARY_DIR)
+  set(plasma_BINARY_DIR ${CMAKE_BINARY_DIR})
+endif()
+
 # We don't really have a YOBUILD anymore, but it causes some
 # annoyance if YOBUILD is the empty string, so let's just set
 # it to something...
