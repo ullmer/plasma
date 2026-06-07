@@ -129,3 +129,13 @@ libProtist/
 
 # Generated scripts
 libPlasma/ruby/gembuild/build.sh
+
+build*/
+__pycache__/
+*.pyc
+*.so
+*.o
+*.log
+libPlasma/pythonc/build.*
+libPlasma/pythonc/build*/
+libPlasma/pythonc/tests/plasma.so
