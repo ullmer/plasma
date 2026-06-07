@@ -17,10 +17,18 @@ if(NOT DEFINED plasma_BINARY_DIR)
   set(plasma_BINARY_DIR ${CMAKE_BINARY_DIR})
 endif()
 
-# We don't really have a YOBUILD anymore, but it causes some
-# annoyance if YOBUILD is the empty string, so let's just set
-# it to something...
-set(YOBUILD "/opt/yobuild")
+# Normalize YOBUILD path:
+# Historically used to populate include/lib paths, but may not exist
+# on all systems. Fall back to prefix if missing.
+
+if(NOT DEFINED YOBUILD OR NOT EXISTS "${YOBUILD}")
+  set(YOBUILD "/opt/local")
+endif()
+
+## We don't really have a YOBUILD anymore, but it causes some
+## annoyance if YOBUILD is the empty string, so let's just set
+## it to something...
+#set(YOBUILD "/opt/yobuild")
 
 # Rather than just hardcoding "plasma", have a variable for it:
 set(PRODNAME "plasma")
