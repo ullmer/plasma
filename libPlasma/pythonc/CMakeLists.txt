@@ -26,12 +26,24 @@ include_directories(
   ${LOAM_CPP}
 )
 
-# Force correct Python include BEFORE pybind11 detection
-set(PYTHON_INCLUDE_DIR "/opt/local/Library/Frameworks/Python.framework/Versions/3.11/include/python3.11")
-include_directories(${PYTHON_INCLUDE_DIR})
+## Force correct Python include BEFORE pybind11 detection
+#set(PYTHON_INCLUDE_DIR "/opt/local/Library/Frameworks/Python.framework/Versions/3.11/include/python3.11")
+#include_directories(${PYTHON_INCLUDE_DIR})
+#
+## Add the Python module
+#find_package(pybind11 REQUIRED)
+#pybind11_add_module(plasma module.cpp)
 
-# Add the Python module
+# Use modern Python detection (avoids broken FreeCAD include path)
+set(PYBIND11_FINDPYTHON ON)
+
+find_package(Python3 REQUIRED COMPONENTS Interpreter Development)
 find_package(pybind11 REQUIRED)
+
+# Ensure correct include dirs
+include_directories(${Python3_INCLUDE_DIRS})
+
+# Add module
 pybind11_add_module(plasma module.cpp)
 
 # Link OpenSSL
