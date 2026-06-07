@@ -26,6 +26,10 @@ include_directories(
   ${LOAM_CPP}
 )
 
+# Force correct Python include BEFORE pybind11 detection
+set(PYTHON_INCLUDE_DIR "/opt/local/Library/Frameworks/Python.framework/Versions/3.11/include/python3.11")
+include_directories(${PYTHON_INCLUDE_DIR})
+
 # Add the Python module
 find_package(pybind11 REQUIRED)
 pybind11_add_module(plasma module.cpp)
