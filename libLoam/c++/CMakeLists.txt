@@ -114,7 +114,7 @@ set(Loam++_LINK_LIBS ${PLATFORM_LINK_LIBS} Loam ${ICU_LIBRARIES} ${Boost_LIBRARI
 ObGeneratePC (
   NAME libLoam++
   VERSION ${PC_VERSION}
-  DESCRIPTION "Part of Oblong's g-speak Spatial Operating Environment"
+  DESCRIPTION "General utility functions (C++ API)"
   # FIXME: use REQUIRES instead of LIBS and CFLAGS for Boost and ICU
   REQUIRES libLoam
   LIBS "-lLoam++ ${Boost_LIBRARIES_SPACE_SEP} ${ICU_LIBRARIES_SPACE_SEP}"
@@ -125,7 +125,11 @@ ObGeneratePC (
 
 include_directories(${Loam++_SOURCE_DIR})
 
-set(CMAKE_POSITION_INDEPENDENT_CODE ON)
+# Add ICU include directories
+if(APPLE)
+  set(ICU_ROOT /opt/homebrew/opt/icu4c)
+  include_directories(${ICU_ROOT}/include)
+endif()
 
 add_library(Loam++ ${LIBRARY_TYPE} ${Loam++_SOURCES})
 target_link_libraries(Loam++ ${Loam++_LINK_LIBS})

@@ -1,6 +1,6 @@
 # /* (c) 2010 Oblong Industries */
 
-cmake_minimum_required(VERSION 2.8.9)
+cmake_minimum_required(VERSION 3.6.2)
 project(Plasma)
 
 # Avoid cmake warnings on Mac
@@ -117,7 +117,7 @@ list(APPEND Plasma_LINK_LIBS Loam)
 ObGeneratePC (
   NAME libPlasma
   VERSION ${PC_VERSION}
-  DESCRIPTION "Part of Oblong's g-speak Spatial Operating Environment"
+  DESCRIPTION "Data serialization and IPC library"
   REQUIRES libLoam
   LIBS "-lPlasma ${YAML_LIB} ${OPENSSL_LIBRARIES}"
 )
@@ -127,7 +127,11 @@ ObGeneratePC (
 include_directories(${Loam_SOURCE_DIR})
 include_directories(${Plasma_SOURCE_DIR})
 
-set(CMAKE_POSITION_INDEPENDENT_CODE ON)
+# Add ICU include directories
+if(APPLE)
+  set(ICU_ROOT /opt/homebrew/opt/icu4c)
+  include_directories(${ICU_ROOT}/include)
+endif()
 
 add_library(Plasma ${LIBRARY_TYPE} ${Plasma_SOURCES})
 target_link_libraries(Plasma ${Plasma_LINK_LIBS})

@@ -1,6 +1,6 @@
 # /* (c) 2014 Oblong Industries */
 
-cmake_minimum_required(VERSION 2.8.9)
+cmake_minimum_required(VERSION 3.6.2)
 project(PlasmaZeroconf)
 
 # Avoid cmake warnings on Mac
@@ -52,7 +52,7 @@ endif()
 ObGeneratePC (
   NAME libPlasmaZeroconf
   VERSION ${PC_VERSION}
-  DESCRIPTION "Part of Oblong's g-speak Spatial Operating Environment"
+  DESCRIPTION "Zeroconf support for libPlasma"
   REQUIRES libLoam ${ZEROCONFDEPS}
   LIBS "-lPlasmaZeroconf ${YAML_LIB} ${OPENSSL_LIBRARIES}"
 )

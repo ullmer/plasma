@@ -1,14 +1,47 @@
 cmake_minimum_required (VERSION 3.6.2)
 
-#project(plasma CXX C)
-project(plasma CXX C)
+project(g-speak CXX C)
 
-# Select C++11 dialect
-#set(CMAKE_CXX_STANDARD 11)
+# Compatibility options
+option(PLASMA_LEGACY_MODE "Build for compatibility with older systems" OFF)
+option(PLASMA_ENABLE_TCP_OPTIMIZATIONS "Enable TCP performance optimizations" ON)
+option(PLASMA_ENABLE_LARGE_TRANSFER_LOGGING "Enable logging for transfers >1MB" ON)
+
+# We don't really have a YOBUILD anymore, but it causes some
+# annoyance if YOBUILD is the empty string, so let's just set
+# it to something...
+set(YOBUILD "/opt/yobuild")
+
+# Rather than just hardcoding "plasma", have a variable for it:
+set(PRODNAME "plasma")
+
+# Auto-detect if legacy mode needed
+if(NOT DEFINED PLASMA_LEGACY_MODE)
+    # Check compiler version
+    if(CMAKE_CXX_COMPILER_ID STREQUAL "GNU" AND CMAKE_CXX_COMPILER_VERSION VERSION_LESS "5.0")
+        set(PLASMA_LEGACY_MODE ON)
+        message(STATUS "GCC < 5.0 detected - enabling legacy compatibility mode")
+    elseif(CMAKE_CXX_COMPILER_ID STREQUAL "Clang" AND CMAKE_CXX_COMPILER_VERSION VERSION_LESS "3.4")
+        set(PLASMA_LEGACY_MODE ON)
+        message(STATUS "Clang < 3.4 detected - enabling legacy compatibility mode")
+    elseif(DEFINED ENV{PLASMA_LEGACY_BUILD})
+        set(PLASMA_LEGACY_MODE ON)
+        message(STATUS "PLASMA_LEGACY_BUILD environment variable set - enabling legacy compatibility mode")
+    endif()
+endif()
+
+# Select C++ dialect based on mode
+if(PLASMA_LEGACY_MODE)
+    set(CMAKE_CXX_STANDARD 11)
+    message(STATUS "Building in legacy compatibility mode (C++11)")
+else()
+    set(CMAKE_CXX_STANDARD 17)
+    message(STATUS "Building with modern features (C++17)")
+endif()
 set(CXX_STANDARD_REQUIRED YES)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
-# Get access to plasma's standard cmake options, helper functions,
+# Get access to g-speak's standard cmake options, helper functions,
 # and variables.
 # Clients use FIND_PACKAGE(Oblong), but we grab it here from source tree.
 list(INSERT CMAKE_MODULE_PATH 0 "${CMAKE_CURRENT_SOURCE_DIR}/bld/cmake")
@@ -18,15 +51,16 @@ INCLUDE("ObGenerateProject")
 # Short name
 SET(TOP_TEMPLATE ${CMAKE_SOURCE_DIR}/samples/obi-template)
 
-set(top_srcdir       "${plasma_SOURCE_DIR}")
-set(abs_top_srcdir   "${plasma_SOURCE_DIR}")
-set(top_builddir     "${plasma_BINARY_DIR}")
-set(abs_top_builddir "${plasma_BINARY_DIR}")
+
+set(top_srcdir "${g-speak_SOURCE_DIR}")
+set(abs_top_srcdir "${g-speak_SOURCE_DIR}")
+set(top_builddir "${g-speak_BINARY_DIR}")
+set(abs_top_builddir "${g-speak_BINARY_DIR}")
 
 # Tell tests where top of source tree is.
 # Consumed by libStaging/include/private/testHelpers.h
 # and libLoam/c/tests/test-paths.c
-set (CMAKE_C_FLAGS   "${CMAKE_C_FLAGS}   -DABS_TOP_SRCDIR=\\\"${abs_top_srcdir}\\\"")
+set (CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -DABS_TOP_SRCDIR=\\\"${abs_top_srcdir}\\\"")
 set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DABS_TOP_SRCDIR=\\\"${abs_top_srcdir}\\\"")
 
 
@@ -44,19 +78,29 @@ set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DABS_TOP_SRCDIR=\\\"${abs_top_srcdir}\
 #     OUTPUT_VARIABLE PACKAGE_PATCH
 # )
 # set(PACKAGE_VERSION_PATCH "${VERSION}-${PACKAGE_PATCH}")
-# STRING(REPLACE "." ";" VERSION_LIST ${VERSION})
-# LIST(GET VERSION_LIST 0 MAJOR_VERSION)
-# LIST(GET VERSION_LIST 1 MINOR_VERSION)
-# LIST(LENGTH VERSION_LIST VERSION_LIST_LEN)
-# if (VERSION_LIST_LEN LESS 3)
-#   set(MICRO_VERSION 0)
-# else()
-#   LIST(GET VERSION_LIST 2 MICRO_VERSION)
-# endif()
-# execute_process(
-#   COMMAND "perl" "-e" "printf('%u%02u%02u', ${MAJOR_VERSION}, ${MINOR_VERSION}, ${MICRO_VERSION})"
-#   OUTPUT_VARIABLE NUMBER_VERSION
-# )
+
+# For now, just hardcode the version here:
+set (VERSION "5.6.1")
+set (PACKAGE_VERSION_PATCH "${VERSION}")
+
+# And I don't know what was supposed to set PC_VERSION, but it looks
+# like nothing was setting it, so let's set it here:
+set (PC_VERSION "${VERSION}")
+
+# Derive some additional variables from VERSION
+STRING(REPLACE "." ";" VERSION_LIST ${VERSION})
+LIST(GET VERSION_LIST 0 MAJOR_VERSION)
+LIST(GET VERSION_LIST 1 MINOR_VERSION)
+LIST(LENGTH VERSION_LIST VERSION_LIST_LEN)
+if (VERSION_LIST_LEN LESS 3)
+  set(MICRO_VERSION 0)
+else()
+  LIST(GET VERSION_LIST 2 MICRO_VERSION)
+endif()
+execute_process(
+  COMMAND "perl" "-e" "printf('%u%02u%02u', ${MAJOR_VERSION}, ${MINOR_VERSION}, ${MICRO_VERSION})"
+  OUTPUT_VARIABLE NUMBER_VERSION
+)
 
 if(WIN32)
     set(YAML_LIB "-libpath:${YOBUILD}/lib;yaml.lib")
@@ -76,16 +120,10 @@ endif()
 # Replace semicolons with spaces to keep cmake from splitting the argument.
 STRING(REPLACE ";" " " ICU_LIBRARIES_SPACE_SEP "${ICU_LIBRARIES}" )
 
-#pybind11 syntax by Copilot; mileage may vary
-#set(PYBIND11_FINDPYTHON ON)
-#find_package(pybind11 REQUIRED)
-#target_link_libraries(plasma PRIVATE pybind11::module)
-#pybind11_add_module(plasma src/bindings.cpp)
-
 # otherwise boost includes optimized and debug versions, which fouls up the build
 set(Boost_USE_DEBUG_RUNTIME FALSE)
 set(BOOST_ROOT ${YOBUILD})
-find_package(Boost REQUIRED COMPONENTS filesystem regex system)
+find_package(Boost REQUIRED COMPONENTS filesystem regex)
 if (NOT WIN32)
     # Using absolute paths to libraries causes great woe in .pc files
     # Instead, use -l flags.   We already have all needed -L and -I flags.
@@ -104,6 +142,48 @@ add_definitions("-DBOOST_SYSTEM_NO_DEPRECATED")
 
 INCLUDE(CheckIncludeFileCXX)
 INCLUDE(CheckIncludeFile)
+INCLUDE(CheckCXXSourceCompiles)
+INCLUDE(CheckSymbolExists)
+INCLUDE(CheckCXXCompilerFlag)
+
+# Feature detection for compatibility
+if(PLASMA_LEGACY_MODE)
+    set(PLASMA_LEGACY_BUILD 1)
+endif()
+
+# Check for C++ features
+check_cxx_source_compiles("
+    #include <random>
+    #include <algorithm>
+    #include <vector>
+    int main () {
+        // std::vector<int> v = {1,2,3,4,5};  // cain't when compiling < c++-11
+        std::vector <int> v;
+        v.push_back (1);  v.push_back (2);
+        v.push_back (3);  v.push_back (4);
+        v.push_back (5);
+        std::mt19937 gen;
+        std::shuffle (v.begin (), v.end (), gen);
+        return 0;
+    }" HAVE_STD_SHUFFLE)
+
+check_cxx_source_compiles("
+    #include <random>
+    int main() {
+        std::mt19937 gen;
+        return 0;
+    }" HAVE_STD_MT19937)
+
+# Check for TCP features
+if(NOT WIN32)
+    check_symbol_exists(TCP_USER_TIMEOUT "netinet/tcp.h" HAVE_TCP_USER_TIMEOUT)
+    check_symbol_exists(TCP_KEEPINTVL "netinet/tcp.h" HAVE_TCP_KEEPINTVL)
+    check_symbol_exists(TCP_KEEPIDLE "netinet/tcp.h" HAVE_TCP_KEEPIDLE)
+endif()
+
+# Configure plasma_config.h
+configure_file(${CMAKE_CURRENT_SOURCE_DIR}/plasma_config.h.in
+               ${CMAKE_CURRENT_BINARY_DIR}/plasma_config.h)
 if (UNIX)
   set(OPENSSL_LIBRARIES "-lssl -lcrypto")
   set(OPENSSL_FOUND TRUE)
@@ -143,7 +223,7 @@ if (UNIX)
   #  dyld: Library not loaded: @rpath/libboost_filesystem-mt.dylib
   # on some macs (not sure why it isn't everywhere).
   # So:
-  list(APPEND PLATFORM_LINK_LIBS -L/opt/local/lib -Wl,-rpath,${YOBUILD}/lib)
+  list(APPEND PLATFORM_LINK_LIBS -L${YOBUILD}/lib -Wl,-rpath,${YOBUILD}/lib)
 
 endif()
 
@@ -227,7 +307,7 @@ if (WIN32)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /D_USE_MATH_DEFINES" )
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /showIncludes")
     set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} /showIncludes")
-     
+
     # binary location differs with generator
     if (WIN32 AND NOT CMAKE_GENERATOR MATCHES Ninja)
         set(BIN_SUBDIR ${CMAKE_BUILD_TYPE})
@@ -271,10 +351,12 @@ endif()
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -DQUOTED_PREFIX=\\\"${CMAKE_INSTALL_PREFIX}\\\"")
 
 # Let source files use top-relative include path
-include_directories(${plasma_BINARY_DIR})
-include_directories(${plasma_SOURCE_DIR})
-include_directories(${plasma_SOURCE_DIR}/system)
-include_directories(SYSTEM ${plasma_SOURCE_DIR}/gtest/include)
+include_directories(${g-speak_BINARY_DIR})
+# Include directory for generated plasma_config.h
+include_directories(${CMAKE_CURRENT_BINARY_DIR})
+include_directories(${g-speak_SOURCE_DIR})
+include_directories(${g-speak_SOURCE_DIR}/system)
+include_directories(SYSTEM ${g-speak_SOURCE_DIR}/gtest/include)
 
 #------------- generate documentation -----------
 
@@ -293,7 +375,7 @@ ENDMACRO()
 
 # Given a .pod file, create .1 and .html files in share/doc
 # and update share/doc/index.html
-set(doc_bindir "${plasma_BINARY_DIR}/share/doc")
+set(doc_bindir "${g-speak_BINARY_DIR}/share/doc")
 FILE(MAKE_DIRECTORY "${doc_bindir}/htmlman")
 native2unix(_doc_bindir "${doc_bindir}")
 
@@ -308,11 +390,11 @@ MACRO(pod2manhtml _sourcefile _manext)
       # by assuming cygwin perl + pod2man installed
       set(pod2mancmd "C:/cygwin64/bin/perl;/usr/bin/pod2man")
       set(pod2htmlcmd "C:/cygwin64/bin/perl;/usr/bin/pod2html")
-      set(indexcmd "C:/cygwin64/bin/perl;${plasma_SOURCE_DIR}/bld/make-html-doc-index.pl")
+      set(indexcmd "C:/cygwin64/bin/perl;${g-speak_SOURCE_DIR}/bld/make-html-doc-index.pl")
     else()
       set(pod2mancmd "pod2man")
       set(pod2htmlcmd "pod2html")
-      set(indexcmd "${plasma_SOURCE_DIR}/bld/make-html-doc-index.pl")
+      set(indexcmd "${g-speak_SOURCE_DIR}/bld/make-html-doc-index.pl")
     endif()
     add_custom_target(${_outman}-target ALL
         DEPENDS ${doc_bindir}/${_outman}
@@ -320,15 +402,15 @@ MACRO(pod2manhtml _sourcefile _manext)
     add_custom_command(
         OUTPUT ${doc_bindir}/${_outman}
         DEPENDS ${_sourcefile}
-        COMMAND ${pod2mancmd} "--section=${_manext}" "--center=Oblong Industries" "--release=plasma ${VERSION}" "${_abssourcefile}" "${_doc_bindir}/${_outman}"
+        COMMAND ${pod2mancmd} "--section=${_manext}" "--center=User Commands" "--release=${PRODNAME} ${VERSION}" "${_abssourcefile}" "${_doc_bindir}/${_outman}"
         COMMAND ${pod2htmlcmd} "--infile=${_abssourcefile}" "--outfile=${_doc_bindir}/htmlman/${_outhtml}"
         COMMAND ${indexcmd} -o ${_doc_bindir}/index.html ${_doc_bindir}/htmlman/*-man.html
         VERBATIM
     )
-    INSTALL(FILES ${doc_bindir}/htmlman/${_outhtml} DESTINATION share/doc/plasma/htmlman )
+    INSTALL(FILES ${doc_bindir}/htmlman/${_outhtml} DESTINATION share/doc/${PRODNAME}/htmlman )
     INSTALL(FILES ${doc_bindir}/${_outman}          DESTINATION share/man/man${_manext} )
 ENDMACRO(pod2manhtml)
-INSTALL(FILES ${doc_bindir}/index.html DESTINATION share/doc/plasma )
+INSTALL(FILES ${doc_bindir}/index.html DESTINATION share/doc/${PRODNAME} )
 
 #------------- test support ---------------
 
@@ -346,18 +428,17 @@ set(
   libPlasma/c++ libPlasma/c++/tests
   libPlasma/c libPlasma/c/tests libPlasma/c/t libPlasma/c/tests-mmap-only
   libPlasma/ruby
-  libPlasma/python libPlasma/python/tests
   libProtist libProtist/tests
 )
 if (WIN32 AND NOT CMAKE_GENERATOR MATCHES Ninja)
   foreach(dir ${ALL_BIN_DIRS})
-    LIST(APPEND ALL_BIN_DIRS_ABS ${plasma_BINARY_DIR}/${dir}/${CMAKE_BUILD_TYPE})
-    LIST(APPEND ALL_BIN_DIRS_ABS ${plasma_SOURCE_DIR}/${dir})
+    LIST(APPEND ALL_BIN_DIRS_ABS ${g-speak_BINARY_DIR}/${dir}/${CMAKE_BUILD_TYPE})
+    LIST(APPEND ALL_BIN_DIRS_ABS ${g-speak_SOURCE_DIR}/${dir})
   endforeach()
 else()
   foreach(dir ${ALL_BIN_DIRS})
-    LIST(APPEND ALL_BIN_DIRS_ABS ${plasma_BINARY_DIR}/${dir})
-    LIST(APPEND ALL_BIN_DIRS_ABS ${plasma_SOURCE_DIR}/${dir})
+    LIST(APPEND ALL_BIN_DIRS_ABS ${g-speak_BINARY_DIR}/${dir})
+    LIST(APPEND ALL_BIN_DIRS_ABS ${g-speak_SOURCE_DIR}/${dir})
   endforeach()
 endif()
 native2unix(ALL_BIN_DIRS_ABS_COLONSEP "${ALL_BIN_DIRS_ABS}")
@@ -392,7 +473,7 @@ add_custom_target(check COMMAND ${CMAKE_CTEST_COMMAND} -V)
 function(add_wrapped_test _myTest _myTestRunner _myFixtures)
   add_test(
     NAME ${_myTest}
-    COMMAND "${SHELL}" ${plasma_BINARY_DIR}/yotest run "${_myFixtures}" ${_myTestRunner}
+    COMMAND "${SHELL}" ${g-speak_BINARY_DIR}/yotest run "${_myFixtures}" ${_myTestRunner}
   )
 endfunction()
 
@@ -454,7 +535,6 @@ add_subdirectory(gtest)
 add_subdirectory(doc)
 add_subdirectory(libLoam/c)
 add_subdirectory(libPlasma/c)
-add_subdirectory(libPlasma/python)
 add_subdirectory(libLoam/c++)
 add_subdirectory(libPlasma/c++)
 if (NOT WIN32)
@@ -474,23 +554,27 @@ endif()
 
 # Variables set kludgily, in alphabetical order (FIXME)
 
+# comment out all of this git stuff for now...
 # GIT_VERSION
 #GIT_VERSION="$_describe\\n$_git_line_2\\n$_git_line_3"
-exec_program(
-    "git"
-    ${CMAKE_CURRENT_SOURCE_DIR}
-    ARGS "describe" "--long"
-    OUTPUT_VARIABLE GIT_VERSION )
-STRING(REGEX REPLACE "^.*-" "" PACKAGE_SHA ${GIT_VERSION})
-
+# exec_program(
+#     "git"
+#     ${CMAKE_CURRENT_SOURCE_DIR}
+#     ARGS "describe" "--long"
+#     OUTPUT_VARIABLE GIT_VERSION )
+# STRING(REGEX REPLACE "^.*-" "" PACKAGE_SHA ${GIT_VERSION})
+#
 # ABI_VERSION
 # Assume release versions are binary compatible if major and minor are the same.
 # Assume development versions are always incompatible.  (Use SHA as ABI version then.)
-if (GIT_VERSION MATCHES "rel-")
-    set(ABI_VERSION "${MAJOR_VERSION}.${MINOR_VERSION}")
-else()
-    set(ABI_VERSION "${PACKAGE_VERSION_PATCH} ${PACKAGE_SHA}")
-endif()
+# if (GIT_VERSION MATCHES "rel-")
+#     set(ABI_VERSION "${MAJOR_VERSION}.${MINOR_VERSION}")
+# else()
+#     set(ABI_VERSION "${PACKAGE_VERSION_PATCH} ${PACKAGE_SHA}")
+# endif()
+
+# ... and instead just do this:
+set(ABI_VERSION "${MAJOR_VERSION}.${MINOR_VERSION}")
 
 set(UBUNTU_RELEASE "dopey")
 
@@ -499,8 +583,8 @@ foreach(f
     libLoam/c/ob-vers-gen.h
 )
     configure_file (
-      "${plasma_SOURCE_DIR}/${f}.in"
-      "${plasma_SOURCE_DIR}/${f}"
+      "${g-speak_SOURCE_DIR}/${f}.in"
+      "${g-speak_SOURCE_DIR}/${f}"
       @ONLY
     )
 endforeach()
@@ -518,7 +602,7 @@ endforeach()
 #------------- helpers ---------------
 
 if (ASAN OR (UNIX AND NOT APPLE))
-  # Needed for running e.g. ruby or python that loads a native plasma plugin
+  # Needed for running e.g. ruby or python that loads a native g-speak plugin
   # Install unconditionally on Linux because conditional debian packaging is... hard.
   install(
     FILES bld/cmake/asanpreload
@@ -531,7 +615,7 @@ endif()
 # Assumes $G_SPEAK_HOME/bin is on PATH *or* debian alternatives are used to find it.
 configure_file(bld/obenv.in obenv @ONLY)
 install(
-  FILES ${plasma_BINARY_DIR}/obenv
+  FILES ${g-speak_BINARY_DIR}/obenv
   DESTINATION bin
   PERMISSIONS OWNER_READ OWNER_EXECUTE GROUP_READ GROUP_EXECUTE WORLD_READ WORLD_EXECUTE
 )

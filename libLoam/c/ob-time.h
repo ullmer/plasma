@@ -7,8 +7,7 @@
 #include "libLoam/c/ob-types.h"
 #include "libLoam/c/ob-api.h"
 #include "libLoam/c/ob-retorts.h"
-
-#include <stdlib.h> /* for struct timeval */
+#include "libLoam/c/ob-sys.h"      /* for struct timeval */
 
 #ifdef __cplusplus
 extern "C" {

@@ -9,6 +9,8 @@
 
 #include <libPlasma/c/protein.h>
 
+#include "compat.h"
+
 #include <functional>
 #include <algorithm>
 #include <ostream>
@@ -310,3 +312,5 @@ void SlawList::Spew (OStreamReference os) const
 }
 }
 }  // namespace oblong::plasma::detail
+
+PLASMA_RESTORE_WARNINGS
