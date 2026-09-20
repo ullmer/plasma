@@ -27,6 +27,7 @@ void ZeroconfStop();
 PoolServers ZeroconfServers(const char *type = NULL);
 
 RegisterServerHandler(...);
+
 UnregisterServerHandler(...);
 
 ### Advertiser
