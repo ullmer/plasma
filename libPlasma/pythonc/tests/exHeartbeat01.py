@@ -1,11 +1,13 @@
 import plasma
 import time
+import sys
 
 pool_name = "tcp://localhost/grObjPool" #graphical object pool
 hose = plasma.Pool.Participate(pool_name)
+
 if hose is None:
   print(f"Failed to connect to pool: {pool_name}")
-  return 1
+  sys.exit(-1)
  
 print(f"depositing in {pool_name}")
 try:
@@ -21,7 +23,7 @@ try:
     ret = hose.Deposit(protein)
     if ret.IsError():
       print(f"no luck on the deposit: {ret}")
-      return 1
+      sys.exit(-1)
     time.sleep(10)
 
 finally:
