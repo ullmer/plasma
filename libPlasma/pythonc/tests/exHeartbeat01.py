@@ -7,6 +7,7 @@ if hose is None:
   print(f"Failed to connect to pool: {pool_name}")
   return 1
  
+print(f"depositing in {pool_name}")
 try:
   i  = 0
   hb = plasma.create.string("hb") #heartbeat
@@ -15,7 +16,6 @@ try:
     id      = plasma.create.int32(i)
     protein = plasma.Protein(hb, id)
  
-    print(f"depositing in {pool_name}")
     print(protein.ToSlaw().ToString())
  
     ret = hose.Deposit(protein)
