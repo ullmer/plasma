@@ -48,6 +48,29 @@ static const float64 WARNING_THROTTLE_SECS = 5.0;  // 5 seconds
 
 #endif
 
+/// Helper function for monitoring traffic toward subsequent as-apropos UART/etc. relaying
+  
+#define DEBUG_TCP 1
+
+static void hexdump(const void *buf, size_t len)
+{
+    const unsigned char *p = buf;
+    size_t i;
+
+    printf("TX packet len=%zu bytes\n", len);
+
+    for (i = 0; i < len; i++)
+    {
+        if ((i % 16) == 0)
+            printf("%04zx: ", i);
+
+        printf("%02x ", p[i]);
+
+        if ((i % 16) == 15 || i == len - 1)
+            printf("\n");
+    }
+}
+
 /// Helper function to get socket address info for logging
 static void get_socket_info (ob_sock_t sock, char *buf, size_t buflen)
 {
@@ -158,6 +181,11 @@ ob_retort pool_tcp_send_nbytes (ob_sock_t sock, const void *buf, size_t len,
 
   ptr = (const char *) buf;
   nleft = len;
+
+  if (DEBUG_TCP) {
+     printf("\n========== SEND ==========\n");
+     hexdump(buf, len);
+  }
 
   ob_retort pret = OB_OK;
 
