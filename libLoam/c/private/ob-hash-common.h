@@ -26,12 +26,13 @@
  * My best guess at if you are big-endian or little-endian.  This may
  * need adjustment.
  */
-##if (defined(__BYTE_ORDER) && defined(__LITTLE_ENDIAN)                         \
-#     && __BYTE_ORDER == __LITTLE_ENDIAN)                                       \
-#  || (defined(i386) || defined(__i386__) || defined(__i486__)                  \
-#      || defined(__i586__) || defined(__i686__) || defined(__LITTLE_ENDIAN__)  \
-#      || defined(_M_IX86) || defined(_M_X64) || defined(_M_AMD64)              \
-#      || defined(_M_IA64) || defined(vax) || defined(MIPSEL))
+/*old
+#if (defined(__BYTE_ORDER) && defined(__LITTLE_ENDIAN)                         \
+     && __BYTE_ORDER == __LITTLE_ENDIAN)                                       \
+  || (defined(i386) || defined(__i386__) || defined(__i486__)                  \
+      || defined(__i586__) || defined(__i686__) || defined(__LITTLE_ENDIAN__)  \
+      || defined(_M_IX86) || defined(_M_X64) || defined(_M_AMD64)              \
+      || defined(_M_IA64) || defined(vax) || defined(MIPSEL)) */
 #if (defined(__BYTE_ORDER__) && \
      (__BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__)) \
  || (defined(__BYTE_ORDER) && defined(__LITTLE_ENDIAN) && \
@@ -44,10 +45,11 @@
      || defined(vax) || defined(MIPSEL))
 #define HASH_LITTLE_ENDIAN 1
 #define HASH_BIG_ENDIAN 0
-##elif (defined(__BYTE_ORDER) && defined(__BIG_ENDIAN)                          \
-#       && __BYTE_ORDER == __BIG_ENDIAN)                                        \
-#  || (defined(sparc) || defined(POWERPC) || defined(mc68000) || defined(sel)   \
-#      || defined(__BIG_ENDIAN__))
+/* old
+#elif (defined(__BYTE_ORDER) && defined(__BIG_ENDIAN)                          \
+       && __BYTE_ORDER == __BIG_ENDIAN)                                        \
+  || (defined(sparc) || defined(POWERPC) || defined(mc68000) || defined(sel)   \
+      || defined(__BIG_ENDIAN__)) */
 #elif (defined(__BYTE_ORDER__) && \
         (__BYTE_ORDER__ == __ORDER_BIG_ENDIAN__)) \
    || (defined(__BYTE_ORDER) && defined(__BIG_ENDIAN) && \
