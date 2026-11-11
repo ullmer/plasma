@@ -626,7 +626,10 @@ endfunction()
 
 # Keep gtest/cmake/internal_utils.cmake from forcing /MT, causing link errors on tests
 set(gtest_force_shared_crt TRUE CACHE BOOL "let's use /MD, ok?")
-add_subdirectory(gtest)
+if (BUILD_TESTS)
+  add_subdirectory(gtest)
+endif()
+
 add_subdirectory(doc)
 add_subdirectory(libLoam/c)
 add_subdirectory(libPlasma/c)
