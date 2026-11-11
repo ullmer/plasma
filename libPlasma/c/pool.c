@@ -2329,12 +2329,16 @@ static ob_retort __pool_create (const char *pool_uri, const char *type,
 {
   ob_retort pret;
   pool_hose ph;
+
+  ob_log (OBLV_DBUG, 0x20109002, "__pool_create called\n", pool_uri);
+
   // Sanity checks
   if (!pool_uri || strlen (pool_uri) == 0)
     return POOL_POOLNAME_BADTH;
   if (!type)
     return POOL_TYPE_BADTH;
 
+  ob_log (OBLV_DBUG, 0x20109003, "__pool_create calling __pool_participate\n", pool_uri);
   // Does it already exist?
   pret = __pool_participate (pool_uri, &ph);
 
@@ -2358,6 +2362,7 @@ static ob_retort __pool_create (const char *pool_uri, const char *type,
           //    re-create it.
           // For these reasons, we call ph->withdraw directly, and handle
           // the POOL_DELETE_ME case ourselves.
+          ob_log (OBLV_DBUG, 0x20109003, "__pool_create foo\n", pool_uri);
           pret = ph->withdraw (ph);
           pool_free_pool_hose (ph);
           OB_INVALIDATE (ph);
@@ -2379,6 +2384,7 @@ static ob_retort __pool_create (const char *pool_uri, const char *type,
             return pret;
         }
       else if (pret == POOL_POOLNAME_BADTH)
+        ob_log (OBLV_DBUG, 0x20109003, "__pool_create BADTH\n", pool_uri);
         return pret;
       return POOL_EXISTS;
     }
