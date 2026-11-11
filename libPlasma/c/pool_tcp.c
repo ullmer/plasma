@@ -51,7 +51,7 @@ static const float64 WARNING_THROTTLE_SECS = 5.0;  // 5 seconds
 
 /// Helper function for monitoring traffic toward subsequent as-apropos UART/etc. relaying
   
-#define DEBUG_TCP 1
+#define DEBUG_TCP 0
 
 static void hexdump(const void *buf, size_t len)
 {
