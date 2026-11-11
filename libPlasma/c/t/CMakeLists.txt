@@ -34,7 +34,7 @@ set(
   slumcat
   slypes
   spew-multi
-  spew-test
+  test-spew-ex
   test_new_stuff
   test-boolean
   testcoerce
@@ -56,8 +56,17 @@ set(
 set(PlasmaT_LINK_LIBS Plasma ${Plasma_LINK_LIBS})
 generate_tests("${PlasmaT_TESTS}" "${PlasmaT_LINK_LIBS}")
 
-# Additional libraries for a few tests
-target_link_libraries(spew-test ${ICU_LIBRARIES})
+# spew-test depends on ICU, so only build it when ICU is available.
+if(ICU_LIBRARIES AND BUILD_TESTS)
+  set(SpewTest_LINK_LIBS ${PlasmaT_LINK_LIBS} ${ICU_LIBRARIES})
+  generate_tests("spew-test" "${SpewTest_LINK_LIBS}")
+endif()
+
+# tls-hostname-test calls into libPlasma's OpenSSL binding directly, so
+# it only exists when there is an OpenSSL to bind to.
+if(OPENSSL_FOUND AND BUILD_TESTS)
+  generate_tests("tls-hostname-test" "${PlasmaT_LINK_LIBS}")
+endif()
 
 # Test programs needed by the scripts in the above list (and not already
 # inferred by generate_tests).  Usually only need to do this if the

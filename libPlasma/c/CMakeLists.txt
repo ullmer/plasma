@@ -1,6 +1,6 @@
 # /* (c) 2010 Oblong Industries */
 
-cmake_minimum_required(VERSION 3.6.2)
+cmake_minimum_required(VERSION 3.12...4.2)
 project(Plasma)
 
 # Avoid cmake warnings on Mac
@@ -16,6 +16,7 @@ set(
   Plasma_SOURCES
 
   eintr-helper.c
+  plasma-info.c
   plasma-util.c
   pool.c
   pool_cmd.c
@@ -41,6 +42,7 @@ set(
   slaw-numerics.c
   slaw-ordering.c
   slaw-path.c
+  slaw-spew.c
   slaw-string.c
   slaw-v1.c
   slaw-walk.c
@@ -79,8 +81,8 @@ else()
   list(APPEND Plasma_SOURCES nossl.c)
 endif()
 
-if ("${YAML_LIB}" STREQUAL YAML_LIB-NOTFOUND)
-  message(WARNING "YAML not found, using stub")
+if(NOT YAML_LIB)
+  message(STATUS "libyaml not found, using YAML stub")
   list(APPEND Plasma_SOURCES slaw-yaml-stub.c)
 else()
   list(APPEND Plasma_SOURCES slaw-yaml.c)
@@ -91,6 +93,7 @@ set (
   Plasma_HEADERS
 
   c-plasma.h
+  plasma-info.h
   plasma-retorts.h
   plasma-types.h
   pool_cmd.h
@@ -160,12 +163,11 @@ set(
   p-info
   p-resize
 )
-if (NOT YAML_LIB_NOTFOUND)
-LIST(APPEND
-  Plasma_PROGRAMS
-  bin2yaml
-  yaml2bin
-)
+if(YAML_LIB)
+  list(APPEND Plasma_PROGRAMS
+    bin2yaml
+    yaml2bin
+  )
 endif()
 
 if (WIN32)
@@ -221,18 +223,18 @@ install (
 
 install (
   FILES ${Plasma_HEADERS}
-  DESTINATION "include/libPlasma/c"
+  DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}/libPlasma/c"
 )
 
 install (
   FILES ob-plasma-cert.sh
-  DESTINATION bin
+  DESTINATION "${CMAKE_INSTALL_BINDIR}"
   PERMISSIONS OWNER_READ OWNER_EXECUTE GROUP_READ GROUP_EXECUTE WORLD_READ WORLD_EXECUTE
 )
 
 install (
   TARGETS Plasma ${Plasma_PROGRAMS}
-  RUNTIME DESTINATION "bin"
+  RUNTIME DESTINATION "${CMAKE_INSTALL_BINDIR}"
   LIBRARY DESTINATION "${CMAKE_INSTALL_LIBDIR}"
   ARCHIVE DESTINATION "${CMAKE_INSTALL_LIBDIR}"
 )
@@ -240,7 +242,7 @@ install (
 if (MSVC)
   install(
     FILES ${Plasma_BINARY_DIR}/${BIN_SUBDIR}/Plasma.pdb
-    DESTINATION "bin"
+    DESTINATION "${CMAKE_INSTALL_BINDIR}"
     CONFIGURATIONS Debug RelWithDebInfo
   )
 endif()

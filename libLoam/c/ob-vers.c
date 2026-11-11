@@ -98,6 +98,8 @@ unt64 ob_x86_features (void)
   return reg[3] | (((unt64) reg[2]) << 32);
 }
 
+#ifndef __APPLE__
+
 typedef union
 {
   unt32 u[13];
@@ -132,12 +134,16 @@ static char *cpu_version (void)
   return strdup (bstr);
 }
 
+#endif /* not __APPLE__ */
+
 #else /* OB_HAVE_CPUID */
 
 unt64 ob_x86_features (void)
 {
   return 0;
 }
+
+#ifndef __APPLE__
 
 static char *cpu_version (void)
 {
@@ -160,7 +166,26 @@ static char *cpu_version (void)
   return ret;
 }
 
+#endif /* not __APPLE__ */
+
 #endif /* OB_HAVE_CPUID */
+
+#ifdef __APPLE__
+
+/* On macOS, sysctl gives us the CPU brand string on both Intel and
+ * Apple Silicon, so we don't need cpuid (which doesn't exist on Apple
+ * Silicon) for this.  This is the same approach machine_version()
+ * uses below, just with a different sysctl. */
+static char *cpu_version (void)
+{
+  char buf[80];
+  size_t siz = sizeof (buf);
+  if (0 == sysctlbyname ("machdep.cpu.brand_string", buf, &siz, NULL, 0))
+    return strdup (buf);
+  return strdup ("unknown");
+}
+
+#endif /* __APPLE__ */
 
 static char *os_version (void)
 {
@@ -496,19 +521,36 @@ char *ob_get_version (ob_version_of_what what)
     }
 }
 
-void ob_banner (FILE *where)
+size_t ob_banner_to_buf (char *buf, size_t buf_len)
 {
   char *yovo = ob_get_version (OB_VERSION_OF_GSPEAK);
   // Omit year in copyright because CODING-STYLE says to,
   // plus it just gets out of date anyway.
-  fprintf (where,
+  int ret = snprintf (buf, buf_len,
            PRODNAME " (c) Oblong Industries and ANIMIST contributors - %s"
 #ifdef GREENHOUSE
                   "+gh"
 #endif
-                  "\n",
-           yovo);
+           , yovo);
   free (yovo);
+
+  if (ret < 0)
+    {
+      if (buf_len > 0)
+        buf[0] = 0;
+      return 0;
+    }
+  else
+    {
+      return (size_t) ret;
+    }
+}
+
+void ob_banner (FILE *where)
+{
+  char buf[160];
+  ob_banner_to_buf (buf, sizeof (buf));
+  fprintf (where, "%s\n", buf);
 #if defined(__GNUC__) && !defined(__OPTIMIZE__)
   fprintf (where, "!!! WARNING: Compiled without optimization, "
                   "which will reduce performance !!!\n");

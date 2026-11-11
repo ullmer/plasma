@@ -1,6 +1,21 @@
-cmake_minimum_required (VERSION 3.6.2)
+cmake_minimum_required (VERSION 3.12...4.2)
+
+# A universal build needs a deployment target that both slices can agree
+# on, and arm64 macOS starts at 11.0.  Only do this when arm64 was
+# actually requested, so that builds on old Macs -- which cannot target
+# arm64 anyway -- are completely unaffected.  This has to happen before
+# project(), since the deployment target affects compiler detection;
+# that's also why it tests CMAKE_HOST_APPLE rather than APPLE, which
+# project() has not defined yet.
+if (CMAKE_HOST_APPLE AND CMAKE_OSX_ARCHITECTURES MATCHES "arm64"
+    AND NOT CMAKE_OSX_DEPLOYMENT_TARGET)
+  set(CMAKE_OSX_DEPLOYMENT_TARGET "11.0"
+      CACHE STRING "Minimum macOS version to build for" FORCE)
+endif()
 
 project(g-speak CXX C)
+
+include(GNUInstallDirs)
 
 # Compatibility options
 option(PLASMA_LEGACY_MODE "Build for compatibility with older systems" OFF)
@@ -124,39 +139,84 @@ if(WIN32)
     set(YAML_LIB "-libpath:${YOBUILD}/lib;yaml.lib")
     set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} /DYAML_DECLARE_STATIC" )  # yobuild12
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /DYAML_DECLARE_STATIC" )  # yobuild12
-    set(ICU_LIBRARIES "-libpath:${YOBUILD}/lib;icuin.lib;icuuc.lib" )
 else()
     # Using absolute paths to libraries causes great woe in .pc files
     # (in particular, pkg-config reorders absolute paths before -l libraries,
-    #  causing link failures), so don't do things the cmake way here:
-    #find_library(YAML_LIB yaml HINTS "${YOBUILD}/lib")
-    #find_package(ICU REQUIRED COMPONENTS uc i18n)
-    # Instead, use -l flags.   We already have all needed -L and -I flags.
-    set(YAML_LIB "-lyaml")
-    set(ICU_LIBRARIES "-licuuc -licui18n")
+    #  causing link failures), so don't do things the cmake way here.
+    # Instead, use find_library just to check presence, then use a -l flag.
+    find_library(_yaml_lib_path NAMES yaml HINTS "${YOBUILD}/lib")
+    if(_yaml_lib_path)
+        set(YAML_LIB "-lyaml")
+    else()
+        message(STATUS "libyaml not found; YAML support will be disabled")
+    endif()
+    unset(_yaml_lib_path CACHE)
 endif()
-# Replace semicolons with spaces to keep cmake from splitting the argument.
-STRING(REPLACE ";" " " ICU_LIBRARIES_SPACE_SEP "${ICU_LIBRARIES}" )
 
-# otherwise boost includes optimized and debug versions, which fouls up the build
+# Detect whether the C++ library dependencies are available, to set the
+# default for BUILD_CXX_LIBS.  Use QUIET so the build doesn't fail if they
+# are absent and the user hasn't explicitly requested C++ libs.
 set(Boost_USE_DEBUG_RUNTIME FALSE)
 set(BOOST_ROOT ${YOBUILD})
-find_package(Boost REQUIRED COMPONENTS filesystem regex)
-if (NOT WIN32)
-    # Using absolute paths to libraries causes great woe in .pc files
-    # Instead, use -l flags.   We already have all needed -L and -I flags.
-    STRING(REGEX REPLACE "/[a-zA-Z0-9_/-]*/libboost" "-lboost" Boost_LIBRARIES "${Boost_LIBRARIES}" )
-    STRING(REGEX REPLACE ".so|.dylib" "" Boost_LIBRARIES "${Boost_LIBRARIES}" )
+if(CMAKE_VERSION VERSION_GREATER_EQUAL "3.30")
+  cmake_policy(SET CMP0167 NEW)
 endif()
-STRING(REPLACE ";" " " Boost_LIBRARIES_SPACE_SEP "${Boost_LIBRARIES}" )
-message("Boost_LIBRARIES is ${Boost_LIBRARIES}")
-message("Boost_INCLUDE_DIRS is ${Boost_INCLUDE_DIRS}")
-# Everything needs Boost...
-include_directories(${Boost_INCLUDE_DIRS})
-# Boost doesn't know where it lives, so turn off autolinking...
-add_definitions("-DBOOST_ALL_NO_LIB")
-# Avoid deprecated unused variables 'boost::system::posix_category'
-add_definitions("-DBOOST_SYSTEM_NO_DEPRECATED")
+find_package(Boost QUIET COMPONENTS filesystem regex)
+# ICU is not found via find_package here to avoid overwriting ICU_LIBRARIES
+# with absolute paths that cause trouble in .pc files; use find_library just
+# for the presence check.
+find_library(_ICU_UC_LIB   NAMES icuuc   HINTS /opt/homebrew/opt/icu4c/lib)
+find_library(_ICU_I18N_LIB NAMES icui18n HINTS /opt/homebrew/opt/icu4c/lib)
+
+# Set ICU_LIBRARIES whenever ICU is present (not just for C++ libs), because
+# the C library's spew-test also links against ICU.
+# Use -l flags to avoid absolute paths in .pc files (see comment above).
+if(_ICU_UC_LIB AND _ICU_I18N_LIB)
+    if(WIN32)
+        set(ICU_LIBRARIES "-libpath:${YOBUILD}/lib;icuin.lib;icuuc.lib")
+    else()
+        set(ICU_LIBRARIES "-licuuc -licui18n")
+    endif()
+endif()
+
+if(Boost_FOUND AND ICU_LIBRARIES)
+    set(_cxx_libs_default ON)
+else()
+    set(_cxx_libs_default OFF)
+endif()
+option(BUILD_CXX_LIBS
+    "Build C++ libraries (libLoam++ and libPlasma++) - requires Boost and ICU"
+    ${_cxx_libs_default})
+
+if(BUILD_CXX_LIBS)
+    if(NOT Boost_FOUND)
+        message(FATAL_ERROR
+            "BUILD_CXX_LIBS is ON but Boost (filesystem, regex) was not found.\n"
+            "Install libboost-dev, or set BOOST_ROOT to the Boost installation prefix.")
+    endif()
+    if(NOT ICU_LIBRARIES)
+        message(FATAL_ERROR
+            "BUILD_CXX_LIBS is ON but ICU libraries (icuuc, icui18n) were not found.\n"
+            "Install libicu-dev, or set ICU_ROOT to the ICU installation prefix.")
+    endif()
+
+    # Replace semicolons with spaces to keep cmake from splitting the argument.
+    STRING(REPLACE ";" " " ICU_LIBRARIES_SPACE_SEP "${ICU_LIBRARIES}")
+
+    # Boost: similarly, convert absolute library paths to -l flags for .pc files.
+    if(NOT WIN32)
+        STRING(REGEX REPLACE "/[a-zA-Z0-9_/-]*/libboost" "-lboost" Boost_LIBRARIES "${Boost_LIBRARIES}")
+        STRING(REGEX REPLACE ".so|.dylib" "" Boost_LIBRARIES "${Boost_LIBRARIES}")
+    endif()
+    STRING(REPLACE ";" " " Boost_LIBRARIES_SPACE_SEP "${Boost_LIBRARIES}")
+    message("Boost_LIBRARIES is ${Boost_LIBRARIES}")
+    message("Boost_INCLUDE_DIRS is ${Boost_INCLUDE_DIRS}")
+    include_directories(${Boost_INCLUDE_DIRS})
+    # Boost doesn't know where it lives, so turn off autolinking...
+    add_definitions("-DBOOST_ALL_NO_LIB")
+    # Avoid deprecated unused variables 'boost::system::posix_category'
+    add_definitions("-DBOOST_SYSTEM_NO_DEPRECATED")
+endif()
 
 INCLUDE(CheckIncludeFileCXX)
 INCLUDE(CheckIncludeFile)
@@ -203,8 +263,13 @@ endif()
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/plasma_config.h.in
                ${CMAKE_CURRENT_BINARY_DIR}/plasma_config.h)
 if (UNIX)
-  set(OPENSSL_LIBRARIES "-lssl -lcrypto")
-  set(OPENSSL_FOUND TRUE)
+  check_include_file(openssl/opensslv.h HAVE_OPENSSL_OPENSSLV_H)
+  check_include_file(openssl/rand.h HAVE_OPENSSL_RAND_H)
+
+  if (HAVE_OPENSSL_OPENSSLV_H AND HAVE_OPENSSL_RAND_H)
+    set(OPENSSL_LIBRARIES "-lssl -lcrypto")
+    set(OPENSSL_FOUND TRUE)
+  endif()
 
   check_include_file(openssl/ec.h HAVE_OPENSSL_EC_H)
   check_include_file(openssl/ecdsa.h HAVE_OPENSSL_ECDSA_H)
@@ -220,6 +285,18 @@ endif()
 if (OPENSSL_FOUND)
   add_definitions("-DHAVE_OPENSSL")
 endif()
+
+# For a universal build, warn if any of the libraries we just found are
+# not themselves universal.  (The checks above only test for presence.)
+set(_fat_libs_to_check)
+if (YAML_LIB)
+  list(APPEND _fat_libs_to_check yaml)
+endif()
+if (OPENSSL_FOUND)
+  list(APPEND _fat_libs_to_check ssl crypto)
+endif()
+ObCheckFatLibs(${_fat_libs_to_check})
+unset(_fat_libs_to_check)
 
 set(PLATFORM_LINK_LIBS)
 if (UNIX)
@@ -425,10 +502,10 @@ MACRO(pod2manhtml _sourcefile _manext)
         COMMAND ${indexcmd} -o ${_doc_bindir}/index.html ${_doc_bindir}/htmlman/*-man.html
         VERBATIM
     )
-    INSTALL(FILES ${doc_bindir}/htmlman/${_outhtml} DESTINATION share/doc/${PRODNAME}/htmlman )
-    INSTALL(FILES ${doc_bindir}/${_outman}          DESTINATION share/man/man${_manext} )
+    INSTALL(FILES ${doc_bindir}/htmlman/${_outhtml} DESTINATION "${CMAKE_INSTALL_DATADIR}/doc/${PRODNAME}/htmlman" )
+    INSTALL(FILES ${doc_bindir}/${_outman}          DESTINATION "${CMAKE_INSTALL_MANDIR}/man${_manext}" )
 ENDMACRO(pod2manhtml)
-INSTALL(FILES ${doc_bindir}/index.html DESTINATION share/doc/${PRODNAME} )
+INSTALL(FILES ${doc_bindir}/index.html DESTINATION "${CMAKE_INSTALL_DATADIR}/doc/${PRODNAME}" )
 
 #------------- test support ---------------
 
@@ -491,7 +568,7 @@ add_custom_target(check COMMAND ${CMAKE_CTEST_COMMAND} -V)
 function(add_wrapped_test _myTest _myTestRunner _myFixtures)
   add_test(
     NAME ${_myTest}
-    COMMAND "${SHELL}" ${g-speak_BINARY_DIR}/yotest run "${_myFixtures}" ${_myTestRunner}
+    COMMAND ${g-speak_BINARY_DIR}/yotest run "${_myFixtures}" ${_myTestRunner}
   )
 endfunction()
 
@@ -553,14 +630,17 @@ add_subdirectory(gtest)
 add_subdirectory(doc)
 add_subdirectory(libLoam/c)
 add_subdirectory(libPlasma/c)
-add_subdirectory(libLoam/c++)
-add_subdirectory(libPlasma/c++)
-if (NOT WIN32)
-# Not yet quite ported
-add_subdirectory(libPlasma/bench)
-add_subdirectory(libPlasma/ruby)
-add_subdirectory(libPlasma/zeroconf)
-# adding all noodoo2-related directories here
+if(BUILD_CXX_LIBS)
+    add_subdirectory(libLoam/c++)
+    add_subdirectory(libPlasma/c++)
+    if(NOT WIN32)
+        # Not yet quite ported
+        add_subdirectory(libPlasma/bench)
+        add_subdirectory(libPlasma/zeroconf)
+    endif()
+endif()
+if(NOT WIN32)
+    add_subdirectory(libPlasma/ruby)
 endif()
 
 # add_subdirectory(samples)
@@ -624,7 +704,7 @@ if (ASAN OR (UNIX AND NOT APPLE))
   # Install unconditionally on Linux because conditional debian packaging is... hard.
   install(
     FILES bld/cmake/asanpreload
-    DESTINATION bin
+    DESTINATION "${CMAKE_INSTALL_BINDIR}"
     PERMISSIONS OWNER_READ OWNER_EXECUTE GROUP_READ GROUP_EXECUTE WORLD_READ WORLD_EXECUTE
   )
 endif()
@@ -634,7 +714,7 @@ endif()
 configure_file(bld/obenv.in obenv @ONLY)
 install(
   FILES ${g-speak_BINARY_DIR}/obenv
-  DESTINATION bin
+  DESTINATION "${CMAKE_INSTALL_BINDIR}"
   PERMISSIONS OWNER_READ OWNER_EXECUTE GROUP_READ GROUP_EXECUTE WORLD_READ WORLD_EXECUTE
 )
 
@@ -643,6 +723,32 @@ install(
 # This must be the last subdirectory added
 add_subdirectory(bld/cmake)
 
+#------------- prepare messages ----------
+
+if(YAML_LIB)
+  set(_yaml_found "FOUND")
+else()
+  set(_yaml_found "not found")
+endif()
+
+if(OPENSSL_FOUND)
+  set(_ossl_found "FOUND")
+else()
+  set(_ossl_found "not found")
+endif()
+
+if(Boost_FOUND)
+  set(_boost_found "FOUND")
+else()
+  set(_boost_found "not found")
+endif()
+
+if(ICU_LIBRARIES)
+  set(_icu_found "FOUND")
+else()
+  set(_icu_found "not found")
+endif()
+
 #------------- Tell user what happened ---------------
 
 MESSAGE("")
@@ -650,12 +756,19 @@ MESSAGE("----------------- Summary -----------------------------------")
 MESSAGE("")
 MESSAGE("CMAKE_BINARY_DIR:  ${CMAKE_BINARY_DIR} (directory cmake was run in)")
 MESSAGE("")
+MESSAGE("--------- Optional libraries --------------------------------")
+MESSAGE("libYaml:           ${_yaml_found}")
+MESSAGE("OpenSSL:           ${_ossl_found}")
+MESSAGE("Boost:             ${_boost_found}")
+MESSAGE("ICU:               ${_icu_found}")
+MESSAGE("")
 MESSAGE("--------- -D Options from commandline -----------------------")
 MESSAGE("CMAKE_INSTALL_PREFIX: ${CMAKE_INSTALL_PREFIX}")
 MESSAGE("CMAKE_BUILD_TYPE:  ${CMAKE_BUILD_TYPE} (choices are Debug, Release, or RelWithDebInfo)")
 MESSAGE("STRICT_WARNINGS:   ${STRICT_WARNINGS}")
 MESSAGE("WERROR:            ${WERROR}")
 MESSAGE("BUILD_TESTS:       ${BUILD_TESTS}")
+MESSAGE("BUILD_CXX_LIBS:    ${BUILD_CXX_LIBS}")
 MESSAGE("COVERAGE:          ${COVERAGE}; see https://gitlab.oblong.com/platform/docs/wikis/coverage-testing")
 MESSAGE("STATIC_ONLY:       ${STATIC_ONLY}")
 MESSAGE("GREENHOUSE:        ${GREENHOUSE}")

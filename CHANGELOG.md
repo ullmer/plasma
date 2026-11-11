@@ -106,3 +106,110 @@
 
 * Replace uses of `sprintf()` with `snprintf()` instead.
   [#22](https://github.com/plasma-hamper/plasma/pull/22)
+
+* Make most dependencies optional, and change what is built accordingly.
+  Allow building the C libraries without the C++ libraries.
+  [#23](https://github.com/plasma-hamper/plasma/pull/23)
+
+* Use `GNUInstallDirs` in build system.  (Apparently this had been used
+  in the Oblong code base, but was removed when Plasma was extracted.)
+  [#24](https://github.com/plasma-hamper/plasma/pull/24)
+
+* Restore `CMAKE_INSTALL_FULL_LIBDIR` in `libLoam.pc` LIBS flags.  This
+  had been removed because it was empty and was causing problems, but
+  re-enabling `GNUInstallDirs` makes it possible to restore this.
+  [#24](https://github.com/plasma-hamper/plasma/pull/24)
+
+* Update `cmake_minimum_required` to `VERSION 3.12...4.2`, and fix
+  warnings (and other issues) caused by newer CMake versions.
+  [#24](https://github.com/plasma-hamper/plasma/pull/24)
+
+* Remove undefined `${SHELL}` from `add_wrapped_test` command.
+  [#24](https://github.com/plasma-hamper/plasma/pull/24)
+
+* Add `YT_ONLY_FIXTURES` env var to yotest to restrict test fixture
+  list.
+  [#24](https://github.com/plasma-hamper/plasma/pull/24)
+
+* Skip tcps/tcpo test fixtures when OpenSSL is not found.
+  [#24](https://github.com/plasma-hamper/plasma/pull/24)
+
+* Add `TESTS.md`, a comprehensive guide to running the test suite.
+  [#24](https://github.com/plasma-hamper/plasma/pull/24)
+
+* When running CMake, summarize which optional libraries were found.
+  [#24](https://github.com/plasma-hamper/plasma/pull/24)
+
+* Fix a bug in getting string descriptions for retorts.
+  [#25](https://github.com/plasma-hamper/plasma/pull/25)
+
+* Update Ruby test code to work with minitest gem ≥ 5.0.
+  [#25](https://github.com/plasma-hamper/plasma/pull/25)
+
+* Fix bugs in `spew-test`, `aptest3`, and `diffGitStatusTest`.
+  [#25](https://github.com/plasma-hamper/plasma/pull/25)
+
+* Add functions `slaw_spew_overview_ex()`,
+  `slaw_spew_overview_to_string_ex()`, and
+  `slaw_spew_overview_to_func()` to C Plasma, along with flags
+  `SLAW_SPEW_FLAG_REL_OFF`, `SLAW_SPEW_FLAG_RUDE_ASCII`, and
+  `SLAW_SPEW_FLAG_ESCAPE_STRINGS`.  These now allow more control over
+  spew output.
+  [#26](https://github.com/plasma-hamper/plasma/pull/26)
+
+* Add class `Slaw::SpewOptions` to C++ Plasma.  Add overloaded
+  `Spew()` methods which take `SpewOptions` as a second argument.
+  This exposes the new C Plasma capabilities to the C++ API.
+  [#26](https://github.com/plasma-hamper/plasma/pull/26)
+
+* Add `SpewToString()` methods to C++ Plasma.  This makes it easier to
+  spew directly to a `Str`.
+  [#26](https://github.com/plasma-hamper/plasma/pull/26)
+
+* Add new function `ob_banner_to_buf()` in `ob-vers.h`, which provides
+  the same information as `ob_banner()` (i. e. copyright notice and
+  version), but as a string, rather than to a `FILE *`.
+  [#27](https://github.com/plasma-hamper/plasma/pull/27)
+
+* Add new function `plasma_info()` in new header `plamsa-info.h`,
+  which returns a slaw map containing information about whether
+  libYaml and OpenSSL are enabled, and if so, the version of the
+  library being used.
+  [#27](https://github.com/plasma-hamper/plasma/pull/27)
+
+* Add `tls-version` and `cipher-suite` keys to the information
+  returned by `pool_get_info()` when querying a network connection
+  that uses TLS.
+  [#28](https://github.com/plasma-hamper/plasma/pull/28)
+
+* Remove obsolete assembly language files for hash functions.
+  [#29](https://github.com/plasma-hamper/plasma/pull/29)
+
+* Support building universal binaries (x86_64 and ARM64) on macOS.
+  [#29](https://github.com/plasma-hamper/plasma/pull/29)
+
+* Report the CPU brand string on Apple Silicon, when
+  `ob_get_version()` is called with `OB_VERSION_OF_CPU`.
+  [#29](https://github.com/plasma-hamper/plasma/pull/29)
+
+* Get all tests working again, by updating the certificates that were
+  used by the tcps tests.  The certificates are now good for 10 years,
+  and there is now better documentation for how to regenerate them in
+  the future.
+  [#30](https://github.com/plasma-hamper/plasma/pull/30)
+
+* Fix some bugs in TLS certificate validation, by using OpenSSL's own
+  routine for doing so, rather than using code taken from a book that
+  is now 24 years old.
+  [#30](https://github.com/plasma-hamper/plasma/pull/30)
+
+* Fix five places that didn't properly handle numeric IPv6 addresses
+  in a URI.  (They need to be in square brackets, to avoid the
+  ambiguity of the colons.)
+  [#31](https://github.com/plasma-hamper/plasma/pull/31)
+
+* `slaw_output_close()` and `slaw_input_close()` now tolerate a `NULL`
+  argument gracefully, and return `OB_OK`.  `slaw_output_write()` and
+  `slaw_input_read()` now return `OB_ARGUMENT_WAS_NULL` if either
+  argument is `NULL`.
+  [#32](https://github.com/plasma-hamper/plasma/pull/32)

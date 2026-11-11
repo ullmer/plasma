@@ -12,6 +12,7 @@
 #include <sys/types.h>
 #include <errno.h>
 #include "plasma_config.h"
+#include "libLoam/c/ob-atomic.h"
 #include "libLoam/c/ob-sys.h"
 #include "libLoam/c/ob-log.h"
 #include "libLoam/c/ob-file.h"
@@ -516,14 +517,37 @@ static ob_retort parse_pseudo_uri (const char *full_pool_name,
     }
   hostname = hostname + strlen ("://");
   // Check for optional port
-  char *port = strchr (hostname, ':');
-  if (port)
-    *port++ = '\0';
-  char *poolName;
-  if (port)
-    poolName = strchr (port, '/');
+  char *port = NULL;
+  // Where to start looking for the pool name, if there is no port.
+  char *rest = hostname;
+  if (*hostname == '[')
+    {
+      /* An IPv6 address is written in brackets, as in
+       * tcp://[::1]:1234/my_pool, so that the colons in the address
+       * can't be mistaken for the one that introduces the port.  The
+       * brackets are punctuation belonging to the URI, not part of the
+       * address, so they don't go any further than this function:
+       * getaddrinfo() and the TLS certificate check both want the bare
+       * address. */
+      char *closing = strchr (hostname, ']');
+      if (!closing)
+        return parse_pseudo_uri_cleanup (uri, POOL_POOLNAME_BADTH);
+      hostname++;
+      *closing = '\0';
+      rest = closing + 1;
+      if (*rest == ':')
+        port = rest + 1;
+      else if (*rest != '/' && *rest != '\0')
+        // Something that is neither a port nor the pool name
+        return parse_pseudo_uri_cleanup (uri, POOL_POOLNAME_BADTH);
+    }
   else
-    poolName = strchr (hostname, '/');
+    {
+      port = strchr (hostname, ':');
+      if (port)
+        *port++ = '\0';
+    }
+  char *poolName = strchr (port ? port : rest, '/');
   if (!poolName)
     return parse_pseudo_uri_cleanup (uri, POOL_POOLNAME_BADTH);
   *poolName++ = '\0';
@@ -553,7 +577,10 @@ static ob_retort parse_pseudo_uri (const char *full_pool_name,
   char *endptr = NULL;
 
   errno = 0;
-  port_num = strtol (d->port_str, &endptr, 0);
+  // Base 10, not 0: the port string is also handed to getaddrinfo(),
+  // which reads it as decimal, so accepting hex or octal here would
+  // mean validating a number nobody else was going to agree with.
+  port_num = strtol (d->port_str, &endptr, 10);
   if (*endptr != 0 || errno != 0 || port_num < 0 || port_num > 0xffff)
     return POOL_POOLNAME_BADTH;
 
@@ -738,16 +765,21 @@ static ob_retort negotiate_version (pool_net_data *net,
     return OB_OK; /* this indicates a legacy connection */
   else if (net->net_version > POOL_TCP_VERSION_CURRENT)
     {
+      /* An IPv6 address is made of colons, so bracket it, as
+       * get_socket_info() does: "[::1]:1234" rather than "::1:1234". */
+      const bool v6 = strchr (hostname, ':') != NULL;
+      const char *lb = v6 ? "[" : "";
+      const char *rb = v6 ? "]" : "";
       if (net->net_version == 'H' && net->slaw_version == 'T')
-        OB_LOG_ERROR_CODE (0x20108021, "%s:%s\n"
+        OB_LOG_ERROR_CODE (0x20108021, "%s%s%s:%s\n"
                                        "looks like it might be an http\n"
                                        "server, not a pool server!\n",
-                           hostname, port_str);
+                           lb, hostname, rb, port_str);
       else
-        OB_LOG_ERROR_CODE (0x20108020, "%s:%s\n"
+        OB_LOG_ERROR_CODE (0x20108020, "%s%s%s:%s\n"
                                        "server claims protocol %d/slaw %d,\n"
                                        "but we only know protocol %d/slaw %d\n",
-                           hostname, port_str, net->net_version,
+                           lb, hostname, rb, port_str, net->net_version,
                            net->slaw_version, POOL_TCP_VERSION_CURRENT,
                            SLAW_VERSION_CURRENT);
       return POOL_WRONG_VERSION; /* some future version we don't support */
@@ -1061,7 +1093,8 @@ static ob_retort start_tls (pool_net_data *net, const char *hostname,
   if (pret >= OB_OK)
     pret = ob_tls_client_launch_thread (pair[0], net->connfd, &net->tls_thread,
                                         hostname, security != Ob_Secure,
-                                        certificate, private_key);
+                                        certificate, private_key,
+                                        &net->tls_info);
   if (pret < OB_OK)
     return pret;
 
@@ -1681,6 +1714,21 @@ static ob_retort pool_tcp_info (pool_hose ph, int64 hops, protein *return_prot)
                             NULL);
       if (!ingests)
         return OB_NO_MEM;
+
+      if (ob_atomic_int32_ref (&ph->net->tls_info.initialized))
+        {
+          pool_tls_info *info = &ph->net->tls_info;
+
+          slaw tls_ingests =
+            slaw_map_inline_cc ("tls-version",  info->tls_version,
+                                "cipher-suite", info->cipher_suite,
+                                NULL);
+          ingests = slaw_maps_merge_f (ingests, tls_ingests, NULL);
+
+          if (!ingests)
+            return OB_NO_MEM;
+        }
+
       *return_prot = protein_from_ff (NULL, ingests);
       if (!*return_prot)
         return OB_NO_MEM;

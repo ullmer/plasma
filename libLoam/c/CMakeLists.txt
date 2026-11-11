@@ -10,6 +10,8 @@ set(
   ob-atomic.c
   ob-dirs.c
   ob-file.c
+  ob-hash.c
+  ob-hash-city.c
   ob-log.c
   ob-math.c
   ob-rand.c
@@ -27,15 +29,6 @@ if (WIN32)
   list(APPEND Loam_SOURCES win32/ob-sys-win32.c)
   list(APPEND Loam_SOURCES win32/ob-sys-win32-cpp.cpp)
 endif()
-if (UNIX AND CMAKE_SYSTEM_PROCESSOR STREQUAL "x86_64")
-  list(APPEND Loam_SOURCES ob-hash-64.S)
-  set_property(SOURCE ob-hash-64.S PROPERTY LANGUAGE C)
-elseif (UNIX AND CMAKE_SYSTEM_PROCESSOR STREQUAL "x86_32")
-  list(APPEND Loam_SOURCES ob-hash-32.S)
-  set_property(SOURCE ob-hash-32.S PROPERTY LANGUAGE C)
-else ()
-  list(APPEND Loam_SOURCES ob-hash.c ob-hash-city.c)
-endif ()
 
 set (
   Loam_HEADERS
@@ -91,16 +84,11 @@ endif()
 # Include old non-multilib libdir to be kind to downstream
 # packages (like libWebThing) which install their libraries
 # to the old libdir, and never added their own rpath.
-#
-# Removed CMAKE_INSTALL_FULL_LIBDIR from LIBS, because it was
-# the empty string, and having the flags "-L -Wl,-rpath," was
-# causing all sorts of trouble.  Not sure what is supposed to
-# set CMAKE_INSTALL_FULL_LIBDIR, but it wasn't getting set.
 ObGeneratePC (
   NAME libLoam
   VERSION ${PC_VERSION}
   DESCRIPTION "General utility functions"
-  LIBS "-L${CMAKE_INSTALL_PREFIX}/lib -Wl,-rpath,${CMAKE_INSTALL_PREFIX}/lib -lLoam ${PLATFORM_LINK_LIBS} ${SANITIZER_FLAGS}"
+  LIBS "-L${CMAKE_INSTALL_FULL_LIBDIR} -Wl,-rpath,${CMAKE_INSTALL_FULL_LIBDIR} -L${CMAKE_INSTALL_PREFIX}/lib -Wl,-rpath,${CMAKE_INSTALL_PREFIX}/lib -lLoam ${PLATFORM_LINK_LIBS} ${SANITIZER_FLAGS}"
   CFLAGS "-I${YOBUILD}/include -I${CMAKE_INSTALL_PREFIX}/include ${PTHREAD_OPT} ${SANITIZER_FLAGS}"
 )
 
@@ -115,9 +103,16 @@ if (NOT WIN32)
   set(FLAGS
      -fno-strict-aliasing
      -std=gnu99
-     -msse2
      -fPIC
   )
+  # clang rejects -msse2 outright when targeting arm64, so leave it out
+  # of universal builds.  HAVE_SSE2 is never actually defined (see
+  # private/dSFMT.h), so dSFMT.c takes the generic scalar path either
+  # way; this flag only affects codegen on 32-bit x86, which is why it
+  # is still passed everywhere else.
+  if (NOT CMAKE_OSX_ARCHITECTURES MATCHES "arm64")
+      LIST(APPEND FLAGS "-msse2")
+  endif()
   if (NOT APPLE)
       # Work around http://public.kitware.com/Bug/view.php?id=15526
       LIST(APPEND FLAGS "-finline-functions" "--param max-inline-insns-single=1800")
@@ -174,19 +169,19 @@ install (
 
 install (
   FILES ${Loam_HEADERS}
-  DESTINATION "include/libLoam/c"
+  DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}/libLoam/c"
 )
 
 if (WIN32)
   install (
     FILES win32/ob-pthread-win32.h win32/ob-sys-win32.h
-    DESTINATION "include/libLoam/c/win32"
+    DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}/libLoam/c/win32"
   )
 endif()
 
 install (
   TARGETS Loam ${Loam_PROGRAMS}
-  RUNTIME DESTINATION "bin"
+  RUNTIME DESTINATION "${CMAKE_INSTALL_BINDIR}"
   LIBRARY DESTINATION "${CMAKE_INSTALL_LIBDIR}"
   ARCHIVE DESTINATION "${CMAKE_INSTALL_LIBDIR}"
 )
@@ -194,7 +189,7 @@ install (
 if (MSVC)
   install(
     FILES ${Loam_BINARY_DIR}/${BIN_SUBDIR}/Loam.pdb
-    DESTINATION "bin"
+    DESTINATION "${CMAKE_INSTALL_BINDIR}"
     CONFIGURATIONS Debug RelWithDebInfo
   )
 endif()
