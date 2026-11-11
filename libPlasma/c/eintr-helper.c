@@ -39,6 +39,9 @@
 #include <errno.h>
 #include <poll.h>
 #include <sys/socket.h>
+
+#include <stdio.h>
+#include <string.h>
 #endif
 
 /*
@@ -50,6 +53,20 @@
 int EINTR_connect_harder (int fd, const struct sockaddr *address,
                           socklen_t address_len)
 {
+
+#ifdef __CYGWIN__
+#warning "CYGWIN CONNECT PATH"
+  fprintf(stderr, "CYGWIN branch entered\n");
+#endif
+
+#ifdef __linux__
+#warning "LINUX CONNECT PATH"
+#endif
+
+#ifdef _WIN32
+#warning "WIN32 CONNECT PATH"
+#endif
+
 #ifdef _WIN32
   /* Windows doesn't benignly interrupt system calls, no need to retry */
   if (connect (fd, address, address_len))
@@ -66,6 +83,21 @@ int EINTR_connect_harder (int fd, const struct sockaddr *address,
         continue;
       return errno;
     }
+  return 0;
+#endif
+#ifdef __CYGWIN__
+  fprintf(stderr, "calling raw connect()\n");
+
+  if (connect(fd, address, address_len))
+  {
+      fprintf(stderr,
+              "connect failed errno=%d (%s)\n",
+              errno,
+              strerror(errno));
+      return errno;
+  }
+
+  fprintf(stderr, "connect succeeded\n");
   return 0;
 #endif
 #ifdef __APPLE__

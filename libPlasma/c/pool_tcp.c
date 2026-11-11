@@ -1006,6 +1006,15 @@ static ob_retort my_connect1 (const struct addrinfo *ai, ob_sock_t *fd_out)
                            ob_error_string (ort));
       return POOL_SERVER_UNREACH;
     }
+
+   char sock_info[256];  //BAU+CP debug
+   get_socket_info(fd, sock_info, sizeof(sock_info));
+
+   fprintf(stderr,
+        "CONNECT OK? err=%d %s\n",
+        err,
+        sock_info);
+
   *fd_out = fd;
   return OB_OK;
 }
