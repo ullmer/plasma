@@ -623,6 +623,7 @@ first_command:
       if (pret != OB_OK)
         SUPREME_BADNESS ("POOL_CMD_CREATE: pool_net_unpack_op", pret, errno);
       ob_log (OBLV_DBUG, 0x20109001, "%s: create\n", poolName);
+
       pret = pool_create (poolName, type, create_options);
 
       ob_log(OBLV_DBUG, 0, //BAU
