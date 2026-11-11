@@ -1007,7 +1007,12 @@ OB_PLASMA_API void slaw_spew_overview (bslaw s, FILE *whither,
                                        const char *prolo);
 
 typedef void (*fwfunc) (void *v, const char *fmt, ...) OB_FORMAT (printf, 2, 3);
+
+/* CoPilot is asserting that this definition is likely stale or conflicting, and
+ * likely can safely be commented out. BAU 2026-11-11 */
+#if BAU_CYGWIN_SHUNTING
 void slaw_spew_internal (bslaw s, fwfunc func, void *whither, const char *prolo);
+#endif
 
 /**
  * Same as slaw_spew_overview_to_string(), but with an additional
